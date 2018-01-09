@@ -1,6 +1,34 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
+  "customAliases": [
+    {
+      "cmdlet": "Enable-SGGateway",
+      "aliasNames": [
+        "Activate-SGGateway"
+      ]
+    },
+    {
+      "cmdlet": "Stop-SGGateway",
+      "aliasNames": [
+        "Shutdown-SGGateway"
+      ]
+    }
+  ],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "Marker",
+    "responseTokenMember": "Marker",
+    "resultLimitMember": "Limit"
+  },
+  "defaultPipelineProperty": "GatewayARN",
+  "legacyCmdletPrefix": "SG",
+  "legacyPositionalProperties": "GatewayARN",
+  "nounMappings": {
+    "CachediSCSIVolumes": "CachediSCSIVolume",
+    "Gateways": "Gateway",
+    "LocalDisks": "LocalDisk",
+    "StorediSCSIVolumes": "StorediSCSIVolume",
+    "VolumeRecoveryPoints": "VolumeRecoveryPoint",
+    "Volumes": "Volume"
+  },
   "pipelineByValuePropertyNames": [
     "GatewayARN",
     "FileShareARN",
@@ -10,37 +38,9 @@
     "NetworkInterfaceId",
     "TargetARN"
   ],
-  "defaultPipelineProperty": "GatewayARN",
-  "legacyPositionalProperties": "GatewayARN",
+  "sdkServiceClientClass": "AmazonStorageGatewayClient",
+  "sdkServiceConfigClass": "AmazonStorageGatewayConfig",
   "sdkServiceNamespace": "Amazon.StorageGateway",
-  "sdkServiceClient": "AmazonStorageGatewayClient",
-  "sdkServiceClientConfig": "AmazonStorageGatewayConfig",
-  "legacyCmdletPrefix": "SG",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "Marker",
-    "responseTokenMember": "Marker",
-    "resultLimitMember": "Limit"
-  },
-  "customAliases": [
-    {
-      "cmdlet": "Enable-SGGateway",
-      "aliasNames": "Activate-SGGateway"
-    },
-    {
-      "cmdlet": "Stop-SGGateway",
-      "aliasNames": "Shutdown-SGGateway"
-    }
-  ],
-  "nounMappings": {
-    "CachediSCSIVolumes": "CachediSCSIVolume",
-    "Gateways": "Gateway",
-    "LocalDisks": "LocalDisk",
-    "StorediSCSIVolumes": "StorediSCSIVolume",
-    "VolumeRecoveryPoints": "VolumeRecoveryPoint",
-    "Volumes": "Volume"
-  },
   "verbMappings": {
     "List": "Get",
     "Activate": "Enable",
@@ -50,14 +50,14 @@
   "serviceOperations": {
     "ActivateGateway": {
       "verb": "Enable",
-      "noun": "SGGateway",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Gateway",
+      "legacyPositionalParameters": [
+        "GatewayName",
+        "GatewayTimezone",
+        "GatewayRegion",
+        "GatewayType"
+      ],
       "pipelineProperty": "ActivationKey",
-      "output": "Default",
-      "legacyPositionalParameters": "GatewayName;GatewayTimezone;GatewayRegion;GatewayType",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Gateway",
         "ConfirmImpactSetting": "Medium",
@@ -75,20 +75,15 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GatewayName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddCache": {
       "verb": "Add",
-      "noun": "SGCache",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "DiskIds",
+      "noun": "Cache",
+      "legacyPositionalParameters": [
+        "DiskIds"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Cache",
         "ConfirmImpactSetting": "Medium",
@@ -106,20 +101,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DiskIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddTagsToResource": {
       "verb": "Add",
-      "noun": "SGResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceARN",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsToResource",
         "ConfirmImpactSetting": "Medium",
@@ -137,20 +125,15 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddUploadBuffer": {
       "verb": "Add",
-      "noun": "SGUploadBuffer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "DiskIds",
+      "noun": "UploadBuffer",
+      "legacyPositionalParameters": [
+        "DiskIds"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UploadBuffer",
         "ConfirmImpactSetting": "Medium",
@@ -168,20 +151,15 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DiskIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddWorkingStorage": {
       "verb": "Add",
-      "noun": "SGWorkingStorage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "DiskIds",
+      "noun": "WorkingStorage",
+      "legacyPositionalParameters": [
+        "DiskIds"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "WorkingStorage",
         "ConfirmImpactSetting": "Medium",
@@ -199,20 +177,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DiskIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CancelArchival": {
       "verb": "Stop",
-      "noun": "SGArchival",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Archival",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Archival",
         "ConfirmImpactSetting": "Medium",
@@ -230,20 +200,12 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GatewayARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CancelRetrieval": {
       "verb": "Stop",
-      "noun": "SGRetrieval",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Retrieval",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Retrieval",
         "ConfirmImpactSetting": "Medium",
@@ -261,27 +223,27 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GatewayARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateCachediSCSIVolume": {
       "verb": "New",
-      "noun": "SGCachediSCSIVolume",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Response",
-      "legacyPositionalParameters": "VolumeSizeInBytes;SnapshotId;TargetName;NetworkInterfaceId;ClientToken",
-      "shouldProcessTargetProperty": "GatewayARN",
+      "noun": "CachediSCSIVolume",
       "customParameters": [
         {
           "name": "VolumeSizeInBytes",
           "autoRename": "false"
         }
       ],
+      "legacyPositionalParameters": [
+        "VolumeSizeInBytes",
+        "SnapshotId",
+        "TargetName",
+        "NetworkInterfaceId",
+        "ClientToken"
+      ],
+      "output": "Response",
+      "shouldProcessTargetProperty": "GatewayARN",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CachediSCSIVolume",
         "ConfirmImpactSetting": "Medium",
@@ -299,20 +261,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "GatewayARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateNFSFileShare": {
       "verb": "New",
-      "noun": "SGNFSFileShare",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "NFSFileShare",
       "shouldProcessTargetProperty": "GatewayARN",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NFSFileShare",
@@ -331,20 +285,17 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "GatewayARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateSnapshot": {
       "verb": "New",
-      "noun": "SGSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Snapshot",
+      "legacyPositionalParameters": [
+        "SnapshotDescription"
+      ],
       "pipelineProperty": "VolumeARN",
       "output": "Response",
-      "legacyPositionalParameters": "SnapshotDescription",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Snapshot",
         "ConfirmImpactSetting": "Medium",
@@ -362,20 +313,17 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "VolumeARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateSnapshotFromVolumeRecoveryPoint": {
       "verb": "New",
-      "noun": "SGSnapshotFromVolumeRecoveryPoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SnapshotFromVolumeRecoveryPoint",
+      "legacyPositionalParameters": [
+        "SnapshotDescription"
+      ],
       "pipelineProperty": "VolumeARN",
       "output": "Response",
-      "legacyPositionalParameters": "SnapshotDescription",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SnapshotFromVolumeRecoveryPoint",
         "ConfirmImpactSetting": "Medium",
@@ -393,20 +341,20 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "VolumeARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateStorediSCSIVolume": {
       "verb": "New",
-      "noun": "SGStorediSCSIVolume",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "StorediSCSIVolume",
+      "legacyPositionalParameters": [
+        "VolumeSizeInBytes",
+        "SnapshotId",
+        "TargetName",
+        "NetworkInterfaceId",
+        "ClientToken"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "VolumeSizeInBytes;SnapshotId;TargetName;NetworkInterfaceId;ClientToken",
       "shouldProcessTargetProperty": "GatewayARN",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StorediSCSIVolume",
@@ -425,26 +373,19 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "GatewayARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateTapes": {
       "verb": "New",
-      "noun": "SGTape",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": "New-SGTapes",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Tape",
       "customParameters": [
         {
           "name": "TapeSizeInBytes",
           "autoRename": "false"
         }
       ],
+      "legacyAlias": "New-SGTapes",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tapes",
         "ConfirmImpactSetting": "Medium",
@@ -462,20 +403,15 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GatewayARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateTapeWithBarcode": {
       "verb": "New",
-      "noun": "SGTapeWithBarcode",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "TapeBarcode",
+      "noun": "TapeWithBarcode",
+      "legacyPositionalParameters": [
+        "TapeBarcode"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TapeWithBarcode",
         "ConfirmImpactSetting": "Medium",
@@ -493,20 +429,15 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GatewayARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteBandwidthRateLimit": {
       "verb": "Remove",
-      "noun": "SGBandwidthRateLimit",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "BandwidthType",
+      "noun": "BandwidthRateLimit",
+      "legacyPositionalParameters": [
+        "BandwidthType"
+      ],
       "shouldProcessTargetProperty": "BandwidthType",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BandwidthRateLimit",
@@ -525,20 +456,18 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "BandwidthType"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteChapCredentials": {
       "verb": "Remove",
-      "noun": "SGChapCredential",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ChapCredential",
       "legacyAlias": "Remove-SGChapCredentials",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "InitiatorName"
+      ],
       "pipelineProperty": "TargetARN",
       "output": "Response",
-      "legacyPositionalParameters": "InitiatorName",
       "shouldProcessTargetProperty": "InitiatorName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ChapCredentials",
@@ -557,20 +486,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "InitiatorName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteFileShare": {
       "verb": "Remove",
-      "noun": "SGFileShare",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "FileShare",
       "shouldProcessTargetProperty": "FileShareARN",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FileShare",
@@ -589,20 +510,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "FileShareARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteGateway": {
       "verb": "Remove",
-      "noun": "SGGateway",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Gateway",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Gateway",
         "ConfirmImpactSetting": "High",
@@ -620,20 +533,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GatewayARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSnapshotSchedule": {
       "verb": "Remove",
-      "noun": "SGSnapshotSchedule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SnapshotSchedule",
       "pipelineProperty": "VolumeARN",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SnapshotSchedule",
         "ConfirmImpactSetting": "High",
@@ -651,20 +557,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "VolumeARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteTape": {
       "verb": "Remove",
-      "noun": "SGTape",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Tape",
       "shouldProcessTargetProperty": "TapeARN",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tape",
@@ -683,20 +581,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "TapeARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteTapeArchive": {
       "verb": "Remove",
-      "noun": "SGTapeArchive",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TapeArchive",
       "pipelineProperty": "TapeARN",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TapeArchive",
         "ConfirmImpactSetting": "High",
@@ -714,20 +605,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TapeARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteVolume": {
       "verb": "Remove",
-      "noun": "SGVolume",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Volume",
       "pipelineProperty": "VolumeARN",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Volume",
         "ConfirmImpactSetting": "High",
@@ -745,20 +629,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "VolumeARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeBandwidthRateLimit": {
       "verb": "Get",
-      "noun": "SGBandwidthRateLimit",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BandwidthRateLimit",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BandwidthRateLimit",
         "ConfirmImpactSetting": "Medium",
@@ -771,25 +648,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeCache": {
       "verb": "Get",
-      "noun": "SGCache",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Cache",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Cache",
         "ConfirmImpactSetting": "Medium",
@@ -802,25 +667,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeCachediSCSIVolumes": {
       "verb": "Get",
-      "noun": "SGCachediSCSIVolume",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CachediSCSIVolume",
       "pipelineProperty": "VolumeARNs",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CachediSCSIVolumes",
         "ConfirmImpactSetting": "Medium",
@@ -833,25 +686,14 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeChapCredentials": {
       "verb": "Get",
-      "noun": "SGChapCredential",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ChapCredential",
       "legacyAlias": "Get-SGChapCredentials",
-      "metadataOutputProperties": "",
       "pipelineProperty": "TargetARN",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ChapCredentials",
         "ConfirmImpactSetting": "Medium",
@@ -864,25 +706,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeGatewayInformation": {
       "verb": "Get",
-      "noun": "SGGatewayInformation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "GatewayInformation",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GatewayInformation",
         "ConfirmImpactSetting": "Medium",
@@ -895,25 +725,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeMaintenanceStartTime": {
       "verb": "Get",
-      "noun": "SGMaintenanceStartTime",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "MaintenanceStartTime",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MaintenanceStartTime",
         "ConfirmImpactSetting": "Medium",
@@ -926,25 +744,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeNFSFileShares": {
       "verb": "Get",
-      "noun": "SGNFSFileShareList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "NFSFileShareList",
       "pipelineProperty": "FileShareARNList",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NFSFileShares",
         "ConfirmImpactSetting": "Medium",
@@ -957,25 +763,14 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeSnapshotSchedule": {
       "verb": "Get",
-      "noun": "SGSnapshotSchedule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SnapshotSchedule",
       "pipelineProperty": "VolumeARN",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SnapshotSchedule",
         "ConfirmImpactSetting": "Medium",
@@ -988,25 +783,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeStorediSCSIVolumes": {
       "verb": "Get",
-      "noun": "SGStorediSCSIVolume",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StorediSCSIVolume",
       "pipelineProperty": "VolumeARNs",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StorediSCSIVolumes",
         "ConfirmImpactSetting": "Medium",
@@ -1019,25 +802,14 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTapeArchives": {
       "verb": "Get",
-      "noun": "SGTapeArchiveList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "TapeArchiveList",
       "legacyAlias": "Get-SGTapeArchives",
-      "metadataOutputProperties": "",
       "pipelineProperty": "TapeARNs",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TapeArchives",
         "ConfirmImpactSetting": "Medium",
@@ -1050,25 +822,16 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTapeRecoveryPoints": {
       "verb": "Get",
-      "noun": "SGTapeRecoveryPointList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "TapeRecoveryPointList",
       "legacyAlias": "Get-SGTapeRecoveryPoints",
-      "metadataOutputProperties": "GatewayARN",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "outputMetadataPropertyNames": [
+        "GatewayARN"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TapeRecoveryPoints",
         "ConfirmImpactSetting": "Medium",
@@ -1081,25 +844,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTapes": {
       "verb": "Get",
-      "noun": "SGTapeList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "TapeList",
       "legacyAlias": "Get-SGTapes",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tapes",
         "ConfirmImpactSetting": "Medium",
@@ -1112,25 +863,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeUploadBuffer": {
       "verb": "Get",
-      "noun": "SGUploadBuffer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UploadBuffer",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UploadBuffer",
         "ConfirmImpactSetting": "Medium",
@@ -1143,25 +882,16 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeVTLDevices": {
       "verb": "Get",
-      "noun": "SGVTLDevice",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "VTLDevice",
       "legacyAlias": "Get-SGVTLDevices",
-      "metadataOutputProperties": "GatewayARN",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "outputMetadataPropertyNames": [
+        "GatewayARN"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VTLDevices",
         "ConfirmImpactSetting": "Medium",
@@ -1174,25 +904,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeWorkingStorage": {
       "verb": "Get",
-      "noun": "SGWorkingStorage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "WorkingStorage",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "WorkingStorage",
         "ConfirmImpactSetting": "Medium",
@@ -1205,25 +923,12 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisableGateway": {
       "verb": "Disable",
-      "noun": "SGGateway",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Gateway",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Gateway",
         "ConfirmImpactSetting": "Medium",
@@ -1241,20 +946,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GatewayARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListFileShares": {
       "verb": "Get",
-      "noun": "SGFileShareList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "FileShareList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FileShares",
         "ConfirmImpactSetting": "Medium",
@@ -1267,25 +964,12 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListGateways": {
       "verb": "Get",
-      "noun": "SGGateway",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Gateway",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Gateways",
         "ConfirmImpactSetting": "Medium",
@@ -1298,25 +982,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListLocalDisks": {
       "verb": "Get",
-      "noun": "SGLocalDisk",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LocalDisk",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LocalDisks",
         "ConfirmImpactSetting": "Medium",
@@ -1329,25 +1001,17 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTagsForResource": {
       "verb": "Get",
-      "noun": "SGResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "Get-SGResourceTags",
-      "metadataOutputProperties": "ResourceARN",
+      "outputMetadataPropertyNames": [
+        "ResourceARN"
+      ],
       "pipelineProperty": "ResourceARN",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForResource",
         "ConfirmImpactSetting": "Medium",
@@ -1360,25 +1024,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTapes": {
       "verb": "Get",
-      "noun": "SGTape",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Tape",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tapes",
         "ConfirmImpactSetting": "Medium",
@@ -1391,25 +1043,17 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListVolumeInitiators": {
       "verb": "Get",
-      "noun": "SGVolumeInitiatorList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "VolumeInitiatorList",
       "legacyAlias": "Get-SGVolumeInitiators",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "VolumeARN"
+      ],
       "pipelineProperty": "VolumeARN",
-      "output": "Default",
-      "legacyPositionalParameters": "VolumeARN",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VolumeInitiators",
         "ConfirmImpactSetting": "Medium",
@@ -1422,25 +1066,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListVolumeRecoveryPoints": {
       "verb": "Get",
-      "noun": "SGVolumeRecoveryPoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "VolumeRecoveryPoint",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VolumeRecoveryPoints",
         "ConfirmImpactSetting": "Medium",
@@ -1453,25 +1085,15 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListVolumes": {
       "verb": "Get",
-      "noun": "SGVolume",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "GatewayARN",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Volume",
+      "outputMetadataPropertyNames": [
+        "GatewayARN"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Volumes",
         "ConfirmImpactSetting": "Medium",
@@ -1484,25 +1106,14 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "NotifyWhenUploaded": {
       "verb": "Send",
-      "noun": "SGUploadedNotification",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UploadedNotification",
       "pipelineProperty": "FileShareARN",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "WhenUploaded",
         "ConfirmImpactSetting": "Medium",
@@ -1520,20 +1131,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FileShareARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RefreshCache": {
       "verb": "Invoke",
-      "noun": "SGCacheRefresh",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CacheRefresh",
       "pipelineProperty": "FileShareARN",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Cache",
         "ConfirmImpactSetting": "Medium",
@@ -1551,20 +1155,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FileShareARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveTagsFromResource": {
       "verb": "Remove",
-      "noun": "SGResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceARN",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsFromResource",
         "ConfirmImpactSetting": "High",
@@ -1582,20 +1179,16 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ResetCache": {
       "verb": "Reset",
-      "noun": "SGCache",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "GatewayARN",
-      "pipelineProperty": "",
+      "noun": "Cache",
+      "outputMetadataPropertyNames": [
+        "GatewayARN"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Cache",
         "ConfirmImpactSetting": "Medium",
@@ -1613,20 +1206,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GatewayARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RetrieveTapeArchive": {
       "verb": "Get",
-      "noun": "SGTapeArchive",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TapeArchive",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TapeArchive",
         "ConfirmImpactSetting": "Medium",
@@ -1639,25 +1224,12 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RetrieveTapeRecoveryPoint": {
       "verb": "Get",
-      "noun": "SGTapeRecoveryPoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TapeRecoveryPoint",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TapeRecoveryPoint",
         "ConfirmImpactSetting": "Medium",
@@ -1670,25 +1242,12 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetLocalConsolePassword": {
       "verb": "Set",
-      "noun": "SGLocalConsolePassword",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "LocalConsolePassword",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LocalConsolePassword",
         "ConfirmImpactSetting": "Medium",
@@ -1706,20 +1265,12 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GatewayARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ShutdownGateway": {
       "verb": "Stop",
-      "noun": "SGGateway",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Gateway",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Gateway",
         "ConfirmImpactSetting": "Medium",
@@ -1737,20 +1288,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GatewayARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartGateway": {
       "verb": "Start",
-      "noun": "SGGateway",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Gateway",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Gateway",
         "ConfirmImpactSetting": "Medium",
@@ -1768,20 +1311,16 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GatewayARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateBandwidthRateLimit": {
       "verb": "Update",
-      "noun": "SGBandwidthRateLimit",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "AverageUploadRateLimitInBitsPerSec;AverageDownloadRateLimitInBitsPerSec",
+      "noun": "BandwidthRateLimit",
+      "legacyPositionalParameters": [
+        "AverageUploadRateLimitInBitsPerSec",
+        "AverageDownloadRateLimitInBitsPerSec"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BandwidthRateLimit",
         "ConfirmImpactSetting": "Medium",
@@ -1799,20 +1338,20 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GatewayARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateChapCredentials": {
       "verb": "Update",
-      "noun": "SGChapCredential",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ChapCredential",
       "legacyAlias": "Update-SGChapCredentials",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "SecretToAuthenticateInitiator",
+        "InitiatorName",
+        "SecretToAuthenticateTarget"
+      ],
       "pipelineProperty": "TargetARN",
       "output": "Response",
-      "legacyPositionalParameters": "SecretToAuthenticateInitiator;InitiatorName;SecretToAuthenticateTarget",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ChapCredentials",
         "ConfirmImpactSetting": "Medium",
@@ -1830,20 +1369,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InitiatorName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateGatewayInformation": {
       "verb": "Update",
-      "noun": "SGGatewayInformation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "GatewayInformation",
+      "legacyPositionalParameters": [
+        "GatewayName",
+        "GatewayTimezone"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "GatewayName;GatewayTimezone",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GatewayInformation",
         "ConfirmImpactSetting": "Medium",
@@ -1861,20 +1397,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GatewayName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateGatewaySoftwareNow": {
       "verb": "Update",
-      "noun": "SGGatewaySoftwareNow",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "GatewaySoftwareNow",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GatewaySoftwareNow",
         "ConfirmImpactSetting": "Medium",
@@ -1892,20 +1420,17 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GatewayARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateMaintenanceStartTime": {
       "verb": "Update",
-      "noun": "SGMaintenanceStartTime",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "HourOfDay;MinuteOfHour;DayOfWeek",
+      "noun": "MaintenanceStartTime",
+      "legacyPositionalParameters": [
+        "HourOfDay",
+        "MinuteOfHour",
+        "DayOfWeek"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MaintenanceStartTime",
         "ConfirmImpactSetting": "Medium",
@@ -1923,20 +1448,12 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GatewayARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateNFSFileShare": {
       "verb": "Update",
-      "noun": "SGNFSFileShare",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "NFSFileShare",
       "shouldProcessTargetProperty": "FileShareARN",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NFSFileShare",
@@ -1955,26 +1472,24 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "FileShareARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateSnapshotSchedule": {
       "verb": "Update",
-      "noun": "SGSnapshotSchedule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "VolumeARN",
-      "output": "Default",
-      "legacyPositionalParameters": "StartAt;RecurrenceInHours;Description",
+      "noun": "SnapshotSchedule",
       "customParameters": [
         {
           "name": "RecurrenceInHours",
           "autoRename": "false"
         }
       ],
+      "legacyPositionalParameters": [
+        "StartAt",
+        "RecurrenceInHours",
+        "Description"
+      ],
+      "pipelineProperty": "VolumeARN",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SnapshotSchedule",
         "ConfirmImpactSetting": "Medium",
@@ -1992,20 +1507,16 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "VolumeARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateVTLDeviceType": {
       "verb": "Update",
-      "noun": "SGVTLDeviceType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "VTLDeviceARN",
-      "pipelineProperty": "",
+      "noun": "VTLDeviceType",
+      "outputMetadataPropertyNames": [
+        "VTLDeviceARN"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "VTLDeviceARN",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VTLDeviceType",
@@ -2024,8 +1535,7 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "VTLDeviceARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

@@ -1,6 +1,11 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken",
+    "resultLimitMember": "MaxResults"
+  },
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "SHLD",
   "pipelineByValuePropertyNames": [
     "ResourceArn",
     "Name",
@@ -8,31 +13,14 @@
     "AttackId",
     "MitigationName"
   ],
-  "defaultPipelineProperty": "",
+  "sdkServiceClientClass": "AmazonShieldClient",
+  "sdkServiceConfigClass": "AmazonShieldConfig",
   "sdkServiceNamespace": "Amazon.Shield",
-  "sdkServiceClient": "AmazonShieldClient",
-  "sdkServiceClientConfig": "AmazonShieldConfig",
-  "legacyCmdletPrefix": "SHLD",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken",
-    "resultLimitMember": "MaxResults"
-  },
-  "nounMappings": {},
-  "verbMappings": {},
   "serviceOperations": {
     "CreateProtection": {
       "verb": "New",
-      "noun": "SHLDProtection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Protection",
       "pipelineProperty": "ResourceArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Protection",
         "ConfirmImpactSetting": "Medium",
@@ -50,20 +38,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateSubscription": {
       "verb": "New",
-      "noun": "SHLDSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Subscription",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Subscription",
         "ConfirmImpactSetting": "Medium",
@@ -81,20 +62,14 @@
           "analysisMessage": "No parameters, setting anonymous target",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteProtection": {
       "verb": "Remove",
-      "noun": "SHLDProtection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Protection",
       "pipelineProperty": "ProtectionId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Protection",
         "ConfirmImpactSetting": "High",
@@ -112,20 +87,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProtectionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSubscription": {
       "verb": "Remove",
-      "noun": "SHLDSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Subscription",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Subscription",
         "ConfirmImpactSetting": "High",
@@ -143,20 +111,13 @@
           "analysisMessage": "No parameters, setting anonymous target",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAttack": {
       "verb": "Get",
-      "noun": "SHLDAttack",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Attack",
       "pipelineProperty": "AttackId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Attack",
         "ConfirmImpactSetting": "Medium",
@@ -169,25 +130,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeProtection": {
       "verb": "Get",
-      "noun": "SHLDProtection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Protection",
       "pipelineProperty": "ProtectionId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Protection",
         "ConfirmImpactSetting": "Medium",
@@ -200,25 +149,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeSubscription": {
       "verb": "Get",
-      "noun": "SHLDSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Subscription",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Subscription",
         "ConfirmImpactSetting": "Medium",
@@ -231,25 +167,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSubscriptionState": {
       "verb": "Get",
-      "noun": "SHLDSubscriptionState",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SubscriptionState",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubscriptionState",
         "ConfirmImpactSetting": "Medium",
@@ -262,25 +185,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListAttacks": {
       "verb": "Get",
-      "noun": "SHLDAttackList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AttackList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Attacks",
         "ConfirmImpactSetting": "Medium",
@@ -293,25 +204,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListProtections": {
       "verb": "Get",
-      "noun": "SHLDProtectionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ProtectionList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Protections",
         "ConfirmImpactSetting": "Medium",
@@ -324,13 +222,7 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

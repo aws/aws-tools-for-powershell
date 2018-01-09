@@ -1,6 +1,11 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken",
+    "resultLimitMember": "Limit"
+  },
+  "defaultPipelineProperty": "BuildId",
+  "legacyCmdletPrefix": "GML",
   "pipelineByValuePropertyNames": [
     "BuildId",
     "AliasId",
@@ -11,33 +16,18 @@
     "TicketId",
     "ConfigurationName"
   ],
-  "defaultPipelineProperty": "BuildId",
+  "sdkServiceClientClass": "AmazonGameLiftClient",
+  "sdkServiceConfigClass": "AmazonGameLiftConfig",
   "sdkServiceNamespace": "Amazon.GameLift",
-  "sdkServiceClient": "AmazonGameLiftClient",
-  "sdkServiceClientConfig": "AmazonGameLiftConfig",
-  "legacyCmdletPrefix": "GML",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken",
-    "resultLimitMember": "Limit"
-  },
-  "nounMappings": {},
   "verbMappings": {
     "List": "Get"
   },
   "serviceOperations": {
     "AcceptMatch": {
       "verb": "Confirm",
-      "noun": "GMLMatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Match",
       "pipelineProperty": "TicketId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Match",
         "ConfirmImpactSetting": "Medium",
@@ -55,20 +45,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TicketId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateAlias": {
       "verb": "New",
-      "noun": "GMLAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Alias",
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Alias",
@@ -87,20 +69,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateBuild": {
       "verb": "New",
-      "noun": "GMLBuild",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Build",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Build",
@@ -119,20 +94,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateFleet": {
       "verb": "New",
-      "noun": "GMLFleet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Fleet",
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Fleet",
@@ -151,20 +118,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateGameSession": {
       "verb": "New",
-      "noun": "GMLGameSession",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "GameSession",
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GameSession",
@@ -183,20 +142,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateGameSessionQueue": {
       "verb": "New",
-      "noun": "GMLGameSessionQueue",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GameSessionQueue",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GameSessionQueue",
@@ -215,20 +167,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateMatchmakingConfiguration": {
       "verb": "New",
-      "noun": "GMLMatchmakingConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MatchmakingConfiguration",
       "pipelineProperty": "RuleSetName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MatchmakingConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -246,20 +191,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RuleSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateMatchmakingRuleSet": {
       "verb": "New",
-      "noun": "GMLMatchmakingRuleSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MatchmakingRuleSet",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MatchmakingRuleSet",
         "ConfirmImpactSetting": "Medium",
@@ -277,23 +215,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreatePlayerSession": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "CreatePlayerSessions": {
       "verb": "New",
-      "noun": "GMLPlayerSession",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PlayerSession",
       "pipelineProperty": "GameSessionId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PlayerSessions",
         "ConfirmImpactSetting": "Medium",
@@ -311,20 +242,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GameSessionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateVpcPeeringAuthorization": {
       "verb": "New",
-      "noun": "GMLVpcPeeringAuthorization",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "VpcPeeringAuthorization",
       "shouldProcessTargetProperty": "PeerVpcId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VpcPeeringAuthorization",
@@ -343,20 +266,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "PeerVpcId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateVpcPeeringConnection": {
       "verb": "New",
-      "noun": "GMLVpcPeeringConnection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "VpcPeeringConnection",
       "pipelineProperty": "FleetId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VpcPeeringConnection",
         "ConfirmImpactSetting": "Medium",
@@ -374,20 +291,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FleetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteAlias": {
       "verb": "Remove",
-      "noun": "GMLAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Alias",
       "pipelineProperty": "AliasId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Alias",
         "ConfirmImpactSetting": "High",
@@ -405,20 +316,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AliasId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteBuild": {
       "verb": "Remove",
-      "noun": "GMLBuild",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Build",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Build",
         "ConfirmImpactSetting": "High",
@@ -436,20 +340,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BuildId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteFleet": {
       "verb": "Remove",
-      "noun": "GMLFleet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Fleet",
       "pipelineProperty": "FleetId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Fleet",
         "ConfirmImpactSetting": "High",
@@ -467,20 +365,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FleetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteGameSessionQueue": {
       "verb": "Remove",
-      "noun": "GMLGameSessionQueue",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GameSessionQueue",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GameSessionQueue",
@@ -499,20 +391,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteMatchmakingConfiguration": {
       "verb": "Remove",
-      "noun": "GMLMatchmakingConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MatchmakingConfiguration",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MatchmakingConfiguration",
         "ConfirmImpactSetting": "High",
@@ -530,20 +416,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteScalingPolicy": {
       "verb": "Remove",
-      "noun": "GMLScalingPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ScalingPolicy",
       "pipelineProperty": "FleetId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScalingPolicy",
         "ConfirmImpactSetting": "High",
@@ -561,20 +441,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FleetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteVpcPeeringAuthorization": {
       "verb": "Remove",
-      "noun": "GMLVpcPeeringAuthorization",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "VpcPeeringAuthorization",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "PeerVpcId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VpcPeeringAuthorization",
@@ -593,20 +466,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "PeerVpcId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteVpcPeeringConnection": {
       "verb": "Remove",
-      "noun": "GMLVpcPeeringConnection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "VpcPeeringConnection",
       "pipelineProperty": "FleetId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VpcPeeringConnection",
         "ConfirmImpactSetting": "High",
@@ -624,20 +491,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FleetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAlias": {
       "verb": "Get",
-      "noun": "GMLAliasDetail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AliasDetail",
       "pipelineProperty": "AliasId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Alias",
         "ConfirmImpactSetting": "Medium",
@@ -650,25 +510,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeBuild": {
       "verb": "Get",
-      "noun": "GMLBuildDetail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BuildDetail",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Build",
         "ConfirmImpactSetting": "Medium",
@@ -681,25 +528,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEC2InstanceLimits": {
       "verb": "Get",
-      "noun": "GMLEC2InstanceLimit",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EC2InstanceLimit",
       "pipelineProperty": "EC2InstanceType",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EC2InstanceLimits",
         "ConfirmImpactSetting": "Medium",
@@ -712,25 +547,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeFleetAttributes": {
       "verb": "Get",
-      "noun": "GMLFleetAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FleetAttribute",
       "pipelineProperty": "FleetIds",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FleetAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -743,25 +566,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeFleetCapacity": {
       "verb": "Get",
-      "noun": "GMLFleetCapacity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FleetCapacity",
       "pipelineProperty": "FleetIds",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FleetCapacity",
         "ConfirmImpactSetting": "Medium",
@@ -774,25 +585,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeFleetEvents": {
       "verb": "Get",
-      "noun": "GMLFleetEvent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "FleetEvent",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FleetEvents",
         "ConfirmImpactSetting": "Medium",
@@ -805,25 +603,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeFleetPortSettings": {
       "verb": "Get",
-      "noun": "GMLFleetPortSetting",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FleetPortSetting",
       "pipelineProperty": "FleetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FleetPortSettings",
         "ConfirmImpactSetting": "Medium",
@@ -836,25 +622,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeFleetUtilization": {
       "verb": "Get",
-      "noun": "GMLFleetUtilization",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FleetUtilization",
       "pipelineProperty": "FleetIds",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FleetUtilization",
         "ConfirmImpactSetting": "Medium",
@@ -867,25 +641,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeGameSessionDetails": {
       "verb": "Get",
-      "noun": "GMLGameSessionDetail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GameSessionDetail",
       "pipelineProperty": "GameSessionId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GameSessionDetails",
         "ConfirmImpactSetting": "Medium",
@@ -898,25 +660,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeGameSessionPlacement": {
       "verb": "Get",
-      "noun": "GMLGameSessionPlacement",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GameSessionPlacement",
       "pipelineProperty": "PlacementId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GameSessionPlacement",
         "ConfirmImpactSetting": "Medium",
@@ -929,25 +679,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeGameSessionQueues": {
       "verb": "Get",
-      "noun": "GMLGameSessionQueue",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GameSessionQueue",
       "pipelineProperty": "Names",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GameSessionQueues",
         "ConfirmImpactSetting": "Medium",
@@ -960,25 +698,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeGameSessions": {
       "verb": "Get",
-      "noun": "GMLGameSession",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "GameSession",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GameSessions",
         "ConfirmImpactSetting": "Medium",
@@ -991,25 +716,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeInstances": {
       "verb": "Get",
-      "noun": "GMLInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Instance",
       "pipelineProperty": "FleetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instances",
         "ConfirmImpactSetting": "Medium",
@@ -1022,25 +735,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeMatchmaking": {
       "verb": "Get",
-      "noun": "GMLMatchmaking",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Matchmaking",
       "pipelineProperty": "TicketIds",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Matchmaking",
         "ConfirmImpactSetting": "Medium",
@@ -1053,25 +754,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeMatchmakingConfigurations": {
       "verb": "Get",
-      "noun": "GMLMatchmakingConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MatchmakingConfiguration",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MatchmakingConfigurations",
         "ConfirmImpactSetting": "Medium",
@@ -1084,25 +773,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeMatchmakingRuleSets": {
       "verb": "Get",
-      "noun": "GMLMatchmakingRuleSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MatchmakingRuleSet",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MatchmakingRuleSets",
         "ConfirmImpactSetting": "Medium",
@@ -1115,25 +792,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribePlayerSessions": {
       "verb": "Get",
-      "noun": "GMLPlayerSession",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "PlayerSession",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PlayerSessions",
         "ConfirmImpactSetting": "Medium",
@@ -1146,25 +810,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeRuntimeConfiguration": {
       "verb": "Get",
-      "noun": "GMLRuntimeConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RuntimeConfiguration",
       "pipelineProperty": "FleetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RuntimeConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -1177,25 +829,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeScalingPolicies": {
       "verb": "Get",
-      "noun": "GMLScalingPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ScalingPolicy",
       "pipelineProperty": "FleetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScalingPolicies",
         "ConfirmImpactSetting": "Medium",
@@ -1208,25 +848,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeVpcPeeringAuthorizations": {
       "verb": "Get",
-      "noun": "GMLVpcPeeringAuthorization",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "VpcPeeringAuthorization",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VpcPeeringAuthorizations",
         "ConfirmImpactSetting": "Medium",
@@ -1239,25 +866,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeVpcPeeringConnections": {
       "verb": "Get",
-      "noun": "GMLVpcPeeringConnection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "VpcPeeringConnection",
       "pipelineProperty": "FleetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VpcPeeringConnections",
         "ConfirmImpactSetting": "Medium",
@@ -1270,25 +885,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetGameSessionLogUrl": {
       "verb": "Get",
-      "noun": "GMLGameSessionLogUrl",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GameSessionLogUrl",
       "pipelineProperty": "GameSessionId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GameSessionLogUrl",
         "ConfirmImpactSetting": "Medium",
@@ -1301,25 +904,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetInstanceAccess": {
       "verb": "Get",
-      "noun": "GMLInstanceAccess",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceAccess",
       "pipelineProperty": "FleetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceAccess",
         "ConfirmImpactSetting": "Medium",
@@ -1332,25 +923,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListAliases": {
       "verb": "Get",
-      "noun": "GMLAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Alias",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Aliases",
         "ConfirmImpactSetting": "Medium",
@@ -1363,25 +941,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListBuilds": {
       "verb": "Get",
-      "noun": "GMLBuild",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Build",
       "pipelineProperty": "Status",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Builds",
         "ConfirmImpactSetting": "Medium",
@@ -1394,25 +960,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListFleets": {
       "verb": "Get",
-      "noun": "GMLFleet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Fleet",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Fleets",
         "ConfirmImpactSetting": "Medium",
@@ -1425,25 +978,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutScalingPolicy": {
       "verb": "Write",
-      "noun": "GMLScalingPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ScalingPolicy",
       "pipelineProperty": "FleetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScalingPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -1461,20 +1002,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FleetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RequestUploadCredentials": {
       "verb": "Request",
-      "noun": "GMLUploadCredential",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UploadCredential",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UploadCredentials",
         "ConfirmImpactSetting": "Medium",
@@ -1492,20 +1026,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BuildId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ResolveAlias": {
       "verb": "Resolve",
-      "noun": "GMLAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Alias",
       "pipelineProperty": "AliasId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Alias",
         "ConfirmImpactSetting": "Medium",
@@ -1523,20 +1050,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AliasId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SearchGameSessions": {
       "verb": "Find",
-      "noun": "GMLGameSession",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GameSession",
       "pipelineProperty": "FleetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GameSessions",
         "ConfirmImpactSetting": "Medium",
@@ -1549,25 +1069,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartGameSessionPlacement": {
       "verb": "Start",
-      "noun": "GMLGameSessionPlacement",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GameSessionPlacement",
       "pipelineProperty": "GameSessionName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GameSessionPlacement",
         "ConfirmImpactSetting": "Medium",
@@ -1585,20 +1093,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GameSessionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartMatchmaking": {
       "verb": "Start",
-      "noun": "GMLMatchmaking",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Matchmaking",
       "pipelineProperty": "ConfigurationName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Matchmaking",
         "ConfirmImpactSetting": "Medium",
@@ -1616,20 +1117,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigurationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopGameSessionPlacement": {
       "verb": "Stop",
-      "noun": "GMLGameSessionPlacement",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GameSessionPlacement",
       "pipelineProperty": "PlacementId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GameSessionPlacement",
         "ConfirmImpactSetting": "Medium",
@@ -1647,20 +1141,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PlacementId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopMatchmaking": {
       "verb": "Stop",
-      "noun": "GMLMatchmaking",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Matchmaking",
       "pipelineProperty": "TicketId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Matchmaking",
         "ConfirmImpactSetting": "Medium",
@@ -1678,20 +1166,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TicketId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateAlias": {
       "verb": "Update",
-      "noun": "GMLAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Alias",
       "shouldProcessTargetProperty": "AliasId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Alias",
@@ -1710,20 +1190,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "AliasId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateBuild": {
       "verb": "Update",
-      "noun": "GMLBuild",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Build",
       "shouldProcessTargetProperty": "BuildId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Build",
@@ -1742,20 +1214,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "BuildId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateFleetAttributes": {
       "verb": "Update",
-      "noun": "GMLFleetAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "FleetAttribute",
       "shouldProcessTargetProperty": "FleetId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FleetAttributes",
@@ -1774,20 +1238,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "FleetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateFleetCapacity": {
       "verb": "Update",
-      "noun": "GMLFleetCapacity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "FleetCapacity",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FleetCapacity",
         "ConfirmImpactSetting": "Medium",
@@ -1805,20 +1261,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FleetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateFleetPortSettings": {
       "verb": "Update",
-      "noun": "GMLFleetPortSetting",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "FleetPortSetting",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FleetPortSettings",
         "ConfirmImpactSetting": "Medium",
@@ -1836,20 +1284,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FleetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateGameSession": {
       "verb": "Update",
-      "noun": "GMLGameSession",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "GameSession",
       "shouldProcessTargetProperty": "GameSessionId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GameSession",
@@ -1868,20 +1308,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "GameSessionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateGameSessionQueue": {
       "verb": "Update",
-      "noun": "GMLGameSessionQueue",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GameSessionQueue",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GameSessionQueue",
         "ConfirmImpactSetting": "Medium",
@@ -1899,20 +1332,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateMatchmakingConfiguration": {
       "verb": "Update",
-      "noun": "GMLMatchmakingConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MatchmakingConfiguration",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MatchmakingConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -1930,20 +1356,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateRuntimeConfiguration": {
       "verb": "Update",
-      "noun": "GMLRuntimeConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RuntimeConfiguration",
       "pipelineProperty": "FleetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RuntimeConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -1961,20 +1380,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FleetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ValidateMatchmakingRuleSet": {
       "verb": "Test",
-      "noun": "GMLMatchmakingRuleSetValidity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MatchmakingRuleSetValidity",
       "pipelineProperty": "RuleSetBody",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MatchmakingRuleSet",
         "ConfirmImpactSetting": "Medium",
@@ -1987,13 +1399,7 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

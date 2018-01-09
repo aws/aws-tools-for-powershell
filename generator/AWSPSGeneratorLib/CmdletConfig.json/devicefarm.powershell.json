@@ -1,22 +1,16 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "Arn",
-  "sdkServiceNamespace": "Amazon.DeviceFarm",
-  "sdkServiceClient": "AmazonDeviceFarmClient",
-  "sdkServiceClientConfig": "AmazonDeviceFarmConfig",
-  "legacyCmdletPrefix": "DF",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken",
     "excludedOperations": [
       "GetOfferingStatus"
-    ]
+    ],
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken"
   },
-  "nounMappings": {},
+  "defaultPipelineProperty": "Arn",
+  "legacyCmdletPrefix": "DF",
+  "sdkServiceClientClass": "AmazonDeviceFarmClient",
+  "sdkServiceConfigClass": "AmazonDeviceFarmConfig",
+  "sdkServiceNamespace": "Amazon.DeviceFarm",
   "verbMappings": {
     "List": "Get",
     "Schedule": "Invoke"
@@ -24,14 +18,8 @@
   "serviceOperations": {
     "CreateDevicePool": {
       "verb": "New",
-      "noun": "DFDevicePool",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DevicePool",
       "pipelineProperty": "Rules",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DevicePool",
@@ -42,30 +30,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateNetworkProfile": {
       "verb": "New",
-      "noun": "DFNetworkProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "NetworkProfile",
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NetworkProfile",
@@ -76,30 +56,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateProject": {
       "verb": "New",
-      "noun": "DFProject",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Project",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Project",
         "ConfirmImpactSetting": "Medium",
@@ -109,30 +81,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateRemoteAccessSession": {
       "verb": "New",
-      "noun": "DFRemoteAccessSession",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RemoteAccessSession",
       "pipelineProperty": "DeviceArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RemoteAccessSession",
         "ConfirmImpactSetting": "Medium",
@@ -142,30 +107,28 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeviceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateUpload": {
       "verb": "New",
-      "noun": "DFUpload",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Upload",
+      "legacyPositionalParameters": [
+        "ProjectArn",
+        "Type",
+        "ContentType"
+      ],
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": "ProjectArn;Type;ContentType",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Upload",
         "ConfirmImpactSetting": "Medium",
@@ -175,30 +138,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDevicePool": {
       "verb": "Remove",
-      "noun": "DFDevicePool",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DevicePool",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DevicePool",
         "ConfirmImpactSetting": "High",
@@ -208,30 +164,23 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Arn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteNetworkProfile": {
       "verb": "Remove",
-      "noun": "DFNetworkProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "NetworkProfile",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NetworkProfile",
         "ConfirmImpactSetting": "High",
@@ -241,30 +190,23 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Arn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteProject": {
       "verb": "Remove",
-      "noun": "DFProject",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Project",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Project",
         "ConfirmImpactSetting": "High",
@@ -274,30 +216,23 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Arn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRemoteAccessSession": {
       "verb": "Remove",
-      "noun": "DFRemoteAccessSession",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "RemoteAccessSession",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RemoteAccessSession",
         "ConfirmImpactSetting": "High",
@@ -307,30 +242,23 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Arn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRun": {
       "verb": "Remove",
-      "noun": "DFRun",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Run",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Run",
         "ConfirmImpactSetting": "High",
@@ -340,30 +268,23 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Arn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteUpload": {
       "verb": "Remove",
-      "noun": "DFUpload",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Upload",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Upload",
         "ConfirmImpactSetting": "High",
@@ -373,30 +294,22 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Arn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetAccountSettings": {
       "verb": "Get",
-      "noun": "DFAccountSettingList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AccountSettingList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountSettings",
         "ConfirmImpactSetting": "Medium",
@@ -406,30 +319,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "GetDevice": {
       "verb": "Get",
-      "noun": "DFDevice",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Device",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Device",
         "ConfirmImpactSetting": "Medium",
@@ -439,30 +339,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "GetDevicePool": {
       "verb": "Get",
-      "noun": "DFDevicePool",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DevicePool",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DevicePool",
         "ConfirmImpactSetting": "Medium",
@@ -472,30 +359,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "GetDevicePoolCompatibility": {
       "verb": "Get",
-      "noun": "DFDevicePoolCompatibility",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DevicePoolCompatibility",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DevicePoolCompatibility",
         "ConfirmImpactSetting": "Medium",
@@ -505,30 +380,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "GetJob": {
       "verb": "Get",
-      "noun": "DFJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Job",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Job",
         "ConfirmImpactSetting": "Medium",
@@ -538,30 +400,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "GetNetworkProfile": {
       "verb": "Get",
-      "noun": "DFNetworkProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "NetworkProfile",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NetworkProfile",
         "ConfirmImpactSetting": "Medium",
@@ -571,30 +420,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "GetOfferingStatus": {
       "verb": "Get",
-      "noun": "DFOfferingStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "OfferingStatus",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OfferingStatus",
         "ConfirmImpactSetting": "Medium",
@@ -604,30 +441,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "GetProject": {
       "verb": "Get",
-      "noun": "DFProject",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Project",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Project",
         "ConfirmImpactSetting": "Medium",
@@ -637,30 +461,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "GetRemoteAccessSession": {
       "verb": "Get",
-      "noun": "DFRemoteAccessSession",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "RemoteAccessSession",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RemoteAccessSession",
         "ConfirmImpactSetting": "Medium",
@@ -670,30 +481,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "GetRun": {
       "verb": "Get",
-      "noun": "DFRun",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Run",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Run",
         "ConfirmImpactSetting": "Medium",
@@ -703,30 +501,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "GetSuite": {
       "verb": "Get",
-      "noun": "DFSuite",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Suite",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Suite",
         "ConfirmImpactSetting": "Medium",
@@ -736,30 +521,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "GetTest": {
       "verb": "Get",
-      "noun": "DFTest",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Test",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Test",
         "ConfirmImpactSetting": "Medium",
@@ -769,30 +541,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "GetUpload": {
       "verb": "Get",
-      "noun": "DFUpload",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Upload",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Upload",
         "ConfirmImpactSetting": "Medium",
@@ -802,30 +561,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "InstallToRemoteAccessSession": {
       "verb": "Install",
-      "noun": "DFToRemoteAccessSession",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ToRemoteAccessSession",
       "pipelineProperty": "AppArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ToRemoteAccessSession",
         "ConfirmImpactSetting": "Medium",
@@ -835,30 +582,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AppArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListArtifacts": {
       "verb": "Get",
-      "noun": "DFArtifactList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ArtifactList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Artifacts",
         "ConfirmImpactSetting": "Medium",
@@ -868,30 +607,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListDevicePools": {
       "verb": "Get",
-      "noun": "DFDevicePoolList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DevicePoolList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DevicePools",
         "ConfirmImpactSetting": "Medium",
@@ -901,30 +627,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListDevices": {
       "verb": "Get",
-      "noun": "DFDeviceList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DeviceList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Devices",
         "ConfirmImpactSetting": "Medium",
@@ -934,30 +647,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListJobs": {
       "verb": "Get",
-      "noun": "DFJobList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "JobList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Jobs",
         "ConfirmImpactSetting": "Medium",
@@ -967,30 +667,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListNetworkProfiles": {
       "verb": "Get",
-      "noun": "DFNetworkProfileList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "NetworkProfileList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NetworkProfiles",
         "ConfirmImpactSetting": "Medium",
@@ -1000,30 +687,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListOfferingPromotions": {
       "verb": "Get",
-      "noun": "DFOfferingPromotion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "OfferingPromotion",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OfferingPromotions",
         "ConfirmImpactSetting": "Medium",
@@ -1033,30 +707,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListOfferings": {
       "verb": "Get",
-      "noun": "DFOffering",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Offering",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Offerings",
         "ConfirmImpactSetting": "Medium",
@@ -1066,30 +727,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListOfferingTransactions": {
       "verb": "Get",
-      "noun": "DFOfferingTransaction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "OfferingTransaction",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OfferingTransactions",
         "ConfirmImpactSetting": "Medium",
@@ -1099,30 +747,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListProjects": {
       "verb": "Get",
-      "noun": "DFProjectList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ProjectList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Projects",
         "ConfirmImpactSetting": "Medium",
@@ -1132,30 +767,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListRemoteAccessSessions": {
       "verb": "Get",
-      "noun": "DFRemoteAccessSessionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "RemoteAccessSessionList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RemoteAccessSessions",
         "ConfirmImpactSetting": "Medium",
@@ -1165,30 +787,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListRuns": {
       "verb": "Get",
-      "noun": "DFRunList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "RunList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Runs",
         "ConfirmImpactSetting": "Medium",
@@ -1198,30 +807,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListSamples": {
       "verb": "Get",
-      "noun": "DFSampleList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SampleList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Samples",
         "ConfirmImpactSetting": "Medium",
@@ -1231,30 +827,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListSuites": {
       "verb": "Get",
-      "noun": "DFSuiteList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SuiteList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Suites",
         "ConfirmImpactSetting": "Medium",
@@ -1264,30 +847,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListTests": {
       "verb": "Get",
-      "noun": "DFTestList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TestList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tests",
         "ConfirmImpactSetting": "Medium",
@@ -1297,30 +867,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListUniqueProblems": {
       "verb": "Get",
-      "noun": "DFUniqueProblemList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "UniqueProblemList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UniqueProblems",
         "ConfirmImpactSetting": "Medium",
@@ -1330,30 +887,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListUploads": {
       "verb": "Get",
-      "noun": "DFUploadList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "UploadList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Uploads",
         "ConfirmImpactSetting": "Medium",
@@ -1363,30 +907,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "PurchaseOffering": {
       "verb": "New",
-      "noun": "DFOfferingPurchase",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OfferingPurchase",
       "pipelineProperty": "OfferingId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "OfferingId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Offering",
@@ -1397,30 +929,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "OfferingId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RenewOffering": {
       "verb": "New",
-      "noun": "DFOfferingRenewal",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OfferingRenewal",
       "pipelineProperty": "OfferingId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Offering",
         "ConfirmImpactSetting": "Medium",
@@ -1430,30 +955,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "OfferingId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ScheduleRun": {
       "verb": "Submit",
-      "noun": "DFTestRun",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TestRun",
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Run",
@@ -1464,30 +981,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopRemoteAccessSession": {
       "verb": "Stop",
-      "noun": "DFRemoteAccessSession",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "RemoteAccessSession",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RemoteAccessSession",
         "ConfirmImpactSetting": "Medium",
@@ -1497,30 +1006,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Arn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopRun": {
       "verb": "Stop",
-      "noun": "DFRun",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Run",
       "shouldProcessTargetProperty": "Arn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Run",
@@ -1531,30 +1032,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Arn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDevicePool": {
       "verb": "Update",
-      "noun": "DFDevicePool",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DevicePool",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DevicePool",
         "ConfirmImpactSetting": "Medium",
@@ -1564,30 +1057,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Arn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateNetworkProfile": {
       "verb": "Update",
-      "noun": "DFNetworkProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "NetworkProfile",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NetworkProfile",
         "ConfirmImpactSetting": "Medium",
@@ -1597,30 +1082,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Arn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateProject": {
       "verb": "Update",
-      "noun": "DFProject",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Project",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Project",
         "ConfirmImpactSetting": "Medium",
@@ -1630,18 +1107,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "GetOfferingStatus"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Arn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

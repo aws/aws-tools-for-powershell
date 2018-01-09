@@ -1,38 +1,27 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.MediaConvert",
-  "sdkServiceClient": "AmazonMediaConvertClient",
-  "sdkServiceClientConfig": "AmazonMediaConvertConfig",
-  "legacyCmdletPrefix": "EMC",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.MediaConvert.Model.JobSettings",
-    "Amazon.MediaConvert.Model.JobTemplateSettings",
-    "Amazon.MediaConvert.Model.Input",
-    "Amazon.MediaConvert.Model.PresetSettings"
-  ],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults",
     "servicePageSize": 20
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "EMC",
+  "nonFlatteningTypeNames": [
+    "Amazon.MediaConvert.Model.JobSettings",
+    "Amazon.MediaConvert.Model.JobTemplateSettings",
+    "Amazon.MediaConvert.Model.Input",
+    "Amazon.MediaConvert.Model.PresetSettings"
+  ],
+  "sdkServiceClientClass": "AmazonMediaConvertClient",
+  "sdkServiceConfigClass": "AmazonMediaConvertConfig",
+  "sdkServiceNamespace": "Amazon.MediaConvert",
   "serviceOperations": {
     "CancelJob": {
       "verb": "Stop",
-      "noun": "EMCJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Job",
       "pipelineProperty": "Id",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Job",
         "ConfirmImpactSetting": "Medium",
@@ -51,20 +40,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateJob": {
       "verb": "New",
-      "noun": "EMCJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Job",
       "pipelineProperty": "JobTemplate",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Job",
         "ConfirmImpactSetting": "Medium",
@@ -83,20 +65,13 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobTemplate"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateJobTemplate": {
       "verb": "New",
-      "noun": "EMCJobTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "JobTemplate",
       "pipelineProperty": "Queue",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobTemplate",
         "ConfirmImpactSetting": "Medium",
@@ -115,20 +90,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreatePreset": {
       "verb": "New",
-      "noun": "EMCPreset",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Preset",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Preset",
         "ConfirmImpactSetting": "Medium",
@@ -147,20 +115,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateQueue": {
       "verb": "New",
-      "noun": "EMCQueue",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Queue",
       "pipelineProperty": "Queue",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Queue",
         "ConfirmImpactSetting": "Medium",
@@ -179,20 +140,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteJobTemplate": {
       "verb": "Remove",
-      "noun": "EMCJobTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "JobTemplate",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobTemplate",
         "ConfirmImpactSetting": "High",
@@ -211,20 +166,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeletePreset": {
       "verb": "Remove",
-      "noun": "EMCPreset",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Preset",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Preset",
         "ConfirmImpactSetting": "High",
@@ -243,20 +192,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteQueue": {
       "verb": "Remove",
-      "noun": "EMCQueue",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Queue",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Queue",
         "ConfirmImpactSetting": "High",
@@ -275,20 +218,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEndpoints": {
       "verb": "Get",
-      "noun": "EMCEndpoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Endpoint",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Endpoints",
         "ConfirmImpactSetting": "Medium",
@@ -302,25 +237,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 20
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetJob": {
       "verb": "Get",
-      "noun": "EMCJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Job",
       "pipelineProperty": "Id",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Job",
         "ConfirmImpactSetting": "Medium",
@@ -334,31 +257,21 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 20
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetJobTemplate": {
       "verb": "Get",
-      "noun": "EMCJobTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "JobTemplate",
       "customParameters": [
         {
           "name": "Name",
-          "aliases": "JobTemplate"
+          "aliases": [
+            "JobTemplate"
+          ]
         }
       ],
+      "pipelineProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobTemplate",
         "ConfirmImpactSetting": "Medium",
@@ -372,25 +285,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 20
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetPreset": {
       "verb": "Get",
-      "noun": "EMCPreset",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Preset",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Preset",
         "ConfirmImpactSetting": "Medium",
@@ -404,25 +305,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 20
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetQueue": {
       "verb": "Get",
-      "noun": "EMCQueue",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Queue",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Queue",
         "ConfirmImpactSetting": "Medium",
@@ -436,31 +325,21 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 20
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListJobs": {
       "verb": "Get",
-      "noun": "EMCJobList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "Queue",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "JobList",
       "customParameters": [
         {
           "name": "Queue",
-          "aliases": "Name"
+          "aliases": [
+            "Name"
+          ]
         }
       ],
+      "pipelineProperty": "Queue",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Jobs",
         "ConfirmImpactSetting": "Medium",
@@ -474,25 +353,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 20
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListJobTemplates": {
       "verb": "Get",
-      "noun": "EMCJobTemplateList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "JobTemplateList",
       "pipelineProperty": "Category",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobTemplates",
         "ConfirmImpactSetting": "Medium",
@@ -506,25 +373,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 20
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListPresets": {
       "verb": "Get",
-      "noun": "EMCPresetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PresetList",
       "pipelineProperty": "Category",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Presets",
         "ConfirmImpactSetting": "Medium",
@@ -538,25 +393,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 20
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListQueues": {
       "verb": "Get",
-      "noun": "EMCQueueList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "QueueList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Queues",
         "ConfirmImpactSetting": "Medium",
@@ -570,25 +413,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 20
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateJobTemplate": {
       "verb": "Update",
-      "noun": "EMCJobTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "JobTemplate",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobTemplate",
         "ConfirmImpactSetting": "Medium",
@@ -607,20 +438,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdatePreset": {
       "verb": "Update",
-      "noun": "EMCPreset",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Preset",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Preset",
         "ConfirmImpactSetting": "Medium",
@@ -639,20 +463,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateQueue": {
       "verb": "Update",
-      "noun": "EMCQueue",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Queue",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Queue",
         "ConfirmImpactSetting": "Medium",
@@ -671,8 +488,7 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

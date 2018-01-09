@@ -1,35 +1,24 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.ResourceGroups",
-  "sdkServiceClient": "AmazonResourceGroupsClient",
-  "sdkServiceClientConfig": "AmazonResourceGroupsConfig",
-  "legacyCmdletPrefix": "RG",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.ResourceGroups.Model.ResourceQuery"
-  ],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults",
     "servicePageSize": 50
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "RG",
+  "nonFlatteningTypeNames": [
+    "Amazon.ResourceGroups.Model.ResourceQuery"
+  ],
+  "sdkServiceClientClass": "AmazonResourceGroupsClient",
+  "sdkServiceConfigClass": "AmazonResourceGroupsConfig",
+  "sdkServiceNamespace": "Amazon.ResourceGroups",
   "serviceOperations": {
     "CreateGroup": {
       "verb": "New",
-      "noun": "RGGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Group",
       "pipelineProperty": "ResourceQuery",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Group",
@@ -49,26 +38,21 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteGroup": {
       "verb": "Remove",
-      "noun": "RGGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "GroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Group",
       "customParameters": [
         {
           "name": "GroupName",
-          "aliases": "Name"
+          "aliases": [
+            "Name"
+          ]
         }
       ],
+      "pipelineProperty": "GroupName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Group",
         "ConfirmImpactSetting": "High",
@@ -87,26 +71,21 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetGroup": {
       "verb": "Get",
-      "noun": "RGGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "GroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Group",
       "customParameters": [
         {
           "name": "GroupName",
-          "aliases": "Name"
+          "aliases": [
+            "Name"
+          ]
         }
       ],
+      "pipelineProperty": "GroupName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Group",
         "ConfirmImpactSetting": "Medium",
@@ -120,31 +99,21 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 50
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetGroupQuery": {
       "verb": "Get",
-      "noun": "RGGroupQuery",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "GroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "GroupQuery",
       "customParameters": [
         {
           "name": "GroupName",
-          "aliases": "Name"
+          "aliases": [
+            "Name"
+          ]
         }
       ],
+      "pipelineProperty": "GroupName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GroupQuery",
         "ConfirmImpactSetting": "Medium",
@@ -158,25 +127,16 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 50
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetTags": {
       "verb": "Get",
-      "noun": "RGResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "Arn",
+      "noun": "ResourceTag",
+      "outputMetadataPropertyNames": [
+        "Arn"
+      ],
       "pipelineProperty": "Arn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -190,31 +150,21 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 50
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListGroupResources": {
       "verb": "Get",
-      "noun": "RGGroupResourceList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "GroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "GroupResourceList",
       "customParameters": [
         {
           "name": "GroupName",
-          "aliases": "Name"
+          "aliases": [
+            "Name"
+          ]
         }
       ],
+      "pipelineProperty": "GroupName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GroupResources",
         "ConfirmImpactSetting": "Medium",
@@ -228,25 +178,12 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 50
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListGroups": {
       "verb": "Get",
-      "noun": "RGGroupList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "GroupList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Groups",
         "ConfirmImpactSetting": "Medium",
@@ -260,25 +197,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 50
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SearchResources": {
       "verb": "Find",
-      "noun": "RGResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Resource",
       "pipelineProperty": "ResourceQuery",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resources",
         "ConfirmImpactSetting": "Medium",
@@ -292,25 +217,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 50
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "Tag": {
       "verb": "Add",
-      "noun": "RGResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "Tags",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "",
         "ConfirmImpactSetting": "Medium",
@@ -329,20 +243,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Arn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "Untag": {
       "verb": "Remove",
-      "noun": "RGResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "Keys",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "",
         "ConfirmImpactSetting": "High",
@@ -361,26 +269,21 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Arn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateGroup": {
       "verb": "Update",
-      "noun": "RGGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "Description",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Group",
       "customParameters": [
         {
           "name": "GroupName",
-          "aliases": "Name"
+          "aliases": [
+            "Name"
+          ]
         }
       ],
+      "pipelineProperty": "Description",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Group",
         "ConfirmImpactSetting": "Medium",
@@ -399,26 +302,21 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateGroupQuery": {
       "verb": "Update",
-      "noun": "RGGroupQuery",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "ResourceQuery",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "GroupQuery",
       "customParameters": [
         {
           "name": "GroupName",
-          "aliases": "Name"
+          "aliases": [
+            "Name"
+          ]
         }
       ],
+      "pipelineProperty": "ResourceQuery",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GroupQuery",
         "ConfirmImpactSetting": "Medium",
@@ -437,8 +335,7 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

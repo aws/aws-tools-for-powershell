@@ -1,35 +1,24 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [
-    "AscendingOrder"
-  ],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.IoT",
-  "sdkServiceClient": "AmazonIoTClient",
-  "sdkServiceClientConfig": "AmazonIoTConfig",
-  "legacyCmdletPrefix": "IOT",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "Marker",
     "responseTokenMember": "NextMarker",
     "resultLimitMember": "MaxResults",
     "servicePageSize": 250
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "IOT",
+  "outputMetadataPropertyNames": [
+    "AscendingOrder"
+  ],
+  "sdkServiceClientClass": "AmazonIoTClient",
+  "sdkServiceConfigClass": "AmazonIoTConfig",
+  "sdkServiceNamespace": "Amazon.IoT",
   "serviceOperations": {
     "AcceptCertificateTransfer": {
       "verb": "Confirm",
-      "noun": "IOTCertificateTransfer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CertificateTransfer",
       "pipelineProperty": "CertificateId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CertificateTransfer",
         "ConfirmImpactSetting": "Medium",
@@ -48,20 +37,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CertificateId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddThingToThingGroup": {
       "verb": "Add",
-      "noun": "IOTThingToThingGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingToThingGroup",
       "pipelineProperty": "ThingName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingToThingGroup",
         "ConfirmImpactSetting": "Medium",
@@ -80,20 +63,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ThingName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AssociateTargetsWithJob": {
       "verb": "Add",
-      "noun": "IOTTargetsWithJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TargetsWithJob",
       "pipelineProperty": "JobId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TargetsWithJob",
         "ConfirmImpactSetting": "Medium",
@@ -112,20 +89,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AttachPolicy": {
       "verb": "Add",
-      "noun": "IOTPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Policy",
       "pipelineProperty": "PolicyName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Policy",
         "ConfirmImpactSetting": "Medium",
@@ -144,20 +115,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AttachPrincipalPolicy": {
       "verb": "Add",
-      "noun": "IOTPrincipalPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PrincipalPolicy",
       "pipelineProperty": "Principal",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PrincipalPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -176,20 +141,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AttachThingPrincipal": {
       "verb": "Add",
-      "noun": "IOTThingPrincipal",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingPrincipal",
       "pipelineProperty": "ThingName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingPrincipal",
         "ConfirmImpactSetting": "Medium",
@@ -208,20 +167,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ThingName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CancelCertificateTransfer": {
       "verb": "Stop",
-      "noun": "IOTCertificateTransfer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CertificateTransfer",
       "pipelineProperty": "CertificateId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CertificateTransfer",
         "ConfirmImpactSetting": "Medium",
@@ -240,20 +193,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CertificateId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CancelJob": {
       "verb": "Stop",
-      "noun": "IOTJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Job",
       "pipelineProperty": "JobId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Job",
         "ConfirmImpactSetting": "Medium",
@@ -272,20 +219,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ClearDefaultAuthorizer": {
       "verb": "Clear",
-      "noun": "IOTDefaultAuthorizer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DefaultAuthorizer",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DefaultAuthorizer",
         "ConfirmImpactSetting": "Medium",
@@ -304,20 +244,14 @@
           "analysisMessage": "No parameters, setting anonymous target",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateAuthorizer": {
       "verb": "New",
-      "noun": "IOTAuthorizer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Authorizer",
       "pipelineProperty": "AuthorizerName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Authorizer",
         "ConfirmImpactSetting": "Medium",
@@ -336,21 +270,15 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AuthorizerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateCertificateFromCsr": {
       "verb": "New",
-      "noun": "IOTCertificateFromCsr",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "suppressShouldProcessConfirmation": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CertificateFromCsr",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
+      "suppressShouldProcessConfirmation": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CertificateFromCsr",
         "ConfirmImpactSetting": "Medium",
@@ -364,25 +292,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateJob": {
       "verb": "New",
-      "noun": "IOTJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Job",
       "pipelineProperty": "JobId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Job",
         "ConfirmImpactSetting": "Medium",
@@ -401,20 +318,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateKeysAndCertificate": {
       "verb": "New",
-      "noun": "IOTKeysAndCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "KeysAndCertificate",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "KeysAndCertificate",
         "ConfirmImpactSetting": "Medium",
@@ -433,20 +344,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SetAsActive"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateOTAUpdate": {
       "verb": "New",
-      "noun": "IOTOTAUpdate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OTAUpdate",
       "pipelineProperty": "OtaUpdateId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OTAUpdate",
         "ConfirmImpactSetting": "Medium",
@@ -465,20 +370,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "OtaUpdateId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreatePolicy": {
       "verb": "New",
-      "noun": "IOTPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Policy",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Policy",
         "ConfirmImpactSetting": "Medium",
@@ -497,20 +396,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreatePolicyVersion": {
       "verb": "New",
-      "noun": "IOTPolicyVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PolicyVersion",
       "pipelineProperty": "PolicyName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PolicyVersion",
         "ConfirmImpactSetting": "Medium",
@@ -529,20 +422,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateRoleAlias": {
       "verb": "New",
-      "noun": "IOTRoleAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RoleAlias",
       "pipelineProperty": "RoleArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RoleAlias",
         "ConfirmImpactSetting": "Medium",
@@ -561,20 +448,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateStream": {
       "verb": "New",
-      "noun": "IOTStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Stream",
       "pipelineProperty": "StreamId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stream",
         "ConfirmImpactSetting": "Medium",
@@ -593,20 +474,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateThing": {
       "verb": "New",
-      "noun": "IOTThing",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Thing",
       "pipelineProperty": "ThingName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Thing",
         "ConfirmImpactSetting": "Medium",
@@ -625,20 +500,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ThingName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateThingGroup": {
       "verb": "New",
-      "noun": "IOTThingGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingGroup",
       "pipelineProperty": "ThingGroupName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingGroup",
         "ConfirmImpactSetting": "Medium",
@@ -657,20 +526,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ThingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateThingType": {
       "verb": "New",
-      "noun": "IOTThingType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingType",
       "pipelineProperty": "ThingTypeName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingType",
         "ConfirmImpactSetting": "Medium",
@@ -689,20 +552,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ThingTypeName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateTopicRule": {
       "verb": "New",
-      "noun": "IOTTopicRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TopicRule",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "RuleName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TopicRule",
@@ -722,20 +579,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "RuleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteAuthorizer": {
       "verb": "Remove",
-      "noun": "IOTAuthorizer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Authorizer",
       "pipelineProperty": "AuthorizerName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Authorizer",
         "ConfirmImpactSetting": "High",
@@ -754,20 +605,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AuthorizerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCACertificate": {
       "verb": "Remove",
-      "noun": "IOTCACertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CACertificate",
       "pipelineProperty": "CertificateId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CACertificate",
         "ConfirmImpactSetting": "High",
@@ -786,20 +631,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CertificateId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCertificate": {
       "verb": "Remove",
-      "noun": "IOTCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "CertificateId",
-      "output": "Void",
-      "legacyPositionalParameters": null,
+      "noun": "Certificate",
       "customParameters": [
         {
           "name": "ForceDelete",
@@ -807,6 +644,8 @@
           "autoApplyAlias": "false"
         }
       ],
+      "pipelineProperty": "CertificateId",
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Certificate",
         "ConfirmImpactSetting": "High",
@@ -825,20 +664,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CertificateId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteOTAUpdate": {
       "verb": "Remove",
-      "noun": "IOTOTAUpdate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OTAUpdate",
       "pipelineProperty": "OtaUpdateId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OTAUpdate",
         "ConfirmImpactSetting": "High",
@@ -857,20 +690,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "OtaUpdateId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeletePolicy": {
       "verb": "Remove",
-      "noun": "IOTPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Policy",
       "pipelineProperty": "PolicyName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Policy",
         "ConfirmImpactSetting": "High",
@@ -889,20 +716,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeletePolicyVersion": {
       "verb": "Remove",
-      "noun": "IOTPolicyVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PolicyVersion",
       "pipelineProperty": "PolicyName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "PolicyVersionId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PolicyVersion",
@@ -922,21 +743,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "PolicyVersionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRegistrationCode": {
       "verb": "Remove",
-      "noun": "IOTRegistrationCode",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "suppressShouldProcessConfirmation": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "RegistrationCode",
       "output": "Void",
-      "legacyPositionalParameters": null,
+      "suppressShouldProcessConfirmation": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RegistrationCode",
         "ConfirmImpactSetting": "High",
@@ -950,25 +764,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRoleAlias": {
       "verb": "Remove",
-      "noun": "IOTRoleAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RoleAlias",
       "pipelineProperty": "RoleAlias",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RoleAlias",
         "ConfirmImpactSetting": "High",
@@ -987,20 +790,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleAlias"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteStream": {
       "verb": "Remove",
-      "noun": "IOTStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Stream",
       "pipelineProperty": "StreamId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stream",
         "ConfirmImpactSetting": "High",
@@ -1019,20 +816,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteThing": {
       "verb": "Remove",
-      "noun": "IOTThing",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Thing",
       "pipelineProperty": "ThingName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Thing",
         "ConfirmImpactSetting": "High",
@@ -1051,20 +842,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ThingName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteThingGroup": {
       "verb": "Remove",
-      "noun": "IOTThingGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingGroup",
       "pipelineProperty": "ThingGroupName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingGroup",
         "ConfirmImpactSetting": "High",
@@ -1083,20 +868,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ThingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteThingType": {
       "verb": "Remove",
-      "noun": "IOTThingType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingType",
       "pipelineProperty": "ThingTypeName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingType",
         "ConfirmImpactSetting": "High",
@@ -1115,20 +894,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ThingTypeName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteTopicRule": {
       "verb": "Remove",
-      "noun": "IOTTopicRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TopicRule",
       "pipelineProperty": "RuleName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TopicRule",
         "ConfirmImpactSetting": "High",
@@ -1147,20 +920,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RuleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteV2LoggingLevel": {
       "verb": "Remove",
-      "noun": "IOTV2LoggingLevel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "V2LoggingLevel",
       "pipelineProperty": "LogTargetName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "V2LoggingLevel",
         "ConfirmImpactSetting": "High",
@@ -1179,20 +946,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TargetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeprecateThingType": {
       "verb": "Set",
-      "noun": "IOTThingTypeDeprecation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingTypeDeprecation",
       "pipelineProperty": "ThingTypeName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingType",
         "ConfirmImpactSetting": "Medium",
@@ -1211,20 +972,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ThingTypeName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAuthorizer": {
       "verb": "Get",
-      "noun": "IOTAuthorizer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Authorizer",
       "pipelineProperty": "AuthorizerName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Authorizer",
         "ConfirmImpactSetting": "Medium",
@@ -1238,25 +992,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeCACertificate": {
       "verb": "Get",
-      "noun": "IOTCACertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CACertificate",
       "pipelineProperty": "CertificateId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CACertificate",
         "ConfirmImpactSetting": "Medium",
@@ -1270,25 +1013,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeCertificate": {
       "verb": "Get",
-      "noun": "IOTCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Certificate",
       "pipelineProperty": "CertificateId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Certificate",
         "ConfirmImpactSetting": "Medium",
@@ -1302,25 +1033,12 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDefaultAuthorizer": {
       "verb": "Get",
-      "noun": "IOTDefaultAuthorizer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DefaultAuthorizer",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DefaultAuthorizer",
         "ConfirmImpactSetting": "Medium",
@@ -1334,25 +1052,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEndpoint": {
       "verb": "Get",
-      "noun": "IOTEndpoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Endpoint",
       "pipelineProperty": "EndpointType",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Endpoint",
         "ConfirmImpactSetting": "Medium",
@@ -1366,25 +1072,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEventConfigurations": {
       "verb": "Get",
-      "noun": "IOTEventConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "EventConfiguration",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventConfigurations",
         "ConfirmImpactSetting": "Medium",
@@ -1398,25 +1092,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeIndex": {
       "verb": "Get",
-      "noun": "IOTIndex",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Index",
       "pipelineProperty": "IndexName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Index",
         "ConfirmImpactSetting": "Medium",
@@ -1430,25 +1113,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeJob": {
       "verb": "Get",
-      "noun": "IOTJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Job",
       "pipelineProperty": "JobId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Job",
         "ConfirmImpactSetting": "Medium",
@@ -1462,25 +1134,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeJobExecution": {
       "verb": "Get",
-      "noun": "IOTJobExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "JobExecution",
       "pipelineProperty": "JobId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobExecution",
         "ConfirmImpactSetting": "Medium",
@@ -1494,25 +1154,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeRoleAlias": {
       "verb": "Get",
-      "noun": "IOTRoleAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RoleAlias",
       "pipelineProperty": "RoleAlias",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RoleAlias",
         "ConfirmImpactSetting": "Medium",
@@ -1526,25 +1174,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeStream": {
       "verb": "Get",
-      "noun": "IOTStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Stream",
       "pipelineProperty": "StreamId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stream",
         "ConfirmImpactSetting": "Medium",
@@ -1558,25 +1194,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeThing": {
       "verb": "Get",
-      "noun": "IOTThing",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Thing",
       "pipelineProperty": "ThingName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Thing",
         "ConfirmImpactSetting": "Medium",
@@ -1590,25 +1215,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeThingGroup": {
       "verb": "Get",
-      "noun": "IOTThingGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingGroup",
       "pipelineProperty": "ThingGroupName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingGroup",
         "ConfirmImpactSetting": "Medium",
@@ -1622,25 +1236,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeThingRegistrationTask": {
       "verb": "Get",
-      "noun": "IOTThingRegistrationTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingRegistrationTask",
       "pipelineProperty": "TaskId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingRegistrationTask",
         "ConfirmImpactSetting": "Medium",
@@ -1654,25 +1257,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeThingType": {
       "verb": "Get",
-      "noun": "IOTThingType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingType",
       "pipelineProperty": "ThingTypeName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingType",
         "ConfirmImpactSetting": "Medium",
@@ -1686,25 +1278,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DetachPolicy": {
       "verb": "Dismount",
-      "noun": "IOTPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Policy",
       "pipelineProperty": "Target",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Policy",
         "ConfirmImpactSetting": "Medium",
@@ -1723,20 +1304,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DetachPrincipalPolicy": {
       "verb": "Remove",
-      "noun": "IOTPrincipalPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PrincipalPolicy",
       "pipelineProperty": "PrincipalId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PrincipalPolicy",
         "ConfirmImpactSetting": "High",
@@ -1755,20 +1330,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DetachThingPrincipal": {
       "verb": "Remove",
-      "noun": "IOTThingPrincipal",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingPrincipal",
       "pipelineProperty": "ThingName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingPrincipal",
         "ConfirmImpactSetting": "High",
@@ -1787,20 +1356,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ThingName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisableTopicRule": {
       "verb": "Disable",
-      "noun": "IOTTopicRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TopicRule",
       "pipelineProperty": "RuleName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TopicRule",
         "ConfirmImpactSetting": "Medium",
@@ -1819,20 +1382,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RuleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "EnableTopicRule": {
       "verb": "Enable",
-      "noun": "IOTTopicRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TopicRule",
       "pipelineProperty": "RuleName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TopicRule",
         "ConfirmImpactSetting": "Medium",
@@ -1851,20 +1408,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RuleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetEffectivePolicies": {
       "verb": "Get",
-      "noun": "IOTEffectivePolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EffectivePolicy",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EffectivePolicies",
         "ConfirmImpactSetting": "Medium",
@@ -1878,25 +1428,12 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetIndexingConfiguration": {
       "verb": "Get",
-      "noun": "IOTIndexingConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "IndexingConfiguration",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IndexingConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -1910,25 +1447,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetJobDocument": {
       "verb": "Get",
-      "noun": "IOTJobDocument",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "JobDocument",
       "pipelineProperty": "JobId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobDocument",
         "ConfirmImpactSetting": "Medium",
@@ -1942,25 +1467,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetLoggingOptions": {
       "verb": "Get",
-      "noun": "IOTLoggingOption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "LoggingOption",
       "legacyAlias": "Get-IOTLoggingOptions",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoggingOptions",
         "ConfirmImpactSetting": "Medium",
@@ -1974,25 +1488,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetOTAUpdate": {
       "verb": "Get",
-      "noun": "IOTOTAUpdate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OTAUpdate",
       "pipelineProperty": "OtaUpdateId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OTAUpdate",
         "ConfirmImpactSetting": "Medium",
@@ -2006,25 +1508,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetPolicy": {
       "verb": "Get",
-      "noun": "IOTPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Policy",
       "pipelineProperty": "PolicyName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Policy",
         "ConfirmImpactSetting": "Medium",
@@ -2038,25 +1529,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetPolicyVersion": {
       "verb": "Get",
-      "noun": "IOTPolicyVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PolicyVersion",
       "pipelineProperty": "PolicyName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PolicyVersion",
         "ConfirmImpactSetting": "Medium",
@@ -2070,25 +1550,12 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetRegistrationCode": {
       "verb": "Get",
-      "noun": "IOTRegistrationCode",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "RegistrationCode",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RegistrationCode",
         "ConfirmImpactSetting": "Medium",
@@ -2102,25 +1569,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetTopicRule": {
       "verb": "Get",
-      "noun": "IOTTopicRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TopicRule",
       "pipelineProperty": "RuleName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TopicRule",
         "ConfirmImpactSetting": "Medium",
@@ -2134,25 +1590,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetV2LoggingOptions": {
       "verb": "Get",
-      "noun": "IOTV2LoggingOption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "V2LoggingOption",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "V2LoggingOptions",
         "ConfirmImpactSetting": "Medium",
@@ -2166,25 +1610,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListAttachedPolicies": {
       "verb": "Get",
-      "noun": "IOTAttachedPoliciesList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AttachedPoliciesList",
       "pipelineProperty": "Target",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AttachedPolicies",
         "ConfirmImpactSetting": "Medium",
@@ -2198,25 +1630,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListAuthorizers": {
       "verb": "Get",
-      "noun": "IOTAuthorizersList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AuthorizersList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Authorizers",
         "ConfirmImpactSetting": "Medium",
@@ -2230,25 +1650,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListCACertificates": {
       "verb": "Get",
-      "noun": "IOTCACertificateList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CACertificateList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CACertificates",
         "ConfirmImpactSetting": "Medium",
@@ -2262,25 +1670,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListCertificates": {
       "verb": "Get",
-      "noun": "IOTCertificateList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CertificateList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "paginationSettings": {
         "requestTokenMember": "Marker",
         "responseTokenMember": "NextMarker",
@@ -2300,25 +1696,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListCertificatesByCA": {
       "verb": "Get",
-      "noun": "IOTCertificateListByCA",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CertificateListByCA",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CertificatesByCA",
         "ConfirmImpactSetting": "Medium",
@@ -2332,25 +1716,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListIndices": {
       "verb": "Get",
-      "noun": "IOTIndicesList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IndicesList",
       "pipelineProperty": "NextToken",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Indices",
         "ConfirmImpactSetting": "Medium",
@@ -2364,25 +1736,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListJobExecutionsForJob": {
       "verb": "Get",
-      "noun": "IOTJobExecutionsForJobList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "JobExecutionsForJobList",
       "pipelineProperty": "JobId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobExecutionsForJob",
         "ConfirmImpactSetting": "Medium",
@@ -2396,25 +1756,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListJobExecutionsForThing": {
       "verb": "Get",
-      "noun": "IOTJobExecutionsForThingList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "JobExecutionsForThingList",
       "pipelineProperty": "ThingName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobExecutionsForThing",
         "ConfirmImpactSetting": "Medium",
@@ -2428,25 +1776,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListJobs": {
       "verb": "Get",
-      "noun": "IOTJobsList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "JobsList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Jobs",
         "ConfirmImpactSetting": "Medium",
@@ -2460,25 +1796,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListOTAUpdates": {
       "verb": "Get",
-      "noun": "IOTOTAUpdateList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OTAUpdateList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OTAUpdates",
         "ConfirmImpactSetting": "Medium",
@@ -2492,25 +1816,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListOutgoingCertificates": {
       "verb": "Get",
-      "noun": "IOTOutgoingCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OutgoingCertificate",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "paginationSettings": {
         "requestTokenMember": "Marker",
         "responseTokenMember": "NextMarker",
@@ -2530,25 +1842,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListPolicies": {
       "verb": "Get",
-      "noun": "IOTPolicyList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PolicyList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "paginationSettings": {
         "requestTokenMember": "Marker",
         "responseTokenMember": "NextMarker",
@@ -2568,31 +1868,19 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListPolicyPrincipals": {
       "verb": "Get",
-      "noun": "IOTPolicyPrincipalsList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "PolicyName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "PolicyPrincipalsList",
       "paginationSettings": {
         "requestTokenMember": "Marker",
         "responseTokenMember": "NextMarker",
         "resultLimitMember": "PageSize",
         "servicePageSize": 250
       },
+      "pipelineProperty": "PolicyName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PolicyPrincipals",
         "ConfirmImpactSetting": "Medium",
@@ -2606,31 +1894,19 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListPolicyVersions": {
       "verb": "Get",
-      "noun": "IOTPolicyVersionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "PolicyName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "PolicyVersionList",
       "paginationSettings": {
         "requestTokenMember": "Marker",
         "responseTokenMember": "NextMarker",
         "resultLimitMember": "PageSize",
         "servicePageSize": 250
       },
+      "pipelineProperty": "PolicyName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PolicyVersions",
         "ConfirmImpactSetting": "Medium",
@@ -2644,31 +1920,19 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListPrincipalPolicies": {
       "verb": "Get",
-      "noun": "IOTPrincipalPolicyList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "Principal",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "PrincipalPolicyList",
       "paginationSettings": {
         "requestTokenMember": "Marker",
         "responseTokenMember": "NextMarker",
         "resultLimitMember": "PageSize",
         "servicePageSize": 250
       },
+      "pipelineProperty": "Principal",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PrincipalPolicies",
         "ConfirmImpactSetting": "Medium",
@@ -2682,31 +1946,19 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListPrincipalThings": {
       "verb": "Get",
-      "noun": "IOTPrincipalThingList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "Principal",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "PrincipalThingList",
       "paginationSettings": {
         "requestTokenMember": "Marker",
         "responseTokenMember": "NextToken",
         "resultLimitMember": "MaxResults",
         "servicePageSize": 250
       },
+      "pipelineProperty": "Principal",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PrincipalThings",
         "ConfirmImpactSetting": "Medium",
@@ -2720,25 +1972,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListRoleAliases": {
       "verb": "Get",
-      "noun": "IOTRoleAliasesList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RoleAliasesList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RoleAliases",
         "ConfirmImpactSetting": "Medium",
@@ -2752,25 +1992,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListStreams": {
       "verb": "Get",
-      "noun": "IOTStreamList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StreamList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Streams",
         "ConfirmImpactSetting": "Medium",
@@ -2784,25 +2012,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTargetsForPolicy": {
       "verb": "Get",
-      "noun": "IOTTargetsForPolicyList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TargetsForPolicyList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TargetsForPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -2816,25 +2032,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListThingGroups": {
       "verb": "Get",
-      "noun": "IOTThingGroupsList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingGroupsList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingGroups",
         "ConfirmImpactSetting": "Medium",
@@ -2848,25 +2052,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListThingGroupsForThing": {
       "verb": "Get",
-      "noun": "IOTThingGroupsForThingList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingGroupsForThingList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingGroupsForThing",
         "ConfirmImpactSetting": "Medium",
@@ -2880,25 +2072,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListThingPrincipals": {
       "verb": "Get",
-      "noun": "IOTThingPrincipalList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingPrincipalList",
       "pipelineProperty": "ThingName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingPrincipals",
         "ConfirmImpactSetting": "Medium",
@@ -2912,25 +2092,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListThingRegistrationTaskReports": {
       "verb": "Get",
-      "noun": "IOTThingRegistrationTaskReportsList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingRegistrationTaskReportsList",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingRegistrationTaskReports",
         "ConfirmImpactSetting": "Medium",
@@ -2944,25 +2113,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListThingRegistrationTasks": {
       "verb": "Get",
-      "noun": "IOTThingRegistrationTasksList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingRegistrationTasksList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingRegistrationTasks",
         "ConfirmImpactSetting": "Medium",
@@ -2976,25 +2133,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListThings": {
       "verb": "Get",
-      "noun": "IOTThingList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Things",
         "ConfirmImpactSetting": "Medium",
@@ -3008,25 +2153,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListThingsInThingGroup": {
       "verb": "Get",
-      "noun": "IOTThingsInThingGroupList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingsInThingGroupList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingsInThingGroup",
         "ConfirmImpactSetting": "Medium",
@@ -3040,25 +2173,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListThingTypes": {
       "verb": "Get",
-      "noun": "IOTThingTypesList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingTypesList",
       "pipelineProperty": "ThingTypeName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingTypes",
         "ConfirmImpactSetting": "Medium",
@@ -3072,25 +2193,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTopicRules": {
       "verb": "Get",
-      "noun": "IOTTopicRuleList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TopicRuleList",
       "pipelineProperty": "Topic",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TopicRules",
         "ConfirmImpactSetting": "Medium",
@@ -3104,25 +2213,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListV2LoggingLevels": {
       "verb": "Get",
-      "noun": "IOTV2LoggingLevelsList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "V2LoggingLevelsList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "V2LoggingLevels",
         "ConfirmImpactSetting": "Medium",
@@ -3136,26 +2233,15 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RegisterCACertificate": {
       "verb": "Register",
-      "noun": "IOTCACertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "suppressShouldProcessConfirmation": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CACertificate",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
+      "suppressShouldProcessConfirmation": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CACertificate",
         "ConfirmImpactSetting": "Medium",
@@ -3169,26 +2255,15 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RegisterCertificate": {
       "verb": "Register",
-      "noun": "IOTCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "suppressShouldProcessConfirmation": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Certificate",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
+      "suppressShouldProcessConfirmation": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Certificate",
         "ConfirmImpactSetting": "Medium",
@@ -3202,25 +2277,15 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RegisterThing": {
       "verb": "Register",
-      "noun": "IOTThing",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Thing",
       "pipelineProperty": "TemplateBody",
       "output": "Response",
-      "legacyPositionalParameters": null,
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Thing",
         "ConfirmImpactSetting": "Medium",
@@ -3239,20 +2304,14 @@
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RejectCertificateTransfer": {
       "verb": "Deny",
-      "noun": "IOTCertificateTransfer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CertificateTransfer",
       "pipelineProperty": "CertificateId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CertificateTransfer",
         "ConfirmImpactSetting": "Medium",
@@ -3271,20 +2330,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CertificateId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveThingFromThingGroup": {
       "verb": "Remove",
-      "noun": "IOTThingFromThingGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingFromThingGroup",
       "pipelineProperty": "ThingName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ThingGroupName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingFromThingGroup",
@@ -3304,20 +2357,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ThingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ReplaceTopicRule": {
       "verb": "Set",
-      "noun": "IOTTopicRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TopicRule",
       "pipelineProperty": "RuleName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TopicRule",
         "ConfirmImpactSetting": "Medium",
@@ -3336,20 +2383,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RuleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SearchIndex": {
       "verb": "Search",
-      "noun": "IOTIndex",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Index",
       "pipelineProperty": "QueryString",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Index",
         "ConfirmImpactSetting": "Medium",
@@ -3368,20 +2408,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "IndexName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetDefaultAuthorizer": {
       "verb": "Set",
-      "noun": "IOTDefaultAuthorizer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DefaultAuthorizer",
       "pipelineProperty": "AuthorizerName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DefaultAuthorizer",
         "ConfirmImpactSetting": "Medium",
@@ -3400,20 +2434,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AuthorizerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetDefaultPolicyVersion": {
       "verb": "Set",
-      "noun": "IOTDefaultPolicyVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DefaultPolicyVersion",
       "pipelineProperty": "PolicyName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DefaultPolicyVersion",
         "ConfirmImpactSetting": "Medium",
@@ -3432,20 +2460,15 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetLoggingOptions": {
       "verb": "Set",
-      "noun": "IOTLoggingOption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "LoggingOption",
       "legacyAlias": "Set-IOTLoggingOptions",
-      "metadataOutputProperties": "",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoggingOptions",
         "ConfirmImpactSetting": "Medium",
@@ -3464,20 +2487,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetV2LoggingLevel": {
       "verb": "Set",
-      "noun": "IOTV2LoggingLevel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "V2LoggingLevel",
       "pipelineProperty": "LogLevel",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "V2LoggingLevel",
         "ConfirmImpactSetting": "Medium",
@@ -3496,20 +2513,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TargetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetV2LoggingOptions": {
       "verb": "Set",
-      "noun": "IOTV2LoggingOption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "V2LoggingOption",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "V2LoggingOptions",
         "ConfirmImpactSetting": "Medium",
@@ -3528,20 +2539,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartThingRegistrationTask": {
       "verb": "Start",
-      "noun": "IOTThingRegistrationTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingRegistrationTask",
       "pipelineProperty": "TemplateBody",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingRegistrationTask",
         "ConfirmImpactSetting": "Medium",
@@ -3560,20 +2564,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopThingRegistrationTask": {
       "verb": "Stop",
-      "noun": "IOTThingRegistrationTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingRegistrationTask",
       "pipelineProperty": "TaskId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingRegistrationTask",
         "ConfirmImpactSetting": "Medium",
@@ -3592,20 +2590,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TaskId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TestAuthorization": {
       "verb": "Test",
-      "noun": "IOTAuthorization",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Authorization",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Authorization",
         "ConfirmImpactSetting": "Medium",
@@ -3619,25 +2610,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TestInvokeAuthorizer": {
       "verb": "Test",
-      "noun": "IOTInvokeAuthorizer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InvokeAuthorizer",
       "pipelineProperty": "TokenSignature",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InvokeAuthorizer",
         "ConfirmImpactSetting": "Medium",
@@ -3651,25 +2631,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 250
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TransferCertificate": {
       "verb": "Request",
-      "noun": "IOTCertificateTransfer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CertificateTransfer",
       "pipelineProperty": "CertificateId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Certificate",
         "ConfirmImpactSetting": "Medium",
@@ -3688,20 +2656,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CertificateId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateAuthorizer": {
       "verb": "Update",
-      "noun": "IOTAuthorizer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Authorizer",
       "pipelineProperty": "AuthorizerName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Authorizer",
         "ConfirmImpactSetting": "Medium",
@@ -3720,20 +2682,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AuthorizerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateCACertificate": {
       "verb": "Update",
-      "noun": "IOTCACertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CACertificate",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "CertificateId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CACertificate",
@@ -3753,20 +2709,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "CertificateId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateCertificate": {
       "verb": "Update",
-      "noun": "IOTCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Certificate",
       "pipelineProperty": "CertificateId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Certificate",
         "ConfirmImpactSetting": "Medium",
@@ -3785,20 +2735,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CertificateId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateEventConfigurations": {
       "verb": "Update",
-      "noun": "IOTEventConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EventConfiguration",
       "pipelineProperty": "EventConfigurations",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventConfigurations",
         "ConfirmImpactSetting": "Medium",
@@ -3817,20 +2761,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EventConfigurations"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateIndexingConfiguration": {
       "verb": "Update",
-      "noun": "IOTIndexingConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IndexingConfiguration",
       "pipelineProperty": "ThingIndexingConfiguration_ThingIndexingMode",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IndexingConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -3849,20 +2787,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ThingIndexingMode"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateRoleAlias": {
       "verb": "Update",
-      "noun": "IOTRoleAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RoleAlias",
       "pipelineProperty": "RoleArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RoleAlias",
         "ConfirmImpactSetting": "Medium",
@@ -3881,20 +2813,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateStream": {
       "verb": "Update",
-      "noun": "IOTStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Stream",
       "pipelineProperty": "StreamId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stream",
         "ConfirmImpactSetting": "Medium",
@@ -3913,20 +2839,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateThing": {
       "verb": "Update",
-      "noun": "IOTThing",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Thing",
       "pipelineProperty": "ThingName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Thing",
         "ConfirmImpactSetting": "Medium",
@@ -3945,20 +2865,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ThingName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateThingGroup": {
       "verb": "Update",
-      "noun": "IOTThingGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingGroup",
       "pipelineProperty": "ThingGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingGroup",
         "ConfirmImpactSetting": "Medium",
@@ -3977,20 +2890,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ThingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateThingGroupsForThing": {
       "verb": "Update",
-      "noun": "IOTThingGroupsForThing",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThingGroupsForThing",
       "pipelineProperty": "ThingName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThingGroupsForThing",
         "ConfirmImpactSetting": "Medium",
@@ -4009,8 +2916,7 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ThingName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

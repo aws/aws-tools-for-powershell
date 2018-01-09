@@ -1,43 +1,33 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "AlarmName",
-    "MetricName",
-    "Namespace"
-  ],
-  "defaultPipelineProperty": "AlarmNames",
-  "legacyPositionalProperties": "AlarmNames",
-  "sdkServiceNamespace": "Amazon.CloudWatch",
-  "sdkServiceClient": "AmazonCloudWatchClient",
-  "sdkServiceClientConfig": "AmazonCloudWatchConfig",
-  "legacyCmdletPrefix": "CW",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxRecords"
   },
+  "defaultPipelineProperty": "AlarmNames",
+  "legacyCmdletPrefix": "CW",
+  "legacyPositionalProperties": "AlarmNames",
   "nounMappings": {
     "AlarmActions": "AlarmAction",
     "Alarms": "Alarm",
     "AlarmsForMetric": "AlarmForMetric"
   },
+  "pipelineByValuePropertyNames": [
+    "AlarmName",
+    "MetricName",
+    "Namespace"
+  ],
+  "sdkServiceClientClass": "AmazonCloudWatchClient",
+  "sdkServiceConfigClass": "AmazonCloudWatchConfig",
+  "sdkServiceNamespace": "Amazon.CloudWatch",
   "verbMappings": {
     "List": "Get"
   },
   "serviceOperations": {
     "DeleteAlarms": {
       "verb": "Remove",
-      "noun": "CWAlarm",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Alarm",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Alarms",
         "ConfirmImpactSetting": "High",
@@ -55,20 +45,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AlarmNames"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDashboards": {
       "verb": "Remove",
-      "noun": "CWDashboard",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Dashboard",
       "pipelineProperty": "DashboardNames",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Dashboards",
         "ConfirmImpactSetting": "High",
@@ -86,20 +70,18 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DashboardNames"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAlarmHistory": {
       "verb": "Get",
-      "noun": "CWAlarmHistory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AlarmHistory",
+      "legacyPositionalParameters": [
+        "HistoryItemType",
+        "StartDate",
+        "EndDate"
+      ],
       "pipelineProperty": "AlarmName",
-      "output": "Default",
-      "legacyPositionalParameters": "HistoryItemType;StartDate;EndDate",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AlarmHistory",
         "ConfirmImpactSetting": "Medium",
@@ -112,25 +94,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAlarms": {
       "verb": "Get",
-      "noun": "CWAlarm",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Alarm",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Alarms",
         "ConfirmImpactSetting": "Medium",
@@ -143,25 +112,17 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAlarmsForMetric": {
       "verb": "Get",
-      "noun": "CWAlarmForMetric",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AlarmForMetric",
+      "legacyPositionalParameters": [
+        "Namespace",
+        "Statistic"
+      ],
       "pipelineProperty": "MetricName",
-      "output": "Default",
-      "legacyPositionalParameters": "Namespace;Statistic",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AlarmsForMetric",
         "ConfirmImpactSetting": "Medium",
@@ -174,25 +135,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisableAlarmActions": {
       "verb": "Disable",
-      "noun": "CWAlarmAction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "AlarmAction",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AlarmActions",
         "ConfirmImpactSetting": "Medium",
@@ -210,20 +159,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AlarmNames"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "EnableAlarmActions": {
       "verb": "Enable",
-      "noun": "CWAlarmAction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "AlarmAction",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AlarmActions",
         "ConfirmImpactSetting": "Medium",
@@ -241,20 +183,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AlarmNames"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDashboard": {
       "verb": "Get",
-      "noun": "CWDashboard",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Dashboard",
       "pipelineProperty": "DashboardName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Dashboard",
         "ConfirmImpactSetting": "Medium",
@@ -267,25 +203,21 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetMetricStatistics": {
       "verb": "Get",
-      "noun": "CWMetricStatistic",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "MetricStatistic",
       "legacyAlias": "Get-CWMetricStatistics",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "MetricName",
+        "Dimensions",
+        "StartDate",
+        "EndDate"
+      ],
       "pipelineProperty": "Namespace",
       "output": "Response",
-      "legacyPositionalParameters": "MetricName;Dimensions;StartDate;EndDate",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MetricStatistics",
         "ConfirmImpactSetting": "Medium",
@@ -298,29 +230,17 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListDashboards": {
       "verb": "Get",
-      "noun": "CWDashboardList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "DashboardNamePrefix",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DashboardList",
       "paginationSettings": {
         "requestTokenMember": "NextToken",
         "responseTokenMember": "NextToken"
       },
+      "pipelineProperty": "DashboardNamePrefix",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Dashboards",
         "ConfirmImpactSetting": "Medium",
@@ -332,28 +252,16 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListMetrics": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "PutDashboard": {
       "verb": "Write",
-      "noun": "CWDashboard",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Dashboard",
       "pipelineProperty": "DashboardBody",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Dashboard",
         "ConfirmImpactSetting": "Medium",
@@ -371,20 +279,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DashboardName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutMetricAlarm": {
       "verb": "Write",
-      "noun": "CWMetricAlarm",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MetricAlarm",
+      "legacyPositionalParameters": [
+        "AlarmDescription"
+      ],
       "pipelineProperty": "AlarmName",
       "output": "Void",
-      "legacyPositionalParameters": "AlarmDescription",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MetricAlarm",
         "ConfirmImpactSetting": "Medium",
@@ -402,20 +307,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AlarmName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutMetricData": {
       "verb": "Write",
-      "noun": "CWMetricData",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MetricData",
+      "legacyPositionalParameters": [
+        "MetricData"
+      ],
       "pipelineProperty": "Namespace",
       "output": "Void",
-      "legacyPositionalParameters": "MetricData",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MetricData",
         "ConfirmImpactSetting": "Medium",
@@ -433,20 +335,19 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Namespace"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetAlarmState": {
       "verb": "Set",
-      "noun": "CWAlarmState",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AlarmState",
+      "legacyPositionalParameters": [
+        "StateValue",
+        "StateReason",
+        "StateReasonData"
+      ],
       "pipelineProperty": "AlarmName",
       "output": "Void",
-      "legacyPositionalParameters": "StateValue;StateReason;StateReasonData",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AlarmState",
         "ConfirmImpactSetting": "Medium",
@@ -464,8 +365,7 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AlarmName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

@@ -1,35 +1,24 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "BudgetName",
-    "AccountId"
-  ],
-  "defaultPipelineProperty": "BudgetName",
-  "sdkServiceNamespace": "Amazon.Budgets",
-  "sdkServiceClient": "AmazonBudgetsClient",
-  "sdkServiceClientConfig": "AmazonBudgetsConfig",
-  "legacyCmdletPrefix": "BGT",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "BudgetName",
+  "legacyCmdletPrefix": "BGT",
+  "pipelineByValuePropertyNames": [
+    "BudgetName",
+    "AccountId"
+  ],
+  "sdkServiceClientClass": "AmazonBudgetsClient",
+  "sdkServiceConfigClass": "AmazonBudgetsConfig",
+  "sdkServiceNamespace": "Amazon.Budgets",
   "serviceOperations": {
     "CreateBudget": {
       "verb": "New",
-      "noun": "BGTBudget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Budget",
       "pipelineProperty": "AccountId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Budget",
         "ConfirmImpactSetting": "Medium",
@@ -47,20 +36,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AccountId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateNotification": {
       "verb": "New",
-      "noun": "BGTNotification",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Notification",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Notification",
         "ConfirmImpactSetting": "Medium",
@@ -78,20 +60,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BudgetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateSubscriber": {
       "verb": "New",
-      "noun": "BGTSubscriber",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Subscriber",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Subscriber",
         "ConfirmImpactSetting": "Medium",
@@ -109,20 +84,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BudgetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteBudget": {
       "verb": "Remove",
-      "noun": "BGTBudget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Budget",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Budget",
         "ConfirmImpactSetting": "High",
@@ -140,20 +108,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BudgetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteNotification": {
       "verb": "Remove",
-      "noun": "BGTNotification",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Notification",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Notification",
         "ConfirmImpactSetting": "High",
@@ -171,20 +132,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BudgetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSubscriber": {
       "verb": "Remove",
-      "noun": "BGTSubscriber",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Subscriber",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Subscriber",
         "ConfirmImpactSetting": "High",
@@ -202,20 +156,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BudgetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeBudget": {
       "verb": "Get",
-      "noun": "BGTBudget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Budget",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Budget",
         "ConfirmImpactSetting": "Medium",
@@ -228,25 +174,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeBudgets": {
       "verb": "Get",
-      "noun": "BGTBudgetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "BudgetList",
       "pipelineProperty": "AccountId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Budgets",
         "ConfirmImpactSetting": "Medium",
@@ -259,25 +193,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeNotificationsForBudget": {
       "verb": "Get",
-      "noun": "BGTNotificationsForBudget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "NotificationsForBudget",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NotificationsForBudget",
         "ConfirmImpactSetting": "Medium",
@@ -290,25 +211,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeSubscribersForNotification": {
       "verb": "Get",
-      "noun": "BGTSubscribersForNotification",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SubscribersForNotification",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubscribersForNotification",
         "ConfirmImpactSetting": "Medium",
@@ -321,25 +229,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateBudget": {
       "verb": "Update",
-      "noun": "BGTBudget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Budget",
       "pipelineProperty": "AccountId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Budget",
         "ConfirmImpactSetting": "Medium",
@@ -357,20 +254,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AccountId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateNotification": {
       "verb": "Update",
-      "noun": "BGTNotification",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Notification",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Notification",
         "ConfirmImpactSetting": "Medium",
@@ -388,20 +278,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BudgetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateSubscriber": {
       "verb": "Update",
-      "noun": "BGTSubscriber",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Subscriber",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Subscriber",
         "ConfirmImpactSetting": "Medium",
@@ -419,8 +302,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BudgetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

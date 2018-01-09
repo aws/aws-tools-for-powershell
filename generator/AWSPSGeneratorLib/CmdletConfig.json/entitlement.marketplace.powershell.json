@@ -1,32 +1,19 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.MarketplaceEntitlementService",
-  "sdkServiceClient": "AmazonMarketplaceEntitlementServiceClient",
-  "sdkServiceClientConfig": "AmazonMarketplaceEntitlementServiceConfig",
-  "legacyCmdletPrefix": "MES",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "MES",
+  "sdkServiceClientClass": "AmazonMarketplaceEntitlementServiceClient",
+  "sdkServiceConfigClass": "AmazonMarketplaceEntitlementServiceConfig",
+  "sdkServiceNamespace": "Amazon.MarketplaceEntitlementService",
   "serviceOperations": {
     "GetEntitlements": {
       "verb": "Get",
-      "noun": "MESEntitlementList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EntitlementList",
       "pipelineProperty": "ProductCode",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Entitlements",
         "ConfirmImpactSetting": "Medium",
@@ -39,13 +26,7 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

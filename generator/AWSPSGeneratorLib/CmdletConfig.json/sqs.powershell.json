@@ -1,28 +1,24 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": null,
+    "responseTokenMember": null
+  },
+  "defaultPipelineProperty": "QueueUrl",
+  "legacyCmdletPrefix": "SQS",
+  "legacyPositionalProperties": "QueueUrl",
+  "nounMappings": {
+    "QueueAttributes": "QueueAttribute",
+    "Queues": "Queue"
+  },
   "pipelineByValuePropertyNames": [
     "QueueUrl",
     "Id",
     "QueueName",
     "ReceiptHandle"
   ],
-  "defaultPipelineProperty": "QueueUrl",
-  "legacyPositionalProperties": "QueueUrl",
+  "sdkServiceClientClass": "AmazonSQSClient",
+  "sdkServiceConfigClass": "AmazonSQSConfig",
   "sdkServiceNamespace": "Amazon.SQS",
-  "sdkServiceClient": "AmazonSQSClient",
-  "sdkServiceClientConfig": "AmazonSQSConfig",
-  "legacyCmdletPrefix": "SQS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": null,
-    "responseTokenMember": null
-  },
-  "nounMappings": {
-    "QueueAttributes": "QueueAttribute",
-    "Queues": "Queue"
-  },
   "verbMappings": {
     "List": "Get",
     "Change": "Edit"
@@ -30,21 +26,22 @@
   "serviceOperations": {
     "AddPermission": {
       "verb": "Add",
-      "noun": "SQSPermission",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Void",
-      "legacyPositionalParameters": "Label;AWSAccountIds;Actions",
+      "noun": "Permission",
       "customParameters": [
         {
           "name": "Actions",
           "newName": "Action",
-          "aliases": "ActionNames"
+          "aliases": [
+            "ActionNames"
+          ]
         }
       ],
+      "legacyPositionalParameters": [
+        "Label",
+        "AWSAccountIds",
+        "Actions"
+      ],
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Permission",
         "ConfirmImpactSetting": "Medium",
@@ -61,23 +58,21 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AWSAccountIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AuthorizeS3ToSendMessage": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "ChangeMessageVisibility": {
       "verb": "Edit",
-      "noun": "SQSMessageVisibility",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "MessageVisibility",
+      "legacyPositionalParameters": [
+        "ReceiptHandle",
+        "VisibilityTimeout",
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "ReceiptHandle;VisibilityTimeout;",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MessageVisibility",
         "ConfirmImpactSetting": "Medium",
@@ -94,20 +89,13 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueueUrl"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ChangeMessageVisibilityBatch": {
       "verb": "Edit",
-      "noun": "SQSMessageVisibilityBatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "MessageVisibilityBatch",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MessageVisibilityBatch",
         "ConfirmImpactSetting": "Medium",
@@ -124,26 +112,24 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueueUrl"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateQueue": {
       "verb": "New",
-      "noun": "SQSQueue",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "QueueName",
-      "output": "Default",
-      "legacyPositionalParameters": "DefaultVisibilityTimeout;DelaySeconds;Attributes",
+      "noun": "Queue",
       "customParameters": [
         {
           "name": "DelaySeconds",
           "newName": "DelayInSeconds"
         }
       ],
+      "legacyPositionalParameters": [
+        "DefaultVisibilityTimeout",
+        "DelaySeconds",
+        "Attributes"
+      ],
+      "pipelineProperty": "QueueName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Queue",
         "ConfirmImpactSetting": "Medium",
@@ -160,20 +146,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueueName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteMessage": {
       "verb": "Remove",
-      "noun": "SQSMessage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Message",
+      "legacyPositionalParameters": [
+        "ReceiptHandle",
+        "Attribute"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "ReceiptHandle;Attribute",
       "shouldProcessTargetProperty": "ReceiptHandle",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Message",
@@ -191,20 +174,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ReceiptHandle"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteMessageBatch": {
       "verb": "Remove",
-      "noun": "SQSMessageBatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "MessageBatch",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Entries",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MessageBatch",
@@ -222,20 +198,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Entries"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteQueue": {
       "verb": "Remove",
-      "noun": "SQSQueue",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Queue",
+      "legacyPositionalParameters": [
+        "Attribute"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "Attribute",
       "shouldProcessTargetProperty": "QueueUrl",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Queue",
@@ -253,20 +225,16 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueueUrl"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetQueueAttributes": {
       "verb": "Get",
-      "noun": "SQSQueueAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "QueueAttribute",
+      "legacyPositionalParameters": [
+        "AttributeNames"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "AttributeNames",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "QueueAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -278,25 +246,16 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetQueueUrl": {
       "verb": "Get",
-      "noun": "SQSQueueUrl",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "QueueUrl",
+      "legacyPositionalParameters": [
+        "QueueOwnerAWSAccountId"
+      ],
       "pipelineProperty": "QueueName",
-      "output": "Default",
-      "legacyPositionalParameters": "QueueOwnerAWSAccountId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "QueueUrl",
         "ConfirmImpactSetting": "Medium",
@@ -308,25 +267,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListDeadLetterSourceQueues": {
       "verb": "Get",
-      "noun": "SQSDeadLetterSourceQueue",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "DeadLetterSourceQueue",
       "legacyAlias": "Get-SQSDeadLetterSourceQueues",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeadLetterSourceQueues",
         "ConfirmImpactSetting": "Medium",
@@ -338,25 +285,16 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListQueues": {
       "verb": "Get",
-      "noun": "SQSQueue",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Queue",
+      "legacyPositionalParameters": [
+        "Attribute"
+      ],
       "pipelineProperty": "QueueNamePrefix",
-      "output": "Default",
-      "legacyPositionalParameters": "Attribute",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Queues",
         "ConfirmImpactSetting": "Medium",
@@ -368,25 +306,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListQueueTags": {
       "verb": "Get",
-      "noun": "SQSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ResourceTag",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "QueueTags",
         "ConfirmImpactSetting": "Medium",
@@ -398,25 +323,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PurgeQueue": {
       "verb": "Clear",
-      "noun": "SQSQueue",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Queue",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Queue",
         "ConfirmImpactSetting": "Medium",
@@ -433,21 +346,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueueUrl"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ReceiveMessage": {
       "verb": "Receive",
-      "noun": "SQSMessage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "MaxNumberOfMessages;VisibilityTimeout;AttributeNames;WaitTimeSeconds",
-      "shouldProcessTargetProperty": "QueueUrl",
+      "noun": "Message",
       "customParameters": [
         {
           "name": "WaitTimeSeconds",
@@ -458,6 +362,13 @@
           "newName": "MessageCount"
         }
       ],
+      "legacyPositionalParameters": [
+        "MaxNumberOfMessages",
+        "VisibilityTimeout",
+        "AttributeNames",
+        "WaitTimeSeconds"
+      ],
+      "shouldProcessTargetProperty": "QueueUrl",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Message",
         "ConfirmImpactSetting": "Medium",
@@ -474,20 +385,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "QueueUrl"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemovePermission": {
       "verb": "Remove",
-      "noun": "SQSPermission",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Permission",
+      "legacyPositionalParameters": [
+        "Label"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "Label",
       "shouldProcessTargetProperty": "Label",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Permission",
@@ -505,27 +412,24 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Label"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SendMessage": {
       "verb": "Send",
-      "noun": "SQSMessage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Response",
-      "legacyPositionalParameters": "MessageBody;DelaySeconds",
-      "shouldProcessTargetProperty": "MessageDeduplicationId",
+      "noun": "Message",
       "customParameters": [
         {
           "name": "DelaySeconds",
           "newName": "DelayInSeconds"
         }
       ],
+      "legacyPositionalParameters": [
+        "MessageBody",
+        "DelaySeconds"
+      ],
+      "output": "Response",
+      "shouldProcessTargetProperty": "MessageDeduplicationId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Message",
         "ConfirmImpactSetting": "Medium",
@@ -542,20 +446,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "MessageDeduplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SendMessageBatch": {
       "verb": "Send",
-      "noun": "SQSMessageBatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "MessageBatch",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MessageBatch",
         "ConfirmImpactSetting": "Medium",
@@ -572,20 +469,16 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueueUrl"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetQueueAttributes": {
       "verb": "Set",
-      "noun": "SQSQueueAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "QueueAttribute",
+      "legacyPositionalParameters": [
+        "Attributes"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "Attributes",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "QueueAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -602,20 +495,13 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueueUrl"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TagQueue": {
       "verb": "Add",
-      "noun": "SQSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ResourceTag",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Queue",
         "ConfirmImpactSetting": "Medium",
@@ -632,20 +518,13 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueueUrl"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UntagQueue": {
       "verb": "Remove",
-      "noun": "SQSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ResourceTag",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Queue",
         "ConfirmImpactSetting": "High",
@@ -662,8 +541,7 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueueUrl"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

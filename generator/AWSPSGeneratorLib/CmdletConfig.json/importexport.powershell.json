@@ -1,39 +1,28 @@
 {
-  "additionalNamespaces": [],
-  "regionFallback": "us-east-1",
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "JobId"
-  ],
-  "defaultPipelineProperty": "JobId",
-  "legacyPositionalProperties": "JobId",
-  "sdkServiceNamespace": "Amazon.ImportExport",
-  "sdkServiceClient": "AmazonImportExportClient",
-  "sdkServiceClientConfig": "AmazonImportExportConfig",
-  "legacyCmdletPrefix": "IE",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": null,
     "responseTokenMember": null
   },
+  "defaultPipelineProperty": "JobId",
+  "legacyCmdletPrefix": "IE",
+  "legacyPositionalProperties": "JobId",
   "nounMappings": {
     "Jobs": "Job"
   },
+  "pipelineByValuePropertyNames": [
+    "JobId"
+  ],
+  "regionFallback": "us-east-1",
+  "sdkServiceClientClass": "AmazonImportExportClient",
+  "sdkServiceConfigClass": "AmazonImportExportConfig",
+  "sdkServiceNamespace": "Amazon.ImportExport",
   "verbMappings": {
     "List": "Get"
   },
   "serviceOperations": {
     "CancelJob": {
       "verb": "Stop",
-      "noun": "IEJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Job",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Job",
         "ConfirmImpactSetting": "Medium",
@@ -50,20 +39,19 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateJob": {
       "verb": "New",
-      "noun": "IEJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Job",
+      "legacyPositionalParameters": [
+        "Manifest",
+        "ManifestAddendum",
+        "ValidateOnly"
+      ],
       "pipelineProperty": "JobType",
       "output": "Response",
-      "legacyPositionalParameters": "Manifest;ManifestAddendum;ValidateOnly",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Job",
         "ConfirmImpactSetting": "Medium",
@@ -80,20 +68,13 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobType"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetShippingLabel": {
       "verb": "Get",
-      "noun": "IEShippingLabel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ShippingLabel",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ShippingLabel",
         "ConfirmImpactSetting": "Medium",
@@ -105,25 +86,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetStatus": {
       "verb": "Get",
-      "noun": "IEStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Status",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Status",
         "ConfirmImpactSetting": "Medium",
@@ -135,25 +104,16 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListJobs": {
       "verb": "Get",
-      "noun": "IEJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Job",
+      "legacyPositionalParameters": [
+        "Marker"
+      ],
       "pipelineProperty": "MaxJobs",
-      "output": "Default",
-      "legacyPositionalParameters": "Marker",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Jobs",
         "ConfirmImpactSetting": "Medium",
@@ -165,25 +125,18 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateJob": {
       "verb": "Update",
-      "noun": "IEJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Job",
+      "legacyPositionalParameters": [
+        "Manifest",
+        "JobType",
+        "ValidateOnly"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "Manifest;JobType;ValidateOnly",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Job",
         "ConfirmImpactSetting": "Medium",
@@ -200,8 +153,7 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

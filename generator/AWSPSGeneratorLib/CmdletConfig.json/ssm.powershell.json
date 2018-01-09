@@ -1,6 +1,15 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
+  "defaultPaginationSettings": {
+    "excludedOperations": [
+      "ListInventoryEntries"
+    ],
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken",
+    "resultLimitMember": "MaxResults",
+    "servicePageSize": 50
+  },
+  "defaultPipelineProperty": "InstanceId",
+  "legacyCmdletPrefix": "SSM",
   "pipelineByValuePropertyNames": [
     "InstanceId",
     "Name",
@@ -23,23 +32,9 @@
     "MaintenanceWindowTaskId",
     "ResourceId"
   ],
-  "defaultPipelineProperty": "InstanceId",
+  "sdkServiceClientClass": "AmazonSimpleSystemsManagementClient",
+  "sdkServiceConfigClass": "AmazonSimpleSystemsManagementConfig",
   "sdkServiceNamespace": "Amazon.SimpleSystemsManagement",
-  "sdkServiceClient": "AmazonSimpleSystemsManagementClient",
-  "sdkServiceClientConfig": "AmazonSimpleSystemsManagementConfig",
-  "legacyCmdletPrefix": "SSM",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken",
-    "resultLimitMember": "MaxResults",
-    "servicePageSize": 50,
-    "excludedOperations": [
-      "ListInventoryEntries"
-    ]
-  },
-  "nounMappings": {},
   "verbMappings": {
     "Associate": "Register",
     "Disassociate": "Unregister",
@@ -49,14 +44,9 @@
   "serviceOperations": {
     "AddTagsToResource": {
       "verb": "Add",
-      "noun": "SSMResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsToResource",
         "ConfirmImpactSetting": "Medium",
@@ -66,32 +56,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CancelCommand": {
       "verb": "Stop",
-      "noun": "SSMCommand",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Command",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "InstanceIds",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Command",
@@ -102,32 +85,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "InstanceIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateActivation": {
       "verb": "New",
-      "noun": "SSMActivation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Activation",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Activation",
         "ConfirmImpactSetting": "Medium",
@@ -137,32 +114,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DefaultInstanceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateAssociation": {
       "verb": "New",
-      "noun": "SSMAssociation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Association",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Association",
         "ConfirmImpactSetting": "Medium",
@@ -172,32 +141,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateAssociationBatch": {
       "verb": "New",
-      "noun": "SSMAssociationFromBatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssociationFromBatch",
       "pipelineProperty": "Entries",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssociationBatch",
         "ConfirmImpactSetting": "Medium",
@@ -207,32 +170,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Entries"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDocument": {
       "verb": "New",
-      "noun": "SSMDocument",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Document",
       "pipelineProperty": "Content",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Document",
@@ -243,32 +199,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateMaintenanceWindow": {
       "verb": "New",
-      "noun": "SSMMaintenanceWindow",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MaintenanceWindow",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MaintenanceWindow",
         "ConfirmImpactSetting": "Medium",
@@ -278,32 +227,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreatePatchBaseline": {
       "verb": "New",
-      "noun": "SSMPatchBaseline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PatchBaseline",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PatchBaseline",
         "ConfirmImpactSetting": "Medium",
@@ -313,32 +255,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateResourceDataSync": {
       "verb": "New",
-      "noun": "SSMResourceDataSync",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceDataSync",
       "pipelineProperty": "SyncName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceDataSync",
         "ConfirmImpactSetting": "Medium",
@@ -348,32 +284,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SyncName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteActivation": {
       "verb": "Remove",
-      "noun": "SSMActivation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Activation",
       "pipelineProperty": "ActivationId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Activation",
         "ConfirmImpactSetting": "High",
@@ -383,32 +313,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ActivationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteAssociation": {
       "verb": "Remove",
-      "noun": "SSMAssociation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Association",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Association",
         "ConfirmImpactSetting": "High",
@@ -418,32 +341,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDocument": {
       "verb": "Remove",
-      "noun": "SSMDocument",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Document",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Document",
         "ConfirmImpactSetting": "High",
@@ -453,32 +370,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteMaintenanceWindow": {
       "verb": "Remove",
-      "noun": "SSMMaintenanceWindow",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MaintenanceWindow",
       "pipelineProperty": "WindowId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MaintenanceWindow",
         "ConfirmImpactSetting": "High",
@@ -488,32 +398,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "WindowId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteParameter": {
       "verb": "Remove",
-      "noun": "SSMParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Parameter",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Parameter",
         "ConfirmImpactSetting": "High",
@@ -523,32 +427,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteParameters": {
       "verb": "Remove",
-      "noun": "SSMParameterCollection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ParameterCollection",
       "pipelineProperty": "Names",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Parameters",
         "ConfirmImpactSetting": "High",
@@ -558,32 +456,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Names"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeletePatchBaseline": {
       "verb": "Remove",
-      "noun": "SSMPatchBaseline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PatchBaseline",
       "pipelineProperty": "BaselineId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PatchBaseline",
         "ConfirmImpactSetting": "High",
@@ -593,32 +484,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BaselineId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteResourceDataSync": {
       "verb": "Remove",
-      "noun": "SSMResourceDataSync",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceDataSync",
       "pipelineProperty": "SyncName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceDataSync",
         "ConfirmImpactSetting": "High",
@@ -628,32 +513,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SyncName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeregisterManagedInstance": {
       "verb": "Unregister",
-      "noun": "SSMManagedInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ManagedInstance",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ManagedInstance",
         "ConfirmImpactSetting": "Medium",
@@ -663,32 +541,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeregisterPatchBaselineForPatchGroup": {
       "verb": "Unregister",
-      "noun": "SSMPatchBaselineForPatchGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PatchBaselineForPatchGroup",
       "pipelineProperty": "PatchGroup",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PatchBaselineForPatchGroup",
         "ConfirmImpactSetting": "Medium",
@@ -698,32 +570,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BaselineId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeregisterTargetFromMaintenanceWindow": {
       "verb": "Unregister",
-      "noun": "SSMTargetFromMaintenanceWindow",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TargetFromMaintenanceWindow",
       "pipelineProperty": "WindowTargetId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TargetFromMaintenanceWindow",
         "ConfirmImpactSetting": "Medium",
@@ -733,32 +599,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "WindowTargetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeregisterTaskFromMaintenanceWindow": {
       "verb": "Unregister",
-      "noun": "SSMTaskFromMaintenanceWindow",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TaskFromMaintenanceWindow",
       "pipelineProperty": "WindowTaskId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TaskFromMaintenanceWindow",
         "ConfirmImpactSetting": "Medium",
@@ -768,32 +628,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "WindowTaskId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeActivations": {
       "verb": "Get",
-      "noun": "SSMActivation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Activation",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Activations",
         "ConfirmImpactSetting": "Medium",
@@ -803,32 +656,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "DescribeAssociation": {
       "verb": "Get",
-      "noun": "SSMAssociation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Association",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Association",
         "ConfirmImpactSetting": "Medium",
@@ -838,32 +678,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "DescribeAutomationExecutions": {
       "verb": "Get",
-      "noun": "SSMAutomationExecutionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AutomationExecutionList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AutomationExecutions",
         "ConfirmImpactSetting": "Medium",
@@ -873,32 +701,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "DescribeAutomationStepExecutions": {
       "verb": "Get",
-      "noun": "SSMAutomationStepExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AutomationStepExecution",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AutomationStepExecutions",
         "ConfirmImpactSetting": "Medium",
@@ -908,32 +723,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "DescribeAvailablePatches": {
       "verb": "Get",
-      "noun": "SSMAvailablePatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AvailablePatch",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "paginationSettings": {
         "requestTokenMember": null,
         "responseTokenMember": null,
@@ -948,32 +751,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeDocument": {
       "verb": "Get",
-      "noun": "SSMDocumentDescription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DocumentDescription",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Document",
         "ConfirmImpactSetting": "Medium",
@@ -983,32 +773,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "DescribeDocumentPermission": {
       "verb": "Get",
-      "noun": "SSMDocumentPermission",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DocumentPermission",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentPermission",
         "ConfirmImpactSetting": "Medium",
@@ -1018,32 +796,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "DescribeEffectiveInstanceAssociations": {
       "verb": "Get",
-      "noun": "SSMEffectiveInstanceAssociationList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "EffectiveInstanceAssociationList",
       "paginationSettings": {
         "requestTokenMember": null,
         "responseTokenMember": null,
@@ -1058,37 +823,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 5,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 5
+        }
       }
     },
     "DescribeEffectivePatchesForPatchBaseline": {
       "verb": "Get",
-      "noun": "SSMEffectivePatchesForPatchBaseline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "BaselineId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "EffectivePatchesForPatchBaseline",
       "paginationSettings": {
         "requestTokenMember": null,
         "responseTokenMember": null,
         "servicePageSize": 100
       },
+      "pipelineProperty": "BaselineId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EffectivePatchesForPatchBaseline",
         "ConfirmImpactSetting": "Medium",
@@ -1098,32 +851,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeInstanceAssociationsStatus": {
       "verb": "Get",
-      "noun": "SSMInstanceAssociationsStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "InstanceAssociationsStatus",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceAssociationsStatus",
         "ConfirmImpactSetting": "Medium",
@@ -1133,32 +873,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "DescribeInstanceInformation": {
       "verb": "Get",
-      "noun": "SSMInstanceInformation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "InstanceInformation",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceInformation",
         "ConfirmImpactSetting": "Medium",
@@ -1168,32 +895,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "DescribeInstancePatches": {
       "verb": "Get",
-      "noun": "SSMInstancePatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "InstancePatch",
       "paginationSettings": {
         "requestTokenMember": null,
         "responseTokenMember": null,
@@ -1208,32 +922,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeInstancePatchStates": {
       "verb": "Get",
-      "noun": "SSMInstancePatchState",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstancePatchState",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "paginationSettings": {
         "requestTokenMember": null,
         "responseTokenMember": null,
@@ -1248,37 +950,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeInstancePatchStatesForPatchGroup": {
       "verb": "Get",
-      "noun": "SSMInstancePatchStatesForPatchGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "PatchGroup",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "InstancePatchStatesForPatchGroup",
       "paginationSettings": {
         "requestTokenMember": null,
         "responseTokenMember": null,
         "servicePageSize": 100
       },
+      "pipelineProperty": "PatchGroup",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstancePatchStatesForPatchGroup",
         "ConfirmImpactSetting": "Medium",
@@ -1288,37 +978,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeMaintenanceWindowExecutions": {
       "verb": "Get",
-      "noun": "SSMMaintenanceWindowExecutionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "WindowId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "MaintenanceWindowExecutionList",
       "paginationSettings": {
         "requestTokenMember": null,
         "responseTokenMember": null,
         "servicePageSize": 100
       },
+      "pipelineProperty": "WindowId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MaintenanceWindowExecutions",
         "ConfirmImpactSetting": "Medium",
@@ -1328,37 +1006,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeMaintenanceWindowExecutionTaskInvocations": {
       "verb": "Get",
-      "noun": "SSMMaintenanceWindowExecutionTaskInvocationList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "WindowExecutionId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "MaintenanceWindowExecutionTaskInvocationList",
       "paginationSettings": {
         "requestTokenMember": null,
         "responseTokenMember": null,
         "servicePageSize": 100
       },
+      "pipelineProperty": "WindowExecutionId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MaintenanceWindowExecutionTaskInvocations",
         "ConfirmImpactSetting": "Medium",
@@ -1368,37 +1034,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeMaintenanceWindowExecutionTasks": {
       "verb": "Get",
-      "noun": "SSMMaintenanceWindowExecutionTaskList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "WindowExecutionId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "MaintenanceWindowExecutionTaskList",
       "paginationSettings": {
         "requestTokenMember": null,
         "responseTokenMember": null,
         "servicePageSize": 100
       },
+      "pipelineProperty": "WindowExecutionId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MaintenanceWindowExecutionTasks",
         "ConfirmImpactSetting": "Medium",
@@ -1408,37 +1062,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeMaintenanceWindows": {
       "verb": "Get",
-      "noun": "SSMMaintenanceWindowList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "Filters",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "MaintenanceWindowList",
       "paginationSettings": {
         "requestTokenMember": null,
         "responseTokenMember": null,
         "servicePageSize": 100
       },
+      "pipelineProperty": "Filters",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MaintenanceWindows",
         "ConfirmImpactSetting": "Medium",
@@ -1448,32 +1090,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeMaintenanceWindowTargets": {
       "verb": "Get",
-      "noun": "SSMMaintenanceWindowTarget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "MaintenanceWindowTarget",
       "legacyAlias": "Get-SSMMaintenanceWindowTargets",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "paginationSettings": {
         "requestTokenMember": null,
         "responseTokenMember": null,
@@ -1488,37 +1118,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeMaintenanceWindowTasks": {
       "verb": "Get",
-      "noun": "SSMMaintenanceWindowTaskList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "WindowId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "MaintenanceWindowTaskList",
       "paginationSettings": {
         "requestTokenMember": null,
         "responseTokenMember": null,
         "servicePageSize": 100
       },
+      "pipelineProperty": "WindowId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MaintenanceWindowTasks",
         "ConfirmImpactSetting": "Medium",
@@ -1528,32 +1146,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeParameters": {
       "verb": "Get",
-      "noun": "SSMParameterList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ParameterList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Parameters",
         "ConfirmImpactSetting": "Medium",
@@ -1563,32 +1168,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "DescribePatchBaselines": {
       "verb": "Get",
-      "noun": "SSMPatchBaseline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PatchBaseline",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "paginationSettings": {
         "requestTokenMember": null,
         "responseTokenMember": null,
@@ -1603,37 +1196,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "DescribePatchGroups": {
       "verb": "Get",
-      "noun": "SSMPatchGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "Filters",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "PatchGroup",
       "paginationSettings": {
         "requestTokenMember": null,
         "responseTokenMember": null,
         "servicePageSize": 100
       },
+      "pipelineProperty": "Filters",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PatchGroups",
         "ConfirmImpactSetting": "Medium",
@@ -1643,32 +1224,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "DescribePatchGroupState": {
       "verb": "Get",
-      "noun": "SSMPatchGroupState",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PatchGroupState",
       "pipelineProperty": "PatchGroup",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PatchGroupState",
         "ConfirmImpactSetting": "Medium",
@@ -1678,32 +1248,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "GetAutomationExecution": {
       "verb": "Get",
-      "noun": "SSMAutomationExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AutomationExecution",
       "pipelineProperty": "AutomationExecutionId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AutomationExecution",
         "ConfirmImpactSetting": "Medium",
@@ -1713,32 +1271,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "GetCommandInvocation": {
       "verb": "Get",
-      "noun": "SSMCommandInvocationDetail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "CommandInvocationDetail",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CommandInvocation",
         "ConfirmImpactSetting": "Medium",
@@ -1748,32 +1294,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "GetDefaultPatchBaseline": {
       "verb": "Get",
-      "noun": "SSMDefaultPatchBaseline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DefaultPatchBaseline",
       "pipelineProperty": "OperatingSystem",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DefaultPatchBaseline",
         "ConfirmImpactSetting": "Medium",
@@ -1783,32 +1318,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "GetDeployablePatchSnapshotForInstance": {
       "verb": "Get",
-      "noun": "SSMDeployablePatchSnapshotForInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeployablePatchSnapshotForInstance",
       "pipelineProperty": "SnapshotId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeployablePatchSnapshotForInstance",
         "ConfirmImpactSetting": "Medium",
@@ -1818,32 +1342,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "GetDocument": {
       "verb": "Get",
-      "noun": "SSMDocument",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Document",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Document",
         "ConfirmImpactSetting": "Medium",
@@ -1853,32 +1365,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "GetInventory": {
       "verb": "Get",
-      "noun": "SSMInventory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Inventory",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Inventory",
         "ConfirmImpactSetting": "Medium",
@@ -1888,37 +1387,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "GetInventorySchema": {
       "verb": "Get",
-      "noun": "SSMInventorySchema",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "TypeName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "InventorySchema",
       "paginationSettings": {
         "requestTokenMember": null,
         "responseTokenMember": null,
         "servicePageSize": 200
       },
+      "pipelineProperty": "TypeName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InventorySchema",
         "ConfirmImpactSetting": "Medium",
@@ -1928,32 +1415,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 200,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 200
+        }
       }
     },
     "GetMaintenanceWindow": {
       "verb": "Get",
-      "noun": "SSMMaintenanceWindow",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MaintenanceWindow",
       "pipelineProperty": "WindowId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MaintenanceWindow",
         "ConfirmImpactSetting": "Medium",
@@ -1963,32 +1439,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "GetMaintenanceWindowExecution": {
       "verb": "Get",
-      "noun": "SSMMaintenanceWindowExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MaintenanceWindowExecution",
       "pipelineProperty": "WindowExecutionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MaintenanceWindowExecution",
         "ConfirmImpactSetting": "Medium",
@@ -1998,32 +1463,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "GetMaintenanceWindowExecutionTask": {
       "verb": "Get",
-      "noun": "SSMMaintenanceWindowExecutionTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MaintenanceWindowExecutionTask",
       "pipelineProperty": "TaskId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MaintenanceWindowExecutionTask",
         "ConfirmImpactSetting": "Medium",
@@ -2033,32 +1487,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "GetMaintenanceWindowExecutionTaskInvocation": {
       "verb": "Get",
-      "noun": "SSMMaintenanceWindowExecutionTaskInvocation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MaintenanceWindowExecutionTaskInvocation",
       "pipelineProperty": "TaskId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MaintenanceWindowExecutionTaskInvocation",
         "ConfirmImpactSetting": "Medium",
@@ -2068,32 +1511,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "GetMaintenanceWindowTask": {
       "verb": "Get",
-      "noun": "SSMMaintenanceWindowTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MaintenanceWindowTask",
       "pipelineProperty": "WindowTaskId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MaintenanceWindowTask",
         "ConfirmImpactSetting": "Medium",
@@ -2103,32 +1535,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "GetParameter": {
       "verb": "Get",
-      "noun": "SSMParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Parameter",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Parameter",
         "ConfirmImpactSetting": "Medium",
@@ -2138,32 +1558,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "GetParameterHistory": {
       "verb": "Get",
-      "noun": "SSMParameterHistory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ParameterHistory",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ParameterHistory",
         "ConfirmImpactSetting": "Medium",
@@ -2173,32 +1581,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "GetParameters": {
       "verb": "Get",
-      "noun": "SSMParameterValue",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ParameterValue",
       "legacyAlias": "Get-SSMParameterNameList",
-      "metadataOutputProperties": "",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Parameters",
         "ConfirmImpactSetting": "Medium",
@@ -2208,37 +1606,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "GetParametersByPath": {
       "verb": "Get",
-      "noun": "SSMParametersByPath",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "Path",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ParametersByPath",
       "paginationSettings": {
         "requestTokenMember": null,
         "responseTokenMember": null,
         "servicePageSize": 10
       },
+      "pipelineProperty": "Path",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ParametersByPath",
         "ConfirmImpactSetting": "Medium",
@@ -2248,32 +1634,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 10,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 10
+        }
       }
     },
     "GetPatchBaseline": {
       "verb": "Get",
-      "noun": "SSMPatchBaselineDetail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PatchBaselineDetail",
       "pipelineProperty": "BaselineId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PatchBaseline",
         "ConfirmImpactSetting": "Medium",
@@ -2283,32 +1658,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "GetPatchBaselineForPatchGroup": {
       "verb": "Get",
-      "noun": "SSMPatchBaselineForPatchGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "PatchBaselineForPatchGroup",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PatchBaselineForPatchGroup",
         "ConfirmImpactSetting": "Medium",
@@ -2318,32 +1681,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "ListAssociations": {
       "verb": "Get",
-      "noun": "SSMAssociationList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssociationList",
       "pipelineProperty": "AssociationFilterList",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Associations",
         "ConfirmImpactSetting": "Medium",
@@ -2353,32 +1704,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "ListAssociationVersions": {
       "verb": "Get",
-      "noun": "SSMAssociationVersionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssociationVersionList",
       "pipelineProperty": "AssociationId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssociationVersions",
         "ConfirmImpactSetting": "Medium",
@@ -2388,32 +1727,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "ListCommandInvocations": {
       "verb": "Get",
-      "noun": "SSMCommandInvocation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "CommandInvocation",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CommandInvocations",
         "ConfirmImpactSetting": "Medium",
@@ -2423,32 +1749,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "ListCommands": {
       "verb": "Get",
-      "noun": "SSMCommand",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Command",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Commands",
         "ConfirmImpactSetting": "Medium",
@@ -2458,32 +1771,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "ListComplianceItems": {
       "verb": "Get",
-      "noun": "SSMComplianceItemsList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ComplianceItemsList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "paginationSettings": {
         "requestTokenMember": null,
         "responseTokenMember": null,
@@ -2498,32 +1799,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "ListComplianceSummaries": {
       "verb": "Get",
-      "noun": "SSMComplianceSummariesList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ComplianceSummariesList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "paginationSettings": {
         "requestTokenMember": null,
         "responseTokenMember": null,
@@ -2538,32 +1827,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "ListDocuments": {
       "verb": "Get",
-      "noun": "SSMDocumentList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DocumentList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Documents",
         "ConfirmImpactSetting": "Medium",
@@ -2573,32 +1849,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "ListDocumentVersions": {
       "verb": "Get",
-      "noun": "SSMDocumentVersionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DocumentVersionList",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentVersions",
         "ConfirmImpactSetting": "Medium",
@@ -2608,32 +1872,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "ListInventoryEntries": {
       "verb": "Get",
-      "noun": "SSMInventoryEntriesList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "InventoryEntriesList",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InventoryEntries",
         "ConfirmImpactSetting": "Medium",
@@ -2643,32 +1895,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "ListResourceComplianceSummaries": {
       "verb": "Get",
-      "noun": "SSMResourceComplianceSummariesList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceComplianceSummariesList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "paginationSettings": {
         "requestTokenMember": null,
         "responseTokenMember": null,
@@ -2683,32 +1923,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "ListResourceDataSync": {
       "verb": "Get",
-      "noun": "SSMResourceDataSync",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ResourceDataSync",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceDataSync",
         "ConfirmImpactSetting": "Medium",
@@ -2718,32 +1945,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "ListTagsForResource": {
       "verb": "Get",
-      "noun": "SSMResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForResource",
         "ConfirmImpactSetting": "Medium",
@@ -2753,32 +1968,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 50
+        }
       }
     },
     "ModifyDocumentPermission": {
       "verb": "Edit",
-      "noun": "SSMDocumentPermission",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DocumentPermission",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentPermission",
         "ConfirmImpactSetting": "Medium",
@@ -2788,32 +1992,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutComplianceItems": {
       "verb": "Write",
-      "noun": "SSMComplianceItem",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ComplianceItem",
       "pipelineProperty": "ResourceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ComplianceItems",
         "ConfirmImpactSetting": "Medium",
@@ -2823,32 +2021,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutInventory": {
       "verb": "Write",
-      "noun": "SSMInventory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Inventory",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Inventory",
         "ConfirmImpactSetting": "Medium",
@@ -2858,32 +2049,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutParameter": {
       "verb": "Write",
-      "noun": "SSMParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Parameter",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Parameter",
         "ConfirmImpactSetting": "Medium",
@@ -2893,32 +2077,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RegisterDefaultPatchBaseline": {
       "verb": "Register",
-      "noun": "SSMDefaultPatchBaseline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DefaultPatchBaseline",
       "pipelineProperty": "BaselineId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DefaultPatchBaseline",
         "ConfirmImpactSetting": "Medium",
@@ -2928,32 +2105,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BaselineId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RegisterPatchBaselineForPatchGroup": {
       "verb": "Register",
-      "noun": "SSMPatchBaselineForPatchGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PatchBaselineForPatchGroup",
       "pipelineProperty": "BaselineId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PatchBaselineForPatchGroup",
         "ConfirmImpactSetting": "Medium",
@@ -2963,32 +2134,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BaselineId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RegisterTargetWithMaintenanceWindow": {
       "verb": "Register",
-      "noun": "SSMTargetWithMaintenanceWindow",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TargetWithMaintenanceWindow",
       "pipelineProperty": "WindowId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TargetWithMaintenanceWindow",
         "ConfirmImpactSetting": "Medium",
@@ -2998,32 +2162,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "WindowId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RegisterTaskWithMaintenanceWindow": {
       "verb": "Register",
-      "noun": "SSMTaskWithMaintenanceWindow",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TaskWithMaintenanceWindow",
       "pipelineProperty": "TaskArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TaskWithMaintenanceWindow",
         "ConfirmImpactSetting": "Medium",
@@ -3033,13 +2190,13 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
@@ -3053,14 +2210,9 @@
     },
     "RemoveTagsFromResource": {
       "verb": "Remove",
-      "noun": "SSMResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsFromResource",
         "ConfirmImpactSetting": "High",
@@ -3070,32 +2222,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SendAutomationSignal": {
       "verb": "Send",
-      "noun": "SSMAutomationSignal",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AutomationSignal",
       "pipelineProperty": "AutomationExecutionId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AutomationSignal",
         "ConfirmImpactSetting": "Medium",
@@ -3105,32 +2251,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AutomationExecutionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SendCommand": {
       "verb": "Send",
-      "noun": "SSMCommand",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Command",
       "shouldProcessTargetProperty": "InstanceIds",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Command",
@@ -3141,32 +2279,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "InstanceIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartAutomationExecution": {
       "verb": "Start",
-      "noun": "SSMAutomationExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AutomationExecution",
       "pipelineProperty": "DocumentName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AutomationExecution",
         "ConfirmImpactSetting": "Medium",
@@ -3176,32 +2307,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DocumentName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopAutomationExecution": {
       "verb": "Stop",
-      "noun": "SSMAutomationExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "AutomationExecution",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AutomationExecution",
         "ConfirmImpactSetting": "Medium",
@@ -3211,32 +2335,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AutomationExecutionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateAssociation": {
       "verb": "Update",
-      "noun": "SSMAssociation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Association",
       "pipelineProperty": "AssociationId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Association",
         "ConfirmImpactSetting": "Medium",
@@ -3246,32 +2363,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AssociationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateAssociationStatus": {
       "verb": "Update",
-      "noun": "SSMAssociationStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AssociationStatus",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssociationStatus",
         "ConfirmImpactSetting": "Medium",
@@ -3281,32 +2390,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDocument": {
       "verb": "Update",
-      "noun": "SSMDocument",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Document",
       "pipelineProperty": "Content",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Document",
         "ConfirmImpactSetting": "Medium",
@@ -3316,32 +2418,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDocumentDefaultVersion": {
       "verb": "Update",
-      "noun": "SSMDocumentDefaultVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DocumentDefaultVersion",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentDefaultVersion",
         "ConfirmImpactSetting": "Medium",
@@ -3351,32 +2446,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateMaintenanceWindow": {
       "verb": "Update",
-      "noun": "SSMMaintenanceWindow",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MaintenanceWindow",
       "pipelineProperty": "WindowId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MaintenanceWindow",
         "ConfirmImpactSetting": "Medium",
@@ -3386,32 +2475,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "WindowId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateMaintenanceWindowTarget": {
       "verb": "Update",
-      "noun": "SSMMaintenanceWindowTarget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MaintenanceWindowTarget",
       "pipelineProperty": "WindowTargetId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MaintenanceWindowTarget",
         "ConfirmImpactSetting": "Medium",
@@ -3421,32 +2504,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "WindowTargetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateMaintenanceWindowTask": {
       "verb": "Update",
-      "noun": "SSMMaintenanceWindowTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MaintenanceWindowTask",
       "pipelineProperty": "WindowTaskId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MaintenanceWindowTask",
         "ConfirmImpactSetting": "Medium",
@@ -3456,13 +2533,13 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
@@ -3476,14 +2553,8 @@
     },
     "UpdateManagedInstanceRole": {
       "verb": "Update",
-      "noun": "SSMManagedInstanceRole",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ManagedInstanceRole",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ManagedInstanceRole",
         "ConfirmImpactSetting": "Medium",
@@ -3493,32 +2564,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdatePatchBaseline": {
       "verb": "Update",
-      "noun": "SSMPatchBaseline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PatchBaseline",
       "pipelineProperty": "BaselineId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PatchBaseline",
         "ConfirmImpactSetting": "Medium",
@@ -3528,20 +2593,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 50,
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ]
+          "servicePageSize": 50
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BaselineId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

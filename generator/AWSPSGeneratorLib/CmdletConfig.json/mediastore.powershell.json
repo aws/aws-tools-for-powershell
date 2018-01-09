@@ -1,38 +1,25 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.MediaStore",
-  "sdkServiceClient": "AmazonMediaStoreClient",
-  "sdkServiceClientConfig": "AmazonMediaStoreConfig",
-  "legacyCmdletPrefix": "EMS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "EMS",
+  "sdkServiceClientClass": "AmazonMediaStoreClient",
+  "sdkServiceConfigClass": "AmazonMediaStoreConfig",
+  "sdkServiceNamespace": "Amazon.MediaStore",
   "serviceOperations": {
     "CreateContainer": {
       "verb": "New",
-      "noun": "EMSContainer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "ContainerName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Container",
       "customParameters": [
         {
           "name": "ContainerName",
           "newName": "Name"
         }
       ],
+      "pipelineProperty": "ContainerName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Container",
         "ConfirmImpactSetting": "Medium",
@@ -50,26 +37,20 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ContainerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteContainer": {
       "verb": "Remove",
-      "noun": "EMSContainer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "ContainerName",
-      "output": "Void",
-      "legacyPositionalParameters": null,
+      "noun": "Container",
       "customParameters": [
         {
           "name": "ContainerName",
           "newName": "Name"
         }
       ],
+      "pipelineProperty": "ContainerName",
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Container",
         "ConfirmImpactSetting": "High",
@@ -87,26 +68,20 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ContainerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteContainerPolicy": {
       "verb": "Remove",
-      "noun": "EMSContainerPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "ContainerName",
-      "output": "Void",
-      "legacyPositionalParameters": null,
+      "noun": "ContainerPolicy",
       "customParameters": [
         {
           "name": "ContainerName",
           "newName": "Name"
         }
       ],
+      "pipelineProperty": "ContainerName",
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ContainerPolicy",
         "ConfirmImpactSetting": "High",
@@ -124,26 +99,19 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ContainerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeContainer": {
       "verb": "Get",
-      "noun": "EMSContainer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "ContainerName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Container",
       "customParameters": [
         {
           "name": "ContainerName",
           "newName": "Name"
         }
       ],
+      "pipelineProperty": "ContainerName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Container",
         "ConfirmImpactSetting": "Medium",
@@ -156,31 +124,19 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetContainerPolicy": {
       "verb": "Get",
-      "noun": "EMSContainerPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "ContainerName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ContainerPolicy",
       "customParameters": [
         {
           "name": "ContainerName",
           "newName": "Name"
         }
       ],
+      "pipelineProperty": "ContainerName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ContainerPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -193,25 +149,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListContainers": {
       "verb": "Get",
-      "noun": "EMSContainerList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ContainerList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Containers",
         "ConfirmImpactSetting": "Medium",
@@ -224,31 +167,20 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutContainerPolicy": {
       "verb": "Write",
-      "noun": "EMSContainerPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "Policy",
-      "output": "Void",
-      "legacyPositionalParameters": null,
+      "noun": "ContainerPolicy",
       "customParameters": [
         {
           "name": "ContainerName",
           "newName": "Name"
         }
       ],
+      "pipelineProperty": "Policy",
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ContainerPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -266,8 +198,7 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ContainerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

@@ -1,35 +1,23 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.KinesisVideo",
-  "sdkServiceClient": "AmazonKinesisVideoClient",
-  "sdkServiceClientConfig": "AmazonKinesisVideoConfig",
-  "legacyCmdletPrefix": "KV",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.KinesisVideo.Model.StreamNameCondition"
-  ],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults",
     "servicePageSize": 10000
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "KV",
+  "nonFlatteningTypeNames": [
+    "Amazon.KinesisVideo.Model.StreamNameCondition"
+  ],
+  "sdkServiceClientClass": "AmazonKinesisVideoClient",
+  "sdkServiceConfigClass": "AmazonKinesisVideoConfig",
+  "sdkServiceNamespace": "Amazon.KinesisVideo",
   "serviceOperations": {
     "CreateStream": {
       "verb": "New",
-      "noun": "KVStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Stream",
       "pipelineProperty": "StreamName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stream",
         "ConfirmImpactSetting": "Medium",
@@ -48,20 +36,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteStream": {
       "verb": "Remove",
-      "noun": "KVStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Stream",
       "pipelineProperty": "StreamARN",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stream",
         "ConfirmImpactSetting": "High",
@@ -80,20 +62,13 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeStream": {
       "verb": "Get",
-      "noun": "KVStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Stream",
       "pipelineProperty": "StreamName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stream",
         "ConfirmImpactSetting": "Medium",
@@ -107,25 +82,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 10000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDataEndpoint": {
       "verb": "Get",
-      "noun": "KVDataEndpoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DataEndpoint",
       "pipelineProperty": "APIName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DataEndpoint",
         "ConfirmImpactSetting": "Medium",
@@ -139,25 +102,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 10000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListStreams": {
       "verb": "Get",
-      "noun": "KVStreamList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StreamList",
       "pipelineProperty": "StreamNameCondition",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Streams",
         "ConfirmImpactSetting": "Medium",
@@ -171,29 +122,17 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 10000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTagsForStream": {
       "verb": "Get",
-      "noun": "KVTagsForStreamList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "StreamName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TagsForStreamList",
       "paginationSettings": {
         "requestTokenMember": "NextToken",
         "responseTokenMember": "NextToken"
       },
+      "pipelineProperty": "StreamName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForStream",
         "ConfirmImpactSetting": "Medium",
@@ -207,25 +146,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 10000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TagStream": {
       "verb": "Add",
-      "noun": "KVStreamTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StreamTag",
       "pipelineProperty": "Tags",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stream",
         "ConfirmImpactSetting": "Medium",
@@ -244,20 +172,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UntagStream": {
       "verb": "Remove",
-      "noun": "KVStreamTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StreamTag",
       "pipelineProperty": "TagKeyList",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stream",
         "ConfirmImpactSetting": "High",
@@ -276,20 +198,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDataRetention": {
       "verb": "Update",
-      "noun": "KVDataRetention",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DataRetention",
       "pipelineProperty": "StreamName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DataRetention",
         "ConfirmImpactSetting": "Medium",
@@ -308,20 +224,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateStream": {
       "verb": "Update",
-      "noun": "KVStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Stream",
       "pipelineProperty": "StreamName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stream",
         "ConfirmImpactSetting": "Medium",
@@ -340,8 +250,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

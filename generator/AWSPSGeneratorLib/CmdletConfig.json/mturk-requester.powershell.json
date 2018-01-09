@@ -1,39 +1,28 @@
 {
-  "additionalNamespaces": [],
+  "defaultPaginationSettings": {
+    "excludedOperations": [
+      "ListReviewPolicyResultsForHIT"
+    ],
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken",
+    "resultLimitMember": "MaxResults"
+  },
+  "defaultPipelineProperty": "WorkerId",
+  "legacyCmdletPrefix": "MTR",
   "outputMetadataPropertyNames": [
     "NumResults"
   ],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "WorkerId",
+  "sdkServiceClientClass": "AmazonMTurkClient",
+  "sdkServiceConfigClass": "AmazonMTurkConfig",
   "sdkServiceNamespace": "Amazon.MTurk",
-  "sdkServiceClient": "AmazonMTurkClient",
-  "sdkServiceClientConfig": "AmazonMTurkConfig",
-  "legacyCmdletPrefix": "MTR",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken",
-    "resultLimitMember": "MaxResults",
-    "excludedOperations": [
-      "ListReviewPolicyResultsForHIT"
-    ]
-  },
-  "nounMappings": {},
   "verbMappings": {
     "List": "Get"
   },
   "serviceOperations": {
     "AcceptQualificationRequest": {
       "verb": "Grant",
-      "noun": "MTRQualificationRequest",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "QualificationRequest",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "QualificationRequest",
         "ConfirmImpactSetting": "Medium",
@@ -43,31 +32,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QualificationRequestId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ApproveAssignment": {
       "verb": "Approve",
-      "noun": "MTRAssignment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Assignment",
       "pipelineProperty": "AssignmentId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Assignment",
         "ConfirmImpactSetting": "Medium",
@@ -77,31 +60,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AssignmentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AssociateQualificationWithWorker": {
       "verb": "Add",
-      "noun": "MTRQualificationToWorker",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "QualificationToWorker",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "QualificationWithWorker",
         "ConfirmImpactSetting": "Medium",
@@ -111,31 +87,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "WorkerId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateAdditionalAssignmentsForHIT": {
       "verb": "New",
-      "noun": "MTRAdditionalAssignmentsForHIT",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "AdditionalAssignmentsForHIT",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AdditionalAssignmentsForHIT",
         "ConfirmImpactSetting": "Medium",
@@ -145,31 +114,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HITId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateHIT": {
       "verb": "New",
-      "noun": "MTRHIT",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "HIT",
       "shouldProcessTargetProperty": "Title",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "HIT",
@@ -180,31 +141,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Title"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateHITType": {
       "verb": "New",
-      "noun": "MTRHITType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "HITType",
       "pipelineProperty": "Title",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "HITType",
         "ConfirmImpactSetting": "Medium",
@@ -214,31 +168,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Title"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateHITWithHITType": {
       "verb": "New",
-      "noun": "MTRHITWithHITType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "HITWithHITType",
       "pipelineProperty": "HITTypeId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "HITWithHITType",
         "ConfirmImpactSetting": "Medium",
@@ -248,31 +195,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HITTypeId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateQualificationType": {
       "verb": "New",
-      "noun": "MTRQualificationType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "QualificationType",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "QualificationType",
         "ConfirmImpactSetting": "Medium",
@@ -282,31 +221,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateWorkerBlock": {
       "verb": "New",
-      "noun": "MTRWorkerBlock",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "WorkerBlock",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "WorkerBlock",
         "ConfirmImpactSetting": "Medium",
@@ -316,31 +248,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "WorkerId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteHIT": {
       "verb": "Remove",
-      "noun": "MTRHIT",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "HIT",
       "pipelineProperty": "HITId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "HIT",
         "ConfirmImpactSetting": "High",
@@ -350,31 +276,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HITId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteQualificationType": {
       "verb": "Remove",
-      "noun": "MTRQualificationType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "QualificationType",
       "pipelineProperty": "QualificationTypeId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "QualificationType",
         "ConfirmImpactSetting": "High",
@@ -384,31 +304,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QualificationTypeId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteWorkerBlock": {
       "verb": "Remove",
-      "noun": "MTRWorkerBlock",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "WorkerBlock",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "WorkerBlock",
         "ConfirmImpactSetting": "High",
@@ -418,31 +331,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "WorkerId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisassociateQualificationFromWorker": {
       "verb": "Remove",
-      "noun": "MTRQualificationFromWorker",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "QualificationFromWorker",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "QualificationFromWorker",
         "ConfirmImpactSetting": "High",
@@ -452,31 +358,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "WorkerId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetAccountBalance": {
       "verb": "Get",
-      "noun": "MTRAccountBalance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "AccountBalance",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountBalance",
         "ConfirmImpactSetting": "Medium",
@@ -486,31 +385,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "GetAssignment": {
       "verb": "Get",
-      "noun": "MTRAssignment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Assignment",
       "pipelineProperty": "AssignmentId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Assignment",
         "ConfirmImpactSetting": "Medium",
@@ -520,31 +408,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "GetFileUploadURL": {
       "verb": "Get",
-      "noun": "MTRFileUploadURL",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "FileUploadURL",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FileUploadURL",
         "ConfirmImpactSetting": "Medium",
@@ -554,31 +429,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "GetHIT": {
       "verb": "Get",
-      "noun": "MTRHIT",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "HIT",
       "pipelineProperty": "HITId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "HIT",
         "ConfirmImpactSetting": "Medium",
@@ -588,31 +451,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "GetQualificationScore": {
       "verb": "Get",
-      "noun": "MTRQualificationScore",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "QualificationScore",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "QualificationScore",
         "ConfirmImpactSetting": "Medium",
@@ -622,31 +472,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "GetQualificationType": {
       "verb": "Get",
-      "noun": "MTRQualificationType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "QualificationType",
       "pipelineProperty": "QualificationTypeId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "QualificationType",
         "ConfirmImpactSetting": "Medium",
@@ -656,31 +494,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "ListAssignmentsForHIT": {
       "verb": "Get",
-      "noun": "MTRHITAssignmentList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "HITAssignmentList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssignmentsForHIT",
         "ConfirmImpactSetting": "Medium",
@@ -690,31 +515,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "ListBonusPayments": {
       "verb": "Get",
-      "noun": "MTRBonusPaymentList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "BonusPaymentList",
       "pipelineProperty": "HITId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BonusPayments",
         "ConfirmImpactSetting": "Medium",
@@ -724,31 +537,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "ListHITs": {
       "verb": "Get",
-      "noun": "MTRHITList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "HITList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "HITs",
         "ConfirmImpactSetting": "Medium",
@@ -758,31 +558,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "ListHITsForQualificationType": {
       "verb": "Get",
-      "noun": "MTRHITListForQualificationType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "HITListForQualificationType",
       "pipelineProperty": "QualificationTypeId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "HITsForQualificationType",
         "ConfirmImpactSetting": "Medium",
@@ -792,31 +580,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "ListQualificationRequests": {
       "verb": "Get",
-      "noun": "MTRQualificationRequestList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "QualificationRequestList",
       "pipelineProperty": "QualificationTypeId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "QualificationRequests",
         "ConfirmImpactSetting": "Medium",
@@ -826,31 +602,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "ListQualificationTypes": {
       "verb": "Get",
-      "noun": "MTRQualificationTypeList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "QualificationTypeList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "QualificationTypes",
         "ConfirmImpactSetting": "Medium",
@@ -860,31 +623,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "ListReviewableHITs": {
       "verb": "Get",
-      "noun": "MTRReviewableHITList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ReviewableHITList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReviewableHITs",
         "ConfirmImpactSetting": "Medium",
@@ -894,31 +644,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "ListReviewPolicyResultsForHIT": {
       "verb": "Get",
-      "noun": "MTRReviewPolicyResultList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ReviewPolicyResultList",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReviewPolicyResultsForHIT",
         "ConfirmImpactSetting": "Medium",
@@ -928,31 +666,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "ListWorkerBlocks": {
       "verb": "Get",
-      "noun": "MTRWorkerBlockList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "WorkerBlockList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "WorkerBlocks",
         "ConfirmImpactSetting": "Medium",
@@ -962,31 +687,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "ListWorkersWithQualificationType": {
       "verb": "Get",
-      "noun": "MTRWorkersWithQualificationType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "WorkersWithQualificationType",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "WorkersWithQualificationType",
         "ConfirmImpactSetting": "Medium",
@@ -996,31 +708,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "NotifyWorkers": {
       "verb": "Send",
-      "noun": "MTRWorkerNotification",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "WorkerNotification",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Workers",
         "ConfirmImpactSetting": "Medium",
@@ -1030,31 +729,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "WorkerIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RejectAssignment": {
       "verb": "Deny",
-      "noun": "MTRAssignment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Assignment",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Assignment",
         "ConfirmImpactSetting": "Medium",
@@ -1064,31 +756,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AssignmentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RejectQualificationRequest": {
       "verb": "Deny",
-      "noun": "MTRQualificationRequest",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "QualificationRequest",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "QualificationRequest",
         "ConfirmImpactSetting": "Medium",
@@ -1098,31 +783,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QualificationRequestId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SendBonus": {
       "verb": "Send",
-      "noun": "MTRBonus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Bonus",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Bonus",
         "ConfirmImpactSetting": "Medium",
@@ -1132,32 +810,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "WorkerId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SendTestEventNotification": {
       "verb": "Send",
-      "noun": "MTRTestEventNotification",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "suppressShouldProcessConfirmation": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "TestEventNotification",
       "output": "Void",
-      "legacyPositionalParameters": null,
+      "suppressShouldProcessConfirmation": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TestEventNotification",
         "ConfirmImpactSetting": "Medium",
@@ -1167,31 +838,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "UpdateExpirationForHIT": {
       "verb": "Update",
-      "noun": "MTRExpirationForHIT",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ExpirationForHIT",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ExpirationForHIT",
         "ConfirmImpactSetting": "Medium",
@@ -1201,31 +860,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HITId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateHITReviewStatus": {
       "verb": "Update",
-      "noun": "MTRHITReviewStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "HITReviewStatus",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "HITReviewStatus",
         "ConfirmImpactSetting": "Medium",
@@ -1235,31 +887,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HITId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateHITTypeOfHIT": {
       "verb": "Update",
-      "noun": "MTRHITTypeOfHIT",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "HITTypeOfHIT",
       "pipelineProperty": "HITId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "HITTypeOfHIT",
         "ConfirmImpactSetting": "Medium",
@@ -1269,31 +915,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HITId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateNotificationSettings": {
       "verb": "Update",
-      "noun": "MTRNotificationSetting",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "NotificationSetting",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NotificationSettings",
         "ConfirmImpactSetting": "Medium",
@@ -1303,31 +942,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HITTypeId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateQualificationType": {
       "verb": "Update",
-      "noun": "MTRQualificationType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "QualificationType",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "QualificationType",
         "ConfirmImpactSetting": "Medium",
@@ -1337,19 +968,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListReviewPolicyResultsForHIT"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QualificationTypeId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

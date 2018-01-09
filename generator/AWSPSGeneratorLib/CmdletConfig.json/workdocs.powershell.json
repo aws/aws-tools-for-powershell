@@ -1,35 +1,23 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.WorkDocs",
-  "sdkServiceClient": "AmazonWorkDocsClient",
-  "sdkServiceClientConfig": "AmazonWorkDocsConfig",
-  "legacyCmdletPrefix": "WD",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
-    "requestTokenMember": "Marker",
-    "responseTokenMember": "Marker",
-    "resultLimitMember": "Limit",
     "excludedOperations": [
       "DescribeFolderContents"
-    ]
+    ],
+    "requestTokenMember": "Marker",
+    "responseTokenMember": "Marker",
+    "resultLimitMember": "Limit"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "WD",
+  "sdkServiceClientClass": "AmazonWorkDocsClient",
+  "sdkServiceConfigClass": "AmazonWorkDocsConfig",
+  "sdkServiceNamespace": "Amazon.WorkDocs",
   "serviceOperations": {
     "AbortDocumentVersionUpload": {
       "verb": "Stop",
-      "noun": "WDDocumentVersionUpload",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DocumentVersionUpload",
       "pipelineProperty": "DocumentId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DocumentId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentVersionUpload",
@@ -40,31 +28,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DocumentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ActivateUser": {
       "verb": "Enable",
-      "noun": "WDUser",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "User",
       "pipelineProperty": "UserId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "User",
         "ConfirmImpactSetting": "Medium",
@@ -74,31 +55,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddResourcePermissions": {
       "verb": "Add",
-      "noun": "WDResourcePermission",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourcePermission",
       "pipelineProperty": "ResourceId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourcePermissions",
         "ConfirmImpactSetting": "Medium",
@@ -108,31 +82,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateComment": {
       "verb": "New",
-      "noun": "WDComment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Comment",
       "pipelineProperty": "Text",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "VersionId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Comment",
@@ -143,31 +110,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "VersionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateCustomMetadata": {
       "verb": "New",
-      "noun": "WDCustomMetadata",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CustomMetadata",
       "pipelineProperty": "ResourceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CustomMetadata",
         "ConfirmImpactSetting": "Medium",
@@ -177,31 +138,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateFolder": {
       "verb": "New",
-      "noun": "WDFolder",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Folder",
       "pipelineProperty": "ParentFolderId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Folder",
@@ -212,31 +166,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateLabels": {
       "verb": "New",
-      "noun": "WDLabel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Label",
       "pipelineProperty": "ResourceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Labels",
         "ConfirmImpactSetting": "Medium",
@@ -246,31 +194,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateNotificationSubscription": {
       "verb": "New",
-      "noun": "WDNotificationSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "NotificationSubscription",
       "pipelineProperty": "OrganizationId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NotificationSubscription",
         "ConfirmImpactSetting": "Medium",
@@ -280,31 +221,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "OrganizationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateUser": {
       "verb": "New",
-      "noun": "WDUser",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "User",
       "pipelineProperty": "OrganizationId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "GivenName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "User",
@@ -315,31 +249,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "GivenName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeactivateUser": {
       "verb": "Disable",
-      "noun": "WDUser",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "User",
       "pipelineProperty": "UserId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "User",
         "ConfirmImpactSetting": "Medium",
@@ -349,31 +277,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteComment": {
       "verb": "Remove",
-      "noun": "WDComment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Comment",
       "pipelineProperty": "CommentId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Comment",
         "ConfirmImpactSetting": "High",
@@ -383,31 +305,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CommentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCustomMetadata": {
       "verb": "Remove",
-      "noun": "WDCustomMetadata",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CustomMetadata",
       "pipelineProperty": "ResourceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CustomMetadata",
         "ConfirmImpactSetting": "High",
@@ -417,31 +333,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDocument": {
       "verb": "Remove",
-      "noun": "WDDocument",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Document",
       "pipelineProperty": "DocumentId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Document",
         "ConfirmImpactSetting": "High",
@@ -451,31 +361,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DocumentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteFolder": {
       "verb": "Remove",
-      "noun": "WDFolder",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Folder",
       "pipelineProperty": "FolderId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Folder",
         "ConfirmImpactSetting": "High",
@@ -485,31 +389,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FolderId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteFolderContents": {
       "verb": "Remove",
-      "noun": "WDFolderContent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FolderContent",
       "pipelineProperty": "FolderId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FolderContents",
         "ConfirmImpactSetting": "High",
@@ -519,31 +417,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FolderId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteLabels": {
       "verb": "Remove",
-      "noun": "WDLabel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Label",
       "pipelineProperty": "Labels",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Labels",
         "ConfirmImpactSetting": "High",
@@ -553,31 +445,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteNotificationSubscription": {
       "verb": "Remove",
-      "noun": "WDNotificationSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "NotificationSubscription",
       "pipelineProperty": "SubscriptionId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "SubscriptionId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NotificationSubscription",
@@ -588,31 +474,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "SubscriptionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteUser": {
       "verb": "Remove",
-      "noun": "WDUser",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "User",
       "pipelineProperty": "UserId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "User",
         "ConfirmImpactSetting": "High",
@@ -622,31 +502,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeActivities": {
       "verb": "Get",
-      "noun": "WDActivity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Activity",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Activities",
         "ConfirmImpactSetting": "Medium",
@@ -656,31 +529,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "DescribeComments": {
       "verb": "Get",
-      "noun": "WDComment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Comment",
       "pipelineProperty": "VersionId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Comments",
         "ConfirmImpactSetting": "Medium",
@@ -690,31 +551,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "DescribeDocumentVersions": {
       "verb": "Get",
-      "noun": "WDDocumentVersionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DocumentVersionList",
       "pipelineProperty": "DocumentId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentVersions",
         "ConfirmImpactSetting": "Medium",
@@ -724,31 +573,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "DescribeFolderContents": {
       "verb": "Get",
-      "noun": "WDFolderContent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FolderContent",
       "pipelineProperty": "FolderId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FolderContents",
         "ConfirmImpactSetting": "Medium",
@@ -758,31 +596,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "DescribeGroups": {
       "verb": "Get",
-      "noun": "WDGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Group",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Groups",
         "ConfirmImpactSetting": "Medium",
@@ -792,31 +618,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "DescribeNotificationSubscriptions": {
       "verb": "Get",
-      "noun": "WDNotificationSubscriptionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "NotificationSubscriptionList",
       "pipelineProperty": "OrganizationId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NotificationSubscriptions",
         "ConfirmImpactSetting": "Medium",
@@ -826,31 +640,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "DescribeResourcePermissions": {
       "verb": "Get",
-      "noun": "WDResourcePermissionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourcePermissionList",
       "pipelineProperty": "ResourceId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourcePermissions",
         "ConfirmImpactSetting": "Medium",
@@ -860,31 +662,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "DescribeRootFolders": {
       "verb": "Get",
-      "noun": "WDRootFolder",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RootFolder",
       "pipelineProperty": "AuthenticationToken",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RootFolders",
         "ConfirmImpactSetting": "Medium",
@@ -894,31 +684,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "DescribeUsers": {
       "verb": "Get",
-      "noun": "WDUserList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "TotalNumberOfUsers",
+      "noun": "UserList",
+      "outputMetadataPropertyNames": [
+        "TotalNumberOfUsers"
+      ],
       "pipelineProperty": "OrganizationId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Users",
         "ConfirmImpactSetting": "Medium",
@@ -928,31 +709,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetCurrentUser": {
       "verb": "Get",
-      "noun": "WDCurrentUser",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CurrentUser",
       "pipelineProperty": "AuthenticationToken",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CurrentUser",
         "ConfirmImpactSetting": "Medium",
@@ -962,31 +731,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetDocument": {
       "verb": "Get",
-      "noun": "WDDocument",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Document",
       "pipelineProperty": "DocumentId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Document",
         "ConfirmImpactSetting": "Medium",
@@ -996,31 +754,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetDocumentPath": {
       "verb": "Get",
-      "noun": "WDDocumentPath",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DocumentPath",
       "pipelineProperty": "DocumentId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentPath",
         "ConfirmImpactSetting": "Medium",
@@ -1030,31 +776,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetDocumentVersion": {
       "verb": "Get",
-      "noun": "WDDocumentVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DocumentVersion",
       "pipelineProperty": "DocumentId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentVersion",
         "ConfirmImpactSetting": "Medium",
@@ -1064,31 +799,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetFolder": {
       "verb": "Get",
-      "noun": "WDFolder",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Folder",
       "pipelineProperty": "FolderId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Folder",
         "ConfirmImpactSetting": "Medium",
@@ -1098,31 +822,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetFolderPath": {
       "verb": "Get",
-      "noun": "WDFolderPath",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FolderPath",
       "pipelineProperty": "FolderId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FolderPath",
         "ConfirmImpactSetting": "Medium",
@@ -1132,31 +844,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "InitiateDocumentVersionUpload": {
       "verb": "Start",
-      "noun": "WDDocumentVersionUpload",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DocumentVersionUpload",
       "pipelineProperty": "Id",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Id",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentVersionUpload",
@@ -1167,34 +868,28 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveAllResourcePermissions": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "RemoveResourcePermission": {
       "verb": "Remove",
-      "noun": "WDResourcePermission",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourcePermission",
       "pipelineProperty": "ResourceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourcePermission",
         "ConfirmImpactSetting": "High",
@@ -1204,31 +899,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDocument": {
       "verb": "Update",
-      "noun": "WDDocument",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Document",
       "pipelineProperty": "DocumentId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Document",
         "ConfirmImpactSetting": "Medium",
@@ -1238,31 +927,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DocumentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDocumentVersion": {
       "verb": "Update",
-      "noun": "WDDocumentVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DocumentVersion",
       "pipelineProperty": "DocumentId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentVersion",
         "ConfirmImpactSetting": "Medium",
@@ -1272,31 +955,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DocumentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateFolder": {
       "verb": "Update",
-      "noun": "WDFolder",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Folder",
       "pipelineProperty": "FolderId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "FolderId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Folder",
@@ -1307,31 +984,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "FolderId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateUser": {
       "verb": "Update",
-      "noun": "WDUser",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "User",
       "pipelineProperty": "UserId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "UserId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "User",
@@ -1342,19 +1012,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "DescribeFolderContents"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "UserId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

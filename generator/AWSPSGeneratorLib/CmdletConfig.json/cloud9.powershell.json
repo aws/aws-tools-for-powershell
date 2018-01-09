@@ -1,33 +1,20 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.Cloud9",
-  "sdkServiceClient": "AmazonCloud9Client",
-  "sdkServiceClientConfig": "AmazonCloud9Config",
-  "legacyCmdletPrefix": "C9",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults",
     "servicePageSize": 25
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "C9",
+  "sdkServiceClientClass": "AmazonCloud9Client",
+  "sdkServiceConfigClass": "AmazonCloud9Config",
+  "sdkServiceNamespace": "Amazon.Cloud9",
   "serviceOperations": {
     "CreateEnvironmentEC2": {
       "verb": "New",
-      "noun": "C9EnvironmentEC2",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EnvironmentEC2",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EnvironmentEC2",
         "ConfirmImpactSetting": "Medium",
@@ -46,20 +33,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateEnvironmentMembership": {
       "verb": "New",
-      "noun": "C9EnvironmentMembership",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EnvironmentMembership",
       "pipelineProperty": "UserArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EnvironmentMembership",
         "ConfirmImpactSetting": "Medium",
@@ -78,20 +58,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteEnvironment": {
       "verb": "Remove",
-      "noun": "C9Environment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Environment",
       "pipelineProperty": "EnvironmentId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Environment",
         "ConfirmImpactSetting": "High",
@@ -110,20 +84,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EnvironmentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteEnvironmentMembership": {
       "verb": "Remove",
-      "noun": "C9EnvironmentMembership",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EnvironmentMembership",
       "pipelineProperty": "UserArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EnvironmentMembership",
         "ConfirmImpactSetting": "High",
@@ -142,20 +110,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEnvironmentMemberships": {
       "verb": "Get",
-      "noun": "C9EnvironmentMembershipList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EnvironmentMembershipList",
       "pipelineProperty": "EnvironmentId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EnvironmentMemberships",
         "ConfirmImpactSetting": "Medium",
@@ -169,25 +130,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 25
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEnvironments": {
       "verb": "Get",
-      "noun": "C9EnvironmentData",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EnvironmentData",
       "pipelineProperty": "EnvironmentIds",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Environments",
         "ConfirmImpactSetting": "Medium",
@@ -201,25 +150,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 25
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEnvironmentStatus": {
       "verb": "Get",
-      "noun": "C9EnvironmentStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EnvironmentStatus",
       "pipelineProperty": "EnvironmentId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EnvironmentStatus",
         "ConfirmImpactSetting": "Medium",
@@ -233,25 +171,12 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 25
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListEnvironments": {
       "verb": "Get",
-      "noun": "C9EnvironmentList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "EnvironmentList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Environments",
         "ConfirmImpactSetting": "Medium",
@@ -265,25 +190,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 25
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateEnvironment": {
       "verb": "Update",
-      "noun": "C9Environment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Environment",
       "pipelineProperty": "EnvironmentId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Environment",
         "ConfirmImpactSetting": "Medium",
@@ -302,20 +216,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EnvironmentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateEnvironmentMembership": {
       "verb": "Update",
-      "noun": "C9EnvironmentMembership",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EnvironmentMembership",
       "pipelineProperty": "UserArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EnvironmentMembership",
         "ConfirmImpactSetting": "Medium",
@@ -334,8 +241,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

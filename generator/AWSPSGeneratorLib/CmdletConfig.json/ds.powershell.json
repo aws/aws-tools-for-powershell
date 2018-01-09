@@ -1,32 +1,21 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.DirectoryService",
-  "sdkServiceClient": "AmazonDirectoryServiceClient",
-  "sdkServiceClientConfig": "AmazonDirectoryServiceConfig",
-  "legacyCmdletPrefix": "DS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "Limit"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "DS",
+  "sdkServiceClientClass": "AmazonDirectoryServiceClient",
+  "sdkServiceConfigClass": "AmazonDirectoryServiceConfig",
+  "sdkServiceNamespace": "Amazon.DirectoryService",
   "serviceOperations": {
     "AddIpRoutes": {
       "verb": "Add",
-      "noun": "DSIpRoute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "IpRoute",
       "legacyAlias": "Add-DSIpRoutes",
-      "metadataOutputProperties": "",
       "pipelineProperty": "DirectoryId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IpRoutes",
         "ConfirmImpactSetting": "Medium",
@@ -44,20 +33,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddTagsToResource": {
       "verb": "Add",
-      "noun": "DSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsToResource",
         "ConfirmImpactSetting": "Medium",
@@ -75,20 +58,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CancelSchemaExtension": {
       "verb": "Stop",
-      "noun": "DSSchemaExtension",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SchemaExtension",
       "pipelineProperty": "DirectoryId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SchemaExtension",
         "ConfirmImpactSetting": "Medium",
@@ -106,20 +83,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ConnectDirectory": {
       "verb": "Connect",
-      "noun": "DSDirectory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Directory",
+      "legacyPositionalParameters": [
+        "Name",
+        "Password"
+      ],
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": "Name;Password",
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Directory",
@@ -138,20 +112,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateAlias": {
       "verb": "New",
-      "noun": "DSAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Alias",
       "pipelineProperty": "DirectoryId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DirectoryId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Alias",
@@ -170,20 +138,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DirectoryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateComputer": {
       "verb": "New",
-      "noun": "DSComputer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Computer",
       "pipelineProperty": "DirectoryId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Computer",
         "ConfirmImpactSetting": "Medium",
@@ -201,20 +162,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateConditionalForwarder": {
       "verb": "New",
-      "noun": "DSConditionalForwarder",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConditionalForwarder",
       "pipelineProperty": "DirectoryId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConditionalForwarder",
         "ConfirmImpactSetting": "Medium",
@@ -232,20 +187,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDirectory": {
       "verb": "New",
-      "noun": "DSDirectory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Directory",
+      "legacyPositionalParameters": [
+        "Name",
+        "Password"
+      ],
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": "Name;Password",
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Directory",
@@ -264,20 +216,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateMicrosoftAD": {
       "verb": "New",
-      "noun": "DSMicrosoftAD",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MicrosoftAD",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MicrosoftAD",
         "ConfirmImpactSetting": "Medium",
@@ -295,20 +240,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateSnapshot": {
       "verb": "New",
-      "noun": "DSSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Snapshot",
       "pipelineProperty": "DirectoryId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Snapshot",
         "ConfirmImpactSetting": "Medium",
@@ -326,20 +264,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateTrust": {
       "verb": "New",
-      "noun": "DSTrust",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Trust",
       "pipelineProperty": "DirectoryId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Trust",
         "ConfirmImpactSetting": "Medium",
@@ -357,20 +288,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteConditionalForwarder": {
       "verb": "Remove",
-      "noun": "DSConditionalForwarder",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConditionalForwarder",
       "pipelineProperty": "DirectoryId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DirectoryId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConditionalForwarder",
@@ -389,20 +314,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DirectoryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDirectory": {
       "verb": "Remove",
-      "noun": "DSDirectory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Directory",
       "pipelineProperty": "DirectoryId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Directory",
         "ConfirmImpactSetting": "High",
@@ -420,20 +338,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSnapshot": {
       "verb": "Remove",
-      "noun": "DSSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Snapshot",
       "pipelineProperty": "SnapshotId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Snapshot",
         "ConfirmImpactSetting": "High",
@@ -451,20 +362,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SnapshotId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteTrust": {
       "verb": "Remove",
-      "noun": "DSTrust",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Trust",
       "pipelineProperty": "TrustId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "TrustId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Trust",
@@ -483,20 +387,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "TrustId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeregisterEventTopic": {
       "verb": "Unregister",
-      "noun": "DSEventTopic",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EventTopic",
       "pipelineProperty": "DirectoryId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventTopic",
         "ConfirmImpactSetting": "Medium",
@@ -514,20 +412,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeConditionalForwarders": {
       "verb": "Get",
-      "noun": "DSConditionalForwarder",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConditionalForwarder",
       "pipelineProperty": "DirectoryId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConditionalForwarders",
         "ConfirmImpactSetting": "Medium",
@@ -540,25 +431,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDirectories": {
       "verb": "Get",
-      "noun": "DSDirectory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Directory",
       "pipelineProperty": "DirectoryIds",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Directories",
         "ConfirmImpactSetting": "Medium",
@@ -571,25 +450,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDomainControllers": {
       "verb": "Get",
-      "noun": "DSDomainControllerList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DomainControllerList",
       "pipelineProperty": "DirectoryId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainControllers",
         "ConfirmImpactSetting": "Medium",
@@ -602,25 +469,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEventTopics": {
       "verb": "Get",
-      "noun": "DSEventTopic",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EventTopic",
       "pipelineProperty": "TopicName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventTopics",
         "ConfirmImpactSetting": "Medium",
@@ -633,25 +488,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeSnapshots": {
       "verb": "Get",
-      "noun": "DSSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Snapshot",
       "pipelineProperty": "DirectoryId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Snapshots",
         "ConfirmImpactSetting": "Medium",
@@ -664,25 +507,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTrusts": {
       "verb": "Get",
-      "noun": "DSTrust",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Trust",
       "pipelineProperty": "DirectoryId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Trusts",
         "ConfirmImpactSetting": "Medium",
@@ -695,25 +526,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisableRadius": {
       "verb": "Disable",
-      "noun": "DSRadius",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Radius",
       "pipelineProperty": "DirectoryId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Radius",
         "ConfirmImpactSetting": "Medium",
@@ -731,20 +551,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisableSso": {
       "verb": "Disable",
-      "noun": "DSSso",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Sso",
       "pipelineProperty": "DirectoryId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DirectoryId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Sso",
@@ -763,20 +577,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DirectoryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "EnableRadius": {
       "verb": "Enable",
-      "noun": "DSRadius",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Radius",
       "pipelineProperty": "DirectoryId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Radius",
         "ConfirmImpactSetting": "Medium",
@@ -794,20 +602,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "EnableSso": {
       "verb": "Enable",
-      "noun": "DSSso",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Sso",
       "pipelineProperty": "DirectoryId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Sso",
         "ConfirmImpactSetting": "Medium",
@@ -825,20 +627,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDirectoryLimits": {
       "verb": "Get",
-      "noun": "DSDirectoryLimit",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DirectoryLimit",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DirectoryLimits",
         "ConfirmImpactSetting": "Medium",
@@ -851,25 +645,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSnapshotLimits": {
       "verb": "Get",
-      "noun": "DSSnapshotLimit",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SnapshotLimit",
       "pipelineProperty": "DirectoryId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SnapshotLimits",
         "ConfirmImpactSetting": "Medium",
@@ -882,25 +664,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListIpRoutes": {
       "verb": "Get",
-      "noun": "DSIpRouteList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "IpRouteList",
       "legacyAlias": "Get-DSIpRoutes",
-      "metadataOutputProperties": "",
       "pipelineProperty": "DirectoryId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IpRoutes",
         "ConfirmImpactSetting": "Medium",
@@ -913,25 +684,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListSchemaExtensions": {
       "verb": "Get",
-      "noun": "DSSchemaExtension",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SchemaExtension",
       "pipelineProperty": "DirectoryId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SchemaExtensions",
         "ConfirmImpactSetting": "Medium",
@@ -944,25 +703,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTagsForResource": {
       "verb": "Get",
-      "noun": "DSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForResource",
         "ConfirmImpactSetting": "Medium",
@@ -975,25 +722,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RegisterEventTopic": {
       "verb": "Register",
-      "noun": "DSEventTopic",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EventTopic",
       "pipelineProperty": "TopicName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventTopic",
         "ConfirmImpactSetting": "Medium",
@@ -1011,20 +747,15 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TopicName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveIpRoutes": {
       "verb": "Remove",
-      "noun": "DSIpRoute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "IpRoute",
       "legacyAlias": "Remove-DSIpRoutes",
-      "metadataOutputProperties": "",
       "pipelineProperty": "DirectoryId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IpRoutes",
         "ConfirmImpactSetting": "High",
@@ -1042,20 +773,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveTagsFromResource": {
       "verb": "Remove",
-      "noun": "DSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsFromResource",
         "ConfirmImpactSetting": "High",
@@ -1073,20 +798,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RestoreFromSnapshot": {
       "verb": "Restore",
-      "noun": "DSFromSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FromSnapshot",
+      "legacyPositionalParameters": [
+        "SnapshotId"
+      ],
       "pipelineProperty": "SnapshotId",
       "output": "Void",
-      "legacyPositionalParameters": "SnapshotId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FromSnapshot",
         "ConfirmImpactSetting": "Medium",
@@ -1104,20 +826,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SnapshotId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartSchemaExtension": {
       "verb": "Start",
-      "noun": "DSSchemaExtension",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SchemaExtension",
       "pipelineProperty": "DirectoryId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SchemaExtension",
         "ConfirmImpactSetting": "Medium",
@@ -1135,20 +850,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateConditionalForwarder": {
       "verb": "Update",
-      "noun": "DSConditionalForwarder",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConditionalForwarder",
       "pipelineProperty": "DirectoryId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConditionalForwarder",
         "ConfirmImpactSetting": "Medium",
@@ -1166,20 +875,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateNumberOfDomainControllers": {
       "verb": "Set",
-      "noun": "DSDomainControllerCount",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DomainControllerCount",
       "pipelineProperty": "DesiredNumber",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NumberOfDomainControllers",
         "ConfirmImpactSetting": "Medium",
@@ -1197,20 +900,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateRadius": {
       "verb": "Update",
-      "noun": "DSRadius",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Radius",
       "pipelineProperty": "DirectoryId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Radius",
         "ConfirmImpactSetting": "Medium",
@@ -1228,20 +925,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "VerifyTrust": {
       "verb": "Approve",
-      "noun": "DSTrust",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Trust",
       "pipelineProperty": "TrustId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Trust",
         "ConfirmImpactSetting": "Medium",
@@ -1259,8 +949,7 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TrustId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

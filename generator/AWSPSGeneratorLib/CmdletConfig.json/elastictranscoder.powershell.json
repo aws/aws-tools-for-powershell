@@ -1,5 +1,15 @@
 {
-  "additionalNamespaces": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "PageToken",
+    "responseTokenMember": "NextPageToken"
+  },
+  "defaultPipelineProperty": "Id",
+  "legacyCmdletPrefix": "ETS",
+  "legacyPositionalProperties": "Id",
+  "nounMappings": {
+    "Presets": "Preset",
+    "Pipelines": "Pipeline"
+  },
   "outputMetadataPropertyNames": [
     "Warnings"
   ],
@@ -9,36 +19,17 @@
     "PresetId",
     "PipelineId"
   ],
-  "defaultPipelineProperty": "Id",
-  "legacyPositionalProperties": "Id",
+  "sdkServiceClientClass": "AmazonElasticTranscoderClient",
+  "sdkServiceConfigClass": "AmazonElasticTranscoderConfig",
   "sdkServiceNamespace": "Amazon.ElasticTranscoder",
-  "sdkServiceClient": "AmazonElasticTranscoderClient",
-  "sdkServiceClientConfig": "AmazonElasticTranscoderConfig",
-  "legacyCmdletPrefix": "ETS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "PageToken",
-    "responseTokenMember": "NextPageToken"
-  },
-  "nounMappings": {
-    "Presets": "Preset",
-    "Pipelines": "Pipeline"
-  },
   "verbMappings": {
     "List": "Get"
   },
   "serviceOperations": {
     "CancelJob": {
       "verb": "Stop",
-      "noun": "ETSJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Job",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Job",
         "ConfirmImpactSetting": "Medium",
@@ -55,20 +46,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateJob": {
       "verb": "New",
-      "noun": "ETSJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "PipelineId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Job",
       "customParameters": [
         {
           "name": "Input_Encryption_InitializationVector",
@@ -103,6 +86,7 @@
           "newName": "OutputEncryptionMode"
         }
       ],
+      "pipelineProperty": "PipelineId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Job",
         "ConfirmImpactSetting": "Medium",
@@ -119,20 +103,18 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PipelineId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreatePipeline": {
       "verb": "New",
-      "noun": "ETSPipeline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Pipeline",
+      "legacyPositionalParameters": [
+        "InputBucket",
+        "OutputBucket",
+        "Role"
+      ],
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": "InputBucket;OutputBucket;Role",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Pipeline",
         "ConfirmImpactSetting": "Medium",
@@ -149,20 +131,18 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreatePreset": {
       "verb": "New",
-      "noun": "ETSPreset",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Preset",
+      "legacyPositionalParameters": [
+        "Description",
+        "Container"
+      ],
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": "Description;Container",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Preset",
         "ConfirmImpactSetting": "Medium",
@@ -179,20 +159,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeletePipeline": {
       "verb": "Remove",
-      "noun": "ETSPipeline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Pipeline",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Pipeline",
         "ConfirmImpactSetting": "High",
@@ -209,20 +182,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeletePreset": {
       "verb": "Remove",
-      "noun": "ETSPreset",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Preset",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Preset",
         "ConfirmImpactSetting": "High",
@@ -239,20 +205,16 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListJobsByPipeline": {
       "verb": "Get",
-      "noun": "ETSJobsByPipeline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "JobsByPipeline",
+      "legacyPositionalParameters": [
+        "Ascending"
+      ],
       "pipelineProperty": "PipelineId",
-      "output": "Default",
-      "legacyPositionalParameters": "Ascending",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobsByPipeline",
         "ConfirmImpactSetting": "Medium",
@@ -264,25 +226,16 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListJobsByStatus": {
       "verb": "Get",
-      "noun": "ETSJobsByStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "JobsByStatus",
+      "legacyPositionalParameters": [
+        "Ascending"
+      ],
       "pipelineProperty": "Status",
-      "output": "Default",
-      "legacyPositionalParameters": "Ascending",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobsByStatus",
         "ConfirmImpactSetting": "Medium",
@@ -294,25 +247,16 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListPipelines": {
       "verb": "Get",
-      "noun": "ETSPipeline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Pipeline",
+      "legacyPositionalParameters": [
+        "Ascending"
+      ],
       "pipelineProperty": "Ascending",
-      "output": "Default",
-      "legacyPositionalParameters": "Ascending",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Pipelines",
         "ConfirmImpactSetting": "Medium",
@@ -324,25 +268,16 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListPresets": {
       "verb": "Get",
-      "noun": "ETSPreset",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Preset",
+      "legacyPositionalParameters": [
+        "Ascending"
+      ],
       "pipelineProperty": "Ascending",
-      "output": "Default",
-      "legacyPositionalParameters": "Ascending",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Presets",
         "ConfirmImpactSetting": "Medium",
@@ -354,25 +289,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ReadJob": {
       "verb": "Read",
-      "noun": "ETSJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Job",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Job",
         "ConfirmImpactSetting": "Medium",
@@ -389,20 +311,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ReadPipeline": {
       "verb": "Read",
-      "noun": "ETSPipeline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Pipeline",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Pipeline",
         "ConfirmImpactSetting": "Medium",
@@ -419,20 +333,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ReadPreset": {
       "verb": "Read",
-      "noun": "ETSPreset",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Preset",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Preset",
         "ConfirmImpactSetting": "Medium",
@@ -449,23 +355,20 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TestRole": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "UpdatePipeline": {
       "verb": "Update",
-      "noun": "ETSPipeline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "Name;InputBucket;Role",
+      "noun": "Pipeline",
+      "legacyPositionalParameters": [
+        "Name",
+        "InputBucket",
+        "Role"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Pipeline",
         "ConfirmImpactSetting": "Medium",
@@ -482,20 +385,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdatePipelineNotifications": {
       "verb": "Update",
-      "noun": "ETSPipelineNotification",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "PipelineNotification",
       "legacyAlias": "Update-ETSPipelineNotifications",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PipelineNotifications",
         "ConfirmImpactSetting": "Medium",
@@ -512,20 +408,15 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdatePipelineStatus": {
       "verb": "Update",
-      "noun": "ETSPipelineStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "Status",
+      "noun": "PipelineStatus",
+      "legacyPositionalParameters": [
+        "Status"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PipelineStatus",
         "ConfirmImpactSetting": "Medium",
@@ -542,8 +433,7 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

@@ -1,7 +1,27 @@
 {
-  "additionalNamespaces": [],
-  "regionFallback": "us-east-1",
-  "outputMetadataPropertyNames": [],
+  "defaultPaginationSettings": {
+    "excludedOperations": [
+      "GetGroup",
+      "GetAccountAuthorizationDetails",
+      "ListEntitiesForPolicy"
+    ],
+    "requestTokenMember": "Marker",
+    "responseTokenMember": "Marker",
+    "resultLimitMember": "MaxItems",
+    "resultsTruncatedMember": "IsTruncated"
+  },
+  "defaultPipelineProperty": "UserName",
+  "legacyCmdletPrefix": "IAM",
+  "legacyPositionalProperties": "UserName",
+  "nounMappings": {
+    "AccessKeys": "AccessKey",
+    "AccountAliases": "AccountAlias",
+    "GroupsForUser": "GroupForUser",
+    "InstanceProfilesForRole": "InstanceProfileForRole",
+    "MFADevices": "MFADevice",
+    "SigningCertificates": "SigningCertificate",
+    "VirtualMFADevices": "VirtualMFADevice"
+  },
   "pipelineByValuePropertyNames": [
     "InstanceProfileName",
     "RoleName",
@@ -14,34 +34,10 @@
     "PolicyArn",
     "ServiceSpecificCredentialId"
   ],
-  "defaultPipelineProperty": "UserName",
-  "legacyPositionalProperties": "UserName",
+  "regionFallback": "us-east-1",
+  "sdkServiceClientClass": "AmazonIdentityManagementServiceClient",
+  "sdkServiceConfigClass": "AmazonIdentityManagementServiceConfig",
   "sdkServiceNamespace": "Amazon.IdentityManagement",
-  "sdkServiceClient": "AmazonIdentityManagementServiceClient",
-  "sdkServiceClientConfig": "AmazonIdentityManagementServiceConfig",
-  "legacyCmdletPrefix": "IAM",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "Marker",
-    "responseTokenMember": "Marker",
-    "resultLimitMember": "MaxItems",
-    "resultsTruncatedMember": "IsTruncated",
-    "excludedOperations": [
-      "GetGroup",
-      "GetAccountAuthorizationDetails",
-      "ListEntitiesForPolicy"
-    ]
-  },
-  "nounMappings": {
-    "AccessKeys": "AccessKey",
-    "AccountAliases": "AccountAlias",
-    "GroupsForUser": "GroupForUser",
-    "InstanceProfilesForRole": "InstanceProfileForRole",
-    "MFADevices": "MFADevice",
-    "SigningCertificates": "SigningCertificate",
-    "VirtualMFADevices": "VirtualMFADevice"
-  },
   "verbMappings": {
     "Change": "Edit",
     "List": "Get",
@@ -54,14 +50,8 @@
   "serviceOperations": {
     "AddClientIDToOpenIDConnectProvider": {
       "verb": "Add",
-      "noun": "IAMClientIDToOpenIDConnectProvider",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ClientIDToOpenIDConnectProvider",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClientIDToOpenIDConnectProvider",
         "ConfirmImpactSetting": "Medium",
@@ -71,34 +61,31 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "OpenIDConnectProviderArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddRoleToInstanceProfile": {
       "verb": "Add",
-      "noun": "IAMRoleToInstanceProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RoleToInstanceProfile",
+      "legacyPositionalParameters": [
+        "RoleName"
+      ],
       "pipelineProperty": "InstanceProfileName",
       "output": "Void",
-      "legacyPositionalParameters": "RoleName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RoleToInstanceProfile",
         "ConfirmImpactSetting": "Medium",
@@ -108,34 +95,31 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceProfileName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddUserToGroup": {
       "verb": "Add",
-      "noun": "IAMUserToGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UserToGroup",
+      "legacyPositionalParameters": [
+        "UserName"
+      ],
       "pipelineProperty": "GroupName",
       "output": "Void",
-      "legacyPositionalParameters": "UserName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserToGroup",
         "ConfirmImpactSetting": "Medium",
@@ -145,34 +129,31 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AttachGroupPolicy": {
       "verb": "Register",
-      "noun": "IAMGroupPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GroupPolicy",
+      "legacyPositionalParameters": [
+        "PolicyArn"
+      ],
       "pipelineProperty": "GroupName",
       "output": "Void",
-      "legacyPositionalParameters": "PolicyArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GroupPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -182,34 +163,31 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AttachRolePolicy": {
       "verb": "Register",
-      "noun": "IAMRolePolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RolePolicy",
+      "legacyPositionalParameters": [
+        "PolicyArn"
+      ],
       "pipelineProperty": "RoleName",
       "output": "Void",
-      "legacyPositionalParameters": "PolicyArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RolePolicy",
         "ConfirmImpactSetting": "Medium",
@@ -219,34 +197,30 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AttachUserPolicy": {
       "verb": "Register",
-      "noun": "IAMUserPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserPolicy",
+      "legacyPositionalParameters": [
+        "PolicyArn"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "PolicyArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -256,34 +230,31 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ChangePassword": {
       "verb": "Edit",
-      "noun": "IAMPassword",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Password",
+      "legacyPositionalParameters": [
+        "NewPassword"
+      ],
       "pipelineProperty": "OldPassword",
       "output": "Void",
-      "legacyPositionalParameters": "NewPassword",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Password",
         "ConfirmImpactSetting": "Medium",
@@ -293,34 +264,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "OldPassword"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateAccessKey": {
       "verb": "New",
-      "noun": "IAMAccessKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AccessKey",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccessKey",
         "ConfirmImpactSetting": "Medium",
@@ -330,34 +293,28 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateAccountAlias": {
       "verb": "New",
-      "noun": "IAMAccountAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AccountAlias",
       "pipelineProperty": "AccountAlias",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountAlias",
         "ConfirmImpactSetting": "Medium",
@@ -367,34 +324,30 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AccountAlias"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateGroup": {
       "verb": "New",
-      "noun": "IAMGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Group",
+      "legacyPositionalParameters": [
+        "GroupName"
+      ],
       "pipelineProperty": "Path",
-      "output": "Default",
-      "legacyPositionalParameters": "GroupName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Group",
         "ConfirmImpactSetting": "Medium",
@@ -404,34 +357,30 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateInstanceProfile": {
       "verb": "New",
-      "noun": "IAMInstanceProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceProfile",
+      "legacyPositionalParameters": [
+        "Path"
+      ],
       "pipelineProperty": "InstanceProfileName",
-      "output": "Default",
-      "legacyPositionalParameters": "Path",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceProfile",
         "ConfirmImpactSetting": "Medium",
@@ -441,34 +390,29 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceProfileName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateLoginProfile": {
       "verb": "New",
-      "noun": "IAMLoginProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "Password",
+      "noun": "LoginProfile",
+      "legacyPositionalParameters": [
+        "Password"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoginProfile",
         "ConfirmImpactSetting": "Medium",
@@ -478,34 +422,27 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateOpenIDConnectProvider": {
       "verb": "New",
-      "noun": "IAMOpenIDConnectProvider",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OpenIDConnectProvider",
       "pipelineProperty": "Url",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OpenIDConnectProvider",
         "ConfirmImpactSetting": "Medium",
@@ -515,34 +452,30 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Url"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreatePolicy": {
       "verb": "New",
-      "noun": "IAMPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "PolicyName;PolicyDocument",
+      "noun": "Policy",
+      "legacyPositionalParameters": [
+        "PolicyName",
+        "PolicyDocument"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Policy",
         "ConfirmImpactSetting": "Medium",
@@ -552,34 +485,30 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreatePolicyVersion": {
       "verb": "New",
-      "noun": "IAMPolicyVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "PolicyArn;PolicyDocument",
+      "noun": "PolicyVersion",
+      "legacyPositionalParameters": [
+        "PolicyArn",
+        "PolicyDocument"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PolicyVersion",
         "ConfirmImpactSetting": "Medium",
@@ -589,34 +518,31 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PolicyArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateRole": {
       "verb": "New",
-      "noun": "IAMRole",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Role",
+      "legacyPositionalParameters": [
+        "RoleName",
+        "AssumeRolePolicyDocument"
+      ],
       "pipelineProperty": "Path",
-      "output": "Default",
-      "legacyPositionalParameters": "RoleName;AssumeRolePolicyDocument",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Role",
         "ConfirmImpactSetting": "Medium",
@@ -626,34 +552,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateSAMLProvider": {
       "verb": "New",
-      "noun": "IAMSAMLProvider",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SAMLProvider",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SAMLProvider",
         "ConfirmImpactSetting": "Medium",
@@ -663,34 +581,27 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateServiceLinkedRole": {
       "verb": "New",
-      "noun": "IAMServiceLinkedRole",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ServiceLinkedRole",
       "pipelineProperty": "AWSServiceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServiceLinkedRole",
         "ConfirmImpactSetting": "Medium",
@@ -700,34 +611,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AWSServiceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateServiceSpecificCredential": {
       "verb": "New",
-      "noun": "IAMServiceSpecificCredential",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ServiceSpecificCredential",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServiceSpecificCredential",
         "ConfirmImpactSetting": "Medium",
@@ -737,34 +640,30 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateUser": {
       "verb": "New",
-      "noun": "IAMUser",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "User",
+      "legacyPositionalParameters": [
+        "UserName"
+      ],
       "pipelineProperty": "Path",
-      "output": "Default",
-      "legacyPositionalParameters": "UserName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "User",
         "ConfirmImpactSetting": "Medium",
@@ -774,34 +673,30 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateVirtualMFADevice": {
       "verb": "New",
-      "noun": "IAMVirtualMFADevice",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "VirtualMFADevice",
+      "legacyPositionalParameters": [
+        "VirtualMFADeviceName"
+      ],
       "pipelineProperty": "Path",
-      "output": "Default",
-      "legacyPositionalParameters": "VirtualMFADeviceName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VirtualMFADevice",
         "ConfirmImpactSetting": "Medium",
@@ -811,34 +706,30 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "VirtualMFADeviceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeactivateMFADevice": {
       "verb": "Disable",
-      "noun": "IAMMFADevice",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "MFADevice",
+      "legacyPositionalParameters": [
+        "SerialNumber"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "SerialNumber",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MFADevice",
         "ConfirmImpactSetting": "Medium",
@@ -848,34 +739,30 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteAccessKey": {
       "verb": "Remove",
-      "noun": "IAMAccessKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "AccessKey",
+      "legacyPositionalParameters": [
+        "AccessKeyId"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "AccessKeyId",
       "shouldProcessTargetProperty": "AccessKeyId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccessKey",
@@ -886,34 +773,28 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "AccessKeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteAccountAlias": {
       "verb": "Remove",
-      "noun": "IAMAccountAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AccountAlias",
       "pipelineProperty": "AccountAlias",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountAlias",
         "ConfirmImpactSetting": "High",
@@ -923,34 +804,27 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AccountAlias"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteAccountPasswordPolicy": {
       "verb": "Remove",
-      "noun": "IAMAccountPasswordPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "AccountPasswordPolicy",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountPasswordPolicy",
         "ConfirmImpactSetting": "High",
@@ -960,34 +834,28 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "No parameters, setting anonymous target",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteGroup": {
       "verb": "Remove",
-      "noun": "IAMGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Group",
       "pipelineProperty": "GroupName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Group",
         "ConfirmImpactSetting": "High",
@@ -997,34 +865,31 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteGroupPolicy": {
       "verb": "Remove",
-      "noun": "IAMGroupPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GroupPolicy",
+      "legacyPositionalParameters": [
+        "PolicyName"
+      ],
       "pipelineProperty": "GroupName",
       "output": "Void",
-      "legacyPositionalParameters": "PolicyName",
       "shouldProcessTargetProperty": "PolicyName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GroupPolicy",
@@ -1035,34 +900,28 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteInstanceProfile": {
       "verb": "Remove",
-      "noun": "IAMInstanceProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceProfile",
       "pipelineProperty": "InstanceProfileName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceProfile",
         "ConfirmImpactSetting": "High",
@@ -1072,34 +931,27 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceProfileName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteLoginProfile": {
       "verb": "Remove",
-      "noun": "IAMLoginProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LoginProfile",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoginProfile",
         "ConfirmImpactSetting": "High",
@@ -1109,34 +961,31 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteOpenIDConnectProvider": {
       "verb": "Remove",
-      "noun": "IAMOpenIDConnectProvider",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OpenIDConnectProvider",
+      "legacyPositionalParameters": [
+        "OpenIDConnectProviderArn"
+      ],
       "pipelineProperty": "OpenIDConnectProviderArn",
       "output": "Void",
-      "legacyPositionalParameters": "OpenIDConnectProviderArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OpenIDConnectProvider",
         "ConfirmImpactSetting": "High",
@@ -1146,34 +995,31 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "OpenIDConnectProviderArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeletePolicy": {
       "verb": "Remove",
-      "noun": "IAMPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Policy",
+      "legacyPositionalParameters": [
+        "PolicyArn"
+      ],
       "pipelineProperty": "PolicyArn",
       "output": "Void",
-      "legacyPositionalParameters": "PolicyArn",
       "shouldProcessTargetProperty": "PolicyArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Policy",
@@ -1184,34 +1030,30 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PolicyArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeletePolicyVersion": {
       "verb": "Remove",
-      "noun": "IAMPolicyVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "PolicyVersion",
+      "legacyPositionalParameters": [
+        "PolicyArn,VersionId"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "PolicyArn,VersionId",
       "shouldProcessTargetProperty": "VersionId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PolicyVersion",
@@ -1222,34 +1064,28 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "VersionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRole": {
       "verb": "Remove",
-      "noun": "IAMRole",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Role",
       "pipelineProperty": "RoleName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Role",
         "ConfirmImpactSetting": "High",
@@ -1259,34 +1095,31 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRolePolicy": {
       "verb": "Remove",
-      "noun": "IAMRolePolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RolePolicy",
+      "legacyPositionalParameters": [
+        "PolicyName"
+      ],
       "pipelineProperty": "RoleName",
       "output": "Void",
-      "legacyPositionalParameters": "PolicyName",
       "shouldProcessTargetProperty": "PolicyName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RolePolicy",
@@ -1297,34 +1130,28 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSAMLProvider": {
       "verb": "Remove",
-      "noun": "IAMSAMLProvider",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SAMLProvider",
       "pipelineProperty": "SAMLProviderArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "SAMLProviderArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SAMLProvider",
@@ -1335,34 +1162,28 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SAMLProviderArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteServerCertificate": {
       "verb": "Remove",
-      "noun": "IAMServerCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ServerCertificate",
       "pipelineProperty": "ServerCertificateName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServerCertificate",
         "ConfirmImpactSetting": "High",
@@ -1372,34 +1193,27 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerCertificateName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteServiceLinkedRole": {
       "verb": "Remove",
-      "noun": "IAMServiceLinkedRole",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ServiceLinkedRole",
       "pipelineProperty": "RoleName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServiceLinkedRole",
         "ConfirmImpactSetting": "High",
@@ -1409,34 +1223,28 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteServiceSpecificCredential": {
       "verb": "Remove",
-      "noun": "IAMServiceSpecificCredential",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ServiceSpecificCredential",
       "pipelineProperty": "ServiceSpecificCredentialId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServiceSpecificCredential",
         "ConfirmImpactSetting": "High",
@@ -1446,34 +1254,30 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServiceSpecificCredentialId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSigningCertificate": {
       "verb": "Remove",
-      "noun": "IAMSigningCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "SigningCertificate",
+      "legacyPositionalParameters": [
+        "CertificateId"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "CertificateId",
       "shouldProcessTargetProperty": "CertificateId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SigningCertificate",
@@ -1484,34 +1288,28 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "CertificateId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSSHPublicKey": {
       "verb": "Remove",
-      "noun": "IAMSSHPublicKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SSHPublicKey",
       "pipelineProperty": "SSHPublicKeyId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SSHPublicKey",
         "ConfirmImpactSetting": "High",
@@ -1521,34 +1319,27 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SSHPublicKeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteUser": {
       "verb": "Remove",
-      "noun": "IAMUser",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "User",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "User",
         "ConfirmImpactSetting": "High",
@@ -1558,34 +1349,30 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteUserPolicy": {
       "verb": "Remove",
-      "noun": "IAMUserPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserPolicy",
+      "legacyPositionalParameters": [
+        "PolicyName"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "PolicyName",
       "shouldProcessTargetProperty": "PolicyName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPolicy",
@@ -1596,34 +1383,28 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteVirtualMFADevice": {
       "verb": "Remove",
-      "noun": "IAMVirtualMFADevice",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "VirtualMFADevice",
       "pipelineProperty": "SerialNumber",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VirtualMFADevice",
         "ConfirmImpactSetting": "High",
@@ -1633,34 +1414,31 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SerialNumber"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DetachGroupPolicy": {
       "verb": "Unregister",
-      "noun": "IAMGroupPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GroupPolicy",
+      "legacyPositionalParameters": [
+        "PolicyArn"
+      ],
       "pipelineProperty": "GroupName",
       "output": "Void",
-      "legacyPositionalParameters": "PolicyArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GroupPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -1670,34 +1448,31 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DetachRolePolicy": {
       "verb": "Unregister",
-      "noun": "IAMRolePolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RolePolicy",
+      "legacyPositionalParameters": [
+        "PolicyArn"
+      ],
       "pipelineProperty": "RoleName",
       "output": "Void",
-      "legacyPositionalParameters": "PolicyArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RolePolicy",
         "ConfirmImpactSetting": "Medium",
@@ -1707,34 +1482,30 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DetachUserPolicy": {
       "verb": "Unregister",
-      "noun": "IAMUserPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserPolicy",
+      "legacyPositionalParameters": [
+        "PolicyArn"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "PolicyArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -1744,34 +1515,32 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "EnableMFADevice": {
       "verb": "Enable",
-      "noun": "IAMMFADevice",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "MFADevice",
+      "legacyPositionalParameters": [
+        "SerialNumber",
+        "AuthenticationCode1",
+        "AuthenticationCode2"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "SerialNumber;AuthenticationCode1;AuthenticationCode2",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MFADevice",
         "ConfirmImpactSetting": "Medium",
@@ -1781,34 +1550,27 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GenerateCredentialReport": {
       "verb": "Request",
-      "noun": "IAMCredentialReport",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "CredentialReport",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CredentialReport",
         "ConfirmImpactSetting": "Medium",
@@ -1818,34 +1580,28 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "No parameters, setting anonymous target",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetAccessKeyLastUsed": {
       "verb": "Get",
-      "noun": "IAMAccessKeyLastUsed",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AccessKeyLastUsed",
       "pipelineProperty": "AccessKeyId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccessKeyLastUsed",
         "ConfirmImpactSetting": "Medium",
@@ -1855,34 +1611,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetAccountAuthorizationDetails": {
       "verb": "Get",
-      "noun": "IAMAccountAuthorizationDetail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "AccountAuthorizationDetail",
       "legacyAlias": "Get-IAMAccountAuthorizationDetails",
-      "metadataOutputProperties": "",
       "pipelineProperty": "Filter",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountAuthorizationDetails",
         "ConfirmImpactSetting": "Medium",
@@ -1892,34 +1638,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetAccountPasswordPolicy": {
       "verb": "Get",
-      "noun": "IAMAccountPasswordPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AccountPasswordPolicy",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountPasswordPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -1929,34 +1662,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetAccountSummary": {
       "verb": "Get",
-      "noun": "IAMAccountSummary",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AccountSummary",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountSummary",
         "ConfirmImpactSetting": "Medium",
@@ -1966,34 +1686,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetContextKeysForCustomPolicy": {
       "verb": "Get",
-      "noun": "IAMContextKeysForCustomPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ContextKeysForCustomPolicy",
       "pipelineProperty": "PolicyInputList",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ContextKeysForCustomPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -2003,34 +1711,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetContextKeysForPrincipalPolicy": {
       "verb": "Get",
-      "noun": "IAMContextKeysForPrincipalPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ContextKeysForPrincipalPolicy",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ContextKeysForPrincipalPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -2040,37 +1735,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetCredentialReport": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "GetGroup": {
       "verb": "Get",
-      "noun": "IAMGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Group",
       "pipelineProperty": "GroupName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Group",
         "ConfirmImpactSetting": "Medium",
@@ -2080,34 +1764,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetGroupPolicy": {
       "verb": "Get",
-      "noun": "IAMGroupPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GroupPolicy",
+      "legacyPositionalParameters": [
+        "PolicyName"
+      ],
       "pipelineProperty": "GroupName",
       "output": "Response",
-      "legacyPositionalParameters": "PolicyName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GroupPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -2117,34 +1793,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetInstanceProfile": {
       "verb": "Get",
-      "noun": "IAMInstanceProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceProfile",
       "pipelineProperty": "InstanceProfileName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceProfile",
         "ConfirmImpactSetting": "Medium",
@@ -2154,34 +1818,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetLoginProfile": {
       "verb": "Get",
-      "noun": "IAMLoginProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "LoginProfile",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoginProfile",
         "ConfirmImpactSetting": "Medium",
@@ -2191,34 +1842,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetOpenIDConnectProvider": {
       "verb": "Get",
-      "noun": "IAMOpenIDConnectProvider",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OpenIDConnectProvider",
+      "legacyPositionalParameters": [
+        "OpenIDConnectProviderArn"
+      ],
       "pipelineProperty": "OpenIDConnectProviderArn",
       "output": "Response",
-      "legacyPositionalParameters": "OpenIDConnectProviderArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OpenIDConnectProvider",
         "ConfirmImpactSetting": "Medium",
@@ -2228,34 +1871,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetPolicy": {
       "verb": "Get",
-      "noun": "IAMPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Policy",
+      "legacyPositionalParameters": [
+        "PolicyArn"
+      ],
       "pipelineProperty": "PolicyArn",
-      "output": "Default",
-      "legacyPositionalParameters": "PolicyArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Policy",
         "ConfirmImpactSetting": "Medium",
@@ -2265,34 +1899,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetPolicyVersion": {
       "verb": "Get",
-      "noun": "IAMPolicyVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "PolicyArn;VersionId",
+      "noun": "PolicyVersion",
+      "legacyPositionalParameters": [
+        "PolicyArn",
+        "VersionId"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PolicyVersion",
         "ConfirmImpactSetting": "Medium",
@@ -2302,34 +1927,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetRole": {
       "verb": "Get",
-      "noun": "IAMRole",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Role",
       "pipelineProperty": "RoleName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Role",
         "ConfirmImpactSetting": "Medium",
@@ -2339,34 +1952,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetRolePolicy": {
       "verb": "Get",
-      "noun": "IAMRolePolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RolePolicy",
+      "legacyPositionalParameters": [
+        "PolicyName"
+      ],
       "pipelineProperty": "RoleName",
       "output": "Response",
-      "legacyPositionalParameters": "PolicyName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RolePolicy",
         "ConfirmImpactSetting": "Medium",
@@ -2376,34 +1981,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetSAMLProvider": {
       "verb": "Get",
-      "noun": "IAMSAMLProvider",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SAMLProvider",
       "pipelineProperty": "SAMLProviderArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "SAMLProviderArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SAMLProvider",
@@ -2414,34 +2008,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetServerCertificate": {
       "verb": "Get",
-      "noun": "IAMServerCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ServerCertificate",
       "pipelineProperty": "ServerCertificateName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServerCertificate",
         "ConfirmImpactSetting": "Medium",
@@ -2451,34 +2033,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetServiceLinkedRoleDeletionStatus": {
       "verb": "Get",
-      "noun": "IAMServiceLinkedRoleDeletionStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ServiceLinkedRoleDeletionStatus",
       "pipelineProperty": "DeletionTaskId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServiceLinkedRoleDeletionStatus",
         "ConfirmImpactSetting": "Medium",
@@ -2488,34 +2059,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetSSHPublicKey": {
       "verb": "Get",
-      "noun": "IAMSSHPublicKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SSHPublicKey",
       "pipelineProperty": "SSHPublicKeyId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SSHPublicKey",
         "ConfirmImpactSetting": "Medium",
@@ -2525,34 +2084,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetUser": {
       "verb": "Get",
-      "noun": "IAMUser",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "User",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "User",
         "ConfirmImpactSetting": "Medium",
@@ -2562,34 +2108,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "GetUserPolicy": {
       "verb": "Get",
-      "noun": "IAMUserPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserPolicy",
+      "legacyPositionalParameters": [
+        "PolicyName"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "PolicyName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -2599,34 +2136,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListAccessKeys": {
       "verb": "Get",
-      "noun": "IAMAccessKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AccessKey",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccessKeys",
         "ConfirmImpactSetting": "Medium",
@@ -2636,34 +2160,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListAccountAliases": {
       "verb": "Get",
-      "noun": "IAMAccountAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AccountAlias",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountAliases",
         "ConfirmImpactSetting": "Medium",
@@ -2673,34 +2184,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListAttachedGroupPolicies": {
       "verb": "Get",
-      "noun": "IAMAttachedGroupPolicyList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "AttachedGroupPolicyList",
       "legacyAlias": "Get-IAMAttachedGroupPolicies",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "GroupName",
+      "legacyPositionalParameters": [
+        "GroupName"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AttachedGroupPolicies",
         "ConfirmImpactSetting": "Medium",
@@ -2710,34 +2212,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListAttachedRolePolicies": {
       "verb": "Get",
-      "noun": "IAMAttachedRolePolicyList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "AttachedRolePolicyList",
       "legacyAlias": "Get-IAMAttachedRolePolicies",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "RoleName",
+      "legacyPositionalParameters": [
+        "RoleName"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AttachedRolePolicies",
         "ConfirmImpactSetting": "Medium",
@@ -2747,34 +2240,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListAttachedUserPolicies": {
       "verb": "Get",
-      "noun": "IAMAttachedUserPolicyList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "AttachedUserPolicyList",
       "legacyAlias": "Get-IAMAttachedUserPolicies",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "UserName",
+      "legacyPositionalParameters": [
+        "UserName"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AttachedUserPolicies",
         "ConfirmImpactSetting": "Medium",
@@ -2784,34 +2268,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListEntitiesForPolicy": {
       "verb": "Get",
-      "noun": "IAMEntitiesForPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "EntitiesForPolicy",
+      "legacyPositionalParameters": [
+        "PolicyArn"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "PolicyArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EntitiesForPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -2821,34 +2296,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListGroupPolicies": {
       "verb": "Get",
-      "noun": "IAMGroupPolicyList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "GroupPolicyList",
       "legacyAlias": "Get-IAMGroupPolicies",
-      "metadataOutputProperties": "",
       "pipelineProperty": "GroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GroupPolicies",
         "ConfirmImpactSetting": "Medium",
@@ -2858,34 +2322,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListGroups": {
       "verb": "Get",
-      "noun": "IAMGroupList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "GroupList",
       "legacyAlias": "Get-IAMGroups",
-      "metadataOutputProperties": "",
       "pipelineProperty": "PathPrefix",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Groups",
         "ConfirmImpactSetting": "Medium",
@@ -2895,34 +2348,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListGroupsForUser": {
       "verb": "Get",
-      "noun": "IAMGroupForUser",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "GroupForUser",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GroupsForUser",
         "ConfirmImpactSetting": "Medium",
@@ -2932,34 +2372,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListInstanceProfiles": {
       "verb": "Get",
-      "noun": "IAMInstanceProfileList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "InstanceProfileList",
       "legacyAlias": "Get-IAMInstanceProfiles",
-      "metadataOutputProperties": "",
       "pipelineProperty": "PathPrefix",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceProfiles",
         "ConfirmImpactSetting": "Medium",
@@ -2969,34 +2398,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListInstanceProfilesForRole": {
       "verb": "Get",
-      "noun": "IAMInstanceProfileForRole",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceProfileForRole",
       "pipelineProperty": "RoleName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceProfilesForRole",
         "ConfirmImpactSetting": "Medium",
@@ -3006,34 +2423,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListMFADevices": {
       "verb": "Get",
-      "noun": "IAMMFADevice",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "MFADevice",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MFADevices",
         "ConfirmImpactSetting": "Medium",
@@ -3043,34 +2447,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListOpenIDConnectProviders": {
       "verb": "Get",
-      "noun": "IAMOpenIDConnectProviderList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "OpenIDConnectProviderList",
       "legacyAlias": "Get-IAMOpenIDConnectProviders",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OpenIDConnectProviders",
         "ConfirmImpactSetting": "Medium",
@@ -3080,34 +2472,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListPolicies": {
       "verb": "Get",
-      "noun": "IAMPolicyList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "PolicyList",
       "legacyAlias": "Get-IAMPolicies",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Policies",
         "ConfirmImpactSetting": "Medium",
@@ -3117,34 +2497,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListPolicyVersions": {
       "verb": "Get",
-      "noun": "IAMPolicyVersionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "PolicyVersionList",
       "legacyAlias": "Get-IAMPolicyVersions",
-      "metadataOutputProperties": "",
       "pipelineProperty": "PolicyArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PolicyVersions",
         "ConfirmImpactSetting": "Medium",
@@ -3154,34 +2523,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListRolePolicies": {
       "verb": "Get",
-      "noun": "IAMRolePolicyList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "RolePolicyList",
       "legacyAlias": "Get-IAMRolePolicies",
-      "metadataOutputProperties": "",
       "pipelineProperty": "RoleName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RolePolicies",
         "ConfirmImpactSetting": "Medium",
@@ -3191,34 +2549,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListRoles": {
       "verb": "Get",
-      "noun": "IAMRoleList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "RoleList",
       "legacyAlias": "Get-IAMRoles",
-      "metadataOutputProperties": "",
       "pipelineProperty": "PathPrefix",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Roles",
         "ConfirmImpactSetting": "Medium",
@@ -3228,34 +2575,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListSAMLProviders": {
       "verb": "Get",
-      "noun": "IAMSAMLProviderList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "SAMLProviderList",
       "legacyAlias": "Get-IAMSAMLProviders",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SAMLProviders",
         "ConfirmImpactSetting": "Medium",
@@ -3265,34 +2600,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListServerCertificates": {
       "verb": "Get",
-      "noun": "IAMServerCertificateList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ServerCertificateList",
       "legacyAlias": "Get-IAMServerCertificates",
-      "metadataOutputProperties": "",
       "pipelineProperty": "PathPrefix",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServerCertificates",
         "ConfirmImpactSetting": "Medium",
@@ -3302,34 +2626,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListServiceSpecificCredentials": {
       "verb": "Get",
-      "noun": "IAMServiceSpecificCredentialList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ServiceSpecificCredentialList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServiceSpecificCredentials",
         "ConfirmImpactSetting": "Medium",
@@ -3339,34 +2650,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListSigningCertificates": {
       "verb": "Get",
-      "noun": "IAMSigningCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SigningCertificate",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SigningCertificates",
         "ConfirmImpactSetting": "Medium",
@@ -3376,34 +2674,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListSSHPublicKeys": {
       "verb": "Get",
-      "noun": "IAMSSHPublicKeyList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SSHPublicKeyList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SSHPublicKeys",
         "ConfirmImpactSetting": "Medium",
@@ -3413,34 +2698,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListUserPolicies": {
       "verb": "Get",
-      "noun": "IAMUserPolicyList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "UserPolicyList",
       "legacyAlias": "Get-IAMUserPolicies",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPolicies",
         "ConfirmImpactSetting": "Medium",
@@ -3450,34 +2723,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListUsers": {
       "verb": "Get",
-      "noun": "IAMUserList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "UserList",
       "legacyAlias": "Get-IAMUsers",
-      "metadataOutputProperties": "",
       "pipelineProperty": "PathPrefix",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Users",
         "ConfirmImpactSetting": "Medium",
@@ -3487,34 +2749,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "ListVirtualMFADevices": {
       "verb": "Get",
-      "noun": "IAMVirtualMFADevice",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "VirtualMFADevice",
       "pipelineProperty": "AssignmentStatus",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VirtualMFADevices",
         "ConfirmImpactSetting": "Medium",
@@ -3524,34 +2774,27 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "PutGroupPolicy": {
       "verb": "Write",
-      "noun": "IAMGroupPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GroupPolicy",
+      "legacyPositionalParameters": [
+        "PolicyName",
+        "PolicyDocument"
+      ],
       "pipelineProperty": "GroupName",
       "output": "Void",
-      "legacyPositionalParameters": "PolicyName;PolicyDocument",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GroupPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -3561,34 +2804,32 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutRolePolicy": {
       "verb": "Write",
-      "noun": "IAMRolePolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RolePolicy",
+      "legacyPositionalParameters": [
+        "PolicyName",
+        "PolicyDocument"
+      ],
       "pipelineProperty": "RoleName",
       "output": "Void",
-      "legacyPositionalParameters": "PolicyName;PolicyDocument",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RolePolicy",
         "ConfirmImpactSetting": "Medium",
@@ -3598,34 +2839,31 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutUserPolicy": {
       "verb": "Write",
-      "noun": "IAMUserPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserPolicy",
+      "legacyPositionalParameters": [
+        "PolicyName",
+        "PolicyDocument"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "PolicyName;PolicyDocument",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -3635,34 +2873,27 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveClientIDFromOpenIDConnectProvider": {
       "verb": "Remove",
-      "noun": "IAMClientIDFromOpenIDConnectProvider",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ClientIDFromOpenIDConnectProvider",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ClientID",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClientIDFromOpenIDConnectProvider",
@@ -3673,34 +2904,31 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ClientID"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveRoleFromInstanceProfile": {
       "verb": "Remove",
-      "noun": "IAMRoleFromInstanceProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RoleFromInstanceProfile",
+      "legacyPositionalParameters": [
+        "RoleName"
+      ],
       "pipelineProperty": "InstanceProfileName",
       "output": "Void",
-      "legacyPositionalParameters": "RoleName",
       "shouldProcessTargetProperty": "RoleName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RoleFromInstanceProfile",
@@ -3711,34 +2939,31 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "RoleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveUserFromGroup": {
       "verb": "Remove",
-      "noun": "IAMUserFromGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UserFromGroup",
+      "legacyPositionalParameters": [
+        "UserName"
+      ],
       "pipelineProperty": "GroupName",
       "output": "Void",
-      "legacyPositionalParameters": "UserName",
       "shouldProcessTargetProperty": "UserName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserFromGroup",
@@ -3749,34 +2974,27 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "UserName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ResetServiceSpecificCredential": {
       "verb": "Reset",
-      "noun": "IAMServiceSpecificCredential",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ServiceSpecificCredential",
       "pipelineProperty": "ServiceSpecificCredentialId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServiceSpecificCredential",
         "ConfirmImpactSetting": "Medium",
@@ -3786,34 +3004,32 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServiceSpecificCredentialId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ResyncMFADevice": {
       "verb": "Sync",
-      "noun": "IAMMFADevice",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "MFADevice",
+      "legacyPositionalParameters": [
+        "SerialNumber",
+        "AuthenticationCode1",
+        "AuthenticationCode2"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "SerialNumber;AuthenticationCode1;AuthenticationCode2",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MFADevice",
         "ConfirmImpactSetting": "Medium",
@@ -3823,34 +3039,32 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetDefaultPolicyVersion": {
       "verb": "Set",
-      "noun": "IAMDefaultPolicyVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DefaultPolicyVersion",
+      "legacyPositionalParameters": [
+        "PolicyArn",
+        "VersionId"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "PolicyArn;VersionId",
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DefaultPolicyVersion",
         "ConfirmImpactSetting": "Medium",
@@ -3860,34 +3074,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SimulateCustomPolicy": {
       "verb": "Test",
-      "noun": "IAMCustomPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "CustomPolicy",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CustomPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -3897,34 +3103,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "SimulatePrincipalPolicy": {
       "verb": "Test",
-      "noun": "IAMPrincipalPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "PrincipalPolicy",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PrincipalPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -3934,34 +3127,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
+        }
       }
     },
     "UpdateAccessKey": {
       "verb": "Update",
-      "noun": "IAMAccessKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "AccessKey",
+      "legacyPositionalParameters": [
+        "AccessKeyId",
+        "Status"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "AccessKeyId;Status",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccessKey",
         "ConfirmImpactSetting": "Medium",
@@ -3971,34 +3156,28 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateAccountPasswordPolicy": {
       "verb": "Update",
-      "noun": "IAMAccountPasswordPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "AccountPasswordPolicy",
       "output": "Void",
-      "legacyPositionalParameters": null,
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountPasswordPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -4008,34 +3187,31 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateAssumeRolePolicy": {
       "verb": "Update",
-      "noun": "IAMAssumeRolePolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssumeRolePolicy",
+      "legacyPositionalParameters": [
+        "PolicyDocument"
+      ],
       "pipelineProperty": "RoleName",
       "output": "Void",
-      "legacyPositionalParameters": "PolicyDocument",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssumeRolePolicy",
         "ConfirmImpactSetting": "Medium",
@@ -4045,34 +3221,32 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateGroup": {
       "verb": "Update",
-      "noun": "IAMGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Group",
+      "legacyPositionalParameters": [
+        "NewPath",
+        "NewGroupName"
+      ],
       "pipelineProperty": "GroupName",
       "output": "Void",
-      "legacyPositionalParameters": "NewPath;NewGroupName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Group",
         "ConfirmImpactSetting": "Medium",
@@ -4082,34 +3256,30 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateLoginProfile": {
       "verb": "Update",
-      "noun": "IAMLoginProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LoginProfile",
+      "legacyPositionalParameters": [
+        "Password"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "Password",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoginProfile",
         "ConfirmImpactSetting": "Medium",
@@ -4119,34 +3289,30 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateOpenIDConnectProviderThumbprint": {
       "verb": "Update",
-      "noun": "IAMOpenIDConnectProviderThumbprint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "OpenIDConnectProviderThumbprint",
+      "legacyPositionalParameters": [
+        "OpenIDConnectProviderArn"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "OpenIDConnectProviderArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OpenIDConnectProviderThumbprint",
         "ConfirmImpactSetting": "Medium",
@@ -4156,34 +3322,27 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "OpenIDConnectProviderArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateRoleDescription": {
       "verb": "Update",
-      "noun": "IAMRoleDescription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RoleDescription",
       "pipelineProperty": "RoleName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RoleDescription",
         "ConfirmImpactSetting": "Medium",
@@ -4193,34 +3352,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateSAMLProvider": {
       "verb": "Update",
-      "noun": "IAMSAMLProvider",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SAMLProvider",
       "shouldProcessTargetProperty": "SAMLProviderArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SAMLProvider",
@@ -4231,34 +3382,32 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "SAMLProviderArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateServerCertificate": {
       "verb": "Update",
-      "noun": "IAMServerCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ServerCertificate",
+      "legacyPositionalParameters": [
+        "NewPath",
+        "NewServerCertificateName"
+      ],
       "pipelineProperty": "ServerCertificateName",
       "output": "Void",
-      "legacyPositionalParameters": "NewPath;NewServerCertificateName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServerCertificate",
         "ConfirmImpactSetting": "Medium",
@@ -4268,34 +3417,28 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerCertificateName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateServiceSpecificCredential": {
       "verb": "Update",
-      "noun": "IAMServiceSpecificCredential",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ServiceSpecificCredential",
       "pipelineProperty": "ServiceSpecificCredentialId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServiceSpecificCredential",
         "ConfirmImpactSetting": "Medium",
@@ -4305,34 +3448,31 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServiceSpecificCredentialId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateSigningCertificate": {
       "verb": "Update",
-      "noun": "IAMSigningCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "SigningCertificate",
+      "legacyPositionalParameters": [
+        "CertificateId",
+        "Status"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "CertificateId;Status",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SigningCertificate",
         "ConfirmImpactSetting": "Medium",
@@ -4342,34 +3482,28 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateSSHPublicKey": {
       "verb": "Update",
-      "noun": "IAMSSHPublicKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SSHPublicKey",
       "pipelineProperty": "SSHPublicKeyId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SSHPublicKey",
         "ConfirmImpactSetting": "Medium",
@@ -4379,34 +3513,31 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SSHPublicKeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateUser": {
       "verb": "Update",
-      "noun": "IAMUser",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "User",
+      "legacyPositionalParameters": [
+        "NewPath",
+        "NewUserName"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "NewPath;NewUserName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "User",
         "ConfirmImpactSetting": "Medium",
@@ -4416,34 +3547,33 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UploadServerCertificate": {
       "verb": "Publish",
-      "noun": "IAMServerCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ServerCertificate",
+      "legacyPositionalParameters": [
+        "ServerCertificateName",
+        "CertificateBody",
+        "PrivateKey",
+        "CertificateChain"
+      ],
       "pipelineProperty": "Path",
-      "output": "Default",
-      "legacyPositionalParameters": "ServerCertificateName;CertificateBody;PrivateKey;CertificateChain",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServerCertificate",
         "ConfirmImpactSetting": "Medium",
@@ -4453,34 +3583,29 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerCertificateName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UploadSigningCertificate": {
       "verb": "Publish",
-      "noun": "IAMSigningCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "CertificateBody",
+      "noun": "SigningCertificate",
+      "legacyPositionalParameters": [
+        "CertificateBody"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SigningCertificate",
         "ConfirmImpactSetting": "Medium",
@@ -4490,34 +3615,27 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UploadSSHPublicKey": {
       "verb": "Publish",
-      "noun": "IAMSSHPublicKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SSHPublicKey",
       "pipelineProperty": "SSHPublicKeyBody",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SSHPublicKey",
         "ConfirmImpactSetting": "Medium",
@@ -4527,22 +3645,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "resultsTruncatedMember": "IsTruncated",
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
             "ListEntitiesForPolicy"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

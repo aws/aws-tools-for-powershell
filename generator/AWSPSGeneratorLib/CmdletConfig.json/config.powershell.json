@@ -1,34 +1,23 @@
 {
-  "additionalNamespaces": [],
-  "regionFallback": "us-east-1",
-  "outputMetadataPropertyNames": [
-    "TotalDiscoveredResources"
-  ],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "DeliveryChannelName",
-  "sdkServiceNamespace": "Amazon.ConfigService",
-  "sdkServiceClient": "AmazonConfigServiceClient",
-  "sdkServiceClientConfig": "AmazonConfigServiceConfig",
-  "legacyCmdletPrefix": "CFG",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": null,
     "responseTokenMember": null
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "DeliveryChannelName",
+  "legacyCmdletPrefix": "CFG",
+  "outputMetadataPropertyNames": [
+    "TotalDiscoveredResources"
+  ],
+  "regionFallback": "us-east-1",
+  "sdkServiceClientClass": "AmazonConfigServiceClient",
+  "sdkServiceConfigClass": "AmazonConfigServiceConfig",
+  "sdkServiceNamespace": "Amazon.ConfigService",
   "serviceOperations": {
     "DeleteConfigRule": {
       "verb": "Remove",
-      "noun": "CFGConfigRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigRule",
       "pipelineProperty": "ConfigRuleName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigRule",
         "ConfirmImpactSetting": "High",
@@ -45,20 +34,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigRuleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteConfigurationRecorder": {
       "verb": "Remove",
-      "noun": "CFGConfigurationRecorder",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigurationRecorder",
       "pipelineProperty": "ConfigurationRecorderName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationRecorder",
         "ConfirmImpactSetting": "High",
@@ -75,20 +58,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigurationRecorderName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDeliveryChannel": {
       "verb": "Remove",
-      "noun": "CFGDeliveryChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DeliveryChannel",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeliveryChannel",
         "ConfirmImpactSetting": "High",
@@ -105,20 +81,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeliveryChannelName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteEvaluationResults": {
       "verb": "Remove",
-      "noun": "CFGEvaluationResult",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EvaluationResult",
       "pipelineProperty": "ConfigRuleName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EvaluationResults",
         "ConfirmImpactSetting": "High",
@@ -135,20 +105,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigRuleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeliverConfigSnapshot": {
       "verb": "Submit",
-      "noun": "CFGConfigSnapshotDelivery",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ConfigSnapshotDelivery",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigSnapshot",
         "ConfirmImpactSetting": "Medium",
@@ -165,20 +127,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeliveryChannelName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeComplianceByConfigRule": {
       "verb": "Get",
-      "noun": "CFGComplianceByConfigRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ComplianceByConfigRule",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ComplianceByConfigRule",
         "ConfirmImpactSetting": "Medium",
@@ -190,25 +144,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeComplianceByResource": {
       "verb": "Get",
-      "noun": "CFGComplianceByResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ComplianceByResource",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ComplianceByResource",
         "ConfirmImpactSetting": "Medium",
@@ -220,25 +161,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeConfigRuleEvaluationStatus": {
       "verb": "Get",
-      "noun": "CFGConfigRuleEvaluationStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ConfigRuleEvaluationStatus",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigRuleEvaluationStatus",
         "ConfirmImpactSetting": "Medium",
@@ -250,25 +178,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeConfigRules": {
       "verb": "Get",
-      "noun": "CFGConfigRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ConfigRule",
       "legacyAlias": "Get-CFGConfigRules",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigRules",
         "ConfirmImpactSetting": "Medium",
@@ -280,25 +196,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeConfigurationRecorders": {
       "verb": "Get",
-      "noun": "CFGConfigurationRecorder",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ConfigurationRecorder",
       "legacyAlias": "Get-CFGConfigurationRecorders",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ConfigurationRecorderName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationRecorders",
         "ConfirmImpactSetting": "Medium",
@@ -310,25 +215,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeConfigurationRecorderStatus": {
       "verb": "Get",
-      "noun": "CFGConfigurationRecorderStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigurationRecorderStatus",
       "pipelineProperty": "ConfigurationRecorderName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationRecorderStatus",
         "ConfirmImpactSetting": "Medium",
@@ -340,25 +233,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDeliveryChannels": {
       "verb": "Get",
-      "noun": "CFGDeliveryChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "DeliveryChannel",
       "legacyAlias": "Get-CFGDeliveryChannels",
-      "metadataOutputProperties": "",
       "pipelineProperty": "DeliveryChannelNames",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeliveryChannels",
         "ConfirmImpactSetting": "Medium",
@@ -370,25 +252,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDeliveryChannelStatus": {
       "verb": "Get",
-      "noun": "CFGDeliveryChannelStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeliveryChannelStatus",
       "pipelineProperty": "DeliveryChannelNames",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeliveryChannelStatus",
         "ConfirmImpactSetting": "Medium",
@@ -400,25 +270,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetComplianceDetailsByConfigRule": {
       "verb": "Get",
-      "noun": "CFGComplianceDetailsByConfigRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ComplianceDetailsByConfigRule",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ComplianceDetailsByConfigRule",
         "ConfirmImpactSetting": "Medium",
@@ -430,25 +287,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetComplianceDetailsByResource": {
       "verb": "Get",
-      "noun": "CFGComplianceDetailsByResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ComplianceDetailsByResource",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ComplianceDetailsByResource",
         "ConfirmImpactSetting": "Medium",
@@ -460,25 +304,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetComplianceSummaryByConfigRule": {
       "verb": "Get",
-      "noun": "CFGComplianceSummaryByConfigRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ComplianceSummaryByConfigRule",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ComplianceSummaryByConfigRule",
         "ConfirmImpactSetting": "Medium",
@@ -490,25 +321,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetComplianceSummaryByResourceType": {
       "verb": "Get",
-      "noun": "CFGComplianceSummaryByResourceType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ComplianceSummaryByResourceType",
       "pipelineProperty": "ResourceTypes",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ComplianceSummaryByResourceType",
         "ConfirmImpactSetting": "Medium",
@@ -520,25 +339,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDiscoveredResourceCounts": {
       "verb": "Get",
-      "noun": "CFGDiscoveredResourceCount",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DiscoveredResourceCount",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DiscoveredResourceCounts",
         "ConfirmImpactSetting": "Medium",
@@ -550,25 +357,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetResourceConfigHistory": {
       "verb": "Get",
-      "noun": "CFGResourceConfigHistory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ResourceConfigHistory",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceConfigHistory",
         "ConfirmImpactSetting": "Medium",
@@ -580,25 +374,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListDiscoveredResources": {
       "verb": "Get",
-      "noun": "CFGDiscoveredResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DiscoveredResource",
       "pipelineProperty": "ResourceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DiscoveredResources",
         "ConfirmImpactSetting": "Medium",
@@ -610,25 +392,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutConfigRule": {
       "verb": "Write",
-      "noun": "CFGConfigRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigRule",
       "pipelineProperty": "ConfigRule_ConfigRuleName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigRule",
         "ConfirmImpactSetting": "Medium",
@@ -645,27 +416,23 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigRuleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutConfigurationRecorder": {
       "verb": "Write",
-      "noun": "CFGConfigurationRecorder",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "ConfigurationRecorder_Name",
-      "output": "Void",
-      "legacyPositionalParameters": null,
+      "noun": "ConfigurationRecorder",
       "customParameters": [
         {
           "name": "ConfigurationRecorder_Name",
           "newName": "ConfigurationRecorderName",
-          "aliases": "ConfigurationRecorder_Name"
+          "aliases": [
+            "ConfigurationRecorder_Name"
+          ]
         }
       ],
+      "pipelineProperty": "ConfigurationRecorder_Name",
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationRecorder",
         "ConfirmImpactSetting": "Medium",
@@ -682,27 +449,23 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutDeliveryChannel": {
       "verb": "Write",
-      "noun": "CFGDeliveryChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "DeliveryChannel_Name",
-      "output": "Void",
-      "legacyPositionalParameters": null,
+      "noun": "DeliveryChannel",
       "customParameters": [
         {
           "name": "DeliveryChannel_Name",
           "newName": "DeliveryChannelName",
-          "aliases": "DeliveryChannel_Name"
+          "aliases": [
+            "DeliveryChannel_Name"
+          ]
         }
       ],
+      "pipelineProperty": "DeliveryChannel_Name",
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeliveryChannel",
         "ConfirmImpactSetting": "Medium",
@@ -719,20 +482,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutEvaluations": {
       "verb": "Write",
-      "noun": "CFGEvaluation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Evaluation",
       "legacyAlias": "Write-CFGEvaluations",
-      "metadataOutputProperties": "",
       "pipelineProperty": "Evaluations",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Evaluations",
         "ConfirmImpactSetting": "Medium",
@@ -749,20 +506,14 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Evaluations"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartConfigRulesEvaluation": {
       "verb": "Start",
-      "noun": "CFGConfigRulesEvaluation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigRulesEvaluation",
       "pipelineProperty": "ConfigRuleNames",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigRulesEvaluation",
         "ConfirmImpactSetting": "Medium",
@@ -779,20 +530,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigRuleNames"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartConfigurationRecorder": {
       "verb": "Start",
-      "noun": "CFGConfigurationRecorder",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigurationRecorder",
       "pipelineProperty": "ConfigurationRecorder_Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationRecorder",
         "ConfirmImpactSetting": "Medium",
@@ -809,20 +554,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigurationRecorderName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopConfigurationRecorder": {
       "verb": "Stop",
-      "noun": "CFGConfigurationRecorder",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigurationRecorder",
       "pipelineProperty": "ConfigurationRecorder_Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationRecorder",
         "ConfirmImpactSetting": "Medium",
@@ -839,8 +578,7 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigurationRecorderName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

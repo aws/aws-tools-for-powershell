@@ -1,6 +1,11 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken",
+    "resultLimitMember": "MaxResults"
+  },
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "GG",
   "pipelineByValuePropertyNames": [
     "GroupId",
     "RoleArn",
@@ -11,33 +16,17 @@
     "GroupArn",
     "FunctionArn"
   ],
-  "defaultPipelineProperty": "",
+  "sdkServiceClientClass": "AmazonGreengrassClient",
+  "sdkServiceConfigClass": "AmazonGreengrassConfig",
   "sdkServiceNamespace": "Amazon.Greengrass",
-  "sdkServiceClient": "AmazonGreengrassClient",
-  "sdkServiceClientConfig": "AmazonGreengrassConfig",
-  "legacyCmdletPrefix": "GG",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken",
-    "resultLimitMember": "MaxResults"
-  },
-  "nounMappings": {},
   "verbMappings": {
     "List": "Get"
   },
   "serviceOperations": {
     "AssociateRoleToGroup": {
       "verb": "Add",
-      "noun": "GGRoleToGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RoleToGroup",
       "pipelineProperty": "RoleArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RoleToGroup",
         "ConfirmImpactSetting": "Medium",
@@ -55,20 +44,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AssociateServiceRoleToAccount": {
       "verb": "Add",
-      "noun": "GGServiceRoleToAccount",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ServiceRoleToAccount",
       "pipelineProperty": "RoleArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServiceRoleToAccount",
         "ConfirmImpactSetting": "Medium",
@@ -86,20 +68,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateCoreDefinition": {
       "verb": "New",
-      "noun": "GGCoreDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CoreDefinition",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CoreDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -117,20 +93,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateCoreDefinitionVersion": {
       "verb": "New",
-      "noun": "GGCoreDefinitionVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CoreDefinitionVersion",
       "pipelineProperty": "CoreDefinitionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CoreDefinitionVersion",
         "ConfirmImpactSetting": "Medium",
@@ -148,20 +118,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CoreDefinitionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDeployment": {
       "verb": "New",
-      "noun": "GGDeployment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Deployment",
       "pipelineProperty": "GroupId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Deployment",
         "ConfirmImpactSetting": "Medium",
@@ -179,20 +143,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDeviceDefinition": {
       "verb": "New",
-      "noun": "GGDeviceDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeviceDefinition",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeviceDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -210,20 +168,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDeviceDefinitionVersion": {
       "verb": "New",
-      "noun": "GGDeviceDefinitionVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeviceDefinitionVersion",
       "pipelineProperty": "DeviceDefinitionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeviceDefinitionVersion",
         "ConfirmImpactSetting": "Medium",
@@ -241,20 +193,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeviceDefinitionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateFunctionDefinition": {
       "verb": "New",
-      "noun": "GGFunctionDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FunctionDefinition",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FunctionDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -272,20 +218,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateFunctionDefinitionVersion": {
       "verb": "New",
-      "noun": "GGFunctionDefinitionVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FunctionDefinitionVersion",
       "pipelineProperty": "FunctionDefinitionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FunctionDefinitionVersion",
         "ConfirmImpactSetting": "Medium",
@@ -303,20 +243,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FunctionDefinitionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateGroup": {
       "verb": "New",
-      "noun": "GGGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Group",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Group",
         "ConfirmImpactSetting": "Medium",
@@ -334,20 +268,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateGroupCertificateAuthority": {
       "verb": "New",
-      "noun": "GGGroupCertificateAuthority",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GroupCertificateAuthority",
       "pipelineProperty": "GroupId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GroupCertificateAuthority",
         "ConfirmImpactSetting": "Medium",
@@ -365,20 +292,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateGroupVersion": {
       "verb": "New",
-      "noun": "GGGroupVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GroupVersion",
       "pipelineProperty": "GroupId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GroupVersion",
         "ConfirmImpactSetting": "Medium",
@@ -396,20 +317,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateLoggerDefinition": {
       "verb": "New",
-      "noun": "GGLoggerDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoggerDefinition",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoggerDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -427,20 +342,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateLoggerDefinitionVersion": {
       "verb": "New",
-      "noun": "GGLoggerDefinitionVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoggerDefinitionVersion",
       "pipelineProperty": "LoggerDefinitionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoggerDefinitionVersion",
         "ConfirmImpactSetting": "Medium",
@@ -458,20 +367,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoggerDefinitionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateResourceDefinition": {
       "verb": "New",
-      "noun": "GGResourceDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceDefinition",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -489,20 +392,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateResourceDefinitionVersion": {
       "verb": "New",
-      "noun": "GGResourceDefinitionVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceDefinitionVersion",
       "pipelineProperty": "ResourceDefinitionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceDefinitionVersion",
         "ConfirmImpactSetting": "Medium",
@@ -520,20 +417,15 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceDefinitionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateSoftwareUpdateJob": {
       "verb": "New",
-      "noun": "GGSoftwareUpdateJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SoftwareUpdateJob",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SoftwareUpdateJob",
         "ConfirmImpactSetting": "Medium",
@@ -551,20 +443,14 @@
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateSubscriptionDefinition": {
       "verb": "New",
-      "noun": "GGSubscriptionDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SubscriptionDefinition",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubscriptionDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -582,20 +468,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateSubscriptionDefinitionVersion": {
       "verb": "New",
-      "noun": "GGSubscriptionDefinitionVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SubscriptionDefinitionVersion",
       "pipelineProperty": "SubscriptionDefinitionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubscriptionDefinitionVersion",
         "ConfirmImpactSetting": "Medium",
@@ -613,20 +493,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubscriptionDefinitionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCoreDefinition": {
       "verb": "Remove",
-      "noun": "GGCoreDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CoreDefinition",
       "pipelineProperty": "CoreDefinitionId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CoreDefinition",
         "ConfirmImpactSetting": "High",
@@ -644,20 +518,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CoreDefinitionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDeviceDefinition": {
       "verb": "Remove",
-      "noun": "GGDeviceDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeviceDefinition",
       "pipelineProperty": "DeviceDefinitionId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeviceDefinition",
         "ConfirmImpactSetting": "High",
@@ -675,20 +543,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeviceDefinitionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteFunctionDefinition": {
       "verb": "Remove",
-      "noun": "GGFunctionDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FunctionDefinition",
       "pipelineProperty": "FunctionDefinitionId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FunctionDefinition",
         "ConfirmImpactSetting": "High",
@@ -706,20 +568,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FunctionDefinitionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteGroup": {
       "verb": "Remove",
-      "noun": "GGGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Group",
       "pipelineProperty": "GroupId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Group",
         "ConfirmImpactSetting": "High",
@@ -737,20 +593,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteLoggerDefinition": {
       "verb": "Remove",
-      "noun": "GGLoggerDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoggerDefinition",
       "pipelineProperty": "LoggerDefinitionId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoggerDefinition",
         "ConfirmImpactSetting": "High",
@@ -768,20 +618,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoggerDefinitionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteResourceDefinition": {
       "verb": "Remove",
-      "noun": "GGResourceDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceDefinition",
       "pipelineProperty": "ResourceDefinitionId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceDefinition",
         "ConfirmImpactSetting": "High",
@@ -799,20 +643,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceDefinitionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSubscriptionDefinition": {
       "verb": "Remove",
-      "noun": "GGSubscriptionDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SubscriptionDefinition",
       "pipelineProperty": "SubscriptionDefinitionId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubscriptionDefinition",
         "ConfirmImpactSetting": "High",
@@ -830,20 +668,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubscriptionDefinitionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisassociateRoleFromGroup": {
       "verb": "Remove",
-      "noun": "GGRoleFromGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RoleFromGroup",
       "pipelineProperty": "GroupId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RoleFromGroup",
         "ConfirmImpactSetting": "High",
@@ -861,20 +692,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisassociateServiceRoleFromAccount": {
       "verb": "Remove",
-      "noun": "GGServiceRoleFromAccount",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ServiceRoleFromAccount",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServiceRoleFromAccount",
         "ConfirmImpactSetting": "High",
@@ -892,20 +715,14 @@
           "analysisMessage": "No parameters, setting anonymous target",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetAssociatedRole": {
       "verb": "Get",
-      "noun": "GGAssociatedRole",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssociatedRole",
       "pipelineProperty": "GroupId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssociatedRole",
         "ConfirmImpactSetting": "Medium",
@@ -918,25 +735,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetConnectivityInfo": {
       "verb": "Get",
-      "noun": "GGConnectivityInfo",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConnectivityInfo",
       "pipelineProperty": "ThingName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConnectivityInfo",
         "ConfirmImpactSetting": "Medium",
@@ -949,25 +755,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetCoreDefinition": {
       "verb": "Get",
-      "noun": "GGCoreDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CoreDefinition",
       "pipelineProperty": "CoreDefinitionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CoreDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -980,25 +775,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetCoreDefinitionVersion": {
       "verb": "Get",
-      "noun": "GGCoreDefinitionVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CoreDefinitionVersion",
       "pipelineProperty": "CoreDefinitionVersionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CoreDefinitionVersion",
         "ConfirmImpactSetting": "Medium",
@@ -1011,25 +795,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDeploymentStatus": {
       "verb": "Get",
-      "noun": "GGDeploymentStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeploymentStatus",
       "pipelineProperty": "DeploymentId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeploymentStatus",
         "ConfirmImpactSetting": "Medium",
@@ -1042,25 +815,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDeviceDefinition": {
       "verb": "Get",
-      "noun": "GGDeviceDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeviceDefinition",
       "pipelineProperty": "DeviceDefinitionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeviceDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -1073,25 +835,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDeviceDefinitionVersion": {
       "verb": "Get",
-      "noun": "GGDeviceDefinitionVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeviceDefinitionVersion",
       "pipelineProperty": "DeviceDefinitionVersionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeviceDefinitionVersion",
         "ConfirmImpactSetting": "Medium",
@@ -1104,25 +855,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetFunctionDefinition": {
       "verb": "Get",
-      "noun": "GGFunctionDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FunctionDefinition",
       "pipelineProperty": "FunctionDefinitionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FunctionDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -1135,25 +875,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetFunctionDefinitionVersion": {
       "verb": "Get",
-      "noun": "GGFunctionDefinitionVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FunctionDefinitionVersion",
       "pipelineProperty": "FunctionDefinitionVersionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FunctionDefinitionVersion",
         "ConfirmImpactSetting": "Medium",
@@ -1166,25 +895,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetGroup": {
       "verb": "Get",
-      "noun": "GGGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Group",
       "pipelineProperty": "GroupId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Group",
         "ConfirmImpactSetting": "Medium",
@@ -1197,25 +915,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetGroupCertificateAuthority": {
       "verb": "Get",
-      "noun": "GGGroupCertificateAuthority",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GroupCertificateAuthority",
       "pipelineProperty": "CertificateAuthorityId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GroupCertificateAuthority",
         "ConfirmImpactSetting": "Medium",
@@ -1228,25 +935,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetGroupCertificateConfiguration": {
       "verb": "Get",
-      "noun": "GGGroupCertificateConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GroupCertificateConfiguration",
       "pipelineProperty": "GroupId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GroupCertificateConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -1259,25 +955,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetGroupVersion": {
       "verb": "Get",
-      "noun": "GGGroupVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GroupVersion",
       "pipelineProperty": "GroupVersionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GroupVersion",
         "ConfirmImpactSetting": "Medium",
@@ -1290,25 +975,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetLoggerDefinition": {
       "verb": "Get",
-      "noun": "GGLoggerDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoggerDefinition",
       "pipelineProperty": "LoggerDefinitionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoggerDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -1321,25 +995,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetLoggerDefinitionVersion": {
       "verb": "Get",
-      "noun": "GGLoggerDefinitionVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoggerDefinitionVersion",
       "pipelineProperty": "LoggerDefinitionVersionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoggerDefinitionVersion",
         "ConfirmImpactSetting": "Medium",
@@ -1352,25 +1015,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetResourceDefinition": {
       "verb": "Get",
-      "noun": "GGResourceDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceDefinition",
       "pipelineProperty": "ResourceDefinitionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -1383,25 +1035,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetResourceDefinitionVersion": {
       "verb": "Get",
-      "noun": "GGResourceDefinitionVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceDefinitionVersion",
       "pipelineProperty": "ResourceDefinitionVersionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceDefinitionVersion",
         "ConfirmImpactSetting": "Medium",
@@ -1414,25 +1055,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetServiceRoleForAccount": {
       "verb": "Get",
-      "noun": "GGServiceRoleForAccount",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ServiceRoleForAccount",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServiceRoleForAccount",
         "ConfirmImpactSetting": "Medium",
@@ -1445,25 +1074,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSubscriptionDefinition": {
       "verb": "Get",
-      "noun": "GGSubscriptionDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SubscriptionDefinition",
       "pipelineProperty": "SubscriptionDefinitionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubscriptionDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -1476,25 +1094,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSubscriptionDefinitionVersion": {
       "verb": "Get",
-      "noun": "GGSubscriptionDefinitionVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SubscriptionDefinitionVersion",
       "pipelineProperty": "SubscriptionDefinitionVersionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubscriptionDefinitionVersion",
         "ConfirmImpactSetting": "Medium",
@@ -1507,25 +1114,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListCoreDefinitions": {
       "verb": "Get",
-      "noun": "GGCoreDefinitionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "CoreDefinitionList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CoreDefinitions",
         "ConfirmImpactSetting": "Medium",
@@ -1538,25 +1132,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListCoreDefinitionVersions": {
       "verb": "Get",
-      "noun": "GGCoreDefinitionVersionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CoreDefinitionVersionList",
       "pipelineProperty": "CoreDefinitionId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CoreDefinitionVersions",
         "ConfirmImpactSetting": "Medium",
@@ -1569,25 +1151,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListDeployments": {
       "verb": "Get",
-      "noun": "GGDeploymentList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeploymentList",
       "pipelineProperty": "GroupId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Deployments",
         "ConfirmImpactSetting": "Medium",
@@ -1600,25 +1170,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListDeviceDefinitions": {
       "verb": "Get",
-      "noun": "GGDeviceDefinitionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DeviceDefinitionList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeviceDefinitions",
         "ConfirmImpactSetting": "Medium",
@@ -1631,25 +1188,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListDeviceDefinitionVersions": {
       "verb": "Get",
-      "noun": "GGDeviceDefinitionVersionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeviceDefinitionVersionList",
       "pipelineProperty": "DeviceDefinitionId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeviceDefinitionVersions",
         "ConfirmImpactSetting": "Medium",
@@ -1662,25 +1207,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListFunctionDefinitions": {
       "verb": "Get",
-      "noun": "GGFunctionDefinitionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "FunctionDefinitionList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FunctionDefinitions",
         "ConfirmImpactSetting": "Medium",
@@ -1693,25 +1225,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListFunctionDefinitionVersions": {
       "verb": "Get",
-      "noun": "GGFunctionDefinitionVersionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FunctionDefinitionVersionList",
       "pipelineProperty": "FunctionDefinitionId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FunctionDefinitionVersions",
         "ConfirmImpactSetting": "Medium",
@@ -1724,25 +1244,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListGroupCertificateAuthorities": {
       "verb": "Get",
-      "noun": "GGGroupCertificateAuthorityList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GroupCertificateAuthorityList",
       "pipelineProperty": "GroupId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GroupCertificateAuthorities",
         "ConfirmImpactSetting": "Medium",
@@ -1755,25 +1263,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListGroups": {
       "verb": "Get",
-      "noun": "GGGroupList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "GroupList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Groups",
         "ConfirmImpactSetting": "Medium",
@@ -1786,25 +1281,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListGroupVersions": {
       "verb": "Get",
-      "noun": "GGGroupVersionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GroupVersionList",
       "pipelineProperty": "GroupId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GroupVersions",
         "ConfirmImpactSetting": "Medium",
@@ -1817,25 +1300,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListLoggerDefinitions": {
       "verb": "Get",
-      "noun": "GGLoggerDefinitionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "LoggerDefinitionList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoggerDefinitions",
         "ConfirmImpactSetting": "Medium",
@@ -1848,25 +1318,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListLoggerDefinitionVersions": {
       "verb": "Get",
-      "noun": "GGLoggerDefinitionVersionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoggerDefinitionVersionList",
       "pipelineProperty": "LoggerDefinitionId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoggerDefinitionVersions",
         "ConfirmImpactSetting": "Medium",
@@ -1879,25 +1337,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListResourceDefinitions": {
       "verb": "Get",
-      "noun": "GGResourceDefinitionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ResourceDefinitionList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceDefinitions",
         "ConfirmImpactSetting": "Medium",
@@ -1910,25 +1355,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListResourceDefinitionVersions": {
       "verb": "Get",
-      "noun": "GGResourceDefinitionVersionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceDefinitionVersionList",
       "pipelineProperty": "ResourceDefinitionId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceDefinitionVersions",
         "ConfirmImpactSetting": "Medium",
@@ -1941,25 +1374,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListSubscriptionDefinitions": {
       "verb": "Get",
-      "noun": "GGSubscriptionDefinitionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SubscriptionDefinitionList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubscriptionDefinitions",
         "ConfirmImpactSetting": "Medium",
@@ -1972,25 +1392,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListSubscriptionDefinitionVersions": {
       "verb": "Get",
-      "noun": "GGSubscriptionDefinitionVersionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SubscriptionDefinitionVersionList",
       "pipelineProperty": "SubscriptionDefinitionId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubscriptionDefinitionVersions",
         "ConfirmImpactSetting": "Medium",
@@ -2003,25 +1411,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ResetDeployments": {
       "verb": "Reset",
-      "noun": "GGDeployment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "GroupId",
-      "output": "Response",
-      "legacyPositionalParameters": null,
+      "noun": "Deployment",
       "customParameters": [
         {
           "name": "Force",
@@ -2029,6 +1424,8 @@
           "autoApplyAlias": "false"
         }
       ],
+      "pipelineProperty": "GroupId",
+      "output": "Response",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Deployments",
         "ConfirmImpactSetting": "Medium",
@@ -2046,20 +1443,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateConnectivityInfo": {
       "verb": "Update",
-      "noun": "GGConnectivityInfo",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConnectivityInfo",
       "pipelineProperty": "ThingName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConnectivityInfo",
         "ConfirmImpactSetting": "Medium",
@@ -2077,20 +1468,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ThingName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateCoreDefinition": {
       "verb": "Update",
-      "noun": "GGCoreDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CoreDefinition",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CoreDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -2108,20 +1493,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDeviceDefinition": {
       "verb": "Update",
-      "noun": "GGDeviceDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeviceDefinition",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeviceDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -2139,20 +1518,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateFunctionDefinition": {
       "verb": "Update",
-      "noun": "GGFunctionDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FunctionDefinition",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FunctionDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -2170,20 +1543,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateGroup": {
       "verb": "Update",
-      "noun": "GGGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Group",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Group",
         "ConfirmImpactSetting": "Medium",
@@ -2201,20 +1568,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateGroupCertificateConfiguration": {
       "verb": "Update",
-      "noun": "GGGroupCertificateConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GroupCertificateConfiguration",
       "pipelineProperty": "CertificateExpiryInMilliseconds",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GroupCertificateConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -2232,20 +1593,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateLoggerDefinition": {
       "verb": "Update",
-      "noun": "GGLoggerDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoggerDefinition",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoggerDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -2263,20 +1618,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateResourceDefinition": {
       "verb": "Update",
-      "noun": "GGResourceDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceDefinition",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ResourceDefinitionId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceDefinition",
@@ -2295,20 +1644,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ResourceDefinitionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateSubscriptionDefinition": {
       "verb": "Update",
-      "noun": "GGSubscriptionDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SubscriptionDefinition",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubscriptionDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -2326,8 +1669,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

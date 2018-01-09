@@ -1,6 +1,46 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
+  "customAliases": [
+    {
+      "cmdlet": "Approve-ECCacheSecurityGroupIngress",
+      "aliasNames": [
+        "Authorize-ECCacheSecurityGroupIngress"
+      ]
+    },
+    {
+      "cmdlet": "Request-ECReservedCacheNodesOffering",
+      "aliasNames": [
+        "Purchase-ECReservedCacheNodesOffering"
+      ]
+    },
+    {
+      "cmdlet": "Restart-ECCacheCluster",
+      "aliasNames": [
+        "Reboot-ECCacheCluster"
+      ]
+    }
+  ],
+  "defaultPaginationSettings": {
+    "excludedOperations": [
+      "DescribeCacheParameters"
+    ],
+    "requestTokenMember": "Marker",
+    "responseTokenMember": "Marker",
+    "resultLimitMember": "MaxRecords"
+  },
+  "defaultPipelineProperty": "CacheClusterId",
+  "legacyCmdletPrefix": "EC",
+  "legacyPositionalProperties": "CacheClusterId",
+  "nounMappings": {
+    "CacheClusters": "CacheCluster",
+    "CacheParameterGroups": "CacheParameterGroup",
+    "CacheParameters": "CacheParameter",
+    "CacheSecurityGroups": "CacheSecurityGroup",
+    "EngineDefaultParameters": "EngineDefaultParameter",
+    "Events": "Event",
+    "ReservedCacheNodes": "ReservedCacheNode",
+    "ReservedCacheNodesOfferings": "ReservedCacheNodesOffering",
+    "Tags": "Tag"
+  },
   "pipelineByValuePropertyNames": [
     "CacheSecurityGroupName",
     "EC2SecurityGroupName",
@@ -17,47 +57,9 @@
     "ReservedCacheNodeId",
     "SnapshotName"
   ],
-  "defaultPipelineProperty": "CacheClusterId",
-  "legacyPositionalProperties": "CacheClusterId",
+  "sdkServiceClientClass": "AmazonElastiCacheClient",
+  "sdkServiceConfigClass": "AmazonElastiCacheConfig",
   "sdkServiceNamespace": "Amazon.ElastiCache",
-  "sdkServiceClient": "AmazonElastiCacheClient",
-  "sdkServiceClientConfig": "AmazonElastiCacheConfig",
-  "legacyCmdletPrefix": "EC",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "Marker",
-    "responseTokenMember": "Marker",
-    "resultLimitMember": "MaxRecords",
-    "excludedOperations": [
-      "DescribeCacheParameters"
-    ]
-  },
-  "customAliases": [
-    {
-      "cmdlet": "Approve-ECCacheSecurityGroupIngress",
-      "aliasNames": "Authorize-ECCacheSecurityGroupIngress"
-    },
-    {
-      "cmdlet": "Request-ECReservedCacheNodesOffering",
-      "aliasNames": "Purchase-ECReservedCacheNodesOffering"
-    },
-    {
-      "cmdlet": "Restart-ECCacheCluster",
-      "aliasNames": "Reboot-ECCacheCluster"
-    }
-  ],
-  "nounMappings": {
-    "CacheClusters": "CacheCluster",
-    "CacheParameterGroups": "CacheParameterGroup",
-    "CacheParameters": "CacheParameter",
-    "CacheSecurityGroups": "CacheSecurityGroup",
-    "EngineDefaultParameters": "EngineDefaultParameter",
-    "Events": "Event",
-    "ReservedCacheNodes": "ReservedCacheNode",
-    "ReservedCacheNodesOfferings": "ReservedCacheNodesOffering",
-    "Tags": "Tag"
-  },
   "verbMappings": {
     "Authorize": "Approve",
     "Purchase": "Request",
@@ -66,14 +68,11 @@
   "serviceOperations": {
     "AddTagsToResource": {
       "verb": "Add",
-      "noun": "ECTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "ResourceName;Tags",
+      "noun": "Tag",
+      "legacyPositionalParameters": [
+        "ResourceName",
+        "Tags"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsToResource",
         "ConfirmImpactSetting": "Medium",
@@ -83,31 +82,28 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AuthorizeCacheSecurityGroupIngress": {
       "verb": "Approve",
-      "noun": "ECCacheSecurityGroupIngress",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CacheSecurityGroupIngress",
+      "legacyPositionalParameters": [
+        "EC2SecurityGroupName",
+        "EC2SecurityGroupOwnerId"
+      ],
       "pipelineProperty": "CacheSecurityGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "EC2SecurityGroupName;EC2SecurityGroupOwnerId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheSecurityGroupIngress",
         "ConfirmImpactSetting": "Medium",
@@ -117,31 +113,27 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CacheSecurityGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CopySnapshot": {
       "verb": "Copy",
-      "noun": "ECSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Snapshot",
+      "legacyPositionalParameters": [
+        "TargetSnapshotName"
+      ],
       "pipelineProperty": "SourceSnapshotName",
-      "output": "Default",
-      "legacyPositionalParameters": "TargetSnapshotName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Snapshot",
         "ConfirmImpactSetting": "Medium",
@@ -151,31 +143,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SourceSnapshotName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateCacheCluster": {
       "verb": "New",
-      "noun": "ECCacheCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "CacheCluster",
       "customParameters": [
         {
           "name": "PreferredAvailabilityZones",
@@ -183,7 +167,9 @@
         },
         {
           "name": "Groups",
-          "aliases": "GroupId"
+          "aliases": [
+            "GroupId"
+          ]
         }
       ],
       "AnalyzerResults": {
@@ -195,31 +181,28 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CacheClusterId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateCacheParameterGroup": {
       "verb": "New",
-      "noun": "ECCacheParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CacheParameterGroup",
+      "legacyPositionalParameters": [
+        "CacheParameterGroupFamily",
+        "Description"
+      ],
       "pipelineProperty": "CacheParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "CacheParameterGroupFamily;Description",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheParameterGroup",
         "ConfirmImpactSetting": "Medium",
@@ -229,31 +212,27 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CacheParameterGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateCacheSecurityGroup": {
       "verb": "New",
-      "noun": "ECCacheSecurityGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CacheSecurityGroup",
+      "legacyPositionalParameters": [
+        "Description"
+      ],
       "pipelineProperty": "CacheSecurityGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "Description",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheSecurityGroup",
         "ConfirmImpactSetting": "Medium",
@@ -263,31 +242,28 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CacheSecurityGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateCacheSubnetGroup": {
       "verb": "New",
-      "noun": "ECCacheSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CacheSubnetGroup",
+      "legacyPositionalParameters": [
+        "CacheSubnetGroupDescription",
+        "SubnetIds"
+      ],
       "pipelineProperty": "CacheSubnetGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "CacheSubnetGroupDescription;SubnetIds",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheSubnetGroup",
         "ConfirmImpactSetting": "Medium",
@@ -297,31 +273,27 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CacheSubnetGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateReplicationGroup": {
       "verb": "New",
-      "noun": "ECReplicationGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReplicationGroup",
+      "legacyPositionalParameters": [
+        "ReplicationGroupId,ReplicationGroupDescription"
+      ],
       "pipelineProperty": "PrimaryClusterId",
-      "output": "Default",
-      "legacyPositionalParameters": "ReplicationGroupId,ReplicationGroupDescription",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationGroup",
         "ConfirmImpactSetting": "Medium",
@@ -331,31 +303,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PrimaryClusterId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateSnapshot": {
       "verb": "New",
-      "noun": "ECSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "SnapshotName",
+      "noun": "Snapshot",
+      "legacyPositionalParameters": [
+        "SnapshotName"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Snapshot",
         "ConfirmImpactSetting": "Medium",
@@ -365,31 +332,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CacheClusterId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCacheCluster": {
       "verb": "Remove",
-      "noun": "ECCacheCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "CacheCluster",
       "shouldProcessTargetProperty": "CacheClusterId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheCluster",
@@ -400,31 +359,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "CacheClusterId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCacheParameterGroup": {
       "verb": "Remove",
-      "noun": "ECCacheParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CacheParameterGroup",
       "pipelineProperty": "CacheParameterGroupName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheParameterGroup",
         "ConfirmImpactSetting": "High",
@@ -434,31 +387,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CacheParameterGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCacheSecurityGroup": {
       "verb": "Remove",
-      "noun": "ECCacheSecurityGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CacheSecurityGroup",
       "pipelineProperty": "CacheSecurityGroupName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheSecurityGroup",
         "ConfirmImpactSetting": "High",
@@ -468,31 +415,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CacheSecurityGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCacheSubnetGroup": {
       "verb": "Remove",
-      "noun": "ECCacheSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CacheSubnetGroup",
       "pipelineProperty": "CacheSubnetGroupName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheSubnetGroup",
         "ConfirmImpactSetting": "High",
@@ -502,31 +443,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CacheSubnetGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteReplicationGroup": {
       "verb": "Remove",
-      "noun": "ECReplicationGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReplicationGroup",
       "pipelineProperty": "ReplicationGroupId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ReplicationGroupId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationGroup",
@@ -537,31 +471,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ReplicationGroupId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSnapshot": {
       "verb": "Remove",
-      "noun": "ECSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Snapshot",
       "pipelineProperty": "SnapshotName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Snapshot",
         "ConfirmImpactSetting": "High",
@@ -571,31 +498,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SnapshotName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeCacheClusters": {
       "verb": "Get",
-      "noun": "ECCacheCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "CacheCluster",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheClusters",
         "ConfirmImpactSetting": "Medium",
@@ -605,31 +524,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
+        }
       }
     },
     "DescribeCacheEngineVersions": {
       "verb": "Get",
-      "noun": "ECCacheEngineVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "CacheEngineVersion",
       "legacyAlias": "Get-ECCacheEngineVersions",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "EngineVersion",
+        "CacheParameterGroupFamily"
+      ],
       "pipelineProperty": "Engine",
-      "output": "Default",
-      "legacyPositionalParameters": "EngineVersion;CacheParameterGroupFamily",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheEngineVersions",
         "ConfirmImpactSetting": "Medium",
@@ -639,31 +551,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
+        }
       }
     },
     "DescribeCacheParameterGroups": {
       "verb": "Get",
-      "noun": "ECCacheParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CacheParameterGroup",
       "pipelineProperty": "CacheParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheParameterGroups",
         "ConfirmImpactSetting": "Medium",
@@ -673,31 +573,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
+        }
       }
     },
     "DescribeCacheParameters": {
       "verb": "Get",
-      "noun": "ECCacheParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CacheParameter",
+      "legacyPositionalParameters": [
+        "Source"
+      ],
       "pipelineProperty": "CacheParameterGroupName",
       "output": "Response",
-      "legacyPositionalParameters": "Source",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheParameters",
         "ConfirmImpactSetting": "Medium",
@@ -707,31 +599,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
+        }
       }
     },
     "DescribeCacheSecurityGroups": {
       "verb": "Get",
-      "noun": "ECCacheSecurityGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CacheSecurityGroup",
       "pipelineProperty": "CacheSecurityGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheSecurityGroups",
         "ConfirmImpactSetting": "Medium",
@@ -741,31 +621,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
+        }
       }
     },
     "DescribeCacheSubnetGroups": {
       "verb": "Get",
-      "noun": "ECCacheSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "CacheSubnetGroup",
       "legacyAlias": "Get-ECCacheSubnetGroups",
-      "metadataOutputProperties": "",
       "pipelineProperty": "CacheSubnetGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheSubnetGroups",
         "ConfirmImpactSetting": "Medium",
@@ -775,31 +644,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
+        }
       }
     },
     "DescribeEngineDefaultParameters": {
       "verb": "Get",
-      "noun": "ECEngineDefaultParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EngineDefaultParameter",
       "pipelineProperty": "CacheParameterGroupFamily",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EngineDefaultParameters",
         "ConfirmImpactSetting": "Medium",
@@ -809,31 +666,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
+        }
       }
     },
     "DescribeEvents": {
       "verb": "Get",
-      "noun": "ECEvent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Event",
+      "legacyPositionalParameters": [
+        "SourceType"
+      ],
       "pipelineProperty": "SourceIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": "SourceType",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Events",
         "ConfirmImpactSetting": "Medium",
@@ -843,31 +691,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
+        }
       }
     },
     "DescribeReplicationGroups": {
       "verb": "Get",
-      "noun": "ECReplicationGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ReplicationGroup",
       "legacyAlias": "Get-ECReplicationGroups",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ReplicationGroupId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationGroups",
         "ConfirmImpactSetting": "Medium",
@@ -877,31 +714,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
+        }
       }
     },
     "DescribeReservedCacheNodes": {
       "verb": "Get",
-      "noun": "ECReservedCacheNode",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReservedCacheNode",
+      "legacyPositionalParameters": [
+        "ReservedCacheNodesOfferingId",
+        "CacheNodeType"
+      ],
       "pipelineProperty": "ReservedCacheNodeId",
-      "output": "Default",
-      "legacyPositionalParameters": "ReservedCacheNodesOfferingId;CacheNodeType",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReservedCacheNodes",
         "ConfirmImpactSetting": "Medium",
@@ -911,31 +740,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
+        }
       }
     },
     "DescribeReservedCacheNodesOfferings": {
       "verb": "Get",
-      "noun": "ECReservedCacheNodesOffering",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReservedCacheNodesOffering",
+      "legacyPositionalParameters": [
+        "CacheNodeType"
+      ],
       "pipelineProperty": "ReservedCacheNodesOfferingId",
-      "output": "Default",
-      "legacyPositionalParameters": "CacheNodeType",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReservedCacheNodesOfferings",
         "ConfirmImpactSetting": "Medium",
@@ -945,31 +765,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
+        }
       }
     },
     "DescribeSnapshots": {
       "verb": "Get",
-      "noun": "ECSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Snapshot",
       "legacyAlias": "Get-ECSnapshots",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "SnapshotName",
+      "legacyPositionalParameters": [
+        "SnapshotName"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Snapshots",
         "ConfirmImpactSetting": "Medium",
@@ -979,31 +790,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
+        }
       }
     },
     "ListAllowedNodeTypeModifications": {
       "verb": "Get",
-      "noun": "ECAllowedNodeTypeModification",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AllowedNodeTypeModification",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AllowedNodeTypeModifications",
         "ConfirmImpactSetting": "Medium",
@@ -1013,31 +811,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
+        }
       }
     },
     "ListTagsForResource": {
       "verb": "Get",
-      "noun": "ECTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Tag",
+      "legacyPositionalParameters": [
+        "ResourceName"
+      ],
       "pipelineProperty": "ResourceName",
-      "output": "Default",
-      "legacyPositionalParameters": "ResourceName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForResource",
         "ConfirmImpactSetting": "Medium",
@@ -1047,31 +836,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
+        }
       }
     },
     "ModifyCacheCluster": {
       "verb": "Edit",
-      "noun": "ECCacheCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "NumCacheNodes",
+      "noun": "CacheCluster",
+      "legacyPositionalParameters": [
+        "NumCacheNodes"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheCluster",
         "ConfirmImpactSetting": "Medium",
@@ -1081,31 +860,27 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CacheClusterId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyCacheParameterGroup": {
       "verb": "Edit",
-      "noun": "ECCacheParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CacheParameterGroup",
+      "legacyPositionalParameters": [
+        "ParameterNameValues"
+      ],
       "pipelineProperty": "CacheParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "ParameterNameValues",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheParameterGroup",
         "ConfirmImpactSetting": "Medium",
@@ -1115,31 +890,28 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CacheParameterGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyCacheSubnetGroup": {
       "verb": "Edit",
-      "noun": "ECCacheSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CacheSubnetGroup",
+      "legacyPositionalParameters": [
+        "CacheSubnetGroupDescription",
+        "SubnetIds"
+      ],
       "pipelineProperty": "CacheSubnetGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "CacheSubnetGroupDescription;SubnetIds",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheSubnetGroup",
         "ConfirmImpactSetting": "Medium",
@@ -1149,31 +921,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CacheSubnetGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyReplicationGroup": {
       "verb": "Edit",
-      "noun": "ECReplicationGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReplicationGroup",
       "pipelineProperty": "ReplicationGroupId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationGroup",
         "ConfirmImpactSetting": "Medium",
@@ -1183,31 +948,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ReplicationGroupId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyReplicationGroupShardConfiguration": {
       "verb": "Edit",
-      "noun": "ECReplicationGroupShardConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ReplicationGroupShardConfiguration",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationGroupShardConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -1217,31 +974,28 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ReplicationGroupId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PurchaseReservedCacheNodesOffering": {
       "verb": "Request",
-      "noun": "ECReservedCacheNodesOffering",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReservedCacheNodesOffering",
+      "legacyPositionalParameters": [
+        "ReservedCacheNodeId",
+        "CacheNodeCount"
+      ],
       "pipelineProperty": "ReservedCacheNodesOfferingId",
-      "output": "Default",
-      "legacyPositionalParameters": "ReservedCacheNodeId;CacheNodeCount",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReservedCacheNodesOffering",
         "ConfirmImpactSetting": "Medium",
@@ -1251,31 +1005,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ReservedCacheNodesOfferingId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RebootCacheCluster": {
       "verb": "Restart",
-      "noun": "ECCacheCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "CacheNodeIdsToReboot",
+      "noun": "CacheCluster",
+      "legacyPositionalParameters": [
+        "CacheNodeIdsToReboot"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheCluster",
         "ConfirmImpactSetting": "Medium",
@@ -1285,31 +1034,27 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CacheClusterId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveTagsFromResource": {
       "verb": "Remove",
-      "noun": "ECTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "ResourceName;Tags",
+      "noun": "Tag",
+      "legacyPositionalParameters": [
+        "ResourceName",
+        "Tags"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsFromResource",
         "ConfirmImpactSetting": "High",
@@ -1319,31 +1064,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ResetCacheParameterGroup": {
       "verb": "Reset",
-      "noun": "ECCacheParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CacheParameterGroup",
       "pipelineProperty": "CacheParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheParameterGroup",
         "ConfirmImpactSetting": "Medium",
@@ -1353,31 +1091,28 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CacheParameterGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RevokeCacheSecurityGroupIngress": {
       "verb": "Revoke",
-      "noun": "ECCacheSecurityGroupIngress",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CacheSecurityGroupIngress",
+      "legacyPositionalParameters": [
+        "EC2SecurityGroupName",
+        "EC2SecurityGroupOwnerId"
+      ],
       "pipelineProperty": "CacheSecurityGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "EC2SecurityGroupName;EC2SecurityGroupOwnerId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CacheSecurityGroupIngress",
         "ConfirmImpactSetting": "Medium",
@@ -1387,31 +1122,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CacheSecurityGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TestFailover": {
       "verb": "Test",
-      "noun": "ECFailover",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Failover",
       "pipelineProperty": "NodeGroupId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Failover",
         "ConfirmImpactSetting": "Medium",
@@ -1421,19 +1149,13 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
           "excludedOperations": [
             "DescribeCacheParameters"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords"
+        }
       }
     }
   }

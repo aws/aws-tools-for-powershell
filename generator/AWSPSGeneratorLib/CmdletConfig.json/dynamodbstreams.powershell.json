@@ -1,32 +1,23 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "TableName",
-  "legacyPositionalProperties": "TableName",
-  "sdkServiceNamespace": "Amazon.DynamoDBv2",
-  "sdkServiceClient": "AmazonDynamoDBStreamsClient",
-  "sdkServiceClientConfig": "AmazonDynamoDBStreamsConfig",
-  "legacyCmdletPrefix": "DDB",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": null,
     "responseTokenMember": null
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "TableName",
+  "legacyCmdletPrefix": "DDB",
+  "legacyPositionalProperties": "TableName",
+  "sdkServiceClientClass": "AmazonDynamoDBStreamsClient",
+  "sdkServiceConfigClass": "AmazonDynamoDBStreamsConfig",
+  "sdkServiceNamespace": "Amazon.DynamoDBv2",
   "serviceOperations": {
     "DescribeStream": {
       "verb": "Get",
-      "noun": "DDBStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Stream",
+      "legacyPositionalParameters": [
+        "Limit",
+        "ExclusiveStartShardId"
+      ],
       "pipelineProperty": "StreamArn",
-      "output": "Default",
-      "legacyPositionalParameters": "Limit;ExclusiveStartShardId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stream",
         "ConfirmImpactSetting": "Medium",
@@ -38,31 +29,23 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetRecords": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "GetShardIterator": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "ListStreams": {
       "verb": "Get",
-      "noun": "DDBStreamList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "StreamList",
+      "legacyPositionalParameters": [
+        "Limit",
+        "ExclusiveStartStreamName"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "Limit;ExclusiveStartStreamName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Streams",
         "ConfirmImpactSetting": "Medium",
@@ -74,13 +57,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

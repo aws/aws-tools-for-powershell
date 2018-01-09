@@ -1,6 +1,10 @@
 {
-  "additionalNamespaces": [],
-  "regionFallback": "us-east-1",
+  "defaultPaginationSettings": {
+    "requestTokenMember": "Marker",
+    "responseTokenMember": "NextPageMarker"
+  },
+  "defaultPipelineProperty": "DomainName",
+  "legacyCmdletPrefix": "R53D",
   "outputMetadataPropertyNames": [
     "Marker",
     "NextPageMarker"
@@ -9,32 +13,18 @@
     "DomainName",
     "OperationId"
   ],
-  "defaultPipelineProperty": "DomainName",
+  "regionFallback": "us-east-1",
+  "sdkServiceClientClass": "AmazonRoute53DomainsClient",
+  "sdkServiceConfigClass": "AmazonRoute53DomainsConfig",
   "sdkServiceNamespace": "Amazon.Route53Domains",
-  "sdkServiceClient": "AmazonRoute53DomainsClient",
-  "sdkServiceClientConfig": "AmazonRoute53DomainsConfig",
-  "legacyCmdletPrefix": "R53D",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "Marker",
-    "responseTokenMember": "NextPageMarker"
-  },
-  "nounMappings": {},
   "verbMappings": {
     "List": "Get"
   },
   "serviceOperations": {
     "CheckDomainAvailability": {
       "verb": "Test",
-      "noun": "R53DDomainAvailability",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "DomainAvailability",
       "legacyAlias": "Get-R53DDomainAvailability",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainAvailability",
         "ConfirmImpactSetting": "Medium",
@@ -46,25 +36,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextPageMarker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CheckDomainTransferability": {
       "verb": "Test",
-      "noun": "R53DDomainTransferability",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DomainTransferability",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainTransferability",
         "ConfirmImpactSetting": "Medium",
@@ -76,25 +53,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextPageMarker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteTagsForDomain": {
       "verb": "Remove",
-      "noun": "R53DTagsForDomain",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "TagsForDomain",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForDomain",
         "ConfirmImpactSetting": "High",
@@ -111,20 +76,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisableDomainAutoRenew": {
       "verb": "Disable",
-      "noun": "R53DDomainAutoRenew",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DomainAutoRenew",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainAutoRenew",
         "ConfirmImpactSetting": "Medium",
@@ -141,20 +99,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisableDomainTransferLock": {
       "verb": "Disable",
-      "noun": "R53DDomainTransferLock",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DomainTransferLock",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainTransferLock",
         "ConfirmImpactSetting": "Medium",
@@ -171,20 +121,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "EnableDomainAutoRenew": {
       "verb": "Enable",
-      "noun": "R53DDomainAutoRenew",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DomainAutoRenew",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainAutoRenew",
         "ConfirmImpactSetting": "Medium",
@@ -201,20 +144,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "EnableDomainTransferLock": {
       "verb": "Enable",
-      "noun": "R53DDomainTransferLock",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DomainTransferLock",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainTransferLock",
         "ConfirmImpactSetting": "Medium",
@@ -231,20 +166,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetContactReachabilityStatus": {
       "verb": "Get",
-      "noun": "R53DContactReachabilityStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ContactReachabilityStatus",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ContactReachabilityStatus",
         "ConfirmImpactSetting": "Medium",
@@ -256,25 +184,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextPageMarker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDomainDetail": {
       "verb": "Get",
-      "noun": "R53DDomainDetail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DomainDetail",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainDetail",
         "ConfirmImpactSetting": "Medium",
@@ -286,25 +202,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextPageMarker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDomainSuggestions": {
       "verb": "Get",
-      "noun": "R53DDomainSuggestion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DomainSuggestion",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainSuggestions",
         "ConfirmImpactSetting": "Medium",
@@ -316,25 +219,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextPageMarker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetOperationDetail": {
       "verb": "Get",
-      "noun": "R53DOperationDetail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OperationDetail",
       "pipelineProperty": "OperationId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OperationDetail",
         "ConfirmImpactSetting": "Medium",
@@ -346,25 +238,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextPageMarker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListDomains": {
       "verb": "Get",
-      "noun": "R53DDomainList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "DomainList",
       "legacyAlias": "Get-R53DDomains",
-      "metadataOutputProperties": "",
       "pipelineProperty": "MaxItems",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Domains",
         "ConfirmImpactSetting": "Medium",
@@ -376,25 +257,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextPageMarker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListOperations": {
       "verb": "Get",
-      "noun": "R53DOperationList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "OperationList",
       "legacyAlias": "Get-R53DOperations",
-      "metadataOutputProperties": "",
       "pipelineProperty": "MaxItems",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Operations",
         "ConfirmImpactSetting": "Medium",
@@ -406,25 +276,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextPageMarker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTagsForDomain": {
       "verb": "Get",
-      "noun": "R53DTagsForDomain",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TagsForDomain",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForDomain",
         "ConfirmImpactSetting": "Medium",
@@ -436,32 +293,19 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextPageMarker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RegisterDomain": {
       "verb": "Register",
-      "noun": "R53DDomain",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
-      "shouldProcessTargetProperty": "DomainName",
+      "noun": "Domain",
       "customParameters": [
         {
           "name": "DurationInYears",
           "autoRename": "false"
         }
       ],
+      "shouldProcessTargetProperty": "DomainName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Domain",
         "ConfirmImpactSetting": "Medium",
@@ -478,20 +322,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RenewDomain": {
       "verb": "Update",
-      "noun": "R53DDomainRenewal",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DomainRenewal",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Domain",
         "ConfirmImpactSetting": "Medium",
@@ -508,20 +344,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ResendContactReachabilityEmail": {
       "verb": "Send",
-      "noun": "R53DContactReachabilityEmail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ContactReachabilityEmail",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ContactReachabilityEmail",
         "ConfirmImpactSetting": "Medium",
@@ -538,20 +367,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RetrieveDomainAuthCode": {
       "verb": "Get",
-      "noun": "R53DDomainAuthCode",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DomainAuthCode",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainAuthCode",
         "ConfirmImpactSetting": "Medium",
@@ -563,32 +384,19 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextPageMarker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TransferDomain": {
       "verb": "Invoke",
-      "noun": "R53DDomainTransfer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
-      "shouldProcessTargetProperty": "DomainName",
+      "noun": "DomainTransfer",
       "customParameters": [
         {
           "name": "DurationInYears",
           "autoRename": "false"
         }
       ],
+      "shouldProcessTargetProperty": "DomainName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Domain",
         "ConfirmImpactSetting": "Medium",
@@ -605,20 +413,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDomainContact": {
       "verb": "Update",
-      "noun": "R53DDomainContact",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DomainContact",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainContact",
         "ConfirmImpactSetting": "Medium",
@@ -635,20 +435,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDomainContactPrivacy": {
       "verb": "Update",
-      "noun": "R53DDomainContactPrivacy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DomainContactPrivacy",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainContactPrivacy",
         "ConfirmImpactSetting": "Medium",
@@ -665,20 +457,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDomainNameservers": {
       "verb": "Update",
-      "noun": "R53DDomainNameserver",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "DomainNameserver",
       "legacyAlias": "Update-R53DDomainNameservers",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainNameservers",
         "ConfirmImpactSetting": "Medium",
@@ -695,20 +480,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateTagsForDomain": {
       "verb": "Update",
-      "noun": "R53DTagsForDomain",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "TagsForDomain",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForDomain",
         "ConfirmImpactSetting": "Medium",
@@ -725,20 +503,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ViewBilling": {
       "verb": "Get",
-      "noun": "R53DBillingRecord",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BillingRecord",
       "paginationSettings": {
         "requestTokenMember": "Marker",
         "responseTokenMember": "NextPageMarker",
@@ -758,13 +528,7 @@
           "responseTokenMember": "NextPageMarker",
           "resultLimitMember": "MaxItems",
           "servicePageSize": 20
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

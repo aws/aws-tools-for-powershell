@@ -1,36 +1,24 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.MediaLive",
-  "sdkServiceClient": "AmazonMediaLiveClient",
-  "sdkServiceClientConfig": "AmazonMediaLiveConfig",
-  "legacyCmdletPrefix": "EML",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.MediaLive.Model.EncoderSettings",
-    "Amazon.MediaLive.Model.AvailBlanking",
-    "Amazon.MediaLive.Model.InputLocation"
-  ],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "EML",
+  "nonFlatteningTypeNames": [
+    "Amazon.MediaLive.Model.EncoderSettings",
+    "Amazon.MediaLive.Model.AvailBlanking",
+    "Amazon.MediaLive.Model.InputLocation"
+  ],
+  "sdkServiceClientClass": "AmazonMediaLiveClient",
+  "sdkServiceConfigClass": "AmazonMediaLiveConfig",
+  "sdkServiceNamespace": "Amazon.MediaLive",
   "serviceOperations": {
     "CreateChannel": {
       "verb": "New",
-      "noun": "EMLChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Channel",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Channel",
         "ConfirmImpactSetting": "Medium",
@@ -48,20 +36,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateInput": {
       "verb": "New",
-      "noun": "EMLInput",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Input",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Input",
         "ConfirmImpactSetting": "Medium",
@@ -79,20 +60,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateInputSecurityGroup": {
       "verb": "New",
-      "noun": "EMLInputSecurityGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InputSecurityGroup",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InputSecurityGroup",
         "ConfirmImpactSetting": "Medium",
@@ -110,20 +84,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "WhitelistRules"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteChannel": {
       "verb": "Remove",
-      "noun": "EMLChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Channel",
       "pipelineProperty": "ChannelId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Channel",
         "ConfirmImpactSetting": "High",
@@ -141,20 +109,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ChannelId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteInput": {
       "verb": "Remove",
-      "noun": "EMLInput",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Input",
       "pipelineProperty": "InputId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Input",
         "ConfirmImpactSetting": "High",
@@ -172,20 +134,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InputId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteInputSecurityGroup": {
       "verb": "Remove",
-      "noun": "EMLInputSecurityGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InputSecurityGroup",
       "pipelineProperty": "InputSecurityGroupId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InputSecurityGroup",
         "ConfirmImpactSetting": "High",
@@ -203,20 +159,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InputSecurityGroupId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeChannel": {
       "verb": "Get",
-      "noun": "EMLChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Channel",
       "pipelineProperty": "ChannelId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Channel",
         "ConfirmImpactSetting": "Medium",
@@ -229,25 +179,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeInput": {
       "verb": "Get",
-      "noun": "EMLInput",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Input",
       "pipelineProperty": "InputId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Input",
         "ConfirmImpactSetting": "Medium",
@@ -260,25 +199,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeInputSecurityGroup": {
       "verb": "Get",
-      "noun": "EMLInputSecurityGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InputSecurityGroup",
       "pipelineProperty": "InputSecurityGroupId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InputSecurityGroup",
         "ConfirmImpactSetting": "Medium",
@@ -291,25 +219,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListChannels": {
       "verb": "Get",
-      "noun": "EMLChannelList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ChannelList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Channels",
         "ConfirmImpactSetting": "Medium",
@@ -322,25 +237,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListInputs": {
       "verb": "Get",
-      "noun": "EMLInputList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "InputList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Inputs",
         "ConfirmImpactSetting": "Medium",
@@ -353,25 +255,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListInputSecurityGroups": {
       "verb": "Get",
-      "noun": "EMLInputSecurityGroupList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "InputSecurityGroupList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InputSecurityGroups",
         "ConfirmImpactSetting": "Medium",
@@ -384,25 +273,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartChannel": {
       "verb": "Start",
-      "noun": "EMLChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Channel",
       "pipelineProperty": "ChannelId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Channel",
         "ConfirmImpactSetting": "Medium",
@@ -420,20 +298,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ChannelId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopChannel": {
       "verb": "Stop",
-      "noun": "EMLChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Channel",
       "pipelineProperty": "ChannelId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Channel",
         "ConfirmImpactSetting": "Medium",
@@ -451,8 +323,7 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ChannelId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

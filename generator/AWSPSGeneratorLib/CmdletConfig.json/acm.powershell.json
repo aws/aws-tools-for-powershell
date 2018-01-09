@@ -1,35 +1,26 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "CertificateArn",
-    "DomainName"
-  ],
-  "defaultPipelineProperty": "CertificateArn",
-  "sdkServiceNamespace": "Amazon.CertificateManager",
-  "sdkServiceClient": "AmazonCertificateManagerClient",
-  "sdkServiceClientConfig": "AmazonCertificateManagerConfig",
-  "legacyCmdletPrefix": "ACM",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxItems"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "CertificateArn",
+  "legacyCmdletPrefix": "ACM",
+  "pipelineByValuePropertyNames": [
+    "CertificateArn",
+    "DomainName"
+  ],
+  "sdkServiceClientClass": "AmazonCertificateManagerClient",
+  "sdkServiceConfigClass": "AmazonCertificateManagerConfig",
+  "sdkServiceNamespace": "Amazon.CertificateManager",
   "serviceOperations": {
     "AddTagsToCertificate": {
       "verb": "Add",
-      "noun": "ACMCertificateTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "CertificateTag",
+      "legacyPositionalParameters": [
+        "Tags"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "Tags",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsToCertificate",
         "ConfirmImpactSetting": "Medium",
@@ -47,20 +38,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CertificateArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCertificate": {
       "verb": "Remove",
-      "noun": "ACMCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Certificate",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Certificate",
         "ConfirmImpactSetting": "High",
@@ -78,20 +62,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CertificateArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeCertificate": {
       "verb": "Get",
-      "noun": "ACMCertificateDetail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "CertificateDetail",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Certificate",
         "ConfirmImpactSetting": "Medium",
@@ -104,25 +80,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetCertificate": {
       "verb": "Get",
-      "noun": "ACMCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Certificate",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Certificate",
         "ConfirmImpactSetting": "Medium",
@@ -135,25 +99,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ImportCertificate": {
       "verb": "Import",
-      "noun": "ACMCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Certificate",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Certificate",
         "ConfirmImpactSetting": "Medium",
@@ -181,14 +132,7 @@
     },
     "ListCertificates": {
       "verb": "Get",
-      "noun": "ACMCertificateList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "CertificateList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Certificates",
         "ConfirmImpactSetting": "Medium",
@@ -201,25 +145,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTagsForCertificate": {
       "verb": "Get",
-      "noun": "ACMCertificateTagList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "CertificateTagList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForCertificate",
         "ConfirmImpactSetting": "Medium",
@@ -232,25 +163,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveTagsFromCertificate": {
       "verb": "Remove",
-      "noun": "ACMCertificateTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "CertificateTag",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "CertificateArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsFromCertificate",
@@ -269,20 +188,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "CertificateArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RequestCertificate": {
       "verb": "New",
-      "noun": "ACMCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Certificate",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DomainName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Certificate",
@@ -301,20 +213,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ResendValidationEmail": {
       "verb": "Send",
-      "noun": "ACMValidationEmail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ValidationEmail",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ValidationEmail",
         "ConfirmImpactSetting": "Medium",
@@ -332,8 +237,7 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CertificateArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

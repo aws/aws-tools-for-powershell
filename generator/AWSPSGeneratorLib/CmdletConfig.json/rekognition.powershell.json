@@ -1,24 +1,5 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "FaceId",
-    "ImageId",
-    "ExternalImageId"
-  ],
-  "defaultPipelineProperty": "CollectionId",
-  "sdkServiceNamespace": "Amazon.Rekognition",
-  "sdkServiceClient": "AmazonRekognitionClient",
-  "sdkServiceClientConfig": "AmazonRekognitionConfig",
-  "legacyCmdletPrefix": "REK",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.Rekognition.Model.Video"
-  ],
   "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken",
-    "resultLimitMember": "MaxResults",
     "excludedOperations": [
       "ListFaces",
       "ListCollections",
@@ -28,21 +9,28 @@
       "GetFaceSearch",
       "GetLabelDetection",
       "GetPersonTracking"
-    ]
+    ],
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken",
+    "resultLimitMember": "MaxResults"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "CollectionId",
+  "legacyCmdletPrefix": "REK",
+  "nonFlatteningTypeNames": [
+    "Amazon.Rekognition.Model.Video"
+  ],
+  "pipelineByValuePropertyNames": [
+    "FaceId",
+    "ImageId",
+    "ExternalImageId"
+  ],
+  "sdkServiceClientClass": "AmazonRekognitionClient",
+  "sdkServiceConfigClass": "AmazonRekognitionConfig",
+  "sdkServiceNamespace": "Amazon.Rekognition",
   "serviceOperations": {
     "CompareFaces": {
       "verb": "Compare",
-      "noun": "REKFace",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "noPipelineProperty": "true",
-      "output": "Response",
-      "legacyPositionalParameters": null,
+      "noun": "Face",
       "customParameters": [
         {
           "name": "SourceImage_S3Object_Bucket",
@@ -85,6 +73,9 @@
           "autoApplyAlias": "false"
         }
       ],
+      "noPipelineProperty": "true",
+      "output": "Response",
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Faces",
         "ConfirmImpactSetting": "Medium",
@@ -94,9 +85,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -106,7 +94,10 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
@@ -121,14 +112,8 @@
     },
     "CreateCollection": {
       "verb": "New",
-      "noun": "REKCollection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Collection",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Collection",
         "ConfirmImpactSetting": "Medium",
@@ -138,9 +123,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -150,26 +132,22 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CollectionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateStreamProcessor": {
       "verb": "New",
-      "noun": "REKStreamProcessor",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StreamProcessor",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StreamProcessor",
         "ConfirmImpactSetting": "Medium",
@@ -179,9 +157,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -191,26 +166,21 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCollection": {
       "verb": "Remove",
-      "noun": "REKCollection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Collection",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Collection",
         "ConfirmImpactSetting": "High",
@@ -220,9 +190,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -232,26 +199,22 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CollectionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteFaces": {
       "verb": "Remove",
-      "noun": "REKFace",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Face",
       "pipelineProperty": "FaceId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Faces",
         "ConfirmImpactSetting": "High",
@@ -261,9 +224,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -273,26 +233,23 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CollectionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteStreamProcessor": {
       "verb": "Remove",
-      "noun": "REKStreamProcessor",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StreamProcessor",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StreamProcessor",
         "ConfirmImpactSetting": "High",
@@ -302,9 +259,6 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -314,26 +268,23 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeStreamProcessor": {
       "verb": "Get",
-      "noun": "REKStreamProcessor",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StreamProcessor",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StreamProcessor",
         "ConfirmImpactSetting": "Medium",
@@ -343,9 +294,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -355,26 +303,16 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "DetectFaces": {
       "verb": "Find",
-      "noun": "REKFace",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "noPipelineProperty": "true",
-      "output": "Response",
-      "legacyPositionalParameters": null,
+      "noun": "Face",
       "customParameters": [
         {
           "name": "Image_S3Object_Bucket",
@@ -397,6 +335,8 @@
           "autoApplyAlias": "false"
         }
       ],
+      "noPipelineProperty": "true",
+      "output": "Response",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Faces",
         "ConfirmImpactSetting": "Medium",
@@ -406,9 +346,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -418,12 +355,10 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "MemoryStreamParameters": [
           "ImageContent"
@@ -432,14 +367,7 @@
     },
     "DetectLabels": {
       "verb": "Find",
-      "noun": "REKLabel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "noPipelineProperty": "true",
-      "output": "Response",
-      "legacyPositionalParameters": null,
+      "noun": "Label",
       "customParameters": [
         {
           "name": "Image_S3Object_Bucket",
@@ -462,6 +390,8 @@
           "autoApplyAlias": "false"
         }
       ],
+      "noPipelineProperty": "true",
+      "output": "Response",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Labels",
         "ConfirmImpactSetting": "Medium",
@@ -471,9 +401,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -483,12 +410,10 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "MemoryStreamParameters": [
           "ImageContent"
@@ -497,14 +422,8 @@
     },
     "DetectModerationLabels": {
       "verb": "Find",
-      "noun": "REKModerationLabel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ModerationLabel",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ModerationLabels",
         "ConfirmImpactSetting": "Medium",
@@ -514,9 +433,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -526,12 +442,10 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "MemoryStreamParameters": [
           "Image_Bytes"
@@ -540,14 +454,7 @@
     },
     "DetectText": {
       "verb": "Find",
-      "noun": "REKText",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Text",
       "customParameters": [
         {
           "name": "Image_S3Object_Bucket",
@@ -579,9 +486,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -591,12 +495,10 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "MemoryStreamParameters": [
           "ImageContent"
@@ -605,14 +507,9 @@
     },
     "GetCelebrityInfo": {
       "verb": "Get",
-      "noun": "REKCelebrityInfo",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CelebrityInfo",
       "pipelineProperty": "Id",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CelebrityInfo",
         "ConfirmImpactSetting": "Medium",
@@ -622,9 +519,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -634,26 +528,17 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "GetCelebrityRecognition": {
       "verb": "Get",
-      "noun": "REKCelebrityRecognition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "CelebrityRecognition",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CelebrityRecognition",
         "ConfirmImpactSetting": "Medium",
@@ -663,9 +548,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -675,26 +557,17 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "GetContentModeration": {
       "verb": "Get",
-      "noun": "REKContentModeration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ContentModeration",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ContentModeration",
         "ConfirmImpactSetting": "Medium",
@@ -704,9 +577,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -716,26 +586,18 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "GetFaceDetection": {
       "verb": "Get",
-      "noun": "REKFaceDetection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FaceDetection",
       "pipelineProperty": "JobId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FaceDetection",
         "ConfirmImpactSetting": "Medium",
@@ -745,9 +607,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -757,26 +616,17 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "GetFaceSearch": {
       "verb": "Get",
-      "noun": "REKFaceSearch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "FaceSearch",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FaceSearch",
         "ConfirmImpactSetting": "Medium",
@@ -786,9 +636,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -798,26 +645,17 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "GetLabelDetection": {
       "verb": "Get",
-      "noun": "REKLabelDetection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LabelDetection",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LabelDetection",
         "ConfirmImpactSetting": "Medium",
@@ -827,9 +665,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -839,26 +674,17 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "GetPersonTracking": {
       "verb": "Get",
-      "noun": "REKPersonTracking",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "PersonTracking",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PersonTracking",
         "ConfirmImpactSetting": "Medium",
@@ -868,9 +694,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -880,26 +703,16 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "IndexFaces": {
       "verb": "Add",
-      "noun": "REKDetectedFacesToCollection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Response",
-      "legacyPositionalParameters": null,
+      "noun": "DetectedFacesToCollection",
       "customParameters": [
         {
           "name": "Image_S3Object_Bucket",
@@ -922,6 +735,7 @@
           "autoApplyAlias": "false"
         }
       ],
+      "output": "Response",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Faces",
         "ConfirmImpactSetting": "Medium",
@@ -931,9 +745,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -943,7 +754,10 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
@@ -957,14 +771,8 @@
     },
     "ListCollections": {
       "verb": "Get",
-      "noun": "REKCollectionIdList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "CollectionIdList",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Collections",
         "ConfirmImpactSetting": "Medium",
@@ -974,9 +782,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -986,26 +791,17 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "ListFaces": {
       "verb": "Get",
-      "noun": "REKFaceList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "FaceList",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Faces",
         "ConfirmImpactSetting": "Medium",
@@ -1015,9 +811,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -1027,26 +820,16 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "ListStreamProcessors": {
       "verb": "Get",
-      "noun": "REKStreamProcessorsList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "StreamProcessorsList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StreamProcessors",
         "ConfirmImpactSetting": "Medium",
@@ -1056,9 +839,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -1068,26 +848,16 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "RecognizeCelebrities": {
       "verb": "Find",
-      "noun": "REKCelebrity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Response",
-      "legacyPositionalParameters": null,
+      "noun": "Celebrity",
       "customParameters": [
         {
           "name": "Image_S3Object_Bucket",
@@ -1110,6 +880,7 @@
           "autoApplyAlias": "false"
         }
       ],
+      "output": "Response",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Celebrities",
         "ConfirmImpactSetting": "Medium",
@@ -1119,9 +890,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -1131,12 +899,10 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "MemoryStreamParameters": [
           "ImageContent"
@@ -1145,14 +911,8 @@
     },
     "SearchFaces": {
       "verb": "Search",
-      "noun": "REKFace",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Face",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Faces",
         "ConfirmImpactSetting": "Medium",
@@ -1162,9 +922,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -1174,26 +931,21 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CollectionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SearchFacesByImage": {
       "verb": "Search",
-      "noun": "REKFacesByImage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Response",
-      "legacyPositionalParameters": null,
+      "noun": "FacesByImage",
       "customParameters": [
         {
           "name": "Image_S3Object_Bucket",
@@ -1216,6 +968,7 @@
           "autoApplyAlias": "false"
         }
       ],
+      "output": "Response",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FacesByImage",
         "ConfirmImpactSetting": "Medium",
@@ -1225,9 +978,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -1237,7 +987,10 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
@@ -1251,14 +1004,9 @@
     },
     "StartCelebrityRecognition": {
       "verb": "Start",
-      "noun": "REKCelebrityRecognition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CelebrityRecognition",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CelebrityRecognition",
         "ConfirmImpactSetting": "Medium",
@@ -1268,9 +1016,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -1280,26 +1025,23 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartContentModeration": {
       "verb": "Start",
-      "noun": "REKContentModeration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ContentModeration",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ContentModeration",
         "ConfirmImpactSetting": "Medium",
@@ -1309,9 +1051,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -1321,26 +1060,23 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartFaceDetection": {
       "verb": "Start",
-      "noun": "REKFaceDetection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FaceDetection",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FaceDetection",
         "ConfirmImpactSetting": "Medium",
@@ -1350,9 +1086,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -1362,26 +1095,21 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartFaceSearch": {
       "verb": "Start",
-      "noun": "REKFaceSearch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "FaceSearch",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FaceSearch",
         "ConfirmImpactSetting": "Medium",
@@ -1391,9 +1119,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -1403,26 +1128,23 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CollectionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartLabelDetection": {
       "verb": "Start",
-      "noun": "REKLabelDetection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LabelDetection",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LabelDetection",
         "ConfirmImpactSetting": "Medium",
@@ -1432,9 +1154,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -1444,26 +1163,23 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartPersonTracking": {
       "verb": "Start",
-      "noun": "REKPersonTracking",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PersonTracking",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PersonTracking",
         "ConfirmImpactSetting": "Medium",
@@ -1473,9 +1189,6 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -1485,26 +1198,23 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartStreamProcessor": {
       "verb": "Start",
-      "noun": "REKStreamProcessor",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StreamProcessor",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StreamProcessor",
         "ConfirmImpactSetting": "Medium",
@@ -1514,9 +1224,6 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -1526,26 +1233,23 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopStreamProcessor": {
       "verb": "Stop",
-      "noun": "REKStreamProcessor",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StreamProcessor",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StreamProcessor",
         "ConfirmImpactSetting": "Medium",
@@ -1555,9 +1259,6 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "ListFaces",
             "ListCollections",
@@ -1567,14 +1268,16 @@
             "GetFaceSearch",
             "GetLabelDetection",
             "GetPersonTracking"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

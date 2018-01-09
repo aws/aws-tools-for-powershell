@@ -1,42 +1,34 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": null,
+    "responseTokenMember": null
+  },
+  "defaultPipelineProperty": "Name",
+  "legacyCmdletPrefix": "CT",
+  "nounMappings": {
+    "Trails": "Trail",
+    "Tags": "Tag",
+    "PublicKeys": "PublicKey"
+  },
   "pipelineByValuePropertyNames": [
     "Name",
     "S3BucketName",
     "S3KeyPrefix",
     "SnsTopicName"
   ],
-  "defaultPipelineProperty": "Name",
+  "sdkServiceClientClass": "AmazonCloudTrailClient",
+  "sdkServiceConfigClass": "AmazonCloudTrailConfig",
   "sdkServiceNamespace": "Amazon.CloudTrail",
-  "sdkServiceClient": "AmazonCloudTrailClient",
-  "sdkServiceClientConfig": "AmazonCloudTrailConfig",
-  "legacyCmdletPrefix": "CT",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": null,
-    "responseTokenMember": null
-  },
-  "nounMappings": {
-    "Trails": "Trail",
-    "Tags": "Tag",
-    "PublicKeys": "PublicKey"
-  },
   "verbMappings": {
     "List": "Get"
   },
   "serviceOperations": {
     "AddTags": {
       "verb": "Add",
-      "noun": "CTResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "Add-CTTag",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ResourceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -53,20 +45,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateTrail": {
       "verb": "New",
-      "noun": "CTTrail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Trail",
+      "legacyPositionalParameters": [
+        "S3BucketName",
+        "S3KeyPrefix"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "S3BucketName;S3KeyPrefix",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Trail",
         "ConfirmImpactSetting": "Medium",
@@ -83,20 +72,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteTrail": {
       "verb": "Remove",
-      "noun": "CTTrail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Trail",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Trail",
         "ConfirmImpactSetting": "High",
@@ -113,26 +95,25 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTrails": {
       "verb": "Get",
-      "noun": "CTTrail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "TrailNameList",
-      "output": "Default",
-      "legacyPositionalParameters": "TrailNameList;IncludeShadowTrails",
+      "noun": "Trail",
       "customParameters": [
         {
           "name": "TrailNameList",
-          "aliases": "Name"
+          "aliases": [
+            "Name"
+          ]
         }
       ],
+      "legacyPositionalParameters": [
+        "TrailNameList",
+        "IncludeShadowTrails"
+      ],
+      "pipelineProperty": "TrailNameList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Trails",
         "ConfirmImpactSetting": "Medium",
@@ -144,25 +125,15 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetEventSelectors": {
       "verb": "Get",
-      "noun": "CTEventSelector",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "EventSelector",
       "legacyAlias": "Get-CTEventSelectors",
-      "metadataOutputProperties": "",
       "pipelineProperty": "TrailName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSelectors",
         "ConfirmImpactSetting": "Medium",
@@ -174,25 +145,16 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetTrailStatus": {
       "verb": "Get",
-      "noun": "CTTrailStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "TrailStatus",
+      "legacyPositionalParameters": [
+        "Name"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TrailStatus",
         "ConfirmImpactSetting": "Medium",
@@ -204,25 +166,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListPublicKeys": {
       "verb": "Get",
-      "noun": "CTPublicKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "PublicKey",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PublicKeys",
         "ConfirmImpactSetting": "Medium",
@@ -234,25 +183,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTags": {
       "verb": "Get",
-      "noun": "CTResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "Get-CTTag",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -264,25 +201,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "LookupEvents": {
       "verb": "Find",
-      "noun": "CTEvent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Event",
       "legacyAlias": "Find-CTEvents",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Events",
         "ConfirmImpactSetting": "Medium",
@@ -294,25 +219,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutEventSelectors": {
       "verb": "Write",
-      "noun": "CTEventSelector",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "EventSelector",
       "legacyAlias": "Write-CTEventSelectors",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSelectors",
         "ConfirmImpactSetting": "Medium",
@@ -329,20 +243,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TrailName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveTags": {
       "verb": "Remove",
-      "noun": "CTResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "Remove-CTTag",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ResourceId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
@@ -360,20 +268,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartLogging": {
       "verb": "Start",
-      "noun": "CTLogging",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Logging",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Logging",
         "ConfirmImpactSetting": "Medium",
@@ -390,20 +291,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopLogging": {
       "verb": "Stop",
-      "noun": "CTLogging",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Logging",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Logging",
         "ConfirmImpactSetting": "Medium",
@@ -420,20 +314,17 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateTrail": {
       "verb": "Update",
-      "noun": "CTTrail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Trail",
+      "legacyPositionalParameters": [
+        "S3BucketName",
+        "S3KeyPrefix"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "S3BucketName;S3KeyPrefix",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Trail",
         "ConfirmImpactSetting": "Medium",
@@ -450,8 +341,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

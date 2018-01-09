@@ -1,31 +1,19 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "RepositoryName",
-  "sdkServiceNamespace": "Amazon.CodeCommit",
-  "sdkServiceClient": "AmazonCodeCommitClient",
-  "sdkServiceClientConfig": "AmazonCodeCommitConfig",
-  "legacyCmdletPrefix": "CC",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "RepositoryName",
+  "legacyCmdletPrefix": "CC",
+  "sdkServiceClientClass": "AmazonCodeCommitClient",
+  "sdkServiceConfigClass": "AmazonCodeCommitConfig",
+  "sdkServiceNamespace": "Amazon.CodeCommit",
   "serviceOperations": {
     "BatchGetRepositories": {
       "verb": "Get",
-      "noun": "CCRepositoryBatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RepositoryBatch",
       "pipelineProperty": "RepositoryNames",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GetRepositories",
         "ConfirmImpactSetting": "Medium",
@@ -37,25 +25,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateBranch": {
       "verb": "New",
-      "noun": "CCBranch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Branch",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Branch",
         "ConfirmImpactSetting": "Medium",
@@ -72,20 +48,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RepositoryName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreatePullRequest": {
       "verb": "New",
-      "noun": "CCPullRequest",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PullRequest",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Title",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PullRequest",
@@ -103,20 +72,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Title"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateRepository": {
       "verb": "New",
-      "noun": "CCRepository",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Repository",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Repository",
         "ConfirmImpactSetting": "Medium",
@@ -133,20 +94,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RepositoryName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteBranch": {
       "verb": "Remove",
-      "noun": "CCBranch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Branch",
       "pipelineProperty": "BranchName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Branch",
         "ConfirmImpactSetting": "High",
@@ -163,20 +117,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BranchName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCommentContent": {
       "verb": "Remove",
-      "noun": "CCCommentContent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CommentContent",
       "pipelineProperty": "CommentId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CommentContent",
         "ConfirmImpactSetting": "High",
@@ -193,20 +140,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CommentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRepository": {
       "verb": "Remove",
-      "noun": "CCRepository",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Repository",
       "shouldProcessTargetProperty": "RepositoryName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Repository",
@@ -224,20 +163,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RepositoryName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribePullRequestEvents": {
       "verb": "Get",
-      "noun": "CCPullRequestEvent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PullRequestEvent",
       "pipelineProperty": "PullRequestId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PullRequestEvents",
         "ConfirmImpactSetting": "Medium",
@@ -249,25 +181,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBlob": {
       "verb": "Get",
-      "noun": "CCBlob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Blob",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Blob",
         "ConfirmImpactSetting": "Medium",
@@ -279,25 +198,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBranch": {
       "verb": "Get",
-      "noun": "CCBranch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Branch",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Branch",
         "ConfirmImpactSetting": "Medium",
@@ -309,25 +215,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetComment": {
       "verb": "Get",
-      "noun": "CCComment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Comment",
       "pipelineProperty": "CommentId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Comment",
         "ConfirmImpactSetting": "Medium",
@@ -339,25 +233,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetCommentsForComparedCommit": {
       "verb": "Get",
-      "noun": "CCCommentsForComparedCommit",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CommentsForComparedCommit",
       "pipelineProperty": "AfterCommitId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CommentsForComparedCommit",
         "ConfirmImpactSetting": "Medium",
@@ -369,25 +251,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetCommentsForPullRequest": {
       "verb": "Get",
-      "noun": "CCCommentsForPullRequest",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CommentsForPullRequest",
       "pipelineProperty": "PullRequestId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CommentsForPullRequest",
         "ConfirmImpactSetting": "Medium",
@@ -399,25 +269,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetCommit": {
       "verb": "Get",
-      "noun": "CCCommit",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Commit",
       "pipelineProperty": "CommitId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Commit",
         "ConfirmImpactSetting": "Medium",
@@ -429,25 +287,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDifferences": {
       "verb": "Get",
-      "noun": "CCDifferenceList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DifferenceList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Differences",
         "ConfirmImpactSetting": "Medium",
@@ -459,25 +304,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetMergeConflicts": {
       "verb": "Get",
-      "noun": "CCMergeConflict",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "MergeConflict",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MergeConflicts",
         "ConfirmImpactSetting": "Medium",
@@ -489,25 +322,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetPullRequest": {
       "verb": "Get",
-      "noun": "CCPullRequest",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PullRequest",
       "pipelineProperty": "PullRequestId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PullRequest",
         "ConfirmImpactSetting": "Medium",
@@ -519,25 +340,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetRepository": {
       "verb": "Get",
-      "noun": "CCRepository",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Repository",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Repository",
         "ConfirmImpactSetting": "Medium",
@@ -549,25 +357,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetRepositoryTriggers": {
       "verb": "Get",
-      "noun": "CCRepositoryTrigger",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "RepositoryTrigger",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RepositoryTriggers",
         "ConfirmImpactSetting": "Medium",
@@ -579,25 +375,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListBranches": {
       "verb": "Get",
-      "noun": "CCBranchList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BranchList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Branches",
         "ConfirmImpactSetting": "Medium",
@@ -609,25 +392,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListPullRequests": {
       "verb": "Get",
-      "noun": "CCPullRequestList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "PullRequestList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PullRequests",
         "ConfirmImpactSetting": "Medium",
@@ -639,25 +409,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListRepositories": {
       "verb": "Get",
-      "noun": "CCRepositoryList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "RepositoryList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Repositories",
         "ConfirmImpactSetting": "Medium",
@@ -669,25 +426,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "MergePullRequestByFastForward": {
       "verb": "Merge",
-      "noun": "CCPullRequestByFastForward",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PullRequestByFastForward",
       "pipelineProperty": "PullRequestId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PullRequestByFastForward",
         "ConfirmImpactSetting": "Medium",
@@ -704,20 +449,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PullRequestId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PostCommentForComparedCommit": {
       "verb": "Send",
-      "noun": "CCCommentForComparedCommit",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CommentForComparedCommit",
       "pipelineProperty": "Content",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "AfterCommitId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CommentForComparedCommit",
@@ -735,20 +474,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "AfterCommitId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PostCommentForPullRequest": {
       "verb": "Send",
-      "noun": "CCCommentForPullRequest",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CommentForPullRequest",
       "pipelineProperty": "Content",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "PullRequestId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CommentForPullRequest",
@@ -766,20 +499,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "PullRequestId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PostCommentReply": {
       "verb": "Send",
-      "noun": "CCCommentReply",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CommentReply",
       "pipelineProperty": "Content",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CommentReply",
         "ConfirmImpactSetting": "Medium",
@@ -796,20 +522,13 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Content"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutRepositoryTriggers": {
       "verb": "Set",
-      "noun": "CCRepositoryTrigger",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RepositoryTrigger",
       "pipelineProperty": "Trigger",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RepositoryTriggers",
         "ConfirmImpactSetting": "Medium",
@@ -826,20 +545,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RepositoryName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TestRepositoryTriggers": {
       "verb": "Test",
-      "noun": "CCRepositoryTrigger",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RepositoryTrigger",
       "pipelineProperty": "Trigger",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RepositoryTriggers",
         "ConfirmImpactSetting": "Medium",
@@ -851,25 +564,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateComment": {
       "verb": "Update",
-      "noun": "CCComment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Comment",
       "pipelineProperty": "Content",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Comment",
         "ConfirmImpactSetting": "Medium",
@@ -886,20 +587,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CommentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDefaultBranch": {
       "verb": "Update",
-      "noun": "CCDefaultBranch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DefaultBranch",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DefaultBranch",
         "ConfirmImpactSetting": "Medium",
@@ -916,20 +610,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RepositoryName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdatePullRequestDescription": {
       "verb": "Update",
-      "noun": "CCPullRequestDescription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PullRequestDescription",
       "pipelineProperty": "Description",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PullRequestDescription",
         "ConfirmImpactSetting": "Medium",
@@ -946,20 +633,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PullRequestId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdatePullRequestStatus": {
       "verb": "Update",
-      "noun": "CCPullRequestStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PullRequestStatus",
       "pipelineProperty": "PullRequestStatus",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PullRequestStatus",
         "ConfirmImpactSetting": "Medium",
@@ -976,20 +656,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PullRequestId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdatePullRequestTitle": {
       "verb": "Update",
-      "noun": "CCPullRequestTitle",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PullRequestTitle",
       "pipelineProperty": "Title",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PullRequestTitle",
         "ConfirmImpactSetting": "Medium",
@@ -1006,20 +679,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PullRequestId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateRepositoryDescription": {
       "verb": "Update",
-      "noun": "CCRepositoryDescription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "RepositoryDescription",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RepositoryDescription",
         "ConfirmImpactSetting": "Medium",
@@ -1036,20 +702,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RepositoryName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateRepositoryName": {
       "verb": "Update",
-      "noun": "CCRepositoryName",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "RepositoryName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "OldName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RepositoryName",
@@ -1067,8 +726,7 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "OldName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

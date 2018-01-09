@@ -1,24 +1,19 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [
-    "NextMarker",
-    "Truncated"
-  ],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.KeyManagementService",
-  "sdkServiceClient": "AmazonKeyManagementServiceClient",
-  "sdkServiceClientConfig": "AmazonKeyManagementServiceConfig",
-  "legacyCmdletPrefix": "KMS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "Marker",
     "responseTokenMember": "NextMarker",
     "resultLimitMember": "Limit",
     "resultsTruncatedMember": "Truncated"
   },
-  "nounMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "KMS",
+  "outputMetadataPropertyNames": [
+    "NextMarker",
+    "Truncated"
+  ],
+  "sdkServiceClientClass": "AmazonKeyManagementServiceClient",
+  "sdkServiceConfigClass": "AmazonKeyManagementServiceConfig",
+  "sdkServiceNamespace": "Amazon.KeyManagementService",
   "verbMappings": {
     "Generate": "New",
     "List": "Get"
@@ -26,14 +21,8 @@
   "serviceOperations": {
     "CancelKeyDeletion": {
       "verb": "Stop",
-      "noun": "KMSKeyDeletion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "KeyDeletion",
       "pipelineProperty": "KeyId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "KeyDeletion",
         "ConfirmImpactSetting": "Medium",
@@ -52,20 +41,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateAlias": {
       "verb": "New",
-      "noun": "KMSAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Alias",
       "pipelineProperty": "TargetKeyId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Alias",
         "ConfirmImpactSetting": "Medium",
@@ -84,20 +67,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TargetKeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateGrant": {
       "verb": "New",
-      "noun": "KMSGrant",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Grant",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "KeyId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Grant",
@@ -117,20 +94,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "KeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateKey": {
       "verb": "New",
-      "noun": "KMSKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Key",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Key",
         "ConfirmImpactSetting": "Medium",
@@ -149,22 +120,16 @@
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "Decrypt": {
       "verb": "Invoke",
-      "noun": "KMSDecrypt",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "suppressShouldProcessConfirmation": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Decrypt",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "remapMemoryStreamParameters": "false",
+      "suppressShouldProcessConfirmation": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "",
         "ConfirmImpactSetting": "Medium",
@@ -178,25 +143,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "resultsTruncatedMember": "Truncated"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteAlias": {
       "verb": "Remove",
-      "noun": "KMSAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Alias",
       "pipelineProperty": "AliasName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Alias",
         "ConfirmImpactSetting": "High",
@@ -215,20 +169,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AliasName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteImportedKeyMaterial": {
       "verb": "Remove",
-      "noun": "KMSImportedKeyMaterial",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ImportedKeyMaterial",
       "pipelineProperty": "KeyId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ImportedKeyMaterial",
         "ConfirmImpactSetting": "High",
@@ -247,20 +195,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeKey": {
       "verb": "Get",
-      "noun": "KMSKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Key",
       "pipelineProperty": "KeyId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Key",
         "ConfirmImpactSetting": "Medium",
@@ -274,25 +215,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "resultsTruncatedMember": "Truncated"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisableKey": {
       "verb": "Disable",
-      "noun": "KMSKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Key",
       "pipelineProperty": "KeyId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Key",
         "ConfirmImpactSetting": "Medium",
@@ -311,20 +241,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisableKeyRotation": {
       "verb": "Disable",
-      "noun": "KMSKeyRotation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "KeyRotation",
       "pipelineProperty": "KeyId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "KeyRotation",
         "ConfirmImpactSetting": "Medium",
@@ -343,20 +267,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "EnableKey": {
       "verb": "Enable",
-      "noun": "KMSKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Key",
       "pipelineProperty": "KeyId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Key",
         "ConfirmImpactSetting": "Medium",
@@ -375,20 +293,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "EnableKeyRotation": {
       "verb": "Enable",
-      "noun": "KMSKeyRotation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "KeyRotation",
       "pipelineProperty": "KeyId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "KeyRotation",
         "ConfirmImpactSetting": "Medium",
@@ -407,20 +319,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "Encrypt": {
       "verb": "Invoke",
-      "noun": "KMSEncrypt",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Encrypt",
       "pipelineProperty": "KeyId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "remapMemoryStreamParameters": "false",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "",
@@ -440,26 +346,21 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GenerateDataKey": {
       "verb": "New",
-      "noun": "KMSDataKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "KeyId",
-      "output": "Response",
-      "legacyPositionalParameters": null,
+      "noun": "DataKey",
       "customParameters": [
         {
           "name": "NumberOfBytes",
           "autoRename": "false"
         }
       ],
+      "pipelineProperty": "KeyId",
+      "output": "Response",
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DataKey",
         "ConfirmImpactSetting": "Medium",
@@ -478,26 +379,20 @@
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GenerateDataKeyWithoutPlaintext": {
       "verb": "New",
-      "noun": "KMSDataKeyWithoutPlaintext",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "KeyId",
-      "output": "Response",
-      "legacyPositionalParameters": null,
+      "noun": "DataKeyWithoutPlaintext",
       "customParameters": [
         {
           "name": "NumberOfBytes",
           "autoRename": "false"
         }
       ],
+      "pipelineProperty": "KeyId",
+      "output": "Response",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DataKeyWithoutPlaintext",
         "ConfirmImpactSetting": "Medium",
@@ -516,26 +411,20 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GenerateRandom": {
       "verb": "New",
-      "noun": "KMSRandom",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "NumberOfBytes",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Random",
       "customParameters": [
         {
           "name": "NumberOfBytes",
           "autoRename": "false"
         }
       ],
+      "pipelineProperty": "NumberOfBytes",
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Random",
         "ConfirmImpactSetting": "Medium",
@@ -554,20 +443,13 @@
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetKeyPolicy": {
       "verb": "Get",
-      "noun": "KMSKeyPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "KeyPolicy",
       "pipelineProperty": "KeyId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "KeyPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -581,25 +463,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "resultsTruncatedMember": "Truncated"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetKeyRotationStatus": {
       "verb": "Get",
-      "noun": "KMSKeyRotationStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "KeyRotationStatus",
       "pipelineProperty": "KeyId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "KeyRotationStatus",
         "ConfirmImpactSetting": "Medium",
@@ -613,25 +483,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "resultsTruncatedMember": "Truncated"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetParametersForImport": {
       "verb": "Get",
-      "noun": "KMSParametersForImport",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ParametersForImport",
       "pipelineProperty": "KeyId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ParametersForImport",
         "ConfirmImpactSetting": "Medium",
@@ -645,28 +504,16 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "resultsTruncatedMember": "Truncated"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ImportKeyMaterial": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "ListAliases": {
       "verb": "Get",
-      "noun": "KMSAliasList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "AliasList",
       "legacyAlias": "Get-KMSAliases",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Aliases",
         "ConfirmImpactSetting": "Medium",
@@ -680,25 +527,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "resultsTruncatedMember": "Truncated"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListGrants": {
       "verb": "Get",
-      "noun": "KMSGrantList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "GrantList",
       "legacyAlias": "Get-KMSGrants",
-      "metadataOutputProperties": "",
       "pipelineProperty": "KeyId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Grants",
         "ConfirmImpactSetting": "Medium",
@@ -712,25 +548,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "resultsTruncatedMember": "Truncated"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListKeyPolicies": {
       "verb": "Get",
-      "noun": "KMSKsyPolicyList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "KsyPolicyList",
       "legacyAlias": "Get-KMSKeyPolicies",
-      "metadataOutputProperties": "",
       "pipelineProperty": "KeyId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "KeyPolicies",
         "ConfirmImpactSetting": "Medium",
@@ -744,25 +569,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "resultsTruncatedMember": "Truncated"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListKeys": {
       "verb": "Get",
-      "noun": "KMSKeyList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "KeyList",
       "legacyAlias": "Get-KMSKeys",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Keys",
         "ConfirmImpactSetting": "Medium",
@@ -776,25 +589,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "resultsTruncatedMember": "Truncated"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListResourceTags": {
       "verb": "Get",
-      "noun": "KMSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "KeyId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceTags",
         "ConfirmImpactSetting": "Medium",
@@ -808,25 +609,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "resultsTruncatedMember": "Truncated"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListRetirableGrants": {
       "verb": "Get",
-      "noun": "KMSRetirableGrant",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RetirableGrant",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RetirableGrants",
         "ConfirmImpactSetting": "Medium",
@@ -840,25 +629,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "resultsTruncatedMember": "Truncated"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutKeyPolicy": {
       "verb": "Write",
-      "noun": "KMSKeyPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "KeyPolicy",
       "pipelineProperty": "KeyId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "KeyPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -877,20 +655,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ReEncrypt": {
       "verb": "Invoke",
-      "noun": "KMSReEncrypt",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReEncrypt",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "remapMemoryStreamParameters": "false",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Encrypt",
@@ -910,20 +682,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DestinationKeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RetireGrant": {
       "verb": "Disable",
-      "noun": "KMSGrant",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Grant",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "GrantToken",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Grant",
@@ -943,20 +709,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "GrantToken"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RevokeGrant": {
       "verb": "Revoke",
-      "noun": "KMSGrant",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Grant",
       "pipelineProperty": "KeyId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "GrantToken",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Grant",
@@ -976,20 +736,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ScheduleKeyDeletion": {
       "verb": "Request",
-      "noun": "KMSKeyDeletion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "KeyDeletion",
       "pipelineProperty": "KeyId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "KeyDeletion",
         "ConfirmImpactSetting": "Medium",
@@ -1008,20 +762,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TagResource": {
       "verb": "Add",
-      "noun": "KMSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "KeyId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "Medium",
@@ -1040,20 +788,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UntagResource": {
       "verb": "Remove",
-      "noun": "KMSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "KeyId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "High",
@@ -1072,20 +814,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateAlias": {
       "verb": "Update",
-      "noun": "KMSAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Alias",
       "pipelineProperty": "TargetKeyId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Alias",
         "ConfirmImpactSetting": "Medium",
@@ -1104,20 +840,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TargetKeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateKeyDescription": {
       "verb": "Update",
-      "noun": "KMSKeyDescription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "KeyDescription",
       "pipelineProperty": "KeyId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "KeyDescription",
         "ConfirmImpactSetting": "Medium",
@@ -1136,8 +866,7 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

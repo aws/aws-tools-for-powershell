@@ -1,33 +1,19 @@
 {
-  "additionalNamespaces": [],
-  "regionFallback": "us-east-1",
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "ServerName",
-  "sdkServiceNamespace": "Amazon.OpsWorksCM",
-  "sdkServiceClient": "AmazonOpsWorksCMClient",
-  "sdkServiceClientConfig": "AmazonOpsWorksCMConfig",
-  "legacyCmdletPrefix": "OWCM",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "ServerName",
+  "legacyCmdletPrefix": "OWCM",
+  "regionFallback": "us-east-1",
+  "sdkServiceClientClass": "AmazonOpsWorksCMClient",
+  "sdkServiceConfigClass": "AmazonOpsWorksCMConfig",
+  "sdkServiceNamespace": "Amazon.OpsWorksCM",
   "serviceOperations": {
     "AssociateNode": {
       "verb": "Add",
-      "noun": "OWCMNode",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Node",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Node",
         "ConfirmImpactSetting": "Medium",
@@ -45,20 +31,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateBackup": {
       "verb": "New",
-      "noun": "OWCMBackup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Backup",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Backup",
         "ConfirmImpactSetting": "Medium",
@@ -76,20 +54,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateServer": {
       "verb": "New",
-      "noun": "OWCMServer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Server",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Server",
         "ConfirmImpactSetting": "Medium",
@@ -107,20 +77,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteBackup": {
       "verb": "Remove",
-      "noun": "OWCMBackup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Backup",
       "pipelineProperty": "BackupId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Backup",
         "ConfirmImpactSetting": "High",
@@ -138,20 +102,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BackupId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteServer": {
       "verb": "Remove",
-      "noun": "OWCMServer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Server",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Server",
         "ConfirmImpactSetting": "High",
@@ -169,20 +126,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAccountAttributes": {
       "verb": "Get",
-      "noun": "OWCMAccountAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AccountAttribute",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -195,25 +144,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeBackups": {
       "verb": "Get",
-      "noun": "OWCMBackupList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BackupList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Backups",
         "ConfirmImpactSetting": "Medium",
@@ -226,25 +162,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEvents": {
       "verb": "Get",
-      "noun": "OWCMEventList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "EventList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Events",
         "ConfirmImpactSetting": "Medium",
@@ -257,25 +180,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeNodeAssociationStatus": {
       "verb": "Get",
-      "noun": "OWCMNodeAssociationStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "NodeAssociationStatus",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NodeAssociationStatus",
         "ConfirmImpactSetting": "Medium",
@@ -288,25 +199,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeServers": {
       "verb": "Get",
-      "noun": "OWCMServerList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ServerList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Servers",
         "ConfirmImpactSetting": "Medium",
@@ -319,25 +217,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisassociateNode": {
       "verb": "Remove",
-      "noun": "OWCMNode",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Node",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Node",
         "ConfirmImpactSetting": "High",
@@ -355,20 +240,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RestoreServer": {
       "verb": "Restore",
-      "noun": "OWCMServer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Server",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Server",
         "ConfirmImpactSetting": "Medium",
@@ -386,20 +264,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartMaintenance": {
       "verb": "Start",
-      "noun": "OWCMMaintenance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Maintenance",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Maintenance",
         "ConfirmImpactSetting": "Medium",
@@ -417,20 +287,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateServer": {
       "verb": "Update",
-      "noun": "OWCMServer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Server",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Server",
         "ConfirmImpactSetting": "Medium",
@@ -448,20 +310,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateServerEngineAttributes": {
       "verb": "Update",
-      "noun": "OWCMServerEngineAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ServerEngineAttribute",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServerEngineAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -479,8 +333,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

@@ -1,24 +1,18 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "Id",
-  "sdkServiceNamespace": "Amazon.ServiceCatalog",
-  "sdkServiceClient": "AmazonServiceCatalogClient",
-  "sdkServiceClientConfig": "AmazonServiceCatalogConfig",
-  "legacyCmdletPrefix": "SC",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
-    "requestTokenMember": "PageToken",
-    "responseTokenMember": "NextPageToken",
-    "resultLimitMember": "PageSize",
     "excludedOperations": [
       "DescribeRecord",
       "SearchProducts"
-    ]
+    ],
+    "requestTokenMember": "PageToken",
+    "responseTokenMember": "NextPageToken",
+    "resultLimitMember": "PageSize"
   },
-  "nounMappings": {},
+  "defaultPipelineProperty": "Id",
+  "legacyCmdletPrefix": "SC",
+  "sdkServiceClientClass": "AmazonServiceCatalogClient",
+  "sdkServiceConfigClass": "AmazonServiceCatalogConfig",
+  "sdkServiceNamespace": "Amazon.ServiceCatalog",
   "verbMappings": {
     "List": "Get",
     "Associate": "Register",
@@ -27,14 +21,9 @@
   "serviceOperations": {
     "AcceptPortfolioShare": {
       "verb": "Receive",
-      "noun": "SCPortfolioShare",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PortfolioShare",
       "pipelineProperty": "PortfolioId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PortfolioShare",
         "ConfirmImpactSetting": "Medium",
@@ -44,32 +33,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PortfolioId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AssociatePrincipalWithPortfolio": {
       "verb": "Register",
-      "noun": "SCPrincipalWithPortfolio",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PrincipalWithPortfolio",
       "pipelineProperty": "PrincipalARN",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PrincipalWithPortfolio",
         "ConfirmImpactSetting": "Medium",
@@ -79,32 +62,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PortfolioId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AssociateProductWithPortfolio": {
       "verb": "Register",
-      "noun": "SCProductWithPortfolio",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ProductWithPortfolio",
       "pipelineProperty": "ProductId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ProductWithPortfolio",
         "ConfirmImpactSetting": "Medium",
@@ -114,32 +91,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProductId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AssociateTagOptionWithResource": {
       "verb": "Add",
-      "noun": "SCTagOptionToResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TagOptionToResource",
       "pipelineProperty": "TagOptionId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagOptionWithResource",
         "ConfirmImpactSetting": "Medium",
@@ -149,32 +120,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TagOptionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CopyProduct": {
       "verb": "Copy",
-      "noun": "SCProduct",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Product",
       "shouldProcessTargetProperty": "TargetProductName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Product",
@@ -185,32 +148,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "TargetProductName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateConstraint": {
       "verb": "New",
-      "noun": "SCConstraint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Constraint",
       "pipelineProperty": "ProductId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Constraint",
         "ConfirmImpactSetting": "Medium",
@@ -220,32 +177,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProductId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreatePortfolio": {
       "verb": "New",
-      "noun": "SCPortfolio",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Portfolio",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DisplayName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Portfolio",
@@ -256,32 +207,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DisplayName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreatePortfolioShare": {
       "verb": "New",
-      "noun": "SCPortfolioShare",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PortfolioShare",
       "pipelineProperty": "AccountId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PortfolioShare",
         "ConfirmImpactSetting": "Medium",
@@ -291,32 +236,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AccountId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateProduct": {
       "verb": "New",
-      "noun": "SCProduct",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Product",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Product",
@@ -327,32 +266,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateProvisioningArtifact": {
       "verb": "New",
-      "noun": "SCProvisioningArtifact",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ProvisioningArtifact",
       "pipelineProperty": "ProductId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ProvisioningArtifact",
         "ConfirmImpactSetting": "Medium",
@@ -362,32 +295,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProductId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateTagOption": {
       "verb": "New",
-      "noun": "SCTagOption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TagOption",
       "pipelineProperty": "Value",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagOption",
         "ConfirmImpactSetting": "Medium",
@@ -397,32 +323,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Value"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteConstraint": {
       "verb": "Remove",
-      "noun": "SCConstraint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Constraint",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Constraint",
         "ConfirmImpactSetting": "High",
@@ -432,32 +351,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeletePortfolio": {
       "verb": "Remove",
-      "noun": "SCPortfolio",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Portfolio",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Portfolio",
         "ConfirmImpactSetting": "High",
@@ -467,32 +379,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeletePortfolioShare": {
       "verb": "Remove",
-      "noun": "SCPortfolioShare",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PortfolioShare",
       "pipelineProperty": "AccountId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PortfolioShare",
         "ConfirmImpactSetting": "High",
@@ -502,32 +408,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AccountId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteProduct": {
       "verb": "Remove",
-      "noun": "SCProduct",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Product",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Product",
         "ConfirmImpactSetting": "High",
@@ -537,32 +436,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteProvisioningArtifact": {
       "verb": "Remove",
-      "noun": "SCProvisioningArtifact",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ProvisioningArtifact",
       "pipelineProperty": "ProvisioningArtifactId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ProvisioningArtifact",
         "ConfirmImpactSetting": "High",
@@ -572,32 +465,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProvisioningArtifactId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeConstraint": {
       "verb": "Get",
-      "noun": "SCConstraint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Constraint",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Constraint",
         "ConfirmImpactSetting": "Medium",
@@ -607,32 +493,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "DescribeCopyProductStatus": {
       "verb": "Get",
-      "noun": "SCCopyProductStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "CopyProductStatus",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CopyProductStatus",
         "ConfirmImpactSetting": "Medium",
@@ -642,32 +516,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "DescribePortfolio": {
       "verb": "Get",
-      "noun": "SCPortfolio",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Portfolio",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Portfolio",
         "ConfirmImpactSetting": "Medium",
@@ -677,32 +539,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "DescribeProduct": {
       "verb": "Get",
-      "noun": "SCProduct",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Product",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Product",
         "ConfirmImpactSetting": "Medium",
@@ -712,32 +562,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "DescribeProductAsAdmin": {
       "verb": "Get",
-      "noun": "SCProductAsAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ProductAsAdmin",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ProductAsAdmin",
         "ConfirmImpactSetting": "Medium",
@@ -747,38 +585,28 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "DescribeProductView": {
       "verb": "Get",
-      "noun": "SCProductView",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Response",
-      "legacyPositionalParameters": null,
+      "noun": "ProductView",
       "customParameters": [
         {
           "name": "Id",
-          "aliases": "ProductId"
+          "aliases": [
+            "ProductId"
+          ]
         }
       ],
+      "output": "Response",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ProductView",
         "ConfirmImpactSetting": "Medium",
@@ -788,36 +616,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "DescribeProvisionedProduct": {
       "verb": "Get",
-      "noun": "SCProvisionedProductDetail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ProvisionedProductDetail",
       "customParameters": [
         {
           "name": "Id",
-          "aliases": "ProductId"
+          "aliases": [
+            "ProductId"
+          ]
         }
       ],
       "AnalyzerResults": {
@@ -829,32 +646,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "DescribeProvisioningArtifact": {
       "verb": "Get",
-      "noun": "SCProvisioningArtifact",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "ProvisioningArtifactId",
-      "output": "Response",
-      "legacyPositionalParameters": null,
+      "noun": "ProvisioningArtifact",
       "customParameters": [
         {
           "name": "Verbose",
@@ -862,6 +666,8 @@
           "autoApplyAlias": "false"
         }
       ],
+      "pipelineProperty": "ProvisioningArtifactId",
+      "output": "Response",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ProvisioningArtifact",
         "ConfirmImpactSetting": "Medium",
@@ -871,32 +677,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "DescribeProvisioningParameters": {
       "verb": "Get",
-      "noun": "SCProvisioningParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ProvisioningParameter",
       "pipelineProperty": "ProductId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ProvisioningParameters",
         "ConfirmImpactSetting": "Medium",
@@ -906,32 +701,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "DescribeRecord": {
       "verb": "Get",
-      "noun": "SCRecord",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Record",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Record",
         "ConfirmImpactSetting": "Medium",
@@ -941,32 +724,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "DescribeTagOption": {
       "verb": "Get",
-      "noun": "SCTagOption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TagOption",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagOption",
         "ConfirmImpactSetting": "Medium",
@@ -976,32 +746,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "DisassociatePrincipalFromPortfolio": {
       "verb": "Unregister",
-      "noun": "SCPrincipalFromPortfolio",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PrincipalFromPortfolio",
       "pipelineProperty": "PrincipalARN",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PrincipalFromPortfolio",
         "ConfirmImpactSetting": "Medium",
@@ -1011,32 +770,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PortfolioId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisassociateProductFromPortfolio": {
       "verb": "Unregister",
-      "noun": "SCProductFromPortfolio",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ProductFromPortfolio",
       "pipelineProperty": "ProductId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ProductFromPortfolio",
         "ConfirmImpactSetting": "Medium",
@@ -1046,32 +799,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProductId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisassociateTagOptionFromResource": {
       "verb": "Remove",
-      "noun": "SCTagOptionFromResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TagOptionFromResource",
       "pipelineProperty": "TagOptionId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagOptionFromResource",
         "ConfirmImpactSetting": "High",
@@ -1081,32 +828,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TagOptionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListAcceptedPortfolioShares": {
       "verb": "Get",
-      "noun": "SCAcceptedPortfolioSharesList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AcceptedPortfolioSharesList",
       "pipelineProperty": "AcceptLanguage",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AcceptedPortfolioShares",
         "ConfirmImpactSetting": "Medium",
@@ -1116,32 +856,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "ListConstraintsForPortfolio": {
       "verb": "Get",
-      "noun": "SCConstrainsForPortfolioList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConstrainsForPortfolioList",
       "pipelineProperty": "PortfolioId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConstraintsForPortfolio",
         "ConfirmImpactSetting": "Medium",
@@ -1151,32 +879,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "ListLaunchPaths": {
       "verb": "Get",
-      "noun": "SCLaunchPath",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LaunchPath",
       "pipelineProperty": "ProductId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LaunchPaths",
         "ConfirmImpactSetting": "Medium",
@@ -1186,32 +902,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "ListPortfolioAccess": {
       "verb": "Get",
-      "noun": "SCPortfolioAccessList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PortfolioAccessList",
       "pipelineProperty": "PortfolioId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PortfolioAccess",
         "ConfirmImpactSetting": "Medium",
@@ -1221,32 +925,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "ListPortfolios": {
       "verb": "Get",
-      "noun": "SCPortfolioList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PortfolioList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Portfolios",
         "ConfirmImpactSetting": "Medium",
@@ -1256,32 +948,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "ListPortfoliosForProduct": {
       "verb": "Get",
-      "noun": "SCProductPortfoliosList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ProductPortfoliosList",
       "pipelineProperty": "ProductId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PortfoliosForProduct",
         "ConfirmImpactSetting": "Medium",
@@ -1291,32 +971,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "ListPrincipalsForPortfolio": {
       "verb": "Get",
-      "noun": "SCPrincipalsForPortfolio",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PrincipalsForPortfolio",
       "pipelineProperty": "PortfolioId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PrincipalsForPortfolio",
         "ConfirmImpactSetting": "Medium",
@@ -1326,32 +994,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "ListProvisioningArtifacts": {
       "verb": "Get",
-      "noun": "SCProvisioningArtifactList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ProvisioningArtifactList",
       "pipelineProperty": "ProductId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ProvisioningArtifacts",
         "ConfirmImpactSetting": "Medium",
@@ -1361,32 +1017,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "ListRecordHistory": {
       "verb": "Get",
-      "noun": "SCRecordHistory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "RecordHistory",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RecordHistory",
         "ConfirmImpactSetting": "Medium",
@@ -1396,37 +1039,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "ListResourcesForTagOption": {
       "verb": "Get",
-      "noun": "SCResourcesForTagOption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "TagOptionId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ResourcesForTagOption",
       "paginationSettings": {
         "requestTokenMember": "PageToken",
         "responseTokenMember": "PageToken",
         "resultLimitMember": "PageSize"
       },
+      "pipelineProperty": "TagOptionId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourcesForTagOption",
         "ConfirmImpactSetting": "Medium",
@@ -1436,32 +1067,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "PageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "PageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "ListTagOptions": {
       "verb": "Get",
-      "noun": "SCTagOptionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TagOptionList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "paginationSettings": {
         "requestTokenMember": "PageToken",
         "responseTokenMember": "PageToken",
@@ -1476,32 +1095,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "PageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "PageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "ProvisionProduct": {
       "verb": "New",
-      "noun": "SCProvisionedProduct",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ProvisionedProduct",
       "pipelineProperty": "ProvisionedProductName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Product",
         "ConfirmImpactSetting": "Medium",
@@ -1511,32 +1118,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProvisionedProductName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RejectPortfolioShare": {
       "verb": "Deny",
-      "noun": "SCPortfolioShare",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PortfolioShare",
       "pipelineProperty": "PortfolioId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PortfolioShare",
         "ConfirmImpactSetting": "Medium",
@@ -1546,32 +1147,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PortfolioId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ScanProvisionedProducts": {
       "verb": "Get",
-      "noun": "SCProvisionedProduct",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ProvisionedProduct",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ProvisionedProducts",
         "ConfirmImpactSetting": "Medium",
@@ -1581,32 +1174,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "SearchProducts": {
       "verb": "Find",
-      "noun": "SCProduct",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Product",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Products",
         "ConfirmImpactSetting": "Medium",
@@ -1616,32 +1197,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
+        }
       }
     },
     "SearchProductsAsAdmin": {
       "verb": "Search",
-      "noun": "SCProductsAsAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ProductsAsAdmin",
       "pipelineProperty": "PortfolioId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ProductsAsAdmin",
         "ConfirmImpactSetting": "Medium",
@@ -1651,32 +1220,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PortfolioId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TerminateProvisionedProduct": {
       "verb": "Remove",
-      "noun": "SCProvisionedProduct",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ProvisionedProduct",
       "pipelineProperty": "ProvisionedProductId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ProvisionedProduct",
         "ConfirmImpactSetting": "High",
@@ -1686,32 +1248,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProvisionedProductId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateConstraint": {
       "verb": "Update",
-      "noun": "SCConstraint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Constraint",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Constraint",
         "ConfirmImpactSetting": "Medium",
@@ -1721,32 +1276,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdatePortfolio": {
       "verb": "Update",
-      "noun": "SCPortfolio",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Portfolio",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Portfolio",
         "ConfirmImpactSetting": "Medium",
@@ -1756,32 +1304,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateProduct": {
       "verb": "Update",
-      "noun": "SCProduct",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Product",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Product",
         "ConfirmImpactSetting": "Medium",
@@ -1791,32 +1332,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateProvisionedProduct": {
       "verb": "Update",
-      "noun": "SCProvisionedProduct",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ProvisionedProduct",
       "pipelineProperty": "ProvisionedProductId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ProvisionedProduct",
         "ConfirmImpactSetting": "Medium",
@@ -1826,32 +1360,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProvisionedProductId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateProvisioningArtifact": {
       "verb": "Update",
-      "noun": "SCProvisioningArtifact",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ProvisioningArtifact",
       "pipelineProperty": "ProvisioningArtifactId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ProvisioningArtifact",
         "ConfirmImpactSetting": "Medium",
@@ -1861,32 +1389,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProvisioningArtifactId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateTagOption": {
       "verb": "Update",
-      "noun": "SCTagOption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TagOption",
       "pipelineProperty": "Value",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagOption",
         "ConfirmImpactSetting": "Medium",
@@ -1896,20 +1417,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
-          ]
+          ],
+          "requestTokenMember": "PageToken",
+          "responseTokenMember": "NextPageToken",
+          "resultLimitMember": "PageSize"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

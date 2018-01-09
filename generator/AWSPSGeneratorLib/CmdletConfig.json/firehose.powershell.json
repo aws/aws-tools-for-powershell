@@ -1,14 +1,11 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": null,
+    "responseTokenMember": null
+  },
   "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.KinesisFirehose",
-  "sdkServiceClient": "AmazonKinesisFirehoseClient",
-  "sdkServiceClientConfig": "AmazonKinesisFirehoseConfig",
   "legacyCmdletPrefix": "KINF",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
+  "nonFlatteningTypeNames": [
     "Amazon.KinesisFirehose.Model.RedshiftDestinationConfiguration",
     "Amazon.KinesisFirehose.Model.S3DestinationConfiguration",
     "Amazon.KinesisFirehose.Model.RedshiftDestinationUpdate",
@@ -18,23 +15,14 @@
     "Amazon.KinesisFirehose.Model.SplunkDestinationConfiguration",
     "Amazon.KinesisFirehose.Model.SplunkDestinationUpdate"
   ],
-  "defaultPaginationSettings": {
-    "requestTokenMember": null,
-    "responseTokenMember": null
-  },
-  "nounMappings": {},
-  "verbMappings": {},
+  "sdkServiceClientClass": "AmazonKinesisFirehoseClient",
+  "sdkServiceConfigClass": "AmazonKinesisFirehoseConfig",
+  "sdkServiceNamespace": "Amazon.KinesisFirehose",
   "serviceOperations": {
     "CreateDeliveryStream": {
       "verb": "New",
-      "noun": "KINFDeliveryStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeliveryStream",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DeliveryStreamName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeliveryStream",
@@ -52,20 +40,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DeliveryStreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDeliveryStream": {
       "verb": "Remove",
-      "noun": "KINFDeliveryStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeliveryStream",
       "pipelineProperty": "DeliveryStreamName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeliveryStream",
         "ConfirmImpactSetting": "High",
@@ -82,20 +64,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeliveryStreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDeliveryStream": {
       "verb": "Get",
-      "noun": "KINFDeliveryStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeliveryStream",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeliveryStream",
         "ConfirmImpactSetting": "Medium",
@@ -107,25 +82,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListDeliveryStreams": {
       "verb": "Get",
-      "noun": "KINFDeliveryStreamList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeliveryStreamList",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeliveryStreams",
         "ConfirmImpactSetting": "Medium",
@@ -137,28 +101,17 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutRecord": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "PutRecordBatch": {
       "verb": "Write",
-      "noun": "KINFRecordBatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RecordBatch",
       "pipelineProperty": "Records",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RecordBatch",
         "ConfirmImpactSetting": "Medium",
@@ -175,20 +128,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeliveryStreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDestination": {
       "verb": "Update",
-      "noun": "KINFDestination",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Destination",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DeliveryStreamName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Destination",
@@ -206,8 +153,7 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DeliveryStreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

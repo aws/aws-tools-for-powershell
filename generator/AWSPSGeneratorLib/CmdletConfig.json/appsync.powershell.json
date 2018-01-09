@@ -1,38 +1,26 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.AppSync",
-  "sdkServiceClient": "AmazonAppSyncClient",
-  "sdkServiceClientConfig": "AmazonAppSyncConfig",
-  "legacyCmdletPrefix": "ASYN",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.AppSync.Model.DynamodbDataSourceConfig",
-    "Amazon.AppSync.Model.ElasticsearchDataSourceConfig",
-    "Amazon.AppSync.Model.LambdaDataSourceConfig",
-    "Amazon.AppSync.Model.UserPoolConfig"
-  ],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults",
     "servicePageSize": 25
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "ASYN",
+  "nonFlatteningTypeNames": [
+    "Amazon.AppSync.Model.DynamodbDataSourceConfig",
+    "Amazon.AppSync.Model.ElasticsearchDataSourceConfig",
+    "Amazon.AppSync.Model.LambdaDataSourceConfig",
+    "Amazon.AppSync.Model.UserPoolConfig"
+  ],
+  "sdkServiceClientClass": "AmazonAppSyncClient",
+  "sdkServiceConfigClass": "AmazonAppSyncConfig",
+  "sdkServiceNamespace": "Amazon.AppSync",
   "serviceOperations": {
     "CreateApiKey": {
       "verb": "New",
-      "noun": "ASYNApiKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ApiKey",
       "pipelineProperty": "ApiId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApiKey",
         "ConfirmImpactSetting": "Medium",
@@ -51,20 +39,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDataSource": {
       "verb": "New",
-      "noun": "ASYNDataSource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DataSource",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DataSource",
         "ConfirmImpactSetting": "Medium",
@@ -83,20 +64,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateGraphqlApi": {
       "verb": "New",
-      "noun": "ASYNGraphqlApi",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GraphqlApi",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GraphqlApi",
         "ConfirmImpactSetting": "Medium",
@@ -115,20 +89,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateResolver": {
       "verb": "New",
-      "noun": "ASYNResolver",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Resolver",
       "pipelineProperty": "DataSourceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DataSourceName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resolver",
@@ -148,20 +115,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DataSourceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateType": {
       "verb": "New",
-      "noun": "ASYNType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Type",
       "pipelineProperty": "Definition",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ApiId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Type",
@@ -181,20 +141,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteApiKey": {
       "verb": "Remove",
-      "noun": "ASYNApiKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ApiKey",
       "pipelineProperty": "Id",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApiKey",
         "ConfirmImpactSetting": "High",
@@ -213,20 +167,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDataSource": {
       "verb": "Remove",
-      "noun": "ASYNDataSource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DataSource",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DataSource",
@@ -246,20 +194,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteGraphqlApi": {
       "verb": "Remove",
-      "noun": "ASYNGraphqlApi",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GraphqlApi",
       "pipelineProperty": "ApiId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GraphqlApi",
         "ConfirmImpactSetting": "High",
@@ -278,20 +220,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteResolver": {
       "verb": "Remove",
-      "noun": "ASYNResolver",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Resolver",
       "pipelineProperty": "FieldName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "TypeName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resolver",
@@ -311,20 +247,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "TypeName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteType": {
       "verb": "Remove",
-      "noun": "ASYNType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Type",
       "pipelineProperty": "TypeName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "TypeName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Type",
@@ -344,20 +274,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "TypeName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDataSource": {
       "verb": "Get",
-      "noun": "ASYNDataSource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DataSource",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DataSource",
         "ConfirmImpactSetting": "Medium",
@@ -371,25 +294,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 25
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetGraphqlApi": {
       "verb": "Get",
-      "noun": "ASYNGraphqlApi",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GraphqlApi",
       "pipelineProperty": "ApiId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GraphqlApi",
         "ConfirmImpactSetting": "Medium",
@@ -403,25 +314,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 25
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetIntrospectionSchema": {
       "verb": "Get",
-      "noun": "ASYNIntrospectionSchema",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IntrospectionSchema",
       "pipelineProperty": "ApiId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IntrospectionSchema",
         "ConfirmImpactSetting": "Medium",
@@ -435,25 +334,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 25
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetResolver": {
       "verb": "Get",
-      "noun": "ASYNResolver",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Resolver",
       "pipelineProperty": "FieldName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resolver",
         "ConfirmImpactSetting": "Medium",
@@ -467,25 +354,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 25
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSchemaCreationStatus": {
       "verb": "Get",
-      "noun": "ASYNSchemaCreationStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SchemaCreationStatus",
       "pipelineProperty": "ApiId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SchemaCreationStatus",
         "ConfirmImpactSetting": "Medium",
@@ -499,25 +375,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 25
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetType": {
       "verb": "Get",
-      "noun": "ASYNType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Type",
       "pipelineProperty": "TypeName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Type",
         "ConfirmImpactSetting": "Medium",
@@ -531,25 +395,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 25
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListApiKeys": {
       "verb": "Get",
-      "noun": "ASYNApiKeyList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ApiKeyList",
       "pipelineProperty": "ApiId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApiKeys",
         "ConfirmImpactSetting": "Medium",
@@ -563,25 +415,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 25
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListDataSources": {
       "verb": "Get",
-      "noun": "ASYNDataSourceList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DataSourceList",
       "pipelineProperty": "ApiId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DataSources",
         "ConfirmImpactSetting": "Medium",
@@ -595,25 +435,12 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 25
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListGraphqlApis": {
       "verb": "Get",
-      "noun": "ASYNGraphqlApiList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "GraphqlApiList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GraphqlApis",
         "ConfirmImpactSetting": "Medium",
@@ -627,25 +454,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 25
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListResolvers": {
       "verb": "Get",
-      "noun": "ASYNResolverList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResolverList",
       "pipelineProperty": "TypeName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resolvers",
         "ConfirmImpactSetting": "Medium",
@@ -659,25 +474,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 25
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTypes": {
       "verb": "Get",
-      "noun": "ASYNTypeList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TypeList",
       "pipelineProperty": "ApiId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Types",
         "ConfirmImpactSetting": "Medium",
@@ -691,25 +494,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 25
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartSchemaCreation": {
       "verb": "Start",
-      "noun": "ASYNSchemaCreation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SchemaCreation",
       "pipelineProperty": "ApiId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SchemaCreation",
         "ConfirmImpactSetting": "Medium",
@@ -736,14 +527,8 @@
     },
     "UpdateDataSource": {
       "verb": "Update",
-      "noun": "ASYNDataSource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DataSource",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DataSource",
         "ConfirmImpactSetting": "Medium",
@@ -762,20 +547,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateGraphqlApi": {
       "verb": "Update",
-      "noun": "ASYNGraphqlApi",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GraphqlApi",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GraphqlApi",
         "ConfirmImpactSetting": "Medium",
@@ -794,20 +572,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateResolver": {
       "verb": "Update",
-      "noun": "ASYNResolver",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Resolver",
       "pipelineProperty": "FieldName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resolver",
         "ConfirmImpactSetting": "Medium",
@@ -826,20 +597,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FieldName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateType": {
       "verb": "Update",
-      "noun": "ASYNType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Type",
       "pipelineProperty": "TypeName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Type",
         "ConfirmImpactSetting": "Medium",
@@ -858,8 +622,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TypeName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

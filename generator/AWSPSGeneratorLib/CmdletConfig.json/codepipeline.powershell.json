@@ -1,33 +1,21 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.CodePipeline",
-  "sdkServiceClient": "AmazonCodePipelineClient",
-  "sdkServiceClientConfig": "AmazonCodePipelineConfig",
-  "legacyCmdletPrefix": "CP",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.CodePipeline.Model.PipelineDeclaration"
-  ],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "CP",
+  "nonFlatteningTypeNames": [
+    "Amazon.CodePipeline.Model.PipelineDeclaration"
+  ],
+  "sdkServiceClientClass": "AmazonCodePipelineClient",
+  "sdkServiceConfigClass": "AmazonCodePipelineConfig",
+  "sdkServiceNamespace": "Amazon.CodePipeline",
   "serviceOperations": {
     "AcknowledgeJob": {
       "verb": "Confirm",
-      "noun": "CPJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Job",
       "pipelineProperty": "JobId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Job",
         "ConfirmImpactSetting": "Medium",
@@ -44,20 +32,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AcknowledgeThirdPartyJob": {
       "verb": "Confirm",
-      "noun": "CPThirdPartyJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThirdPartyJob",
       "pipelineProperty": "JobId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThirdPartyJob",
         "ConfirmImpactSetting": "Medium",
@@ -74,20 +55,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateCustomActionType": {
       "verb": "New",
-      "noun": "CPCustomActionType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CustomActionType",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Category",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CustomActionType",
@@ -105,20 +79,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Category"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreatePipeline": {
       "verb": "New",
-      "noun": "CPPipeline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Pipeline",
       "pipelineProperty": "Pipeline",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Pipeline",
         "ConfirmImpactSetting": "Medium",
@@ -135,20 +102,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Pipeline"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCustomActionType": {
       "verb": "Remove",
-      "noun": "CPCustomActionType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CustomActionType",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Category",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CustomActionType",
@@ -166,20 +127,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Category"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeletePipeline": {
       "verb": "Remove",
-      "noun": "CPPipeline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Pipeline",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Pipeline",
@@ -197,20 +152,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisableStageTransition": {
       "verb": "Disable",
-      "noun": "CPStageTransition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StageTransition",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "PipelineName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StageTransition",
@@ -228,20 +177,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "PipelineName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "EnableStageTransition": {
       "verb": "Enable",
-      "noun": "CPStageTransition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StageTransition",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "PipelineName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StageTransition",
@@ -259,20 +202,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "PipelineName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetJobDetails": {
       "verb": "Get",
-      "noun": "CPJobDetail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "JobDetail",
       "legacyAlias": "Get-CPJobDetails",
-      "metadataOutputProperties": "",
       "pipelineProperty": "JobId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobDetails",
         "ConfirmImpactSetting": "Medium",
@@ -284,25 +221,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetPipeline": {
       "verb": "Get",
-      "noun": "CPPipeline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Pipeline",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Pipeline",
         "ConfirmImpactSetting": "Medium",
@@ -314,25 +240,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetPipelineExecution": {
       "verb": "Get",
-      "noun": "CPPipelineExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PipelineExecution",
       "pipelineProperty": "PipelineName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PipelineExecution",
         "ConfirmImpactSetting": "Medium",
@@ -344,25 +258,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetPipelineState": {
       "verb": "Get",
-      "noun": "CPPipelineState",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PipelineState",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PipelineState",
         "ConfirmImpactSetting": "Medium",
@@ -374,25 +277,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetThirdPartyJobDetails": {
       "verb": "Get",
-      "noun": "CPThirdPartyJobDetail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ThirdPartyJobDetail",
       "legacyAlias": "Get-CPThirdPartyJobDetails",
-      "metadataOutputProperties": "",
       "pipelineProperty": "JobId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThirdPartyJobDetails",
         "ConfirmImpactSetting": "Medium",
@@ -404,25 +296,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListActionTypes": {
       "verb": "Get",
-      "noun": "CPActionType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ActionType",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ActionTypes",
         "ConfirmImpactSetting": "Medium",
@@ -434,30 +314,18 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListPipelineExecutions": {
       "verb": "Get",
-      "noun": "CPPipelineExecutionSummary",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "PipelineName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "PipelineExecutionSummary",
       "paginationSettings": {
         "requestTokenMember": "NextToken",
         "responseTokenMember": "NextToken",
         "resultLimitMember": "MaxResults"
       },
+      "pipelineProperty": "PipelineName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PipelineExecutions",
         "ConfirmImpactSetting": "Medium",
@@ -470,25 +338,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListPipelines": {
       "verb": "Get",
-      "noun": "CPPipelineList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "PipelineList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Pipelines",
         "ConfirmImpactSetting": "Medium",
@@ -500,25 +355,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PollForJobs": {
       "verb": "Get",
-      "noun": "CPActionableJobList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ActionableJobList",
       "legacyAlias": "Get-CPActionableJobs",
-      "metadataOutputProperties": "",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ForJobs",
         "ConfirmImpactSetting": "Medium",
@@ -530,25 +374,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PollForThirdPartyJobs": {
       "verb": "Get",
-      "noun": "CPActionableThirdPartyJobList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ActionableThirdPartyJobList",
       "legacyAlias": "Get-CPActionableThirdPartyJobs",
-      "metadataOutputProperties": "",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ForThirdPartyJobs",
         "ConfirmImpactSetting": "Medium",
@@ -560,25 +393,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutActionRevision": {
       "verb": "Write",
-      "noun": "CPActionRevision",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ActionRevision",
       "pipelineProperty": "PipelineName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ActionName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ActionRevision",
@@ -596,20 +418,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ActionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutApprovalResult": {
       "verb": "Write",
-      "noun": "CPApprovalResult",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ApprovalResult",
       "pipelineProperty": "PipelineName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ActionName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApprovalResult",
@@ -627,20 +442,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ActionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutJobFailureResult": {
       "verb": "Write",
-      "noun": "CPJobFailureResult",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "JobFailureResult",
       "pipelineProperty": "JobId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobFailureResult",
         "ConfirmImpactSetting": "Medium",
@@ -657,20 +466,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutJobSuccessResult": {
       "verb": "Write",
-      "noun": "CPJobSuccessResult",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "JobSuccessResult",
       "pipelineProperty": "JobId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobSuccessResult",
         "ConfirmImpactSetting": "Medium",
@@ -687,20 +490,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutThirdPartyJobFailureResult": {
       "verb": "Write",
-      "noun": "CPThirdPartyJobFailureResult",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThirdPartyJobFailureResult",
       "pipelineProperty": "JobId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThirdPartyJobFailureResult",
         "ConfirmImpactSetting": "Medium",
@@ -717,20 +514,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutThirdPartyJobSuccessResult": {
       "verb": "Write",
-      "noun": "CPThirdPartyJobSuccessResult",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThirdPartyJobSuccessResult",
       "pipelineProperty": "JobId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThirdPartyJobSuccessResult",
         "ConfirmImpactSetting": "Medium",
@@ -747,20 +538,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RetryStageExecution": {
       "verb": "Redo",
-      "noun": "CPStageExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StageExecution",
       "pipelineProperty": "PipelineName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StageExecution",
         "ConfirmImpactSetting": "Medium",
@@ -777,20 +561,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PipelineName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartPipelineExecution": {
       "verb": "Start",
-      "noun": "CPPipelineExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PipelineExecution",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PipelineExecution",
         "ConfirmImpactSetting": "Medium",
@@ -807,20 +584,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdatePipeline": {
       "verb": "Update",
-      "noun": "CPPipeline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Pipeline",
       "pipelineProperty": "Pipeline",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Pipeline",
         "ConfirmImpactSetting": "Medium",
@@ -837,8 +607,7 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Pipeline"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

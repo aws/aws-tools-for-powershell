@@ -1,5 +1,18 @@
 {
-  "additionalNamespaces": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken",
+    "resultLimitMember": "MaxResults",
+    "servicePageSize": 60
+  },
+  "defaultPipelineProperty": "UserPoolId",
+  "legacyCmdletPrefix": "CGIP",
+  "nonFlatteningTypeNames": [
+    "Amazon.CognitoIdentityProvider.Model.SMSMfaSettingsType",
+    "Amazon.CognitoIdentityProvider.Model.SoftwareTokenMfaSettingsType",
+    "Amazon.CognitoIdentityProvider.Model.SmsMfaConfigType",
+    "Amazon.CognitoIdentityProvider.Model.SoftwareTokenMfaConfigType"
+  ],
   "outputMetadataPropertyNames": [
     "PaginationToken",
     "NextToken"
@@ -13,37 +26,17 @@
     "AccessToken",
     "AttributeName"
   ],
-  "defaultPipelineProperty": "UserPoolId",
+  "sdkServiceClientClass": "AmazonCognitoIdentityProviderClient",
+  "sdkServiceConfigClass": "AmazonCognitoIdentityProviderConfig",
   "sdkServiceNamespace": "Amazon.CognitoIdentityProvider",
-  "sdkServiceClient": "AmazonCognitoIdentityProviderClient",
-  "sdkServiceClientConfig": "AmazonCognitoIdentityProviderConfig",
-  "legacyCmdletPrefix": "CGIP",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.CognitoIdentityProvider.Model.SMSMfaSettingsType",
-    "Amazon.CognitoIdentityProvider.Model.SoftwareTokenMfaSettingsType",
-    "Amazon.CognitoIdentityProvider.Model.SmsMfaConfigType",
-    "Amazon.CognitoIdentityProvider.Model.SoftwareTokenMfaConfigType"
-  ],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken",
-    "resultLimitMember": "MaxResults",
-    "servicePageSize": 60
-  },
-  "nounMappings": {},
-  "verbMappings": {},
   "serviceOperations": {
     "AddCustomAttributes": {
       "verb": "Add",
-      "noun": "CGIPCustomAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "CustomAttribute",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CustomAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -62,20 +55,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminAddUserToGroup": {
       "verb": "Add",
-      "noun": "CGIPUserToGroupAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UserToGroupAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "Username",
       "output": "Void",
-      "legacyPositionalParameters": "",
       "shouldProcessTargetProperty": "GroupName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AddUserToGroup",
@@ -95,20 +85,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "GroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminConfirmSignUp": {
       "verb": "Confirm",
-      "noun": "CGIPUserRegistrationAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserRegistrationAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "shouldProcessTargetProperty": "UserName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfirmSignUp",
@@ -128,20 +114,15 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminCreateUser": {
       "verb": "New",
-      "noun": "CGIPUserAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "UserAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "shouldProcessTargetProperty": "UserName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CreateUser",
@@ -161,20 +142,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminDeleteUser": {
       "verb": "Remove",
-      "noun": "CGIPUserAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "shouldProcessTargetProperty": "UserName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeleteUser",
@@ -194,20 +171,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminDeleteUserAttributes": {
       "verb": "Remove",
-      "noun": "CGIPUserAttributeAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserAttributeAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "shouldProcessTargetProperty": "UserName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeleteUserAttributes",
@@ -227,20 +200,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminDisableProviderForUser": {
       "verb": "Disable",
-      "noun": "CGIPProviderForUserAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ProviderForUserAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DisableProviderForUser",
         "ConfirmImpactSetting": "Medium",
@@ -259,20 +228,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminDisableUser": {
       "verb": "Disable",
-      "noun": "CGIPUserAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "shouldProcessTargetProperty": "UserName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DisableUser",
@@ -292,20 +257,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminEnableUser": {
       "verb": "Enable",
-      "noun": "CGIPUserAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "shouldProcessTargetProperty": "UserName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EnableUser",
@@ -325,20 +286,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminForgetDevice": {
       "verb": "Stop",
-      "noun": "CGIPDeviceTrackingAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeviceTrackingAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "DeviceKey",
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ForgetDevice",
         "ConfirmImpactSetting": "Medium",
@@ -357,20 +315,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminGetDevice": {
       "verb": "Get",
-      "noun": "CGIPDeviceAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeviceAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "DeviceKey",
-      "output": "Default",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GetDevice",
         "ConfirmImpactSetting": "Medium",
@@ -384,25 +338,16 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminGetUser": {
       "verb": "Get",
-      "noun": "CGIPUserAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GetUser",
         "ConfirmImpactSetting": "Medium",
@@ -416,25 +361,17 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminInitiateAuth": {
       "verb": "Start",
-      "noun": "CGIPAuthAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AuthAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "ClientId",
       "output": "Response",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InitiateAuth",
         "ConfirmImpactSetting": "Medium",
@@ -453,20 +390,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClientId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminLinkProviderForUser": {
       "verb": "Connect",
-      "noun": "CGIPProviderForUserAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ProviderForUserAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LinkProviderForUser",
         "ConfirmImpactSetting": "Medium",
@@ -485,26 +418,22 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminListDevices": {
       "verb": "Get",
-      "noun": "CGIPDeviceListAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "Username",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "DeviceListAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "paginationSettings": {
         "requestTokenMember": "PaginationToken",
         "responseTokenMember": "PaginationToken",
         "resultLimitMember": "Limit",
         "servicePageSize": 60
       },
+      "pipelineProperty": "Username",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ListDevices",
         "ConfirmImpactSetting": "Medium",
@@ -518,31 +447,22 @@
           "responseTokenMember": "PaginationToken",
           "resultLimitMember": "Limit",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminListGroupsForUser": {
       "verb": "Get",
-      "noun": "CGIPGroupsForUserAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "Username",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "GroupsForUserAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "paginationSettings": {
         "requestTokenMember": "NextToken",
         "responseTokenMember": "NextToken",
         "resultLimitMember": "Limit",
         "servicePageSize": 60
       },
+      "pipelineProperty": "Username",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ListGroupsForUser",
         "ConfirmImpactSetting": "Medium",
@@ -556,25 +476,15 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminListUserAuthEvents": {
       "verb": "Get",
-      "noun": "CGIPUserAuthEventListAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "UserAuthEventListAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ListUserAuthEvents",
         "ConfirmImpactSetting": "Medium",
@@ -588,25 +498,17 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminRemoveUserFromGroup": {
       "verb": "Remove",
-      "noun": "CGIPUserFromGroupAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UserFromGroupAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "Username",
       "output": "Void",
-      "legacyPositionalParameters": "",
       "shouldProcessTargetProperty": "Username",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RemoveUserFromGroup",
@@ -626,20 +528,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Username"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminResetUserPassword": {
       "verb": "Reset",
-      "noun": "CGIPUserPasswordAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserPasswordAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResetUserPassword",
         "ConfirmImpactSetting": "Medium",
@@ -658,20 +556,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminRespondToAuthChallenge": {
       "verb": "Send",
-      "noun": "CGIPAuthChallengeResponseAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AuthChallengeResponseAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "ClientId",
       "output": "Response",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RespondToAuthChallenge",
         "ConfirmImpactSetting": "Medium",
@@ -690,20 +585,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClientId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminSetUserMFAPreference": {
       "verb": "Set",
-      "noun": "CGIPUserMFAPreferenceAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserMFAPreferenceAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SetUserMFAPreference",
         "ConfirmImpactSetting": "Medium",
@@ -722,20 +613,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminSetUserSettings": {
       "verb": "Set",
-      "noun": "CGIPUserSettingAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserSettingAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SetUserSettings",
         "ConfirmImpactSetting": "Medium",
@@ -754,20 +641,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminUpdateAuthEventFeedback": {
       "verb": "Update",
-      "noun": "CGIPAuthEventFeedbackAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "AuthEventFeedbackAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UpdateAuthEventFeedback",
         "ConfirmImpactSetting": "Medium",
@@ -786,20 +669,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminUpdateDeviceStatus": {
       "verb": "Edit",
-      "noun": "CGIPDeviceStatusAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeviceStatusAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "DeviceKey",
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UpdateDeviceStatus",
         "ConfirmImpactSetting": "Medium",
@@ -818,20 +698,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminUpdateUserAttributes": {
       "verb": "Update",
-      "noun": "CGIPUserAttributeAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserAttributeAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UpdateUserAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -850,20 +726,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AdminUserGlobalSignOut": {
       "verb": "Disconnect",
-      "noun": "CGIPUserGlobalAdmin",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UserGlobalAdmin",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "Username",
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserGlobalSignOut",
         "ConfirmImpactSetting": "Medium",
@@ -882,20 +755,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AssociateSoftwareToken": {
       "verb": "Add",
-      "noun": "CGIPSoftwareToken",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "SoftwareToken",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "",
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SoftwareToken",
         "ConfirmImpactSetting": "Medium",
@@ -914,21 +784,18 @@
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ChangePassword": {
       "verb": "Update",
-      "noun": "CGIPPassword",
-      "useAnonymousAuthentication": "Always",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Password",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "shouldProcessTargetProperty": "AccessToken",
+      "useAnonymousAuthentication": "Always",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Password",
         "ConfirmImpactSetting": "Medium",
@@ -947,20 +814,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "AccessToken"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ConfirmDevice": {
       "verb": "Approve",
-      "noun": "CGIPDevice",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Device",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "DeviceKey",
-      "output": "Default",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Device",
         "ConfirmImpactSetting": "Medium",
@@ -979,21 +842,18 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeviceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ConfirmForgotPassword": {
       "verb": "Confirm",
-      "noun": "CGIPForgotPassword",
-      "useAnonymousAuthentication": "Always",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ForgotPassword",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "shouldProcessTargetProperty": "Username",
+      "useAnonymousAuthentication": "Always",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ForgotPassword",
         "ConfirmImpactSetting": "Medium",
@@ -1012,21 +872,18 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Username"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ConfirmSignUp": {
       "verb": "Confirm",
-      "noun": "CGIPUserRegistration",
-      "useAnonymousAuthentication": "Always",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserRegistration",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "shouldProcessTargetProperty": "Username",
+      "useAnonymousAuthentication": "Always",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SignUp",
         "ConfirmImpactSetting": "Medium",
@@ -1045,20 +902,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Username"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateGroup": {
       "verb": "New",
-      "noun": "CGIPGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Group",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "GroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Group",
         "ConfirmImpactSetting": "Medium",
@@ -1077,20 +930,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateIdentityProvider": {
       "verb": "New",
-      "noun": "CGIPIdentityProvider",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IdentityProvider",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "ProviderName",
-      "output": "Default",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityProvider",
         "ConfirmImpactSetting": "Medium",
@@ -1109,20 +958,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProviderName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateResourceServer": {
       "verb": "New",
-      "noun": "CGIPResourceServer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceServer",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "Identifier",
-      "output": "Default",
-      "legacyPositionalParameters": "",
       "shouldProcessTargetProperty": "Identifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceServer",
@@ -1142,20 +987,15 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Identifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateUserImportJob": {
       "verb": "New",
-      "noun": "CGIPUserImportJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "UserImportJob",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserImportJob",
         "ConfirmImpactSetting": "Medium",
@@ -1174,20 +1014,15 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateUserPool": {
       "verb": "New",
-      "noun": "CGIPUserPool",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "UserPool",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "shouldProcessTargetProperty": "PoolName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPool",
@@ -1207,20 +1042,15 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "PoolName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateUserPoolClient": {
       "verb": "New",
-      "noun": "CGIPUserPoolClient",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "UserPoolClient",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPoolClient",
         "ConfirmImpactSetting": "Medium",
@@ -1239,20 +1069,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateUserPoolDomain": {
       "verb": "New",
-      "noun": "CGIPUserPoolDomain",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UserPoolDomain",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "Domain",
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPoolDomain",
         "ConfirmImpactSetting": "Medium",
@@ -1271,20 +1098,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteGroup": {
       "verb": "Remove",
-      "noun": "CGIPGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Group",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "GroupName",
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Group",
         "ConfirmImpactSetting": "High",
@@ -1303,20 +1127,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteIdentityProvider": {
       "verb": "Remove",
-      "noun": "CGIPIdentityProvider",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IdentityProvider",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "ProviderName",
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityProvider",
         "ConfirmImpactSetting": "High",
@@ -1335,20 +1156,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProviderName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteResourceServer": {
       "verb": "Remove",
-      "noun": "CGIPResourceServer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceServer",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "Identifier",
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceServer",
         "ConfirmImpactSetting": "High",
@@ -1367,20 +1185,18 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteUser": {
       "verb": "Remove",
-      "noun": "CGIPUser",
-      "useAnonymousAuthentication": "Always",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "User",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "AccessToken",
       "output": "Void",
-      "legacyPositionalParameters": "",
+      "useAnonymousAuthentication": "Always",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "User",
         "ConfirmImpactSetting": "High",
@@ -1399,20 +1215,18 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AccessToken"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteUserAttributes": {
       "verb": "Remove",
-      "noun": "CGIPUserAttribute",
-      "useAnonymousAuthentication": "Always",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UserAttribute",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "AccessToken",
       "output": "Void",
-      "legacyPositionalParameters": "",
+      "useAnonymousAuthentication": "Always",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserAttributes",
         "ConfirmImpactSetting": "High",
@@ -1431,20 +1245,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserAttributeNames"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteUserPool": {
       "verb": "Remove",
-      "noun": "CGIPUserPool",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserPool",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPool",
         "ConfirmImpactSetting": "High",
@@ -1463,20 +1273,17 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteUserPoolClient": {
       "verb": "Remove",
-      "noun": "CGIPUserPoolClient",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UserPoolClient",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "ClientId",
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPoolClient",
         "ConfirmImpactSetting": "High",
@@ -1495,20 +1302,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClientId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteUserPoolDomain": {
       "verb": "Remove",
-      "noun": "CGIPUserPoolDomain",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UserPoolDomain",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "Domain",
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPoolDomain",
         "ConfirmImpactSetting": "High",
@@ -1527,20 +1331,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeIdentityProvider": {
       "verb": "Get",
-      "noun": "CGIPIdentityProvider",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IdentityProvider",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "ProviderName",
-      "output": "Default",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityProvider",
         "ConfirmImpactSetting": "Medium",
@@ -1554,25 +1354,16 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeResourceServer": {
       "verb": "Get",
-      "noun": "CGIPResourceServer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceServer",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "Identifier",
-      "output": "Default",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceServer",
         "ConfirmImpactSetting": "Medium",
@@ -1586,25 +1377,15 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeRiskConfiguration": {
       "verb": "Get",
-      "noun": "CGIPRiskConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "RiskConfiguration",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RiskConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -1618,25 +1399,16 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeUserImportJob": {
       "verb": "Get",
-      "noun": "CGIPUserImportJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UserImportJob",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "JobId",
-      "output": "Default",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserImportJob",
         "ConfirmImpactSetting": "Medium",
@@ -1650,25 +1422,15 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeUserPool": {
       "verb": "Get",
-      "noun": "CGIPUserPool",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "UserPool",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPool",
         "ConfirmImpactSetting": "Medium",
@@ -1682,25 +1444,15 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeUserPoolClient": {
       "verb": "Get",
-      "noun": "CGIPUserPoolClient",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "UserPoolClient",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPoolClient",
         "ConfirmImpactSetting": "Medium",
@@ -1714,25 +1466,16 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeUserPoolDomain": {
       "verb": "Get",
-      "noun": "CGIPUserPoolDomain",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UserPoolDomain",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "Domain",
-      "output": "Default",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPoolDomain",
         "ConfirmImpactSetting": "Medium",
@@ -1746,25 +1489,17 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ForgetDevice": {
       "verb": "Stop",
-      "noun": "CGIPDeviceTracking",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeviceTracking",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "DeviceKey",
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Device",
         "ConfirmImpactSetting": "Medium",
@@ -1783,21 +1518,17 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeviceKey"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ForgotPassword": {
       "verb": "Reset",
-      "noun": "CGIPForgottenPassword",
-      "useAnonymousAuthentication": "Always",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "ForgottenPassword",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "shouldProcessTargetProperty": "Username",
+      "useAnonymousAuthentication": "Always",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Password",
         "ConfirmImpactSetting": "Medium",
@@ -1816,20 +1547,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Username"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetCSVHeader": {
       "verb": "Get",
-      "noun": "CGIPCSVHeader",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "CSVHeader",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CSVHeader",
         "ConfirmImpactSetting": "Medium",
@@ -1843,25 +1570,16 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDevice": {
       "verb": "Get",
-      "noun": "CGIPDevice",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Device",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "DeviceKey",
-      "output": "Default",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Device",
         "ConfirmImpactSetting": "Medium",
@@ -1875,25 +1593,16 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetGroup": {
       "verb": "Get",
-      "noun": "CGIPGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Group",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "GroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Group",
         "ConfirmImpactSetting": "Medium",
@@ -1907,25 +1616,16 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetIdentityProviderByIdentifier": {
       "verb": "Get",
-      "noun": "CGIPIdentityProviderByIdentifier",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IdentityProviderByIdentifier",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "IdpIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityProviderByIdentifier",
         "ConfirmImpactSetting": "Medium",
@@ -1939,25 +1639,15 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetUICustomization": {
       "verb": "Get",
-      "noun": "CGIPUICustomization",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "UICustomization",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UICustomization",
         "ConfirmImpactSetting": "Medium",
@@ -1971,25 +1661,18 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetUser": {
       "verb": "Get",
-      "noun": "CGIPUser",
-      "useAnonymousAuthentication": "Always",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "User",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "AccessToken",
       "output": "Response",
-      "legacyPositionalParameters": "",
+      "useAnonymousAuthentication": "Always",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "User",
         "ConfirmImpactSetting": "Medium",
@@ -2003,25 +1686,16 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetUserAttributeVerificationCode": {
       "verb": "Get",
-      "noun": "CGIPUserAttributeVerificationCode",
+      "noun": "UserAttributeVerificationCode",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "useAnonymousAuthentication": "Always",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserAttributeVerificationCode",
         "ConfirmImpactSetting": "Medium",
@@ -2035,25 +1709,16 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetUserPoolMfaConfig": {
       "verb": "Get",
-      "noun": "CGIPUserPoolMfaConfig",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserPoolMfaConfig",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPoolMfaConfig",
         "ConfirmImpactSetting": "Medium",
@@ -2067,25 +1732,17 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GlobalSignOut": {
       "verb": "Disconnect",
-      "noun": "CGIPDeviceGlobal",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeviceGlobal",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "AccessToken",
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SignOut",
         "ConfirmImpactSetting": "Medium",
@@ -2104,20 +1761,17 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AccessToken"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "InitiateAuth": {
       "verb": "Start",
-      "noun": "CGIPAuth",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Auth",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "ClientId",
       "output": "Response",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Auth",
         "ConfirmImpactSetting": "Medium",
@@ -2136,26 +1790,22 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClientId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListDevices": {
       "verb": "Get",
-      "noun": "CGIPDeviceList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "AccessToken",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "DeviceList",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "paginationSettings": {
         "requestTokenMember": "PaginationToken",
         "responseTokenMember": "PaginationToken",
         "resultLimitMember": "Limit",
         "servicePageSize": 60
       },
+      "pipelineProperty": "AccessToken",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Devices",
         "ConfirmImpactSetting": "Medium",
@@ -2169,25 +1819,15 @@
           "responseTokenMember": "PaginationToken",
           "resultLimitMember": "Limit",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListGroups": {
       "verb": "Get",
-      "noun": "CGIPGroupList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "GroupList",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "paginationSettings": {
         "requestTokenMember": "NextToken",
         "responseTokenMember": "NextToken",
@@ -2207,25 +1847,15 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListIdentityProviders": {
       "verb": "Get",
-      "noun": "CGIPIdentityProviderList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "IdentityProviderList",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityProviders",
         "ConfirmImpactSetting": "Medium",
@@ -2239,25 +1869,15 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListResourceServers": {
       "verb": "Get",
-      "noun": "CGIPResourceServerList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "ResourceServerList",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceServers",
         "ConfirmImpactSetting": "Medium",
@@ -2271,25 +1891,15 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListUserImportJobs": {
       "verb": "Get",
-      "noun": "CGIPUserImportJobList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "UserImportJobList",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "paginationSettings": {
         "requestTokenMember": "PaginationToken",
         "responseTokenMember": "PaginationToken",
@@ -2309,25 +1919,15 @@
           "responseTokenMember": "PaginationToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListUserPoolClients": {
       "verb": "Get",
-      "noun": "CGIPUserPoolClientList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "UserPoolClientList",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPoolClients",
         "ConfirmImpactSetting": "Medium",
@@ -2341,25 +1941,15 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListUserPools": {
       "verb": "Get",
-      "noun": "CGIPUserPoolList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "UserPoolList",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPools",
         "ConfirmImpactSetting": "Medium",
@@ -2373,25 +1963,15 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListUsers": {
       "verb": "Get",
-      "noun": "CGIPUserList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "UserList",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "paginationSettings": {
         "requestTokenMember": "PaginationToken",
         "responseTokenMember": "PaginationToken",
@@ -2411,31 +1991,22 @@
           "responseTokenMember": "PaginationToken",
           "resultLimitMember": "Limit",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListUsersInGroup": {
       "verb": "Get",
-      "noun": "CGIPUsersInGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "GroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "UsersInGroup",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "paginationSettings": {
         "requestTokenMember": "NextToken",
         "responseTokenMember": "NextToken",
         "resultLimitMember": "Limit",
         "servicePageSize": 60
       },
+      "pipelineProperty": "GroupName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UsersInGroup",
         "ConfirmImpactSetting": "Medium",
@@ -2449,26 +2020,17 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ResendConfirmationCode": {
       "verb": "Send",
-      "noun": "CGIPConfirmationCode",
-      "useAnonymousAuthentication": "Always",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "ConfirmationCode",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "shouldProcessTargetProperty": "Username",
+      "useAnonymousAuthentication": "Always",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfirmationCode",
         "ConfirmImpactSetting": "Medium",
@@ -2487,20 +2049,17 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Username"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RespondToAuthChallenge": {
       "verb": "Send",
-      "noun": "CGIPAuthChallengeResponse",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AuthChallengeResponse",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "ClientId",
       "output": "Response",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ToAuthChallenge",
         "ConfirmImpactSetting": "Medium",
@@ -2519,20 +2078,15 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClientId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetRiskConfiguration": {
       "verb": "Set",
-      "noun": "CGIPRiskConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "RiskConfiguration",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RiskConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -2551,20 +2105,15 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetUICustomization": {
       "verb": "Set",
-      "noun": "CGIPUICustomization",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "UICustomization",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UICustomization",
         "ConfirmImpactSetting": "Medium",
@@ -2591,14 +2140,12 @@
     },
     "SetUserMFAPreference": {
       "verb": "Set",
-      "noun": "CGIPUserMFAPreference",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserMFAPreference",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserMFAPreference",
         "ConfirmImpactSetting": "Medium",
@@ -2617,20 +2164,16 @@
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetUserPoolMfaConfig": {
       "verb": "Set",
-      "noun": "CGIPUserPoolMfaConfig",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserPoolMfaConfig",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPoolMfaConfig",
         "ConfirmImpactSetting": "Medium",
@@ -2649,21 +2192,18 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetUserSettings": {
       "verb": "Set",
-      "noun": "CGIPUserSetting",
-      "useAnonymousAuthentication": "Always",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserSetting",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "shouldProcessTargetProperty": "AccessToken",
+      "useAnonymousAuthentication": "Always",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserSettings",
         "ConfirmImpactSetting": "Medium",
@@ -2682,21 +2222,18 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "AccessToken"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SignUp": {
       "verb": "Register",
-      "noun": "CGIPUserInPool",
-      "useAnonymousAuthentication": "Always",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserInPool",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "",
       "shouldProcessTargetProperty": "Username",
+      "useAnonymousAuthentication": "Always",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Up",
         "ConfirmImpactSetting": "Medium",
@@ -2715,20 +2252,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Username"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartUserImportJob": {
       "verb": "Start",
-      "noun": "CGIPUserImportJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UserImportJob",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "JobId",
-      "output": "Default",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserImportJob",
         "ConfirmImpactSetting": "Medium",
@@ -2747,20 +2280,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopUserImportJob": {
       "verb": "Stop",
-      "noun": "CGIPUserImportJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UserImportJob",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "JobId",
-      "output": "Default",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserImportJob",
         "ConfirmImpactSetting": "Medium",
@@ -2779,20 +2308,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateAuthEventFeedback": {
       "verb": "Update",
-      "noun": "CGIPAuthEventFeedback",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "AuthEventFeedback",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AuthEventFeedback",
         "ConfirmImpactSetting": "Medium",
@@ -2811,20 +2336,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDeviceStatus": {
       "verb": "Edit",
-      "noun": "CGIPDeviceStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeviceStatus",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "DeviceKey",
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeviceStatus",
         "ConfirmImpactSetting": "Medium",
@@ -2843,20 +2365,16 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeviceKey"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateGroup": {
       "verb": "Update",
-      "noun": "CGIPGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Group",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "GroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Group",
         "ConfirmImpactSetting": "Medium",
@@ -2875,20 +2393,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateIdentityProvider": {
       "verb": "Update",
-      "noun": "CGIPIdentityProvider",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IdentityProvider",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "ProviderName",
-      "output": "Default",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityProvider",
         "ConfirmImpactSetting": "Medium",
@@ -2907,20 +2421,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProviderName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateResourceServer": {
       "verb": "Update",
-      "noun": "CGIPResourceServer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceServer",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "Identifier",
-      "output": "Default",
-      "legacyPositionalParameters": "",
       "shouldProcessTargetProperty": "Identifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceServer",
@@ -2940,21 +2450,17 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Identifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateUserAttributes": {
       "verb": "Update",
-      "noun": "CGIPUserAttribute",
-      "useAnonymousAuthentication": "Always",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "UserAttribute",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "shouldProcessTargetProperty": "AccessToken",
+      "useAnonymousAuthentication": "Always",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -2973,20 +2479,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "AccessToken"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateUserPool": {
       "verb": "Update",
-      "noun": "CGIPUserPool",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UserPool",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPool",
         "ConfirmImpactSetting": "Medium",
@@ -3005,20 +2507,15 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateUserPoolClient": {
       "verb": "Update",
-      "noun": "CGIPUserPoolClient",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "",
+      "noun": "UserPoolClient",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserPoolClient",
         "ConfirmImpactSetting": "Medium",
@@ -3037,20 +2534,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "VerifySoftwareToken": {
       "verb": "Test",
-      "noun": "CGIPSoftwareToken",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SoftwareToken",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "UserCode",
       "output": "Response",
-      "legacyPositionalParameters": "",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SoftwareToken",
         "ConfirmImpactSetting": "Medium",
@@ -3064,25 +2558,18 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "VerifyUserAttribute": {
       "verb": "Test",
-      "noun": "CGIPUserAttribute",
-      "useAnonymousAuthentication": "Always",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UserAttribute",
+      "legacyPositionalParameters": [
+        ""
+      ],
       "pipelineProperty": "AccessToken",
       "output": "Void",
-      "legacyPositionalParameters": "",
+      "useAnonymousAuthentication": "Always",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserAttribute",
         "ConfirmImpactSetting": "Medium",
@@ -3096,13 +2583,7 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

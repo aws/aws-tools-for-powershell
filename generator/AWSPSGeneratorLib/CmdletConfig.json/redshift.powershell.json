@@ -1,6 +1,33 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
+  "customAliases": [
+    {
+      "cmdlet": "Approve-RSClusterSecurityGroupIngress",
+      "aliasNames": [
+        "Authorize-RSClusterSecurityGroupIngress"
+      ]
+    },
+    {
+      "cmdlet": "Request-ECReservedNodeOffering",
+      "aliasNames": [
+        "Purchase-RSReservedNodeOffering"
+      ]
+    },
+    {
+      "cmdlet": "Restart-RSCluster",
+      "aliasNames": [
+        "Reboot-RSCluster"
+      ]
+    }
+  ],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "Marker",
+    "responseTokenMember": "Marker",
+    "resultLimitMember": "MaxRecords",
+    "servicePageSize": 100
+  },
+  "defaultPipelineProperty": "ClusterIdentifier",
+  "legacyCmdletPrefix": "RS",
+  "legacyPositionalProperties": "ClusterIdentifier",
   "pipelineByValuePropertyNames": [
     "ClusterSecurityGroupName",
     "CIDRIP",
@@ -17,35 +44,9 @@
     "HsmConfigurationIdentifier",
     "SubscriptionName"
   ],
-  "defaultPipelineProperty": "ClusterIdentifier",
-  "legacyPositionalProperties": "ClusterIdentifier",
+  "sdkServiceClientClass": "AmazonRedshiftClient",
+  "sdkServiceConfigClass": "AmazonRedshiftConfig",
   "sdkServiceNamespace": "Amazon.Redshift",
-  "sdkServiceClient": "AmazonRedshiftClient",
-  "sdkServiceClientConfig": "AmazonRedshiftConfig",
-  "legacyCmdletPrefix": "RS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "Marker",
-    "responseTokenMember": "Marker",
-    "resultLimitMember": "MaxRecords",
-    "servicePageSize": 100
-  },
-  "customAliases": [
-    {
-      "cmdlet": "Approve-RSClusterSecurityGroupIngress",
-      "aliasNames": "Authorize-RSClusterSecurityGroupIngress"
-    },
-    {
-      "cmdlet": "Request-ECReservedNodeOffering",
-      "aliasNames": "Purchase-RSReservedNodeOffering"
-    },
-    {
-      "cmdlet": "Restart-RSCluster",
-      "aliasNames": "Reboot-RSCluster"
-    }
-  ],
-  "nounMappings": {},
   "verbMappings": {
     "Authorize": "Approve",
     "Purchase": "Request",
@@ -54,14 +55,13 @@
   "serviceOperations": {
     "AuthorizeClusterSecurityGroupIngress": {
       "verb": "Approve",
-      "noun": "RSClusterSecurityGroupIngress",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ClusterSecurityGroupIngress",
+      "legacyPositionalParameters": [
+        "CIDRIP",
+        "EC2SecurityGroupName",
+        "EC2SecurityGroupOwnerId"
+      ],
       "pipelineProperty": "ClusterSecurityGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "CIDRIP;EC2SecurityGroupName;EC2SecurityGroupOwnerId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterSecurityGroupIngress",
         "ConfirmImpactSetting": "Medium",
@@ -80,20 +80,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterSecurityGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AuthorizeSnapshotAccess": {
       "verb": "Approve",
-      "noun": "RSSnapshotAccess",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SnapshotAccess",
+      "legacyPositionalParameters": [
+        "AccountWithRestoreAccess"
+      ],
       "pipelineProperty": "SnapshotIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": "AccountWithRestoreAccess",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SnapshotAccess",
         "ConfirmImpactSetting": "Medium",
@@ -112,20 +108,16 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SnapshotIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CopyClusterSnapshot": {
       "verb": "Copy",
-      "noun": "RSClusterSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ClusterSnapshot",
+      "legacyPositionalParameters": [
+        "TargetSnapshotIdentifier"
+      ],
       "pipelineProperty": "SourceSnapshotIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": "TargetSnapshotIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterSnapshot",
         "ConfirmImpactSetting": "Medium",
@@ -144,26 +136,24 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SourceSnapshotIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateCluster": {
       "verb": "New",
-      "noun": "RSCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "DBName",
-      "output": "Default",
-      "legacyPositionalParameters": "ClusterIdentifier;ClusterType;NodeType",
+      "noun": "Cluster",
       "customParameters": [
         {
           "name": "NumberOfNodes",
           "autoRename": "false"
         }
       ],
+      "legacyPositionalParameters": [
+        "ClusterIdentifier",
+        "ClusterType",
+        "NodeType"
+      ],
+      "pipelineProperty": "DBName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Cluster",
         "ConfirmImpactSetting": "Medium",
@@ -182,20 +172,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateClusterParameterGroup": {
       "verb": "New",
-      "noun": "RSClusterParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ClusterParameterGroup",
+      "legacyPositionalParameters": [
+        "ParameterGroupFamily",
+        "Description"
+      ],
       "pipelineProperty": "ParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "ParameterGroupFamily;Description",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterParameterGroup",
         "ConfirmImpactSetting": "Medium",
@@ -214,20 +201,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ParameterGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateClusterSecurityGroup": {
       "verb": "New",
-      "noun": "RSClusterSecurityGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ClusterSecurityGroup",
+      "legacyPositionalParameters": [
+        "Description"
+      ],
       "pipelineProperty": "ClusterSecurityGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "Description",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterSecurityGroup",
         "ConfirmImpactSetting": "Medium",
@@ -246,20 +229,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterSecurityGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateClusterSnapshot": {
       "verb": "New",
-      "noun": "RSClusterSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ClusterSnapshot",
+      "legacyPositionalParameters": [
+        "ClusterIdentifier"
+      ],
       "pipelineProperty": "SnapshotIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": "ClusterIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterSnapshot",
         "ConfirmImpactSetting": "Medium",
@@ -278,20 +257,17 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SnapshotIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateClusterSubnetGroup": {
       "verb": "New",
-      "noun": "RSClusterSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ClusterSubnetGroup",
+      "legacyPositionalParameters": [
+        "Description",
+        "SubnetIds"
+      ],
       "pipelineProperty": "ClusterSubnetGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "Description;SubnetIds",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterSubnetGroup",
         "ConfirmImpactSetting": "Medium",
@@ -310,20 +286,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterSubnetGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateEventSubscription": {
       "verb": "New",
-      "noun": "RSEventSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "EventSubscription",
       "shouldProcessTargetProperty": "SubscriptionName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSubscription",
@@ -343,20 +311,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "SubscriptionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateHsmClientCertificate": {
       "verb": "New",
-      "noun": "RSHsmClientCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "HsmClientCertificate",
       "shouldProcessTargetProperty": "HsmClientCertificateIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "HsmClientCertificate",
@@ -376,20 +336,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "HsmClientCertificateIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateHsmConfiguration": {
       "verb": "New",
-      "noun": "RSHsmConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "HsmConfiguration",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "HsmConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -408,20 +360,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HsmPartitionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateSnapshotCopyGrant": {
       "verb": "New",
-      "noun": "RSSnapshotCopyGrant",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SnapshotCopyGrant",
       "pipelineProperty": "Tag",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "SnapshotCopyGrantName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SnapshotCopyGrant",
@@ -441,20 +386,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "SnapshotCopyGrantName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateTags": {
       "verb": "New",
-      "noun": "RSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "New-RSTags",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -473,20 +412,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCluster": {
       "verb": "Remove",
-      "noun": "RSCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Cluster",
       "shouldProcessTargetProperty": "ClusterIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Cluster",
@@ -506,20 +437,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ClusterIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteClusterParameterGroup": {
       "verb": "Remove",
-      "noun": "RSClusterParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ClusterParameterGroup",
       "pipelineProperty": "ParameterGroupName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterParameterGroup",
         "ConfirmImpactSetting": "High",
@@ -538,20 +463,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ParameterGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteClusterSecurityGroup": {
       "verb": "Remove",
-      "noun": "RSClusterSecurityGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ClusterSecurityGroup",
       "pipelineProperty": "ClusterSecurityGroupName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterSecurityGroup",
         "ConfirmImpactSetting": "High",
@@ -570,20 +489,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterSecurityGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteClusterSnapshot": {
       "verb": "Remove",
-      "noun": "RSClusterSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ClusterSnapshot",
       "pipelineProperty": "SnapshotIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "SnapshotIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterSnapshot",
@@ -603,20 +515,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "SnapshotIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteClusterSubnetGroup": {
       "verb": "Remove",
-      "noun": "RSClusterSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ClusterSubnetGroup",
       "pipelineProperty": "ClusterSubnetGroupName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterSubnetGroup",
         "ConfirmImpactSetting": "High",
@@ -635,20 +541,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterSubnetGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteEventSubscription": {
       "verb": "Remove",
-      "noun": "RSEventSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EventSubscription",
       "pipelineProperty": "SubscriptionName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSubscription",
         "ConfirmImpactSetting": "High",
@@ -667,20 +567,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubscriptionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteHsmClientCertificate": {
       "verb": "Remove",
-      "noun": "RSHsmClientCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "HsmClientCertificate",
       "pipelineProperty": "HsmClientCertificateIdentifier",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "HsmClientCertificate",
         "ConfirmImpactSetting": "High",
@@ -699,20 +593,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HsmClientCertificateIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteHsmConfiguration": {
       "verb": "Remove",
-      "noun": "RSHsmConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "HsmConfiguration",
       "pipelineProperty": "HsmConfigurationIdentifier",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "HsmConfiguration",
         "ConfirmImpactSetting": "High",
@@ -731,20 +619,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HsmConfigurationIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSnapshotCopyGrant": {
       "verb": "Remove",
-      "noun": "RSSnapshotCopyGrant",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SnapshotCopyGrant",
       "pipelineProperty": "SnapshotCopyGrantName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SnapshotCopyGrant",
         "ConfirmImpactSetting": "High",
@@ -763,20 +645,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SnapshotCopyGrantName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteTags": {
       "verb": "Remove",
-      "noun": "RSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "Remove-RSTags",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "TagKeys",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
@@ -796,20 +672,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "TagKeys"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeClusterParameterGroups": {
       "verb": "Get",
-      "noun": "RSClusterParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ClusterParameterGroup",
       "legacyAlias": "Get-RSClusterParameterGroups",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterParameterGroups",
         "ConfirmImpactSetting": "Medium",
@@ -823,25 +693,17 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeClusterParameters": {
       "verb": "Get",
-      "noun": "RSClusterParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ClusterParameter",
       "legacyAlias": "Get-RSClusterParameters",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "Source"
+      ],
       "pipelineProperty": "ParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "Source",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterParameters",
         "ConfirmImpactSetting": "Medium",
@@ -855,25 +717,13 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeClusters": {
       "verb": "Get",
-      "noun": "RSCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Cluster",
       "legacyAlias": "Get-RSClusters",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Clusters",
         "ConfirmImpactSetting": "Medium",
@@ -887,25 +737,14 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeClusterSecurityGroups": {
       "verb": "Get",
-      "noun": "RSClusterSecurityGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ClusterSecurityGroup",
       "legacyAlias": "Get-RSClusterSecurityGroups",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ClusterSecurityGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterSecurityGroups",
         "ConfirmImpactSetting": "Medium",
@@ -919,25 +758,17 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeClusterSnapshots": {
       "verb": "Get",
-      "noun": "RSClusterSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ClusterSnapshot",
       "legacyAlias": "Get-RSClusterSnapshots",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "SnapshotIdentifier;SnapshotType",
+      "legacyPositionalParameters": [
+        "SnapshotIdentifier",
+        "SnapshotType"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterSnapshots",
         "ConfirmImpactSetting": "Medium",
@@ -951,25 +782,14 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeClusterSubnetGroups": {
       "verb": "Get",
-      "noun": "RSClusterSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ClusterSubnetGroup",
       "legacyAlias": "Get-RSClusterSubnetGroups",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ClusterSubnetGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterSubnetGroups",
         "ConfirmImpactSetting": "Medium",
@@ -983,25 +803,17 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeClusterVersions": {
       "verb": "Get",
-      "noun": "RSClusterVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ClusterVersion",
       "legacyAlias": "Get-RSClusterVersions",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "ClusterParameterGroupFamily"
+      ],
       "pipelineProperty": "ClusterVersion",
-      "output": "Default",
-      "legacyPositionalParameters": "ClusterParameterGroupFamily",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterVersions",
         "ConfirmImpactSetting": "Medium",
@@ -1015,25 +827,14 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDefaultClusterParameters": {
       "verb": "Get",
-      "noun": "RSDefaultClusterParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "DefaultClusterParameter",
       "legacyAlias": "Get-RSDefaultClusterParameters",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ParameterGroupFamily",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DefaultClusterParameters",
         "ConfirmImpactSetting": "Medium",
@@ -1047,25 +848,14 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEventCategories": {
       "verb": "Get",
-      "noun": "RSEventCategory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "EventCategory",
       "legacyAlias": "Get-RSEventCategories",
-      "metadataOutputProperties": "",
       "pipelineProperty": "SourceType",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventCategories",
         "ConfirmImpactSetting": "Medium",
@@ -1079,25 +869,17 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEvents": {
       "verb": "Get",
-      "noun": "RSEvent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Event",
       "legacyAlias": "Get-RSEvents",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "SourceType"
+      ],
       "pipelineProperty": "SourceIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": "SourceType",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Events",
         "ConfirmImpactSetting": "Medium",
@@ -1111,25 +893,13 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEventSubscriptions": {
       "verb": "Get",
-      "noun": "RSEventSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "EventSubscription",
       "legacyAlias": "Get-RSEventSubscriptions",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSubscriptions",
         "ConfirmImpactSetting": "Medium",
@@ -1143,25 +913,13 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeHsmClientCertificates": {
       "verb": "Get",
-      "noun": "RSHsmClientCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "HsmClientCertificate",
       "legacyAlias": "Get-RSHsmClientCertificates",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "HsmClientCertificates",
         "ConfirmImpactSetting": "Medium",
@@ -1175,25 +933,13 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeHsmConfigurations": {
       "verb": "Get",
-      "noun": "RSHsmConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "HsmConfiguration",
       "legacyAlias": "Get-RSHsmConfigurations",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "HsmConfigurations",
         "ConfirmImpactSetting": "Medium",
@@ -1207,25 +953,13 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeLoggingStatus": {
       "verb": "Get",
-      "noun": "RSLoggingStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LoggingStatus",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoggingStatus",
         "ConfirmImpactSetting": "Medium",
@@ -1239,25 +973,17 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeOrderableClusterOptions": {
       "verb": "Get",
-      "noun": "RSOrderableClusterOption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "OrderableClusterOption",
       "legacyAlias": "Get-RSOrderableClusterOptions",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "NodeType"
+      ],
       "pipelineProperty": "ClusterVersion",
-      "output": "Default",
-      "legacyPositionalParameters": "NodeType",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OrderableClusterOptions",
         "ConfirmImpactSetting": "Medium",
@@ -1271,25 +997,14 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeReservedNodeOfferings": {
       "verb": "Get",
-      "noun": "RSReservedNodeOffering",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ReservedNodeOffering",
       "legacyAlias": "Get-RSReservedNodeOfferings",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ReservedNodeOfferingId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReservedNodeOfferings",
         "ConfirmImpactSetting": "Medium",
@@ -1303,25 +1018,14 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeReservedNodes": {
       "verb": "Get",
-      "noun": "RSReservedNode",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ReservedNode",
       "legacyAlias": "Get-RSReservedNodes",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ReservedNodeId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReservedNodes",
         "ConfirmImpactSetting": "Medium",
@@ -1335,25 +1039,13 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeResize": {
       "verb": "Get",
-      "noun": "RSResize",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Resize",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resize",
         "ConfirmImpactSetting": "Medium",
@@ -1367,25 +1059,12 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeSnapshotCopyGrants": {
       "verb": "Get",
-      "noun": "RSSnapshotCopyGrant",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SnapshotCopyGrant",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SnapshotCopyGrants",
         "ConfirmImpactSetting": "Medium",
@@ -1399,25 +1078,12 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTableRestoreStatus": {
       "verb": "Get",
-      "noun": "RSTableRestoreStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TableRestoreStatus",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TableRestoreStatus",
         "ConfirmImpactSetting": "Medium",
@@ -1431,25 +1097,13 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTags": {
       "verb": "Get",
-      "noun": "RSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "Get-RSTags",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -1463,25 +1117,13 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisableLogging": {
       "verb": "Disable",
-      "noun": "RSLogging",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Logging",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Logging",
         "ConfirmImpactSetting": "Medium",
@@ -1500,20 +1142,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisableSnapshotCopy": {
       "verb": "Disable",
-      "noun": "RSSnapshotCopy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SnapshotCopy",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SnapshotCopy",
         "ConfirmImpactSetting": "Medium",
@@ -1532,20 +1166,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "EnableLogging": {
       "verb": "Enable",
-      "noun": "RSLogging",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Logging",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Logging",
         "ConfirmImpactSetting": "Medium",
@@ -1564,20 +1191,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "EnableSnapshotCopy": {
       "verb": "Enable",
-      "noun": "RSSnapshotCopy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SnapshotCopy",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SnapshotCopy",
         "ConfirmImpactSetting": "Medium",
@@ -1596,20 +1215,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SnapshotCopyGrantName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetClusterCredentials": {
       "verb": "Get",
-      "noun": "RSClusterCredential",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ClusterCredential",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterCredentials",
         "ConfirmImpactSetting": "Medium",
@@ -1623,32 +1235,19 @@
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyCluster": {
       "verb": "Edit",
-      "noun": "RSCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
-      "shouldProcessTargetProperty": "ClusterIdentifier",
+      "noun": "Cluster",
       "customParameters": [
         {
           "name": "NumberOfNodes",
           "autoRename": "false"
         }
       ],
+      "shouldProcessTargetProperty": "ClusterIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Cluster",
         "ConfirmImpactSetting": "Medium",
@@ -1667,20 +1266,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ClusterIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyClusterIamRoles": {
       "verb": "Edit",
-      "noun": "RSClusterIamRole",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ClusterIamRole",
       "legacyAlias": "Edit-RSClusterIamRoles",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterIamRoles",
         "ConfirmImpactSetting": "Medium",
@@ -1699,20 +1291,17 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyClusterParameterGroup": {
       "verb": "Edit",
-      "noun": "RSClusterParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ClusterParameterGroup",
+      "legacyPositionalParameters": [
+        "Parameters"
+      ],
       "pipelineProperty": "ParameterGroupName",
       "output": "Response",
-      "legacyPositionalParameters": "Parameters",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterParameterGroup",
         "ConfirmImpactSetting": "Medium",
@@ -1731,20 +1320,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ParameterGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyClusterSubnetGroup": {
       "verb": "Edit",
-      "noun": "RSClusterSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ClusterSubnetGroup",
+      "legacyPositionalParameters": [
+        "Description",
+        "SubnetIds"
+      ],
       "pipelineProperty": "ClusterSubnetGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "Description;SubnetIds",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterSubnetGroup",
         "ConfirmImpactSetting": "Medium",
@@ -1763,20 +1349,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterSubnetGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyEventSubscription": {
       "verb": "Edit",
-      "noun": "RSEventSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "EventSubscription",
       "shouldProcessTargetProperty": "SubscriptionName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSubscription",
@@ -1796,20 +1374,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "SubscriptionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifySnapshotCopyRetentionPeriod": {
       "verb": "Edit",
-      "noun": "RSSnapshotCopyRetentionPeriod",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SnapshotCopyRetentionPeriod",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SnapshotCopyRetentionPeriod",
         "ConfirmImpactSetting": "Medium",
@@ -1828,20 +1398,16 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PurchaseReservedNodeOffering": {
       "verb": "Request",
-      "noun": "RSReservedNodeOffering",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReservedNodeOffering",
+      "legacyPositionalParameters": [
+        "NodeCount"
+      ],
       "pipelineProperty": "ReservedNodeOfferingId",
-      "output": "Default",
-      "legacyPositionalParameters": "NodeCount",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReservedNodeOffering",
         "ConfirmImpactSetting": "Medium",
@@ -1860,20 +1426,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ReservedNodeOfferingId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RebootCluster": {
       "verb": "Restart",
-      "noun": "RSCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Cluster",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Cluster",
         "ConfirmImpactSetting": "Medium",
@@ -1892,20 +1450,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ResetClusterParameterGroup": {
       "verb": "Reset",
-      "noun": "RSClusterParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ClusterParameterGroup",
       "pipelineProperty": "ParameterGroupName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterParameterGroup",
         "ConfirmImpactSetting": "Medium",
@@ -1924,20 +1476,15 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ParameterGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RestoreFromClusterSnapshot": {
       "verb": "Restore",
-      "noun": "RSFromClusterSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "SnapshotIdentifier",
+      "noun": "FromClusterSnapshot",
+      "legacyPositionalParameters": [
+        "SnapshotIdentifier"
+      ],
       "shouldProcessTargetProperty": "SnapshotIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FromClusterSnapshot",
@@ -1957,20 +1504,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "SnapshotIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RestoreTableFromClusterSnapshot": {
       "verb": "Restore",
-      "noun": "RSTableFromClusterSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TableFromClusterSnapshot",
       "shouldProcessTargetProperty": "SnapshotIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TableFromClusterSnapshot",
@@ -1990,20 +1529,18 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "SnapshotIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RevokeClusterSecurityGroupIngress": {
       "verb": "Revoke",
-      "noun": "RSClusterSecurityGroupIngress",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ClusterSecurityGroupIngress",
+      "legacyPositionalParameters": [
+        "CIDRIP",
+        "EC2SecurityGroupName",
+        "EC2SecurityGroupOwnerId"
+      ],
       "pipelineProperty": "ClusterSecurityGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "CIDRIP;EC2SecurityGroupName;EC2SecurityGroupOwnerId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClusterSecurityGroupIngress",
         "ConfirmImpactSetting": "Medium",
@@ -2022,20 +1559,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterSecurityGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RevokeSnapshotAccess": {
       "verb": "Revoke",
-      "noun": "RSSnapshotAccess",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SnapshotAccess",
+      "legacyPositionalParameters": [
+        "AccountWithRestoreAccess"
+      ],
       "pipelineProperty": "SnapshotIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": "AccountWithRestoreAccess",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SnapshotAccess",
         "ConfirmImpactSetting": "Medium",
@@ -2054,20 +1587,12 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SnapshotIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RotateEncryptionKey": {
       "verb": "Switch",
-      "noun": "RSEncryptionKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "EncryptionKey",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EncryptionKey",
         "ConfirmImpactSetting": "Medium",
@@ -2086,8 +1611,7 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

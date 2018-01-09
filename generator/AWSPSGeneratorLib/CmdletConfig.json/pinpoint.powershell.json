@@ -1,31 +1,18 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "ApplicationId",
-  "sdkServiceNamespace": "Amazon.Pinpoint",
-  "sdkServiceClient": "AmazonPinpointClient",
-  "sdkServiceClientConfig": "AmazonPinpointConfig",
-  "legacyCmdletPrefix": "PIN",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": null,
     "responseTokenMember": null
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "ApplicationId",
+  "legacyCmdletPrefix": "PIN",
+  "sdkServiceClientClass": "AmazonPinpointClient",
+  "sdkServiceConfigClass": "AmazonPinpointConfig",
+  "sdkServiceNamespace": "Amazon.Pinpoint",
   "serviceOperations": {
     "CreateApp": {
       "verb": "New",
-      "noun": "PINApp",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "App",
       "pipelineProperty": "CreateApplicationRequest_Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "App",
         "ConfirmImpactSetting": "Medium",
@@ -42,20 +29,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateCampaign": {
       "verb": "New",
-      "noun": "PINCampaign",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Campaign",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Campaign",
         "ConfirmImpactSetting": "Medium",
@@ -72,20 +51,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateImportJob": {
       "verb": "New",
-      "noun": "PINImportJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ImportJob",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ImportJob",
         "ConfirmImpactSetting": "Medium",
@@ -102,20 +73,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateSegment": {
       "verb": "New",
-      "noun": "PINSegment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Segment",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Segment",
         "ConfirmImpactSetting": "Medium",
@@ -132,20 +95,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteAdmChannel": {
       "verb": "Remove",
-      "noun": "PINAdmChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AdmChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AdmChannel",
         "ConfirmImpactSetting": "High",
@@ -162,20 +117,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteApnsChannel": {
       "verb": "Remove",
-      "noun": "PINApnsChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ApnsChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApnsChannel",
         "ConfirmImpactSetting": "High",
@@ -192,20 +139,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteApnsSandboxChannel": {
       "verb": "Remove",
-      "noun": "PINApnsSandboxChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ApnsSandboxChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApnsSandboxChannel",
         "ConfirmImpactSetting": "High",
@@ -222,20 +161,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteApnsVoipChannel": {
       "verb": "Remove",
-      "noun": "PINApnsVoipChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ApnsVoipChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApnsVoipChannel",
         "ConfirmImpactSetting": "High",
@@ -252,20 +183,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteApnsVoipSandboxChannel": {
       "verb": "Remove",
-      "noun": "PINApnsVoipSandboxChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ApnsVoipSandboxChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApnsVoipSandboxChannel",
         "ConfirmImpactSetting": "High",
@@ -282,20 +205,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteApp": {
       "verb": "Remove",
-      "noun": "PINApp",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "App",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "App",
         "ConfirmImpactSetting": "High",
@@ -312,20 +227,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteBaiduChannel": {
       "verb": "Remove",
-      "noun": "PINBaiduChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BaiduChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BaiduChannel",
         "ConfirmImpactSetting": "High",
@@ -342,20 +249,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCampaign": {
       "verb": "Remove",
-      "noun": "PINCampaign",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Campaign",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Campaign",
         "ConfirmImpactSetting": "High",
@@ -372,20 +271,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteEmailChannel": {
       "verb": "Remove",
-      "noun": "PINEmailChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "EmailChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EmailChannel",
         "ConfirmImpactSetting": "High",
@@ -402,20 +293,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteEventStream": {
       "verb": "Remove",
-      "noun": "PINEventStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "EventStream",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventStream",
         "ConfirmImpactSetting": "High",
@@ -432,20 +315,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteGcmChannel": {
       "verb": "Remove",
-      "noun": "PINGcmChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "GcmChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GcmChannel",
         "ConfirmImpactSetting": "High",
@@ -462,20 +337,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSegment": {
       "verb": "Remove",
-      "noun": "PINSegment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Segment",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Segment",
         "ConfirmImpactSetting": "High",
@@ -492,20 +359,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSmsChannel": {
       "verb": "Remove",
-      "noun": "PINSmsChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SmsChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SmsChannel",
         "ConfirmImpactSetting": "High",
@@ -522,20 +381,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetAdmChannel": {
       "verb": "Get",
-      "noun": "PINAdmChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AdmChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AdmChannel",
         "ConfirmImpactSetting": "Medium",
@@ -547,25 +398,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetApnsChannel": {
       "verb": "Get",
-      "noun": "PINApnsChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ApnsChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApnsChannel",
         "ConfirmImpactSetting": "Medium",
@@ -577,25 +415,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetApnsSandboxChannel": {
       "verb": "Get",
-      "noun": "PINApnsSandboxChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ApnsSandboxChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApnsSandboxChannel",
         "ConfirmImpactSetting": "Medium",
@@ -607,25 +432,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetApnsVoipChannel": {
       "verb": "Get",
-      "noun": "PINApnsVoipChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ApnsVoipChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApnsVoipChannel",
         "ConfirmImpactSetting": "Medium",
@@ -637,25 +449,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetApnsVoipSandboxChannel": {
       "verb": "Get",
-      "noun": "PINApnsVoipSandboxChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ApnsVoipSandboxChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApnsVoipSandboxChannel",
         "ConfirmImpactSetting": "Medium",
@@ -667,25 +466,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetApp": {
       "verb": "Get",
-      "noun": "PINApp",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "App",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "App",
         "ConfirmImpactSetting": "Medium",
@@ -697,25 +483,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetApplicationSettings": {
       "verb": "Get",
-      "noun": "PINApplicationSettingList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ApplicationSettingList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationSettings",
         "ConfirmImpactSetting": "Medium",
@@ -727,25 +500,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetApps": {
       "verb": "Get",
-      "noun": "PINAppList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AppList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Apps",
         "ConfirmImpactSetting": "Medium",
@@ -757,25 +517,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBaiduChannel": {
       "verb": "Get",
-      "noun": "PINBaiduChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BaiduChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BaiduChannel",
         "ConfirmImpactSetting": "Medium",
@@ -787,25 +534,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetCampaign": {
       "verb": "Get",
-      "noun": "PINCampaign",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Campaign",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Campaign",
         "ConfirmImpactSetting": "Medium",
@@ -817,25 +551,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetCampaignActivities": {
       "verb": "Get",
-      "noun": "PINCampaignActivityList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "CampaignActivityList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CampaignActivities",
         "ConfirmImpactSetting": "Medium",
@@ -847,25 +568,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetCampaigns": {
       "verb": "Get",
-      "noun": "PINCampaignList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "CampaignList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Campaigns",
         "ConfirmImpactSetting": "Medium",
@@ -877,25 +585,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetCampaignVersion": {
       "verb": "Get",
-      "noun": "PINCampaignVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "CampaignVersion",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CampaignVersion",
         "ConfirmImpactSetting": "Medium",
@@ -907,25 +602,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetCampaignVersions": {
       "verb": "Get",
-      "noun": "PINCampaignVersionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "CampaignVersionList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CampaignVersions",
         "ConfirmImpactSetting": "Medium",
@@ -937,25 +619,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetEmailChannel": {
       "verb": "Get",
-      "noun": "PINEmailChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "EmailChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EmailChannel",
         "ConfirmImpactSetting": "Medium",
@@ -967,25 +636,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetEndpoint": {
       "verb": "Get",
-      "noun": "PINEndpoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Endpoint",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Endpoint",
         "ConfirmImpactSetting": "Medium",
@@ -997,25 +653,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetEventStream": {
       "verb": "Get",
-      "noun": "PINEventStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "EventStream",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventStream",
         "ConfirmImpactSetting": "Medium",
@@ -1027,25 +670,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetGcmChannel": {
       "verb": "Get",
-      "noun": "PINGcmChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "GcmChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GcmChannel",
         "ConfirmImpactSetting": "Medium",
@@ -1057,25 +687,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetImportJob": {
       "verb": "Get",
-      "noun": "PINImportJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ImportJob",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ImportJob",
         "ConfirmImpactSetting": "Medium",
@@ -1087,25 +704,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetImportJobs": {
       "verb": "Get",
-      "noun": "PINImportJobList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ImportJobList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ImportJobs",
         "ConfirmImpactSetting": "Medium",
@@ -1117,25 +721,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSegment": {
       "verb": "Get",
-      "noun": "PINSegment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Segment",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Segment",
         "ConfirmImpactSetting": "Medium",
@@ -1147,25 +738,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSegmentImportJobs": {
       "verb": "Get",
-      "noun": "PINSegmentImportJobList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SegmentImportJobList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SegmentImportJobs",
         "ConfirmImpactSetting": "Medium",
@@ -1177,25 +755,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSegments": {
       "verb": "Get",
-      "noun": "PINSegmentList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SegmentList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Segments",
         "ConfirmImpactSetting": "Medium",
@@ -1207,25 +772,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSegmentVersion": {
       "verb": "Get",
-      "noun": "PINSegmentVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SegmentVersion",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SegmentVersion",
         "ConfirmImpactSetting": "Medium",
@@ -1237,25 +789,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSegmentVersions": {
       "verb": "Get",
-      "noun": "PINSegmentVersionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SegmentVersionList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SegmentVersions",
         "ConfirmImpactSetting": "Medium",
@@ -1267,25 +806,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSmsChannel": {
       "verb": "Get",
-      "noun": "PINSmsChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SmsChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SmsChannel",
         "ConfirmImpactSetting": "Medium",
@@ -1297,25 +823,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutEventStream": {
       "verb": "Write",
-      "noun": "PINEventStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "EventStream",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventStream",
         "ConfirmImpactSetting": "Medium",
@@ -1332,20 +845,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SendMessages": {
       "verb": "Send",
-      "noun": "PINMessage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Message",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Messages",
         "ConfirmImpactSetting": "Medium",
@@ -1362,20 +867,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SendUsersMessages": {
       "verb": "Send",
-      "noun": "PINUserMessageBatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "UserMessageBatch",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UsersMessages",
         "ConfirmImpactSetting": "Medium",
@@ -1392,20 +889,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateAdmChannel": {
       "verb": "Update",
-      "noun": "PINAdmChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AdmChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AdmChannel",
         "ConfirmImpactSetting": "Medium",
@@ -1422,20 +911,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateApnsChannel": {
       "verb": "Update",
-      "noun": "PINApnsChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ApnsChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApnsChannel",
         "ConfirmImpactSetting": "Medium",
@@ -1452,20 +933,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateApnsSandboxChannel": {
       "verb": "Update",
-      "noun": "PINApnsSandboxChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ApnsSandboxChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApnsSandboxChannel",
         "ConfirmImpactSetting": "Medium",
@@ -1482,20 +955,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateApnsVoipChannel": {
       "verb": "Update",
-      "noun": "PINApnsVoipChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ApnsVoipChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApnsVoipChannel",
         "ConfirmImpactSetting": "Medium",
@@ -1512,20 +977,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateApnsVoipSandboxChannel": {
       "verb": "Update",
-      "noun": "PINApnsVoipSandboxChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ApnsVoipSandboxChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApnsVoipSandboxChannel",
         "ConfirmImpactSetting": "Medium",
@@ -1542,20 +999,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateApplicationSettings": {
       "verb": "Update",
-      "noun": "PINApplicationSettingList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ApplicationSettingList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationSettings",
         "ConfirmImpactSetting": "Medium",
@@ -1572,20 +1021,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateBaiduChannel": {
       "verb": "Update",
-      "noun": "PINBaiduChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BaiduChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BaiduChannel",
         "ConfirmImpactSetting": "Medium",
@@ -1602,20 +1043,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateCampaign": {
       "verb": "Update",
-      "noun": "PINCampaign",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Campaign",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Campaign",
         "ConfirmImpactSetting": "Medium",
@@ -1632,20 +1065,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateEmailChannel": {
       "verb": "Update",
-      "noun": "PINEmailChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "EmailChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EmailChannel",
         "ConfirmImpactSetting": "Medium",
@@ -1662,20 +1087,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateEndpoint": {
       "verb": "Update",
-      "noun": "PINEndpoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Endpoint",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Endpoint",
         "ConfirmImpactSetting": "Medium",
@@ -1692,20 +1109,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateEndpointsBatch": {
       "verb": "Update",
-      "noun": "PINEndpointsBatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "EndpointsBatch",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EndpointsBatch",
         "ConfirmImpactSetting": "Medium",
@@ -1722,20 +1131,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateGcmChannel": {
       "verb": "Update",
-      "noun": "PINGcmChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "GcmChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GcmChannel",
         "ConfirmImpactSetting": "Medium",
@@ -1752,20 +1153,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateSegment": {
       "verb": "Update",
-      "noun": "PINSegment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Segment",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Segment",
         "ConfirmImpactSetting": "Medium",
@@ -1782,20 +1175,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateSmsChannel": {
       "verb": "Update",
-      "noun": "PINSmsChannel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SmsChannel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SmsChannel",
         "ConfirmImpactSetting": "Medium",
@@ -1812,8 +1197,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

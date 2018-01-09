@@ -1,32 +1,20 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.MediaStoreData",
-  "sdkServiceClient": "AmazonMediaStoreDataClient",
-  "sdkServiceClientConfig": "AmazonMediaStoreDataConfig",
-  "legacyCmdletPrefix": "EMSD",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "EMSD",
+  "sdkServiceClientClass": "AmazonMediaStoreDataClient",
+  "sdkServiceConfigClass": "AmazonMediaStoreDataConfig",
+  "sdkServiceNamespace": "Amazon.MediaStoreData",
   "serviceOperations": {
     "DeleteObject": {
       "verb": "Remove",
-      "noun": "EMSDObject",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Object",
       "pipelineProperty": "Path",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Object",
         "ConfirmImpactSetting": "High",
@@ -44,20 +32,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Path"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeObject": {
       "verb": "Get",
-      "noun": "EMSDObjectMetadata",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ObjectMetadata",
       "pipelineProperty": "Path",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Object",
         "ConfirmImpactSetting": "Medium",
@@ -70,25 +52,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetObject": {
       "verb": "Get",
-      "noun": "EMSDObject",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Object",
       "pipelineProperty": "Path",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Object",
         "ConfirmImpactSetting": "Medium",
@@ -101,25 +72,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListItems": {
       "verb": "Get",
-      "noun": "EMSDItemList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ItemList",
       "pipelineProperty": "Path",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Items",
         "ConfirmImpactSetting": "Medium",
@@ -132,17 +91,11 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutObject": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     }
   }
 }

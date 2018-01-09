@@ -1,34 +1,22 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [
-    "FormatVersion"
-  ],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.Pricing",
-  "sdkServiceClient": "AmazonPricingClient",
-  "sdkServiceClientConfig": "AmazonPricingConfig",
-  "legacyCmdletPrefix": "PLS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "PLS",
+  "outputMetadataPropertyNames": [
+    "FormatVersion"
+  ],
+  "sdkServiceClientClass": "AmazonPricingClient",
+  "sdkServiceConfigClass": "AmazonPricingConfig",
+  "sdkServiceNamespace": "Amazon.Pricing",
   "serviceOperations": {
     "DescribeServices": {
       "verb": "Get",
-      "noun": "PLSService",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Service",
       "pipelineProperty": "ServiceCode",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Services",
         "ConfirmImpactSetting": "Medium",
@@ -41,25 +29,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetAttributeValues": {
       "verb": "Get",
-      "noun": "PLSAttributeValue",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AttributeValue",
       "pipelineProperty": "AttributeName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AttributeValues",
         "ConfirmImpactSetting": "Medium",
@@ -72,25 +48,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetProducts": {
       "verb": "Get",
-      "noun": "PLSProduct",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Product",
       "pipelineProperty": "ServiceCode",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Products",
         "ConfirmImpactSetting": "Medium",
@@ -103,13 +67,7 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

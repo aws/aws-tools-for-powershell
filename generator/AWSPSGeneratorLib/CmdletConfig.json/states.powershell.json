@@ -1,32 +1,20 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.StepFunctions",
-  "sdkServiceClient": "AmazonStepFunctionsClient",
-  "sdkServiceClientConfig": "AmazonStepFunctionsConfig",
-  "legacyCmdletPrefix": "SFN",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "SFN",
+  "sdkServiceClientClass": "AmazonStepFunctionsClient",
+  "sdkServiceConfigClass": "AmazonStepFunctionsConfig",
+  "sdkServiceNamespace": "Amazon.StepFunctions",
   "serviceOperations": {
     "CreateActivity": {
       "verb": "New",
-      "noun": "SFNActivity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Activity",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Activity",
         "ConfirmImpactSetting": "Medium",
@@ -44,20 +32,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateStateMachine": {
       "verb": "New",
-      "noun": "SFNStateMachine",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StateMachine",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StateMachine",
         "ConfirmImpactSetting": "Medium",
@@ -75,20 +57,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteActivity": {
       "verb": "Remove",
-      "noun": "SFNActivity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Activity",
       "pipelineProperty": "ActivityArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Activity",
         "ConfirmImpactSetting": "High",
@@ -106,20 +82,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ActivityArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteStateMachine": {
       "verb": "Remove",
-      "noun": "SFNStateMachine",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StateMachine",
       "pipelineProperty": "StateMachineArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StateMachine",
         "ConfirmImpactSetting": "High",
@@ -137,20 +107,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StateMachineArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeActivity": {
       "verb": "Get",
-      "noun": "SFNActivity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Activity",
       "pipelineProperty": "ActivityArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Activity",
         "ConfirmImpactSetting": "Medium",
@@ -163,25 +127,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeExecution": {
       "verb": "Get",
-      "noun": "SFNExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Execution",
       "pipelineProperty": "ExecutionArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Execution",
         "ConfirmImpactSetting": "Medium",
@@ -194,25 +147,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeStateMachine": {
       "verb": "Get",
-      "noun": "SFNStateMachine",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StateMachine",
       "pipelineProperty": "StateMachineArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StateMachine",
         "ConfirmImpactSetting": "Medium",
@@ -225,25 +167,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeStateMachineForExecution": {
       "verb": "Get",
-      "noun": "SFNStateMachineForExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StateMachineForExecution",
       "pipelineProperty": "ExecutionArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StateMachineForExecution",
         "ConfirmImpactSetting": "Medium",
@@ -256,25 +187,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetActivityTask": {
       "verb": "Get",
-      "noun": "SFNActivityTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ActivityTask",
       "pipelineProperty": "ActivityArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ActivityTask",
         "ConfirmImpactSetting": "Medium",
@@ -287,25 +207,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetExecutionHistory": {
       "verb": "Get",
-      "noun": "SFNExecutionHistory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ExecutionHistory",
       "pipelineProperty": "ExecutionArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ExecutionHistory",
         "ConfirmImpactSetting": "Medium",
@@ -318,25 +226,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListActivities": {
       "verb": "Get",
-      "noun": "SFNActivityList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ActivityList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Activities",
         "ConfirmImpactSetting": "Medium",
@@ -349,25 +244,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListExecutions": {
       "verb": "Get",
-      "noun": "SFNExecutionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ExecutionList",
       "pipelineProperty": "StateMachineArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Executions",
         "ConfirmImpactSetting": "Medium",
@@ -380,25 +263,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListStateMachines": {
       "verb": "Get",
-      "noun": "SFNStateMachineList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "StateMachineList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StateMachines",
         "ConfirmImpactSetting": "Medium",
@@ -411,25 +281,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SendTaskFailure": {
       "verb": "Send",
-      "noun": "SFNTaskFailure",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TaskFailure",
       "pipelineProperty": "TaskToken",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TaskFailure",
         "ConfirmImpactSetting": "Medium",
@@ -447,20 +306,14 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TaskToken"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SendTaskHeartbeat": {
       "verb": "Send",
-      "noun": "SFNTaskHeartbeat",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TaskHeartbeat",
       "pipelineProperty": "TaskToken",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TaskHeartbeat",
         "ConfirmImpactSetting": "Medium",
@@ -478,20 +331,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TaskToken"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SendTaskSuccess": {
       "verb": "Send",
-      "noun": "SFNTaskSuccess",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TaskSuccess",
       "pipelineProperty": "TaskToken",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TaskSuccess",
         "ConfirmImpactSetting": "Medium",
@@ -509,20 +356,14 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TaskToken"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartExecution": {
       "verb": "Start",
-      "noun": "SFNExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Execution",
       "pipelineProperty": "StateMachineArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Execution",
         "ConfirmImpactSetting": "Medium",
@@ -540,20 +381,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StateMachineArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopExecution": {
       "verb": "Stop",
-      "noun": "SFNExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Execution",
       "pipelineProperty": "ExecutionArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Execution",
         "ConfirmImpactSetting": "Medium",
@@ -571,20 +405,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ExecutionArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateStateMachine": {
       "verb": "Update",
-      "noun": "SFNStateMachine",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StateMachine",
       "pipelineProperty": "StateMachineArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StateMachine",
         "ConfirmImpactSetting": "Medium",
@@ -602,8 +429,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StateMachineArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

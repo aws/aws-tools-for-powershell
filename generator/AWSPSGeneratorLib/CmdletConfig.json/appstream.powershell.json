@@ -1,31 +1,18 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "StackName",
-  "sdkServiceNamespace": "Amazon.AppStream",
-  "sdkServiceClient": "AmazonAppStreamClient",
-  "sdkServiceClientConfig": "AmazonAppStreamConfig",
-  "legacyCmdletPrefix": "APS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "StackName",
+  "legacyCmdletPrefix": "APS",
+  "sdkServiceClientClass": "AmazonAppStreamClient",
+  "sdkServiceConfigClass": "AmazonAppStreamConfig",
+  "sdkServiceNamespace": "Amazon.AppStream",
   "serviceOperations": {
     "AssociateFleet": {
       "verb": "Register",
-      "noun": "APSFleet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Fleet",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Fleet",
         "ConfirmImpactSetting": "Medium",
@@ -42,20 +29,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDirectoryConfig": {
       "verb": "New",
-      "noun": "APSDirectoryConfig",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DirectoryConfig",
       "pipelineProperty": "DirectoryName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DirectoryConfig",
         "ConfirmImpactSetting": "Medium",
@@ -72,20 +52,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateFleet": {
       "verb": "New",
-      "noun": "APSFleet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Fleet",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Fleet",
         "ConfirmImpactSetting": "Medium",
@@ -102,20 +75,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateImageBuilder": {
       "verb": "New",
-      "noun": "APSImageBuilder",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ImageBuilder",
       "pipelineProperty": "ImageName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ImageBuilder",
         "ConfirmImpactSetting": "Medium",
@@ -132,20 +98,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ImageName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateImageBuilderStreamingURL": {
       "verb": "New",
-      "noun": "APSImageBuilderStreamingURL",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ImageBuilderStreamingURL",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ImageBuilderStreamingURL",
         "ConfirmImpactSetting": "Medium",
@@ -162,20 +121,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateStack": {
       "verb": "New",
-      "noun": "APSStack",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Stack",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stack",
         "ConfirmImpactSetting": "Medium",
@@ -192,20 +144,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateStreamingURL": {
       "verb": "New",
-      "noun": "APSStreamingURL",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "StreamingURL",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StreamingURL",
         "ConfirmImpactSetting": "Medium",
@@ -222,20 +167,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDirectoryConfig": {
       "verb": "Remove",
-      "noun": "APSDirectoryConfig",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DirectoryConfig",
       "pipelineProperty": "DirectoryName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DirectoryConfig",
         "ConfirmImpactSetting": "High",
@@ -252,20 +191,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteFleet": {
       "verb": "Remove",
-      "noun": "APSFleet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Fleet",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Fleet",
         "ConfirmImpactSetting": "High",
@@ -282,20 +215,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteImage": {
       "verb": "Remove",
-      "noun": "APSImage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Image",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Image",
         "ConfirmImpactSetting": "High",
@@ -312,20 +238,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteImageBuilder": {
       "verb": "Remove",
-      "noun": "APSImageBuilder",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ImageBuilder",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ImageBuilder",
         "ConfirmImpactSetting": "High",
@@ -342,20 +261,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteStack": {
       "verb": "Remove",
-      "noun": "APSStack",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Stack",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stack",
         "ConfirmImpactSetting": "High",
@@ -372,25 +285,18 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDirectoryConfigs": {
       "verb": "Get",
-      "noun": "APSDirectoryConfigList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "DirectoryNames",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DirectoryConfigList",
       "paginationSettings": {
         "requestTokenMember": "NextToken",
         "responseTokenMember": "NextToken",
         "resultLimitMember": "MaxResults"
       },
+      "pipelineProperty": "DirectoryNames",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DirectoryConfigs",
         "ConfirmImpactSetting": "Medium",
@@ -403,25 +309,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeFleets": {
       "verb": "Get",
-      "noun": "APSFleetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FleetList",
       "pipelineProperty": "Names",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Fleets",
         "ConfirmImpactSetting": "Medium",
@@ -433,25 +327,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeImageBuilders": {
       "verb": "Get",
-      "noun": "APSImageBuilderList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ImageBuilderList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ImageBuilders",
         "ConfirmImpactSetting": "Medium",
@@ -463,25 +344,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeImages": {
       "verb": "Get",
-      "noun": "APSImageList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ImageList",
       "pipelineProperty": "Names",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Images",
         "ConfirmImpactSetting": "Medium",
@@ -493,25 +362,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeSessions": {
       "verb": "Get",
-      "noun": "APSSessionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SessionList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Sessions",
         "ConfirmImpactSetting": "Medium",
@@ -523,25 +379,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeStacks": {
       "verb": "Get",
-      "noun": "APSStackList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StackList",
       "pipelineProperty": "Names",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stacks",
         "ConfirmImpactSetting": "Medium",
@@ -553,25 +397,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisassociateFleet": {
       "verb": "Unregister",
-      "noun": "APSFleet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Fleet",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Fleet",
         "ConfirmImpactSetting": "Medium",
@@ -588,20 +420,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ExpireSession": {
       "verb": "Revoke",
-      "noun": "APSSession",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Session",
       "pipelineProperty": "SessionId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Session",
         "ConfirmImpactSetting": "Medium",
@@ -618,20 +444,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SessionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListAssociatedFleets": {
       "verb": "Get",
-      "noun": "APSAssociatedFleetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AssociatedFleetList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssociatedFleets",
         "ConfirmImpactSetting": "Medium",
@@ -643,25 +461,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListAssociatedStacks": {
       "verb": "Get",
-      "noun": "APSAssociatedStackList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssociatedStackList",
       "pipelineProperty": "FleetName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssociatedStacks",
         "ConfirmImpactSetting": "Medium",
@@ -673,25 +479,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTagsForResource": {
       "verb": "Get",
-      "noun": "APSTagsForResourceList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TagsForResourceList",
       "pipelineProperty": "ResourceArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForResource",
         "ConfirmImpactSetting": "Medium",
@@ -703,25 +497,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartFleet": {
       "verb": "Start",
-      "noun": "APSFleet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Fleet",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Fleet",
         "ConfirmImpactSetting": "Medium",
@@ -738,20 +521,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartImageBuilder": {
       "verb": "Start",
-      "noun": "APSImageBuilder",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ImageBuilder",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ImageBuilder",
         "ConfirmImpactSetting": "Medium",
@@ -768,20 +544,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopFleet": {
       "verb": "Stop",
-      "noun": "APSFleet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Fleet",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Fleet",
         "ConfirmImpactSetting": "Medium",
@@ -798,20 +568,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopImageBuilder": {
       "verb": "Stop",
-      "noun": "APSImageBuilder",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ImageBuilder",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ImageBuilder",
         "ConfirmImpactSetting": "Medium",
@@ -828,20 +591,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TagResource": {
       "verb": "Add",
-      "noun": "APSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "Tags",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "Medium",
@@ -858,20 +615,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UntagResource": {
       "verb": "Remove",
-      "noun": "APSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "TagKeys",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "High",
@@ -888,20 +639,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDirectoryConfig": {
       "verb": "Update",
-      "noun": "APSDirectoryConfig",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DirectoryConfig",
       "pipelineProperty": "DirectoryName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DirectoryConfig",
         "ConfirmImpactSetting": "Medium",
@@ -918,20 +662,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateFleet": {
       "verb": "Update",
-      "noun": "APSFleet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Fleet",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Fleet",
         "ConfirmImpactSetting": "Medium",
@@ -948,20 +685,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateStack": {
       "verb": "Update",
-      "noun": "APSStack",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Stack",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stack",
         "ConfirmImpactSetting": "Medium",
@@ -978,8 +708,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

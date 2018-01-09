@@ -1,34 +1,23 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "Name"
-  ],
-  "defaultPipelineProperty": "Rule",
-  "sdkServiceNamespace": "Amazon.CloudWatchEvents",
-  "sdkServiceClient": "AmazonCloudWatchEventsClient",
-  "sdkServiceClientConfig": "AmazonCloudWatchEventsConfig",
-  "legacyCmdletPrefix": "CWE",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": null,
     "resultLimitMember": "Limit"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "Rule",
+  "legacyCmdletPrefix": "CWE",
+  "pipelineByValuePropertyNames": [
+    "Name"
+  ],
+  "sdkServiceClientClass": "AmazonCloudWatchEventsClient",
+  "sdkServiceConfigClass": "AmazonCloudWatchEventsConfig",
+  "sdkServiceNamespace": "Amazon.CloudWatchEvents",
   "serviceOperations": {
     "DeleteRule": {
       "verb": "Remove",
-      "noun": "CWERule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Rule",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Rule",
         "ConfirmImpactSetting": "High",
@@ -46,20 +35,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEventBus": {
       "verb": "Get",
-      "noun": "CWEEventBus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "EventBus",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventBus",
         "ConfirmImpactSetting": "Medium",
@@ -72,25 +54,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": null,
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeRule": {
       "verb": "Get",
-      "noun": "CWERuleDetail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RuleDetail",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Rule",
         "ConfirmImpactSetting": "Medium",
@@ -103,25 +74,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": null,
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisableRule": {
       "verb": "Disable",
-      "noun": "CWERule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Rule",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Rule",
         "ConfirmImpactSetting": "Medium",
@@ -139,20 +99,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "EnableRule": {
       "verb": "Enable",
-      "noun": "CWERule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Rule",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Rule",
         "ConfirmImpactSetting": "Medium",
@@ -170,20 +124,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListRuleNamesByTarget": {
       "verb": "Get",
-      "noun": "CWERuleNamesByTarget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RuleNamesByTarget",
       "pipelineProperty": "TargetArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RuleNamesByTarget",
         "ConfirmImpactSetting": "Medium",
@@ -196,25 +143,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": null,
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListRules": {
       "verb": "Get",
-      "noun": "CWERule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Rule",
       "pipelineProperty": "NamePrefix",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Rules",
         "ConfirmImpactSetting": "Medium",
@@ -227,25 +162,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": null,
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTargetsByRule": {
       "verb": "Get",
-      "noun": "CWETargetsByRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TargetsByRule",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TargetsByRule",
         "ConfirmImpactSetting": "Medium",
@@ -258,25 +180,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": null,
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutEvents": {
       "verb": "Write",
-      "noun": "CWEEvent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Event",
       "pipelineProperty": "Entries",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Events",
         "ConfirmImpactSetting": "Medium",
@@ -294,20 +205,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Entries"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutPermission": {
       "verb": "Write",
-      "noun": "CWEPermission",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Permission",
       "pipelineProperty": "PrincipalId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Permission",
         "ConfirmImpactSetting": "Medium",
@@ -325,20 +230,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StatementId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutRule": {
       "verb": "Write",
-      "noun": "CWERule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Rule",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Rule",
         "ConfirmImpactSetting": "Medium",
@@ -356,20 +254,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutTargets": {
       "verb": "Write",
-      "noun": "CWETarget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Target",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Targets",
         "ConfirmImpactSetting": "Medium",
@@ -387,20 +277,14 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Rule"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemovePermission": {
       "verb": "Remove",
-      "noun": "CWEPermission",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Permission",
       "pipelineProperty": "StatementId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Permission",
         "ConfirmImpactSetting": "High",
@@ -418,20 +302,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StatementId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveTargets": {
       "verb": "Remove",
-      "noun": "CWETarget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Target",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Targets",
         "ConfirmImpactSetting": "High",
@@ -449,20 +325,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Ids"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TestEventPattern": {
       "verb": "Test",
-      "noun": "CWEEventPattern",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EventPattern",
       "pipelineProperty": "Event",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventPattern",
         "ConfirmImpactSetting": "Medium",
@@ -475,13 +344,7 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": null,
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

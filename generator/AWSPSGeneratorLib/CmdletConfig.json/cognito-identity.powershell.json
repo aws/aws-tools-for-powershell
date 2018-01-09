@@ -1,35 +1,24 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "IdentityPoolId",
-  "sdkServiceNamespace": "Amazon.CognitoIdentity",
-  "sdkServiceClient": "AmazonCognitoIdentityClient",
-  "sdkServiceClientConfig": "AmazonCognitoIdentityConfig",
-  "legacyCmdletPrefix": "CGI",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults",
     "servicePageSize": 60
   },
+  "defaultPipelineProperty": "IdentityPoolId",
+  "legacyCmdletPrefix": "CGI",
   "nounMappings": {
     "IdentityPoolRoles": "IdentityPoolRole"
   },
-  "verbMappings": {},
+  "sdkServiceClientClass": "AmazonCognitoIdentityClient",
+  "sdkServiceConfigClass": "AmazonCognitoIdentityConfig",
+  "sdkServiceNamespace": "Amazon.CognitoIdentity",
   "serviceOperations": {
     "CreateIdentityPool": {
       "verb": "New",
-      "noun": "CGIIdentityPool",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IdentityPool",
       "pipelineProperty": "IdentityPoolName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityPool",
         "ConfirmImpactSetting": "Medium",
@@ -48,23 +37,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "IdentityPoolName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteIdentities": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "DeleteIdentityPool": {
       "verb": "Remove",
-      "noun": "CGIIdentityPool",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "IdentityPool",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityPool",
         "ConfirmImpactSetting": "High",
@@ -83,23 +65,16 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "IdentityPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeIdentity": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "DescribeIdentityPool": {
       "verb": "Get",
-      "noun": "CGIIdentityPool",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "IdentityPool",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityPool",
         "ConfirmImpactSetting": "Medium",
@@ -113,31 +88,19 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetCredentialsForIdentity": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "GetId": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "GetIdentityPoolRoles": {
       "verb": "Get",
-      "noun": "CGIIdentityPoolRole",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "IdentityPoolRole",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityPoolRoles",
         "ConfirmImpactSetting": "Medium",
@@ -151,34 +114,21 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetOpenIdToken": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "GetOpenIdTokenForDeveloperIdentity": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "ListIdentities": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "ListIdentityPools": {
       "verb": "Get",
-      "noun": "CGIIdentityPoolList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "IdentityPoolList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityPools",
         "ConfirmImpactSetting": "Medium",
@@ -192,31 +142,19 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 60
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "LookupDeveloperIdentity": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "MergeDeveloperIdentities": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "SetIdentityPoolRoles": {
       "verb": "Set",
-      "noun": "CGIIdentityPoolRole",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "IdentityPoolRole",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityPoolRoles",
         "ConfirmImpactSetting": "Medium",
@@ -235,26 +173,19 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "IdentityPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UnlinkDeveloperIdentity": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "UnlinkIdentity": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "UpdateIdentityPool": {
       "verb": "Update",
-      "noun": "CGIIdentityPool",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "IdentityPool",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityPool",
         "ConfirmImpactSetting": "Medium",
@@ -273,8 +204,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "IdentityPoolId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

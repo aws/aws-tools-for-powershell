@@ -1,22 +1,17 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.CloudHSM",
-  "sdkServiceClient": "AmazonCloudHSMClient",
-  "sdkServiceClientConfig": "AmazonCloudHSMConfig",
-  "legacyCmdletPrefix": "HSM",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken"
   },
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "HSM",
   "nounMappings": {
     "Hsm": "Item",
     "Hapg": "PartitionGroup"
   },
+  "sdkServiceClientClass": "AmazonCloudHSMClient",
+  "sdkServiceConfigClass": "AmazonCloudHSMConfig",
+  "sdkServiceNamespace": "Amazon.CloudHSM",
   "verbMappings": {
     "Delete": "Remove",
     "Describe": "Get",
@@ -26,14 +21,8 @@
   "serviceOperations": {
     "AddTagsToResource": {
       "verb": "Set",
-      "noun": "HSMResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsToResource",
         "ConfirmImpactSetting": "Medium",
@@ -50,20 +39,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateHapg": {
       "verb": "New",
-      "noun": "HSMPartitionGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PartitionGroup",
       "pipelineProperty": "Label",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Hapg",
         "ConfirmImpactSetting": "Medium",
@@ -80,20 +62,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Label"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateHsm": {
       "verb": "New",
-      "noun": "HSMItem",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Item",
       "pipelineProperty": "IamRoleArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Hsm",
         "ConfirmImpactSetting": "Medium",
@@ -110,20 +86,13 @@
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateLunaClient": {
       "verb": "New",
-      "noun": "HSMLunaClient",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LunaClient",
       "pipelineProperty": "Certificate",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LunaClient",
         "ConfirmImpactSetting": "Medium",
@@ -140,20 +109,13 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Certificate"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteHapg": {
       "verb": "Remove",
-      "noun": "HSMPartitionGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PartitionGroup",
       "pipelineProperty": "HapgArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "HapgArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Hapg",
@@ -171,20 +133,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HapgArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteHsm": {
       "verb": "Remove",
-      "noun": "HSMItem",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Item",
       "pipelineProperty": "HsmArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "HsmArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Hsm",
@@ -202,20 +157,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HsmArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteLunaClient": {
       "verb": "Remove",
-      "noun": "HSMLunaClient",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LunaClient",
       "pipelineProperty": "ClientArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ClientArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LunaClient",
@@ -233,20 +181,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClientArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeHapg": {
       "verb": "Get",
-      "noun": "HSMPartitionGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PartitionGroup",
       "pipelineProperty": "HapgArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Hapg",
         "ConfirmImpactSetting": "Medium",
@@ -258,25 +200,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeHsm": {
       "verb": "Get",
-      "noun": "HSMItem",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Item",
       "pipelineProperty": "HsmArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Hsm",
         "ConfirmImpactSetting": "Medium",
@@ -288,25 +219,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeLunaClient": {
       "verb": "Get",
-      "noun": "HSMLunaClient",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LunaClient",
       "pipelineProperty": "ClientArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LunaClient",
         "ConfirmImpactSetting": "Medium",
@@ -318,25 +238,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetConfig": {
       "verb": "Get",
-      "noun": "HSMConfig",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Config",
       "pipelineProperty": "ClientArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Config",
         "ConfirmImpactSetting": "Medium",
@@ -348,25 +257,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListAvailableZones": {
       "verb": "Get",
-      "noun": "HSMAvailableZone",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "AvailableZone",
       "legacyAlias": "Get-HSMAvailableZones",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AvailableZones",
         "ConfirmImpactSetting": "Medium",
@@ -378,25 +275,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListHapgs": {
       "verb": "Get",
-      "noun": "HSMPartitionGroupList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "PartitionGroupList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Hapgs",
         "ConfirmImpactSetting": "Medium",
@@ -408,25 +292,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListHsms": {
       "verb": "Get",
-      "noun": "HSMItemList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ItemList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Hsms",
         "ConfirmImpactSetting": "Medium",
@@ -438,25 +309,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListLunaClients": {
       "verb": "Get",
-      "noun": "HSMLunaClientList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "LunaClientList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LunaClients",
         "ConfirmImpactSetting": "Medium",
@@ -468,25 +326,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTagsForResource": {
       "verb": "Get",
-      "noun": "HSMResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForResource",
         "ConfirmImpactSetting": "Medium",
@@ -498,25 +344,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyHapg": {
       "verb": "Edit",
-      "noun": "HSMPartitionGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PartitionGroup",
       "pipelineProperty": "HapgArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Hapg",
         "ConfirmImpactSetting": "Medium",
@@ -533,20 +367,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HapgArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyHsm": {
       "verb": "Edit",
-      "noun": "HSMItem",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Item",
       "pipelineProperty": "HsmArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Hsm",
         "ConfirmImpactSetting": "Medium",
@@ -563,20 +390,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HsmArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyLunaClient": {
       "verb": "Edit",
-      "noun": "HSMLunaClient",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LunaClient",
       "pipelineProperty": "ClientArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LunaClient",
         "ConfirmImpactSetting": "Medium",
@@ -593,20 +413,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClientArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveTagsFromResource": {
       "verb": "Remove",
-      "noun": "HSMResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsFromResource",
         "ConfirmImpactSetting": "High",
@@ -623,8 +436,7 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

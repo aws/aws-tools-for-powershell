@@ -1,5 +1,12 @@
 {
-  "additionalNamespaces": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "ExclusiveStartTableName",
+    "responseTokenMember": "LastEvaluatedTableName",
+    "resultLimitMember": "Limit"
+  },
+  "defaultPipelineProperty": "TableName",
+  "legacyCmdletPrefix": "DDB",
+  "legacyPositionalProperties": "TableName",
   "outputMetadataPropertyNames": [
     "ExclusiveStartTableName",
     "LastEvaluatedTableName"
@@ -7,38 +14,19 @@
   "pipelineByValuePropertyNames": [
     "TableName"
   ],
-  "defaultPipelineProperty": "TableName",
-  "legacyPositionalProperties": "TableName",
+  "sdkServiceClientClass": "AmazonDynamoDBClient",
+  "sdkServiceConfigClass": "AmazonDynamoDBConfig",
   "sdkServiceNamespace": "Amazon.DynamoDBv2",
-  "sdkServiceClient": "AmazonDynamoDBClient",
-  "sdkServiceClientConfig": "AmazonDynamoDBConfig",
-  "legacyCmdletPrefix": "DDB",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "ExclusiveStartTableName",
-    "responseTokenMember": "LastEvaluatedTableName",
-    "resultLimitMember": "Limit"
-  },
-  "nounMappings": {},
-  "verbMappings": {},
   "serviceOperations": {
     "BatchGetItem": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "BatchWriteItem": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "CreateBackup": {
       "verb": "New",
-      "noun": "DDBBackup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Backup",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Backup",
         "ConfirmImpactSetting": "Medium",
@@ -56,20 +44,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TableName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateGlobalTable": {
       "verb": "New",
-      "noun": "DDBGlobalTable",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "GlobalTable",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GlobalTable",
         "ConfirmImpactSetting": "Medium",
@@ -87,23 +67,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GlobalTableName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateTable": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "DeleteBackup": {
       "verb": "Remove",
-      "noun": "DDBBackup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Backup",
       "pipelineProperty": "BackupArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Backup",
         "ConfirmImpactSetting": "High",
@@ -121,23 +94,15 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BackupArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteItem": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "DeleteTable": {
       "verb": "Remove",
-      "noun": "DDBTable",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Table",
       "shouldProcessTargetProperty": "TableName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Table",
@@ -156,20 +121,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TableName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeBackup": {
       "verb": "Get",
-      "noun": "DDBBackup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Backup",
       "pipelineProperty": "BackupArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Backup",
         "ConfirmImpactSetting": "Medium",
@@ -182,25 +140,12 @@
           "requestTokenMember": "ExclusiveStartTableName",
           "responseTokenMember": "LastEvaluatedTableName",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeContinuousBackups": {
       "verb": "Get",
-      "noun": "DDBContinuousBackup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ContinuousBackup",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ContinuousBackups",
         "ConfirmImpactSetting": "Medium",
@@ -213,25 +158,13 @@
           "requestTokenMember": "ExclusiveStartTableName",
           "responseTokenMember": "LastEvaluatedTableName",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeGlobalTable": {
       "verb": "Get",
-      "noun": "DDBGlobalTable",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GlobalTable",
       "pipelineProperty": "GlobalTableName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GlobalTable",
         "ConfirmImpactSetting": "Medium",
@@ -244,25 +177,13 @@
           "requestTokenMember": "ExclusiveStartTableName",
           "responseTokenMember": "LastEvaluatedTableName",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeLimits": {
       "verb": "Get",
-      "noun": "DDBProvisionLimit",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ProvisionLimit",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Limits",
         "ConfirmImpactSetting": "Medium",
@@ -275,25 +196,12 @@
           "requestTokenMember": "ExclusiveStartTableName",
           "responseTokenMember": "LastEvaluatedTableName",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTable": {
       "verb": "Get",
-      "noun": "DDBTable",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Table",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Table",
         "ConfirmImpactSetting": "Medium",
@@ -306,25 +214,12 @@
           "requestTokenMember": "ExclusiveStartTableName",
           "responseTokenMember": "LastEvaluatedTableName",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTimeToLive": {
       "verb": "Get",
-      "noun": "DDBTimeToLive",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TimeToLive",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TimeToLive",
         "ConfirmImpactSetting": "Medium",
@@ -337,28 +232,16 @@
           "requestTokenMember": "ExclusiveStartTableName",
           "responseTokenMember": "LastEvaluatedTableName",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetItem": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "ListBackups": {
       "verb": "Get",
-      "noun": "DDBBackupsList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BackupsList",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Backups",
         "ConfirmImpactSetting": "Medium",
@@ -371,25 +254,13 @@
           "requestTokenMember": "ExclusiveStartTableName",
           "responseTokenMember": "LastEvaluatedTableName",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListGlobalTables": {
       "verb": "Get",
-      "noun": "DDBGlobalTablesList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "GlobalTablesList",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GlobalTables",
         "ConfirmImpactSetting": "Medium",
@@ -402,25 +273,13 @@
           "requestTokenMember": "ExclusiveStartTableName",
           "responseTokenMember": "LastEvaluatedTableName",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTables": {
       "verb": "Get",
-      "noun": "DDBTableList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "TableList",
       "legacyAlias": "Get-DDBTables",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tables",
         "ConfirmImpactSetting": "Medium",
@@ -433,25 +292,12 @@
           "requestTokenMember": "ExclusiveStartTableName",
           "responseTokenMember": "LastEvaluatedTableName",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTagsOfResource": {
       "verb": "Get",
-      "noun": "DDBResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ResourceTag",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsOfResource",
         "ConfirmImpactSetting": "Medium",
@@ -464,31 +310,18 @@
           "requestTokenMember": "ExclusiveStartTableName",
           "responseTokenMember": "LastEvaluatedTableName",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutItem": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "Query": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "RestoreTableFromBackup": {
       "verb": "Restore",
-      "noun": "DDBTableFromBackup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TableFromBackup",
       "shouldProcessTargetProperty": "TargetTableName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TableFromBackup",
@@ -507,23 +340,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "TargetTableName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "Scan": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "TagResource": {
       "verb": "Add",
-      "noun": "DDBResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ResourceTag",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "Medium",
@@ -541,20 +367,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UntagResource": {
       "verb": "Remove",
-      "noun": "DDBResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ResourceTag",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "High",
@@ -572,20 +391,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateGlobalTable": {
       "verb": "Update",
-      "noun": "DDBGlobalTable",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "GlobalTable",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GlobalTable",
         "ConfirmImpactSetting": "Medium",
@@ -603,23 +414,15 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GlobalTableName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateItem": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "UpdateTable": {
       "verb": "Update",
-      "noun": "DDBTable",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Table",
       "customParameters": [
         {
           "name": "ProvisionedThroughput_ReadCapacityUnits",
@@ -647,20 +450,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TableName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateTimeToLive": {
       "verb": "Update",
-      "noun": "DDBTimeToLive",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TimeToLive",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TimeToLive",
         "ConfirmImpactSetting": "Medium",
@@ -678,8 +473,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TableName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

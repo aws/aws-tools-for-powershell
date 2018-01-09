@@ -1,23 +1,18 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "FunctionName",
-    "UUID"
-  ],
-  "defaultPipelineProperty": "FunctionName",
-  "sdkServiceNamespace": "Amazon.Lambda",
-  "sdkServiceClient": "AmazonLambdaClient",
-  "sdkServiceClientConfig": "AmazonLambdaConfig",
-  "legacyCmdletPrefix": "LM",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "Marker",
     "responseTokenMember": "NextMarker",
     "resultLimitMember": "MaxItems"
   },
-  "nounMappings": {},
+  "defaultPipelineProperty": "FunctionName",
+  "legacyCmdletPrefix": "LM",
+  "pipelineByValuePropertyNames": [
+    "FunctionName",
+    "UUID"
+  ],
+  "sdkServiceClientClass": "AmazonLambdaClient",
+  "sdkServiceConfigClass": "AmazonLambdaConfig",
+  "sdkServiceNamespace": "Amazon.Lambda",
   "verbMappings": {
     "List": "Get",
     "Upload": "Publish"
@@ -25,14 +20,7 @@
   "serviceOperations": {
     "AddPermission": {
       "verb": "Add",
-      "noun": "LMPermission",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Permission",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Permission",
         "ConfirmImpactSetting": "Medium",
@@ -50,20 +38,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FunctionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateAlias": {
       "verb": "New",
-      "noun": "LMAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Alias",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Alias",
         "ConfirmImpactSetting": "Medium",
@@ -81,20 +62,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FunctionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateEventSourceMapping": {
       "verb": "New",
-      "noun": "LMEventSourceMapping",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "EventSourceMapping",
+      "legacyPositionalParameters": [
+        "EventSource",
+        "Role"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "EventSource;Role",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSourceMapping",
         "ConfirmImpactSetting": "Medium",
@@ -112,23 +90,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FunctionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateFunction": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "DeleteAlias": {
       "verb": "Remove",
-      "noun": "LMAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Alias",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Alias",
         "ConfirmImpactSetting": "High",
@@ -146,20 +117,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FunctionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteEventSourceMapping": {
       "verb": "Remove",
-      "noun": "LMEventSourceMapping",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EventSourceMapping",
       "pipelineProperty": "UUID",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSourceMapping",
         "ConfirmImpactSetting": "High",
@@ -177,20 +142,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UUID"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteFunction": {
       "verb": "Remove",
-      "noun": "LMFunction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Function",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Function",
         "ConfirmImpactSetting": "High",
@@ -208,20 +166,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FunctionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteFunctionConcurrency": {
       "verb": "Remove",
-      "noun": "LMFunctionConcurrency",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "FunctionConcurrency",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FunctionConcurrency",
         "ConfirmImpactSetting": "High",
@@ -239,20 +190,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FunctionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetAccountSettings": {
       "verb": "Get",
-      "noun": "LMAccountSetting",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "AccountSetting",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountSettings",
         "ConfirmImpactSetting": "Medium",
@@ -265,25 +209,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetAlias": {
       "verb": "Get",
-      "noun": "LMAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Alias",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Alias",
         "ConfirmImpactSetting": "Medium",
@@ -296,25 +228,14 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetEventSourceMapping": {
       "verb": "Get",
-      "noun": "LMEventSourceMapping",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EventSourceMapping",
       "pipelineProperty": "UUID",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSourceMapping",
         "ConfirmImpactSetting": "Medium",
@@ -327,25 +248,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetFunction": {
       "verb": "Get",
-      "noun": "LMFunction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Function",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Function",
         "ConfirmImpactSetting": "Medium",
@@ -358,25 +267,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetFunctionConfiguration": {
       "verb": "Get",
-      "noun": "LMFunctionConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "FunctionConfiguration",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FunctionConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -389,25 +286,12 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetPolicy": {
       "verb": "Get",
-      "noun": "LMPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Policy",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Policy",
         "ConfirmImpactSetting": "Medium",
@@ -420,31 +304,18 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "Invoke": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "InvokeAsync": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "ListAliases": {
       "verb": "Get",
-      "noun": "LMAliasList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AliasList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Aliases",
         "ConfirmImpactSetting": "Medium",
@@ -457,25 +328,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListEventSourceMappings": {
       "verb": "Get",
-      "noun": "LMEventSourceMappingList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "EventSourceMappingList",
       "legacyAlias": "Get-LMEventSourceMappings",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSourceMappings",
         "ConfirmImpactSetting": "Medium",
@@ -488,25 +347,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListFunctions": {
       "verb": "Get",
-      "noun": "LMFunctionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "FunctionList",
       "legacyAlias": "Get-LMFunctions",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Functions",
         "ConfirmImpactSetting": "Medium",
@@ -519,25 +366,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTags": {
       "verb": "Get",
-      "noun": "LMResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "Resource",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -550,25 +385,12 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListVersionsByFunction": {
       "verb": "Get",
-      "noun": "LMVersionsByFunction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "VersionsByFunction",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VersionsByFunction",
         "ConfirmImpactSetting": "Medium",
@@ -581,25 +403,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PublishVersion": {
       "verb": "Publish",
-      "noun": "LMVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Version",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Version",
         "ConfirmImpactSetting": "Medium",
@@ -617,20 +427,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FunctionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutFunctionConcurrency": {
       "verb": "Write",
-      "noun": "LMFunctionConcurrency",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "FunctionConcurrency",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FunctionConcurrency",
         "ConfirmImpactSetting": "Medium",
@@ -648,20 +450,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FunctionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemovePermission": {
       "verb": "Remove",
-      "noun": "LMPermission",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Permission",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Permission",
         "ConfirmImpactSetting": "High",
@@ -679,20 +474,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FunctionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TagResource": {
       "verb": "Add",
-      "noun": "LMResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "Resource",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "Medium",
@@ -710,20 +499,14 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Resource"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UntagResource": {
       "verb": "Remove",
-      "noun": "LMResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "TagKeys",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Resource",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
@@ -742,20 +525,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Resource"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateAlias": {
       "verb": "Update",
-      "noun": "LMAlias",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Alias",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Alias",
         "ConfirmImpactSetting": "Medium",
@@ -773,20 +549,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FunctionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateEventSourceMapping": {
       "verb": "Update",
-      "noun": "LMEventSourceMapping",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "EventSourceMapping",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSourceMapping",
         "ConfirmImpactSetting": "Medium",
@@ -804,23 +573,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FunctionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateFunctionCode": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "UpdateFunctionConfiguration": {
       "verb": "Update",
-      "noun": "LMFunctionConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "FunctionConfiguration",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FunctionConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -838,8 +600,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FunctionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

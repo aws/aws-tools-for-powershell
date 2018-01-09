@@ -1,31 +1,18 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.CostAndUsageReport",
-  "sdkServiceClient": "AmazonCostAndUsageReportClient",
-  "sdkServiceClientConfig": "AmazonCostAndUsageReportConfig",
-  "legacyCmdletPrefix": "CUR",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": null,
     "responseTokenMember": null
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "CUR",
+  "sdkServiceClientClass": "AmazonCostAndUsageReportClient",
+  "sdkServiceConfigClass": "AmazonCostAndUsageReportConfig",
+  "sdkServiceNamespace": "Amazon.CostAndUsageReport",
   "serviceOperations": {
     "DeleteReportDefinition": {
       "verb": "Remove",
-      "noun": "CURReportDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReportDefinition",
       "pipelineProperty": "ReportName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReportDefinition",
         "ConfirmImpactSetting": "High",
@@ -42,20 +29,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ReportName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeReportDefinitions": {
       "verb": "Get",
-      "noun": "CURReportDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ReportDefinition",
       "legacyAlias": "Get-CURReportDefinitions",
-      "metadataOutputProperties": "",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReportDefinitions",
         "ConfirmImpactSetting": "Medium",
@@ -67,25 +48,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutReportDefinition": {
       "verb": "Write",
-      "noun": "CURReportDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReportDefinition",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReportDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -102,8 +72,7 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ReportName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

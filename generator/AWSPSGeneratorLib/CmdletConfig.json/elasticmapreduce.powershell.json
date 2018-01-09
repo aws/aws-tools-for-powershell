@@ -1,6 +1,16 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "Marker",
+    "responseTokenMember": "Marker"
+  },
+  "defaultPipelineProperty": "JobFlowId",
+  "legacyCmdletPrefix": "EMR",
+  "legacyPositionalProperties": "JobFlowId",
+  "nounMappings": {
+    "InstanceGroups": "InstanceGroup",
+    "JobFlowSteps": "JobFlowStep",
+    "JobFlows": "JobFlow"
+  },
   "pipelineByValuePropertyNames": [
     "JobFlowId",
     "ClusterId",
@@ -8,23 +18,9 @@
     "ResourceId",
     "StepId"
   ],
-  "defaultPipelineProperty": "JobFlowId",
-  "legacyPositionalProperties": "JobFlowId",
+  "sdkServiceClientClass": "AmazonElasticMapReduceClient",
+  "sdkServiceConfigClass": "AmazonElasticMapReduceConfig",
   "sdkServiceNamespace": "Amazon.ElasticMapReduce",
-  "sdkServiceClient": "AmazonElasticMapReduceClient",
-  "sdkServiceClientConfig": "AmazonElasticMapReduceConfig",
-  "legacyCmdletPrefix": "EMR",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "Marker",
-    "responseTokenMember": "Marker"
-  },
-  "nounMappings": {
-    "InstanceGroups": "InstanceGroup",
-    "JobFlowSteps": "JobFlowStep",
-    "JobFlows": "JobFlow"
-  },
   "verbMappings": {
     "Run": "Start",
     "Terminate": "Stop",
@@ -33,14 +29,9 @@
   "serviceOperations": {
     "AddInstanceFleet": {
       "verb": "Add",
-      "noun": "EMRInstanceFleet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceFleet",
       "pipelineProperty": "ClusterId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceFleet",
         "ConfirmImpactSetting": "Medium",
@@ -57,20 +48,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddInstanceGroups": {
       "verb": "Add",
-      "noun": "EMRInstanceGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "InstanceGroup",
+      "legacyPositionalParameters": [
+        "InstanceGroups"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "InstanceGroups",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceGroups",
         "ConfirmImpactSetting": "Medium",
@@ -87,20 +74,15 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobFlowId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddJobFlowSteps": {
       "verb": "Add",
-      "noun": "EMRJobFlowStep",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "Steps",
+      "noun": "JobFlowStep",
+      "legacyPositionalParameters": [
+        "Steps"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobFlowSteps",
         "ConfirmImpactSetting": "Medium",
@@ -117,25 +99,23 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobFlowId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddTags": {
       "verb": "Add",
-      "noun": "EMRResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "Add-EMRTag",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "ResourceId",
-      "output": "Void",
-      "legacyPositionalParameters": "Tags",
+      "legacyPositionalParameters": [
+        "Tags"
+      ],
       "passThru": {
         "documentation": "Returns the collection of Tag objects that were added",
         "expression": "cmdletContext.Tags",
         "type": null
       },
+      "pipelineProperty": "ResourceId",
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -152,20 +132,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CancelSteps": {
       "verb": "Stop",
-      "noun": "EMRStep",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Step",
       "legacyAlias": "Stop-EMRSteps",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ClusterId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Steps",
         "ConfirmImpactSetting": "Medium",
@@ -182,20 +156,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateSecurityConfiguration": {
       "verb": "New",
-      "noun": "EMRSecurityConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SecurityConfiguration",
       "pipelineProperty": "SecurityConfiguration",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SecurityConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -212,20 +180,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSecurityConfiguration": {
       "verb": "Remove",
-      "noun": "EMRSecurityConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SecurityConfiguration",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SecurityConfiguration",
         "ConfirmImpactSetting": "High",
@@ -242,20 +204,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeCluster": {
       "verb": "Get",
-      "noun": "EMRCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Cluster",
       "pipelineProperty": "ClusterId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Cluster",
         "ConfirmImpactSetting": "Medium",
@@ -267,25 +222,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeJobFlows": {
       "verb": "Get",
-      "noun": "EMRJobFlow",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "JobFlow",
       "pipelineProperty": "JobFlowIds",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobFlows",
         "ConfirmImpactSetting": "Medium",
@@ -297,25 +240,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeSecurityConfiguration": {
       "verb": "Get",
-      "noun": "EMRSecurityConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SecurityConfiguration",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SecurityConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -327,25 +259,16 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeStep": {
       "verb": "Get",
-      "noun": "EMRStep",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Step",
+      "legacyPositionalParameters": [
+        "ClusterId"
+      ],
       "pipelineProperty": "StepId",
-      "output": "Default",
-      "legacyPositionalParameters": "ClusterId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Step",
         "ConfirmImpactSetting": "Medium",
@@ -357,25 +280,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListBootstrapActions": {
       "verb": "Get",
-      "noun": "EMRBootstrapActionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "BootstrapActionList",
       "legacyAlias": "Get-EMRBootstrapActions",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ClusterId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BootstrapActions",
         "ConfirmImpactSetting": "Medium",
@@ -387,25 +299,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListClusters": {
       "verb": "Get",
-      "noun": "EMRClusterList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ClusterList",
       "legacyAlias": "Get-EMRClusters",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Clusters",
         "ConfirmImpactSetting": "Medium",
@@ -417,25 +317,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListInstanceFleets": {
       "verb": "Get",
-      "noun": "EMRInstanceFleetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "InstanceFleetList",
       "legacyAlias": "Get-EMRInstanceFleets",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ClusterId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceFleets",
         "ConfirmImpactSetting": "Medium",
@@ -447,25 +336,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListInstanceGroups": {
       "verb": "Get",
-      "noun": "EMRInstanceGroupList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "InstanceGroupList",
       "legacyAlias": "Get-EMRInstanceGroups",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ClusterId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceGroups",
         "ConfirmImpactSetting": "Medium",
@@ -477,25 +355,18 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListInstances": {
       "verb": "Get",
-      "noun": "EMRInstanceList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "InstanceList",
       "legacyAlias": "Get-EMRInstances",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "ClusterId",
+        "InstanceGroupTypes"
+      ],
       "pipelineProperty": "InstanceGroupId",
-      "output": "Default",
-      "legacyPositionalParameters": "ClusterId;InstanceGroupTypes",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instances",
         "ConfirmImpactSetting": "Medium",
@@ -507,25 +378,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListSecurityConfigurations": {
       "verb": "Get",
-      "noun": "EMRSecurityConfigurationList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SecurityConfigurationList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SecurityConfigurations",
         "ConfirmImpactSetting": "Medium",
@@ -537,25 +395,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListSteps": {
       "verb": "Get",
-      "noun": "EMRStepList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "StepList",
       "legacyAlias": "Get-EMRSteps",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ClusterId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Steps",
         "ConfirmImpactSetting": "Medium",
@@ -567,25 +414,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyInstanceFleet": {
       "verb": "Edit",
-      "noun": "EMRInstanceFleet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceFleet",
       "pipelineProperty": "ClusterId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceFleet",
         "ConfirmImpactSetting": "Medium",
@@ -602,20 +438,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyInstanceGroups": {
       "verb": "Edit",
-      "noun": "EMRInstanceGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "InstanceGroup",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceGroups",
         "ConfirmImpactSetting": "Medium",
@@ -632,20 +461,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutAutoScalingPolicy": {
       "verb": "Write",
-      "noun": "EMRAutoScalingPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AutoScalingPolicy",
       "pipelineProperty": "ClusterId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AutoScalingPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -662,20 +485,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveAutoScalingPolicy": {
       "verb": "Remove",
-      "noun": "EMRAutoScalingPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AutoScalingPolicy",
       "pipelineProperty": "ClusterId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AutoScalingPolicy",
         "ConfirmImpactSetting": "High",
@@ -692,26 +509,24 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveTags": {
       "verb": "Remove",
-      "noun": "EMRResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "Remove-EMRTag",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "ResourceId",
-      "output": "Void",
-      "legacyPositionalParameters": "TagKeys",
-      "shouldProcessTargetProperty": "TagKeys",
+      "legacyPositionalParameters": [
+        "TagKeys"
+      ],
       "passThru": {
         "documentation": "Returns the collection of Tag keys that were removed",
         "expression": "cmdletContext.TagKeys",
         "type": null
       },
+      "pipelineProperty": "ResourceId",
+      "output": "Void",
+      "shouldProcessTargetProperty": "TagKeys",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "High",
@@ -728,20 +543,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "TagKeys"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RunJobFlow": {
       "verb": "Start",
-      "noun": "EMRJobFlow",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": "Name;LogUri",
+      "noun": "JobFlow",
       "customParameters": [
         {
           "name": "Instances_Placement_AvailabilityZone",
@@ -760,6 +567,11 @@
           "autoRename": "false"
         }
       ],
+      "legacyPositionalParameters": [
+        "Name",
+        "LogUri"
+      ],
+      "pipelineProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobFlow",
         "ConfirmImpactSetting": "Medium",
@@ -776,20 +588,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetTerminationProtection": {
       "verb": "Set",
-      "noun": "EMRTerminationProtection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TerminationProtection",
+      "legacyPositionalParameters": [
+        "TerminationProtected"
+      ],
       "pipelineProperty": "JobFlowIds",
       "output": "Void",
-      "legacyPositionalParameters": "TerminationProtected",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TerminationProtection",
         "ConfirmImpactSetting": "Medium",
@@ -806,20 +615,18 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobFlowIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetVisibleToAllUsers": {
       "verb": "Set",
-      "noun": "EMRVisibleToAllUser",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "VisibleToAllUser",
       "legacyAlias": "Set-EMRVisibleToAllUsers",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "VisibleToAllUsers"
+      ],
       "pipelineProperty": "JobFlowIds",
       "output": "Void",
-      "legacyPositionalParameters": "VisibleToAllUsers",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VisibleToAllUsers",
         "ConfirmImpactSetting": "Medium",
@@ -836,20 +643,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobFlowIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TerminateJobFlows": {
       "verb": "Stop",
-      "noun": "EMRJobFlow",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "JobFlow",
       "pipelineProperty": "JobFlowIds",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobFlows",
         "ConfirmImpactSetting": "Medium",
@@ -866,8 +667,7 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobFlowIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

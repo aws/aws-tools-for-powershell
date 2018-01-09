@@ -1,34 +1,22 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "CurrentApplicationVersionId",
-    "ApplicationName"
-  ],
-  "defaultPipelineProperty": "ApplicationName",
-  "sdkServiceNamespace": "Amazon.KinesisAnalytics",
-  "sdkServiceClient": "AmazonKinesisAnalyticsClient",
-  "sdkServiceClientConfig": "AmazonKinesisAnalyticsConfig",
-  "legacyCmdletPrefix": "KINA",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": null,
     "responseTokenMember": null
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "ApplicationName",
+  "legacyCmdletPrefix": "KINA",
+  "pipelineByValuePropertyNames": [
+    "CurrentApplicationVersionId",
+    "ApplicationName"
+  ],
+  "sdkServiceClientClass": "AmazonKinesisAnalyticsClient",
+  "sdkServiceConfigClass": "AmazonKinesisAnalyticsConfig",
+  "sdkServiceNamespace": "Amazon.KinesisAnalytics",
   "serviceOperations": {
     "AddApplicationCloudWatchLoggingOption": {
       "verb": "Add",
-      "noun": "KINAApplicationCloudWatchLoggingOption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ApplicationCloudWatchLoggingOption",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationCloudWatchLoggingOption",
         "ConfirmImpactSetting": "Medium",
@@ -45,20 +33,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddApplicationInput": {
       "verb": "Add",
-      "noun": "KINAApplicationInput",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ApplicationInput",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationInput",
         "ConfirmImpactSetting": "Medium",
@@ -75,20 +56,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddApplicationInputProcessingConfiguration": {
       "verb": "Add",
-      "noun": "KINAApplicationInputProcessingConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ApplicationInputProcessingConfiguration",
       "pipelineProperty": "CurrentApplicationVersionId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationInputProcessingConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -105,20 +80,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CurrentApplicationVersionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddApplicationOutput": {
       "verb": "Add",
-      "noun": "KINAApplicationOutput",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ApplicationOutput",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationOutput",
         "ConfirmImpactSetting": "Medium",
@@ -135,20 +103,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddApplicationReferenceDataSource": {
       "verb": "Add",
-      "noun": "KINAApplicationReferenceDataSource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ApplicationReferenceDataSource",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationReferenceDataSource",
         "ConfirmImpactSetting": "Medium",
@@ -165,20 +126,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateApplication": {
       "verb": "New",
-      "noun": "KINAApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Application",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Application",
         "ConfirmImpactSetting": "Medium",
@@ -195,20 +148,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteApplication": {
       "verb": "Remove",
-      "noun": "KINAApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Application",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Application",
         "ConfirmImpactSetting": "High",
@@ -225,20 +171,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteApplicationCloudWatchLoggingOption": {
       "verb": "Remove",
-      "noun": "KINAApplicationCloudWatchLoggingOption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ApplicationCloudWatchLoggingOption",
       "pipelineProperty": "CloudWatchLoggingOptionId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationCloudWatchLoggingOption",
         "ConfirmImpactSetting": "High",
@@ -255,20 +195,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CloudWatchLoggingOptionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteApplicationInputProcessingConfiguration": {
       "verb": "Remove",
-      "noun": "KINAApplicationInputProcessingConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ApplicationInputProcessingConfiguration",
       "pipelineProperty": "CurrentApplicationVersionId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationInputProcessingConfiguration",
         "ConfirmImpactSetting": "High",
@@ -285,20 +219,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CurrentApplicationVersionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteApplicationOutput": {
       "verb": "Remove",
-      "noun": "KINAApplicationOutput",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ApplicationOutput",
       "pipelineProperty": "OutputId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationOutput",
         "ConfirmImpactSetting": "High",
@@ -315,20 +243,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "OutputId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteApplicationReferenceDataSource": {
       "verb": "Remove",
-      "noun": "KINAApplicationReferenceDataSource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ApplicationReferenceDataSource",
       "pipelineProperty": "ReferenceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationReferenceDataSource",
         "ConfirmImpactSetting": "High",
@@ -345,20 +267,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ReferenceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeApplication": {
       "verb": "Get",
-      "noun": "KINAApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Application",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Application",
         "ConfirmImpactSetting": "Medium",
@@ -370,25 +284,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DiscoverInputSchema": {
       "verb": "Find",
-      "noun": "KINAInputSchema",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "InputSchema",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InputSchema",
         "ConfirmImpactSetting": "Medium",
@@ -400,28 +302,16 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListApplications": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "StartApplication": {
       "verb": "Start",
-      "noun": "KINAApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Application",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Application",
         "ConfirmImpactSetting": "Medium",
@@ -438,20 +328,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopApplication": {
       "verb": "Stop",
-      "noun": "KINAApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Application",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Application",
         "ConfirmImpactSetting": "Medium",
@@ -468,20 +351,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateApplication": {
       "verb": "Update",
-      "noun": "KINAApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Application",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Application",
         "ConfirmImpactSetting": "Medium",
@@ -498,8 +374,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

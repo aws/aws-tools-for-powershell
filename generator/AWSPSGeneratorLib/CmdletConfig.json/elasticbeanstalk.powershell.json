@@ -1,5 +1,24 @@
 {
-  "additionalNamespaces": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken",
+    "resultLimitMember": "MaxRecords",
+    "servicePageSize": 1000
+  },
+  "defaultPipelineProperty": "ApplicationName",
+  "legacyCmdletPrefix": "EB",
+  "legacyPositionalProperties": "ApplicationName",
+  "nounMappings": {
+    "Applications": "Application",
+    "ApplicationVersions": "ApplicationVersion",
+    "AvailableSolutionStacks": "AvailableSolutionStack",
+    "ConfigurationOptions": "ConfigurationOption",
+    "ConfigurationSettings": "ConfigurationSetting",
+    "EnvironmentResources": "EnvironmentResource",
+    "Environments": "Environment",
+    "Events": "Event",
+    "EnvironmentCNAMEs": "EnvironmentCNAME"
+  },
   "outputMetadataPropertyNames": [
     "RefreshedAt"
   ],
@@ -12,31 +31,9 @@
     "EnvironmentName",
     "TemplateName"
   ],
-  "defaultPipelineProperty": "ApplicationName",
-  "legacyPositionalProperties": "ApplicationName",
+  "sdkServiceClientClass": "AmazonElasticBeanstalkClient",
+  "sdkServiceConfigClass": "AmazonElasticBeanstalkConfig",
   "sdkServiceNamespace": "Amazon.ElasticBeanstalk",
-  "sdkServiceClient": "AmazonElasticBeanstalkClient",
-  "sdkServiceClientConfig": "AmazonElasticBeanstalkConfig",
-  "legacyCmdletPrefix": "EB",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken",
-    "resultLimitMember": "MaxRecords",
-    "servicePageSize": 1000
-  },
-  "nounMappings": {
-    "Applications": "Application",
-    "ApplicationVersions": "ApplicationVersion",
-    "AvailableSolutionStacks": "AvailableSolutionStack",
-    "ConfigurationOptions": "ConfigurationOption",
-    "ConfigurationSettings": "ConfigurationSetting",
-    "EnvironmentResources": "EnvironmentResource",
-    "Environments": "Environment",
-    "Events": "Event",
-    "EnvironmentCNAMEs": "EnvironmentCNAME"
-  },
   "verbMappings": {
     "List": "Get",
     "Terminate": "Stop",
@@ -48,14 +45,8 @@
   "serviceOperations": {
     "AbortEnvironmentUpdate": {
       "verb": "Stop",
-      "noun": "EBEnvironmentUpdate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "EnvironmentUpdate",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "EnvironmentName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EnvironmentUpdate",
@@ -75,20 +66,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "EnvironmentName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ApplyEnvironmentManagedAction": {
       "verb": "Submit",
-      "noun": "EBEnvironmentManagedAction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "EnvironmentManagedAction",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "EnvironmentName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EnvironmentManagedAction",
@@ -108,20 +92,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "EnvironmentName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CheckDNSAvailability": {
       "verb": "Get",
-      "noun": "EBDNSAvailability",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DNSAvailability",
       "pipelineProperty": "CNAMEPrefix",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DNSAvailability",
         "ConfirmImpactSetting": "Medium",
@@ -135,25 +113,12 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 1000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ComposeEnvironments": {
       "verb": "Group",
-      "noun": "EBEnvironment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Environment",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Environments",
         "ConfirmImpactSetting": "Medium",
@@ -172,20 +137,15 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateApplication": {
       "verb": "New",
-      "noun": "EBApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "Description",
+      "noun": "Application",
+      "legacyPositionalParameters": [
+        "Description"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Application",
         "ConfirmImpactSetting": "Medium",
@@ -204,20 +164,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateApplicationVersion": {
       "verb": "New",
-      "noun": "EBApplicationVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "VersionLabel;Description",
+      "noun": "ApplicationVersion",
+      "legacyPositionalParameters": [
+        "VersionLabel",
+        "Description"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationVersion",
         "ConfirmImpactSetting": "Medium",
@@ -236,20 +192,20 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateConfigurationTemplate": {
       "verb": "New",
-      "noun": "EBConfigurationTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ConfigurationTemplate",
+      "legacyPositionalParameters": [
+        "TemplateName",
+        "SolutionStackName",
+        "EnvironmentId",
+        "Description",
+        "SourceConfiguration"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "TemplateName;SolutionStackName;EnvironmentId;Description;SourceConfiguration",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationTemplate",
         "ConfirmImpactSetting": "Medium",
@@ -268,20 +224,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateEnvironment": {
       "verb": "New",
-      "noun": "EBEnvironment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Environment",
+      "legacyPositionalParameters": [
+        "EnvironmentName"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "EnvironmentName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Environment",
         "ConfirmImpactSetting": "Medium",
@@ -300,20 +252,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreatePlatformVersion": {
       "verb": "New",
-      "noun": "EBPlatformVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PlatformVersion",
       "pipelineProperty": "PlatformName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PlatformVersion",
         "ConfirmImpactSetting": "Medium",
@@ -332,20 +278,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PlatformName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateStorageLocation": {
       "verb": "New",
-      "noun": "EBStorageLocation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "StorageLocation",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StorageLocation",
         "ConfirmImpactSetting": "Medium",
@@ -364,20 +302,13 @@
           "analysisMessage": "No parameters, setting anonymous target",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteApplication": {
       "verb": "Remove",
-      "noun": "EBApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Application",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ApplicationName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Application",
@@ -397,20 +328,17 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ApplicationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteApplicationVersion": {
       "verb": "Remove",
-      "noun": "EBApplicationVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ApplicationVersion",
+      "legacyPositionalParameters": [
+        "VersionLabel",
+        "DeleteSourceBundle"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "VersionLabel;DeleteSourceBundle",
       "shouldProcessTargetProperty": "VersionLabel",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationVersion",
@@ -430,20 +358,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "VersionLabel"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteConfigurationTemplate": {
       "verb": "Remove",
-      "noun": "EBConfigurationTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ConfigurationTemplate",
+      "legacyPositionalParameters": [
+        "TemplateName"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "TemplateName",
       "shouldProcessTargetProperty": "TemplateName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationTemplate",
@@ -463,26 +387,22 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "TemplateName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteEnvironmentConfiguration": {
       "verb": "Remove",
-      "noun": "EBEnvironmentConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Void",
-      "legacyPositionalParameters": "EnvironmentName",
-      "shouldProcessTargetProperty": "EnvironmentName",
+      "noun": "EnvironmentConfiguration",
+      "legacyPositionalParameters": [
+        "EnvironmentName"
+      ],
       "passThru": {
         "documentation": "Returns the name of the environment that was updated",
         "expression": "cmdletContext.EnvironmentName",
         "type": "System.String"
       },
+      "output": "Void",
+      "shouldProcessTargetProperty": "EnvironmentName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EnvironmentConfiguration",
         "ConfirmImpactSetting": "High",
@@ -501,20 +421,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "EnvironmentName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeletePlatformVersion": {
       "verb": "Remove",
-      "noun": "EBPlatformVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PlatformVersion",
       "pipelineProperty": "PlatformArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "PlatformArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PlatformVersion",
@@ -534,20 +447,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PlatformArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeApplications": {
       "verb": "Get",
-      "noun": "EBApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Application",
       "legacyAlias": "Get-EBApplications",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ApplicationNames",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Applications",
         "ConfirmImpactSetting": "Medium",
@@ -561,25 +468,16 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 1000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeApplicationVersions": {
       "verb": "Get",
-      "noun": "EBApplicationVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ApplicationVersion",
       "legacyAlias": "Get-EBApplicationVersions",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "VersionLabels",
+      "legacyPositionalParameters": [
+        "VersionLabels"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationVersions",
         "ConfirmImpactSetting": "Medium",
@@ -593,25 +491,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 1000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeConfigurationOptions": {
       "verb": "Get",
-      "noun": "EBConfigurationOption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ConfigurationOption",
       "legacyAlias": "Get-EBConfigurationOptions",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationOptions",
         "ConfirmImpactSetting": "Medium",
@@ -625,25 +512,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 1000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeConfigurationSettings": {
       "verb": "Get",
-      "noun": "EBConfigurationSetting",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ConfigurationSetting",
       "legacyAlias": "Get-EBConfigurationSettings",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationSettings",
         "ConfirmImpactSetting": "Medium",
@@ -657,25 +532,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 1000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEnvironmentHealth": {
       "verb": "Get",
-      "noun": "EBEnvironmentHealth",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EnvironmentHealth",
       "pipelineProperty": "EnvironmentId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EnvironmentHealth",
         "ConfirmImpactSetting": "Medium",
@@ -689,25 +553,12 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 1000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEnvironmentManagedActionHistory": {
       "verb": "Get",
-      "noun": "EBEnvironmentManagedActionHistory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "EnvironmentManagedActionHistory",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EnvironmentManagedActionHistory",
         "ConfirmImpactSetting": "Medium",
@@ -721,25 +572,12 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 1000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEnvironmentManagedActions": {
       "verb": "Get",
-      "noun": "EBEnvironmentManagedAction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "EnvironmentManagedAction",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EnvironmentManagedActions",
         "ConfirmImpactSetting": "Medium",
@@ -753,25 +591,17 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 1000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEnvironmentResources": {
       "verb": "Get",
-      "noun": "EBEnvironmentResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "EnvironmentResource",
       "legacyAlias": "Get-EBEnvironmentResources",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "EnvironmentName"
+      ],
       "pipelineProperty": "EnvironmentId",
-      "output": "Default",
-      "legacyPositionalParameters": "EnvironmentName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EnvironmentResources",
         "ConfirmImpactSetting": "Medium",
@@ -785,25 +615,16 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 1000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEnvironments": {
       "verb": "Get",
-      "noun": "EBEnvironment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "EnvironmentIds;VersionLabel",
+      "noun": "Environment",
+      "legacyPositionalParameters": [
+        "EnvironmentIds",
+        "VersionLabel"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Environments",
         "ConfirmImpactSetting": "Medium",
@@ -817,25 +638,12 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 1000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEvents": {
       "verb": "Get",
-      "noun": "EBEvent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Event",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Events",
         "ConfirmImpactSetting": "Medium",
@@ -849,25 +657,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 1000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeInstancesHealth": {
       "verb": "Get",
-      "noun": "EBInstanceHealth",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceHealth",
       "pipelineProperty": "EnvironmentId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstancesHealth",
         "ConfirmImpactSetting": "Medium",
@@ -881,25 +677,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 1000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribePlatformVersion": {
       "verb": "Get",
-      "noun": "EBPlatformVersionDetail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PlatformVersionDetail",
       "pipelineProperty": "PlatformArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PlatformVersion",
         "ConfirmImpactSetting": "Medium",
@@ -913,25 +697,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 1000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListAvailableSolutionStacks": {
       "verb": "Get",
-      "noun": "EBAvailableSolutionStackList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "AvailableSolutionStackList",
       "legacyAlias": "Get-EBAvailableSolutionStack",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AvailableSolutionStacks",
         "ConfirmImpactSetting": "Medium",
@@ -945,25 +718,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 1000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListPlatformVersions": {
       "verb": "Get",
-      "noun": "EBPlatformVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PlatformVersion",
       "pipelineProperty": "Filters",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PlatformVersions",
         "ConfirmImpactSetting": "Medium",
@@ -977,25 +738,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 1000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTagsForResource": {
       "verb": "Get",
-      "noun": "EBResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForResource",
         "ConfirmImpactSetting": "Medium",
@@ -1009,30 +759,22 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 1000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RebuildEnvironment": {
       "verb": "Start",
-      "noun": "EBEnvironmentRebuild",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "EnvironmentId",
-      "output": "Void",
-      "legacyPositionalParameters": "EnvironmentName",
+      "noun": "EnvironmentRebuild",
+      "legacyPositionalParameters": [
+        "EnvironmentName"
+      ],
       "passThru": {
         "documentation": "Returns the id or name of the environment (depending on which parameter was supplied)",
         "expression": "GetFirstAssignedParameterValue(\"EnvironmentId\", \"EnvironmentName\")",
         "type": "System.String"
       },
+      "pipelineProperty": "EnvironmentId",
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Environment",
         "ConfirmImpactSetting": "Medium",
@@ -1051,25 +793,23 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EnvironmentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RequestEnvironmentInfo": {
       "verb": "Request",
-      "noun": "EBEnvironmentInfo",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "EnvironmentId",
-      "output": "Void",
-      "legacyPositionalParameters": "EnvironmentName;InfoType",
+      "noun": "EnvironmentInfo",
+      "legacyPositionalParameters": [
+        "EnvironmentName",
+        "InfoType"
+      ],
       "passThru": {
         "documentation": "Returns the id or name of the environment (depending on which parameter was supplied)",
         "expression": "GetFirstAssignedParameterValue(\"EnvironmentId\", \"EnvironmentName\")",
         "type": "System.String"
       },
+      "pipelineProperty": "EnvironmentId",
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EnvironmentInfo",
         "ConfirmImpactSetting": "Medium",
@@ -1088,25 +828,22 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EnvironmentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RestartAppServer": {
       "verb": "Restart",
-      "noun": "EBAppServer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "EnvironmentId",
-      "output": "Void",
-      "legacyPositionalParameters": "EnvironmentName",
+      "noun": "AppServer",
+      "legacyPositionalParameters": [
+        "EnvironmentName"
+      ],
       "passThru": {
         "documentation": "Returns the id or name of the environment (depending on which parameter was supplied)",
         "expression": "GetFirstAssignedParameterValue(\"EnvironmentId\", \"EnvironmentName\")",
         "type": "System.String"
       },
+      "pipelineProperty": "EnvironmentId",
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AppServer",
         "ConfirmImpactSetting": "Medium",
@@ -1125,20 +862,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EnvironmentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RetrieveEnvironmentInfo": {
       "verb": "Get",
-      "noun": "EBEnvironmentInfo",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EnvironmentInfo",
+      "legacyPositionalParameters": [
+        "EnvironmentName",
+        "InfoType"
+      ],
       "pipelineProperty": "EnvironmentId",
-      "output": "Default",
-      "legacyPositionalParameters": "EnvironmentName;InfoType",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EnvironmentInfo",
         "ConfirmImpactSetting": "Medium",
@@ -1152,25 +886,20 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 1000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SwapEnvironmentCNAMEs": {
       "verb": "Set",
-      "noun": "EBEnvironmentCNAME",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "EnvironmentCNAME",
       "legacyAlias": "Set-EBEnvironmentCNAMEs",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "SourceEnvironmentName",
+        "DestinationEnvironmentId",
+        "DestinationEnvironmentName"
+      ],
       "pipelineProperty": "SourceEnvironmentId",
       "output": "Void",
-      "legacyPositionalParameters": "SourceEnvironmentName;DestinationEnvironmentId;DestinationEnvironmentName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EnvironmentCNAMEs",
         "ConfirmImpactSetting": "Medium",
@@ -1189,20 +918,18 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SourceEnvironmentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TerminateEnvironment": {
       "verb": "Stop",
-      "noun": "EBEnvironment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Environment",
+      "legacyPositionalParameters": [
+        "EnvironmentName",
+        "TerminateResources"
+      ],
       "pipelineProperty": "EnvironmentId",
       "output": "Response",
-      "legacyPositionalParameters": "EnvironmentName;TerminateResources",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Environment",
         "ConfirmImpactSetting": "Medium",
@@ -1221,20 +948,15 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EnvironmentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateApplication": {
       "verb": "Update",
-      "noun": "EBApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "Description",
+      "noun": "Application",
+      "legacyPositionalParameters": [
+        "Description"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Application",
         "ConfirmImpactSetting": "Medium",
@@ -1253,20 +975,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateApplicationResourceLifecycle": {
       "verb": "Update",
-      "noun": "EBApplicationResourceLifecycle",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ApplicationResourceLifecycle",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationResourceLifecycle",
         "ConfirmImpactSetting": "Medium",
@@ -1285,20 +1000,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateApplicationVersion": {
       "verb": "Update",
-      "noun": "EBApplicationVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "VersionLabel;Description",
+      "noun": "ApplicationVersion",
+      "legacyPositionalParameters": [
+        "VersionLabel",
+        "Description"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationVersion",
         "ConfirmImpactSetting": "Medium",
@@ -1317,20 +1028,19 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateConfigurationTemplate": {
       "verb": "Update",
-      "noun": "EBConfigurationTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ConfigurationTemplate",
+      "legacyPositionalParameters": [
+        "TemplateName",
+        "Description",
+        "OptionSettings",
+        "OptionsToRemove"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "TemplateName;Description;OptionSettings;OptionsToRemove",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationTemplate",
         "ConfirmImpactSetting": "Medium",
@@ -1349,20 +1059,20 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateEnvironment": {
       "verb": "Update",
-      "noun": "EBEnvironment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Environment",
+      "legacyPositionalParameters": [
+        "EnvironmentName",
+        "VersionLabel",
+        "TemplateName",
+        "Description"
+      ],
       "pipelineProperty": "EnvironmentId",
       "output": "Response",
-      "legacyPositionalParameters": "EnvironmentName;VersionLabel;TemplateName;Description",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Environment",
         "ConfirmImpactSetting": "Medium",
@@ -1381,20 +1091,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EnvironmentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateTagsForResource": {
       "verb": "Update",
-      "noun": "EBResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForResource",
         "ConfirmImpactSetting": "Medium",
@@ -1413,20 +1117,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ValidateConfigurationSettings": {
       "verb": "Test",
-      "noun": "EBConfigurationSetting",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ConfigurationSetting",
       "legacyAlias": "Test-EBConfigurationSettings",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "OptionSettings",
+      "legacyPositionalParameters": [
+        "OptionSettings"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationSettings",
         "ConfirmImpactSetting": "Medium",
@@ -1440,13 +1140,7 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords",
           "servicePageSize": 1000
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

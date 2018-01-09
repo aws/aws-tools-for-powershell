@@ -1,5 +1,14 @@
 {
-  "additionalNamespaces": [],
+  "defaultPaginationSettings": {
+    "excludedOperations": [
+      "FilterLogEvents"
+    ],
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken",
+    "resultLimitMember": "Limit"
+  },
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "CWL",
   "outputMetadataPropertyNames": [
     "RejectedLogEventsInfo"
   ],
@@ -9,34 +18,15 @@
     "FilterName",
     "SequenceToken"
   ],
-  "defaultPipelineProperty": "",
+  "sdkServiceClientClass": "AmazonCloudWatchLogsClient",
+  "sdkServiceConfigClass": "AmazonCloudWatchLogsConfig",
   "sdkServiceNamespace": "Amazon.CloudWatchLogs",
-  "sdkServiceClient": "AmazonCloudWatchLogsClient",
-  "sdkServiceClientConfig": "AmazonCloudWatchLogsConfig",
-  "legacyCmdletPrefix": "CWL",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken",
-    "resultLimitMember": "Limit",
-    "excludedOperations": [
-      "FilterLogEvents"
-    ]
-  },
-  "nounMappings": {},
-  "verbMappings": {},
   "serviceOperations": {
     "AssociateKmsKey": {
       "verb": "Register",
-      "noun": "CWLKmsKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "KmsKey",
       "pipelineProperty": "KmsKeyId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "KmsKey",
         "ConfirmImpactSetting": "Medium",
@@ -46,31 +36,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KmsKeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CancelExportTask": {
       "verb": "Stop",
-      "noun": "CWLExportTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ExportTask",
       "pipelineProperty": "TaskId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ExportTask",
         "ConfirmImpactSetting": "Medium",
@@ -80,31 +64,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TaskId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateExportTask": {
       "verb": "New",
-      "noun": "CWLExportTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ExportTask",
       "pipelineProperty": "LogGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ExportTask",
         "ConfirmImpactSetting": "Medium",
@@ -114,31 +91,28 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LogGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateLogGroup": {
       "verb": "New",
-      "noun": "CWLLogGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LogGroup",
+      "legacyPositionalParameters": [
+        "LogGroupName"
+      ],
       "pipelineProperty": "LogGroupName",
       "output": "Void",
-      "legacyPositionalParameters": "LogGroupName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LogGroup",
         "ConfirmImpactSetting": "Medium",
@@ -148,31 +122,28 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LogGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateLogStream": {
       "verb": "New",
-      "noun": "CWLLogStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LogStream",
+      "legacyPositionalParameters": [
+        "LogStreamName"
+      ],
       "pipelineProperty": "LogGroupName",
       "output": "Void",
-      "legacyPositionalParameters": "LogStreamName",
       "shouldProcessTargetProperty": "LogStreamName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LogStream",
@@ -183,31 +154,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "LogStreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDestination": {
       "verb": "Remove",
-      "noun": "CWLDestination",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Destination",
       "pipelineProperty": "DestinationName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Destination",
         "ConfirmImpactSetting": "High",
@@ -217,31 +182,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DestinationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteLogGroup": {
       "verb": "Remove",
-      "noun": "CWLLogGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LogGroup",
       "pipelineProperty": "LogGroupName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LogGroup",
         "ConfirmImpactSetting": "High",
@@ -251,31 +210,28 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LogGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteLogStream": {
       "verb": "Remove",
-      "noun": "CWLLogStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LogStream",
+      "legacyPositionalParameters": [
+        "LogGroupName"
+      ],
       "pipelineProperty": "LogStreamName",
       "output": "Void",
-      "legacyPositionalParameters": "LogGroupName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LogStream",
         "ConfirmImpactSetting": "High",
@@ -285,31 +241,28 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LogStreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteMetricFilter": {
       "verb": "Remove",
-      "noun": "CWLMetricFilter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MetricFilter",
+      "legacyPositionalParameters": [
+        "LogGroupName"
+      ],
       "pipelineProperty": "FilterName",
       "output": "Void",
-      "legacyPositionalParameters": "LogGroupName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MetricFilter",
         "ConfirmImpactSetting": "High",
@@ -319,31 +272,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FilterName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteResourcePolicy": {
       "verb": "Remove",
-      "noun": "CWLResourcePolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourcePolicy",
       "pipelineProperty": "PolicyName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourcePolicy",
         "ConfirmImpactSetting": "High",
@@ -353,31 +300,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRetentionPolicy": {
       "verb": "Remove",
-      "noun": "CWLRetentionPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RetentionPolicy",
       "pipelineProperty": "LogGroupName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RetentionPolicy",
         "ConfirmImpactSetting": "High",
@@ -387,31 +328,28 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LogGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSubscriptionFilter": {
       "verb": "Remove",
-      "noun": "CWLSubscriptionFilter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SubscriptionFilter",
+      "legacyPositionalParameters": [
+        "LogGroupName"
+      ],
       "pipelineProperty": "FilterName",
       "output": "Void",
-      "legacyPositionalParameters": "LogGroupName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubscriptionFilter",
         "ConfirmImpactSetting": "High",
@@ -421,31 +359,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FilterName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDestinations": {
       "verb": "Get",
-      "noun": "CWLDestination",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Destination",
       "pipelineProperty": "DestinationNamePrefix",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Destinations",
         "ConfirmImpactSetting": "Medium",
@@ -455,31 +386,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "DescribeExportTasks": {
       "verb": "Get",
-      "noun": "CWLExportTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ExportTask",
       "legacyAlias": "Get-CWLExportTasks",
-      "metadataOutputProperties": "",
       "pipelineProperty": "TaskId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ExportTasks",
         "ConfirmImpactSetting": "Medium",
@@ -489,31 +409,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "DescribeLogGroups": {
       "verb": "Get",
-      "noun": "CWLLogGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "LogGroup",
       "legacyAlias": "Get-CWLLogGroups",
-      "metadataOutputProperties": "",
       "pipelineProperty": "LogGroupNamePrefix",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LogGroups",
         "ConfirmImpactSetting": "Medium",
@@ -523,31 +432,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "DescribeLogStreams": {
       "verb": "Get",
-      "noun": "CWLLogStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "LogStream",
       "legacyAlias": "Get-CWLLogStreams",
-      "metadataOutputProperties": "",
       "pipelineProperty": "LogGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LogStreams",
         "ConfirmImpactSetting": "Medium",
@@ -557,31 +455,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "DescribeMetricFilters": {
       "verb": "Get",
-      "noun": "CWLMetricFilter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "MetricFilter",
       "legacyAlias": "Get-CWLMetricFilters",
-      "metadataOutputProperties": "",
       "pipelineProperty": "LogGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MetricFilters",
         "ConfirmImpactSetting": "Medium",
@@ -591,31 +478,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "DescribeResourcePolicies": {
       "verb": "Get",
-      "noun": "CWLResourcePolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ResourcePolicy",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourcePolicies",
         "ConfirmImpactSetting": "Medium",
@@ -625,31 +499,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "DescribeSubscriptionFilters": {
       "verb": "Get",
-      "noun": "CWLSubscriptionFilter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "SubscriptionFilter",
       "legacyAlias": "Get-CWLSubscriptionFilters",
-      "metadataOutputProperties": "",
       "pipelineProperty": "LogGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubscriptionFilters",
         "ConfirmImpactSetting": "Medium",
@@ -659,31 +522,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "DisassociateKmsKey": {
       "verb": "Unregister",
-      "noun": "CWLKmsKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "KmsKey",
       "pipelineProperty": "LogGroupName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "KmsKey",
         "ConfirmImpactSetting": "Medium",
@@ -693,31 +545,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LogGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "FilterLogEvents": {
       "verb": "Get",
-      "noun": "CWLFilteredLogEvent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FilteredLogEvent",
       "pipelineProperty": "LogGroupName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LogEvents",
         "ConfirmImpactSetting": "Medium",
@@ -727,31 +573,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetLogEvents": {
       "verb": "Get",
-      "noun": "CWLLogEvent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "LogEvent",
       "legacyAlias": "Get-CWLLogEvents",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "LogGroupName"
+      ],
       "pipelineProperty": "LogStreamName",
       "output": "Response",
-      "legacyPositionalParameters": "LogGroupName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LogEvents",
         "ConfirmImpactSetting": "Medium",
@@ -761,31 +600,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "ListTagsLogGroup": {
       "verb": "Get",
-      "noun": "CWLLogGroupTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LogGroupTag",
       "pipelineProperty": "LogGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsLogGroup",
         "ConfirmImpactSetting": "Medium",
@@ -795,31 +622,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "PutDestination": {
       "verb": "Write",
-      "noun": "CWLDestination",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Destination",
       "pipelineProperty": "DestinationName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DestinationName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Destination",
@@ -830,31 +645,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DestinationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutDestinationPolicy": {
       "verb": "Write",
-      "noun": "CWLDestinationPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DestinationPolicy",
       "pipelineProperty": "DestinationName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DestinationName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DestinationPolicy",
@@ -865,31 +674,29 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DestinationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutLogEvents": {
       "verb": "Write",
-      "noun": "CWLLogEvent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "LogEvent",
       "legacyAlias": "Write-CWLLogEvents",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "LogGroupName",
+        "LogStreamName"
+      ],
       "pipelineProperty": "SequenceToken",
-      "output": "Default",
-      "legacyPositionalParameters": "LogGroupName;LogStreamName",
       "shouldProcessTargetProperty": "LogStreamName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LogEvents",
@@ -900,31 +707,29 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "LogStreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutMetricFilter": {
       "verb": "Write",
-      "noun": "CWLMetricFilter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MetricFilter",
+      "legacyPositionalParameters": [
+        "FilterName",
+        "FilterPattern"
+      ],
       "pipelineProperty": "LogGroupName",
       "output": "Void",
-      "legacyPositionalParameters": "FilterName;FilterPattern",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MetricFilter",
         "ConfirmImpactSetting": "Medium",
@@ -934,31 +739,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LogGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutResourcePolicy": {
       "verb": "Write",
-      "noun": "CWLResourcePolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourcePolicy",
       "pipelineProperty": "PolicyName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourcePolicy",
         "ConfirmImpactSetting": "Medium",
@@ -968,37 +766,34 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutRetentionPolicy": {
       "verb": "Write",
-      "noun": "CWLRetentionPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "LogGroupName",
-      "output": "Void",
-      "legacyPositionalParameters": "RetentionInDays",
+      "noun": "RetentionPolicy",
       "customParameters": [
         {
           "name": "RetentionInDays",
           "autoRename": "false"
         }
       ],
+      "legacyPositionalParameters": [
+        "RetentionInDays"
+      ],
+      "pipelineProperty": "LogGroupName",
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RetentionPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -1008,31 +803,29 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LogGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutSubscriptionFilter": {
       "verb": "Write",
-      "noun": "CWLSubscriptionFilter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SubscriptionFilter",
+      "legacyPositionalParameters": [
+        "FilterName",
+        "FilterPattern"
+      ],
       "pipelineProperty": "LogGroupName",
       "output": "Void",
-      "legacyPositionalParameters": "FilterName;FilterPattern",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubscriptionFilter",
         "ConfirmImpactSetting": "Medium",
@@ -1042,31 +835,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LogGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TagLogGroup": {
       "verb": "Add",
-      "noun": "CWLLogGroupTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LogGroupTag",
       "pipelineProperty": "LogGroupName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LogGroup",
         "ConfirmImpactSetting": "Medium",
@@ -1076,31 +863,27 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LogGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TestMetricFilter": {
       "verb": "Test",
-      "noun": "CWLMetricFilter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MetricFilter",
+      "legacyPositionalParameters": [
+        "LogEventMessages"
+      ],
       "pipelineProperty": "FilterPattern",
-      "output": "Default",
-      "legacyPositionalParameters": "LogEventMessages",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MetricFilter",
         "ConfirmImpactSetting": "Medium",
@@ -1110,31 +893,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "UntagLogGroup": {
       "verb": "Remove",
-      "noun": "CWLLogGroupTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LogGroupTag",
       "pipelineProperty": "LogGroupName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LogGroup",
         "ConfirmImpactSetting": "High",
@@ -1144,19 +916,18 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "FilterLogEvents"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LogGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

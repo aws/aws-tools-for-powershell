@@ -1,7 +1,22 @@
 {
-  "additionalNamespaces": [],
-  "regionFallback": "us-east-1",
-  "outputMetadataPropertyNames": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken",
+    "resultLimitMember": "MaxItems"
+  },
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "SES",
+  "nonFlatteningTypeNames": [
+    "Amazon.SimpleEmail.Model.TrackingOptions",
+    "Amazon.SimpleEmail.Model.Template"
+  ],
+  "nounMappings": {
+    "Identities": "Identity",
+    "IdentityDkimAttributes": "IdentityDkimAttribute",
+    "IdentityNotificationAttributes": "IdentityNotificationAttribute",
+    "IdentityVerificationAttributes": "IdentityVerificationAttribute",
+    "VerifiedEmailAddresses": "VerifiedEmailAddress"
+  },
   "pipelineByValuePropertyNames": [
     "Identity",
     "EmailAddress",
@@ -10,28 +25,10 @@
     "EventDestinationName",
     "ConfigurationSetName"
   ],
-  "defaultPipelineProperty": "",
+  "regionFallback": "us-east-1",
+  "sdkServiceClientClass": "AmazonSimpleEmailServiceClient",
+  "sdkServiceConfigClass": "AmazonSimpleEmailServiceConfig",
   "sdkServiceNamespace": "Amazon.SimpleEmail",
-  "sdkServiceClient": "AmazonSimpleEmailServiceClient",
-  "sdkServiceClientConfig": "AmazonSimpleEmailServiceConfig",
-  "legacyCmdletPrefix": "SES",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.SimpleEmail.Model.TrackingOptions",
-    "Amazon.SimpleEmail.Model.Template"
-  ],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken",
-    "resultLimitMember": "MaxItems"
-  },
-  "nounMappings": {
-    "Identities": "Identity",
-    "IdentityDkimAttributes": "IdentityDkimAttribute",
-    "IdentityNotificationAttributes": "IdentityNotificationAttribute",
-    "IdentityVerificationAttributes": "IdentityVerificationAttribute",
-    "VerifiedEmailAddresses": "VerifiedEmailAddress"
-  },
   "verbMappings": {
     "List": "Get",
     "Verify": "Confirm"
@@ -39,14 +36,9 @@
   "serviceOperations": {
     "CloneReceiptRuleSet": {
       "verb": "Copy",
-      "noun": "SESReceiptRuleSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReceiptRuleSet",
       "pipelineProperty": "OriginalRuleSetName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReceiptRuleSet",
         "ConfirmImpactSetting": "Medium",
@@ -64,20 +56,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "OriginalRuleSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateConfigurationSet": {
       "verb": "New",
-      "noun": "SESConfigurationSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigurationSet",
       "pipelineProperty": "ConfigurationSet_Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationSet",
         "ConfirmImpactSetting": "Medium",
@@ -95,20 +81,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateConfigurationSetEventDestination": {
       "verb": "New",
-      "noun": "SESConfigurationSetEventDestination",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigurationSetEventDestination",
       "pipelineProperty": "ConfigurationSetName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationSetEventDestination",
         "ConfirmImpactSetting": "Medium",
@@ -126,20 +106,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigurationSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateConfigurationSetTrackingOptions": {
       "verb": "New",
-      "noun": "SESConfigurationSetTrackingOption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigurationSetTrackingOption",
       "pipelineProperty": "TrackingOptions",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationSetTrackingOptions",
         "ConfirmImpactSetting": "Medium",
@@ -157,20 +131,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigurationSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateCustomVerificationEmailTemplate": {
       "verb": "New",
-      "noun": "SESCustomVerificationEmailTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CustomVerificationEmailTemplate",
       "pipelineProperty": "TemplateContent",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CustomVerificationEmailTemplate",
         "ConfirmImpactSetting": "Medium",
@@ -188,20 +156,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TemplateName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateReceiptFilter": {
       "verb": "New",
-      "noun": "SESReceiptFilter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReceiptFilter",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReceiptFilter",
         "ConfirmImpactSetting": "Medium",
@@ -219,20 +181,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateReceiptRule": {
       "verb": "New",
-      "noun": "SESReceiptRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReceiptRule",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Rule_Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReceiptRule",
@@ -251,20 +207,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateReceiptRuleSet": {
       "verb": "New",
-      "noun": "SESReceiptRuleSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReceiptRuleSet",
       "pipelineProperty": "RuleSetName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReceiptRuleSet",
         "ConfirmImpactSetting": "Medium",
@@ -282,20 +232,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RuleSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateTemplate": {
       "verb": "New",
-      "noun": "SESTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Template",
       "pipelineProperty": "Template",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Template",
         "ConfirmImpactSetting": "Medium",
@@ -313,20 +257,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Template"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteConfigurationSet": {
       "verb": "Remove",
-      "noun": "SESConfigurationSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigurationSet",
       "pipelineProperty": "ConfigurationSetName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationSet",
         "ConfirmImpactSetting": "High",
@@ -344,20 +282,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigurationSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteConfigurationSetEventDestination": {
       "verb": "Remove",
-      "noun": "SESConfigurationSetEventDestination",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigurationSetEventDestination",
       "pipelineProperty": "EventDestinationName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationSetEventDestination",
         "ConfirmImpactSetting": "High",
@@ -375,20 +307,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EventDestinationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteConfigurationSetTrackingOptions": {
       "verb": "Remove",
-      "noun": "SESConfigurationSetTrackingOption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigurationSetTrackingOption",
       "pipelineProperty": "ConfigurationSetName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationSetTrackingOptions",
         "ConfirmImpactSetting": "High",
@@ -406,20 +332,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigurationSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCustomVerificationEmailTemplate": {
       "verb": "Remove",
-      "noun": "SESCustomVerificationEmailTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CustomVerificationEmailTemplate",
       "pipelineProperty": "TemplateName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CustomVerificationEmailTemplate",
         "ConfirmImpactSetting": "High",
@@ -437,20 +357,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TemplateName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteIdentity": {
       "verb": "Remove",
-      "noun": "SESIdentity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Identity",
       "pipelineProperty": "Identity",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Identity",
         "ConfirmImpactSetting": "High",
@@ -468,20 +382,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Identity"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteIdentityPolicy": {
       "verb": "Remove",
-      "noun": "SESIdentityPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IdentityPolicy",
       "pipelineProperty": "PolicyName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityPolicy",
         "ConfirmImpactSetting": "High",
@@ -499,20 +407,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteReceiptFilter": {
       "verb": "Remove",
-      "noun": "SESReceiptFilter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReceiptFilter",
       "pipelineProperty": "FilterName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReceiptFilter",
         "ConfirmImpactSetting": "High",
@@ -530,20 +432,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FilterName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteReceiptRule": {
       "verb": "Remove",
-      "noun": "SESReceiptRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReceiptRule",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "RuleName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReceiptRule",
@@ -562,20 +458,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "RuleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteReceiptRuleSet": {
       "verb": "Remove",
-      "noun": "SESReceiptRuleSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReceiptRuleSet",
       "pipelineProperty": "RuleSetName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReceiptRuleSet",
         "ConfirmImpactSetting": "High",
@@ -593,20 +483,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RuleSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteTemplate": {
       "verb": "Remove",
-      "noun": "SESTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Template",
       "pipelineProperty": "TemplateName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Template",
         "ConfirmImpactSetting": "High",
@@ -624,20 +508,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TemplateName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteVerifiedEmailAddress": {
       "verb": "Remove",
-      "noun": "SESVerifiedEmailAddress",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "VerifiedEmailAddress",
       "pipelineProperty": "EmailAddress",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VerifiedEmailAddress",
         "ConfirmImpactSetting": "High",
@@ -655,20 +533,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EmailAddress"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeActiveReceiptRuleSet": {
       "verb": "Get",
-      "noun": "SESActiveReceiptRuleSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ActiveReceiptRuleSet",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ActiveReceiptRuleSet",
         "ConfirmImpactSetting": "Medium",
@@ -681,25 +552,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeConfigurationSet": {
       "verb": "Get",
-      "noun": "SESConfigurationSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigurationSet",
       "pipelineProperty": "ConfigurationSetName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationSet",
         "ConfirmImpactSetting": "Medium",
@@ -712,25 +572,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeReceiptRule": {
       "verb": "Get",
-      "noun": "SESReceiptRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReceiptRule",
       "pipelineProperty": "RuleName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReceiptRule",
         "ConfirmImpactSetting": "Medium",
@@ -743,25 +591,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeReceiptRuleSet": {
       "verb": "Get",
-      "noun": "SESReceiptRuleSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReceiptRuleSet",
       "pipelineProperty": "RuleSetName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReceiptRuleSet",
         "ConfirmImpactSetting": "Medium",
@@ -774,25 +611,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetAccountSendingEnabled": {
       "verb": "Get",
-      "noun": "SESAccountSendingEnabled",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AccountSendingEnabled",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountSendingEnabled",
         "ConfirmImpactSetting": "Medium",
@@ -805,25 +629,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetCustomVerificationEmailTemplate": {
       "verb": "Get",
-      "noun": "SESCustomVerificationEmailTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CustomVerificationEmailTemplate",
       "pipelineProperty": "TemplateName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CustomVerificationEmailTemplate",
         "ConfirmImpactSetting": "Medium",
@@ -836,25 +649,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetIdentityDkimAttributes": {
       "verb": "Get",
-      "noun": "SESIdentityDkimAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IdentityDkimAttribute",
       "pipelineProperty": "Identities",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityDkimAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -867,25 +668,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetIdentityMailFromDomainAttributes": {
       "verb": "Get",
-      "noun": "SESIdentityMailFromDomainAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "IdentityMailFromDomainAttribute",
       "legacyAlias": "Get-SESIdentityMailFromDomainAttributes",
-      "metadataOutputProperties": "",
       "pipelineProperty": "Identities",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityMailFromDomainAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -898,25 +688,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetIdentityNotificationAttributes": {
       "verb": "Get",
-      "noun": "SESIdentityNotificationAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IdentityNotificationAttribute",
       "pipelineProperty": "Identities",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityNotificationAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -929,25 +707,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetIdentityPolicies": {
       "verb": "Get",
-      "noun": "SESIdentityPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IdentityPolicy",
       "pipelineProperty": "PolicyNames",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityPolicies",
         "ConfirmImpactSetting": "Medium",
@@ -960,25 +726,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetIdentityVerificationAttributes": {
       "verb": "Get",
-      "noun": "SESIdentityVerificationAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IdentityVerificationAttribute",
       "pipelineProperty": "Identities",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityVerificationAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -991,25 +745,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSendQuota": {
       "verb": "Get",
-      "noun": "SESSendQuota",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "SendQuota",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SendQuota",
         "ConfirmImpactSetting": "Medium",
@@ -1022,25 +764,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSendStatistics": {
       "verb": "Get",
-      "noun": "SESSendStatistic",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "SendStatistic",
       "legacyAlias": "Get-SESSendStatistics",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SendStatistics",
         "ConfirmImpactSetting": "Medium",
@@ -1053,25 +783,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetTemplate": {
       "verb": "Get",
-      "noun": "SESTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Template",
       "pipelineProperty": "TemplateName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Template",
         "ConfirmImpactSetting": "Medium",
@@ -1084,25 +802,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListConfigurationSets": {
       "verb": "Get",
-      "noun": "SESConfigurationSetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ConfigurationSetList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationSets",
         "ConfirmImpactSetting": "Medium",
@@ -1115,25 +820,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListCustomVerificationEmailTemplates": {
       "verb": "Get",
-      "noun": "SESCustomVerificationEmailTemplateList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CustomVerificationEmailTemplateList",
       "pipelineProperty": "MaxResults",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CustomVerificationEmailTemplates",
         "ConfirmImpactSetting": "Medium",
@@ -1146,25 +839,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListIdentities": {
       "verb": "Get",
-      "noun": "SESIdentity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Identity",
       "pipelineProperty": "IdentityType",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Identities",
         "ConfirmImpactSetting": "Medium",
@@ -1177,25 +858,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListIdentityPolicies": {
       "verb": "Get",
-      "noun": "SESIdentityPolicyList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IdentityPolicyList",
       "pipelineProperty": "Identity",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityPolicies",
         "ConfirmImpactSetting": "Medium",
@@ -1208,25 +877,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListReceiptFilters": {
       "verb": "Get",
-      "noun": "SESReceiptFilterList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ReceiptFilterList",
       "legacyAlias": "Get-SESReceiptFilters",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReceiptFilters",
         "ConfirmImpactSetting": "Medium",
@@ -1239,25 +896,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListReceiptRuleSets": {
       "verb": "Get",
-      "noun": "SESReceiptRuleSetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ReceiptRuleSetList",
       "legacyAlias": "Get-SESReceiptRuleSets",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReceiptRuleSets",
         "ConfirmImpactSetting": "Medium",
@@ -1270,25 +915,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTemplates": {
       "verb": "Get",
-      "noun": "SESTemplateList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TemplateList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Templates",
         "ConfirmImpactSetting": "Medium",
@@ -1301,25 +933,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListVerifiedEmailAddresses": {
       "verb": "Get",
-      "noun": "SESVerifiedEmailAddress",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "VerifiedEmailAddress",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VerifiedEmailAddresses",
         "ConfirmImpactSetting": "Medium",
@@ -1332,25 +951,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutIdentityPolicy": {
       "verb": "Write",
-      "noun": "SESIdentityPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IdentityPolicy",
       "pipelineProperty": "Policy",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -1368,20 +976,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ReorderReceiptRuleSet": {
       "verb": "Set",
-      "noun": "SESReceiptRuleSetOrder",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReceiptRuleSetOrder",
       "pipelineProperty": "RuleNames",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReceiptRuleSet",
         "ConfirmImpactSetting": "Medium",
@@ -1399,20 +1001,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RuleNames"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SendBounce": {
       "verb": "Send",
-      "noun": "SESBounce",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Bounce",
       "pipelineProperty": "BouncedRecipientInfoList",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "BounceSender",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Bounce",
@@ -1431,20 +1026,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "BounceSender"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SendBulkTemplatedEmail": {
       "verb": "Send",
-      "noun": "SESBulkTemplatedEmail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "BulkTemplatedEmail",
       "pipelineProperty": "TemplateData",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Source",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BulkTemplatedEmail",
@@ -1463,20 +1051,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Source"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SendCustomVerificationEmail": {
       "verb": "Send",
-      "noun": "SESCustomVerificationEmail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CustomVerificationEmail",
       "pipelineProperty": "EmailAddress",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "EmailAddress",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CustomVerificationEmail",
@@ -1495,20 +1076,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "EmailAddress"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SendEmail": {
       "verb": "Send",
-      "noun": "SESEmail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Email",
+      "legacyPositionalParameters": [
+        "Destination_ToAddresses"
+      ],
       "pipelineProperty": "Source",
-      "output": "Default",
-      "legacyPositionalParameters": "Destination_ToAddresses",
       "shouldProcessTargetProperty": "Source",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Email",
@@ -1527,20 +1104,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Source"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SendRawEmail": {
       "verb": "Send",
-      "noun": "SESRawEmail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RawEmail",
+      "legacyPositionalParameters": [
+        "Destinations"
+      ],
       "pipelineProperty": "Source",
-      "output": "Default",
-      "legacyPositionalParameters": "Destinations",
       "remapMemoryStreamParameters": "false",
       "shouldProcessTargetProperty": "Source",
       "AnalyzerResults": {
@@ -1560,20 +1133,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Source"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SendTemplatedEmail": {
       "verb": "Send",
-      "noun": "SESTemplatedEmail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TemplatedEmail",
       "pipelineProperty": "TemplateData",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Source",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TemplatedEmail",
@@ -1592,20 +1158,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Source"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetActiveReceiptRuleSet": {
       "verb": "Set",
-      "noun": "SESActiveReceiptRuleSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ActiveReceiptRuleSet",
       "pipelineProperty": "RuleSetName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ActiveReceiptRuleSet",
         "ConfirmImpactSetting": "Medium",
@@ -1623,20 +1183,17 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RuleSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetIdentityDkimEnabled": {
       "verb": "Set",
-      "noun": "SESIdentityDkimEnabled",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IdentityDkimEnabled",
+      "legacyPositionalParameters": [
+        "DkimEnabled"
+      ],
       "pipelineProperty": "Identity",
       "output": "Void",
-      "legacyPositionalParameters": "DkimEnabled",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityDkimEnabled",
         "ConfirmImpactSetting": "Medium",
@@ -1654,20 +1211,17 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Identity"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetIdentityFeedbackForwardingEnabled": {
       "verb": "Set",
-      "noun": "SESIdentityFeedbackForwardingEnabled",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IdentityFeedbackForwardingEnabled",
+      "legacyPositionalParameters": [
+        "ForwardingEnabled"
+      ],
       "pipelineProperty": "Identity",
       "output": "Void",
-      "legacyPositionalParameters": "ForwardingEnabled",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityFeedbackForwardingEnabled",
         "ConfirmImpactSetting": "Medium",
@@ -1685,20 +1239,14 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Identity"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetIdentityHeadersInNotificationsEnabled": {
       "verb": "Set",
-      "noun": "SESIdentityHeadersInNotificationsEnabled",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IdentityHeadersInNotificationsEnabled",
       "pipelineProperty": "Identity",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityHeadersInNotificationsEnabled",
         "ConfirmImpactSetting": "Medium",
@@ -1716,20 +1264,18 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Identity"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetIdentityMailFromDomain": {
       "verb": "Set",
-      "noun": "SESIdentityMailFromDomain",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IdentityMailFromDomain",
+      "legacyPositionalParameters": [
+        "MailFromDomain",
+        "BehaviorOnMXFailure"
+      ],
       "pipelineProperty": "Identity",
       "output": "Void",
-      "legacyPositionalParameters": "MailFromDomain;BehaviorOnMXFailure",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityMailFromDomain",
         "ConfirmImpactSetting": "Medium",
@@ -1747,20 +1293,18 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Identity"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetIdentityNotificationTopic": {
       "verb": "Set",
-      "noun": "SESIdentityNotificationTopic",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IdentityNotificationTopic",
+      "legacyPositionalParameters": [
+        "NotificationType",
+        "SnsTopic"
+      ],
       "pipelineProperty": "Identity",
       "output": "Void",
-      "legacyPositionalParameters": "NotificationType;SnsTopic",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IdentityNotificationTopic",
         "ConfirmImpactSetting": "Medium",
@@ -1778,20 +1322,14 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Identity"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetReceiptRulePosition": {
       "verb": "Set",
-      "noun": "SESReceiptRulePosition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReceiptRulePosition",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "RuleName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReceiptRulePosition",
@@ -1810,20 +1348,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "RuleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TestRenderTemplate": {
       "verb": "Test",
-      "noun": "SESRenderTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RenderTemplate",
       "pipelineProperty": "TemplateData",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RenderTemplate",
         "ConfirmImpactSetting": "Medium",
@@ -1836,25 +1367,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateAccountSendingEnabled": {
       "verb": "Update",
-      "noun": "SESAccountSendingEnabled",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AccountSendingEnabled",
       "pipelineProperty": "Enabled",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountSendingEnabled",
         "ConfirmImpactSetting": "Medium",
@@ -1872,20 +1392,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Enabled"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateConfigurationSetEventDestination": {
       "verb": "Update",
-      "noun": "SESConfigurationSetEventDestination",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigurationSetEventDestination",
       "pipelineProperty": "ConfigurationSetName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationSetEventDestination",
         "ConfirmImpactSetting": "Medium",
@@ -1903,20 +1417,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigurationSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateConfigurationSetReputationMetricsEnabled": {
       "verb": "Update",
-      "noun": "SESConfigurationSetReputationMetricsEnabled",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigurationSetReputationMetricsEnabled",
       "pipelineProperty": "Enabled",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationSetReputationMetricsEnabled",
         "ConfirmImpactSetting": "Medium",
@@ -1934,20 +1442,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigurationSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateConfigurationSetSendingEnabled": {
       "verb": "Update",
-      "noun": "SESConfigurationSetSendingEnabled",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigurationSetSendingEnabled",
       "pipelineProperty": "Enabled",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationSetSendingEnabled",
         "ConfirmImpactSetting": "Medium",
@@ -1965,20 +1467,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigurationSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateConfigurationSetTrackingOptions": {
       "verb": "Update",
-      "noun": "SESConfigurationSetTrackingOption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigurationSetTrackingOption",
       "pipelineProperty": "TrackingOptions",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationSetTrackingOptions",
         "ConfirmImpactSetting": "Medium",
@@ -1996,20 +1492,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigurationSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateCustomVerificationEmailTemplate": {
       "verb": "Update",
-      "noun": "SESCustomVerificationEmailTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CustomVerificationEmailTemplate",
       "pipelineProperty": "TemplateContent",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CustomVerificationEmailTemplate",
         "ConfirmImpactSetting": "Medium",
@@ -2027,20 +1517,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TemplateName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateReceiptRule": {
       "verb": "Update",
-      "noun": "SESReceiptRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReceiptRule",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Rule_Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReceiptRule",
@@ -2059,20 +1543,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateTemplate": {
       "verb": "Update",
-      "noun": "SESTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Template",
       "pipelineProperty": "Template",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Template",
         "ConfirmImpactSetting": "Medium",
@@ -2090,20 +1568,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Template"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "VerifyDomainDkim": {
       "verb": "Confirm",
-      "noun": "SESDomainDkim",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DomainDkim",
       "pipelineProperty": "Domain",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainDkim",
         "ConfirmImpactSetting": "Medium",
@@ -2121,20 +1592,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Domain"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "VerifyDomainIdentity": {
       "verb": "Confirm",
-      "noun": "SESDomainIdentity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DomainIdentity",
       "pipelineProperty": "Domain",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainIdentity",
         "ConfirmImpactSetting": "Medium",
@@ -2152,20 +1616,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Domain"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "VerifyEmailAddress": {
       "verb": "Confirm",
-      "noun": "SESEmailAddress",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EmailAddress",
       "pipelineProperty": "EmailAddress",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EmailAddress",
         "ConfirmImpactSetting": "Medium",
@@ -2183,20 +1641,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EmailAddress"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "VerifyEmailIdentity": {
       "verb": "Confirm",
-      "noun": "SESEmailIdentity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EmailIdentity",
       "pipelineProperty": "EmailAddress",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EmailIdentity",
         "ConfirmImpactSetting": "Medium",
@@ -2214,8 +1666,7 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EmailAddress"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

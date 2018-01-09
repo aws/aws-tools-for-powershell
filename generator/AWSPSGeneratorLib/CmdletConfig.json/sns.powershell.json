@@ -1,25 +1,11 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "NextToken",
-    "TopicArn",
-    "SubscriptionArn",
-    "PlatformApplicationArn",
-    "EndpointArn"
-  ],
-  "defaultPipelineProperty": "TopicArn",
-  "legacyPositionalProperties": "TopicArn",
-  "sdkServiceNamespace": "Amazon.SimpleNotificationService",
-  "sdkServiceClient": "AmazonSimpleNotificationServiceClient",
-  "sdkServiceClientConfig": "AmazonSimpleNotificationServiceConfig",
-  "legacyCmdletPrefix": "SNS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken"
   },
+  "defaultPipelineProperty": "TopicArn",
+  "legacyCmdletPrefix": "SNS",
+  "legacyPositionalProperties": "TopicArn",
   "nounMappings": {
     "SubscriptionAttributes": "SubscriptionAttribute",
     "Subscriptions": "Subscription",
@@ -27,30 +13,43 @@
     "TopicAttributes": "TopicAttribute",
     "Topics": "Topic"
   },
+  "pipelineByValuePropertyNames": [
+    "NextToken",
+    "TopicArn",
+    "SubscriptionArn",
+    "PlatformApplicationArn",
+    "EndpointArn"
+  ],
+  "sdkServiceClientClass": "AmazonSimpleNotificationServiceClient",
+  "sdkServiceConfigClass": "AmazonSimpleNotificationServiceConfig",
+  "sdkServiceNamespace": "Amazon.SimpleNotificationService",
   "verbMappings": {
     "List": "Get"
   },
   "serviceOperations": {
     "AddPermission": {
       "verb": "Add",
-      "noun": "SNSPermission",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Void",
-      "legacyPositionalParameters": "Label;AWSAccountId;ActionName",
+      "noun": "Permission",
       "customParameters": [
         {
           "name": "AWSAccountId",
-          "aliases": "AWSAccountIds"
+          "aliases": [
+            "AWSAccountIds"
+          ]
         },
         {
           "name": "ActionName",
-          "aliases": "ActionNames"
+          "aliases": [
+            "ActionNames"
+          ]
         }
       ],
+      "legacyPositionalParameters": [
+        "Label",
+        "AWSAccountId",
+        "ActionName"
+      ],
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Permission",
         "ConfirmImpactSetting": "Medium",
@@ -67,23 +66,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TopicArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AuthorizeS3ToPublish": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "CheckIfPhoneNumberIsOptedOut": {
       "verb": "Test",
-      "noun": "SNSIfPhoneNumberIsOptedOut",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IfPhoneNumberIsOptedOut",
       "pipelineProperty": "PhoneNumber",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IfPhoneNumberIsOptedOut",
         "ConfirmImpactSetting": "Medium",
@@ -95,25 +87,16 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ConfirmSubscription": {
       "verb": "Confirm",
-      "noun": "SNSSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "Token;AuthenticateOnUnsubscribe",
+      "noun": "Subscription",
+      "legacyPositionalParameters": [
+        "Token",
+        "AuthenticateOnUnsubscribe"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Subscription",
         "ConfirmImpactSetting": "Medium",
@@ -130,20 +113,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TopicArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreatePlatformApplication": {
       "verb": "New",
-      "noun": "SNSPlatformApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PlatformApplication",
+      "legacyPositionalParameters": [
+        "Platform",
+        "Attributes"
+      ],
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": "Platform;Attributes",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PlatformApplication",
         "ConfirmImpactSetting": "Medium",
@@ -160,20 +140,18 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreatePlatformEndpoint": {
       "verb": "New",
-      "noun": "SNSPlatformEndpoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PlatformEndpoint",
+      "legacyPositionalParameters": [
+        "Token",
+        "Attributes",
+        "CustomUserData"
+      ],
       "pipelineProperty": "PlatformApplicationArn",
-      "output": "Default",
-      "legacyPositionalParameters": "Token;Attributes;CustomUserData",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PlatformEndpoint",
         "ConfirmImpactSetting": "Medium",
@@ -190,20 +168,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PlatformApplicationArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateTopic": {
       "verb": "New",
-      "noun": "SNSTopic",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Topic",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Topic",
         "ConfirmImpactSetting": "Medium",
@@ -220,20 +191,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteEndpoint": {
       "verb": "Remove",
-      "noun": "SNSEndpoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Endpoint",
       "pipelineProperty": "EndpointArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "EndpointArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Endpoint",
@@ -251,20 +216,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EndpointArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeletePlatformApplication": {
       "verb": "Remove",
-      "noun": "SNSPlatformApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PlatformApplication",
       "pipelineProperty": "PlatformApplicationArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "PlatformApplicationArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PlatformApplication",
@@ -282,20 +241,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PlatformApplicationArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteTopic": {
       "verb": "Remove",
-      "noun": "SNSTopic",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Topic",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "TopicArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Topic",
@@ -313,23 +265,17 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TopicArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "FindTopic": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "GetEndpointAttributes": {
       "verb": "Get",
-      "noun": "SNSEndpointAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "EndpointAttribute",
       "legacyAlias": "Get-SNSEndpointAttributes",
-      "metadataOutputProperties": "",
       "pipelineProperty": "EndpointArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EndpointAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -341,25 +287,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetPlatformApplicationAttributes": {
       "verb": "Get",
-      "noun": "SNSPlatformApplicationAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "PlatformApplicationAttribute",
       "legacyAlias": "Get-SNSPlatformApplicationAttributes",
-      "metadataOutputProperties": "",
       "pipelineProperty": "PlatformApplicationArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PlatformApplicationAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -371,25 +306,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSMSAttributes": {
       "verb": "Get",
-      "noun": "SNSSMSAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "SMSAttribute",
       "legacyAlias": "Get-SNSSMSAttributes",
-      "metadataOutputProperties": "",
       "pipelineProperty": "Attributes",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SMSAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -401,25 +325,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSubscriptionAttributes": {
       "verb": "Get",
-      "noun": "SNSSubscriptionAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SubscriptionAttribute",
       "pipelineProperty": "SubscriptionArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubscriptionAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -431,25 +343,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetTopicAttributes": {
       "verb": "Get",
-      "noun": "SNSTopicAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TopicAttribute",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TopicAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -461,25 +360,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListEndpointsByPlatformApplication": {
       "verb": "Get",
-      "noun": "SNSEndpointsByPlatformApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EndpointsByPlatformApplication",
       "pipelineProperty": "PlatformApplicationArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EndpointsByPlatformApplication",
         "ConfirmImpactSetting": "Medium",
@@ -491,25 +378,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListPhoneNumbersOptedOut": {
       "verb": "Get",
-      "noun": "SNSPhoneNumbersOptedOut",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "PhoneNumbersOptedOut",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PhoneNumbersOptedOut",
         "ConfirmImpactSetting": "Medium",
@@ -521,25 +395,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListPlatformApplications": {
       "verb": "Get",
-      "noun": "SNSPlatformApplicationList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "PlatformApplicationList",
       "legacyAlias": "Get-SNSPlatformApplications",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PlatformApplications",
         "ConfirmImpactSetting": "Medium",
@@ -551,25 +413,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListSubscriptions": {
       "verb": "Get",
-      "noun": "SNSSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Subscription",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Subscriptions",
         "ConfirmImpactSetting": "Medium",
@@ -581,25 +430,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListSubscriptionsByTopic": {
       "verb": "Get",
-      "noun": "SNSSubscriptionByTopic",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SubscriptionByTopic",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubscriptionsByTopic",
         "ConfirmImpactSetting": "Medium",
@@ -611,25 +447,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTopics": {
       "verb": "Get",
-      "noun": "SNSTopic",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Topic",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Topics",
         "ConfirmImpactSetting": "Medium",
@@ -641,25 +464,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "OptInPhoneNumber": {
       "verb": "Enable",
-      "noun": "SNSPhoneNumber",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PhoneNumber",
       "pipelineProperty": "PhoneNumber",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InPhoneNumber",
         "ConfirmImpactSetting": "Medium",
@@ -676,20 +488,17 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PhoneNumber"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "Publish": {
       "verb": "Publish",
-      "noun": "SNSMessage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "Message;MessageStructure;Subject",
+      "noun": "Message",
+      "legacyPositionalParameters": [
+        "Message",
+        "MessageStructure",
+        "Subject"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "",
         "ConfirmImpactSetting": "Medium",
@@ -706,20 +515,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TopicArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemovePermission": {
       "verb": "Remove",
-      "noun": "SNSPermission",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Permission",
+      "legacyPositionalParameters": [
+        "Label"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "Label",
       "shouldProcessTargetProperty": "Label",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Permission",
@@ -737,20 +542,18 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Label"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetEndpointAttributes": {
       "verb": "Set",
-      "noun": "SNSEndpointAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "EndpointAttribute",
       "legacyAlias": "Set-SNSEndpointAttributes",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "Attributes"
+      ],
       "pipelineProperty": "EndpointArn",
       "output": "Void",
-      "legacyPositionalParameters": "Attributes",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EndpointAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -767,20 +570,18 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EndpointArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetPlatformApplicationAttributes": {
       "verb": "Set",
-      "noun": "SNSPlatformApplicationAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "PlatformApplicationAttribute",
       "legacyAlias": "Set-SNSPlatformApplicationAttributes",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "Attributes"
+      ],
       "pipelineProperty": "PlatformApplicationArn",
       "output": "Void",
-      "legacyPositionalParameters": "Attributes",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PlatformApplicationAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -797,20 +598,18 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PlatformApplicationArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetSMSAttributes": {
       "verb": "Set",
-      "noun": "SNSSMSAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "SMSAttribute",
       "legacyAlias": "Set-SNSSMSAttributes",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "Attributes"
+      ],
       "pipelineProperty": "Attributes",
       "output": "Void",
-      "legacyPositionalParameters": "Attributes",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SMSAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -827,20 +626,18 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Attributes"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetSubscriptionAttributes": {
       "verb": "Set",
-      "noun": "SNSSubscriptionAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SubscriptionAttribute",
+      "legacyPositionalParameters": [
+        "AttributeName",
+        "AttributeValue"
+      ],
       "pipelineProperty": "SubscriptionArn",
       "output": "Void",
-      "legacyPositionalParameters": "AttributeName;AttributeValue",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubscriptionAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -857,20 +654,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubscriptionArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetTopicAttributes": {
       "verb": "Set",
-      "noun": "SNSTopicAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "TopicAttribute",
+      "legacyPositionalParameters": [
+        "AttributeName",
+        "AttributeValue"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "AttributeName;AttributeValue",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TopicAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -887,20 +681,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TopicArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "Subscribe": {
       "verb": "Connect",
-      "noun": "SNSNotification",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "Protocol;Endpoint",
+      "noun": "Notification",
+      "legacyPositionalParameters": [
+        "Protocol",
+        "Endpoint"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "",
         "ConfirmImpactSetting": "Medium",
@@ -917,26 +707,20 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TopicArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SubscribeQueue": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "SubscribeQueueToTopics": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "Unsubscribe": {
       "verb": "Disconnect",
-      "noun": "SNSNotification",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Notification",
       "pipelineProperty": "SubscriptionArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "",
         "ConfirmImpactSetting": "Medium",
@@ -953,8 +737,7 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubscriptionArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

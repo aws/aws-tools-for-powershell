@@ -1,33 +1,25 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "DomainName",
-    "DomainId",
-    "IndexFieldName"
+  "customAliases": [
+    {
+      "cmdlet": "Set-CSIndexField",
+      "aliasNames": [
+        "Define-CSIndexField"
+      ]
+    },
+    {
+      "cmdlet": "Start-CSIndex",
+      "aliasNames": [
+        "Index-CSDocuments"
+      ]
+    }
   ],
-  "defaultPipelineProperty": "DomainName",
-  "legacyPositionalProperties": "DomainName",
-  "sdkServiceNamespace": "Amazon.CloudSearch",
-  "sdkServiceClient": "AmazonCloudSearchClient",
-  "sdkServiceClientConfig": "AmazonCloudSearchConfig",
-  "legacyCmdletPrefix": "CS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": null,
     "responseTokenMember": null
   },
-  "customAliases": [
-    {
-      "cmdlet": "Set-CSIndexField",
-      "aliasNames": "Define-CSIndexField"
-    },
-    {
-      "cmdlet": "Start-CSIndex",
-      "aliasNames": "Index-CSDocuments"
-    }
-  ],
+  "defaultPipelineProperty": "DomainName",
+  "legacyCmdletPrefix": "CS",
+  "legacyPositionalProperties": "DomainName",
   "nounMappings": {
     "AnalysisSchemes": "AnalysisScheme",
     "AvailabilityOptions": "AvailabilityOption",
@@ -39,20 +31,21 @@
     "ServiceAccessPolicies": "ServiceAccessPolicy",
     "Suggesters": "Suggester"
   },
+  "pipelineByValuePropertyNames": [
+    "DomainName",
+    "DomainId",
+    "IndexFieldName"
+  ],
+  "sdkServiceClientClass": "AmazonCloudSearchClient",
+  "sdkServiceConfigClass": "AmazonCloudSearchConfig",
+  "sdkServiceNamespace": "Amazon.CloudSearch",
   "verbMappings": {
     "Define": "Set"
   },
   "serviceOperations": {
     "BuildSuggesters": {
       "verb": "Start",
-      "noun": "CSSuggestersBuild",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SuggestersBuild",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Suggesters",
         "ConfirmImpactSetting": "Medium",
@@ -69,20 +62,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDomain": {
       "verb": "New",
-      "noun": "CSDomain",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Domain",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Domain",
         "ConfirmImpactSetting": "Medium",
@@ -99,20 +84,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DefineAnalysisScheme": {
       "verb": "Set",
-      "noun": "CSAnalysisScheme",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AnalysisScheme",
       "shouldProcessTargetProperty": "DomainName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AnalysisScheme",
@@ -130,20 +107,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DefineExpression": {
       "verb": "Set",
-      "noun": "CSExpression",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Expression",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Expression",
         "ConfirmImpactSetting": "Medium",
@@ -160,20 +129,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DefineIndexField": {
       "verb": "Set",
-      "noun": "CSIndexField",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "IndexField",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IndexField",
         "ConfirmImpactSetting": "Medium",
@@ -190,20 +151,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DefineSuggester": {
       "verb": "Set",
-      "noun": "CSSuggester",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Suggester",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Suggester",
         "ConfirmImpactSetting": "Medium",
@@ -220,20 +173,15 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteAnalysisScheme": {
       "verb": "Remove",
-      "noun": "CSAnalysisScheme",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "AnalysisSchemeName",
+      "noun": "AnalysisScheme",
+      "legacyPositionalParameters": [
+        "AnalysisSchemeName"
+      ],
       "shouldProcessTargetProperty": "AnalysisSchemeName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AnalysisScheme",
@@ -251,20 +199,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "AnalysisSchemeName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDomain": {
       "verb": "Remove",
-      "noun": "CSDomain",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Domain",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Domain",
         "ConfirmImpactSetting": "High",
@@ -281,20 +221,15 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteExpression": {
       "verb": "Remove",
-      "noun": "CSExpression",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "ExpressionName",
+      "noun": "Expression",
+      "legacyPositionalParameters": [
+        "ExpressionName"
+      ],
       "shouldProcessTargetProperty": "ExpressionName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Expression",
@@ -312,20 +247,15 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ExpressionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteIndexField": {
       "verb": "Remove",
-      "noun": "CSIndexField",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "IndexFieldName",
+      "noun": "IndexField",
+      "legacyPositionalParameters": [
+        "IndexFieldName"
+      ],
       "shouldProcessTargetProperty": "IndexFieldName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IndexField",
@@ -343,20 +273,15 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "IndexFieldName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSuggester": {
       "verb": "Remove",
-      "noun": "CSSuggester",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "SuggesterName",
+      "noun": "Suggester",
+      "legacyPositionalParameters": [
+        "SuggesterName"
+      ],
       "shouldProcessTargetProperty": "SuggesterName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Suggester",
@@ -374,20 +299,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "SuggesterName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAnalysisSchemes": {
       "verb": "Get",
-      "noun": "CSAnalysisScheme",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "AnalysisScheme",
       "legacyAlias": "Get-CSAnalysisSchemes",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AnalysisSchemes",
         "ConfirmImpactSetting": "Medium",
@@ -399,25 +317,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAvailabilityOptions": {
       "verb": "Get",
-      "noun": "CSAvailabilityOption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "AvailabilityOption",
       "legacyAlias": "Get-CSAvailabilityOptions",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AvailabilityOptions",
         "ConfirmImpactSetting": "Medium",
@@ -429,25 +335,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDomains": {
       "verb": "Get",
-      "noun": "CSDomain",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Domain",
       "pipelineProperty": "DomainNames",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Domains",
         "ConfirmImpactSetting": "Medium",
@@ -459,25 +353,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeExpressions": {
       "verb": "Get",
-      "noun": "CSExpression",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Expression",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Expressions",
         "ConfirmImpactSetting": "Medium",
@@ -489,25 +370,16 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeIndexFields": {
       "verb": "Get",
-      "noun": "CSIndexField",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "IndexField",
       "legacyAlias": "Get-CSIndexFields",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "FieldNames",
+      "legacyPositionalParameters": [
+        "FieldNames"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IndexFields",
         "ConfirmImpactSetting": "Medium",
@@ -519,25 +391,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeScalingParameters": {
       "verb": "Get",
-      "noun": "CSScalingParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ScalingParameter",
       "legacyAlias": "Get-CSScalingParameters",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScalingParameters",
         "ConfirmImpactSetting": "Medium",
@@ -549,25 +409,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeServiceAccessPolicies": {
       "verb": "Get",
-      "noun": "CSServiceAccessPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ServiceAccessPolicy",
       "legacyAlias": "Get-CSServiceAccessPolicies",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServiceAccessPolicies",
         "ConfirmImpactSetting": "Medium",
@@ -579,25 +427,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeSuggesters": {
       "verb": "Get",
-      "noun": "CSSuggester",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Suggester",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Suggesters",
         "ConfirmImpactSetting": "Medium",
@@ -609,25 +444,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "IndexDocuments": {
       "verb": "Start",
-      "noun": "CSIndex",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Index",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Documents",
         "ConfirmImpactSetting": "Medium",
@@ -644,20 +466,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListDomainNames": {
       "verb": "Get",
-      "noun": "CSDomainNameList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "DomainNameList",
       "legacyAlias": "Get-CSListDomainNames",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainNames",
         "ConfirmImpactSetting": "Medium",
@@ -669,25 +484,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateAvailabilityOptions": {
       "verb": "Update",
-      "noun": "CSAvailabilityOption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "AvailabilityOption",
       "legacyAlias": "Update-CSAvailabilityOptions",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AvailabilityOptions",
         "ConfirmImpactSetting": "Medium",
@@ -704,20 +507,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateScalingParameters": {
       "verb": "Update",
-      "noun": "CSScalingParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ScalingParameter",
       "legacyAlias": "Update-CSScalingParameters",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScalingParameters",
         "ConfirmImpactSetting": "Medium",
@@ -734,20 +530,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateServiceAccessPolicies": {
       "verb": "Update",
-      "noun": "CSServiceAccessPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ServiceAccessPolicy",
       "legacyAlias": "Update-CSServiceAccessPolicies",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "AccessPolicies",
+      "legacyPositionalParameters": [
+        "AccessPolicies"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServiceAccessPolicies",
         "ConfirmImpactSetting": "Medium",
@@ -764,8 +556,7 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

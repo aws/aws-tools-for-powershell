@@ -1,23 +1,12 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "LoadBalancerName",
-    "PolicyName"
-  ],
-  "defaultPipelineProperty": "LoadBalancerName",
-  "legacyPositionalProperties": "LoadBalancerName",
-  "sdkServiceNamespace": "Amazon.ElasticLoadBalancing",
-  "sdkServiceClient": "AmazonElasticLoadBalancingClient",
-  "sdkServiceClientConfig": "AmazonElasticLoadBalancingConfig",
-  "legacyCmdletPrefix": "ELB",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "Marker",
     "responseTokenMember": "NextMarker",
     "resultLimitMember": "PageSize"
   },
+  "defaultPipelineProperty": "LoadBalancerName",
+  "legacyCmdletPrefix": "ELB",
+  "legacyPositionalProperties": "LoadBalancerName",
   "nounMappings": {
     "LoadBalancerToSubnets": "LoadBalancerToSubnet",
     "LoadBalancerFromSubnets": "LoadBalancerFromSubnet",
@@ -33,6 +22,13 @@
     "LoadBalancerPoliciesOfListener": "LoadBalancerPolicyOfListener",
     "AvailabilityZonesForLoadBalancer": "AvailabilityZoneForLoadBalancer"
   },
+  "pipelineByValuePropertyNames": [
+    "LoadBalancerName",
+    "PolicyName"
+  ],
+  "sdkServiceClientClass": "AmazonElasticLoadBalancingClient",
+  "sdkServiceConfigClass": "AmazonElasticLoadBalancingConfig",
+  "sdkServiceNamespace": "Amazon.ElasticLoadBalancing",
   "verbMappings": {
     "Apply": "Join",
     "Configure": "Set",
@@ -41,19 +37,18 @@
   "serviceOperations": {
     "AddTags": {
       "verb": "Add",
-      "noun": "ELBResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "Add-ELBTags",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "LoadBalancerNames",
-      "output": "Void",
-      "legacyPositionalParameters": "Tags",
+      "legacyPositionalParameters": [
+        "Tags"
+      ],
       "passThru": {
         "documentation": "Returns the collection of Tag objects that were added",
         "expression": "cmdletContext.Tags",
         "type": null
       },
+      "pipelineProperty": "LoadBalancerNames",
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -71,20 +66,15 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerNames"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ApplySecurityGroupsToLoadBalancer": {
       "verb": "Join",
-      "noun": "ELBSecurityGroupToLoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "SecurityGroups",
+      "noun": "SecurityGroupToLoadBalancer",
+      "legacyPositionalParameters": [
+        "SecurityGroups"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SecurityGroupsToLoadBalancer",
         "ConfirmImpactSetting": "Medium",
@@ -102,20 +92,15 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AttachLoadBalancerToSubnets": {
       "verb": "Add",
-      "noun": "ELBLoadBalancerToSubnet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "Subnets",
+      "noun": "LoadBalancerToSubnet",
+      "legacyPositionalParameters": [
+        "Subnets"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerToSubnets",
         "ConfirmImpactSetting": "Medium",
@@ -133,20 +118,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ConfigureHealthCheck": {
       "verb": "Set",
-      "noun": "ELBHealthCheck",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "HealthCheck",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "HealthCheck",
         "ConfirmImpactSetting": "Medium",
@@ -164,20 +141,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateAppCookieStickinessPolicy": {
       "verb": "New",
-      "noun": "ELBAppCookieStickinessPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "AppCookieStickinessPolicy",
+      "legacyPositionalParameters": [
+        "PolicyName",
+        "CookieName"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "PolicyName;CookieName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AppCookieStickinessPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -195,20 +169,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateLBCookieStickinessPolicy": {
       "verb": "New",
-      "noun": "ELBLBCookieStickinessPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LBCookieStickinessPolicy",
+      "legacyPositionalParameters": [
+        "PolicyName",
+        "CookieExpirationPeriod"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "PolicyName;CookieExpirationPeriod",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LBCookieStickinessPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -226,20 +197,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateLoadBalancer": {
       "verb": "New",
-      "noun": "ELBLoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "Listeners;AvailabilityZones",
+      "noun": "LoadBalancer",
+      "legacyPositionalParameters": [
+        "Listeners",
+        "AvailabilityZones"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancer",
         "ConfirmImpactSetting": "Medium",
@@ -257,25 +224,21 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateLoadBalancerListeners": {
       "verb": "New",
-      "noun": "ELBLoadBalancerListener",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Void",
-      "legacyPositionalParameters": "Listeners",
+      "noun": "LoadBalancerListener",
+      "legacyPositionalParameters": [
+        "Listeners"
+      ],
       "passThru": {
         "documentation": "Returns the collection of Listener objects that were created",
         "expression": "cmdletContext.Listeners",
         "type": null
       },
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerListeners",
         "ConfirmImpactSetting": "Medium",
@@ -293,20 +256,18 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateLoadBalancerPolicy": {
       "verb": "New",
-      "noun": "ELBLoadBalancerPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LoadBalancerPolicy",
+      "legacyPositionalParameters": [
+        "PolicyName",
+        "PolicyTypeName",
+        "PolicyAttributes"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "PolicyName;PolicyTypeName;PolicyAttributes",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -324,20 +285,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteLoadBalancer": {
       "verb": "Remove",
-      "noun": "ELBLoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LoadBalancer",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancer",
         "ConfirmImpactSetting": "High",
@@ -355,20 +309,16 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteLoadBalancerListeners": {
       "verb": "Remove",
-      "noun": "ELBLoadBalancerListener",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LoadBalancerListener",
+      "legacyPositionalParameters": [
+        "LoadBalancerPorts"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "LoadBalancerPorts",
       "shouldProcessTargetProperty": "LoadBalancerPorts",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerListeners",
@@ -387,20 +337,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "LoadBalancerPorts"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteLoadBalancerPolicy": {
       "verb": "Remove",
-      "noun": "ELBLoadBalancerPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LoadBalancerPolicy",
+      "legacyPositionalParameters": [
+        "PolicyName"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "PolicyName",
       "shouldProcessTargetProperty": "PolicyName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerPolicy",
@@ -419,20 +365,15 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeregisterInstancesFromLoadBalancer": {
       "verb": "Remove",
-      "noun": "ELBInstanceFromLoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "Instances",
+      "noun": "InstanceFromLoadBalancer",
+      "legacyPositionalParameters": [
+        "Instances"
+      ],
       "shouldProcessTargetProperty": "Instances",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstancesFromLoadBalancer",
@@ -451,20 +392,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Instances"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAccountLimits": {
       "verb": "Get",
-      "noun": "ELBAccountLimit",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AccountLimit",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountLimits",
         "ConfirmImpactSetting": "Medium",
@@ -477,25 +410,15 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeInstanceHealth": {
       "verb": "Get",
-      "noun": "ELBInstanceHealth",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "Instances",
+      "noun": "InstanceHealth",
+      "legacyPositionalParameters": [
+        "Instances"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceHealth",
         "ConfirmImpactSetting": "Medium",
@@ -508,25 +431,12 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeLoadBalancerAttributes": {
       "verb": "Get",
-      "noun": "ELBLoadBalancerAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "LoadBalancerAttribute",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -539,25 +449,15 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeLoadBalancerPolicies": {
       "verb": "Get",
-      "noun": "ELBLoadBalancerPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "PolicyNames",
+      "noun": "LoadBalancerPolicy",
+      "legacyPositionalParameters": [
+        "PolicyNames"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerPolicies",
         "ConfirmImpactSetting": "Medium",
@@ -570,25 +470,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeLoadBalancerPolicyTypes": {
       "verb": "Get",
-      "noun": "ELBLoadBalancerPolicyType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoadBalancerPolicyType",
       "pipelineProperty": "PolicyTypeNames",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerPolicyTypes",
         "ConfirmImpactSetting": "Medium",
@@ -601,25 +489,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeLoadBalancers": {
       "verb": "Get",
-      "noun": "ELBLoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoadBalancer",
       "pipelineProperty": "LoadBalancerNames",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancers",
         "ConfirmImpactSetting": "Medium",
@@ -632,25 +508,14 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTags": {
       "verb": "Get",
-      "noun": "ELBResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "Get-ELBTags",
-      "metadataOutputProperties": "",
       "pipelineProperty": "LoadBalancerNames",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -663,25 +528,15 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DetachLoadBalancerFromSubnets": {
       "verb": "Dismount",
-      "noun": "ELBLoadBalancerFromSubnet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "Subnets",
+      "noun": "LoadBalancerFromSubnet",
+      "legacyPositionalParameters": [
+        "Subnets"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerFromSubnets",
         "ConfirmImpactSetting": "Medium",
@@ -699,20 +554,15 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisableAvailabilityZonesForLoadBalancer": {
       "verb": "Disable",
-      "noun": "ELBAvailabilityZoneForLoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "AvailabilityZones",
+      "noun": "AvailabilityZoneForLoadBalancer",
+      "legacyPositionalParameters": [
+        "AvailabilityZones"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AvailabilityZonesForLoadBalancer",
         "ConfirmImpactSetting": "Medium",
@@ -730,20 +580,15 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "EnableAvailabilityZonesForLoadBalancer": {
       "verb": "Enable",
-      "noun": "ELBAvailabilityZoneForLoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "AvailabilityZones",
+      "noun": "AvailabilityZoneForLoadBalancer",
+      "legacyPositionalParameters": [
+        "AvailabilityZones"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AvailabilityZonesForLoadBalancer",
         "ConfirmImpactSetting": "Medium",
@@ -761,20 +606,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyLoadBalancerAttributes": {
       "verb": "Edit",
-      "noun": "ELBLoadBalancerAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LoadBalancerAttribute",
+      "legacyPositionalParameters": [
+        "LoadBalancerAttributes"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "LoadBalancerAttributes",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -792,20 +633,15 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RegisterInstancesWithLoadBalancer": {
       "verb": "Register",
-      "noun": "ELBInstanceWithLoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "Instances",
+      "noun": "InstanceWithLoadBalancer",
+      "legacyPositionalParameters": [
+        "Instances"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstancesWithLoadBalancer",
         "ConfirmImpactSetting": "Medium",
@@ -823,26 +659,24 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveTags": {
       "verb": "Remove",
-      "noun": "ELBResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "Remove-ELBTags",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "LoadBalancerNames",
-      "output": "Void",
-      "legacyPositionalParameters": "Tags",
-      "shouldProcessTargetProperty": "Tags",
+      "legacyPositionalParameters": [
+        "Tags"
+      ],
       "passThru": {
         "documentation": "Returns the collection of tag keys that were removed",
         "expression": "cmdletContext.Tags",
         "type": null
       },
+      "pipelineProperty": "LoadBalancerNames",
+      "output": "Void",
+      "shouldProcessTargetProperty": "Tags",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "High",
@@ -860,20 +694,17 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Tags"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetLoadBalancerListenerSSLCertificate": {
       "verb": "Set",
-      "noun": "ELBLoadBalancerListenerSSLCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LoadBalancerListenerSSLCertificate",
+      "legacyPositionalParameters": [
+        "LoadBalancerPort",
+        "SSLCertificateId"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "LoadBalancerPort;SSLCertificateId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerListenerSSLCertificate",
         "ConfirmImpactSetting": "Medium",
@@ -891,20 +722,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetLoadBalancerPoliciesForBackendServer": {
       "verb": "Set",
-      "noun": "ELBLoadBalancerPolicyForBackendServer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LoadBalancerPolicyForBackendServer",
+      "legacyPositionalParameters": [
+        "InstancePort",
+        "PolicyNames"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "InstancePort;PolicyNames",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerPoliciesForBackendServer",
         "ConfirmImpactSetting": "Medium",
@@ -922,20 +750,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetLoadBalancerPoliciesOfListener": {
       "verb": "Set",
-      "noun": "ELBLoadBalancerPolicyOfListener",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LoadBalancerPolicyOfListener",
+      "legacyPositionalParameters": [
+        "LoadBalancerPort",
+        "PolicyNames"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "LoadBalancerPort;PolicyNames",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerPoliciesOfListener",
         "ConfirmImpactSetting": "Medium",
@@ -953,8 +778,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

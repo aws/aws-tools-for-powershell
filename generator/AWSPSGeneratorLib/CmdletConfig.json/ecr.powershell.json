@@ -1,40 +1,29 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
+  "defaultPaginationSettings": {
+    "excludedOperations": [
+      "GetLifecyclePolicyPreview"
+    ],
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken",
+    "resultLimitMember": "MaxResults",
+    "servicePageSize": 100
+  },
+  "defaultPipelineProperty": "RepositoryName",
+  "legacyCmdletPrefix": "ECR",
   "pipelineByValuePropertyNames": [
     "RegistryId",
     "RepositoryName",
     "UploadId"
   ],
-  "defaultPipelineProperty": "RepositoryName",
+  "sdkServiceClientClass": "AmazonECRClient",
+  "sdkServiceConfigClass": "AmazonECRConfig",
   "sdkServiceNamespace": "Amazon.ECR",
-  "sdkServiceClient": "AmazonECRClient",
-  "sdkServiceClientConfig": "AmazonECRConfig",
-  "legacyCmdletPrefix": "ECR",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken",
-    "resultLimitMember": "MaxResults",
-    "servicePageSize": 100,
-    "excludedOperations": [
-      "GetLifecyclePolicyPreview"
-    ]
-  },
-  "nounMappings": {},
-  "verbMappings": {},
   "serviceOperations": {
     "BatchCheckLayerAvailability": {
       "verb": "Get",
-      "noun": "ECRLayerAvailabilityBatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LayerAvailabilityBatch",
       "pipelineProperty": "LayerDigests",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CheckLayerAvailability",
         "ConfirmImpactSetting": "Medium",
@@ -44,32 +33,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "BatchDeleteImage": {
       "verb": "Remove",
-      "noun": "ECRImageBatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ImageBatch",
       "pipelineProperty": "ImageIds",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeleteImage",
         "ConfirmImpactSetting": "High",
@@ -79,32 +57,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ImageIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "BatchGetImage": {
       "verb": "Get",
-      "noun": "ECRImageBatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ImageBatch",
       "pipelineProperty": "ImageIds",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GetImage",
         "ConfirmImpactSetting": "Medium",
@@ -114,32 +86,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "CompleteLayerUpload": {
       "verb": "Complete",
-      "noun": "ECRLayerUpload",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LayerUpload",
       "pipelineProperty": "LayerDigests",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "UploadId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LayerUpload",
@@ -150,32 +111,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "UploadId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateRepository": {
       "verb": "New",
-      "noun": "ECRRepository",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Repository",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Repository",
         "ConfirmImpactSetting": "Medium",
@@ -185,32 +138,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RepositoryName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteLifecyclePolicy": {
       "verb": "Remove",
-      "noun": "ECRLifecyclePolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LifecyclePolicy",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LifecyclePolicy",
         "ConfirmImpactSetting": "High",
@@ -220,32 +166,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RepositoryName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRepository": {
       "verb": "Remove",
-      "noun": "ECRRepository",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Repository",
       "customParameters": [
         {
           "name": "Force",
@@ -262,32 +200,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RepositoryName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRepositoryPolicy": {
       "verb": "Remove",
-      "noun": "ECRRepositoryPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "RepositoryPolicy",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RepositoryPolicy",
         "ConfirmImpactSetting": "High",
@@ -297,32 +228,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RepositoryName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeImages": {
       "verb": "Get",
-      "noun": "ECRImageMetadata",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ImageMetadata",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Images",
         "ConfirmImpactSetting": "Medium",
@@ -332,32 +255,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeRepositories": {
       "verb": "Get",
-      "noun": "ECRRepository",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Repository",
       "pipelineProperty": "RepositoryNames",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Repositories",
         "ConfirmImpactSetting": "Medium",
@@ -367,32 +278,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "GetAuthorizationToken": {
       "verb": "Get",
-      "noun": "ECRAuthorizationToken",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AuthorizationToken",
       "pipelineProperty": "RegistryIds",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AuthorizationToken",
         "ConfirmImpactSetting": "Medium",
@@ -402,32 +301,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "GetDownloadUrlForLayer": {
       "verb": "Get",
-      "noun": "ECRDownloadUrlForLayer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DownloadUrlForLayer",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DownloadUrlForLayer",
         "ConfirmImpactSetting": "Medium",
@@ -437,32 +324,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "GetLifecyclePolicy": {
       "verb": "Get",
-      "noun": "ECRLifecyclePolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LifecyclePolicy",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LifecyclePolicy",
         "ConfirmImpactSetting": "Medium",
@@ -472,32 +347,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "GetLifecyclePolicyPreview": {
       "verb": "Get",
-      "noun": "ECRLifecyclePolicyPreview",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LifecyclePolicyPreview",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LifecyclePolicyPreview",
         "ConfirmImpactSetting": "Medium",
@@ -507,32 +370,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "GetRepositoryPolicy": {
       "verb": "Get",
-      "noun": "ECRRepositoryPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "RepositoryPolicy",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RepositoryPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -542,32 +393,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "InitiateLayerUpload": {
       "verb": "Start",
-      "noun": "ECRLayerUpload",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LayerUpload",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LayerUpload",
         "ConfirmImpactSetting": "Medium",
@@ -577,32 +416,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RepositoryName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListImages": {
       "verb": "Get",
-      "noun": "ECRImage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Image",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Images",
         "ConfirmImpactSetting": "Medium",
@@ -612,32 +443,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "PutImage": {
       "verb": "Write",
-      "noun": "ECRImage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Image",
       "pipelineProperty": "ImageManifest",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "RepositoryName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Image",
@@ -648,32 +467,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "RepositoryName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutLifecyclePolicy": {
       "verb": "Write",
-      "noun": "ECRLifecyclePolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LifecyclePolicy",
       "pipelineProperty": "LifecyclePolicyText",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "RepositoryName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LifecyclePolicy",
@@ -684,33 +497,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "RepositoryName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetRepositoryPolicy": {
       "verb": "Set",
-      "noun": "ECRRepositoryPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "PolicyText",
-      "output": "Response",
-      "legacyPositionalParameters": null,
-      "shouldProcessTargetProperty": "RepositoryName",
+      "noun": "RepositoryPolicy",
       "customParameters": [
         {
           "name": "Force",
@@ -718,6 +522,9 @@
           "autoApplyAlias": "false"
         }
       ],
+      "pipelineProperty": "PolicyText",
+      "output": "Response",
+      "shouldProcessTargetProperty": "RepositoryName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RepositoryPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -727,32 +534,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "RepositoryName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartLifecyclePolicyPreview": {
       "verb": "Start",
-      "noun": "ECRLifecyclePolicyPreview",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LifecyclePolicyPreview",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LifecyclePolicyPreview",
         "ConfirmImpactSetting": "Medium",
@@ -762,24 +562,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "GetLifecyclePolicyPreview"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RepositoryName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UploadLayerPart": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     }
   }
 }

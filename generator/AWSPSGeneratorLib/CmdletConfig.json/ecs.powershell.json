@@ -1,20 +1,14 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "Cluster",
-  "sdkServiceNamespace": "Amazon.ECS",
-  "sdkServiceClient": "AmazonECSClient",
-  "sdkServiceClientConfig": "AmazonECSConfig",
-  "legacyCmdletPrefix": "ECS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults"
   },
-  "nounMappings": {},
+  "defaultPipelineProperty": "Cluster",
+  "legacyCmdletPrefix": "ECS",
+  "sdkServiceClientClass": "AmazonECSClient",
+  "sdkServiceConfigClass": "AmazonECSConfig",
+  "sdkServiceNamespace": "Amazon.ECS",
   "verbMappings": {
     "Deregister": "Unregister",
     "List": "Get",
@@ -23,14 +17,8 @@
   "serviceOperations": {
     "CreateCluster": {
       "verb": "New",
-      "noun": "ECSCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Cluster",
       "pipelineProperty": "ClusterName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Cluster",
         "ConfirmImpactSetting": "Medium",
@@ -48,20 +36,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateService": {
       "verb": "New",
-      "noun": "ECSService",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Service",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Service",
         "ConfirmImpactSetting": "Medium",
@@ -79,20 +59,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServiceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteAttributes": {
       "verb": "Remove",
-      "noun": "ECSAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Attribute",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Attributes",
         "ConfirmImpactSetting": "High",
@@ -110,20 +82,12 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Cluster"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCluster": {
       "verb": "Remove",
-      "noun": "ECSCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Cluster",
       "shouldProcessTargetProperty": "Cluster",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Cluster",
@@ -142,20 +106,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Cluster"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteService": {
       "verb": "Remove",
-      "noun": "ECSService",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Service",
       "shouldProcessTargetProperty": "Service",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Service",
@@ -174,21 +130,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Service"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeregisterContainerInstance": {
       "verb": "Unregister",
-      "noun": "ECSContainerInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
-      "shouldProcessTargetProperty": "Cluster",
+      "noun": "ContainerInstance",
       "customParameters": [
         {
           "name": "Force",
@@ -196,6 +143,7 @@
           "autoApplyAlias": "false"
         }
       ],
+      "shouldProcessTargetProperty": "Cluster",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ContainerInstance",
         "ConfirmImpactSetting": "Medium",
@@ -213,20 +161,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Cluster"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeregisterTaskDefinition": {
       "verb": "Unregister",
-      "noun": "ECSTaskDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TaskDefinition",
       "pipelineProperty": "TaskDefinition",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TaskDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -244,20 +185,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TaskDefinition"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeClusters": {
       "verb": "Get",
-      "noun": "ECSClusterDetail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ClusterDetail",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Clusters",
         "ConfirmImpactSetting": "Medium",
@@ -270,25 +204,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeContainerInstances": {
       "verb": "Get",
-      "noun": "ECSContainerInstanceDetail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ContainerInstanceDetail",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ContainerInstances",
         "ConfirmImpactSetting": "Medium",
@@ -301,25 +223,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeServices": {
       "verb": "Get",
-      "noun": "ECSService",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Service",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Services",
         "ConfirmImpactSetting": "Medium",
@@ -332,25 +242,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTaskDefinition": {
       "verb": "Get",
-      "noun": "ECSTaskDefinitionDetail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TaskDefinitionDetail",
       "pipelineProperty": "TaskDefinition",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TaskDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -363,25 +261,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTasks": {
       "verb": "Get",
-      "noun": "ECSTaskDetail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "TaskDetail",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tasks",
         "ConfirmImpactSetting": "Medium",
@@ -394,25 +280,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListAttributes": {
       "verb": "Get",
-      "noun": "ECSAttributeList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AttributeList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Attributes",
         "ConfirmImpactSetting": "Medium",
@@ -425,25 +298,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListClusters": {
       "verb": "Get",
-      "noun": "ECSClusterList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ClusterList",
       "legacyAlias": "Get-ECSClusters",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Clusters",
         "ConfirmImpactSetting": "Medium",
@@ -456,25 +317,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListContainerInstances": {
       "verb": "Get",
-      "noun": "ECSContainerInstanceList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ContainerInstanceList",
       "legacyAlias": "Get-ECSContainerInstances",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ContainerInstances",
         "ConfirmImpactSetting": "Medium",
@@ -487,25 +336,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListServices": {
       "verb": "Get",
-      "noun": "ECSClusterService",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ClusterService",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Services",
         "ConfirmImpactSetting": "Medium",
@@ -518,25 +354,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTaskDefinitionFamilies": {
       "verb": "Get",
-      "noun": "ECSTaskDefinitionFamilyList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "TaskDefinitionFamilyList",
       "legacyAlias": "Get-ECSTaskDefinitionFamilies",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TaskDefinitionFamilies",
         "ConfirmImpactSetting": "Medium",
@@ -549,25 +373,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTaskDefinitions": {
       "verb": "Get",
-      "noun": "ECSTaskDefinitionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "TaskDefinitionList",
       "legacyAlias": "Get-ECSTaskDefinitions",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TaskDefinitions",
         "ConfirmImpactSetting": "Medium",
@@ -580,25 +392,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTasks": {
       "verb": "Get",
-      "noun": "ECSTaskList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "TaskList",
       "legacyAlias": "Get-ECSTasks",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tasks",
         "ConfirmImpactSetting": "Medium",
@@ -611,25 +411,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutAttributes": {
       "verb": "Write",
-      "noun": "ECSAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Attribute",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Attributes",
         "ConfirmImpactSetting": "Medium",
@@ -647,20 +434,12 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Cluster"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RegisterTaskDefinition": {
       "verb": "Register",
-      "noun": "ECSTaskDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TaskDefinition",
       "shouldProcessTargetProperty": "Family",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TaskDefinition",
@@ -679,20 +458,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Family"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RunTask": {
       "verb": "New",
-      "noun": "ECSTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Task",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Cluster",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Task",
@@ -711,20 +483,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Cluster"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartTask": {
       "verb": "Start",
-      "noun": "ECSTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Task",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Cluster",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Task",
@@ -743,20 +508,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Cluster"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopTask": {
       "verb": "Stop",
-      "noun": "ECSTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Task",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Task",
         "ConfirmImpactSetting": "Medium",
@@ -774,20 +531,12 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Cluster"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateContainerAgent": {
       "verb": "Update",
-      "noun": "ECSContainerAgent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ContainerAgent",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ContainerAgent",
         "ConfirmImpactSetting": "Medium",
@@ -805,20 +554,13 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Cluster"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateContainerInstancesState": {
       "verb": "Update",
-      "noun": "ECSContainerInstancesState",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ContainerInstancesState",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ContainerInstancesState",
         "ConfirmImpactSetting": "Medium",
@@ -836,20 +578,12 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Cluster"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateService": {
       "verb": "Update",
-      "noun": "ECSService",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Service",
       "shouldProcessTargetProperty": "Service",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Service",
@@ -868,8 +602,7 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Service"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

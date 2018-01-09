@@ -1,32 +1,24 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.AWSMarketplaceCommerceAnalytics",
-  "sdkServiceClient": "AmazonAWSMarketplaceCommerceAnalyticsClient",
-  "sdkServiceClientConfig": "AmazonAWSMarketplaceCommerceAnalyticsConfig",
-  "legacyCmdletPrefix": "MCA",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": null,
     "responseTokenMember": null
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "MCA",
+  "sdkServiceClientClass": "AmazonAWSMarketplaceCommerceAnalyticsClient",
+  "sdkServiceConfigClass": "AmazonAWSMarketplaceCommerceAnalyticsConfig",
+  "sdkServiceNamespace": "Amazon.AWSMarketplaceCommerceAnalytics",
   "serviceOperations": {
     "GenerateDataSet": {
       "verb": "New",
-      "noun": "MCADataSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "suppressShouldProcessConfirmation": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DataSet",
+      "legacyPositionalParameters": [
+        "DestinationS3BucketName",
+        "RoleNameArn",
+        "SnsTopicArn"
+      ],
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": "DestinationS3BucketName;RoleNameArn;SnsTopicArn",
+      "suppressShouldProcessConfirmation": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DataSet",
         "ConfirmImpactSetting": "Medium",
@@ -38,26 +30,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartSupportDataExport": {
       "verb": "Start",
-      "noun": "MCASupportDataExport",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "suppressShouldProcessConfirmation": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SupportDataExport",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "suppressShouldProcessConfirmation": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SupportDataExport",
         "ConfirmImpactSetting": "Medium",
@@ -69,13 +49,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

@@ -1,36 +1,25 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.AlexaForBusiness",
-  "sdkServiceClient": "AmazonAlexaForBusinessClient",
-  "sdkServiceClientConfig": "AmazonAlexaForBusinessConfig",
-  "legacyCmdletPrefix": "ALXB",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.AlexaForBusiness.Model.Profile",
-    "Amazon.AlexaForBusiness.Model.RoomSkillParameter"
-  ],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults",
     "servicePageSize": 10
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "ALXB",
+  "nonFlatteningTypeNames": [
+    "Amazon.AlexaForBusiness.Model.Profile",
+    "Amazon.AlexaForBusiness.Model.RoomSkillParameter"
+  ],
+  "sdkServiceClientClass": "AmazonAlexaForBusinessClient",
+  "sdkServiceConfigClass": "AmazonAlexaForBusinessConfig",
+  "sdkServiceNamespace": "Amazon.AlexaForBusiness",
   "serviceOperations": {
     "AssociateDeviceWithRoom": {
       "verb": "Add",
-      "noun": "ALXBDeviceToRoom",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeviceToRoom",
       "pipelineProperty": "DeviceArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeviceWithRoom",
         "ConfirmImpactSetting": "Medium",
@@ -49,20 +38,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeviceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AssociateSkillGroupWithRoom": {
       "verb": "Add",
-      "noun": "ALXBSkillGroupToRoom",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SkillGroupToRoom",
       "pipelineProperty": "SkillGroupArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SkillGroupWithRoom",
         "ConfirmImpactSetting": "Medium",
@@ -81,20 +64,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SkillGroupArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateProfile": {
       "verb": "New",
-      "noun": "ALXBProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "ProfileName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Profile",
       "customParameters": [
         {
           "name": "ProfileName",
@@ -102,6 +77,7 @@
           "autoApplyAlias": "false"
         }
       ],
+      "pipelineProperty": "ProfileName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Profile",
         "ConfirmImpactSetting": "Medium",
@@ -120,20 +96,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProfileName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateRoom": {
       "verb": "New",
-      "noun": "ALXBRoom",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Room",
       "pipelineProperty": "RoomName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Room",
         "ConfirmImpactSetting": "Medium",
@@ -152,20 +121,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoomName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateSkillGroup": {
       "verb": "New",
-      "noun": "ALXBSkillGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SkillGroup",
       "pipelineProperty": "SkillGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SkillGroup",
         "ConfirmImpactSetting": "Medium",
@@ -184,20 +146,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SkillGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateUser": {
       "verb": "New",
-      "noun": "ALXBUser",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "User",
       "pipelineProperty": "UserId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "User",
         "ConfirmImpactSetting": "Medium",
@@ -216,20 +171,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteProfile": {
       "verb": "Remove",
-      "noun": "ALXBProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Profile",
       "pipelineProperty": "ProfileArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Profile",
         "ConfirmImpactSetting": "High",
@@ -248,20 +197,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProfileArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRoom": {
       "verb": "Remove",
-      "noun": "ALXBRoom",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Room",
       "pipelineProperty": "RoomArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Room",
         "ConfirmImpactSetting": "High",
@@ -280,20 +223,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoomArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRoomSkillParameter": {
       "verb": "Remove",
-      "noun": "ALXBRoomSkillParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RoomSkillParameter",
       "pipelineProperty": "SkillId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RoomSkillParameter",
         "ConfirmImpactSetting": "High",
@@ -312,20 +249,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SkillId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSkillGroup": {
       "verb": "Remove",
-      "noun": "ALXBSkillGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SkillGroup",
       "pipelineProperty": "SkillGroupArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SkillGroup",
         "ConfirmImpactSetting": "High",
@@ -344,20 +275,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SkillGroupArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteUser": {
       "verb": "Remove",
-      "noun": "ALXBUser",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "User",
       "pipelineProperty": "EnrollmentId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "User",
         "ConfirmImpactSetting": "High",
@@ -376,20 +301,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EnrollmentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisassociateDeviceFromRoom": {
       "verb": "Remove",
-      "noun": "ALXBDeviceFromRoom",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeviceFromRoom",
       "pipelineProperty": "DeviceArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeviceFromRoom",
         "ConfirmImpactSetting": "High",
@@ -408,20 +327,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeviceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisassociateSkillGroupFromRoom": {
       "verb": "Remove",
-      "noun": "ALXBSkillGroupFromRoom",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SkillGroupFromRoom",
       "pipelineProperty": "SkillGroupArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SkillGroupFromRoom",
         "ConfirmImpactSetting": "High",
@@ -440,20 +353,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SkillGroupArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDevice": {
       "verb": "Get",
-      "noun": "ALXBDevice",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Device",
       "pipelineProperty": "DeviceArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Device",
         "ConfirmImpactSetting": "Medium",
@@ -467,25 +373,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 10
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetProfile": {
       "verb": "Get",
-      "noun": "ALXBProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Profile",
       "pipelineProperty": "ProfileArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Profile",
         "ConfirmImpactSetting": "Medium",
@@ -499,25 +393,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 10
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetRoom": {
       "verb": "Get",
-      "noun": "ALXBRoom",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Room",
       "pipelineProperty": "RoomArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Room",
         "ConfirmImpactSetting": "Medium",
@@ -531,25 +413,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 10
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetRoomSkillParameter": {
       "verb": "Get",
-      "noun": "ALXBRoomSkillParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RoomSkillParameter",
       "pipelineProperty": "ParameterKey",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RoomSkillParameter",
         "ConfirmImpactSetting": "Medium",
@@ -563,25 +433,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 10
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSkillGroup": {
       "verb": "Get",
-      "noun": "ALXBSkillGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SkillGroup",
       "pipelineProperty": "SkillGroupArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SkillGroup",
         "ConfirmImpactSetting": "Medium",
@@ -595,25 +453,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 10
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListSkills": {
       "verb": "Get",
-      "noun": "ALXBSkillList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SkillList",
       "pipelineProperty": "SkillGroupArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Skills",
         "ConfirmImpactSetting": "Medium",
@@ -627,25 +473,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 10
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTags": {
       "verb": "Get",
-      "noun": "ALXBTagList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TagList",
       "pipelineProperty": "Arn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -659,25 +493,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 10
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutRoomSkillParameter": {
       "verb": "Set",
-      "noun": "ALXBRoomSkillParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RoomSkillParameter",
       "pipelineProperty": "RoomSkillParameter",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "SkillId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RoomSkillParameter",
@@ -697,20 +520,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "SkillId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ResolveRoom": {
       "verb": "Resolve",
-      "noun": "ALXBRoom",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Room",
       "pipelineProperty": "SkillId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Room",
         "ConfirmImpactSetting": "Medium",
@@ -729,20 +546,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SkillId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RevokeInvitation": {
       "verb": "Revoke",
-      "noun": "ALXBInvitation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Invitation",
       "pipelineProperty": "EnrollmentId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Invitation",
         "ConfirmImpactSetting": "Medium",
@@ -761,20 +572,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EnrollmentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SearchDevices": {
       "verb": "Find",
-      "noun": "ALXBDevice",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "TotalCount",
+      "noun": "Device",
+      "outputMetadataPropertyNames": [
+        "TotalCount"
+      ],
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Devices",
         "ConfirmImpactSetting": "Medium",
@@ -788,25 +595,16 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 10
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SearchProfiles": {
       "verb": "Find",
-      "noun": "ALXBProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "TotalCount",
+      "noun": "Profile",
+      "outputMetadataPropertyNames": [
+        "TotalCount"
+      ],
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Profiles",
         "ConfirmImpactSetting": "Medium",
@@ -820,25 +618,16 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 10
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SearchRooms": {
       "verb": "Find",
-      "noun": "ALXBRoom",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "TotalCount",
+      "noun": "Room",
+      "outputMetadataPropertyNames": [
+        "TotalCount"
+      ],
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Rooms",
         "ConfirmImpactSetting": "Medium",
@@ -852,25 +641,16 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 10
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SearchSkillGroups": {
       "verb": "Find",
-      "noun": "ALXBSkillGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "TotalCount",
+      "noun": "SkillGroup",
+      "outputMetadataPropertyNames": [
+        "TotalCount"
+      ],
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SkillGroups",
         "ConfirmImpactSetting": "Medium",
@@ -884,25 +664,16 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 10
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SearchUsers": {
       "verb": "Find",
-      "noun": "ALXBUser",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "TotalCount",
+      "noun": "User",
+      "outputMetadataPropertyNames": [
+        "TotalCount"
+      ],
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Users",
         "ConfirmImpactSetting": "Medium",
@@ -916,25 +687,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 10
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SendInvitation": {
       "verb": "Send",
-      "noun": "ALXBInvitation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Invitation",
       "pipelineProperty": "UserArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Invitation",
         "ConfirmImpactSetting": "Medium",
@@ -953,20 +713,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UserArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartDeviceSync": {
       "verb": "Start",
-      "noun": "ALXBDeviceSync",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DeviceSync",
       "pipelineProperty": "DeviceArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DeviceSync",
         "ConfirmImpactSetting": "Medium",
@@ -985,20 +739,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeviceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TagResource": {
       "verb": "Add",
-      "noun": "ALXBResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "Tags",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "Medium",
@@ -1017,20 +765,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Arn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UntagResource": {
       "verb": "Remove",
-      "noun": "ALXBResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "TagKeys",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "High",
@@ -1049,20 +791,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Arn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDevice": {
       "verb": "Update",
-      "noun": "ALXBDevice",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Device",
       "pipelineProperty": "DeviceName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Device",
         "ConfirmImpactSetting": "Medium",
@@ -1081,20 +817,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeviceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateProfile": {
       "verb": "Update",
-      "noun": "ALXBProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "ProfileName",
-      "output": "Void",
-      "legacyPositionalParameters": null,
+      "noun": "Profile",
       "customParameters": [
         {
           "name": "ProfileName",
@@ -1102,6 +830,8 @@
           "autoApplyAlias": "false"
         }
       ],
+      "pipelineProperty": "ProfileName",
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Profile",
         "ConfirmImpactSetting": "Medium",
@@ -1120,20 +850,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProfileName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateRoom": {
       "verb": "Update",
-      "noun": "ALXBRoom",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Room",
       "pipelineProperty": "RoomName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Room",
         "ConfirmImpactSetting": "Medium",
@@ -1152,20 +876,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoomName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateSkillGroup": {
       "verb": "Update",
-      "noun": "ALXBSkillGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SkillGroup",
       "pipelineProperty": "SkillGroupName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SkillGroup",
         "ConfirmImpactSetting": "Medium",
@@ -1184,8 +902,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SkillGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

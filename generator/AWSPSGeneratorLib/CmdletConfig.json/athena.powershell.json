@@ -1,37 +1,26 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken",
+    "resultLimitMember": "MaxResults"
+  },
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "ATH",
   "pipelineByValuePropertyNames": [
     "NamedQueryId",
     "QueryExecutionId",
     "Name",
     "Database"
   ],
-  "defaultPipelineProperty": "",
+  "sdkServiceClientClass": "AmazonAthenaClient",
+  "sdkServiceConfigClass": "AmazonAthenaConfig",
   "sdkServiceNamespace": "Amazon.Athena",
-  "sdkServiceClient": "AmazonAthenaClient",
-  "sdkServiceClientConfig": "AmazonAthenaConfig",
-  "legacyCmdletPrefix": "ATH",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken",
-    "resultLimitMember": "MaxResults"
-  },
-  "nounMappings": {},
-  "verbMappings": {},
   "serviceOperations": {
     "BatchGetNamedQuery": {
       "verb": "Get",
-      "noun": "ATHNamedQueryBatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "NamedQueryBatch",
       "pipelineProperty": "NamedQueryIds",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GetNamedQuery",
         "ConfirmImpactSetting": "Medium",
@@ -44,25 +33,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "BatchGetQueryExecution": {
       "verb": "Get",
-      "noun": "ATHQueryExecutionBatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "QueryExecutionBatch",
       "pipelineProperty": "QueryExecutionIds",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GetQueryExecution",
         "ConfirmImpactSetting": "Medium",
@@ -75,25 +53,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateNamedQuery": {
       "verb": "New",
-      "noun": "ATHNamedQuery",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "NamedQuery",
       "pipelineProperty": "QueryString",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NamedQuery",
         "ConfirmImpactSetting": "Medium",
@@ -111,20 +77,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteNamedQuery": {
       "verb": "Remove",
-      "noun": "ATHNamedQuery",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "NamedQuery",
       "pipelineProperty": "NamedQueryId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NamedQuery",
         "ConfirmImpactSetting": "High",
@@ -142,20 +102,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "NamedQueryId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetNamedQuery": {
       "verb": "Get",
-      "noun": "ATHNamedQuery",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "NamedQuery",
       "pipelineProperty": "NamedQueryId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NamedQuery",
         "ConfirmImpactSetting": "Medium",
@@ -168,25 +121,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetQueryExecution": {
       "verb": "Get",
-      "noun": "ATHQueryExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "QueryExecution",
       "pipelineProperty": "QueryExecutionId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "QueryExecution",
         "ConfirmImpactSetting": "Medium",
@@ -199,28 +140,15 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetQueryResults": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "ListNamedQueries": {
       "verb": "Get",
-      "noun": "ATHNamedQueryList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "NamedQueryList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NamedQueries",
         "ConfirmImpactSetting": "Medium",
@@ -233,25 +161,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListQueryExecutions": {
       "verb": "Get",
-      "noun": "ATHQueryExecutionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "QueryExecutionList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "QueryExecutions",
         "ConfirmImpactSetting": "Medium",
@@ -264,25 +179,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartQueryExecution": {
       "verb": "Start",
-      "noun": "ATHQueryExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "QueryExecution",
       "pipelineProperty": "QueryString",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "QueryExecution",
         "ConfirmImpactSetting": "Medium",
@@ -300,20 +203,14 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueryString"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopQueryExecution": {
       "verb": "Stop",
-      "noun": "ATHQueryExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "QueryExecution",
       "pipelineProperty": "QueryExecutionId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "QueryExecution",
         "ConfirmImpactSetting": "Medium",
@@ -331,8 +228,7 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueryExecutionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

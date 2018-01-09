@@ -1,37 +1,27 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "Id",
-    "DistributionId"
-  ],
-  "defaultPipelineProperty": "Id",
-  "legacyPositionalProperties": "Id",
-  "sdkServiceNamespace": "Amazon.CloudFront",
-  "sdkServiceClient": "AmazonCloudFrontClient",
-  "sdkServiceClientConfig": "AmazonCloudFrontConfig",
-  "legacyCmdletPrefix": "CF",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": null,
     "responseTokenMember": null
   },
-  "nounMappings": {},
+  "defaultPipelineProperty": "Id",
+  "legacyCmdletPrefix": "CF",
+  "legacyPositionalProperties": "Id",
+  "pipelineByValuePropertyNames": [
+    "Id",
+    "DistributionId"
+  ],
+  "sdkServiceClientClass": "AmazonCloudFrontClient",
+  "sdkServiceConfigClass": "AmazonCloudFrontConfig",
+  "sdkServiceNamespace": "Amazon.CloudFront",
   "verbMappings": {
     "List": "Get"
   },
   "serviceOperations": {
     "CreateCloudFrontOriginAccessIdentity": {
       "verb": "New",
-      "noun": "CFCloudFrontOriginAccessIdentity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "CloudFrontOriginAccessIdentity",
       "output": "Response",
-      "legacyPositionalParameters": null,
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CloudFrontOriginAccessIdentity",
         "ConfirmImpactSetting": "Medium",
@@ -48,20 +38,14 @@
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDistribution": {
       "verb": "New",
-      "noun": "CFDistribution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Distribution",
       "output": "Response",
-      "legacyPositionalParameters": null,
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Distribution",
         "ConfirmImpactSetting": "Medium",
@@ -78,20 +62,14 @@
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDistributionWithTags": {
       "verb": "New",
-      "noun": "CFDistributionWithTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DistributionWithTag",
       "output": "Response",
-      "legacyPositionalParameters": null,
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DistributionWithTags",
         "ConfirmImpactSetting": "Medium",
@@ -108,20 +86,14 @@
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateInvalidation": {
       "verb": "New",
-      "noun": "CFInvalidation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Invalidation",
       "pipelineProperty": "DistributionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Invalidation",
         "ConfirmImpactSetting": "Medium",
@@ -138,20 +110,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DistributionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateStreamingDistribution": {
       "verb": "New",
-      "noun": "CFStreamingDistribution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "StreamingDistribution",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StreamingDistribution",
         "ConfirmImpactSetting": "Medium",
@@ -168,20 +133,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateStreamingDistributionWithTags": {
       "verb": "New",
-      "noun": "CFStreamingDistributionWithTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "StreamingDistributionWithTag",
       "output": "Response",
-      "legacyPositionalParameters": null,
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StreamingDistributionWithTags",
         "ConfirmImpactSetting": "Medium",
@@ -198,20 +157,16 @@
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCloudFrontOriginAccessIdentity": {
       "verb": "Remove",
-      "noun": "CFCloudFrontOriginAccessIdentity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "CloudFrontOriginAccessIdentity",
+      "legacyPositionalParameters": [
+        "IfMatch"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "IfMatch",
       "shouldProcessTargetProperty": "Id",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CloudFrontOriginAccessIdentity",
@@ -229,20 +184,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDistribution": {
       "verb": "Remove",
-      "noun": "CFDistribution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Distribution",
+      "legacyPositionalParameters": [
+        "IfMatch"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "IfMatch",
       "shouldProcessTargetProperty": "Id",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Distribution",
@@ -260,20 +211,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteServiceLinkedRole": {
       "verb": "Remove",
-      "noun": "CFServiceLinkedRole",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ServiceLinkedRole",
       "pipelineProperty": "RoleName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServiceLinkedRole",
         "ConfirmImpactSetting": "High",
@@ -290,20 +235,16 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteStreamingDistribution": {
       "verb": "Remove",
-      "noun": "CFStreamingDistribution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "StreamingDistribution",
+      "legacyPositionalParameters": [
+        "IfMatch"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "IfMatch",
       "shouldProcessTargetProperty": "Id",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StreamingDistribution",
@@ -321,20 +262,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetCloudFrontOriginAccessIdentity": {
       "verb": "Get",
-      "noun": "CFCloudFrontOriginAccessIdentity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "CloudFrontOriginAccessIdentity",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CloudFrontOriginAccessIdentity",
         "ConfirmImpactSetting": "Medium",
@@ -346,25 +279,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetCloudFrontOriginAccessIdentityConfig": {
       "verb": "Get",
-      "noun": "CFCloudFrontOriginAccessIdentityConfig",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "CloudFrontOriginAccessIdentityConfig",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CloudFrontOriginAccessIdentityConfig",
         "ConfirmImpactSetting": "Medium",
@@ -376,25 +296,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDistribution": {
       "verb": "Get",
-      "noun": "CFDistribution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Distribution",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Distribution",
         "ConfirmImpactSetting": "Medium",
@@ -406,25 +313,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDistributionConfig": {
       "verb": "Get",
-      "noun": "CFDistributionConfig",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DistributionConfig",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DistributionConfig",
         "ConfirmImpactSetting": "Medium",
@@ -436,25 +330,16 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetInvalidation": {
       "verb": "Get",
-      "noun": "CFInvalidation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Invalidation",
+      "legacyPositionalParameters": [
+        "Id"
+      ],
       "pipelineProperty": "DistributionId",
-      "output": "Default",
-      "legacyPositionalParameters": "Id",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Invalidation",
         "ConfirmImpactSetting": "Medium",
@@ -466,25 +351,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetStreamingDistribution": {
       "verb": "Get",
-      "noun": "CFStreamingDistribution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "StreamingDistribution",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StreamingDistribution",
         "ConfirmImpactSetting": "Medium",
@@ -496,25 +368,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetStreamingDistributionConfig": {
       "verb": "Get",
-      "noun": "CFStreamingDistributionConfig",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "StreamingDistributionConfig",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StreamingDistributionConfig",
         "ConfirmImpactSetting": "Medium",
@@ -526,25 +385,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListCloudFrontOriginAccessIdentities": {
       "verb": "Get",
-      "noun": "CFCloudFrontOriginAccessIdentityList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "CloudFrontOriginAccessIdentityList",
       "legacyAlias": "Get-CFCloudFrontOriginAccessIdentities",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CloudFrontOriginAccessIdentities",
         "ConfirmImpactSetting": "Medium",
@@ -556,25 +403,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListDistributions": {
       "verb": "Get",
-      "noun": "CFDistributionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "DistributionList",
       "legacyAlias": "Get-CFDistributions",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Distributions",
         "ConfirmImpactSetting": "Medium",
@@ -586,25 +421,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListDistributionsByWebACLId": {
       "verb": "Get",
-      "noun": "CFDistributionListByWebACLId",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DistributionListByWebACLId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DistributionsByWebACLId",
         "ConfirmImpactSetting": "Medium",
@@ -616,25 +438,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListInvalidations": {
       "verb": "Get",
-      "noun": "CFInvalidationList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "InvalidationList",
       "legacyAlias": "Get-CFInvalidations",
-      "metadataOutputProperties": "",
       "pipelineProperty": "DistributionId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Invalidations",
         "ConfirmImpactSetting": "Medium",
@@ -646,25 +457,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListStreamingDistributions": {
       "verb": "Get",
-      "noun": "CFStreamingDistributionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "StreamingDistributionList",
       "legacyAlias": "Get-CFStreamingDistributions",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StreamingDistributions",
         "ConfirmImpactSetting": "Medium",
@@ -676,25 +475,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTagsForResource": {
       "verb": "Get",
-      "noun": "CFResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "Resource",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForResource",
         "ConfirmImpactSetting": "Medium",
@@ -706,25 +493,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TagResource": {
       "verb": "Add",
-      "noun": "CFResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "Resource",
-      "output": "Void",
-      "legacyPositionalParameters": null,
+      "noun": "ResourceTag",
       "customParameters": [
         {
           "name": "Tags_Items",
@@ -732,6 +506,8 @@
           "autoApplyAlias": "false"
         }
       ],
+      "pipelineProperty": "Resource",
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "Medium",
@@ -748,20 +524,12 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Resource"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UntagResource": {
       "verb": "Remove",
-      "noun": "CFResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "Resource",
-      "output": "Void",
-      "legacyPositionalParameters": null,
+      "noun": "ResourceTag",
       "customParameters": [
         {
           "name": "TagKeys_Items",
@@ -769,6 +537,8 @@
           "autoApplyAlias": "false"
         }
       ],
+      "pipelineProperty": "Resource",
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "High",
@@ -785,20 +555,15 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Resource"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateCloudFrontOriginAccessIdentity": {
       "verb": "Update",
-      "noun": "CFCloudFrontOriginAccessIdentity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "IfMatch",
+      "noun": "CloudFrontOriginAccessIdentity",
+      "legacyPositionalParameters": [
+        "IfMatch"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CloudFrontOriginAccessIdentity",
         "ConfirmImpactSetting": "Medium",
@@ -815,20 +580,15 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDistribution": {
       "verb": "Update",
-      "noun": "CFDistribution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "IfMatch",
+      "noun": "Distribution",
+      "legacyPositionalParameters": [
+        "IfMatch"
+      ],
       "shouldProcessTargetProperty": "Id",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Distribution",
@@ -846,20 +606,15 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateStreamingDistribution": {
       "verb": "Update",
-      "noun": "CFStreamingDistribution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "IfMatch",
+      "noun": "StreamingDistribution",
+      "legacyPositionalParameters": [
+        "IfMatch"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StreamingDistribution",
         "ConfirmImpactSetting": "Medium",
@@ -876,8 +631,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

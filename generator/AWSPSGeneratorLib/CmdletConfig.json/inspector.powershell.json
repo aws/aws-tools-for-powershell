@@ -1,6 +1,11 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken",
+    "resultLimitMember": "MaxResults"
+  },
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "INS",
   "pipelineByValuePropertyNames": [
     "AssessmentRunArn",
     "AssessmentRunName",
@@ -13,33 +18,17 @@
     "RoleArn",
     "TopicArn"
   ],
-  "defaultPipelineProperty": "",
+  "sdkServiceClientClass": "AmazonInspectorClient",
+  "sdkServiceConfigClass": "AmazonInspectorConfig",
   "sdkServiceNamespace": "Amazon.Inspector",
-  "sdkServiceClient": "AmazonInspectorClient",
-  "sdkServiceClientConfig": "AmazonInspectorConfig",
-  "legacyCmdletPrefix": "INS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken",
-    "resultLimitMember": "MaxResults"
-  },
-  "nounMappings": {},
   "verbMappings": {
     "List": "Get"
   },
   "serviceOperations": {
     "AddAttributesToFindings": {
       "verb": "Add",
-      "noun": "INSFindingAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FindingAttribute",
       "pipelineProperty": "FindingArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AttributesToFindings",
         "ConfirmImpactSetting": "Medium",
@@ -57,20 +46,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FindingArns"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateAssessmentTarget": {
       "verb": "New",
-      "noun": "INSAssessmentTarget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssessmentTarget",
       "pipelineProperty": "ResourceGroupArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "AssessmentTargetName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssessmentTarget",
@@ -89,20 +71,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "AssessmentTargetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateAssessmentTemplate": {
       "verb": "New",
-      "noun": "INSAssessmentTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssessmentTemplate",
       "pipelineProperty": "AssessmentTargetArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "AssessmentTemplateName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssessmentTemplate",
@@ -121,20 +96,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "AssessmentTemplateName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateResourceGroup": {
       "verb": "New",
-      "noun": "INSResourceGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceGroup",
       "pipelineProperty": "ResourceGroupTags",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceGroup",
         "ConfirmImpactSetting": "Medium",
@@ -152,20 +120,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceGroupTags"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteAssessmentRun": {
       "verb": "Remove",
-      "noun": "INSAssessmentRun",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssessmentRun",
       "pipelineProperty": "AssessmentRunArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssessmentRun",
         "ConfirmImpactSetting": "High",
@@ -183,20 +145,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AssessmentRunArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteAssessmentTarget": {
       "verb": "Remove",
-      "noun": "INSAssessmentTarget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssessmentTarget",
       "pipelineProperty": "AssessmentTargetArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssessmentTarget",
         "ConfirmImpactSetting": "High",
@@ -214,20 +170,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AssessmentTargetArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteAssessmentTemplate": {
       "verb": "Remove",
-      "noun": "INSAssessmentTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssessmentTemplate",
       "pipelineProperty": "AssessmentTemplateArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssessmentTemplate",
         "ConfirmImpactSetting": "High",
@@ -245,20 +195,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AssessmentTemplateArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAssessmentRuns": {
       "verb": "Get",
-      "noun": "INSAssessmentRun",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssessmentRun",
       "pipelineProperty": "AssessmentRunArns",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssessmentRuns",
         "ConfirmImpactSetting": "Medium",
@@ -271,25 +215,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAssessmentTargets": {
       "verb": "Get",
-      "noun": "INSAssessmentTarget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssessmentTarget",
       "pipelineProperty": "AssessmentTargetArns",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssessmentTargets",
         "ConfirmImpactSetting": "Medium",
@@ -302,25 +235,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAssessmentTemplates": {
       "verb": "Get",
-      "noun": "INSAssessmentTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssessmentTemplate",
       "pipelineProperty": "AssessmentTemplateArns",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssessmentTemplates",
         "ConfirmImpactSetting": "Medium",
@@ -333,25 +255,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeCrossAccountAccessRole": {
       "verb": "Get",
-      "noun": "INSCrossAccountAccessRole",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "CrossAccountAccessRole",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CrossAccountAccessRole",
         "ConfirmImpactSetting": "Medium",
@@ -364,25 +274,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeFindings": {
       "verb": "Get",
-      "noun": "INSFinding",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Finding",
       "pipelineProperty": "FindingArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Findings",
         "ConfirmImpactSetting": "Medium",
@@ -395,25 +294,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeResourceGroups": {
       "verb": "Get",
-      "noun": "INSResourceGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceGroup",
       "pipelineProperty": "ResourceGroupArns",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceGroups",
         "ConfirmImpactSetting": "Medium",
@@ -426,25 +314,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeRulesPackages": {
       "verb": "Get",
-      "noun": "INSRulesPackage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RulesPackage",
       "pipelineProperty": "RulesPackageArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RulesPackages",
         "ConfirmImpactSetting": "Medium",
@@ -457,25 +334,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetAssessmentReport": {
       "verb": "Get",
-      "noun": "INSAssessmentReport",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssessmentReport",
       "pipelineProperty": "AssessmentRunArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssessmentReport",
         "ConfirmImpactSetting": "Medium",
@@ -488,25 +354,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetTelemetryMetadata": {
       "verb": "Get",
-      "noun": "INSTelemetryMetadata",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TelemetryMetadata",
       "pipelineProperty": "AssessmentRunArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TelemetryMetadata",
         "ConfirmImpactSetting": "Medium",
@@ -519,25 +373,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListAssessmentRunAgents": {
       "verb": "Get",
-      "noun": "INSAssessmentRunAgent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssessmentRunAgent",
       "pipelineProperty": "AssessmentRunArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssessmentRunAgents",
         "ConfirmImpactSetting": "Medium",
@@ -550,25 +392,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListAssessmentRuns": {
       "verb": "Get",
-      "noun": "INSAssessmentRunList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssessmentRunList",
       "pipelineProperty": "AssessmentTemplateArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssessmentRuns",
         "ConfirmImpactSetting": "Medium",
@@ -581,25 +411,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListAssessmentTargets": {
       "verb": "Get",
-      "noun": "INSAssessmentTargetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssessmentTargetList",
       "pipelineProperty": "Filter_AssessmentTargetNamePattern",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssessmentTargets",
         "ConfirmImpactSetting": "Medium",
@@ -612,25 +430,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListAssessmentTemplates": {
       "verb": "Get",
-      "noun": "INSAssessmentTemplateList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssessmentTemplateList",
       "pipelineProperty": "AssessmentTargetArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssessmentTemplates",
         "ConfirmImpactSetting": "Medium",
@@ -643,25 +449,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListEventSubscriptions": {
       "verb": "Get",
-      "noun": "INSEventSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EventSubscription",
       "pipelineProperty": "ResourceArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSubscriptions",
         "ConfirmImpactSetting": "Medium",
@@ -674,25 +468,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListFindings": {
       "verb": "Get",
-      "noun": "INSFindingList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FindingList",
       "pipelineProperty": "AssessmentRunArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Findings",
         "ConfirmImpactSetting": "Medium",
@@ -705,25 +487,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListRulesPackages": {
       "verb": "Get",
-      "noun": "INSRulesPackageList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "RulesPackageList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RulesPackages",
         "ConfirmImpactSetting": "Medium",
@@ -736,25 +505,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTagsForResource": {
       "verb": "Get",
-      "noun": "INSResourceTagList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTagList",
       "pipelineProperty": "ResourceArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForResource",
         "ConfirmImpactSetting": "Medium",
@@ -767,25 +524,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PreviewAgents": {
       "verb": "Get",
-      "noun": "INSAgentPreview",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AgentPreview",
       "pipelineProperty": "PreviewAgentsArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Agents",
         "ConfirmImpactSetting": "Medium",
@@ -798,25 +543,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RegisterCrossAccountAccessRole": {
       "verb": "Register",
-      "noun": "INSCrossAccountAccessRole",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CrossAccountAccessRole",
       "pipelineProperty": "RoleArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CrossAccountAccessRole",
         "ConfirmImpactSetting": "Medium",
@@ -834,20 +568,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveAttributesFromFindings": {
       "verb": "Remove",
-      "noun": "INSFindingAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FindingAttribute",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AttributesFromFindings",
         "ConfirmImpactSetting": "High",
@@ -865,20 +592,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FindingArns"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetTagsForResource": {
       "verb": "Set",
-      "noun": "INSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForResource",
         "ConfirmImpactSetting": "Medium",
@@ -896,20 +617,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartAssessmentRun": {
       "verb": "Start",
-      "noun": "INSAssessmentRun",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssessmentRun",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "AssessmentTemplateArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssessmentRun",
@@ -928,20 +642,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "AssessmentTemplateArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopAssessmentRun": {
       "verb": "Stop",
-      "noun": "INSAssessmentRun",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssessmentRun",
       "pipelineProperty": "AssessmentRunArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssessmentRun",
         "ConfirmImpactSetting": "Medium",
@@ -959,20 +667,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AssessmentRunArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SubscribeToEvent": {
       "verb": "Add",
-      "noun": "INSEventSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EventSubscription",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "TopicArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ToEvent",
@@ -991,20 +693,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "TopicArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UnsubscribeFromEvent": {
       "verb": "Remove",
-      "noun": "INSEventSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EventSubscription",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "TopicArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FromEvent",
@@ -1023,20 +719,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "TopicArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateAssessmentTarget": {
       "verb": "Update",
-      "noun": "INSAssessmentTarget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AssessmentTarget",
       "pipelineProperty": "AssessmentTargetArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AssessmentTarget",
         "ConfirmImpactSetting": "Medium",
@@ -1054,8 +744,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AssessmentTargetArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

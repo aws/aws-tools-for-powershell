@@ -1,33 +1,22 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.WorkSpaces",
-  "sdkServiceClient": "AmazonWorkSpacesClient",
-  "sdkServiceClientConfig": "AmazonWorkSpacesConfig",
-  "legacyCmdletPrefix": "WKS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken"
   },
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "WKS",
   "nounMappings": {
     "Tags": "Tag"
   },
-  "verbMappings": {},
+  "sdkServiceClientClass": "AmazonWorkSpacesClient",
+  "sdkServiceConfigClass": "AmazonWorkSpacesConfig",
+  "sdkServiceNamespace": "Amazon.WorkSpaces",
   "serviceOperations": {
     "CreateTags": {
       "verb": "New",
-      "noun": "WKSTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Tag",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -44,20 +33,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateWorkspaces": {
       "verb": "New",
-      "noun": "WKSWorkspace",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Workspace",
       "pipelineProperty": "Workspaces",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Workspaces",
         "ConfirmImpactSetting": "Medium",
@@ -74,20 +57,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Workspaces"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteTags": {
       "verb": "Remove",
-      "noun": "WKSTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Tag",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "High",
@@ -104,20 +81,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTags": {
       "verb": "Get",
-      "noun": "WKSTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Tag",
       "pipelineProperty": "ResourceId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -129,25 +99,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeWorkspaceBundles": {
       "verb": "Get",
-      "noun": "WKSWorkspaceBundle",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "WorkspaceBundle",
       "legacyAlias": "Get-WKSWorkspaceBundles",
-      "metadataOutputProperties": "",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "WorkspaceBundles",
         "ConfirmImpactSetting": "Medium",
@@ -159,25 +118,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeWorkspaceDirectories": {
       "verb": "Get",
-      "noun": "WKSWorkspaceDirectory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "WorkspaceDirectory",
       "legacyAlias": "Get-WKSWorkspaceDirectories",
-      "metadataOutputProperties": "",
       "pipelineProperty": "DirectoryIds",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "WorkspaceDirectories",
         "ConfirmImpactSetting": "Medium",
@@ -189,25 +137,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeWorkspaces": {
       "verb": "Get",
-      "noun": "WKSWorkspace",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Workspace",
       "legacyAlias": "Get-WKSWorkspaces",
-      "metadataOutputProperties": "",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "paginationSettings": {
         "requestTokenMember": "NextToken",
         "responseTokenMember": "NextToken",
@@ -225,25 +162,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeWorkspacesConnectionStatus": {
       "verb": "Get",
-      "noun": "WKSWorkspacesConnectionStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "WorkspacesConnectionStatus",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "WorkspacesConnectionStatus",
         "ConfirmImpactSetting": "Medium",
@@ -255,25 +180,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyWorkspaceProperties": {
       "verb": "Edit",
-      "noun": "WKSWorkspaceProperty",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "WorkspaceProperty",
       "pipelineProperty": "WorkspaceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "WorkspaceProperties",
         "ConfirmImpactSetting": "Medium",
@@ -290,24 +204,23 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "WorkspaceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RebootWorkspaces": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "RebuildWorkspaces": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "StartWorkspaces": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "StopWorkspaces": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "TerminateWorkspaces": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     }
   }
 }

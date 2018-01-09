@@ -1,32 +1,20 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.ServerlessApplicationRepository",
-  "sdkServiceClient": "AmazonServerlessApplicationRepositoryClient",
-  "sdkServiceClientConfig": "AmazonServerlessApplicationRepositoryConfig",
-  "legacyCmdletPrefix": "SAR",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "SAR",
+  "sdkServiceClientClass": "AmazonServerlessApplicationRepositoryClient",
+  "sdkServiceConfigClass": "AmazonServerlessApplicationRepositoryConfig",
+  "sdkServiceNamespace": "Amazon.ServerlessApplicationRepository",
   "serviceOperations": {
     "CreateApplication": {
       "verb": "New",
-      "noun": "SARApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Application",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Application",
         "ConfirmImpactSetting": "Medium",
@@ -44,20 +32,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateApplicationVersion": {
       "verb": "New",
-      "noun": "SARApplicationVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ApplicationVersion",
       "pipelineProperty": "SemanticVersion",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationVersion",
         "ConfirmImpactSetting": "Medium",
@@ -75,20 +57,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateCloudFormationChangeSet": {
       "verb": "New",
-      "noun": "SARCloudFormationChangeSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CloudFormationChangeSet",
       "pipelineProperty": "SemanticVersion",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ApplicationId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CloudFormationChangeSet",
@@ -107,20 +83,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetApplication": {
       "verb": "Get",
-      "noun": "SARApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Application",
       "pipelineProperty": "SemanticVersion",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Application",
         "ConfirmImpactSetting": "Medium",
@@ -133,25 +103,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetApplicationPolicy": {
       "verb": "Get",
-      "noun": "SARApplicationPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ApplicationPolicy",
       "pipelineProperty": "ApplicationId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -164,25 +122,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListApplications": {
       "verb": "Get",
-      "noun": "SARApplicationList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ApplicationList",
       "pipelineProperty": "MaxItems",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Applications",
         "ConfirmImpactSetting": "Medium",
@@ -195,25 +141,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListApplicationVersions": {
       "verb": "Get",
-      "noun": "SARApplicationVersionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ApplicationVersionList",
       "pipelineProperty": "ApplicationId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationVersions",
         "ConfirmImpactSetting": "Medium",
@@ -226,25 +160,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutApplicationPolicy": {
       "verb": "Set",
-      "noun": "SARApplicationPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ApplicationPolicy",
       "pipelineProperty": "ApplicationId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -262,20 +184,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateApplication": {
       "verb": "Update",
-      "noun": "SARApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Application",
       "pipelineProperty": "ApplicationId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Application",
         "ConfirmImpactSetting": "Medium",
@@ -293,8 +209,7 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

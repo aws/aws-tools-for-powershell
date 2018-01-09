@@ -1,36 +1,23 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "ParameterGroupName",
-    "SubnetGroupName",
-    "NodeId"
-  ],
-  "defaultPipelineProperty": "ClusterName",
-  "sdkServiceNamespace": "Amazon.DAX",
-  "sdkServiceClient": "AmazonDAXClient",
-  "sdkServiceClientConfig": "AmazonDAXConfig",
-  "legacyCmdletPrefix": "DAX",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "ClusterName",
+  "legacyCmdletPrefix": "DAX",
+  "pipelineByValuePropertyNames": [
+    "ParameterGroupName",
+    "SubnetGroupName",
+    "NodeId"
+  ],
+  "sdkServiceClientClass": "AmazonDAXClient",
+  "sdkServiceConfigClass": "AmazonDAXConfig",
+  "sdkServiceNamespace": "Amazon.DAX",
   "serviceOperations": {
     "CreateCluster": {
       "verb": "New",
-      "noun": "DAXCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Cluster",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Cluster",
         "ConfirmImpactSetting": "Medium",
@@ -48,20 +35,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateParameterGroup": {
       "verb": "New",
-      "noun": "DAXParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ParameterGroup",
       "pipelineProperty": "ParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ParameterGroup",
         "ConfirmImpactSetting": "Medium",
@@ -79,20 +59,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ParameterGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateSubnetGroup": {
       "verb": "New",
-      "noun": "DAXSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SubnetGroup",
       "pipelineProperty": "SubnetGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubnetGroup",
         "ConfirmImpactSetting": "Medium",
@@ -110,20 +83,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubnetGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DecreaseReplicationFactor": {
       "verb": "Set",
-      "noun": "DAXReplicationFactorDecrease",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ReplicationFactorDecrease",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationFactor",
         "ConfirmImpactSetting": "Medium",
@@ -141,20 +106,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCluster": {
       "verb": "Remove",
-      "noun": "DAXCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Cluster",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Cluster",
         "ConfirmImpactSetting": "High",
@@ -172,20 +129,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteParameterGroup": {
       "verb": "Remove",
-      "noun": "DAXParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ParameterGroup",
       "pipelineProperty": "ParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ParameterGroup",
         "ConfirmImpactSetting": "High",
@@ -203,20 +153,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ParameterGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSubnetGroup": {
       "verb": "Remove",
-      "noun": "DAXSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SubnetGroup",
       "pipelineProperty": "SubnetGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubnetGroup",
         "ConfirmImpactSetting": "High",
@@ -234,20 +177,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubnetGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeClusters": {
       "verb": "Get",
-      "noun": "DAXCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Cluster",
       "pipelineProperty": "ClusterNames",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Clusters",
         "ConfirmImpactSetting": "Medium",
@@ -260,25 +196,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDefaultParameters": {
       "verb": "Get",
-      "noun": "DAXDefaultParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DefaultParameter",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DefaultParameters",
         "ConfirmImpactSetting": "Medium",
@@ -291,25 +214,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEvents": {
       "verb": "Get",
-      "noun": "DAXEvent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Event",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Events",
         "ConfirmImpactSetting": "Medium",
@@ -322,25 +233,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeParameterGroups": {
       "verb": "Get",
-      "noun": "DAXParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ParameterGroup",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ParameterGroups",
         "ConfirmImpactSetting": "Medium",
@@ -353,25 +252,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeParameters": {
       "verb": "Get",
-      "noun": "DAXParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Parameter",
       "pipelineProperty": "ParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Parameters",
         "ConfirmImpactSetting": "Medium",
@@ -384,25 +271,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeSubnetGroups": {
       "verb": "Get",
-      "noun": "DAXSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SubnetGroup",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubnetGroups",
         "ConfirmImpactSetting": "Medium",
@@ -415,25 +290,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "IncreaseReplicationFactor": {
       "verb": "Set",
-      "noun": "DAXReplicationFactorIncrease",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ReplicationFactorIncrease",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationFactor",
         "ConfirmImpactSetting": "Medium",
@@ -451,24 +313,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTags": {
       "verb": "Get",
-      "noun": "DAXResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "ResourceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ResourceTag",
       "paginationSettings": {
         "requestTokenMember": "NextToken",
         "responseTokenMember": "NextToken"
       },
+      "pipelineProperty": "ResourceName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -480,25 +335,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RebootNode": {
       "verb": "Restart",
-      "noun": "DAXNode",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Node",
       "pipelineProperty": "NodeId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Node",
         "ConfirmImpactSetting": "Medium",
@@ -516,20 +359,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "NodeId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TagResource": {
       "verb": "Add",
-      "noun": "DAXResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "Medium",
@@ -547,20 +383,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UntagResource": {
       "verb": "Remove",
-      "noun": "DAXResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "TagKeys",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "High",
@@ -578,20 +407,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateCluster": {
       "verb": "Update",
-      "noun": "DAXCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Cluster",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Cluster",
         "ConfirmImpactSetting": "Medium",
@@ -609,20 +430,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClusterName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateParameterGroup": {
       "verb": "Update",
-      "noun": "DAXParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ParameterGroup",
       "pipelineProperty": "ParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ParameterGroup",
         "ConfirmImpactSetting": "Medium",
@@ -640,20 +454,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ParameterGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateSubnetGroup": {
       "verb": "Update",
-      "noun": "DAXSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SubnetGroup",
       "pipelineProperty": "SubnetGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubnetGroup",
         "ConfirmImpactSetting": "Medium",
@@ -671,8 +478,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubnetGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

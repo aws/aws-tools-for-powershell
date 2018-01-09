@@ -1,39 +1,27 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.SageMaker",
-  "sdkServiceClient": "AmazonSageMakerClient",
-  "sdkServiceClientConfig": "AmazonSageMakerConfig",
-  "legacyCmdletPrefix": "SM",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.SageMaker.Model.AlgorithmSpecification",
-    "Amazon.SageMaker.Model.ContainerDefinition",
-    "Amazon.SageMaker.Model.DesiredWeightAndCapacity",
-    "Amazon.SageMaker.Model.OutputDataConfig",
-    "Amazon.SageMaker.Model.ResourceConfig"
-  ],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults",
     "servicePageSize": 100
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "SM",
+  "nonFlatteningTypeNames": [
+    "Amazon.SageMaker.Model.AlgorithmSpecification",
+    "Amazon.SageMaker.Model.ContainerDefinition",
+    "Amazon.SageMaker.Model.DesiredWeightAndCapacity",
+    "Amazon.SageMaker.Model.OutputDataConfig",
+    "Amazon.SageMaker.Model.ResourceConfig"
+  ],
+  "sdkServiceClientClass": "AmazonSageMakerClient",
+  "sdkServiceConfigClass": "AmazonSageMakerConfig",
+  "sdkServiceNamespace": "Amazon.SageMaker",
   "serviceOperations": {
     "AddTags": {
       "verb": "Add",
-      "noun": "SMResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "Tags",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -52,20 +40,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateEndpoint": {
       "verb": "New",
-      "noun": "SMEndpoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Endpoint",
       "pipelineProperty": "EndpointConfigName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Endpoint",
         "ConfirmImpactSetting": "Medium",
@@ -84,20 +65,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EndpointConfigName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateEndpointConfig": {
       "verb": "New",
-      "noun": "SMEndpointConfig",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EndpointConfig",
       "pipelineProperty": "EndpointConfigName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EndpointConfig",
         "ConfirmImpactSetting": "Medium",
@@ -116,20 +90,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EndpointConfigName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateModel": {
       "verb": "New",
-      "noun": "SMModel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Model",
       "pipelineProperty": "PrimaryContainer",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ModelName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Model",
@@ -149,20 +116,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ModelName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateNotebookInstance": {
       "verb": "New",
-      "noun": "SMNotebookInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "NotebookInstance",
       "pipelineProperty": "NotebookInstanceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NotebookInstance",
         "ConfirmImpactSetting": "Medium",
@@ -181,20 +141,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "NotebookInstanceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreatePresignedNotebookInstanceUrl": {
       "verb": "New",
-      "noun": "SMPresignedNotebookInstanceUrl",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PresignedNotebookInstanceUrl",
       "pipelineProperty": "NotebookInstanceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PresignedNotebookInstanceUrl",
         "ConfirmImpactSetting": "Medium",
@@ -213,20 +166,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "NotebookInstanceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateTrainingJob": {
       "verb": "New",
-      "noun": "SMTrainingJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TrainingJob",
       "pipelineProperty": "TrainingJobName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TrainingJob",
         "ConfirmImpactSetting": "Medium",
@@ -245,20 +191,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TrainingJobName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteEndpoint": {
       "verb": "Remove",
-      "noun": "SMEndpoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Endpoint",
       "pipelineProperty": "EndpointName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Endpoint",
         "ConfirmImpactSetting": "High",
@@ -277,20 +217,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EndpointName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteEndpointConfig": {
       "verb": "Remove",
-      "noun": "SMEndpointConfig",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EndpointConfig",
       "pipelineProperty": "EndpointConfigName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EndpointConfig",
         "ConfirmImpactSetting": "High",
@@ -309,20 +243,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EndpointConfigName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteModel": {
       "verb": "Remove",
-      "noun": "SMModel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Model",
       "pipelineProperty": "ModelName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Model",
         "ConfirmImpactSetting": "High",
@@ -341,20 +269,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ModelName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteNotebookInstance": {
       "verb": "Remove",
-      "noun": "SMNotebookInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "NotebookInstance",
       "pipelineProperty": "NotebookInstanceName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NotebookInstance",
         "ConfirmImpactSetting": "High",
@@ -373,20 +295,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "NotebookInstanceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteTags": {
       "verb": "Remove",
-      "noun": "SMResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "TagKeys",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "High",
@@ -405,20 +321,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEndpoint": {
       "verb": "Get",
-      "noun": "SMEndpoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Endpoint",
       "pipelineProperty": "EndpointName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Endpoint",
         "ConfirmImpactSetting": "Medium",
@@ -432,25 +342,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEndpointConfig": {
       "verb": "Get",
-      "noun": "SMEndpointConfig",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EndpointConfig",
       "pipelineProperty": "EndpointConfigName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EndpointConfig",
         "ConfirmImpactSetting": "Medium",
@@ -464,25 +363,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeModel": {
       "verb": "Get",
-      "noun": "SMModel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Model",
       "pipelineProperty": "ModelName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Model",
         "ConfirmImpactSetting": "Medium",
@@ -496,25 +384,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeNotebookInstance": {
       "verb": "Get",
-      "noun": "SMNotebookInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "NotebookInstance",
       "pipelineProperty": "NotebookInstanceName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NotebookInstance",
         "ConfirmImpactSetting": "Medium",
@@ -528,25 +405,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTrainingJob": {
       "verb": "Get",
-      "noun": "SMTrainingJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TrainingJob",
       "pipelineProperty": "TrainingJobName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TrainingJob",
         "ConfirmImpactSetting": "Medium",
@@ -560,25 +426,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListEndpointConfigs": {
       "verb": "Get",
-      "noun": "SMConfigList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EndpointConfigs",
         "ConfirmImpactSetting": "Medium",
@@ -592,25 +446,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListEndpoints": {
       "verb": "Get",
-      "noun": "SMEndpointList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EndpointList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Endpoints",
         "ConfirmImpactSetting": "Medium",
@@ -624,25 +466,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListModels": {
       "verb": "Get",
-      "noun": "SMModelList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ModelList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Models",
         "ConfirmImpactSetting": "Medium",
@@ -656,25 +486,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListNotebookInstances": {
       "verb": "Get",
-      "noun": "SMNotebookInstanceList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "NotebookInstanceList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NotebookInstances",
         "ConfirmImpactSetting": "Medium",
@@ -688,25 +506,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTags": {
       "verb": "Get",
-      "noun": "SMResourceTagList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTagList",
       "pipelineProperty": "ResourceArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -720,25 +526,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTrainingJobs": {
       "verb": "Get",
-      "noun": "SMTrainingJobList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TrainingJobList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TrainingJobs",
         "ConfirmImpactSetting": "Medium",
@@ -752,25 +546,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartNotebookInstance": {
       "verb": "Start",
-      "noun": "SMNotebookInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "NotebookInstance",
       "pipelineProperty": "NotebookInstanceName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NotebookInstance",
         "ConfirmImpactSetting": "Medium",
@@ -789,20 +572,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "NotebookInstanceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopNotebookInstance": {
       "verb": "Stop",
-      "noun": "SMNotebookInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "NotebookInstance",
       "pipelineProperty": "NotebookInstanceName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NotebookInstance",
         "ConfirmImpactSetting": "Medium",
@@ -821,20 +598,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "NotebookInstanceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopTrainingJob": {
       "verb": "Stop",
-      "noun": "SMTrainingJob",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TrainingJob",
       "pipelineProperty": "TrainingJobName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TrainingJob",
         "ConfirmImpactSetting": "Medium",
@@ -853,20 +624,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TrainingJobName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateEndpoint": {
       "verb": "Update",
-      "noun": "SMEndpoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Endpoint",
       "pipelineProperty": "EndpointConfigName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "EndpointName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Endpoint",
@@ -886,20 +650,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "EndpointName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateEndpointWeightsAndCapacities": {
       "verb": "Update",
-      "noun": "SMEndpointWeightAndCapacity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EndpointWeightAndCapacity",
       "pipelineProperty": "EndpointName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EndpointWeightsAndCapacities",
         "ConfirmImpactSetting": "Medium",
@@ -918,20 +675,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EndpointName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateNotebookInstance": {
       "verb": "Update",
-      "noun": "SMNotebookInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "NotebookInstance",
       "pipelineProperty": "NotebookInstanceName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NotebookInstance",
         "ConfirmImpactSetting": "Medium",
@@ -950,8 +701,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "NotebookInstanceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

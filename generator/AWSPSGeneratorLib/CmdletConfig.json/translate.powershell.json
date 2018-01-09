@@ -1,31 +1,22 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.Translate",
-  "sdkServiceClient": "AmazonTranslateClient",
-  "sdkServiceClientConfig": "AmazonTranslateConfig",
-  "legacyCmdletPrefix": "TRN",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": null,
     "responseTokenMember": null
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "TRN",
+  "sdkServiceClientClass": "AmazonTranslateClient",
+  "sdkServiceConfigClass": "AmazonTranslateConfig",
+  "sdkServiceNamespace": "Amazon.Translate",
   "serviceOperations": {
     "TranslateText": {
       "verb": "ConvertTo",
-      "noun": "TRNTargetLanguage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "SourceLanguageCode;TargetLanguageCode",
+      "noun": "TargetLanguage",
+      "outputMetadataPropertyNames": [
+        "SourceLanguageCode",
+        "TargetLanguageCode"
+      ],
       "pipelineProperty": "Text",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "TargetLanguageCode",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Text",
@@ -43,8 +34,7 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "TargetLanguageCode"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

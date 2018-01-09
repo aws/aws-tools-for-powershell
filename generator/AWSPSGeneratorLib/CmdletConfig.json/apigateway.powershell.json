@@ -1,5 +1,15 @@
 {
-  "additionalNamespaces": [],
+  "defaultPaginationSettings": {
+    "excludedOperations": [
+      "GetApiKeys",
+      "GetUsage"
+    ],
+    "requestTokenMember": "Position",
+    "responseTokenMember": "Position",
+    "resultLimitMember": "Limit"
+  },
+  "defaultPipelineProperty": "RestApiId",
+  "legacyCmdletPrefix": "AG",
   "outputMetadataPropertyNames": [
     "Position"
   ],
@@ -14,35 +24,14 @@
     "ParentId",
     "AuthorizerId"
   ],
-  "defaultPipelineProperty": "RestApiId",
+  "sdkServiceClientClass": "AmazonAPIGatewayClient",
+  "sdkServiceConfigClass": "AmazonAPIGatewayConfig",
   "sdkServiceNamespace": "Amazon.APIGateway",
-  "sdkServiceClient": "AmazonAPIGatewayClient",
-  "sdkServiceClientConfig": "AmazonAPIGatewayConfig",
-  "legacyCmdletPrefix": "AG",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "Position",
-    "responseTokenMember": "Position",
-    "resultLimitMember": "Limit",
-    "excludedOperations": [
-      "GetApiKeys",
-      "GetUsage"
-    ]
-  },
-  "nounMappings": {},
-  "verbMappings": {},
   "serviceOperations": {
     "CreateApiKey": {
       "verb": "New",
-      "noun": "AGApiKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ApiKey",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Value",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApiKey",
@@ -53,32 +42,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Value"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateAuthorizer": {
       "verb": "New",
-      "noun": "AGAuthorizer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Authorizer",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Authorizer",
         "ConfirmImpactSetting": "Medium",
@@ -88,32 +70,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateBasePathMapping": {
       "verb": "New",
-      "noun": "AGBasePathMapping",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BasePathMapping",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DomainName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BasePathMapping",
@@ -124,32 +99,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDeployment": {
       "verb": "New",
-      "noun": "AGDeployment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Deployment",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "StageName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Deployment",
@@ -160,32 +128,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "StageName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDocumentationPart": {
       "verb": "New",
-      "noun": "AGDocumentationPart",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DocumentationPart",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentationPart",
         "ConfirmImpactSetting": "Medium",
@@ -195,32 +156,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDocumentationVersion": {
       "verb": "New",
-      "noun": "AGDocumentationVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DocumentationVersion",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentationVersion",
         "ConfirmImpactSetting": "Medium",
@@ -230,32 +184,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDomainName": {
       "verb": "New",
-      "noun": "AGDomainName",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DomainName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DomainName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainName",
@@ -266,32 +213,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateModel": {
       "verb": "New",
-      "noun": "AGModel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Model",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Model",
@@ -302,32 +242,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateRequestValidator": {
       "verb": "New",
-      "noun": "AGRequestValidator",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RequestValidator",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RequestValidator",
         "ConfirmImpactSetting": "Medium",
@@ -337,32 +271,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateResource": {
       "verb": "New",
-      "noun": "AGResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Resource",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ParentId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
@@ -373,32 +300,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ParentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateRestApi": {
       "verb": "New",
-      "noun": "AGRestApi",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "RestApi",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RestApi",
         "ConfirmImpactSetting": "Medium",
@@ -408,32 +328,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateStage": {
       "verb": "New",
-      "noun": "AGStage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Stage",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "StageName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stage",
@@ -444,32 +357,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "StageName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateUsagePlan": {
       "verb": "New",
-      "noun": "AGUsagePlan",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UsagePlan",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UsagePlan",
         "ConfirmImpactSetting": "Medium",
@@ -479,32 +386,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateUsagePlanKey": {
       "verb": "New",
-      "noun": "AGUsagePlanKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UsagePlanKey",
       "pipelineProperty": "KeyId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UsagePlanKey",
         "ConfirmImpactSetting": "Medium",
@@ -514,32 +415,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateVpcLink": {
       "verb": "New",
-      "noun": "AGVpcLink",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "VpcLink",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VpcLink",
@@ -550,32 +445,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteApiKey": {
       "verb": "Remove",
-      "noun": "AGApiKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ApiKey",
       "pipelineProperty": "ApiKey",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApiKey",
         "ConfirmImpactSetting": "High",
@@ -585,32 +474,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApiKey"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteAuthorizer": {
       "verb": "Remove",
-      "noun": "AGAuthorizer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Authorizer",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "AuthorizerId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Authorizer",
@@ -621,32 +503,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "AuthorizerId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteBasePathMapping": {
       "verb": "Remove",
-      "noun": "AGBasePathMapping",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BasePathMapping",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BasePathMapping",
         "ConfirmImpactSetting": "High",
@@ -656,32 +531,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteClientCertificate": {
       "verb": "Remove",
-      "noun": "AGClientCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ClientCertificate",
       "pipelineProperty": "ClientCertificateId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClientCertificate",
         "ConfirmImpactSetting": "High",
@@ -691,32 +560,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClientCertificateId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDeployment": {
       "verb": "Remove",
-      "noun": "AGDeployment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Deployment",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DeploymentId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Deployment",
@@ -727,32 +589,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DeploymentId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDocumentationPart": {
       "verb": "Remove",
-      "noun": "AGDocumentationPart",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DocumentationPart",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentationPart",
         "ConfirmImpactSetting": "High",
@@ -762,32 +617,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDocumentationVersion": {
       "verb": "Remove",
-      "noun": "AGDocumentationVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DocumentationVersion",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentationVersion",
         "ConfirmImpactSetting": "High",
@@ -797,32 +645,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDomainName": {
       "verb": "Remove",
-      "noun": "AGDomainName",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DomainName",
       "pipelineProperty": "DomainName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainName",
         "ConfirmImpactSetting": "High",
@@ -832,32 +674,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteGatewayResponse": {
       "verb": "Remove",
-      "noun": "AGGatewayResponse",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "GatewayResponse",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GatewayResponse",
         "ConfirmImpactSetting": "High",
@@ -867,32 +702,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteIntegration": {
       "verb": "Remove",
-      "noun": "AGIntegration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Integration",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ResourceId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Integration",
@@ -903,32 +731,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteIntegrationResponse": {
       "verb": "Remove",
-      "noun": "AGIntegrationResponse",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "IntegrationResponse",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ResourceId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IntegrationResponse",
@@ -939,32 +760,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteMethod": {
       "verb": "Remove",
-      "noun": "AGMethod",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Method",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ResourceId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Method",
@@ -975,32 +789,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteMethodResponse": {
       "verb": "Remove",
-      "noun": "AGMethodResponse",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "MethodResponse",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ResourceId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MethodResponse",
@@ -1011,32 +818,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteModel": {
       "verb": "Remove",
-      "noun": "AGModel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Model",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ModelName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Model",
@@ -1047,32 +847,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ModelName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRequestValidator": {
       "verb": "Remove",
-      "noun": "AGRequestValidator",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RequestValidator",
       "pipelineProperty": "RequestValidatorId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RequestValidator",
         "ConfirmImpactSetting": "High",
@@ -1082,32 +876,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RequestValidatorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteResource": {
       "verb": "Remove",
-      "noun": "AGResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Resource",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ResourceId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
@@ -1118,32 +905,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRestApi": {
       "verb": "Remove",
-      "noun": "AGRestApi",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "RestApi",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RestApi",
         "ConfirmImpactSetting": "High",
@@ -1153,32 +933,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteStage": {
       "verb": "Remove",
-      "noun": "AGStage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Stage",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "StageName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stage",
@@ -1189,32 +962,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "StageName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteUsagePlan": {
       "verb": "Remove",
-      "noun": "AGUsagePlan",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UsagePlan",
       "pipelineProperty": "UsagePlanId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UsagePlan",
         "ConfirmImpactSetting": "High",
@@ -1224,32 +991,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UsagePlanId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteUsagePlanKey": {
       "verb": "Remove",
-      "noun": "AGUsagePlanKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UsagePlanKey",
       "pipelineProperty": "UsagePlanId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UsagePlanKey",
         "ConfirmImpactSetting": "High",
@@ -1259,32 +1020,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UsagePlanId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteVpcLink": {
       "verb": "Remove",
-      "noun": "AGVpcLink",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "VpcLink",
       "pipelineProperty": "VpcLinkId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VpcLink",
         "ConfirmImpactSetting": "High",
@@ -1294,32 +1049,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "VpcLinkId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "FlushStageAuthorizersCache": {
       "verb": "Clear",
-      "noun": "AGStageAuthorizersCache",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "StageAuthorizersCache",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "StageName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StageAuthorizersCache",
@@ -1330,32 +1078,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "StageName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "FlushStageCache": {
       "verb": "Clear",
-      "noun": "AGStageCache",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "StageCache",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "StageName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StageCache",
@@ -1366,32 +1107,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "StageName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GenerateClientCertificate": {
       "verb": "New",
-      "noun": "AGClientCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ClientCertificate",
       "pipelineProperty": "Description",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClientCertificate",
         "ConfirmImpactSetting": "Medium",
@@ -1401,32 +1136,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Description"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetAccount": {
       "verb": "Get",
-      "noun": "AGAccount",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Account",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Account",
         "ConfirmImpactSetting": "Medium",
@@ -1436,32 +1164,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetApiKey": {
       "verb": "Get",
-      "noun": "AGApiKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ApiKey",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApiKey",
         "ConfirmImpactSetting": "Medium",
@@ -1471,32 +1187,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetApiKeys": {
       "verb": "Get",
-      "noun": "AGApiKeyList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ApiKeyList",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApiKeys",
         "ConfirmImpactSetting": "Medium",
@@ -1506,32 +1210,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetAuthorizer": {
       "verb": "Get",
-      "noun": "AGAuthorizer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Authorizer",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Authorizer",
         "ConfirmImpactSetting": "Medium",
@@ -1541,32 +1233,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetAuthorizers": {
       "verb": "Get",
-      "noun": "AGAuthorizerList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AuthorizerList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Authorizers",
         "ConfirmImpactSetting": "Medium",
@@ -1576,32 +1255,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetBasePathMapping": {
       "verb": "Get",
-      "noun": "AGBasePathMapping",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BasePathMapping",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BasePathMapping",
         "ConfirmImpactSetting": "Medium",
@@ -1611,32 +1278,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetBasePathMappings": {
       "verb": "Get",
-      "noun": "AGBasePathMappingList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "BasePathMappingList",
       "pipelineProperty": "DomainName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BasePathMappings",
         "ConfirmImpactSetting": "Medium",
@@ -1646,32 +1301,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetClientCertificate": {
       "verb": "Get",
-      "noun": "AGClientCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ClientCertificate",
       "pipelineProperty": "ClientCertificateId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClientCertificate",
         "ConfirmImpactSetting": "Medium",
@@ -1681,32 +1325,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetClientCertificates": {
       "verb": "Get",
-      "noun": "AGClientCertificateList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ClientCertificateList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClientCertificates",
         "ConfirmImpactSetting": "Medium",
@@ -1716,32 +1347,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetDeployment": {
       "verb": "Get",
-      "noun": "AGDeployment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Deployment",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Deployment",
         "ConfirmImpactSetting": "Medium",
@@ -1751,32 +1370,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetDeployments": {
       "verb": "Get",
-      "noun": "AGDeploymentList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DeploymentList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Deployments",
         "ConfirmImpactSetting": "Medium",
@@ -1786,32 +1392,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetDocumentationPart": {
       "verb": "Get",
-      "noun": "AGDocumentationPart",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DocumentationPart",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentationPart",
         "ConfirmImpactSetting": "Medium",
@@ -1821,32 +1415,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetDocumentationParts": {
       "verb": "Get",
-      "noun": "AGDocumentationPartList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DocumentationPartList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentationParts",
         "ConfirmImpactSetting": "Medium",
@@ -1856,32 +1437,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetDocumentationVersion": {
       "verb": "Get",
-      "noun": "AGDocumentationVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DocumentationVersion",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentationVersion",
         "ConfirmImpactSetting": "Medium",
@@ -1891,32 +1460,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetDocumentationVersions": {
       "verb": "Get",
-      "noun": "AGDocumentationVersionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DocumentationVersionList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentationVersions",
         "ConfirmImpactSetting": "Medium",
@@ -1926,32 +1482,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetDomainName": {
       "verb": "Get",
-      "noun": "AGDomainName",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DomainName",
       "pipelineProperty": "DomainName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainName",
         "ConfirmImpactSetting": "Medium",
@@ -1961,32 +1506,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetDomainNames": {
       "verb": "Get",
-      "noun": "AGDomainNameList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DomainNameList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainNames",
         "ConfirmImpactSetting": "Medium",
@@ -1996,32 +1528,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetExport": {
       "verb": "Get",
-      "noun": "AGExport",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Export",
       "pipelineProperty": "Parameters",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Export",
         "ConfirmImpactSetting": "Medium",
@@ -2031,32 +1552,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetGatewayResponse": {
       "verb": "Get",
-      "noun": "AGGatewayResponse",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "GatewayResponse",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GatewayResponse",
         "ConfirmImpactSetting": "Medium",
@@ -2066,32 +1575,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetGatewayResponses": {
       "verb": "Get",
-      "noun": "AGGatewayResponseList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "GatewayResponseList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GatewayResponses",
         "ConfirmImpactSetting": "Medium",
@@ -2101,32 +1597,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetIntegration": {
       "verb": "Get",
-      "noun": "AGIntegration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Integration",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Integration",
         "ConfirmImpactSetting": "Medium",
@@ -2136,32 +1620,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetIntegrationResponse": {
       "verb": "Get",
-      "noun": "AGIntegrationResponse",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "IntegrationResponse",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IntegrationResponse",
         "ConfirmImpactSetting": "Medium",
@@ -2171,32 +1643,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetMethod": {
       "verb": "Get",
-      "noun": "AGMethod",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Method",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Method",
         "ConfirmImpactSetting": "Medium",
@@ -2206,32 +1666,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetMethodResponse": {
       "verb": "Get",
-      "noun": "AGMethodResponse",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "MethodResponse",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MethodResponse",
         "ConfirmImpactSetting": "Medium",
@@ -2241,32 +1689,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetModel": {
       "verb": "Get",
-      "noun": "AGModel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Model",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Model",
         "ConfirmImpactSetting": "Medium",
@@ -2276,32 +1712,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetModels": {
       "verb": "Get",
-      "noun": "AGModelList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ModelList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Models",
         "ConfirmImpactSetting": "Medium",
@@ -2311,32 +1734,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetModelTemplate": {
       "verb": "Get",
-      "noun": "AGModelTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ModelTemplate",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ModelTemplate",
         "ConfirmImpactSetting": "Medium",
@@ -2346,32 +1756,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetRequestValidator": {
       "verb": "Get",
-      "noun": "AGRequestValidator",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RequestValidator",
       "pipelineProperty": "RequestValidatorId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RequestValidator",
         "ConfirmImpactSetting": "Medium",
@@ -2381,32 +1780,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetRequestValidators": {
       "verb": "Get",
-      "noun": "AGValidatorList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ValidatorList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RequestValidators",
         "ConfirmImpactSetting": "Medium",
@@ -2416,32 +1802,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetResource": {
       "verb": "Get",
-      "noun": "AGResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Resource",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "Medium",
@@ -2451,32 +1825,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetResources": {
       "verb": "Get",
-      "noun": "AGResourceList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ResourceList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resources",
         "ConfirmImpactSetting": "Medium",
@@ -2486,32 +1847,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetRestApi": {
       "verb": "Get",
-      "noun": "AGRestApi",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "RestApi",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RestApi",
         "ConfirmImpactSetting": "Medium",
@@ -2521,32 +1870,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetRestApis": {
       "verb": "Get",
-      "noun": "AGRestApiList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "RestApiList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RestApis",
         "ConfirmImpactSetting": "Medium",
@@ -2556,32 +1892,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetSdk": {
       "verb": "Get",
-      "noun": "AGSdk",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Sdk",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Sdk",
         "ConfirmImpactSetting": "Medium",
@@ -2591,32 +1915,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetSdkType": {
       "verb": "Get",
-      "noun": "AGSdkType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SdkType",
       "pipelineProperty": "Id",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SdkType",
         "ConfirmImpactSetting": "Medium",
@@ -2626,32 +1939,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetSdkTypes": {
       "verb": "Get",
-      "noun": "AGSdkTypeList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SdkTypeList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SdkTypes",
         "ConfirmImpactSetting": "Medium",
@@ -2661,32 +1961,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetStage": {
       "verb": "Get",
-      "noun": "AGStage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Stage",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stage",
         "ConfirmImpactSetting": "Medium",
@@ -2696,32 +1984,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetStages": {
       "verb": "Get",
-      "noun": "AGStageList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "StageList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stages",
         "ConfirmImpactSetting": "Medium",
@@ -2731,32 +2006,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetTags": {
       "verb": "Get",
-      "noun": "AGResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -2766,32 +2029,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetUsage": {
       "verb": "Get",
-      "noun": "AGUsage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Usage",
       "pipelineProperty": "UsagePlanId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Usage",
         "ConfirmImpactSetting": "Medium",
@@ -2801,32 +2053,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetUsagePlan": {
       "verb": "Get",
-      "noun": "AGUsagePlan",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UsagePlan",
       "pipelineProperty": "UsagePlanId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UsagePlan",
         "ConfirmImpactSetting": "Medium",
@@ -2836,32 +2077,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetUsagePlanKey": {
       "verb": "Get",
-      "noun": "AGUsagePlanKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UsagePlanKey",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UsagePlanKey",
         "ConfirmImpactSetting": "Medium",
@@ -2871,32 +2101,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetUsagePlanKeys": {
       "verb": "Get",
-      "noun": "AGUsagePlanKeyList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UsagePlanKeyList",
       "pipelineProperty": "UsagePlanId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UsagePlanKeys",
         "ConfirmImpactSetting": "Medium",
@@ -2906,32 +2124,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetUsagePlans": {
       "verb": "Get",
-      "noun": "AGUsagePlanList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UsagePlanList",
       "pipelineProperty": "KeyId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UsagePlans",
         "ConfirmImpactSetting": "Medium",
@@ -2941,32 +2147,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetVpcLink": {
       "verb": "Get",
-      "noun": "AGVpcLink",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "VpcLink",
       "pipelineProperty": "VpcLinkId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VpcLink",
         "ConfirmImpactSetting": "Medium",
@@ -2976,32 +2171,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "GetVpcLinks": {
       "verb": "Get",
-      "noun": "AGVpcLinkList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "VpcLinkList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VpcLinks",
         "ConfirmImpactSetting": "Medium",
@@ -3011,33 +2193,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "ImportApiKeys": {
       "verb": "Import",
-      "noun": "AGApiKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ApiKey",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "remapMemoryStreamParameters": "false",
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApiKeys",
         "ConfirmImpactSetting": "Medium",
@@ -3047,32 +2219,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ImportDocumentationParts": {
       "verb": "Import",
-      "noun": "AGDocumentationPartList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DocumentationPartList",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentationParts",
         "ConfirmImpactSetting": "Medium",
@@ -3082,13 +2247,13 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
@@ -3102,14 +2267,9 @@
     },
     "ImportRestApi": {
       "verb": "Import",
-      "noun": "AGRestApi",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RestApi",
       "pipelineProperty": "Parameters",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "remapMemoryStreamParameters": "false",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RestApi",
@@ -3120,32 +2280,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Parameters"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutGatewayResponse": {
       "verb": "Write",
-      "noun": "AGGatewayResponse",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "GatewayResponse",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GatewayResponse",
         "ConfirmImpactSetting": "Medium",
@@ -3155,33 +2308,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutIntegration": {
       "verb": "Write",
-      "noun": "AGIntegration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Response",
-      "legacyPositionalParameters": null,
-      "shouldProcessTargetProperty": "ResourceId",
+      "noun": "Integration",
       "customParameters": [
         {
           "name": "Credentials",
@@ -3189,6 +2333,8 @@
           "autoApplyAlias": "false"
         }
       ],
+      "output": "Response",
+      "shouldProcessTargetProperty": "ResourceId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Integration",
         "ConfirmImpactSetting": "Medium",
@@ -3198,32 +2344,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutIntegrationResponse": {
       "verb": "Write",
-      "noun": "AGIntegrationResponse",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "IntegrationResponse",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ResourceId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IntegrationResponse",
@@ -3234,32 +2373,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutMethod": {
       "verb": "Write",
-      "noun": "AGMethod",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Method",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ResourceId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Method",
@@ -3270,32 +2402,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutMethodResponse": {
       "verb": "Write",
-      "noun": "AGMethodResponse",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "MethodResponse",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ResourceId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MethodResponse",
@@ -3306,32 +2431,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutRestApi": {
       "verb": "Write",
-      "noun": "AGRestApi",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RestApi",
       "pipelineProperty": "Parameters",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "remapMemoryStreamParameters": "false",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RestApi",
@@ -3342,32 +2461,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TagResource": {
       "verb": "Add",
-      "noun": "AGResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ResourceTag",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "Medium",
@@ -3377,32 +2489,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TestInvokeAuthorizer": {
       "verb": "Test",
-      "noun": "AGInvokeAuthorizer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "InvokeAuthorizer",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InvokeAuthorizer",
         "ConfirmImpactSetting": "Medium",
@@ -3412,32 +2517,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "TestInvokeMethod": {
       "verb": "Test",
-      "noun": "AGInvokeMethod",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "InvokeMethod",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InvokeMethod",
         "ConfirmImpactSetting": "Medium",
@@ -3447,32 +2540,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
+        }
       }
     },
     "UntagResource": {
       "verb": "Remove",
-      "noun": "AGResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ResourceTag",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "High",
@@ -3482,32 +2563,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateAccount": {
       "verb": "Update",
-      "noun": "AGAccount",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Account",
       "pipelineProperty": "PatchOperations",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Account",
         "ConfirmImpactSetting": "Medium",
@@ -3517,32 +2592,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PatchOperations"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateApiKey": {
       "verb": "Update",
-      "noun": "AGApiKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ApiKey",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ApiKey",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApiKey",
@@ -3553,32 +2621,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ApiKey"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateAuthorizer": {
       "verb": "Update",
-      "noun": "AGAuthorizer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Authorizer",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Authorizer",
         "ConfirmImpactSetting": "Medium",
@@ -3588,32 +2649,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateBasePathMapping": {
       "verb": "Update",
-      "noun": "AGBasePathMapping",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BasePathMapping",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BasePathMapping",
         "ConfirmImpactSetting": "Medium",
@@ -3623,32 +2677,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateClientCertificate": {
       "verb": "Update",
-      "noun": "AGClientCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ClientCertificate",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ClientCertificate",
         "ConfirmImpactSetting": "Medium",
@@ -3658,32 +2705,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClientCertificateId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDeployment": {
       "verb": "Update",
-      "noun": "AGDeployment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Deployment",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Deployment",
         "ConfirmImpactSetting": "Medium",
@@ -3693,32 +2733,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDocumentationPart": {
       "verb": "Update",
-      "noun": "AGDocumentationPart",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DocumentationPart",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentationPart",
         "ConfirmImpactSetting": "Medium",
@@ -3728,32 +2761,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDocumentationVersion": {
       "verb": "Update",
-      "noun": "AGDocumentationVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DocumentationVersion",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DocumentationVersion",
         "ConfirmImpactSetting": "Medium",
@@ -3763,32 +2789,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDomainName": {
       "verb": "Update",
-      "noun": "AGDomainName",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DomainName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainName",
         "ConfirmImpactSetting": "Medium",
@@ -3798,32 +2817,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateGatewayResponse": {
       "verb": "Update",
-      "noun": "AGGatewayResponse",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "GatewayResponse",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GatewayResponse",
         "ConfirmImpactSetting": "Medium",
@@ -3833,32 +2845,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateIntegration": {
       "verb": "Update",
-      "noun": "AGIntegration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Integration",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Integration",
         "ConfirmImpactSetting": "Medium",
@@ -3868,32 +2873,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateIntegrationResponse": {
       "verb": "Update",
-      "noun": "AGIntegrationResponse",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "IntegrationResponse",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IntegrationResponse",
         "ConfirmImpactSetting": "Medium",
@@ -3903,32 +2901,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateMethod": {
       "verb": "Update",
-      "noun": "AGMethod",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Method",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Method",
         "ConfirmImpactSetting": "Medium",
@@ -3938,32 +2929,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateMethodResponse": {
       "verb": "Update",
-      "noun": "AGMethodResponse",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "MethodResponse",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MethodResponse",
         "ConfirmImpactSetting": "Medium",
@@ -3973,32 +2957,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateModel": {
       "verb": "Update",
-      "noun": "AGModel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Model",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Model",
         "ConfirmImpactSetting": "Medium",
@@ -4008,32 +2985,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateRequestValidator": {
       "verb": "Update",
-      "noun": "AGRequestValidator",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RequestValidator",
       "pipelineProperty": "RequestValidatorId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RequestValidator",
         "ConfirmImpactSetting": "Medium",
@@ -4043,32 +3014,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RequestValidatorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateResource": {
       "verb": "Update",
-      "noun": "AGResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Resource",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "Medium",
@@ -4078,32 +3042,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateRestApi": {
       "verb": "Update",
-      "noun": "AGRestApi",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "RestApi",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RestApi",
         "ConfirmImpactSetting": "Medium",
@@ -4113,32 +3070,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateStage": {
       "verb": "Update",
-      "noun": "AGStage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Stage",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stage",
         "ConfirmImpactSetting": "Medium",
@@ -4148,32 +3098,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RestApiId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateUsage": {
       "verb": "Update",
-      "noun": "AGUsage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Usage",
       "pipelineProperty": "KeyId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Usage",
         "ConfirmImpactSetting": "Medium",
@@ -4183,32 +3127,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateUsagePlan": {
       "verb": "Update",
-      "noun": "AGUsagePlan",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UsagePlan",
       "pipelineProperty": "UsagePlanId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UsagePlan",
         "ConfirmImpactSetting": "Medium",
@@ -4218,32 +3156,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "UsagePlanId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateVpcLink": {
       "verb": "Update",
-      "noun": "AGVpcLink",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "VpcLink",
       "pipelineProperty": "VpcLinkId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VpcLink",
         "ConfirmImpactSetting": "Medium",
@@ -4253,20 +3185,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Position",
-          "responseTokenMember": "Position",
-          "resultLimitMember": "Limit",
           "excludedOperations": [
             "GetApiKeys",
             "GetUsage"
-          ]
+          ],
+          "requestTokenMember": "Position",
+          "responseTokenMember": "Position",
+          "resultLimitMember": "Limit"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "VpcLinkId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

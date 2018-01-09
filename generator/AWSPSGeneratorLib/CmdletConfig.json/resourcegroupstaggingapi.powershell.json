@@ -1,40 +1,28 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "ResourceARN",
-    "Key"
-  ],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.ResourceGroupsTaggingAPI",
-  "sdkServiceClient": "AmazonResourceGroupsTaggingAPIClient",
-  "sdkServiceClientConfig": "AmazonResourceGroupsTaggingAPIConfig",
-  "legacyCmdletPrefix": "RGT",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "PaginationToken",
     "responseTokenMember": "PaginationToken"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "RGT",
+  "pipelineByValuePropertyNames": [
+    "ResourceARN",
+    "Key"
+  ],
+  "sdkServiceClientClass": "AmazonResourceGroupsTaggingAPIClient",
+  "sdkServiceConfigClass": "AmazonResourceGroupsTaggingAPIConfig",
+  "sdkServiceNamespace": "Amazon.ResourceGroupsTaggingAPI",
   "serviceOperations": {
     "GetResources": {
       "verb": "Get",
-      "noun": "RGTResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "ResourceTypeFilters",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Resource",
       "paginationSettings": {
         "requestTokenMember": "PaginationToken",
         "responseTokenMember": "PaginationToken",
         "resultLimitMember": "TagsPerPage",
         "servicePageSize": 100
       },
+      "pipelineProperty": "ResourceTypeFilters",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resources",
         "ConfirmImpactSetting": "Medium",
@@ -48,25 +36,12 @@
           "responseTokenMember": "PaginationToken",
           "resultLimitMember": "TagsPerPage",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetTagKeys": {
       "verb": "Get",
-      "noun": "RGTTagKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TagKey",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagKeys",
         "ConfirmImpactSetting": "Medium",
@@ -78,25 +53,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PaginationToken",
           "responseTokenMember": "PaginationToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetTagValues": {
       "verb": "Get",
-      "noun": "RGTTagValue",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TagValue",
       "pipelineProperty": "Key",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagValues",
         "ConfirmImpactSetting": "Medium",
@@ -108,25 +71,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PaginationToken",
           "responseTokenMember": "PaginationToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TagResources": {
       "verb": "Add",
-      "noun": "RGTResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceARNList",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resources",
         "ConfirmImpactSetting": "Medium",
@@ -143,20 +94,13 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceARNList"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UntagResources": {
       "verb": "Remove",
-      "noun": "RGTResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceARNList",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resources",
         "ConfirmImpactSetting": "High",
@@ -173,8 +117,7 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceARNList"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

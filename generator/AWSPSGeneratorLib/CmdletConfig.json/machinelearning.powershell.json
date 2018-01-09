@@ -1,35 +1,25 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "MLModelId",
-  "sdkServiceNamespace": "Amazon.MachineLearning",
-  "sdkServiceClient": "AmazonMachineLearningClient",
-  "sdkServiceClientConfig": "AmazonMachineLearningConfig",
-  "legacyCmdletPrefix": "ML",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "Limit",
     "servicePageSize": 100
   },
+  "defaultPipelineProperty": "MLModelId",
+  "legacyCmdletPrefix": "ML",
   "nounMappings": {
     "Tags": "Tag"
   },
-  "verbMappings": {},
+  "sdkServiceClientClass": "AmazonMachineLearningClient",
+  "sdkServiceConfigClass": "AmazonMachineLearningConfig",
+  "sdkServiceNamespace": "Amazon.MachineLearning",
   "serviceOperations": {
     "AddTags": {
       "verb": "Add",
-      "noun": "MLResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "Add-MLTag",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ResourceId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -48,28 +38,24 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateBatchPrediction": {
       "verb": "New",
-      "noun": "MLBatchPrediction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BatchPrediction",
       "customParameters": [
         {
           "name": "BatchPredictionName",
-          "aliases": "Name"
+          "aliases": [
+            "Name"
+          ]
         },
         {
           "name": "MLModelId",
-          "aliases": "ModelId"
+          "aliases": [
+            "ModelId"
+          ]
         }
       ],
       "AnalyzerResults": {
@@ -90,20 +76,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "MLModelId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDataSourceFromRDS": {
       "verb": "New",
-      "noun": "MLDataSourceFromRDS",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DataSourceFromRDS",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DataSourceName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DataSourceFromRDS",
@@ -123,20 +102,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DataSourceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDataSourceFromRedshift": {
       "verb": "New",
-      "noun": "MLDataSourceFromRedshift",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DataSourceFromRedshift",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DataSourceName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DataSourceFromRedshift",
@@ -156,20 +128,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DataSourceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDataSourceFromS3": {
       "verb": "New",
-      "noun": "MLDataSourceFromS3",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DataSourceFromS3",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DataSourceName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DataSourceFromS3",
@@ -189,28 +154,24 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DataSourceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateEvaluation": {
       "verb": "New",
-      "noun": "MLEvaluation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Evaluation",
       "customParameters": [
         {
           "name": "EvaluationName",
-          "aliases": "Name"
+          "aliases": [
+            "Name"
+          ]
         },
         {
           "name": "MLModelId",
-          "aliases": "ModelId"
+          "aliases": [
+            "ModelId"
+          ]
         }
       ],
       "AnalyzerResults": {
@@ -231,32 +192,30 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "MLModelId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateMLModel": {
       "verb": "New",
-      "noun": "MLModel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Model",
       "customParameters": [
         {
           "name": "MLModelId",
-          "aliases": "ModelId"
+          "aliases": [
+            "ModelId"
+          ]
         },
         {
           "name": "MLModelName",
-          "aliases": "Name"
+          "aliases": [
+            "Name"
+          ]
         },
         {
           "name": "MLModelType",
-          "aliases": "ModelType"
+          "aliases": [
+            "ModelType"
+          ]
         }
       ],
       "AnalyzerResults": {
@@ -277,26 +236,21 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "MLModelId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateRealtimeEndpoint": {
       "verb": "New",
-      "noun": "MLRealtimeEndpoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Response",
-      "legacyPositionalParameters": null,
+      "noun": "RealtimeEndpoint",
       "customParameters": [
         {
           "name": "MLModelId",
-          "aliases": "ModelId"
+          "aliases": [
+            "ModelId"
+          ]
         }
       ],
+      "output": "Response",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RealtimeEndpoint",
         "ConfirmImpactSetting": "Medium",
@@ -315,20 +269,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "MLModelId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteBatchPrediction": {
       "verb": "Remove",
-      "noun": "MLBatchPrediction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "BatchPrediction",
       "pipelineProperty": "BatchPredictionId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BatchPrediction",
         "ConfirmImpactSetting": "High",
@@ -347,20 +294,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BatchPredictionId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDataSource": {
       "verb": "Remove",
-      "noun": "MLDataSource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DataSource",
       "pipelineProperty": "DataSourceId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DataSource",
         "ConfirmImpactSetting": "High",
@@ -379,20 +319,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DataSourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteEvaluation": {
       "verb": "Remove",
-      "noun": "MLEvaluation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Evaluation",
       "pipelineProperty": "EvaluationId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Evaluation",
         "ConfirmImpactSetting": "High",
@@ -411,24 +344,18 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EvaluationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteMLModel": {
       "verb": "Remove",
-      "noun": "MLModel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Model",
       "customParameters": [
         {
           "name": "MLModelId",
-          "aliases": "ModelId"
+          "aliases": [
+            "ModelId"
+          ]
         }
       ],
       "AnalyzerResults": {
@@ -449,26 +376,21 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "MLModelId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRealtimeEndpoint": {
       "verb": "Remove",
-      "noun": "MLRealtimeEndpoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Response",
-      "legacyPositionalParameters": null,
+      "noun": "RealtimeEndpoint",
       "customParameters": [
         {
           "name": "MLModelId",
-          "aliases": "ModelId"
+          "aliases": [
+            "ModelId"
+          ]
         }
       ],
+      "output": "Response",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RealtimeEndpoint",
         "ConfirmImpactSetting": "High",
@@ -487,20 +409,15 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "MLModelId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteTags": {
       "verb": "Remove",
-      "noun": "MLResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "Remove-MLTag",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ResourceId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "High",
@@ -519,20 +436,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeBatchPredictions": {
       "verb": "Get",
-      "noun": "MLBatchPredictionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "BatchPredictionList",
       "legacyAlias": "Get-MLBatchPredictions",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BatchPredictions",
         "ConfirmImpactSetting": "Medium",
@@ -546,25 +456,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDataSources": {
       "verb": "Get",
-      "noun": "MLDataSourceList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "DataSourceList",
       "legacyAlias": "Get-MLDataSources",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DataSources",
         "ConfirmImpactSetting": "Medium",
@@ -578,25 +476,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEvaluations": {
       "verb": "Get",
-      "noun": "MLEvaluationList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "EvaluationList",
       "legacyAlias": "Get-MLEvaluations",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Evaluations",
         "ConfirmImpactSetting": "Medium",
@@ -610,25 +496,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeMLModels": {
       "verb": "Get",
-      "noun": "MLModelList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ModelList",
       "legacyAlias": "Get-MLModels",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MLModels",
         "ConfirmImpactSetting": "Medium",
@@ -642,25 +516,15 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTags": {
       "verb": "Get",
-      "noun": "MLResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "Get-MLTag",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ResourceId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -674,25 +538,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBatchPrediction": {
       "verb": "Get",
-      "noun": "MLBatchPrediction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "BatchPrediction",
       "pipelineProperty": "BatchPredictionId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BatchPrediction",
         "ConfirmImpactSetting": "Medium",
@@ -706,25 +559,12 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDataSource": {
       "verb": "Get",
-      "noun": "MLDataSource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Response",
-      "legacyPositionalParameters": null,
+      "noun": "DataSource",
       "customParameters": [
         {
           "name": "Verbose",
@@ -732,6 +572,7 @@
           "autoApplyAlias": "false"
         }
       ],
+      "output": "Response",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DataSource",
         "ConfirmImpactSetting": "Medium",
@@ -745,25 +586,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetEvaluation": {
       "verb": "Get",
-      "noun": "MLEvaluation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Evaluation",
       "pipelineProperty": "EvaluationId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Evaluation",
         "ConfirmImpactSetting": "Medium",
@@ -777,29 +607,18 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetMLModel": {
       "verb": "Get",
-      "noun": "MLModel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Response",
-      "legacyPositionalParameters": null,
+      "noun": "Model",
       "customParameters": [
         {
           "name": "MLModelId",
-          "aliases": "ModelId"
+          "aliases": [
+            "ModelId"
+          ]
         },
         {
           "name": "Verbose",
@@ -807,6 +626,7 @@
           "autoApplyAlias": "false"
         }
       ],
+      "output": "Response",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MLModel",
         "ConfirmImpactSetting": "Medium",
@@ -820,29 +640,18 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "Predict": {
       "verb": "Get",
-      "noun": "MLPrediction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Prediction",
       "customParameters": [
         {
           "name": "MLModelId",
-          "aliases": "ModelId"
+          "aliases": [
+            "ModelId"
+          ]
         }
       ],
       "AnalyzerResults": {
@@ -858,32 +667,21 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateBatchPrediction": {
       "verb": "Update",
-      "noun": "MLBatchPrediction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
-      "shouldProcessTargetProperty": "BatchPredictionName",
+      "noun": "BatchPrediction",
       "customParameters": [
         {
           "name": "BatchPredictionName",
-          "aliases": "Name"
+          "aliases": [
+            "Name"
+          ]
         }
       ],
+      "shouldProcessTargetProperty": "BatchPredictionName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BatchPrediction",
         "ConfirmImpactSetting": "Medium",
@@ -902,27 +700,21 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "BatchPredictionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDataSource": {
       "verb": "Update",
-      "noun": "MLDataSource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
-      "shouldProcessTargetProperty": "DataSourceName",
+      "noun": "DataSource",
       "customParameters": [
         {
           "name": "DataSourceName",
-          "aliases": "Name"
+          "aliases": [
+            "Name"
+          ]
         }
       ],
+      "shouldProcessTargetProperty": "DataSourceName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DataSource",
         "ConfirmImpactSetting": "Medium",
@@ -941,27 +733,21 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DataSourceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateEvaluation": {
       "verb": "Update",
-      "noun": "MLEvaluation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
-      "shouldProcessTargetProperty": "EvaluationName",
+      "noun": "Evaluation",
       "customParameters": [
         {
           "name": "EvaluationName",
-          "aliases": "Name"
+          "aliases": [
+            "Name"
+          ]
         }
       ],
+      "shouldProcessTargetProperty": "EvaluationName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Evaluation",
         "ConfirmImpactSetting": "Medium",
@@ -980,24 +766,18 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "EvaluationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateMLModel": {
       "verb": "Update",
-      "noun": "MLMLModel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "MLModel",
       "customParameters": [
         {
           "name": "MLModelId",
-          "aliases": "ModelId"
+          "aliases": [
+            "ModelId"
+          ]
         }
       ],
       "AnalyzerResults": {
@@ -1018,8 +798,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "MLModelId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

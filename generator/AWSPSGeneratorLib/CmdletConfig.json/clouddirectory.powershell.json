@@ -1,33 +1,21 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "DirectoryArn",
-  "sdkServiceNamespace": "Amazon.CloudDirectory",
-  "sdkServiceClient": "AmazonCloudDirectoryClient",
-  "sdkServiceClientConfig": "AmazonCloudDirectoryConfig",
-  "legacyCmdletPrefix": "CDIR",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken"
   },
-  "nounMappings": {},
+  "defaultPipelineProperty": "DirectoryArn",
+  "legacyCmdletPrefix": "CDIR",
+  "sdkServiceClientClass": "AmazonCloudDirectoryClient",
+  "sdkServiceConfigClass": "AmazonCloudDirectoryConfig",
+  "sdkServiceNamespace": "Amazon.CloudDirectory",
   "verbMappings": {
     "List": "Get"
   },
   "serviceOperations": {
     "AddFacetToObject": {
       "verb": "Add",
-      "noun": "CDIRFacetToObject",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "FacetToObject",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FacetToObject",
         "ConfirmImpactSetting": "Medium",
@@ -44,20 +32,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ApplySchema": {
       "verb": "Add",
-      "noun": "CDIRSchema",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Schema",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Schema",
         "ConfirmImpactSetting": "Medium",
@@ -74,20 +55,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AttachObject": {
       "verb": "Connect",
-      "noun": "CDIRObject",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Object",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Object",
         "ConfirmImpactSetting": "Medium",
@@ -104,20 +77,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AttachPolicy": {
       "verb": "Mount",
-      "noun": "CDIRPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Policy",
       "pipelineProperty": "PolicyToObject",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Policy",
         "ConfirmImpactSetting": "Medium",
@@ -134,20 +101,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AttachToIndex": {
       "verb": "Mount",
-      "noun": "CDIRObjectToIndex",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ObjectToIndex",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ToIndex",
         "ConfirmImpactSetting": "Medium",
@@ -164,20 +123,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AttachTypedLink": {
       "verb": "Mount",
-      "noun": "CDIRTypedLink",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TypedLink",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TypedLink",
         "ConfirmImpactSetting": "Medium",
@@ -194,20 +145,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "BatchRead": {
       "verb": "Read",
-      "noun": "CDIRDirectoryBatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DirectoryBatch",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Read",
         "ConfirmImpactSetting": "Medium",
@@ -224,20 +167,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "BatchWrite": {
       "verb": "Write",
-      "noun": "CDIRDirectoryBatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DirectoryBatch",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Write",
         "ConfirmImpactSetting": "Medium",
@@ -254,20 +189,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDirectory": {
       "verb": "New",
-      "noun": "CDIRDirectory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Directory",
       "pipelineProperty": "SchemaArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Directory",
         "ConfirmImpactSetting": "Medium",
@@ -284,20 +213,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SchemaArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateFacet": {
       "verb": "New",
-      "noun": "CDIRFacet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Facet",
       "pipelineProperty": "SchemaArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Facet",
         "ConfirmImpactSetting": "Medium",
@@ -314,20 +237,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SchemaArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateIndex": {
       "verb": "New",
-      "noun": "CDIRIndex",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Index",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Index",
         "ConfirmImpactSetting": "Medium",
@@ -344,20 +259,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateObject": {
       "verb": "New",
-      "noun": "CDIRDirectoryObject",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DirectoryObject",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Object",
         "ConfirmImpactSetting": "Medium",
@@ -374,20 +281,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateSchema": {
       "verb": "New",
-      "noun": "CDIRSchema",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Schema",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Schema",
         "ConfirmImpactSetting": "Medium",
@@ -404,20 +304,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateTypedLinkFacet": {
       "verb": "New",
-      "noun": "CDIRTypedLinkFacet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TypedLinkFacet",
       "pipelineProperty": "SchemaArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TypedLinkFacet",
         "ConfirmImpactSetting": "Medium",
@@ -434,20 +328,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SchemaArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDirectory": {
       "verb": "Remove",
-      "noun": "CDIRDirectory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Directory",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Directory",
         "ConfirmImpactSetting": "High",
@@ -464,20 +350,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteFacet": {
       "verb": "Remove",
-      "noun": "CDIRFacet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Facet",
       "pipelineProperty": "SchemaArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Facet",
         "ConfirmImpactSetting": "High",
@@ -494,20 +374,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SchemaArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteObject": {
       "verb": "Remove",
-      "noun": "CDIRDirectoryObject",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DirectoryObject",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Object",
         "ConfirmImpactSetting": "High",
@@ -524,20 +397,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSchema": {
       "verb": "Remove",
-      "noun": "CDIRSchema",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Schema",
       "pipelineProperty": "SchemaArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Schema",
         "ConfirmImpactSetting": "High",
@@ -554,20 +420,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SchemaArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteTypedLinkFacet": {
       "verb": "Remove",
-      "noun": "CDIRTypedLinkFacet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TypedLinkFacet",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TypedLinkFacet",
         "ConfirmImpactSetting": "High",
@@ -584,20 +444,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DetachFromIndex": {
       "verb": "Dismount",
-      "noun": "CDIRObjectFromIndex",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ObjectFromIndex",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FromIndex",
         "ConfirmImpactSetting": "Medium",
@@ -614,20 +466,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DetachObject": {
       "verb": "Disconnect",
-      "noun": "CDIRObject",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Object",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Object",
         "ConfirmImpactSetting": "Medium",
@@ -644,20 +488,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DetachPolicy": {
       "verb": "Dismount",
-      "noun": "CDIRPolicyFromObject",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "PolicyFromObject",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Policy",
         "ConfirmImpactSetting": "Medium",
@@ -674,20 +511,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DetachTypedLink": {
       "verb": "Dismount",
-      "noun": "CDIRTypedLink",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "TypedLink",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TypedLink",
         "ConfirmImpactSetting": "Medium",
@@ -704,20 +534,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisableDirectory": {
       "verb": "Disable",
-      "noun": "CDIRDirectory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Directory",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Directory",
         "ConfirmImpactSetting": "Medium",
@@ -734,20 +556,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "EnableDirectory": {
       "verb": "Enable",
-      "noun": "CDIRDirectory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Directory",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Directory",
         "ConfirmImpactSetting": "Medium",
@@ -764,20 +578,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetAppliedSchemaVersion": {
       "verb": "Get",
-      "noun": "CDIRAppliedSchemaVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AppliedSchemaVersion",
       "pipelineProperty": "SchemaArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AppliedSchemaVersion",
         "ConfirmImpactSetting": "Medium",
@@ -789,25 +596,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDirectory": {
       "verb": "Get",
-      "noun": "CDIRDirectoryMetadata",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DirectoryMetadata",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Directory",
         "ConfirmImpactSetting": "Medium",
@@ -819,25 +613,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetFacet": {
       "verb": "Get",
-      "noun": "CDIRFacet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Facet",
       "pipelineProperty": "SchemaArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Facet",
         "ConfirmImpactSetting": "Medium",
@@ -849,25 +631,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetObjectInformation": {
       "verb": "Get",
-      "noun": "CDIRObjectInformation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ObjectInformation",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ObjectInformation",
         "ConfirmImpactSetting": "Medium",
@@ -879,25 +649,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSchemaAsJson": {
       "verb": "Get",
-      "noun": "CDIRSchemaAsJson",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SchemaAsJson",
       "pipelineProperty": "SchemaArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SchemaAsJson",
         "ConfirmImpactSetting": "Medium",
@@ -909,25 +668,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetTypedLinkFacetInformation": {
       "verb": "Get",
-      "noun": "CDIRTypedLinkFacetInformation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TypedLinkFacetInformation",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TypedLinkFacetInformation",
         "ConfirmImpactSetting": "Medium",
@@ -939,25 +686,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListAppliedSchemaArns": {
       "verb": "Get",
-      "noun": "CDIRAppliedSchemaArn",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AppliedSchemaArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AppliedSchemaArns",
         "ConfirmImpactSetting": "Medium",
@@ -969,25 +703,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListAttachedIndices": {
       "verb": "Get",
-      "noun": "CDIRObjectIndex",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ObjectIndex",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AttachedIndices",
         "ConfirmImpactSetting": "Medium",
@@ -999,25 +720,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListDevelopmentSchemaArns": {
       "verb": "Get",
-      "noun": "CDIRDevelopmentSchemaArn",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DevelopmentSchemaArn",
       "pipelineProperty": "MaxResults",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DevelopmentSchemaArns",
         "ConfirmImpactSetting": "Medium",
@@ -1029,25 +738,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListDirectories": {
       "verb": "Get",
-      "noun": "CDIRDirectory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Directory",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Directories",
         "ConfirmImpactSetting": "Medium",
@@ -1059,25 +755,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListFacetAttributes": {
       "verb": "Get",
-      "noun": "CDIRFacetAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FacetAttribute",
       "pipelineProperty": "SchemaArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FacetAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -1089,25 +773,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListFacetNames": {
       "verb": "Get",
-      "noun": "CDIRFacetName",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "FacetName",
       "pipelineProperty": "SchemaArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FacetNames",
         "ConfirmImpactSetting": "Medium",
@@ -1119,25 +791,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListIncomingTypedLinks": {
       "verb": "Get",
-      "noun": "CDIRIncomingTypedLink",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "IncomingTypedLink",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IncomingTypedLinks",
         "ConfirmImpactSetting": "Medium",
@@ -1149,25 +808,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListIndex": {
       "verb": "Get",
-      "noun": "CDIRIndex",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Index",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Index",
         "ConfirmImpactSetting": "Medium",
@@ -1179,25 +825,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListObjectAttributes": {
       "verb": "Get",
-      "noun": "CDIRObjectAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ObjectAttribute",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ObjectAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -1209,25 +842,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListObjectChildren": {
       "verb": "Get",
-      "noun": "CDIRObjectChild",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ObjectChild",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ObjectChildren",
         "ConfirmImpactSetting": "Medium",
@@ -1239,25 +859,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListObjectParentPaths": {
       "verb": "Get",
-      "noun": "CDIRObjectParentPath",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ObjectParentPath",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ObjectParentPaths",
         "ConfirmImpactSetting": "Medium",
@@ -1269,25 +876,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListObjectParents": {
       "verb": "Get",
-      "noun": "CDIRObjectParent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ObjectParent",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ObjectParents",
         "ConfirmImpactSetting": "Medium",
@@ -1299,25 +893,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListObjectPolicies": {
       "verb": "Get",
-      "noun": "CDIRObjectPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ObjectPolicy",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ObjectPolicies",
         "ConfirmImpactSetting": "Medium",
@@ -1329,25 +910,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListOutgoingTypedLinks": {
       "verb": "Get",
-      "noun": "CDIROutgoingTypedLink",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "OutgoingTypedLink",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OutgoingTypedLinks",
         "ConfirmImpactSetting": "Medium",
@@ -1359,25 +927,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListPolicyAttachments": {
       "verb": "Get",
-      "noun": "CDIRPolicyAttachment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "PolicyAttachment",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PolicyAttachments",
         "ConfirmImpactSetting": "Medium",
@@ -1389,25 +944,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListPublishedSchemaArns": {
       "verb": "Get",
-      "noun": "CDIRPublishedSchemaArn",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "PublishedSchemaArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PublishedSchemaArns",
         "ConfirmImpactSetting": "Medium",
@@ -1419,25 +961,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTagsForResource": {
       "verb": "Get",
-      "noun": "CDIRResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForResource",
         "ConfirmImpactSetting": "Medium",
@@ -1449,25 +979,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTypedLinkFacetAttributes": {
       "verb": "Get",
-      "noun": "CDIRTypedLinkFacetAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TypedLinkFacetAttribute",
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TypedLinkFacetAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -1479,25 +997,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTypedLinkFacetNames": {
       "verb": "Get",
-      "noun": "CDIRTypedLinkFacetName",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TypedLinkFacetName",
       "pipelineProperty": "SchemaArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TypedLinkFacetNames",
         "ConfirmImpactSetting": "Medium",
@@ -1509,25 +1015,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "LookupPolicy": {
       "verb": "Get",
-      "noun": "CDIRDirectoryPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DirectoryPolicy",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Policy",
         "ConfirmImpactSetting": "Medium",
@@ -1539,25 +1032,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PublishSchema": {
       "verb": "Publish",
-      "noun": "CDIRSchema",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Schema",
       "pipelineProperty": "DevelopmentSchemaArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Schema",
         "ConfirmImpactSetting": "Medium",
@@ -1574,20 +1055,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DevelopmentSchemaArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutSchemaFromJson": {
       "verb": "Write",
-      "noun": "CDIRSchemaFromJson",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SchemaFromJson",
       "pipelineProperty": "SchemaArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SchemaFromJson",
         "ConfirmImpactSetting": "Medium",
@@ -1604,20 +1078,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SchemaArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveFacetFromObject": {
       "verb": "Remove",
-      "noun": "CDIRFacetFromObject",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "FacetFromObject",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FacetFromObject",
         "ConfirmImpactSetting": "High",
@@ -1634,20 +1101,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TagResource": {
       "verb": "Add",
-      "noun": "CDIRResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "SchemaArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "Medium",
@@ -1664,20 +1125,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UntagResource": {
       "verb": "Remove",
-      "noun": "CDIRResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "High",
@@ -1694,20 +1149,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateFacet": {
       "verb": "Update",
-      "noun": "CDIRFacet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Facet",
       "pipelineProperty": "SchemaArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Facet",
         "ConfirmImpactSetting": "Medium",
@@ -1724,20 +1173,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SchemaArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateObjectAttributes": {
       "verb": "Update",
-      "noun": "CDIRObjectAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ObjectAttribute",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ObjectAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -1754,20 +1195,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateSchema": {
       "verb": "Update",
-      "noun": "CDIRSchema",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Schema",
       "pipelineProperty": "SchemaArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Schema",
         "ConfirmImpactSetting": "Medium",
@@ -1784,20 +1218,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SchemaArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateTypedLinkFacet": {
       "verb": "Update",
-      "noun": "CDIRTypedLinkFacet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TypedLinkFacet",
       "pipelineProperty": "Name",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TypedLinkFacet",
         "ConfirmImpactSetting": "Medium",
@@ -1814,20 +1242,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpgradeAppliedSchema": {
       "verb": "Update",
-      "noun": "CDIRAppliedSchema",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "AppliedSchema",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AppliedSchema",
         "ConfirmImpactSetting": "Medium",
@@ -1844,20 +1265,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpgradePublishedSchema": {
       "verb": "Update",
-      "noun": "CDIRPublishedSchema",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "PublishedSchema",
       "shouldProcessTargetProperty": "DevelopmentSchemaArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PublishedSchema",
@@ -1875,8 +1288,7 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DevelopmentSchemaArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

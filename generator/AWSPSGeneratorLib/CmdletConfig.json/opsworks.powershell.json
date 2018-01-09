@@ -1,7 +1,26 @@
 {
-  "additionalNamespaces": [],
-  "regionFallback": "us-east-1",
-  "outputMetadataPropertyNames": [],
+  "customAliases": [
+    {
+      "cmdlet": "Restart-OPSInstance",
+      "aliasNames": [
+        "Reboot-OPSInstance"
+      ]
+    },
+    {
+      "cmdlet": "Copy-OPSStack",
+      "aliasNames": [
+        "Clone-OPSStack"
+      ]
+    }
+  ],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken",
+    "resultLimitMember": "MaxResults"
+  },
+  "defaultPipelineProperty": "StackId",
+  "legacyCmdletPrefix": "OPS",
+  "legacyPositionalProperties": "StackId",
   "pipelineByValuePropertyNames": [
     "StackId",
     "AppId",
@@ -11,30 +30,10 @@
     "DeploymentId",
     "RaidArrayId"
   ],
-  "defaultPipelineProperty": "StackId",
-  "legacyPositionalProperties": "StackId",
+  "regionFallback": "us-east-1",
+  "sdkServiceClientClass": "AmazonOpsWorksClient",
+  "sdkServiceConfigClass": "AmazonOpsWorksConfig",
   "sdkServiceNamespace": "Amazon.OpsWorks",
-  "sdkServiceClient": "AmazonOpsWorksClient",
-  "sdkServiceClientConfig": "AmazonOpsWorksConfig",
-  "legacyCmdletPrefix": "OPS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken",
-    "resultLimitMember": "MaxResults"
-  },
-  "customAliases": [
-    {
-      "cmdlet": "Restart-OPSInstance",
-      "aliasNames": "Reboot-OPSInstance"
-    },
-    {
-      "cmdlet": "Copy-OPSStack",
-      "aliasNames": "Clone-OPSStack"
-    }
-  ],
-  "nounMappings": {},
   "verbMappings": {
     "Reboot": "Restart",
     "Clone": "Copy",
@@ -43,14 +42,9 @@
   "serviceOperations": {
     "AssignInstance": {
       "verb": "Register",
-      "noun": "OPSInstanceAssignment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceAssignment",
       "pipelineProperty": "InstanceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instance",
         "ConfirmImpactSetting": "Medium",
@@ -68,20 +62,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AssignVolume": {
       "verb": "Add",
-      "noun": "OPSVolume",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Volume",
       "pipelineProperty": "InstanceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "VolumeId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Volume",
@@ -100,20 +88,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "VolumeId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AssociateElasticIp": {
       "verb": "Add",
-      "noun": "OPSElasticIp",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ElasticIp",
       "pipelineProperty": "InstanceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ElasticIp",
         "ConfirmImpactSetting": "Medium",
@@ -131,20 +113,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AttachElasticLoadBalancer": {
       "verb": "Add",
-      "noun": "OPSElasticLoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ElasticLoadBalancer",
+      "legacyPositionalParameters": [
+        "LayerId"
+      ],
       "pipelineProperty": "ElasticLoadBalancerName",
       "output": "Void",
-      "legacyPositionalParameters": "LayerId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ElasticLoadBalancer",
         "ConfirmImpactSetting": "Medium",
@@ -162,20 +141,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ElasticLoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CloneStack": {
       "verb": "Copy",
-      "noun": "OPSStack",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "SourceStackId",
-      "output": "Default",
-      "legacyPositionalParameters": "Name;Region",
+      "noun": "Stack",
       "customParameters": [
         {
           "name": "Region",
@@ -183,6 +154,11 @@
           "autoApplyAlias": "false"
         }
       ],
+      "legacyPositionalParameters": [
+        "Name",
+        "Region"
+      ],
+      "pipelineProperty": "SourceStackId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stack",
         "ConfirmImpactSetting": "Medium",
@@ -200,20 +176,18 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SourceStackId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateApp": {
       "verb": "New",
-      "noun": "OPSApp",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "Name;Shortname;Description;Type",
+      "noun": "App",
+      "legacyPositionalParameters": [
+        "Name",
+        "Shortname",
+        "Description",
+        "Type"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "App",
         "ConfirmImpactSetting": "Medium",
@@ -231,20 +205,18 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDeployment": {
       "verb": "New",
-      "noun": "OPSDeployment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "AppId;InstanceIds;Comment;CustomJson",
+      "noun": "Deployment",
+      "legacyPositionalParameters": [
+        "AppId",
+        "InstanceIds",
+        "Comment",
+        "CustomJson"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Deployment",
         "ConfirmImpactSetting": "Medium",
@@ -262,20 +234,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateInstance": {
       "verb": "New",
-      "noun": "OPSInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "LayerIds;InstanceType;",
+      "noun": "Instance",
+      "legacyPositionalParameters": [
+        "LayerIds",
+        "InstanceType",
+        ""
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instance",
         "ConfirmImpactSetting": "Medium",
@@ -293,20 +262,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateLayer": {
       "verb": "New",
-      "noun": "OPSLayer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "Type;Name;ShortName",
+      "noun": "Layer",
+      "legacyPositionalParameters": [
+        "Type",
+        "Name",
+        "ShortName"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Layer",
         "ConfirmImpactSetting": "Medium",
@@ -324,20 +290,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateStack": {
       "verb": "New",
-      "noun": "OPSStack",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": "Region",
+      "noun": "Stack",
       "customParameters": [
         {
           "name": "Region",
@@ -345,6 +303,10 @@
           "autoApplyAlias": "false"
         }
       ],
+      "legacyPositionalParameters": [
+        "Region"
+      ],
+      "pipelineProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stack",
         "ConfirmImpactSetting": "Medium",
@@ -362,20 +324,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateUserProfile": {
       "verb": "New",
-      "noun": "OPSUserProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UserProfile",
+      "legacyPositionalParameters": [
+        "SshUsername",
+        "SshPublicKey"
+      ],
       "pipelineProperty": "IamUserArn",
-      "output": "Default",
-      "legacyPositionalParameters": "SshUsername;SshPublicKey",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserProfile",
         "ConfirmImpactSetting": "Medium",
@@ -393,20 +352,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "IamUserArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteApp": {
       "verb": "Remove",
-      "noun": "OPSApp",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "App",
       "pipelineProperty": "AppId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "App",
         "ConfirmImpactSetting": "High",
@@ -424,20 +377,18 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AppId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteInstance": {
       "verb": "Remove",
-      "noun": "OPSInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Instance",
+      "legacyPositionalParameters": [
+        "DeleteElasticIp",
+        "DeleteVolumes"
+      ],
       "pipelineProperty": "InstanceId",
       "output": "Void",
-      "legacyPositionalParameters": "DeleteElasticIp;DeleteVolumes",
       "shouldProcessTargetProperty": "InstanceId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instance",
@@ -456,20 +407,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteLayer": {
       "verb": "Remove",
-      "noun": "OPSLayer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Layer",
       "pipelineProperty": "LayerId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Layer",
         "ConfirmImpactSetting": "High",
@@ -487,20 +432,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LayerId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteStack": {
       "verb": "Remove",
-      "noun": "OPSStack",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Stack",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stack",
         "ConfirmImpactSetting": "High",
@@ -518,20 +456,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteUserProfile": {
       "verb": "Remove",
-      "noun": "OPSUserProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UserProfile",
       "pipelineProperty": "IamUserArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserProfile",
         "ConfirmImpactSetting": "High",
@@ -549,20 +481,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "IamUserArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeregisterEcsCluster": {
       "verb": "Unregister",
-      "noun": "OPSEcsCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EcsCluster",
       "pipelineProperty": "EcsClusterArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EcsCluster",
         "ConfirmImpactSetting": "Medium",
@@ -580,20 +506,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EcsClusterArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeregisterElasticIp": {
       "verb": "Unregister",
-      "noun": "OPSElasticIp",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ElasticIp",
       "pipelineProperty": "ElasticIp",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ElasticIp",
         "ConfirmImpactSetting": "Medium",
@@ -611,20 +531,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ElasticIp"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeregisterInstance": {
       "verb": "Unregister",
-      "noun": "OPSInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Instance",
       "pipelineProperty": "InstanceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instance",
         "ConfirmImpactSetting": "Medium",
@@ -642,20 +556,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeregisterRdsDbInstance": {
       "verb": "Unregister",
-      "noun": "OPSRdsDbInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RdsDbInstance",
       "pipelineProperty": "RdsDbInstanceArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RdsDbInstance",
         "ConfirmImpactSetting": "Medium",
@@ -673,20 +581,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RdsDbInstanceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeregisterVolume": {
       "verb": "Unregister",
-      "noun": "OPSVolume",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Volume",
       "pipelineProperty": "VolumeId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Volume",
         "ConfirmImpactSetting": "Medium",
@@ -704,20 +606,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "VolumeId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAgentVersions": {
       "verb": "Get",
-      "noun": "OPSAgentVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AgentVersion",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AgentVersions",
         "ConfirmImpactSetting": "Medium",
@@ -730,25 +624,16 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeApps": {
       "verb": "Get",
-      "noun": "OPSApp",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "App",
       "legacyAlias": "Get-OPSApps",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "AppIds",
+      "legacyPositionalParameters": [
+        "AppIds"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Apps",
         "ConfirmImpactSetting": "Medium",
@@ -761,25 +646,18 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeCommands": {
       "verb": "Get",
-      "noun": "OPSCommand",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Command",
       "legacyAlias": "Get-OPSCommands",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "InstanceId",
+        "CommandIds"
+      ],
       "pipelineProperty": "DeploymentId",
-      "output": "Default",
-      "legacyPositionalParameters": "InstanceId;CommandIds",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Commands",
         "ConfirmImpactSetting": "Medium",
@@ -792,25 +670,17 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDeployments": {
       "verb": "Get",
-      "noun": "OPSDeployment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Deployment",
       "legacyAlias": "Get-OPSDeployments",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "AppId;DeploymentIds",
+      "legacyPositionalParameters": [
+        "AppId",
+        "DeploymentIds"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Deployments",
         "ConfirmImpactSetting": "Medium",
@@ -823,25 +693,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEcsClusters": {
       "verb": "Get",
-      "noun": "OPSEcsCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "EcsCluster",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EcsClusters",
         "ConfirmImpactSetting": "Medium",
@@ -854,25 +711,17 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeElasticIps": {
       "verb": "Get",
-      "noun": "OPSElasticIp",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ElasticIp",
       "legacyAlias": "Get-OPSElasticIps",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "Ips"
+      ],
       "pipelineProperty": "InstanceId",
-      "output": "Default",
-      "legacyPositionalParameters": "Ips",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ElasticIps",
         "ConfirmImpactSetting": "Medium",
@@ -885,25 +734,16 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeElasticLoadBalancers": {
       "verb": "Get",
-      "noun": "OPSElasticLoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ElasticLoadBalancer",
       "legacyAlias": "Get-OPSElasticLoadBalancers",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "LayerIds",
+      "legacyPositionalParameters": [
+        "LayerIds"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ElasticLoadBalancers",
         "ConfirmImpactSetting": "Medium",
@@ -916,25 +756,17 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeInstances": {
       "verb": "Get",
-      "noun": "OPSInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Instance",
       "legacyAlias": "Get-OPSInstances",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "LayerId;InstanceIds",
+      "legacyPositionalParameters": [
+        "LayerId",
+        "InstanceIds"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instances",
         "ConfirmImpactSetting": "Medium",
@@ -947,25 +779,16 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeLayers": {
       "verb": "Get",
-      "noun": "OPSLayer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Layer",
       "legacyAlias": "Get-OPSLayers",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "LayerIds",
+      "legacyPositionalParameters": [
+        "LayerIds"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Layers",
         "ConfirmImpactSetting": "Medium",
@@ -978,25 +801,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeLoadBasedAutoScaling": {
       "verb": "Get",
-      "noun": "OPSLoadBasedAutoScaling",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoadBasedAutoScaling",
       "pipelineProperty": "LayerIds",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBasedAutoScaling",
         "ConfirmImpactSetting": "Medium",
@@ -1009,25 +820,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeMyUserProfile": {
       "verb": "Get",
-      "noun": "OPSMyUserProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "MyUserProfile",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MyUserProfile",
         "ConfirmImpactSetting": "Medium",
@@ -1040,25 +838,16 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribePermissions": {
       "verb": "Get",
-      "noun": "OPSPermission",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Permission",
       "legacyAlias": "Get-OPSPermissions",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "IamUserArn",
+      "legacyPositionalParameters": [
+        "IamUserArn"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Permissions",
         "ConfirmImpactSetting": "Medium",
@@ -1071,25 +860,17 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeRaidArrays": {
       "verb": "Get",
-      "noun": "OPSRaidArray",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "RaidArray",
       "legacyAlias": "Get-OPSRaidArrays",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "RaidArrayIds"
+      ],
       "pipelineProperty": "InstanceId",
-      "output": "Default",
-      "legacyPositionalParameters": "RaidArrayIds",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RaidArrays",
         "ConfirmImpactSetting": "Medium",
@@ -1102,25 +883,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeRdsDbInstances": {
       "verb": "Get",
-      "noun": "OPSRdsDbInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "RdsDbInstance",
       "legacyAlias": "Get-OPSRdsDbInstances",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RdsDbInstances",
         "ConfirmImpactSetting": "Medium",
@@ -1133,25 +902,17 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeServiceErrors": {
       "verb": "Get",
-      "noun": "OPSServiceError",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ServiceError",
       "legacyAlias": "Get-OPSServiceErrors",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "InstanceId;ServiceErrorIds",
+      "legacyPositionalParameters": [
+        "InstanceId",
+        "ServiceErrorIds"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServiceErrors",
         "ConfirmImpactSetting": "Medium",
@@ -1164,25 +925,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeStackProvisioningParameters": {
       "verb": "Get",
-      "noun": "OPSStackProvisioningParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "StackProvisioningParameter",
       "legacyAlias": "Get-OPSStackProvisioningParameters",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackProvisioningParameters",
         "ConfirmImpactSetting": "Medium",
@@ -1195,25 +945,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeStacks": {
       "verb": "Get",
-      "noun": "OPSStack",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Stack",
       "legacyAlias": "Get-OPSStacks",
-      "metadataOutputProperties": "",
       "pipelineProperty": "StackIds",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stacks",
         "ConfirmImpactSetting": "Medium",
@@ -1226,25 +965,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeStackSummary": {
       "verb": "Get",
-      "noun": "OPSStackSummary",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "StackSummary",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackSummary",
         "ConfirmImpactSetting": "Medium",
@@ -1257,25 +983,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTimeBasedAutoScaling": {
       "verb": "Get",
-      "noun": "OPSTimeBasedAutoScaling",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TimeBasedAutoScaling",
       "pipelineProperty": "InstanceIds",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TimeBasedAutoScaling",
         "ConfirmImpactSetting": "Medium",
@@ -1288,25 +1002,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeUserProfiles": {
       "verb": "Get",
-      "noun": "OPSUserProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "UserProfile",
       "legacyAlias": "Get-OPSUserProfiles",
-      "metadataOutputProperties": "",
       "pipelineProperty": "IamUserArns",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserProfiles",
         "ConfirmImpactSetting": "Medium",
@@ -1319,25 +1022,18 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeVolumes": {
       "verb": "Get",
-      "noun": "OPSVolume",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Volume",
       "legacyAlias": "Get-OPSVolumes",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "RaidArrayId",
+        "VolumeIds"
+      ],
       "pipelineProperty": "InstanceId",
-      "output": "Default",
-      "legacyPositionalParameters": "RaidArrayId;VolumeIds",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Volumes",
         "ConfirmImpactSetting": "Medium",
@@ -1350,25 +1046,17 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DetachElasticLoadBalancer": {
       "verb": "Dismount",
-      "noun": "OPSElasticLoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ElasticLoadBalancer",
+      "legacyPositionalParameters": [
+        "LayerId"
+      ],
       "pipelineProperty": "ElasticLoadBalancerName",
       "output": "Void",
-      "legacyPositionalParameters": "LayerId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ElasticLoadBalancer",
         "ConfirmImpactSetting": "Medium",
@@ -1386,20 +1074,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ElasticLoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisassociateElasticIp": {
       "verb": "Remove",
-      "noun": "OPSElasticIp",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ElasticIp",
       "pipelineProperty": "ElasticIp",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ElasticIp",
         "ConfirmImpactSetting": "High",
@@ -1417,20 +1099,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ElasticIp"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetHostnameSuggestion": {
       "verb": "Get",
-      "noun": "OPSHostnameSuggestion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "HostnameSuggestion",
       "pipelineProperty": "LayerId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "HostnameSuggestion",
         "ConfirmImpactSetting": "Medium",
@@ -1443,25 +1119,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GrantAccess": {
       "verb": "Grant",
-      "noun": "OPSAccess",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Access",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Access",
         "ConfirmImpactSetting": "Medium",
@@ -1479,20 +1142,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTags": {
       "verb": "Get",
-      "noun": "OPSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -1505,25 +1161,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RebootInstance": {
       "verb": "Restart",
-      "noun": "OPSInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Instance",
       "pipelineProperty": "InstanceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instance",
         "ConfirmImpactSetting": "Medium",
@@ -1541,20 +1186,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RegisterEcsCluster": {
       "verb": "Register",
-      "noun": "OPSEcsCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "EcsCluster",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EcsCluster",
         "ConfirmImpactSetting": "Medium",
@@ -1572,20 +1209,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RegisterElasticIp": {
       "verb": "Register",
-      "noun": "OPSElasticIp",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ElasticIp",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ElasticIp",
         "ConfirmImpactSetting": "Medium",
@@ -1603,20 +1232,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RegisterInstance": {
       "verb": "Register",
-      "noun": "OPSInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Instance",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instance",
         "ConfirmImpactSetting": "Medium",
@@ -1634,20 +1255,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RegisterRdsDbInstance": {
       "verb": "Register",
-      "noun": "OPSRdsDbInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "RdsDbInstance",
+      "legacyPositionalParameters": [
+        "RdsDbInstanceArn"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "RdsDbInstanceArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RdsDbInstance",
         "ConfirmImpactSetting": "Medium",
@@ -1665,20 +1282,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RegisterVolume": {
       "verb": "Register",
-      "noun": "OPSVolume",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Volume",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Volume",
         "ConfirmImpactSetting": "Medium",
@@ -1696,20 +1305,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetLoadBasedAutoScaling": {
       "verb": "Set",
-      "noun": "OPSLoadBasedAutoScaling",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoadBasedAutoScaling",
+      "legacyPositionalParameters": [
+        "Enable"
+      ],
       "pipelineProperty": "LayerId",
       "output": "Void",
-      "legacyPositionalParameters": "Enable",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBasedAutoScaling",
         "ConfirmImpactSetting": "Medium",
@@ -1727,20 +1333,18 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LayerId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetPermission": {
       "verb": "Set",
-      "noun": "OPSPermission",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Permission",
+      "legacyPositionalParameters": [
+        "IamUserArn",
+        "AllowSsh",
+        "AllowSudo"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "IamUserArn;AllowSsh;AllowSudo",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Permission",
         "ConfirmImpactSetting": "Medium",
@@ -1758,20 +1362,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetTimeBasedAutoScaling": {
       "verb": "Set",
-      "noun": "OPSTimeBasedAutoScaling",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TimeBasedAutoScaling",
       "pipelineProperty": "InstanceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TimeBasedAutoScaling",
         "ConfirmImpactSetting": "Medium",
@@ -1789,20 +1387,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartInstance": {
       "verb": "Start",
-      "noun": "OPSInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Instance",
       "pipelineProperty": "InstanceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instance",
         "ConfirmImpactSetting": "Medium",
@@ -1820,20 +1412,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartStack": {
       "verb": "Start",
-      "noun": "OPSStack",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Stack",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stack",
         "ConfirmImpactSetting": "Medium",
@@ -1851,20 +1436,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopInstance": {
       "verb": "Stop",
-      "noun": "OPSInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Instance",
       "pipelineProperty": "InstanceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instance",
         "ConfirmImpactSetting": "Medium",
@@ -1882,20 +1461,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopStack": {
       "verb": "Stop",
-      "noun": "OPSStack",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Stack",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stack",
         "ConfirmImpactSetting": "Medium",
@@ -1913,20 +1485,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TagResource": {
       "verb": "Add",
-      "noun": "OPSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "Medium",
@@ -1944,20 +1510,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UnassignInstance": {
       "verb": "Unregister",
-      "noun": "OPSInstanceAssignment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceAssignment",
       "pipelineProperty": "InstanceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instance",
         "ConfirmImpactSetting": "Medium",
@@ -1975,20 +1535,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UnassignVolume": {
       "verb": "Remove",
-      "noun": "OPSVolume",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Volume",
       "pipelineProperty": "VolumeId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Volume",
         "ConfirmImpactSetting": "High",
@@ -2006,20 +1560,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "VolumeId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UntagResource": {
       "verb": "Remove",
-      "noun": "OPSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "High",
@@ -2037,20 +1585,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateApp": {
       "verb": "Update",
-      "noun": "OPSApp",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "App",
       "pipelineProperty": "AppId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "App",
         "ConfirmImpactSetting": "Medium",
@@ -2068,20 +1610,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AppId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateElasticIp": {
       "verb": "Update",
-      "noun": "OPSElasticIp",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ElasticIp",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ElasticIp",
         "ConfirmImpactSetting": "Medium",
@@ -2099,20 +1634,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateInstance": {
       "verb": "Update",
-      "noun": "OPSInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Instance",
       "pipelineProperty": "InstanceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instance",
         "ConfirmImpactSetting": "Medium",
@@ -2130,20 +1659,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateLayer": {
       "verb": "Update",
-      "noun": "OPSLayer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Layer",
       "pipelineProperty": "LayerId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Layer",
         "ConfirmImpactSetting": "Medium",
@@ -2161,20 +1684,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LayerId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateMyUserProfile": {
       "verb": "Update",
-      "noun": "OPSMyUserProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MyUserProfile",
       "pipelineProperty": "SshPublicKey",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MyUserProfile",
         "ConfirmImpactSetting": "Medium",
@@ -2192,20 +1709,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SshPublicKey"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateRdsDbInstance": {
       "verb": "Update",
-      "noun": "OPSRdsDbInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RdsDbInstance",
       "pipelineProperty": "RdsDbInstanceArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RdsDbInstance",
         "ConfirmImpactSetting": "Medium",
@@ -2223,20 +1734,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RdsDbInstanceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateStack": {
       "verb": "Update",
-      "noun": "OPSStack",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Stack",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stack",
         "ConfirmImpactSetting": "Medium",
@@ -2254,20 +1758,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateUserProfile": {
       "verb": "Update",
-      "noun": "OPSUserProfile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "UserProfile",
       "pipelineProperty": "IamUserArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UserProfile",
         "ConfirmImpactSetting": "Medium",
@@ -2285,20 +1783,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "IamUserArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateVolume": {
       "verb": "Update",
-      "noun": "OPSVolume",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Volume",
       "pipelineProperty": "VolumeId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Volume",
         "ConfirmImpactSetting": "Medium",
@@ -2316,8 +1808,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "VolumeId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

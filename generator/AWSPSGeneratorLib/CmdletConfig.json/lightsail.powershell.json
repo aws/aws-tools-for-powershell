@@ -1,5 +1,10 @@
 {
-  "additionalNamespaces": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "PageToken",
+    "responseTokenMember": "NextPageToken"
+  },
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "LS",
   "outputMetadataPropertyNames": [
     "NextPageCount"
   ],
@@ -17,30 +22,14 @@
     "StaticIpName",
     "ResourceName"
   ],
-  "defaultPipelineProperty": "",
+  "sdkServiceClientClass": "AmazonLightsailClient",
+  "sdkServiceConfigClass": "AmazonLightsailConfig",
   "sdkServiceNamespace": "Amazon.Lightsail",
-  "sdkServiceClient": "AmazonLightsailClient",
-  "sdkServiceClientConfig": "AmazonLightsailConfig",
-  "legacyCmdletPrefix": "LS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "PageToken",
-    "responseTokenMember": "NextPageToken"
-  },
-  "nounMappings": {},
-  "verbMappings": {},
   "serviceOperations": {
     "AllocateStaticIp": {
       "verb": "New",
-      "noun": "LSStaticIp",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StaticIp",
       "pipelineProperty": "StaticIpName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StaticIp",
         "ConfirmImpactSetting": "Medium",
@@ -57,20 +46,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StaticIpName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AttachDisk": {
       "verb": "Add",
-      "noun": "LSDisk",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Disk",
       "pipelineProperty": "InstanceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Disk",
         "ConfirmImpactSetting": "Medium",
@@ -87,20 +69,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AttachInstancesToLoadBalancer": {
       "verb": "Add",
-      "noun": "LSInstancesToLoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstancesToLoadBalancer",
       "pipelineProperty": "LoadBalancerName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstancesToLoadBalancer",
         "ConfirmImpactSetting": "Medium",
@@ -117,20 +92,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AttachLoadBalancerTlsCertificate": {
       "verb": "Add",
-      "noun": "LSLoadBalancerTlsCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoadBalancerTlsCertificate",
       "pipelineProperty": "CertificateName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerTlsCertificate",
         "ConfirmImpactSetting": "Medium",
@@ -147,20 +115,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CertificateName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AttachStaticIp": {
       "verb": "Mount",
-      "noun": "LSStaticIp",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StaticIp",
       "pipelineProperty": "StaticIpName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StaticIp",
         "ConfirmImpactSetting": "Medium",
@@ -177,20 +138,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StaticIpName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CloseInstancePublicPorts": {
       "verb": "Close",
-      "noun": "LSInstancePublicPort",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstancePublicPort",
       "pipelineProperty": "InstanceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstancePublicPorts",
         "ConfirmImpactSetting": "Medium",
@@ -207,20 +161,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDisk": {
       "verb": "New",
-      "noun": "LSDisk",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Disk",
       "pipelineProperty": "DiskName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Disk",
         "ConfirmImpactSetting": "Medium",
@@ -237,20 +184,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DiskName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDiskFromSnapshot": {
       "verb": "New",
-      "noun": "LSDiskFromSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DiskFromSnapshot",
       "pipelineProperty": "DiskSnapshotName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DiskFromSnapshot",
         "ConfirmImpactSetting": "Medium",
@@ -267,20 +207,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DiskSnapshotName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDiskSnapshot": {
       "verb": "New",
-      "noun": "LSDiskSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DiskSnapshot",
       "pipelineProperty": "DiskSnapshotName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DiskSnapshot",
         "ConfirmImpactSetting": "Medium",
@@ -297,20 +230,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DiskSnapshotName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDomain": {
       "verb": "New",
-      "noun": "LSDomain",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Domain",
       "pipelineProperty": "DomainName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Domain",
         "ConfirmImpactSetting": "Medium",
@@ -327,20 +253,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDomainEntry": {
       "verb": "New",
-      "noun": "LSDomainEntry",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DomainEntry",
       "pipelineProperty": "DomainName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainEntry",
         "ConfirmImpactSetting": "Medium",
@@ -357,20 +276,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateInstances": {
       "verb": "New",
-      "noun": "LSInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Instance",
       "pipelineProperty": "InstanceNames",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instances",
         "ConfirmImpactSetting": "Medium",
@@ -387,20 +299,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceNames"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateInstancesFromSnapshot": {
       "verb": "New",
-      "noun": "LSInstancesFromSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstancesFromSnapshot",
       "pipelineProperty": "InstanceNames",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstancesFromSnapshot",
         "ConfirmImpactSetting": "Medium",
@@ -417,20 +322,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceNames"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateInstanceSnapshot": {
       "verb": "New",
-      "noun": "LSInstanceSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceSnapshot",
       "pipelineProperty": "InstanceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceSnapshot",
         "ConfirmImpactSetting": "Medium",
@@ -447,20 +345,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateKeyPair": {
       "verb": "New",
-      "noun": "LSKeyPair",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "KeyPair",
       "pipelineProperty": "KeyPairName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "KeyPair",
         "ConfirmImpactSetting": "Medium",
@@ -477,20 +369,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyPairName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateLoadBalancer": {
       "verb": "New",
-      "noun": "LSLoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoadBalancer",
       "pipelineProperty": "LoadBalancerName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancer",
         "ConfirmImpactSetting": "Medium",
@@ -507,20 +392,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateLoadBalancerTlsCertificate": {
       "verb": "New",
-      "noun": "LSLoadBalancerTlsCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoadBalancerTlsCertificate",
       "pipelineProperty": "CertificateName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerTlsCertificate",
         "ConfirmImpactSetting": "Medium",
@@ -537,20 +415,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CertificateName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDisk": {
       "verb": "Remove",
-      "noun": "LSDisk",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Disk",
       "pipelineProperty": "DiskName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Disk",
         "ConfirmImpactSetting": "High",
@@ -567,20 +438,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DiskName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDiskSnapshot": {
       "verb": "Remove",
-      "noun": "LSDiskSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DiskSnapshot",
       "pipelineProperty": "DiskSnapshotName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DiskSnapshot",
         "ConfirmImpactSetting": "High",
@@ -597,20 +461,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DiskSnapshotName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDomain": {
       "verb": "Remove",
-      "noun": "LSDomain",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Domain",
       "pipelineProperty": "DomainName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Domain",
         "ConfirmImpactSetting": "High",
@@ -627,20 +484,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDomainEntry": {
       "verb": "Remove",
-      "noun": "LSDomainEntry",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DomainEntry",
       "pipelineProperty": "DomainName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainEntry",
         "ConfirmImpactSetting": "High",
@@ -657,20 +507,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteInstance": {
       "verb": "Remove",
-      "noun": "LSInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Instance",
       "pipelineProperty": "InstanceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instance",
         "ConfirmImpactSetting": "High",
@@ -687,20 +530,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteInstanceSnapshot": {
       "verb": "Remove",
-      "noun": "LSInstanceSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceSnapshot",
       "pipelineProperty": "InstanceSnapshotName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceSnapshot",
         "ConfirmImpactSetting": "High",
@@ -717,20 +553,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceSnapshotName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteKeyPair": {
       "verb": "Remove",
-      "noun": "LSKeyPair",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "KeyPair",
       "pipelineProperty": "KeyPairName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "KeyPair",
         "ConfirmImpactSetting": "High",
@@ -747,20 +576,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyPairName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteLoadBalancer": {
       "verb": "Remove",
-      "noun": "LSLoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoadBalancer",
       "pipelineProperty": "LoadBalancerName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancer",
         "ConfirmImpactSetting": "High",
@@ -777,20 +599,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteLoadBalancerTlsCertificate": {
       "verb": "Remove",
-      "noun": "LSLoadBalancerTlsCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "CertificateName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "LoadBalancerTlsCertificate",
       "customParameters": [
         {
           "name": "Force",
@@ -798,6 +612,7 @@
           "autoApplyAlias": "false"
         }
       ],
+      "pipelineProperty": "CertificateName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerTlsCertificate",
         "ConfirmImpactSetting": "High",
@@ -814,20 +629,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CertificateName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DetachDisk": {
       "verb": "Dismount",
-      "noun": "LSDisk",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Disk",
       "pipelineProperty": "DiskName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Disk",
         "ConfirmImpactSetting": "Medium",
@@ -844,20 +652,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DiskName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DetachInstancesFromLoadBalancer": {
       "verb": "Dismount",
-      "noun": "LSInstancesFromLoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstancesFromLoadBalancer",
       "pipelineProperty": "InstanceNames",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "LoadBalancerName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstancesFromLoadBalancer",
@@ -875,20 +676,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DetachStaticIp": {
       "verb": "Dismount",
-      "noun": "LSStaticIp",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StaticIp",
       "pipelineProperty": "StaticIpName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StaticIp",
         "ConfirmImpactSetting": "Medium",
@@ -905,20 +699,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StaticIpName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DownloadDefaultKeyPair": {
       "verb": "Read",
-      "noun": "LSDefaultKeyPair",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DefaultKeyPair",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DefaultKeyPair",
         "ConfirmImpactSetting": "Medium",
@@ -935,20 +722,12 @@
           "analysisMessage": "No parameters, setting anonymous target",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetActiveNames": {
       "verb": "Get",
-      "noun": "LSActiveNameList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ActiveNameList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ActiveNames",
         "ConfirmImpactSetting": "Medium",
@@ -960,25 +739,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBlueprints": {
       "verb": "Get",
-      "noun": "LSBlueprintList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "BlueprintList",
       "pipelineProperty": "IncludeInactive",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Blueprints",
         "ConfirmImpactSetting": "Medium",
@@ -990,25 +757,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBundles": {
       "verb": "Get",
-      "noun": "LSBundleList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "BundleList",
       "pipelineProperty": "IncludeInactive",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Bundles",
         "ConfirmImpactSetting": "Medium",
@@ -1020,25 +775,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDisk": {
       "verb": "Get",
-      "noun": "LSDisk",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Disk",
       "pipelineProperty": "DiskName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Disk",
         "ConfirmImpactSetting": "Medium",
@@ -1050,25 +793,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDisks": {
       "verb": "Get",
-      "noun": "LSDiskList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DiskList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Disks",
         "ConfirmImpactSetting": "Medium",
@@ -1080,25 +810,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDiskSnapshot": {
       "verb": "Get",
-      "noun": "LSDiskSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DiskSnapshot",
       "pipelineProperty": "DiskSnapshotName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DiskSnapshot",
         "ConfirmImpactSetting": "Medium",
@@ -1110,25 +828,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDiskSnapshots": {
       "verb": "Get",
-      "noun": "LSDiskSnapshotList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DiskSnapshotList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DiskSnapshots",
         "ConfirmImpactSetting": "Medium",
@@ -1140,25 +845,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDomain": {
       "verb": "Get",
-      "noun": "LSDomain",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Domain",
       "pipelineProperty": "DomainName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Domain",
         "ConfirmImpactSetting": "Medium",
@@ -1170,25 +863,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDomains": {
       "verb": "Get",
-      "noun": "LSDomainList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DomainList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Domains",
         "ConfirmImpactSetting": "Medium",
@@ -1200,25 +880,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetInstance": {
       "verb": "Get",
-      "noun": "LSInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Instance",
       "pipelineProperty": "InstanceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instance",
         "ConfirmImpactSetting": "Medium",
@@ -1230,25 +898,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetInstanceAccessDetails": {
       "verb": "Get",
-      "noun": "LSInstanceAccessDetail",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceAccessDetail",
       "pipelineProperty": "InstanceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceAccessDetails",
         "ConfirmImpactSetting": "Medium",
@@ -1260,25 +916,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetInstanceMetricData": {
       "verb": "Get",
-      "noun": "LSInstanceMetricData",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceMetricData",
       "pipelineProperty": "InstanceName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceMetricData",
         "ConfirmImpactSetting": "Medium",
@@ -1290,25 +935,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetInstancePortStates": {
       "verb": "Get",
-      "noun": "LSInstancePortStateList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstancePortStateList",
       "pipelineProperty": "InstanceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstancePortStates",
         "ConfirmImpactSetting": "Medium",
@@ -1320,25 +953,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetInstances": {
       "verb": "Get",
-      "noun": "LSInstanceList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "InstanceList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instances",
         "ConfirmImpactSetting": "Medium",
@@ -1350,25 +970,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetInstanceSnapshot": {
       "verb": "Get",
-      "noun": "LSInstanceSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceSnapshot",
       "pipelineProperty": "InstanceSnapshotName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceSnapshot",
         "ConfirmImpactSetting": "Medium",
@@ -1380,25 +988,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetInstanceSnapshots": {
       "verb": "Get",
-      "noun": "LSInstanceSnapshotList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "InstanceSnapshotList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceSnapshots",
         "ConfirmImpactSetting": "Medium",
@@ -1410,25 +1005,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetInstanceState": {
       "verb": "Get",
-      "noun": "LSInstanceState",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceState",
       "pipelineProperty": "InstanceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceState",
         "ConfirmImpactSetting": "Medium",
@@ -1440,25 +1023,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetKeyPair": {
       "verb": "Get",
-      "noun": "LSKeyPairInfo",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "KeyPairInfo",
       "pipelineProperty": "KeyPairName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "KeyPair",
         "ConfirmImpactSetting": "Medium",
@@ -1470,25 +1041,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetKeyPairs": {
       "verb": "Get",
-      "noun": "LSKeypairList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "KeypairList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "KeyPairs",
         "ConfirmImpactSetting": "Medium",
@@ -1500,25 +1058,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetLoadBalancer": {
       "verb": "Get",
-      "noun": "LSLoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoadBalancer",
       "pipelineProperty": "LoadBalancerName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancer",
         "ConfirmImpactSetting": "Medium",
@@ -1530,25 +1076,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetLoadBalancerMetricData": {
       "verb": "Get",
-      "noun": "LSLoadBalancerMetricData",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoadBalancerMetricData",
       "pipelineProperty": "LoadBalancerName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerMetricData",
         "ConfirmImpactSetting": "Medium",
@@ -1560,25 +1095,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetLoadBalancers": {
       "verb": "Get",
-      "noun": "LSLoadBalancerList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "LoadBalancerList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancers",
         "ConfirmImpactSetting": "Medium",
@@ -1590,25 +1112,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetLoadBalancerTlsCertificates": {
       "verb": "Get",
-      "noun": "LSLoadBalancerTlsCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoadBalancerTlsCertificate",
       "pipelineProperty": "LoadBalancerName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerTlsCertificates",
         "ConfirmImpactSetting": "Medium",
@@ -1620,25 +1130,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetOperation": {
       "verb": "Get",
-      "noun": "LSOperation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Operation",
       "pipelineProperty": "OperationId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Operation",
         "ConfirmImpactSetting": "Medium",
@@ -1650,25 +1148,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetOperations": {
       "verb": "Get",
-      "noun": "LSOperationList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "OperationList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Operations",
         "ConfirmImpactSetting": "Medium",
@@ -1680,25 +1165,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetOperationsForResource": {
       "verb": "Get",
-      "noun": "LSOperationListForResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OperationListForResource",
       "pipelineProperty": "ResourceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OperationsForResource",
         "ConfirmImpactSetting": "Medium",
@@ -1710,25 +1183,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetRegions": {
       "verb": "Get",
-      "noun": "LSRegionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RegionList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Regions",
         "ConfirmImpactSetting": "Medium",
@@ -1740,25 +1201,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetStaticIp": {
       "verb": "Get",
-      "noun": "LSStaticIp",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StaticIp",
       "pipelineProperty": "StaticIpName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StaticIp",
         "ConfirmImpactSetting": "Medium",
@@ -1770,25 +1219,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetStaticIps": {
       "verb": "Get",
-      "noun": "LSStaticIpList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "StaticIpList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StaticIps",
         "ConfirmImpactSetting": "Medium",
@@ -1800,25 +1236,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ImportKeyPair": {
       "verb": "Import",
-      "noun": "LSKeyPair",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "KeyPair",
       "pipelineProperty": "PublicKeyBase64",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "KeyPair",
         "ConfirmImpactSetting": "Medium",
@@ -1835,20 +1259,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyPairName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "IsVpcPeered": {
       "verb": "Test",
-      "noun": "LSVpcPeered",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "VpcPeered",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "VpcPeered",
         "ConfirmImpactSetting": "Medium",
@@ -1860,25 +1276,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": "PageToken",
           "responseTokenMember": "NextPageToken"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "OpenInstancePublicPorts": {
       "verb": "Open",
-      "noun": "LSInstancePublicPort",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstancePublicPort",
       "pipelineProperty": "InstanceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstancePublicPorts",
         "ConfirmImpactSetting": "Medium",
@@ -1895,20 +1299,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PeerVpc": {
       "verb": "Add",
-      "noun": "LSPeerVpc",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "PeerVpc",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Vpc",
         "ConfirmImpactSetting": "Medium",
@@ -1925,20 +1321,13 @@
           "analysisMessage": "No parameters, setting anonymous target",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutInstancePublicPorts": {
       "verb": "Set",
-      "noun": "LSInstancePublicPort",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstancePublicPort",
       "pipelineProperty": "InstanceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstancePublicPorts",
         "ConfirmImpactSetting": "Medium",
@@ -1955,20 +1344,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RebootInstance": {
       "verb": "Restart",
-      "noun": "LSInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Instance",
       "pipelineProperty": "InstanceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instance",
         "ConfirmImpactSetting": "Medium",
@@ -1985,20 +1367,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ReleaseStaticIp": {
       "verb": "Remove",
-      "noun": "LSStaticIp",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StaticIp",
       "pipelineProperty": "StaticIpName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StaticIp",
         "ConfirmImpactSetting": "High",
@@ -2015,20 +1390,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StaticIpName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartInstance": {
       "verb": "Start",
-      "noun": "LSInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Instance",
       "pipelineProperty": "InstanceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instance",
         "ConfirmImpactSetting": "Medium",
@@ -2045,20 +1413,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopInstance": {
       "verb": "Stop",
-      "noun": "LSInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "InstanceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Instance",
       "customParameters": [
         {
           "name": "Force",
@@ -2066,6 +1426,7 @@
           "autoApplyAlias": "false"
         }
       ],
+      "pipelineProperty": "InstanceName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instance",
         "ConfirmImpactSetting": "Medium",
@@ -2082,20 +1443,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UnpeerVpc": {
       "verb": "Remove",
-      "noun": "LSPeerVpc",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "PeerVpc",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Vpc",
         "ConfirmImpactSetting": "High",
@@ -2112,20 +1465,13 @@
           "analysisMessage": "No parameters, setting anonymous target",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDomainEntry": {
       "verb": "Update",
-      "noun": "LSDomainEntry",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DomainEntry",
       "pipelineProperty": "DomainName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainEntry",
         "ConfirmImpactSetting": "Medium",
@@ -2142,20 +1488,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateLoadBalancerAttribute": {
       "verb": "Update",
-      "noun": "LSLoadBalancerAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoadBalancerAttribute",
       "pipelineProperty": "LoadBalancerName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerAttribute",
         "ConfirmImpactSetting": "Medium",
@@ -2172,8 +1511,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

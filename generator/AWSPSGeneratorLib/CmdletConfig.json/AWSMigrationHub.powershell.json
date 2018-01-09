@@ -1,42 +1,32 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken",
+    "resultLimitMember": "MaxResults"
+  },
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "MH",
+  "nonFlatteningTypeNames": [
+    "Amazon.MigrationHub.Model.CreatedArtifact",
+    "Amazon.MigrationHub.Model.DiscoveredResource",
+    "Amazon.MigrationHub.Model.MigrationTask",
+    "Amazon.MigrationHub.Model.Task"
+  ],
   "pipelineByValuePropertyNames": [
     "MigrationTaskName",
     "ProgressUpdateStream",
     "ConfigurationId",
     "ApplicationId"
   ],
-  "defaultPipelineProperty": "",
+  "sdkServiceClientClass": "AmazonMigrationHubClient",
+  "sdkServiceConfigClass": "AmazonMigrationHubConfig",
   "sdkServiceNamespace": "Amazon.MigrationHub",
-  "sdkServiceClient": "AmazonMigrationHubClient",
-  "sdkServiceClientConfig": "AmazonMigrationHubConfig",
-  "legacyCmdletPrefix": "MH",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.MigrationHub.Model.CreatedArtifact",
-    "Amazon.MigrationHub.Model.DiscoveredResource",
-    "Amazon.MigrationHub.Model.MigrationTask",
-    "Amazon.MigrationHub.Model.Task"
-  ],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken",
-    "resultLimitMember": "MaxResults"
-  },
-  "nounMappings": {},
-  "verbMappings": {},
   "serviceOperations": {
     "AssociateCreatedArtifact": {
       "verb": "Add",
-      "noun": "MHCreatedArtifact",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CreatedArtifact",
       "pipelineProperty": "CreatedArtifact",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "MigrationTaskName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CreatedArtifact",
@@ -55,20 +45,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "MigrationTaskName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AssociateDiscoveredResource": {
       "verb": "Add",
-      "noun": "MHDiscoveredResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DiscoveredResource",
       "pipelineProperty": "DiscoveredResource",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "MigrationTaskName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DiscoveredResource",
@@ -87,20 +71,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "MigrationTaskName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateProgressUpdateStream": {
       "verb": "New",
-      "noun": "MHProgressUpdateStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ProgressUpdateStream",
       "pipelineProperty": "ProgressUpdateStreamName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ProgressUpdateStream",
         "ConfirmImpactSetting": "Medium",
@@ -118,20 +96,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProgressUpdateStreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteProgressUpdateStream": {
       "verb": "Remove",
-      "noun": "MHProgressUpdateStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ProgressUpdateStream",
       "pipelineProperty": "ProgressUpdateStreamName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ProgressUpdateStream",
         "ConfirmImpactSetting": "High",
@@ -149,20 +121,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProgressUpdateStreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeApplicationState": {
       "verb": "Get",
-      "noun": "MHApplicationState",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ApplicationState",
       "pipelineProperty": "ApplicationId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationState",
         "ConfirmImpactSetting": "Medium",
@@ -175,25 +141,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeMigrationTask": {
       "verb": "Get",
-      "noun": "MHMigrationTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MigrationTask",
       "pipelineProperty": "MigrationTaskName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MigrationTask",
         "ConfirmImpactSetting": "Medium",
@@ -206,25 +160,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisassociateCreatedArtifact": {
       "verb": "Remove",
-      "noun": "MHCreatedArtifact",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CreatedArtifact",
       "pipelineProperty": "CreatedArtifactName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CreatedArtifact",
         "ConfirmImpactSetting": "High",
@@ -242,20 +185,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CreatedArtifactName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisassociateDiscoveredResource": {
       "verb": "Remove",
-      "noun": "MHDiscoveredResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DiscoveredResource",
       "pipelineProperty": "ConfigurationId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DiscoveredResource",
         "ConfirmImpactSetting": "High",
@@ -273,20 +210,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigurationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ImportMigrationTask": {
       "verb": "Import",
-      "noun": "MHMigrationTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MigrationTask",
       "pipelineProperty": "MigrationTaskName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MigrationTask",
         "ConfirmImpactSetting": "Medium",
@@ -304,20 +235,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "MigrationTaskName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListCreatedArtifacts": {
       "verb": "Get",
-      "noun": "MHCreatedArtifactList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CreatedArtifactList",
       "pipelineProperty": "MigrationTaskName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CreatedArtifacts",
         "ConfirmImpactSetting": "Medium",
@@ -330,25 +254,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListDiscoveredResources": {
       "verb": "Get",
-      "noun": "MHDiscoveredResourceList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DiscoveredResourceList",
       "pipelineProperty": "MigrationTaskName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DiscoveredResources",
         "ConfirmImpactSetting": "Medium",
@@ -361,25 +273,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListMigrationTasks": {
       "verb": "Get",
-      "noun": "MHMigrationTaskList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MigrationTaskList",
       "pipelineProperty": "ResourceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MigrationTasks",
         "ConfirmImpactSetting": "Medium",
@@ -392,25 +292,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListProgressUpdateStreams": {
       "verb": "Get",
-      "noun": "MHProgressUpdateStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ProgressUpdateStream",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ProgressUpdateStreams",
         "ConfirmImpactSetting": "Medium",
@@ -423,25 +310,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "NotifyApplicationState": {
       "verb": "Send",
-      "noun": "MHApplicationStateNotification",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ApplicationStateNotification",
       "pipelineProperty": "ApplicationId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ApplicationState",
         "ConfirmImpactSetting": "Medium",
@@ -459,20 +335,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "NotifyMigrationTaskState": {
       "verb": "Send",
-      "noun": "MHMigrationTaskStateNotification",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MigrationTaskStateNotification",
       "pipelineProperty": "Task",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MigrationTaskState",
         "ConfirmImpactSetting": "Medium",
@@ -490,20 +360,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "MigrationTaskName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutResourceAttributes": {
       "verb": "Set",
-      "noun": "MHResourceAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceAttribute",
       "pipelineProperty": "MigrationTaskName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourceAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -521,8 +385,7 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "MigrationTaskName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

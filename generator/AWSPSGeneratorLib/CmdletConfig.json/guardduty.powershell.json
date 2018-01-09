@@ -1,40 +1,29 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "IpSetId",
-    "ThreatIntelSetId"
-  ],
-  "defaultPipelineProperty": "DetectorId",
-  "sdkServiceNamespace": "Amazon.GuardDuty",
-  "sdkServiceClient": "AmazonGuardDutyClient",
-  "sdkServiceClientConfig": "AmazonGuardDutyConfig",
-  "legacyCmdletPrefix": "GD",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.GuardDuty.Model.AccountDetail",
-    "Amazon.GuardDuty.Model.SortCriteria",
-    "Amazon.GuardDuty.Model.FindingCriteria"
-  ],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults",
     "servicePageSize": 7
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "DetectorId",
+  "legacyCmdletPrefix": "GD",
+  "nonFlatteningTypeNames": [
+    "Amazon.GuardDuty.Model.AccountDetail",
+    "Amazon.GuardDuty.Model.SortCriteria",
+    "Amazon.GuardDuty.Model.FindingCriteria"
+  ],
+  "pipelineByValuePropertyNames": [
+    "IpSetId",
+    "ThreatIntelSetId"
+  ],
+  "sdkServiceClientClass": "AmazonGuardDutyClient",
+  "sdkServiceConfigClass": "AmazonGuardDutyConfig",
+  "sdkServiceNamespace": "Amazon.GuardDuty",
   "serviceOperations": {
     "AcceptInvitation": {
       "verb": "Confirm",
-      "noun": "GDInvitation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Invitation",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Invitation",
         "ConfirmImpactSetting": "Medium",
@@ -53,20 +42,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DetectorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ArchiveFindings": {
       "verb": "Backup",
-      "noun": "GDFinding",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Finding",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Findings",
         "ConfirmImpactSetting": "Medium",
@@ -85,20 +67,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DetectorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDetector": {
       "verb": "New",
-      "noun": "GDDetector",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Detector",
       "pipelineProperty": "Enable",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Detector",
         "ConfirmImpactSetting": "Medium",
@@ -117,20 +92,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Enable"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateIPSet": {
       "verb": "New",
-      "noun": "GDIPSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "IPSet",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IPSet",
         "ConfirmImpactSetting": "Medium",
@@ -149,20 +116,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DetectorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateMembers": {
       "verb": "New",
-      "noun": "GDMember",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Member",
       "pipelineProperty": "AccountDetail",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Members",
         "ConfirmImpactSetting": "Medium",
@@ -181,20 +141,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DetectorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateSampleFindings": {
       "verb": "New",
-      "noun": "GDSampleFinding",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "SampleFinding",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SampleFindings",
         "ConfirmImpactSetting": "Medium",
@@ -213,20 +166,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DetectorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateThreatIntelSet": {
       "verb": "New",
-      "noun": "GDThreatIntelSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ThreatIntelSet",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThreatIntelSet",
         "ConfirmImpactSetting": "Medium",
@@ -245,20 +190,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DetectorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeclineInvitations": {
       "verb": "Deny",
-      "noun": "GDInvitation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Invitation",
       "pipelineProperty": "AccountId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Invitations",
         "ConfirmImpactSetting": "Medium",
@@ -277,20 +215,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AccountIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDetector": {
       "verb": "Remove",
-      "noun": "GDDetector",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Detector",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Detector",
         "ConfirmImpactSetting": "High",
@@ -309,20 +240,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DetectorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteInvitations": {
       "verb": "Remove",
-      "noun": "GDInvitation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Invitation",
       "pipelineProperty": "AccountId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Invitations",
         "ConfirmImpactSetting": "High",
@@ -341,20 +265,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AccountIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteIPSet": {
       "verb": "Remove",
-      "noun": "GDIPSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IPSet",
       "pipelineProperty": "IpSetId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IPSet",
         "ConfirmImpactSetting": "High",
@@ -373,20 +291,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "IpSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteMembers": {
       "verb": "Remove",
-      "noun": "GDMember",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Member",
       "pipelineProperty": "AccountId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Members",
         "ConfirmImpactSetting": "High",
@@ -405,20 +316,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DetectorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteThreatIntelSet": {
       "verb": "Remove",
-      "noun": "GDThreatIntelSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThreatIntelSet",
       "pipelineProperty": "ThreatIntelSetId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThreatIntelSet",
         "ConfirmImpactSetting": "High",
@@ -437,20 +342,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ThreatIntelSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisassociateFromMasterAccount": {
       "verb": "Unregister",
-      "noun": "GDFromMasterAccount",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "FromMasterAccount",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FromMasterAccount",
         "ConfirmImpactSetting": "Medium",
@@ -469,20 +367,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DetectorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisassociateMembers": {
       "verb": "Unregister",
-      "noun": "GDMember",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Member",
       "pipelineProperty": "AccountId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Members",
         "ConfirmImpactSetting": "Medium",
@@ -501,20 +392,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DetectorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDetector": {
       "verb": "Get",
-      "noun": "GDDetector",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Detector",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Detector",
         "ConfirmImpactSetting": "Medium",
@@ -528,25 +412,12 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 7
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetFindings": {
       "verb": "Get",
-      "noun": "GDFinding",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Finding",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Findings",
         "ConfirmImpactSetting": "Medium",
@@ -560,25 +431,12 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 7
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetFindingsStatistics": {
       "verb": "Get",
-      "noun": "GDFindingStatistic",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "FindingStatistic",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FindingsStatistics",
         "ConfirmImpactSetting": "Medium",
@@ -592,25 +450,12 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 7
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetInvitationsCount": {
       "verb": "Get",
-      "noun": "GDInvitationCount",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "InvitationCount",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InvitationsCount",
         "ConfirmImpactSetting": "Medium",
@@ -624,25 +469,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 7
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetIPSet": {
       "verb": "Get",
-      "noun": "GDIPSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IPSet",
       "pipelineProperty": "IpSetId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IPSet",
         "ConfirmImpactSetting": "Medium",
@@ -656,25 +490,12 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 7
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetMasterAccount": {
       "verb": "Get",
-      "noun": "GDMasterAccount",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "MasterAccount",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MasterAccount",
         "ConfirmImpactSetting": "Medium",
@@ -688,25 +509,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 7
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetMembers": {
       "verb": "Get",
-      "noun": "GDMember",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Member",
       "pipelineProperty": "AccountId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Members",
         "ConfirmImpactSetting": "Medium",
@@ -720,25 +530,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 7
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetThreatIntelSet": {
       "verb": "Get",
-      "noun": "GDThreatIntelSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ThreatIntelSet",
       "pipelineProperty": "ThreatIntelSetId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThreatIntelSet",
         "ConfirmImpactSetting": "Medium",
@@ -752,25 +551,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 7
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "InviteMembers": {
       "verb": "Send",
-      "noun": "GDMemberInvitation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MemberInvitation",
       "pipelineProperty": "AccountId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Members",
         "ConfirmImpactSetting": "Medium",
@@ -789,20 +576,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DetectorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListDetectors": {
       "verb": "Get",
-      "noun": "GDDetectorList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DetectorList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Detectors",
         "ConfirmImpactSetting": "Medium",
@@ -816,25 +595,12 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 7
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListFindings": {
       "verb": "Get",
-      "noun": "GDFindingList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "FindingList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Findings",
         "ConfirmImpactSetting": "Medium",
@@ -848,25 +614,12 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 7
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListInvitations": {
       "verb": "Get",
-      "noun": "GDInvitationList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "InvitationList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Invitations",
         "ConfirmImpactSetting": "Medium",
@@ -880,25 +633,12 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 7
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListIPSets": {
       "verb": "Get",
-      "noun": "GDIPSetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "IPSetList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IPSets",
         "ConfirmImpactSetting": "Medium",
@@ -912,25 +652,12 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 7
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListMembers": {
       "verb": "Get",
-      "noun": "GDMemberList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "MemberList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Members",
         "ConfirmImpactSetting": "Medium",
@@ -944,25 +671,12 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 7
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListThreatIntelSets": {
       "verb": "Get",
-      "noun": "GDThreatIntelSetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ThreatIntelSetList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThreatIntelSets",
         "ConfirmImpactSetting": "Medium",
@@ -976,25 +690,13 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 7
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartMonitoringMembers": {
       "verb": "Start",
-      "noun": "GDMonitoringMember",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MonitoringMember",
       "pipelineProperty": "AccountId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MonitoringMembers",
         "ConfirmImpactSetting": "Medium",
@@ -1013,20 +715,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DetectorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopMonitoringMembers": {
       "verb": "Stop",
-      "noun": "GDMonitoringMember",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MonitoringMember",
       "pipelineProperty": "AccountId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MonitoringMembers",
         "ConfirmImpactSetting": "Medium",
@@ -1045,20 +740,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DetectorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UnarchiveFindings": {
       "verb": "Restore",
-      "noun": "GDFinding",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Finding",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Findings",
         "ConfirmImpactSetting": "Medium",
@@ -1077,20 +765,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DetectorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateDetector": {
       "verb": "Update",
-      "noun": "GDDetector",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Detector",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Detector",
         "ConfirmImpactSetting": "Medium",
@@ -1109,20 +790,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DetectorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateFindingsFeedback": {
       "verb": "Update",
-      "noun": "GDFindingFeedback",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "FindingFeedback",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FindingsFeedback",
         "ConfirmImpactSetting": "Medium",
@@ -1141,20 +815,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DetectorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateIPSet": {
       "verb": "Update",
-      "noun": "GDIPSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "IPSet",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IPSet",
         "ConfirmImpactSetting": "Medium",
@@ -1173,20 +840,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DetectorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateThreatIntelSet": {
       "verb": "Update",
-      "noun": "GDThreatIntelSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ThreatIntelSet",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ThreatIntelSet",
         "ConfirmImpactSetting": "Medium",
@@ -1205,8 +865,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DetectorId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

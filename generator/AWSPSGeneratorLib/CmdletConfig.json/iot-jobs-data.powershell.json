@@ -1,31 +1,18 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.IoTJobsDataPlane",
-  "sdkServiceClient": "AmazonIoTJobsDataPlaneClient",
-  "sdkServiceClientConfig": "AmazonIoTJobsDataPlaneConfig",
-  "legacyCmdletPrefix": "IOTJ",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": null,
     "responseTokenMember": null
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "IOTJ",
+  "sdkServiceClientClass": "AmazonIoTJobsDataPlaneClient",
+  "sdkServiceConfigClass": "AmazonIoTJobsDataPlaneConfig",
+  "sdkServiceNamespace": "Amazon.IoTJobsDataPlane",
   "serviceOperations": {
     "DescribeJobExecution": {
       "verb": "Get",
-      "noun": "IOTJJobExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "JobExecution",
       "pipelineProperty": "JobId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobExecution",
         "ConfirmImpactSetting": "Medium",
@@ -37,25 +24,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetPendingJobExecutions": {
       "verb": "Get",
-      "noun": "IOTJPendingJobExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PendingJobExecution",
       "pipelineProperty": "ThingName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PendingJobExecutions",
         "ConfirmImpactSetting": "Medium",
@@ -67,25 +43,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartNextPendingJobExecution": {
       "verb": "Start",
-      "noun": "IOTJNextPendingJobExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "NextPendingJobExecution",
       "pipelineProperty": "ThingName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NextPendingJobExecution",
         "ConfirmImpactSetting": "Medium",
@@ -102,20 +66,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ThingName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateJobExecution": {
       "verb": "Update",
-      "noun": "IOTJJobExecution",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "JobExecution",
       "pipelineProperty": "JobId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "JobExecution",
         "ConfirmImpactSetting": "Medium",
@@ -132,8 +90,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "JobId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

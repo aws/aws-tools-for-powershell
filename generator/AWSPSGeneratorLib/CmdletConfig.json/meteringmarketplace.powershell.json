@@ -1,31 +1,19 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.AWSMarketplaceMetering",
-  "sdkServiceClient": "AmazonAWSMarketplaceMeteringClient",
-  "sdkServiceClientConfig": "AmazonAWSMarketplaceMeteringConfig",
-  "legacyCmdletPrefix": "MM",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": null,
     "responseTokenMember": null
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "MM",
+  "sdkServiceClientClass": "AmazonAWSMarketplaceMeteringClient",
+  "sdkServiceConfigClass": "AmazonAWSMarketplaceMeteringConfig",
+  "sdkServiceNamespace": "Amazon.AWSMarketplaceMetering",
   "serviceOperations": {
     "BatchMeterUsage": {
       "verb": "Send",
-      "noun": "MMMeteringDataBatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MeteringDataBatch",
       "pipelineProperty": "ProductCode",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ProductCode",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MeterUsage",
@@ -43,20 +31,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ProductCode"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "MeterUsage": {
       "verb": "Send",
-      "noun": "MMMeteringData",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MeteringData",
       "pipelineProperty": "ProductCode",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ProductCode",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Usage",
@@ -74,20 +55,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ProductCode"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ResolveCustomer": {
       "verb": "Get",
-      "noun": "MMCustomerMetadata",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CustomerMetadata",
       "pipelineProperty": "RegistrationToken",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Customer",
         "ConfirmImpactSetting": "Medium",
@@ -99,13 +74,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

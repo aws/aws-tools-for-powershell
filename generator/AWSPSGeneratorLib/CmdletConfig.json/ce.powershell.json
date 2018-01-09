@@ -1,35 +1,24 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.CostExplorer",
-  "sdkServiceClient": "AmazonCostExplorerClient",
-  "sdkServiceClientConfig": "AmazonCostExplorerConfig",
-  "legacyCmdletPrefix": "CE",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.CostExplorer.Model.Expression",
-    "Amazon.CostExplorer.Model.DimensionValues",
-    "Amazon.CostExplorer.Model.DateInterval"
-  ],
   "defaultPaginationSettings": {
     "requestTokenMember": null,
     "responseTokenMember": null
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "CE",
+  "nonFlatteningTypeNames": [
+    "Amazon.CostExplorer.Model.Expression",
+    "Amazon.CostExplorer.Model.DimensionValues",
+    "Amazon.CostExplorer.Model.DateInterval"
+  ],
+  "sdkServiceClientClass": "AmazonCostExplorerClient",
+  "sdkServiceConfigClass": "AmazonCostExplorerConfig",
+  "sdkServiceNamespace": "Amazon.CostExplorer",
   "serviceOperations": {
     "GetCostAndUsage": {
       "verb": "Get",
-      "noun": "CECostAndUsage",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "CostAndUsage",
       "pipelineProperty": "TimePeriod",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CostAndUsage",
         "ConfirmImpactSetting": "Medium",
@@ -41,25 +30,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetDimensionValues": {
       "verb": "Get",
-      "noun": "CEDimensionValue",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DimensionValue",
       "pipelineProperty": "TimePeriod",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DimensionValues",
         "ConfirmImpactSetting": "Medium",
@@ -71,25 +49,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetReservationUtilization": {
       "verb": "Get",
-      "noun": "CEReservationUtilization",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReservationUtilization",
       "pipelineProperty": "TimePeriod",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReservationUtilization",
         "ConfirmImpactSetting": "Medium",
@@ -101,25 +68,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetTags": {
       "verb": "Get",
-      "noun": "CETag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Tag",
       "pipelineProperty": "TimePeriod",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -131,13 +87,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

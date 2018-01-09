@@ -1,37 +1,27 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [
-    "NextExclusiveStartStreamName",
-    "HasMoreShards"
-  ],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.Kinesis",
-  "sdkServiceClient": "AmazonKinesisClient",
-  "sdkServiceClientConfig": "AmazonKinesisConfig",
-  "legacyCmdletPrefix": "KIN",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": null,
     "responseTokenMember": null
   },
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "KIN",
   "nounMappings": {
     "Records": "Record",
     "Shards": "Shard"
   },
-  "verbMappings": {},
+  "outputMetadataPropertyNames": [
+    "NextExclusiveStartStreamName",
+    "HasMoreShards"
+  ],
+  "sdkServiceClientClass": "AmazonKinesisClient",
+  "sdkServiceConfigClass": "AmazonKinesisConfig",
+  "sdkServiceNamespace": "Amazon.Kinesis",
   "serviceOperations": {
     "AddTagsToStream": {
       "verb": "Add",
-      "noun": "KINTagsToStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TagsToStream",
       "pipelineProperty": "StreamName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsToStream",
         "ConfirmImpactSetting": "Medium",
@@ -48,20 +38,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateStream": {
       "verb": "New",
-      "noun": "KINStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Stream",
+      "legacyPositionalParameters": [
+        "ShardCount"
+      ],
       "pipelineProperty": "StreamName",
       "output": "Void",
-      "legacyPositionalParameters": "ShardCount",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stream",
         "ConfirmImpactSetting": "Medium",
@@ -78,20 +65,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DecreaseStreamRetentionPeriod": {
       "verb": "Request",
-      "noun": "KINStreamRetentionPeriodDecrease",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StreamRetentionPeriodDecrease",
       "pipelineProperty": "StreamName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StreamRetentionPeriod",
         "ConfirmImpactSetting": "Medium",
@@ -108,20 +89,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteStream": {
       "verb": "Remove",
-      "noun": "KINStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Stream",
       "pipelineProperty": "StreamName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stream",
         "ConfirmImpactSetting": "High",
@@ -138,20 +113,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeLimits": {
       "verb": "Get",
-      "noun": "KINLimit",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Limit",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Limits",
         "ConfirmImpactSetting": "Medium",
@@ -163,25 +131,17 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeStream": {
       "verb": "Get",
-      "noun": "KINStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Stream",
+      "legacyPositionalParameters": [
+        "Limit",
+        "ExclusiveStartShardId"
+      ],
       "pipelineProperty": "StreamName",
-      "output": "Default",
-      "legacyPositionalParameters": "Limit;ExclusiveStartShardId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stream",
         "ConfirmImpactSetting": "Medium",
@@ -193,25 +153,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeStreamSummary": {
       "verb": "Get",
-      "noun": "KINStreamSummary",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StreamSummary",
       "pipelineProperty": "StreamName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StreamSummary",
         "ConfirmImpactSetting": "Medium",
@@ -223,25 +171,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisableEnhancedMonitoring": {
       "verb": "Disable",
-      "noun": "KINEnhancedMonitoring",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EnhancedMonitoring",
       "pipelineProperty": "StreamName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EnhancedMonitoring",
         "ConfirmImpactSetting": "Medium",
@@ -258,20 +195,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "EnableEnhancedMonitoring": {
       "verb": "Enable",
-      "noun": "KINEnhancedMonitoring",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EnhancedMonitoring",
       "pipelineProperty": "StreamName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EnhancedMonitoring",
         "ConfirmImpactSetting": "Medium",
@@ -288,20 +219,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetRecords": {
       "verb": "Get",
-      "noun": "KINRecord",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Record",
       "pipelineProperty": "ShardIterator",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Records",
         "ConfirmImpactSetting": "Medium",
@@ -313,25 +238,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetShardIterator": {
       "verb": "Get",
-      "noun": "KINShardIterator",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ShardIterator",
       "pipelineProperty": "ShardId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ShardIterator",
         "ConfirmImpactSetting": "Medium",
@@ -343,25 +256,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "IncreaseStreamRetentionPeriod": {
       "verb": "Request",
-      "noun": "KINStreamRetentionPeriodIncrease",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StreamRetentionPeriodIncrease",
       "pipelineProperty": "StreamName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StreamRetentionPeriod",
         "ConfirmImpactSetting": "Medium",
@@ -378,20 +280,18 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListStreams": {
       "verb": "Get",
-      "noun": "KINStreamList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "StreamList",
       "legacyAlias": "Get-KINStreams",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "Limit"
+      ],
       "pipelineProperty": "ExclusiveStartStreamName",
       "output": "Response",
-      "legacyPositionalParameters": "Limit",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Streams",
         "ConfirmImpactSetting": "Medium",
@@ -403,25 +303,17 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTagsForStream": {
       "verb": "Get",
-      "noun": "KINTagsForStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TagsForStream",
+      "legacyPositionalParameters": [
+        "Limit"
+      ],
       "pipelineProperty": "StreamName",
       "output": "Response",
-      "legacyPositionalParameters": "Limit",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForStream",
         "ConfirmImpactSetting": "Medium",
@@ -433,25 +325,18 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "MergeShards": {
       "verb": "Merge",
-      "noun": "KINShard",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Shard",
+      "legacyPositionalParameters": [
+        "ShardToMerge",
+        "AdjacentShardToMerge"
+      ],
       "pipelineProperty": "StreamName",
       "output": "Void",
-      "legacyPositionalParameters": "ShardToMerge;AdjacentShardToMerge",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Shards",
         "ConfirmImpactSetting": "Medium",
@@ -468,23 +353,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutRecord": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "PutRecords": {
       "verb": "Write",
-      "noun": "KINMultipleRecord",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MultipleRecord",
       "pipelineProperty": "Record",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Records",
         "ConfirmImpactSetting": "Medium",
@@ -501,26 +380,20 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveTagsFromStream": {
       "verb": "Remove",
-      "noun": "KINTagsFromStream",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "StreamName",
-      "output": "Void",
-      "legacyPositionalParameters": null,
-      "shouldProcessTargetProperty": "StreamName",
+      "noun": "TagsFromStream",
       "passThru": {
         "documentation": "Returns the collection of tag keys that were removed",
         "expression": "cmdletContext.TagKeys",
         "type": null
       },
+      "pipelineProperty": "StreamName",
+      "output": "Void",
+      "shouldProcessTargetProperty": "StreamName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsFromStream",
         "ConfirmImpactSetting": "High",
@@ -537,20 +410,18 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "StreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SplitShard": {
       "verb": "Split",
-      "noun": "KINShard",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Shard",
+      "legacyPositionalParameters": [
+        "ShardToSplit",
+        "NewStartingHashKey"
+      ],
       "pipelineProperty": "StreamName",
       "output": "Void",
-      "legacyPositionalParameters": "ShardToSplit;NewStartingHashKey",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Shard",
         "ConfirmImpactSetting": "Medium",
@@ -567,20 +438,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartStreamEncryption": {
       "verb": "Start",
-      "noun": "KINStreamEncryption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StreamEncryption",
       "pipelineProperty": "StreamName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StreamEncryption",
         "ConfirmImpactSetting": "Medium",
@@ -597,20 +462,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopStreamEncryption": {
       "verb": "Stop",
-      "noun": "KINStreamEncryption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StreamEncryption",
       "pipelineProperty": "StreamName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StreamEncryption",
         "ConfirmImpactSetting": "Medium",
@@ -627,20 +486,18 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateShardCount": {
       "verb": "Update",
-      "noun": "KINShardCount",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ShardCount",
+      "legacyPositionalParameters": [
+        "ShardCount",
+        "ScalingType"
+      ],
       "pipelineProperty": "StreamName",
       "output": "Response",
-      "legacyPositionalParameters": "ShardCount;ScalingType",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ShardCount",
         "ConfirmImpactSetting": "Medium",
@@ -657,8 +514,7 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StreamName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

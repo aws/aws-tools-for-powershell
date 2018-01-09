@@ -1,40 +1,30 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "BrokerId",
-    "ConfigurationId",
-    "Username"
-  ],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.MQ",
-  "sdkServiceClient": "AmazonMQClient",
-  "sdkServiceClientConfig": "AmazonMQConfig",
-  "legacyCmdletPrefix": "MQ",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.MQ.Model.WeeklyStartTime",
-    "Amazon.MQ.Model.ConfigurationId"
-  ],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults",
     "servicePageSize": 20
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "MQ",
+  "nonFlatteningTypeNames": [
+    "Amazon.MQ.Model.WeeklyStartTime",
+    "Amazon.MQ.Model.ConfigurationId"
+  ],
+  "pipelineByValuePropertyNames": [
+    "BrokerId",
+    "ConfigurationId",
+    "Username"
+  ],
+  "sdkServiceClientClass": "AmazonMQClient",
+  "sdkServiceConfigClass": "AmazonMQConfig",
+  "sdkServiceNamespace": "Amazon.MQ",
   "serviceOperations": {
     "CreateBroker": {
       "verb": "New",
-      "noun": "MQBroker",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Broker",
       "pipelineProperty": "BrokerName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Broker",
         "ConfirmImpactSetting": "Medium",
@@ -53,20 +43,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BrokerName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateConfiguration": {
       "verb": "New",
-      "noun": "MQConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Configuration",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Configuration",
         "ConfirmImpactSetting": "Medium",
@@ -85,20 +69,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateUser": {
       "verb": "New",
-      "noun": "MQUser",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "User",
       "pipelineProperty": "Username",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "User",
         "ConfirmImpactSetting": "Medium",
@@ -117,20 +95,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BrokerId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteBroker": {
       "verb": "Remove",
-      "noun": "MQBroker",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Broker",
       "pipelineProperty": "BrokerId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Broker",
         "ConfirmImpactSetting": "High",
@@ -149,20 +120,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BrokerId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteUser": {
       "verb": "Remove",
-      "noun": "MQUser",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "User",
       "pipelineProperty": "Username",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "User",
         "ConfirmImpactSetting": "High",
@@ -181,20 +146,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BrokerId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeBroker": {
       "verb": "Get",
-      "noun": "MQBroker",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Broker",
       "pipelineProperty": "BrokerId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Broker",
         "ConfirmImpactSetting": "Medium",
@@ -208,25 +167,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 20
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeConfiguration": {
       "verb": "Get",
-      "noun": "MQConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Configuration",
       "pipelineProperty": "ConfigurationId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Configuration",
         "ConfirmImpactSetting": "Medium",
@@ -240,25 +188,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 20
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeConfigurationRevision": {
       "verb": "Get",
-      "noun": "MQConfigurationRevision",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigurationRevision",
       "pipelineProperty": "ConfigurationRevision",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationRevision",
         "ConfirmImpactSetting": "Medium",
@@ -272,25 +209,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 20
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeUser": {
       "verb": "Get",
-      "noun": "MQUser",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "User",
       "pipelineProperty": "Username",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "User",
         "ConfirmImpactSetting": "Medium",
@@ -304,25 +230,12 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 20
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListBrokers": {
       "verb": "Get",
-      "noun": "MQBrokerList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BrokerList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Brokers",
         "ConfirmImpactSetting": "Medium",
@@ -336,25 +249,16 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 20
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListConfigurationRevisions": {
       "verb": "Get",
-      "noun": "MQConfigurationRevisionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "ConfigurationId",
+      "noun": "ConfigurationRevisionList",
+      "outputMetadataPropertyNames": [
+        "ConfigurationId"
+      ],
       "pipelineProperty": "ConfigurationId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationRevisions",
         "ConfirmImpactSetting": "Medium",
@@ -368,25 +272,12 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 20
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListConfigurations": {
       "verb": "Get",
-      "noun": "MQConfigurationList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ConfigurationList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Configurations",
         "ConfirmImpactSetting": "Medium",
@@ -400,25 +291,16 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 20
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListUsers": {
       "verb": "Get",
-      "noun": "MQUserList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "BrokerId",
+      "noun": "UserList",
+      "outputMetadataPropertyNames": [
+        "BrokerId"
+      ],
       "pipelineProperty": "BrokerId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Users",
         "ConfirmImpactSetting": "Medium",
@@ -432,25 +314,14 @@
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "servicePageSize": 20
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RebootBroker": {
       "verb": "Restart",
-      "noun": "MQBroker",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Broker",
       "pipelineProperty": "BrokerId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Broker",
         "ConfirmImpactSetting": "Medium",
@@ -469,20 +340,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BrokerId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateBroker": {
       "verb": "Update",
-      "noun": "MQBroker",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Broker",
       "pipelineProperty": "ConfigurationId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Broker",
         "ConfirmImpactSetting": "Medium",
@@ -501,25 +366,19 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BrokerId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateConfiguration": {
       "verb": "Update",
-      "noun": "MQConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "Data",
-      "output": "Response",
-      "legacyPositionalParameters": null,
+      "noun": "Configuration",
       "customParameters": [
         {
           "name": "Data"
         }
       ],
+      "pipelineProperty": "Data",
+      "output": "Response",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Configuration",
         "ConfirmImpactSetting": "Medium",
@@ -538,20 +397,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigurationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateUser": {
       "verb": "Update",
-      "noun": "MQUser",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "User",
       "pipelineProperty": "Username",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "User",
         "ConfirmImpactSetting": "Medium",
@@ -570,8 +423,7 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BrokerId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

@@ -1,31 +1,19 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.XRay",
-  "sdkServiceClient": "AmazonXRayClient",
-  "sdkServiceClientConfig": "AmazonXRayConfig",
-  "legacyCmdletPrefix": "XR",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": null,
     "responseTokenMember": null
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "XR",
+  "sdkServiceClientClass": "AmazonXRayClient",
+  "sdkServiceConfigClass": "AmazonXRayConfig",
+  "sdkServiceNamespace": "Amazon.XRay",
   "serviceOperations": {
     "BatchGetTraces": {
       "verb": "Get",
-      "noun": "XRTraceBatch",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TraceBatch",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GetTraces",
         "ConfirmImpactSetting": "Medium",
@@ -37,25 +25,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetServiceGraph": {
       "verb": "Get",
-      "noun": "XRServiceGraph",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ServiceGraph",
       "pipelineProperty": "StartTime",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServiceGraph",
         "ConfirmImpactSetting": "Medium",
@@ -67,25 +44,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetTraceGraph": {
       "verb": "Get",
-      "noun": "XRTraceGraph",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TraceGraph",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TraceGraph",
         "ConfirmImpactSetting": "Medium",
@@ -97,25 +62,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetTraceSummaries": {
       "verb": "Get",
-      "noun": "XRTraceSummary",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TraceSummary",
       "pipelineProperty": "StartTime",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TraceSummaries",
         "ConfirmImpactSetting": "Medium",
@@ -127,25 +81,14 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutTelemetryRecords": {
       "verb": "Write",
-      "noun": "XRTelemetryRecord",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TelemetryRecord",
       "pipelineProperty": "EC2InstanceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TelemetryRecords",
         "ConfirmImpactSetting": "Medium",
@@ -162,20 +105,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EC2InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutTraceSegments": {
       "verb": "Write",
-      "noun": "XRTraceSegment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TraceSegment",
       "pipelineProperty": "TraceSegmentDocuments",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TraceSegments",
         "ConfirmImpactSetting": "Medium",
@@ -192,8 +128,7 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TraceSegmentDocuments"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

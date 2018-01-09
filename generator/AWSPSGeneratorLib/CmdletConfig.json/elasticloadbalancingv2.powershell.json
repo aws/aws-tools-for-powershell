@@ -1,6 +1,21 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "Marker",
+    "responseTokenMember": "NextMarker",
+    "resultLimitMember": "PageSize"
+  },
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "ELB2",
+  "nonFlatteningTypeNames": [
+    "Amazon.ElasticLoadBalancingV2.Model.Certificate"
+  ],
+  "nounMappings": {
+    "Tags": "Tag",
+    "Rules": "Rule",
+    "Targets": "Target",
+    "Listeners": "Listener",
+    "Subnets": "Subnet"
+  },
   "pipelineByValuePropertyNames": [
     "TargetGroupArn",
     "SubnetId",
@@ -14,27 +29,9 @@
     "ResourceArn",
     "TargetGroupName"
   ],
-  "defaultPipelineProperty": "",
+  "sdkServiceClientClass": "AmazonElasticLoadBalancingV2Client",
+  "sdkServiceConfigClass": "AmazonElasticLoadBalancingV2Config",
   "sdkServiceNamespace": "Amazon.ElasticLoadBalancingV2",
-  "sdkServiceClient": "AmazonElasticLoadBalancingV2Client",
-  "sdkServiceClientConfig": "AmazonElasticLoadBalancingV2Config",
-  "legacyCmdletPrefix": "ELB2",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.ElasticLoadBalancingV2.Model.Certificate"
-  ],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "Marker",
-    "responseTokenMember": "NextMarker",
-    "resultLimitMember": "PageSize"
-  },
-  "nounMappings": {
-    "Tags": "Tag",
-    "Rules": "Rule",
-    "Targets": "Target",
-    "Listeners": "Listener",
-    "Subnets": "Subnet"
-  },
   "verbMappings": {
     "Modify": "Edit",
     "Deregister": "Unregister"
@@ -42,14 +39,8 @@
   "serviceOperations": {
     "AddListenerCertificates": {
       "verb": "Add",
-      "noun": "ELB2ListenerCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ListenerCertificate",
       "pipelineProperty": "Certificates",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ListenerCertificates",
         "ConfirmImpactSetting": "Medium",
@@ -67,20 +58,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ListenerArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddTags": {
       "verb": "Add",
-      "noun": "ELB2Tag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Tag",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -98,20 +83,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArns"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateListener": {
       "verb": "New",
-      "noun": "ELB2Listener",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Listener",
       "pipelineProperty": "LoadBalancerArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Listener",
         "ConfirmImpactSetting": "Medium",
@@ -129,20 +107,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateLoadBalancer": {
       "verb": "New",
-      "noun": "ELB2LoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoadBalancer",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancer",
         "ConfirmImpactSetting": "Medium",
@@ -160,20 +131,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateRule": {
       "verb": "New",
-      "noun": "ELB2Rule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Rule",
       "pipelineProperty": "ListenerArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Rule",
         "ConfirmImpactSetting": "Medium",
@@ -191,20 +155,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ListenerArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateTargetGroup": {
       "verb": "New",
-      "noun": "ELB2TargetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TargetGroup",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TargetGroup",
@@ -223,20 +180,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteListener": {
       "verb": "Remove",
-      "noun": "ELB2Listener",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Listener",
       "pipelineProperty": "ListenerArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Listener",
         "ConfirmImpactSetting": "High",
@@ -254,20 +205,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ListenerArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteLoadBalancer": {
       "verb": "Remove",
-      "noun": "ELB2LoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoadBalancer",
       "pipelineProperty": "LoadBalancerArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancer",
         "ConfirmImpactSetting": "High",
@@ -285,20 +230,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRule": {
       "verb": "Remove",
-      "noun": "ELB2Rule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Rule",
       "pipelineProperty": "RuleArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Rule",
         "ConfirmImpactSetting": "High",
@@ -316,20 +255,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RuleArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteTargetGroup": {
       "verb": "Remove",
-      "noun": "ELB2TargetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TargetGroup",
       "pipelineProperty": "TargetGroupArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TargetGroup",
         "ConfirmImpactSetting": "High",
@@ -347,20 +280,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TargetGroupArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeregisterTargets": {
       "verb": "Unregister",
-      "noun": "ELB2Target",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Target",
       "pipelineProperty": "TargetGroupArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Targets",
         "ConfirmImpactSetting": "Medium",
@@ -378,20 +305,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TargetGroupArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAccountLimits": {
       "verb": "Get",
-      "noun": "ELB2AccountLimit",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AccountLimit",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountLimits",
         "ConfirmImpactSetting": "Medium",
@@ -404,25 +323,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeListenerCertificates": {
       "verb": "Get",
-      "noun": "ELB2ListenerCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ListenerCertificate",
       "pipelineProperty": "ListenerArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ListenerCertificates",
         "ConfirmImpactSetting": "Medium",
@@ -435,25 +342,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeListeners": {
       "verb": "Get",
-      "noun": "ELB2Listener",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Listener",
       "pipelineProperty": "ListenerArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Listeners",
         "ConfirmImpactSetting": "Medium",
@@ -466,25 +361,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeLoadBalancerAttributes": {
       "verb": "Get",
-      "noun": "ELB2LoadBalancerAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoadBalancerAttribute",
       "pipelineProperty": "LoadBalancerArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -497,25 +380,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeLoadBalancers": {
       "verb": "Get",
-      "noun": "ELB2LoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoadBalancer",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancers",
         "ConfirmImpactSetting": "Medium",
@@ -528,25 +399,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeRules": {
       "verb": "Get",
-      "noun": "ELB2Rule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Rule",
       "pipelineProperty": "ListenerArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Rules",
         "ConfirmImpactSetting": "Medium",
@@ -559,25 +418,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeSSLPolicies": {
       "verb": "Get",
-      "noun": "ELB2SSLPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SSLPolicy",
       "pipelineProperty": "Names",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SSLPolicies",
         "ConfirmImpactSetting": "Medium",
@@ -590,25 +437,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTags": {
       "verb": "Get",
-      "noun": "ELB2Tag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Tag",
       "pipelineProperty": "ResourceArns",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -621,25 +456,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTargetGroupAttributes": {
       "verb": "Get",
-      "noun": "ELB2TargetGroupAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TargetGroupAttribute",
       "pipelineProperty": "TargetGroupArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TargetGroupAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -652,25 +475,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTargetGroups": {
       "verb": "Get",
-      "noun": "ELB2TargetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TargetGroup",
       "pipelineProperty": "LoadBalancerArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TargetGroups",
         "ConfirmImpactSetting": "Medium",
@@ -683,25 +494,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTargetHealth": {
       "verb": "Get",
-      "noun": "ELB2TargetHealth",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TargetHealth",
       "pipelineProperty": "TargetGroupArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TargetHealth",
         "ConfirmImpactSetting": "Medium",
@@ -714,25 +513,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "PageSize"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyListener": {
       "verb": "Edit",
-      "noun": "ELB2Listener",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Listener",
       "pipelineProperty": "ListenerArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Listener",
         "ConfirmImpactSetting": "Medium",
@@ -750,20 +537,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ListenerArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyLoadBalancerAttributes": {
       "verb": "Edit",
-      "noun": "ELB2LoadBalancerAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoadBalancerAttribute",
       "pipelineProperty": "LoadBalancerArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -781,20 +561,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyRule": {
       "verb": "Edit",
-      "noun": "ELB2Rule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Rule",
       "pipelineProperty": "RuleArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Rule",
         "ConfirmImpactSetting": "Medium",
@@ -812,20 +585,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RuleArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyTargetGroup": {
       "verb": "Edit",
-      "noun": "ELB2TargetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TargetGroup",
       "pipelineProperty": "TargetGroupArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TargetGroup",
         "ConfirmImpactSetting": "Medium",
@@ -843,20 +609,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TargetGroupArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyTargetGroupAttributes": {
       "verb": "Edit",
-      "noun": "ELB2TargetGroupAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TargetGroupAttribute",
       "pipelineProperty": "TargetGroupArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TargetGroupAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -874,20 +633,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TargetGroupArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RegisterTargets": {
       "verb": "Register",
-      "noun": "ELB2Target",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Target",
       "pipelineProperty": "TargetGroupArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Targets",
         "ConfirmImpactSetting": "Medium",
@@ -905,20 +658,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TargetGroupArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveListenerCertificates": {
       "verb": "Remove",
-      "noun": "ELB2ListenerCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ListenerCertificate",
       "pipelineProperty": "Certificates",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ListenerCertificates",
         "ConfirmImpactSetting": "High",
@@ -936,20 +683,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ListenerArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveTags": {
       "verb": "Remove",
-      "noun": "ELB2Tag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Tag",
       "noPipelineProperty": "true",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "High",
@@ -967,20 +708,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArns"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetIpAddressType": {
       "verb": "Set",
-      "noun": "ELB2IpAddressType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IpAddressType",
       "pipelineProperty": "LoadBalancerArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IpAddressType",
         "ConfirmImpactSetting": "Medium",
@@ -998,20 +732,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetRulePriorities": {
       "verb": "Set",
-      "noun": "ELB2RulePriority",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RulePriority",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RulePriorities",
         "ConfirmImpactSetting": "Medium",
@@ -1029,20 +756,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RulePriorities"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetSecurityGroups": {
       "verb": "Set",
-      "noun": "ELB2SecurityGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SecurityGroup",
       "pipelineProperty": "LoadBalancerArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SecurityGroups",
         "ConfirmImpactSetting": "Medium",
@@ -1060,20 +780,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetSubnets": {
       "verb": "Set",
-      "noun": "ELB2Subnet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Subnet",
       "pipelineProperty": "LoadBalancerArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Subnets",
         "ConfirmImpactSetting": "Medium",
@@ -1091,8 +804,7 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

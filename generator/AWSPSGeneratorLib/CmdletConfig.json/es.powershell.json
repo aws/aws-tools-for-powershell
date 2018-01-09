@@ -1,34 +1,24 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.Elasticsearch",
-  "sdkServiceClient": "AmazonElasticsearchClient",
-  "sdkServiceClientConfig": "AmazonElasticsearchConfig",
-  "legacyCmdletPrefix": "ES",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.Elasticsearch.Model.EncryptionAtRestOptions"
-  ],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "ES",
+  "nonFlatteningTypeNames": [
+    "Amazon.Elasticsearch.Model.EncryptionAtRestOptions"
+  ],
+  "sdkServiceClientClass": "AmazonElasticsearchClient",
+  "sdkServiceConfigClass": "AmazonElasticsearchConfig",
+  "sdkServiceNamespace": "Amazon.Elasticsearch",
   "serviceOperations": {
     "AddTags": {
       "verb": "Add",
-      "noun": "ESResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "Add-ESTag",
-      "metadataOutputProperties": "",
       "pipelineProperty": "TagList",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -46,20 +36,13 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TagList"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateElasticsearchDomain": {
       "verb": "New",
-      "noun": "ESDomain",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Domain",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DomainName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ElasticsearchDomain",
@@ -78,20 +61,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteElasticsearchDomain": {
       "verb": "Remove",
-      "noun": "ESDomain",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Domain",
       "pipelineProperty": "DomainName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ElasticsearchDomain",
         "ConfirmImpactSetting": "High",
@@ -109,20 +85,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteElasticsearchServiceRole": {
       "verb": "Remove",
-      "noun": "ESElasticsearchServiceRole",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ElasticsearchServiceRole",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ElasticsearchServiceRole",
         "ConfirmImpactSetting": "High",
@@ -140,20 +109,13 @@
           "analysisMessage": "No parameters, setting anonymous target",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeElasticsearchDomain": {
       "verb": "Get",
-      "noun": "ESDomain",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Domain",
       "pipelineProperty": "DomainName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ElasticsearchDomain",
         "ConfirmImpactSetting": "Medium",
@@ -166,25 +128,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeElasticsearchDomainConfig": {
       "verb": "Get",
-      "noun": "ESDomainConfig",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DomainConfig",
       "pipelineProperty": "DomainName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ElasticsearchDomainConfig",
         "ConfirmImpactSetting": "Medium",
@@ -197,25 +147,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeElasticsearchDomains": {
       "verb": "Get",
-      "noun": "ESDomainList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DomainList",
       "pipelineProperty": "DomainNames",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ElasticsearchDomains",
         "ConfirmImpactSetting": "Medium",
@@ -228,25 +166,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeElasticsearchInstanceTypeLimits": {
       "verb": "Get",
-      "noun": "ESInstanceTypeLimit",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceTypeLimit",
       "pipelineProperty": "DomainName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ElasticsearchInstanceTypeLimits",
         "ConfirmImpactSetting": "Medium",
@@ -259,25 +185,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListDomainNames": {
       "verb": "Get",
-      "noun": "ESDomainNameList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DomainNameList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DomainNames",
         "ConfirmImpactSetting": "Medium",
@@ -290,25 +203,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListElasticsearchInstanceTypes": {
       "verb": "Get",
-      "noun": "ESInstanceTypeList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceTypeList",
       "pipelineProperty": "DomainName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ElasticsearchInstanceTypes",
         "ConfirmImpactSetting": "Medium",
@@ -321,25 +222,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListElasticsearchVersions": {
       "verb": "Get",
-      "noun": "ESVersionList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "VersionList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ElasticsearchVersions",
         "ConfirmImpactSetting": "Medium",
@@ -352,25 +240,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTags": {
       "verb": "Get",
-      "noun": "ESResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "Get-ESTag",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ARN",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -383,25 +260,15 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveTags": {
       "verb": "Remove",
-      "noun": "ESResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "Remove-ESTag",
-      "metadataOutputProperties": "",
       "pipelineProperty": "TagKeys",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ARN",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
@@ -420,20 +287,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateElasticsearchDomainConfig": {
       "verb": "Update",
-      "noun": "ESDomainConfig",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DomainConfig",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DomainName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ElasticsearchDomainConfig",
@@ -452,8 +312,7 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DomainName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

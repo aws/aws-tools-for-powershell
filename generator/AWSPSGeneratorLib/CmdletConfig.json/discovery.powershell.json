@@ -1,43 +1,33 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "AgentId",
-    "ConfigurationId"
-  ],
-  "defaultPipelineProperty": "ConfigurationIds",
-  "sdkServiceNamespace": "Amazon.ApplicationDiscoveryService",
-  "sdkServiceClient": "AmazonApplicationDiscoveryServiceClient",
-  "sdkServiceClientConfig": "AmazonApplicationDiscoveryServiceConfig",
-  "legacyCmdletPrefix": "ADS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
+    "excludedOperations": [
+      "ListServerNeighbors"
+    ],
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults",
-    "servicePageSize": 100,
-    "excludedOperations": [
-      "ListServerNeighbors"
-    ]
+    "servicePageSize": 100
   },
+  "defaultPipelineProperty": "ConfigurationIds",
+  "legacyCmdletPrefix": "ADS",
   "nounMappings": {
     "Tags": "Tag",
     "Agents": "Agent",
     "Configurations": "Configuration"
   },
-  "verbMappings": {},
+  "pipelineByValuePropertyNames": [
+    "AgentId",
+    "ConfigurationId"
+  ],
+  "sdkServiceClientClass": "AmazonApplicationDiscoveryServiceClient",
+  "sdkServiceConfigClass": "AmazonApplicationDiscoveryServiceConfig",
+  "sdkServiceNamespace": "Amazon.ApplicationDiscoveryService",
   "serviceOperations": {
     "AssociateConfigurationItemsToApplication": {
       "verb": "Add",
-      "noun": "ADSConfigurationItemsToApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigurationItemsToApplication",
       "pipelineProperty": "ApplicationConfigurationId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationItemsToApplication",
         "ConfirmImpactSetting": "Medium",
@@ -47,32 +37,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListServerNeighbors"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListServerNeighbors"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationConfigurationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateApplication": {
       "verb": "New",
-      "noun": "ADSApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Application",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Application",
         "ConfirmImpactSetting": "Medium",
@@ -82,32 +64,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListServerNeighbors"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListServerNeighbors"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateTags": {
       "verb": "New",
-      "noun": "ADSTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Tag",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -117,32 +92,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListServerNeighbors"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListServerNeighbors"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigurationIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteApplications": {
       "verb": "Remove",
-      "noun": "ADSApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Application",
       "legacyAlias": "Remove-ADSApplications",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Applications",
         "ConfirmImpactSetting": "High",
@@ -152,32 +121,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListServerNeighbors"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListServerNeighbors"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigurationIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteTags": {
       "verb": "Remove",
-      "noun": "ADSTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Tag",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "High",
@@ -187,32 +149,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListServerNeighbors"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListServerNeighbors"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigurationIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAgents": {
       "verb": "Get",
-      "noun": "ADSAgent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Agent",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Agents",
         "ConfirmImpactSetting": "Medium",
@@ -222,32 +176,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListServerNeighbors"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListServerNeighbors"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeConfigurations": {
       "verb": "Get",
-      "noun": "ADSConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Configuration",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Configurations",
         "ConfirmImpactSetting": "Medium",
@@ -257,32 +198,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListServerNeighbors"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListServerNeighbors"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeExportConfigurations": {
       "verb": "Get",
-      "noun": "ADSExportConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ExportConfiguration",
       "pipelineProperty": "ExportIds",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ExportConfigurations",
         "ConfirmImpactSetting": "Medium",
@@ -292,32 +221,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListServerNeighbors"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListServerNeighbors"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeExportTasks": {
       "verb": "Get",
-      "noun": "ADSExportTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ExportTask",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ExportTasks",
         "ConfirmImpactSetting": "Medium",
@@ -327,32 +243,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListServerNeighbors"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListServerNeighbors"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeTags": {
       "verb": "Get",
-      "noun": "ADSTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Tag",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -362,32 +266,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListServerNeighbors"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListServerNeighbors"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "DisassociateConfigurationItemsFromApplication": {
       "verb": "Remove",
-      "noun": "ADSConfigurationItemsFromApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigurationItemsFromApplication",
       "pipelineProperty": "ApplicationConfigurationId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ConfigurationItemsFromApplication",
         "ConfirmImpactSetting": "High",
@@ -397,32 +290,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListServerNeighbors"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListServerNeighbors"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationConfigurationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ExportConfigurations": {
       "verb": "Get",
-      "noun": "ADSExportConfigurationsId",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ExportConfigurationsId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Configurations",
         "ConfirmImpactSetting": "Medium",
@@ -432,32 +317,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListServerNeighbors"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListServerNeighbors"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "GetDiscoverySummary": {
       "verb": "Get",
-      "noun": "ADSDiscoverySummary",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DiscoverySummary",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DiscoverySummary",
         "ConfirmImpactSetting": "Medium",
@@ -467,32 +340,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListServerNeighbors"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListServerNeighbors"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "ListConfigurations": {
       "verb": "Get",
-      "noun": "ADSConfigurationList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ConfigurationList",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Configurations",
         "ConfirmImpactSetting": "Medium",
@@ -502,32 +363,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListServerNeighbors"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListServerNeighbors"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "ListServerNeighbors": {
       "verb": "Get",
-      "noun": "ADSServerNeighborList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ServerNeighborList",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ServerNeighbors",
         "ConfirmImpactSetting": "Medium",
@@ -537,32 +386,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListServerNeighbors"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListServerNeighbors"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          "servicePageSize": 100
+        }
       }
     },
     "StartDataCollectionByAgentIds": {
       "verb": "Start",
-      "noun": "ADSDataCollectionByAgentId",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DataCollectionByAgentId",
       "pipelineProperty": "AgentIds",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DataCollectionByAgentIds",
         "ConfirmImpactSetting": "Medium",
@@ -572,32 +409,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListServerNeighbors"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListServerNeighbors"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AgentIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartExportTask": {
       "verb": "Start",
-      "noun": "ADSExportTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ExportTask",
       "pipelineProperty": "ExportDataFormat",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ExportTask",
         "ConfirmImpactSetting": "Medium",
@@ -607,32 +438,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListServerNeighbors"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListServerNeighbors"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopDataCollectionByAgentIds": {
       "verb": "Stop",
-      "noun": "ADSDataCollectionByAgentId",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DataCollectionByAgentId",
       "pipelineProperty": "AgentIds",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DataCollectionByAgentIds",
         "ConfirmImpactSetting": "Medium",
@@ -642,32 +466,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListServerNeighbors"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListServerNeighbors"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AgentIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateApplication": {
       "verb": "Update",
-      "noun": "ADSApplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Application",
       "pipelineProperty": "ConfigurationId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Application",
         "ConfirmImpactSetting": "Medium",
@@ -677,20 +495,19 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListServerNeighbors"
+          ],
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "servicePageSize": 100,
-          "excludedOperations": [
-            "ListServerNeighbors"
-          ]
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ConfigurationId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

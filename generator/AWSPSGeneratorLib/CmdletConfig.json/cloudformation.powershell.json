@@ -1,46 +1,42 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "StackName",
-    "LogicalResourceId",
-    "PhysicalResourceId",
-    "OperationId"
-  ],
-  "defaultPipelineProperty": "StackName",
-  "legacyPositionalProperties": "StackName",
-  "sdkServiceNamespace": "Amazon.CloudFormation",
-  "sdkServiceClient": "AmazonCloudFormationClient",
-  "sdkServiceClientConfig": "AmazonCloudFormationConfig",
-  "legacyCmdletPrefix": "CFN",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.CloudFormation.Model.StackSetOperationPreferences"
-  ],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken",
-    "excludedOperations": [
-      "DescribeChangeSet"
-    ]
-  },
   "customAliases": [
     {
       "cmdlet": "Measure-CFNTemplateCost",
-      "aliasNames": "Estimate-CFNTemplateCost"
+      "aliasNames": [
+        "Estimate-CFNTemplateCost"
+      ]
     },
     {
       "cmdlet": "Test-CFNTemplate",
-      "aliasNames": "Validate-CFNTemplate"
+      "aliasNames": [
+        "Validate-CFNTemplate"
+      ]
     },
     {
       "cmdlet": "Get-CFNStackSummaries",
-      "aliasNames": "List-CFNStacks"
+      "aliasNames": [
+        "List-CFNStacks"
+      ]
     },
     {
       "cmdlet": "Get-CFNStackResourceSummaries",
-      "aliasNames": "List-CFNStackResources"
+      "aliasNames": [
+        "List-CFNStackResources"
+      ]
     }
+  ],
+  "defaultPaginationSettings": {
+    "excludedOperations": [
+      "DescribeChangeSet"
+    ],
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken"
+  },
+  "defaultPipelineProperty": "StackName",
+  "legacyCmdletPrefix": "CFN",
+  "legacyPositionalProperties": "StackName",
+  "nonFlatteningTypeNames": [
+    "Amazon.CloudFormation.Model.StackSetOperationPreferences"
   ],
   "nounMappings": {
     "StackEvents": "StackEvent",
@@ -48,6 +44,15 @@
     "Stacks": "Stack",
     "StackSummaries": "StackSummary"
   },
+  "pipelineByValuePropertyNames": [
+    "StackName",
+    "LogicalResourceId",
+    "PhysicalResourceId",
+    "OperationId"
+  ],
+  "sdkServiceClientClass": "AmazonCloudFormationClient",
+  "sdkServiceConfigClass": "AmazonCloudFormationConfig",
+  "sdkServiceNamespace": "Amazon.CloudFormation",
   "verbMappings": {
     "Estimate": "Measure",
     "Validate": "Test",
@@ -56,14 +61,8 @@
   "serviceOperations": {
     "CancelUpdateStack": {
       "verb": "Stop",
-      "noun": "CFNUpdateStack",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UpdateStack",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UpdateStack",
         "ConfirmImpactSetting": "Medium",
@@ -73,30 +72,23 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ContinueUpdateRollback": {
       "verb": "Resume",
-      "noun": "CFNUpdateRollback",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "UpdateRollback",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "UpdateRollback",
         "ConfirmImpactSetting": "Medium",
@@ -106,33 +98,25 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateChangeSet": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "CreateStack": {
       "verb": "New",
-      "noun": "CFNStack",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Stack",
       "customParameters": [
         {
           "name": "TimeoutInMinutes",
@@ -148,30 +132,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateStackInstances": {
       "verb": "New",
-      "noun": "CFNStackInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "StackSetName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "StackInstance",
       "customParameters": [
         {
           "name": "Regions",
@@ -179,6 +155,7 @@
           "autoApplyAlias": "false"
         }
       ],
+      "pipelineProperty": "StackSetName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackInstances",
         "ConfirmImpactSetting": "Medium",
@@ -188,30 +165,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateStackSet": {
       "verb": "New",
-      "noun": "CFNStackSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StackSet",
       "pipelineProperty": "StackSetName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackSet",
         "ConfirmImpactSetting": "Medium",
@@ -221,30 +191,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteChangeSet": {
       "verb": "Remove",
-      "noun": "CFNChangeSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ChangeSet",
       "pipelineProperty": "ChangeSetName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ChangeSet",
         "ConfirmImpactSetting": "High",
@@ -254,30 +218,23 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ChangeSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteStack": {
       "verb": "Remove",
-      "noun": "CFNStack",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Stack",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stack",
         "ConfirmImpactSetting": "High",
@@ -287,30 +244,22 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteStackInstances": {
       "verb": "Remove",
-      "noun": "CFNStackInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "StackSetName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "StackInstance",
       "customParameters": [
         {
           "name": "Regions",
@@ -318,6 +267,7 @@
           "autoApplyAlias": "false"
         }
       ],
+      "pipelineProperty": "StackSetName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackInstances",
         "ConfirmImpactSetting": "High",
@@ -327,30 +277,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteStackSet": {
       "verb": "Remove",
-      "noun": "CFNStackSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StackSet",
       "pipelineProperty": "StackSetName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackSet",
         "ConfirmImpactSetting": "High",
@@ -360,30 +304,23 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAccountLimits": {
       "verb": "Get",
-      "noun": "CFNAccountLimit",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "AccountLimit",
       "legacyAlias": "Get-CFNAccountLimits",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountLimits",
         "ConfirmImpactSetting": "Medium",
@@ -393,30 +330,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "DescribeChangeSet": {
       "verb": "Get",
-      "noun": "CFNChangeSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ChangeSet",
       "pipelineProperty": "ChangeSetName",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ChangeSet",
         "ConfirmImpactSetting": "Medium",
@@ -426,30 +352,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "DescribeStackEvents": {
       "verb": "Get",
-      "noun": "CFNStackEvent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "StackEvent",
       "legacyAlias": "Get-CFNStackEvents",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackEvents",
         "ConfirmImpactSetting": "Medium",
@@ -459,30 +373,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "DescribeStackInstance": {
       "verb": "Get",
-      "noun": "CFNStackInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StackInstance",
       "pipelineProperty": "StackSetName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackInstance",
         "ConfirmImpactSetting": "Medium",
@@ -492,30 +394,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "DescribeStackResource": {
       "verb": "Get",
-      "noun": "CFNStackResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "LogicalResourceId",
+      "noun": "StackResource",
+      "legacyPositionalParameters": [
+        "LogicalResourceId"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackResource",
         "ConfirmImpactSetting": "Medium",
@@ -525,30 +417,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "DescribeStackResources": {
       "verb": "Get",
-      "noun": "CFNStackResourceList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "StackResourceList",
       "legacyAlias": "Get-CFNStackResources",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackResources",
         "ConfirmImpactSetting": "Medium",
@@ -558,30 +438,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "DescribeStacks": {
       "verb": "Get",
-      "noun": "CFNStack",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Stack",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stacks",
         "ConfirmImpactSetting": "Medium",
@@ -591,30 +458,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "DescribeStackSet": {
       "verb": "Get",
-      "noun": "CFNStackSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StackSet",
       "pipelineProperty": "StackSetName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackSet",
         "ConfirmImpactSetting": "Medium",
@@ -624,30 +479,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "DescribeStackSetOperation": {
       "verb": "Get",
-      "noun": "CFNStackSetOperation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StackSetOperation",
       "pipelineProperty": "OperationId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackSetOperation",
         "ConfirmImpactSetting": "Medium",
@@ -657,30 +500,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "EstimateTemplateCost": {
       "verb": "Measure",
-      "noun": "CFNTemplateCost",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TemplateCost",
       "pipelineProperty": "TemplateBody",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TemplateCost",
         "ConfirmImpactSetting": "Medium",
@@ -690,30 +521,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TemplateBody"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ExecuteChangeSet": {
       "verb": "Start",
-      "noun": "CFNChangeSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ChangeSet",
       "pipelineProperty": "ChangeSetName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ChangeSet",
         "ConfirmImpactSetting": "Medium",
@@ -723,30 +548,22 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ChangeSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetStackPolicy": {
       "verb": "Get",
-      "noun": "CFNStackPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "StackPolicy",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -756,33 +573,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "GetTemplate": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "GetTemplateSummary": {
       "verb": "Get",
-      "noun": "CFNTemplateSummary",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "TemplateSummary",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TemplateSummary",
         "ConfirmImpactSetting": "Medium",
@@ -792,30 +597,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListChangeSets": {
       "verb": "Get",
-      "noun": "CFNChangeSetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ChangeSetList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ChangeSets",
         "ConfirmImpactSetting": "Medium",
@@ -825,30 +617,17 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListExports": {
       "verb": "Get",
-      "noun": "CFNExport",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Export",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Exports",
         "ConfirmImpactSetting": "Medium",
@@ -858,30 +637,18 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListImports": {
       "verb": "Get",
-      "noun": "CFNImportList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ImportList",
       "pipelineProperty": "ExportName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Imports",
         "ConfirmImpactSetting": "Medium",
@@ -891,35 +658,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListStackInstances": {
       "verb": "Get",
-      "noun": "CFNStackInstanceList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "StackSetName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "StackInstanceList",
       "paginationSettings": {
         "requestTokenMember": "NextToken",
         "responseTokenMember": "NextToken",
         "resultLimitMember": "MaxResults"
       },
+      "pipelineProperty": "StackSetName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackInstances",
         "ConfirmImpactSetting": "Medium",
@@ -929,31 +684,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "ListStackResources": {
       "verb": "Get",
-      "noun": "CFNStackResourceSummary",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "StackResourceSummary",
       "legacyAlias": "Get-CFNStackResourceSummaries",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackResources",
         "ConfirmImpactSetting": "Medium",
@@ -963,30 +706,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListStacks": {
       "verb": "Get",
-      "noun": "CFNStackSummary",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "StackSummary",
       "legacyAlias": "Get-CFNStackSummaries",
-      "metadataOutputProperties": "",
       "pipelineProperty": "StackStatusFilter",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stacks",
         "ConfirmImpactSetting": "Medium",
@@ -996,35 +728,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     },
     "ListStackSetOperationResults": {
       "verb": "Get",
-      "noun": "CFNStackSetOperationResultList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "OperationId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "StackSetOperationResultList",
       "paginationSettings": {
         "requestTokenMember": "NextToken",
         "responseTokenMember": "NextToken",
         "resultLimitMember": "MaxResults"
       },
+      "pipelineProperty": "OperationId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackSetOperationResults",
         "ConfirmImpactSetting": "Medium",
@@ -1034,36 +754,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "ListStackSetOperations": {
       "verb": "Get",
-      "noun": "CFNStackSetOperationList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "StackSetName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "StackSetOperationList",
       "paginationSettings": {
         "requestTokenMember": "NextToken",
         "responseTokenMember": "NextToken",
         "resultLimitMember": "MaxResults"
       },
+      "pipelineProperty": "StackSetName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackSetOperations",
         "ConfirmImpactSetting": "Medium",
@@ -1073,36 +781,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "ListStackSets": {
       "verb": "Get",
-      "noun": "CFNStackSetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "Status",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "StackSetList",
       "paginationSettings": {
         "requestTokenMember": "NextToken",
         "responseTokenMember": "NextToken",
         "resultLimitMember": "MaxResults"
       },
+      "pipelineProperty": "Status",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackSets",
         "ConfirmImpactSetting": "Medium",
@@ -1112,31 +808,19 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
       }
     },
     "SetStackPolicy": {
       "verb": "Set",
-      "noun": "CFNStackPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "StackPolicy",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -1146,30 +830,23 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SignalResource": {
       "verb": "Send",
-      "noun": "CFNResourceSignal",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ResourceSignal",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Resource",
         "ConfirmImpactSetting": "Medium",
@@ -1179,30 +856,24 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopStackSetOperation": {
       "verb": "Stop",
-      "noun": "CFNStackSetOperation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StackSetOperation",
       "pipelineProperty": "StackSetName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackSetOperation",
         "ConfirmImpactSetting": "Medium",
@@ -1212,30 +883,22 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateStack": {
       "verb": "Update",
-      "noun": "CFNStack",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Stack",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Stack",
         "ConfirmImpactSetting": "Medium",
@@ -1245,30 +908,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateStackInstances": {
       "verb": "Update",
-      "noun": "CFNStackInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "StackSetName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "StackInstance",
       "customParameters": [
         {
           "name": "Regions",
@@ -1276,6 +931,7 @@
           "autoApplyAlias": "false"
         }
       ],
+      "pipelineProperty": "StackSetName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackInstances",
         "ConfirmImpactSetting": "Medium",
@@ -1285,30 +941,23 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateStackSet": {
       "verb": "Update",
-      "noun": "CFNStackSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "StackSet",
       "pipelineProperty": "StackSetName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "StackSet",
         "ConfirmImpactSetting": "Medium",
@@ -1318,30 +967,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackSetName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateTerminationProtection": {
       "verb": "Update",
-      "noun": "CFNTerminationProtection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TerminationProtection",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TerminationProtection",
         "ConfirmImpactSetting": "Medium",
@@ -1351,30 +992,24 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ValidateTemplate": {
       "verb": "Test",
-      "noun": "CFNTemplate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Template",
       "pipelineProperty": "TemplateBody",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Template",
         "ConfirmImpactSetting": "Medium",
@@ -1384,18 +1019,12 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
           "excludedOperations": [
             "DescribeChangeSet"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        }
       }
     }
   }

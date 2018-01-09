@@ -1,6 +1,43 @@
 {
-  "additionalNamespaces": [],
-  "regionFallback": "us-east-1",
+  "customAliases": [
+    {
+      "cmdlet": "Get-S3Bucket",
+      "aliasNames": [
+        "List-S3Buckets"
+      ]
+    },
+    {
+      "cmdlet": "Get-S3Object",
+      "aliasNames": [
+        "List-S3Objects"
+      ]
+    },
+    {
+      "cmdlet": "Read-S3Object",
+      "aliasNames": [
+        "Get-S3Content"
+      ]
+    },
+    {
+      "cmdlet": "Write-S3BucketVersioning",
+      "aliasNames": [
+        "Set-S3BucketVersioning"
+      ]
+    }
+  ],
+  "defaultPaginationSettings": {
+    "requestTokenMember": null,
+    "responseTokenMember": null
+  },
+  "defaultPipelineProperty": "BucketName",
+  "legacyCmdletPrefix": "S3",
+  "legacyPositionalProperties": "BucketName",
+  "nonFlatteningTypeNames": [
+    "Amazon.S3.Model.SelectParameters"
+  ],
+  "nounMappings": {
+    "Versions": "Version"
+  },
   "outputMetadataPropertyNames": [
     "Name",
     "Prefix",
@@ -15,38 +52,6 @@
     "Key",
     "KeyPrefix",
     "VersionId"
-  ],
-  "defaultPipelineProperty": "BucketName",
-  "legacyPositionalProperties": "BucketName",
-  "sdkServiceNamespace": "Amazon.S3",
-  "sdkServiceClient": "AmazonS3Client",
-  "sdkServiceClientConfig": "AmazonS3Config",
-  "legacyCmdletPrefix": "S3",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.S3.Model.SelectParameters"
-  ],
-  "defaultPaginationSettings": {
-    "requestTokenMember": null,
-    "responseTokenMember": null
-  },
-  "customAliases": [
-    {
-      "cmdlet": "Get-S3Bucket",
-      "aliasNames": "List-S3Buckets"
-    },
-    {
-      "cmdlet": "Get-S3Object",
-      "aliasNames": "List-S3Objects"
-    },
-    {
-      "cmdlet": "Read-S3Object",
-      "aliasNames": "Get-S3Content"
-    },
-    {
-      "cmdlet": "Write-S3BucketVersioning",
-      "aliasNames": "Set-S3BucketVersioning"
-    }
   ],
   "legacyParamEmitters": [
     {
@@ -80,38 +85,33 @@
       "paramType": ""
     }
   ],
-  "nounMappings": {
-    "Versions": "Version"
-  },
+  "regionFallback": "us-east-1",
+  "sdkServiceClientClass": "AmazonS3Client",
+  "sdkServiceConfigClass": "AmazonS3Config",
+  "sdkServiceNamespace": "Amazon.S3",
   "verbMappings": {
     "List": "Get"
   },
   "serviceOperations": {
     "AbortMultipartUpload": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "CompleteMultipartUpload": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "CopyObject": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "CopyPart": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "DeleteBucket": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "DeleteBucketAnalyticsConfiguration": {
       "verb": "Remove",
-      "noun": "S3BucketAnalyticsConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketAnalyticsConfiguration",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketAnalyticsConfiguration",
         "ConfirmImpactSetting": "High",
@@ -128,20 +128,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteBucketEncryption": {
       "verb": "Remove",
-      "noun": "S3BucketEncryption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketEncryption",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketEncryption",
         "ConfirmImpactSetting": "High",
@@ -158,20 +151,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteBucketInventoryConfiguration": {
       "verb": "Remove",
-      "noun": "S3BucketInventoryConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketInventoryConfiguration",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketInventoryConfiguration",
         "ConfirmImpactSetting": "High",
@@ -188,20 +174,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteBucketMetricsConfiguration": {
       "verb": "Remove",
-      "noun": "S3BucketMetricsConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketMetricsConfiguration",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketMetricsConfiguration",
         "ConfirmImpactSetting": "High",
@@ -218,20 +197,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteBucketPolicy": {
       "verb": "Remove",
-      "noun": "S3BucketPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketPolicy",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "BucketName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketPolicy",
@@ -249,20 +221,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteBucketReplication": {
       "verb": "Remove",
-      "noun": "S3BucketReplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketReplication",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "BucketName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketReplication",
@@ -280,20 +245,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteBucketTagging": {
       "verb": "Remove",
-      "noun": "S3BucketTagging",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketTagging",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "BucketName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketTagging",
@@ -311,20 +269,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteBucketWebsite": {
       "verb": "Remove",
-      "noun": "S3BucketWebsite",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketWebsite",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "BucketName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketWebsite",
@@ -342,20 +293,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCORSConfiguration": {
       "verb": "Remove",
-      "noun": "S3CORSConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "CORSConfiguration",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "BucketName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CORSConfiguration",
@@ -373,20 +317,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteLifecycleConfiguration": {
       "verb": "Remove",
-      "noun": "S3LifecycleConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LifecycleConfiguration",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "BucketName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LifecycleConfiguration",
@@ -404,26 +341,19 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteObject": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "DeleteObjects": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "DeleteObjectTagging": {
       "verb": "Remove",
-      "noun": "S3ObjectTagSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ObjectTagSet",
       "pipelineProperty": "Key",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Key",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ObjectTagging",
@@ -441,20 +371,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Key"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetACL": {
       "verb": "Get",
-      "noun": "S3ACL",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "Key;VersionId",
+      "noun": "ACL",
+      "legacyPositionalParameters": [
+        "Key",
+        "VersionId"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ACL",
         "ConfirmImpactSetting": "Medium",
@@ -466,25 +392,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBucketAccelerateConfiguration": {
       "verb": "Get",
-      "noun": "S3BucketAccelerateConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BucketAccelerateConfiguration",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketAccelerateConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -496,25 +409,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBucketAnalyticsConfiguration": {
       "verb": "Get",
-      "noun": "S3BucketAnalyticsConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BucketAnalyticsConfiguration",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketAnalyticsConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -526,25 +426,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBucketEncryption": {
       "verb": "Get",
-      "noun": "S3BucketEncryption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BucketEncryption",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketEncryption",
         "ConfirmImpactSetting": "Medium",
@@ -556,25 +443,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBucketInventoryConfiguration": {
       "verb": "Get",
-      "noun": "S3BucketInventoryConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BucketInventoryConfiguration",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketInventoryConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -586,25 +460,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBucketLocation": {
       "verb": "Get",
-      "noun": "S3BucketLocation",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BucketLocation",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketLocation",
         "ConfirmImpactSetting": "Medium",
@@ -616,25 +477,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBucketLogging": {
       "verb": "Get",
-      "noun": "S3BucketLogging",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BucketLogging",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketLogging",
         "ConfirmImpactSetting": "Medium",
@@ -646,25 +494,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBucketMetricsConfiguration": {
       "verb": "Get",
-      "noun": "S3BucketMetricsConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BucketMetricsConfiguration",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketMetricsConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -676,25 +511,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBucketNotification": {
       "verb": "Get",
-      "noun": "S3BucketNotification",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketNotification",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketNotification",
         "ConfirmImpactSetting": "Medium",
@@ -706,25 +529,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBucketPolicy": {
       "verb": "Get",
-      "noun": "S3BucketPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BucketPolicy",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -736,25 +546,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBucketReplication": {
       "verb": "Get",
-      "noun": "S3BucketReplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BucketReplication",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketReplication",
         "ConfirmImpactSetting": "Medium",
@@ -766,25 +563,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBucketRequestPayment": {
       "verb": "Get",
-      "noun": "S3BucketRequestPayment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BucketRequestPayment",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketRequestPayment",
         "ConfirmImpactSetting": "Medium",
@@ -796,25 +580,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBucketTagging": {
       "verb": "Get",
-      "noun": "S3BucketTagging",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BucketTagging",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketTagging",
         "ConfirmImpactSetting": "Medium",
@@ -826,25 +597,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBucketVersioning": {
       "verb": "Get",
-      "noun": "S3BucketVersioning",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BucketVersioning",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketVersioning",
         "ConfirmImpactSetting": "Medium",
@@ -856,25 +614,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetBucketWebsite": {
       "verb": "Get",
-      "noun": "S3BucketWebsite",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "BucketWebsite",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketWebsite",
         "ConfirmImpactSetting": "Medium",
@@ -886,25 +631,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetCORSConfiguration": {
       "verb": "Get",
-      "noun": "S3CORSConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "CORSConfiguration",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CORSConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -916,25 +648,12 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetLifecycleConfiguration": {
       "verb": "Get",
-      "noun": "S3LifecycleConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "LifecycleConfiguration",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LifecycleConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -946,28 +665,19 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetObject": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "GetObjectMetadata": {
       "verb": "Get",
-      "noun": "S3ObjectMetadata",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ObjectMetadata",
+      "legacyPositionalParameters": [
+        "Key"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "Key",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ObjectMetadata",
         "ConfirmImpactSetting": "Medium",
@@ -979,25 +689,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetObjectTagging": {
       "verb": "Get",
-      "noun": "S3ObjectTagSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ObjectTagSet",
       "pipelineProperty": "Key",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ObjectTagging",
         "ConfirmImpactSetting": "Medium",
@@ -1009,34 +707,22 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetObjectTorrent": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "GetPreSignedURL": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "InitiateMultipartUpload": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "ListBucketAnalyticsConfigurations": {
       "verb": "Get",
-      "noun": "S3BucketAnalyticsConfigurationList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketAnalyticsConfigurationList",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketAnalyticsConfigurations",
         "ConfirmImpactSetting": "Medium",
@@ -1048,25 +734,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListBucketInventoryConfigurations": {
       "verb": "Get",
-      "noun": "S3BucketInventoryConfigurationList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketInventoryConfigurationList",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketInventoryConfigurations",
         "ConfirmImpactSetting": "Medium",
@@ -1078,25 +752,13 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListBucketMetricsConfigurations": {
       "verb": "Get",
-      "noun": "S3BucketMetricsConfigurationList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketMetricsConfigurationList",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketMetricsConfigurations",
         "ConfirmImpactSetting": "Medium",
@@ -1108,40 +770,31 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListBuckets": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "ListMultipartUploads": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "ListObjects": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "ListObjectsV2": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "ListParts": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "ListVersions": {
       "verb": "Get",
-      "noun": "S3Version",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Version",
+      "legacyPositionalParameters": [
+        "Prefix"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "Prefix",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Versions",
         "ConfirmImpactSetting": "Medium",
@@ -1153,31 +806,19 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutACL": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "PutBucket": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "PutBucketAccelerateConfiguration": {
       "verb": "Write",
-      "noun": "S3BucketAccelerateConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketAccelerateConfiguration",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketAccelerateConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -1194,20 +835,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutBucketAnalyticsConfiguration": {
       "verb": "Write",
-      "noun": "S3BucketAnalyticsConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketAnalyticsConfiguration",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketAnalyticsConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -1224,20 +858,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutBucketEncryption": {
       "verb": "Set",
-      "noun": "S3BucketEncryption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketEncryption",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketEncryption",
         "ConfirmImpactSetting": "Medium",
@@ -1254,20 +881,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutBucketInventoryConfiguration": {
       "verb": "Write",
-      "noun": "S3BucketInventoryConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketInventoryConfiguration",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketInventoryConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -1284,20 +904,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutBucketLogging": {
       "verb": "Write",
-      "noun": "S3BucketLogging",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketLogging",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketLogging",
         "ConfirmImpactSetting": "Medium",
@@ -1314,20 +927,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutBucketMetricsConfiguration": {
       "verb": "Write",
-      "noun": "S3BucketMetricsConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketMetricsConfiguration",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketMetricsConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -1344,20 +950,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutBucketNotification": {
       "verb": "Write",
-      "noun": "S3BucketNotification",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketNotification",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketNotification",
         "ConfirmImpactSetting": "Medium",
@@ -1374,20 +973,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutBucketPolicy": {
       "verb": "Write",
-      "noun": "S3BucketPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketPolicy",
+      "legacyPositionalParameters": [
+        "Policy"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "Policy",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketPolicy",
         "ConfirmImpactSetting": "Medium",
@@ -1404,20 +999,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutBucketReplication": {
       "verb": "Write",
-      "noun": "S3BucketReplication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketReplication",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketReplication",
         "ConfirmImpactSetting": "Medium",
@@ -1434,20 +1022,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutBucketRequestPayment": {
       "verb": "Write",
-      "noun": "S3BucketRequestPayment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketRequestPayment",
+      "legacyPositionalParameters": [
+        "RequestPaymentConfiguration"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "RequestPaymentConfiguration",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketRequestPayment",
         "ConfirmImpactSetting": "Medium",
@@ -1464,31 +1048,29 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutBucketTagging": {
       "verb": "Write",
-      "noun": "S3BucketTagging",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Void",
-      "legacyPositionalParameters": "TagSet",
+      "noun": "BucketTagging",
       "customParameters": [
         {
           "name": "TagSet",
-          "aliases": "TagSets"
+          "aliases": [
+            "TagSets"
+          ]
         }
+      ],
+      "legacyPositionalParameters": [
+        "TagSet"
       ],
       "passThru": {
         "documentation": "Returns the collection of Tag objects that were added",
         "expression": "cmdletContext.TagSet",
         "type": null
       },
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketTagging",
         "ConfirmImpactSetting": "Medium",
@@ -1505,20 +1087,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutBucketVersioning": {
       "verb": "Write",
-      "noun": "S3BucketVersioning",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketVersioning",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketVersioning",
         "ConfirmImpactSetting": "Medium",
@@ -1535,20 +1110,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutBucketWebsite": {
       "verb": "Write",
-      "noun": "S3BucketWebsite",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "BucketWebsite",
+      "legacyPositionalParameters": [
+        "WebsiteConfiguration"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "WebsiteConfiguration",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "BucketWebsite",
         "ConfirmImpactSetting": "Medium",
@@ -1565,20 +1136,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutCORSConfiguration": {
       "verb": "Write",
-      "noun": "S3CORSConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "CORSConfiguration",
+      "legacyPositionalParameters": [
+        "Configuration"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "Configuration",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CORSConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -1595,20 +1162,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutLifecycleConfiguration": {
       "verb": "Write",
-      "noun": "S3LifecycleConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LifecycleConfiguration",
+      "legacyPositionalParameters": [
+        "Configuration"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "Configuration",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LifecycleConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -1625,23 +1188,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutObject": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     },
     "PutObjectTagging": {
       "verb": "Write",
-      "noun": "S3ObjectTagSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ObjectTagSet",
       "pipelineProperty": "Key",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Key",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ObjectTagging",
@@ -1659,26 +1215,23 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Key"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RestoreObject": {
       "verb": "Restore",
-      "noun": "S3Object",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Response",
-      "legacyPositionalParameters": "Key;Days",
+      "noun": "Object",
       "customParameters": [
         {
           "name": "Days",
           "newName": "CopyLifetimeInDays"
         }
       ],
+      "legacyPositionalParameters": [
+        "Key",
+        "Days"
+      ],
+      "output": "Response",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Object",
         "ConfirmImpactSetting": "Medium",
@@ -1695,12 +1248,11 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UploadPart": {
-      "exclude": "true"
+      "excludeFromGeneration": "true"
     }
   }
 }

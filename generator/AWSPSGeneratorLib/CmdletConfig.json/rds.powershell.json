@@ -1,41 +1,12 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "DBSecurityGroupName",
-    "EC2SecurityGroupName",
-    "EC2SecurityGroupId",
-    "EC2SecurityGroupOwnerId",
-    "DBInstanceIdentifier",
-    "DBParameterGroupName",
-    "DBSnapshotIdentifier",
-    "DBSubnetGroupName",
-    "SubscriptionName",
-    "OptionGroupName",
-    "Engine",
-    "EngineName",
-    "EngineVersion",
-    "DBInstanceClass",
-    "ReservedDBInstancesOfferingId",
-    "ReservedDBInstanceId",
-    "ResourceName",
-    "SnsTopicArn",
-    "SourceIdentifier",
-    "CIDRIP"
-  ],
-  "defaultPipelineProperty": "DBInstanceIdentifier",
-  "legacyPositionalProperties": "DBInstanceIdentifier",
-  "sdkServiceNamespace": "Amazon.RDS",
-  "sdkServiceClient": "AmazonRDSClient",
-  "sdkServiceClientConfig": "AmazonRDSConfig",
-  "legacyCmdletPrefix": "RDS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "Marker",
     "responseTokenMember": "Marker",
     "resultLimitMember": "MaxRecords"
   },
+  "defaultPipelineProperty": "DBInstanceIdentifier",
+  "legacyCmdletPrefix": "RDS",
+  "legacyPositionalProperties": "DBInstanceIdentifier",
   "nounMappings": {
     "DBEngineVersions": "DBEngineVersion",
     "DBInstances": "DBInstance",
@@ -58,6 +29,31 @@
     "DBClusterSnapshots": "DBClusterSnapshot",
     "EngineDefaultClusterParameters": "EngineDefaultClusterParameter"
   },
+  "pipelineByValuePropertyNames": [
+    "DBSecurityGroupName",
+    "EC2SecurityGroupName",
+    "EC2SecurityGroupId",
+    "EC2SecurityGroupOwnerId",
+    "DBInstanceIdentifier",
+    "DBParameterGroupName",
+    "DBSnapshotIdentifier",
+    "DBSubnetGroupName",
+    "SubscriptionName",
+    "OptionGroupName",
+    "Engine",
+    "EngineName",
+    "EngineVersion",
+    "DBInstanceClass",
+    "ReservedDBInstancesOfferingId",
+    "ReservedDBInstanceId",
+    "ResourceName",
+    "SnsTopicArn",
+    "SourceIdentifier",
+    "CIDRIP"
+  ],
+  "sdkServiceClientClass": "AmazonRDSClient",
+  "sdkServiceConfigClass": "AmazonRDSConfig",
+  "sdkServiceNamespace": "Amazon.RDS",
   "verbMappings": {
     "List": "Get",
     "Reboot": "Restart",
@@ -66,14 +62,12 @@
   "serviceOperations": {
     "AddRoleToDBCluster": {
       "verb": "Add",
-      "noun": "RDSRoleToDBCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RoleToDBCluster",
+      "legacyPositionalParameters": [
+        "RoleArn"
+      ],
       "pipelineProperty": "DBClusterIdentifier",
       "output": "Void",
-      "legacyPositionalParameters": "RoleArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RoleToDBCluster",
         "ConfirmImpactSetting": "Medium",
@@ -91,20 +85,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddSourceIdentifierToSubscription": {
       "verb": "Add",
-      "noun": "RDSSourceIdentifierToSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SourceIdentifierToSubscription",
+      "legacyPositionalParameters": [
+        "SourceIdentifier"
+      ],
       "pipelineProperty": "SubscriptionName",
-      "output": "Default",
-      "legacyPositionalParameters": "SourceIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SourceIdentifierToSubscription",
         "ConfirmImpactSetting": "Medium",
@@ -122,25 +112,22 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubscriptionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddTagsToResource": {
       "verb": "Add",
-      "noun": "RDSTagsToResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "ResourceName",
-      "output": "Void",
-      "legacyPositionalParameters": "Tags",
+      "noun": "TagsToResource",
+      "legacyPositionalParameters": [
+        "Tags"
+      ],
       "passThru": {
         "documentation": "Returns the collection of tags that were added",
         "expression": "cmdletContext.Tags",
         "type": null
       },
+      "pipelineProperty": "ResourceName",
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsToResource",
         "ConfirmImpactSetting": "Medium",
@@ -158,20 +145,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ApplyPendingMaintenanceAction": {
       "verb": "Submit",
-      "noun": "RDSPendingMaintenanceAction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PendingMaintenanceAction",
       "pipelineProperty": "ResourceIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PendingMaintenanceAction",
         "ConfirmImpactSetting": "Medium",
@@ -189,20 +169,16 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AuthorizeDBSecurityGroupIngress": {
       "verb": "Enable",
-      "noun": "RDSDBSecurityGroupIngress",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBSecurityGroupIngress",
+      "legacyPositionalParameters": [
+        "CIDRIP"
+      ],
       "pipelineProperty": "DBSecurityGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "CIDRIP",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBSecurityGroupIngress",
         "ConfirmImpactSetting": "Medium",
@@ -220,20 +196,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBSecurityGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CopyDBClusterParameterGroup": {
       "verb": "Copy",
-      "noun": "RDSDBClusterParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBClusterParameterGroup",
       "pipelineProperty": "SourceDBClusterParameterGroupIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBClusterParameterGroup",
         "ConfirmImpactSetting": "Medium",
@@ -251,20 +220,16 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SourceDBClusterParameterGroupIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CopyDBClusterSnapshot": {
       "verb": "Copy",
-      "noun": "RDSDBClusterSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBClusterSnapshot",
+      "legacyPositionalParameters": [
+        "TargetDBClusterSnapshotIdentifier"
+      ],
       "pipelineProperty": "SourceDBClusterSnapshotIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": "TargetDBClusterSnapshotIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBClusterSnapshot",
         "ConfirmImpactSetting": "Medium",
@@ -282,20 +247,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KmsKeyId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CopyDBParameterGroup": {
       "verb": "Copy",
-      "noun": "RDSDBParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBParameterGroup",
+      "legacyPositionalParameters": [
+        "TargetDBParameterGroupIdentifier",
+        "TargetDBParameterGroupDescription"
+      ],
       "pipelineProperty": "SourceDBParameterGroupIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": "TargetDBParameterGroupIdentifier;TargetDBParameterGroupDescription",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBParameterGroup",
         "ConfirmImpactSetting": "Medium",
@@ -313,20 +275,16 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SourceDBParameterGroupIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CopyDBSnapshot": {
       "verb": "Copy",
-      "noun": "RDSDBSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBSnapshot",
+      "legacyPositionalParameters": [
+        "TargetDBSnapshotIdentifier"
+      ],
       "pipelineProperty": "SourceDBSnapshotIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": "TargetDBSnapshotIdentifier",
       "shouldProcessTargetProperty": "SourceDBSnapshotIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBSnapshot",
@@ -345,20 +303,17 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "SourceDBSnapshotIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CopyOptionGroup": {
       "verb": "Copy",
-      "noun": "RDSOptionGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OptionGroup",
+      "legacyPositionalParameters": [
+        "TargetOptionGroupIdentifier",
+        "TargetOptionGroupDescription"
+      ],
       "pipelineProperty": "SourceOptionGroupIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": "TargetOptionGroupIdentifier;TargetOptionGroupDescription",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OptionGroup",
         "ConfirmImpactSetting": "Medium",
@@ -376,20 +331,13 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SourceOptionGroupIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDBCluster": {
       "verb": "New",
-      "noun": "RDSDBCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBCluster",
       "pipelineProperty": "DBClusterIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DBClusterIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBCluster",
@@ -408,20 +356,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DBClusterIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDBClusterParameterGroup": {
       "verb": "New",
-      "noun": "RDSDBClusterParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBClusterParameterGroup",
       "pipelineProperty": "DBClusterParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBClusterParameterGroup",
         "ConfirmImpactSetting": "Medium",
@@ -439,20 +380,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBClusterParameterGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDBClusterSnapshot": {
       "verb": "New",
-      "noun": "RDSDBClusterSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBClusterSnapshot",
       "pipelineProperty": "DBClusterIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBClusterSnapshot",
         "ConfirmImpactSetting": "Medium",
@@ -470,20 +404,16 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBClusterIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDBInstance": {
       "verb": "New",
-      "noun": "RDSDBInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBInstance",
+      "legacyPositionalParameters": [
+        "DBInstanceIdentifier"
+      ],
       "pipelineProperty": "DBName",
-      "output": "Default",
-      "legacyPositionalParameters": "DBInstanceIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBInstance",
         "ConfirmImpactSetting": "Medium",
@@ -501,20 +431,15 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDBInstanceReadReplica": {
       "verb": "New",
-      "noun": "RDSDBInstanceReadReplica",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "SourceDBInstanceIdentifier",
+      "noun": "DBInstanceReadReplica",
+      "legacyPositionalParameters": [
+        "SourceDBInstanceIdentifier"
+      ],
       "shouldProcessTargetProperty": "DBInstanceIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBInstanceReadReplica",
@@ -533,20 +458,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DBInstanceIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDBParameterGroup": {
       "verb": "New",
-      "noun": "RDSDBParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBParameterGroup",
+      "legacyPositionalParameters": [
+        "Description"
+      ],
       "pipelineProperty": "DBParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "Description",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBParameterGroup",
         "ConfirmImpactSetting": "Medium",
@@ -564,20 +485,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBParameterGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDBSecurityGroup": {
       "verb": "New",
-      "noun": "RDSDBSecurityGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBSecurityGroup",
+      "legacyPositionalParameters": [
+        "DBSecurityGroupDescription"
+      ],
       "pipelineProperty": "DBSecurityGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "DBSecurityGroupDescription",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBSecurityGroup",
         "ConfirmImpactSetting": "Medium",
@@ -595,20 +512,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBSecurityGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDBSnapshot": {
       "verb": "New",
-      "noun": "RDSDBSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBSnapshot",
+      "legacyPositionalParameters": [
+        "DBInstanceIdentifier"
+      ],
       "pipelineProperty": "DBSnapshotIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": "DBInstanceIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBSnapshot",
         "ConfirmImpactSetting": "Medium",
@@ -626,20 +539,17 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBSnapshotIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateDBSubnetGroup": {
       "verb": "New",
-      "noun": "RDSDBSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBSubnetGroup",
+      "legacyPositionalParameters": [
+        "DBSubnetGroupDescription",
+        "SubnetIds"
+      ],
       "pipelineProperty": "DBSubnetGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "DBSubnetGroupDescription;SubnetIds",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBSubnetGroup",
         "ConfirmImpactSetting": "Medium",
@@ -657,20 +567,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBSubnetGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateEventSubscription": {
       "verb": "New",
-      "noun": "RDSEventSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EventSubscription",
+      "legacyPositionalParameters": [
+        "SnsTopicArn",
+        "SourceType"
+      ],
       "pipelineProperty": "SubscriptionName",
-      "output": "Default",
-      "legacyPositionalParameters": "SnsTopicArn;SourceType",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSubscription",
         "ConfirmImpactSetting": "Medium",
@@ -688,20 +595,18 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubscriptionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateOptionGroup": {
       "verb": "New",
-      "noun": "RDSOptionGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OptionGroup",
+      "legacyPositionalParameters": [
+        "EngineName",
+        "MajorEngineVersion",
+        "OptionGroupDescription"
+      ],
       "pipelineProperty": "OptionGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "EngineName;MajorEngineVersion;OptionGroupDescription",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OptionGroup",
         "ConfirmImpactSetting": "Medium",
@@ -719,20 +624,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "OptionGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDBCluster": {
       "verb": "Remove",
-      "noun": "RDSDBCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DBCluster",
       "shouldProcessTargetProperty": "DBClusterIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBCluster",
@@ -751,20 +648,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DBClusterIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDBClusterParameterGroup": {
       "verb": "Remove",
-      "noun": "RDSDBClusterParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBClusterParameterGroup",
       "pipelineProperty": "DBClusterParameterGroupName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DBClusterParameterGroupName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBClusterParameterGroup",
@@ -783,20 +674,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBClusterParameterGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDBClusterSnapshot": {
       "verb": "Remove",
-      "noun": "RDSDBClusterSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBClusterSnapshot",
       "pipelineProperty": "DBClusterSnapshotIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DBClusterSnapshotIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBClusterSnapshot",
@@ -815,20 +699,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBClusterSnapshotIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDBInstance": {
       "verb": "Remove",
-      "noun": "RDSDBInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DBInstance",
       "shouldProcessTargetProperty": "DBInstanceIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBInstance",
@@ -847,20 +723,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DBInstanceIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDBParameterGroup": {
       "verb": "Remove",
-      "noun": "RDSDBParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBParameterGroup",
       "pipelineProperty": "DBParameterGroupName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBParameterGroup",
         "ConfirmImpactSetting": "High",
@@ -878,20 +748,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBParameterGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDBSecurityGroup": {
       "verb": "Remove",
-      "noun": "RDSDBSecurityGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBSecurityGroup",
       "pipelineProperty": "DBSecurityGroupName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBSecurityGroup",
         "ConfirmImpactSetting": "High",
@@ -909,20 +773,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBSecurityGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDBSnapshot": {
       "verb": "Remove",
-      "noun": "RDSDBSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBSnapshot",
       "pipelineProperty": "DBSnapshotIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBSnapshot",
         "ConfirmImpactSetting": "High",
@@ -940,20 +797,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBSnapshotIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteDBSubnetGroup": {
       "verb": "Remove",
-      "noun": "RDSDBSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBSubnetGroup",
       "pipelineProperty": "DBSubnetGroupName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBSubnetGroup",
         "ConfirmImpactSetting": "High",
@@ -971,20 +822,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBSubnetGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteEventSubscription": {
       "verb": "Remove",
-      "noun": "RDSEventSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EventSubscription",
       "pipelineProperty": "SubscriptionName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSubscription",
         "ConfirmImpactSetting": "High",
@@ -1002,20 +846,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubscriptionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteOptionGroup": {
       "verb": "Remove",
-      "noun": "RDSOptionGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OptionGroup",
       "pipelineProperty": "OptionGroupName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OptionGroup",
         "ConfirmImpactSetting": "High",
@@ -1033,20 +871,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "OptionGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAccountAttributes": {
       "verb": "Get",
-      "noun": "RDSAccountAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "AccountAttribute",
       "legacyAlias": "Get-RDSAccountAttributes",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -1059,25 +890,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeCertificates": {
       "verb": "Get",
-      "noun": "RDSCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Certificate",
       "legacyAlias": "Get-RDSCertificates",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Certificates",
         "ConfirmImpactSetting": "Medium",
@@ -1090,25 +909,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDBClusterParameterGroups": {
       "verb": "Get",
-      "noun": "RDSDBClusterParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBClusterParameterGroup",
       "pipelineProperty": "DBClusterParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBClusterParameterGroups",
         "ConfirmImpactSetting": "Medium",
@@ -1121,25 +928,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDBClusterParameters": {
       "verb": "Get",
-      "noun": "RDSDBClusterParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBClusterParameter",
       "pipelineProperty": "DBClusterParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBClusterParameters",
         "ConfirmImpactSetting": "Medium",
@@ -1152,25 +947,12 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDBClusters": {
       "verb": "Get",
-      "noun": "RDSDBCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DBCluster",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBClusters",
         "ConfirmImpactSetting": "Medium",
@@ -1183,25 +965,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDBClusterSnapshotAttributes": {
       "verb": "Get",
-      "noun": "RDSDBClusterSnapshotAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBClusterSnapshotAttribute",
       "pipelineProperty": "DBClusterSnapshotIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBClusterSnapshotAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -1214,25 +984,12 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDBClusterSnapshots": {
       "verb": "Get",
-      "noun": "RDSDBClusterSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DBClusterSnapshot",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBClusterSnapshots",
         "ConfirmImpactSetting": "Medium",
@@ -1245,25 +1002,17 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDBEngineVersions": {
       "verb": "Get",
-      "noun": "RDSDBEngineVersion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBEngineVersion",
+      "legacyPositionalParameters": [
+        "EngineVersion",
+        "DBParameterGroupFamily"
+      ],
       "pipelineProperty": "Engine",
-      "output": "Default",
-      "legacyPositionalParameters": "EngineVersion;DBParameterGroupFamily",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBEngineVersions",
         "ConfirmImpactSetting": "Medium",
@@ -1276,25 +1025,12 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDBInstances": {
       "verb": "Get",
-      "noun": "RDSDBInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DBInstance",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBInstances",
         "ConfirmImpactSetting": "Medium",
@@ -1307,31 +1043,19 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDBLogFiles": {
       "verb": "Get",
-      "noun": "RDSDBLogFile",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": "Get-RDSDBLogFiles",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DBLogFile",
       "customParameters": [
         {
           "name": "FilenameContains",
           "autoRename": "false"
         }
       ],
+      "legacyAlias": "Get-RDSDBLogFiles",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBLogFiles",
         "ConfirmImpactSetting": "Medium",
@@ -1344,25 +1068,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDBParameterGroups": {
       "verb": "Get",
-      "noun": "RDSDBParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBParameterGroup",
       "pipelineProperty": "DBParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBParameterGroups",
         "ConfirmImpactSetting": "Medium",
@@ -1375,25 +1087,16 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDBParameters": {
       "verb": "Get",
-      "noun": "RDSDBParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBParameter",
+      "legacyPositionalParameters": [
+        "Source"
+      ],
       "pipelineProperty": "DBParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "Source",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBParameters",
         "ConfirmImpactSetting": "Medium",
@@ -1406,25 +1109,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDBSecurityGroups": {
       "verb": "Get",
-      "noun": "RDSDBSecurityGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBSecurityGroup",
       "pipelineProperty": "DBSecurityGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBSecurityGroups",
         "ConfirmImpactSetting": "Medium",
@@ -1437,25 +1128,14 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDBSnapshotAttributes": {
       "verb": "Get",
-      "noun": "RDSDBSnapshotAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "DBSnapshotAttribute",
       "legacyAlias": "Get-RDSDBSnapshotAttributes",
-      "metadataOutputProperties": "",
       "pipelineProperty": "DBSnapshotIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBSnapshotAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -1468,25 +1148,16 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDBSnapshots": {
       "verb": "Get",
-      "noun": "RDSDBSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "DBSnapshotIdentifier;SnapshotType",
+      "noun": "DBSnapshot",
+      "legacyPositionalParameters": [
+        "DBSnapshotIdentifier",
+        "SnapshotType"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBSnapshots",
         "ConfirmImpactSetting": "Medium",
@@ -1499,25 +1170,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeDBSubnetGroups": {
       "verb": "Get",
-      "noun": "RDSDBSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBSubnetGroup",
       "pipelineProperty": "DBSubnetGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBSubnetGroups",
         "ConfirmImpactSetting": "Medium",
@@ -1530,25 +1189,12 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEngineDefaultClusterParameters": {
       "verb": "Get",
-      "noun": "RDSEngineDefaultClusterParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "EngineDefaultClusterParameter",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EngineDefaultClusterParameters",
         "ConfirmImpactSetting": "Medium",
@@ -1561,25 +1207,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEngineDefaultParameters": {
       "verb": "Get",
-      "noun": "RDSEngineDefaultParameter",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EngineDefaultParameter",
       "pipelineProperty": "DBParameterGroupFamily",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EngineDefaultParameters",
         "ConfirmImpactSetting": "Medium",
@@ -1592,25 +1226,14 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEventCategories": {
       "verb": "Get",
-      "noun": "RDSEventCategory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "EventCategory",
       "legacyAlias": "Get-RDSEventCategories",
-      "metadataOutputProperties": "",
       "pipelineProperty": "SourceType",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventCategories",
         "ConfirmImpactSetting": "Medium",
@@ -1623,25 +1246,16 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEvents": {
       "verb": "Get",
-      "noun": "RDSEvent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Event",
+      "legacyPositionalParameters": [
+        "SourceType"
+      ],
       "pipelineProperty": "SourceIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": "SourceType",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Events",
         "ConfirmImpactSetting": "Medium",
@@ -1654,25 +1268,14 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeEventSubscriptions": {
       "verb": "Get",
-      "noun": "RDSEventSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "EventSubscription",
       "legacyAlias": "Get-RDSEventSubscriptions",
-      "metadataOutputProperties": "",
       "pipelineProperty": "SubscriptionName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSubscriptions",
         "ConfirmImpactSetting": "Medium",
@@ -1685,25 +1288,16 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeOptionGroupOptions": {
       "verb": "Get",
-      "noun": "RDSOptionGroupOption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OptionGroupOption",
+      "legacyPositionalParameters": [
+        "MajorEngineVersion"
+      ],
       "pipelineProperty": "EngineName",
-      "output": "Default",
-      "legacyPositionalParameters": "MajorEngineVersion",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OptionGroupOptions",
         "ConfirmImpactSetting": "Medium",
@@ -1716,25 +1310,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeOptionGroups": {
       "verb": "Get",
-      "noun": "RDSOptionGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OptionGroup",
       "pipelineProperty": "OptionGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OptionGroups",
         "ConfirmImpactSetting": "Medium",
@@ -1747,25 +1329,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeOrderableDBInstanceOptions": {
       "verb": "Get",
-      "noun": "RDSOrderableDBInstanceOption",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OrderableDBInstanceOption",
       "pipelineProperty": "Engine",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OrderableDBInstanceOptions",
         "ConfirmImpactSetting": "Medium",
@@ -1778,25 +1348,14 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribePendingMaintenanceActions": {
       "verb": "Get",
-      "noun": "RDSPendingMaintenanceAction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "PendingMaintenanceAction",
       "legacyAlias": "Get-RDSPendingMaintenanceActions",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ResourceIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PendingMaintenanceActions",
         "ConfirmImpactSetting": "Medium",
@@ -1809,25 +1368,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeReservedDBInstances": {
       "verb": "Get",
-      "noun": "RDSReservedDBInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReservedDBInstance",
       "pipelineProperty": "ReservedDBInstanceId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReservedDBInstances",
         "ConfirmImpactSetting": "Medium",
@@ -1840,25 +1387,14 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeReservedDBInstancesOfferings": {
       "verb": "Get",
-      "noun": "RDSReservedDBInstancesOfferingList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ReservedDBInstancesOfferingList",
       "legacyAlias": "Get-RDSReservedDBInstancesOfferings",
-      "metadataOutputProperties": "",
       "pipelineProperty": "ReservedDBInstancesOfferingId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReservedDBInstancesOfferings",
         "ConfirmImpactSetting": "Medium",
@@ -1871,25 +1407,12 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeSourceRegions": {
       "verb": "Get",
-      "noun": "RDSSourceRegion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SourceRegion",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SourceRegions",
         "ConfirmImpactSetting": "Medium",
@@ -1902,25 +1425,12 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeValidDBInstanceModifications": {
       "verb": "Get",
-      "noun": "RDSValidDBInstanceModification",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ValidDBInstanceModification",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ValidDBInstanceModifications",
         "ConfirmImpactSetting": "Medium",
@@ -1933,31 +1443,22 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DownloadDBLogFilePortion": {
       "verb": "Get",
-      "noun": "RDSDBLogFilePortion",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Response",
-      "legacyPositionalParameters": "LogFileName",
+      "noun": "DBLogFilePortion",
       "customParameters": [
         {
           "name": "NumberOfLines",
           "autoRename": "false"
         }
       ],
+      "legacyPositionalParameters": [
+        "LogFileName"
+      ],
+      "output": "Response",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBLogFilePortion",
         "ConfirmImpactSetting": "Medium",
@@ -1970,25 +1471,12 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "FailoverDBCluster": {
       "verb": "Start",
-      "noun": "RDSDBClusterFailover",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DBClusterFailover",
       "shouldProcessTargetProperty": "DBClusterIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBCluster",
@@ -2007,20 +1495,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DBClusterIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListTagsForResource": {
       "verb": "Get",
-      "noun": "RDSTagForResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TagForResource",
       "pipelineProperty": "ResourceName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForResource",
         "ConfirmImpactSetting": "Medium",
@@ -2033,25 +1514,12 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyDBCluster": {
       "verb": "Edit",
-      "noun": "RDSDBCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DBCluster",
       "shouldProcessTargetProperty": "DBClusterIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBCluster",
@@ -2070,20 +1538,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DBClusterIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyDBClusterParameterGroup": {
       "verb": "Edit",
-      "noun": "RDSDBClusterParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBClusterParameterGroup",
+      "legacyPositionalParameters": [
+        "Parameters"
+      ],
       "pipelineProperty": "DBClusterParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "Parameters",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBClusterParameterGroup",
         "ConfirmImpactSetting": "Medium",
@@ -2101,20 +1565,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBClusterParameterGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyDBClusterSnapshotAttribute": {
       "verb": "Edit",
-      "noun": "RDSDBClusterSnapshotAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DBClusterSnapshotAttribute",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBClusterSnapshotAttribute",
         "ConfirmImpactSetting": "Medium",
@@ -2132,20 +1588,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AttributeName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyDBInstance": {
       "verb": "Edit",
-      "noun": "RDSDBInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DBInstance",
       "shouldProcessTargetProperty": "DBInstanceIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBInstance",
@@ -2164,20 +1612,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DBInstanceIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyDBParameterGroup": {
       "verb": "Edit",
-      "noun": "RDSDBParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBParameterGroup",
+      "legacyPositionalParameters": [
+        "Parameters"
+      ],
       "pipelineProperty": "DBParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "Parameters",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBParameterGroup",
         "ConfirmImpactSetting": "Medium",
@@ -2195,20 +1639,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBParameterGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyDBSnapshot": {
       "verb": "Edit",
-      "noun": "RDSDBSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBSnapshot",
       "pipelineProperty": "DBSnapshotIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBSnapshot",
         "ConfirmImpactSetting": "Medium",
@@ -2226,20 +1663,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "OptionGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyDBSnapshotAttribute": {
       "verb": "Edit",
-      "noun": "RDSDBSnapshotAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBSnapshotAttribute",
       "pipelineProperty": "DBSnapshotIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBSnapshotAttribute",
         "ConfirmImpactSetting": "Medium",
@@ -2257,20 +1687,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AttributeName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyDBSubnetGroup": {
       "verb": "Edit",
-      "noun": "RDSDBSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBSubnetGroup",
+      "legacyPositionalParameters": [
+        "DBSubnetGroupDescription",
+        "SubnetIds"
+      ],
       "pipelineProperty": "DBSubnetGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "DBSubnetGroupDescription;SubnetIds",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBSubnetGroup",
         "ConfirmImpactSetting": "Medium",
@@ -2288,20 +1715,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBSubnetGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyEventSubscription": {
       "verb": "Edit",
-      "noun": "RDSEventSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EventSubscription",
+      "legacyPositionalParameters": [
+        "SnsTopicArn"
+      ],
       "pipelineProperty": "SubscriptionName",
-      "output": "Default",
-      "legacyPositionalParameters": "SnsTopicArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSubscription",
         "ConfirmImpactSetting": "Medium",
@@ -2319,20 +1742,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubscriptionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyOptionGroup": {
       "verb": "Edit",
-      "noun": "RDSOptionGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OptionGroup",
+      "legacyPositionalParameters": [
+        "ApplyImmediately"
+      ],
       "pipelineProperty": "OptionGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "ApplyImmediately",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OptionGroup",
         "ConfirmImpactSetting": "Medium",
@@ -2350,20 +1769,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "OptionGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PromoteReadReplica": {
       "verb": "Convert",
-      "noun": "RDSReadReplicaToStandalone",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ReadReplicaToStandalone",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReadReplica",
         "ConfirmImpactSetting": "Medium",
@@ -2381,20 +1792,13 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBInstanceIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PromoteReadReplicaDBCluster": {
       "verb": "Convert",
-      "noun": "RDSReadReplicaDBCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReadReplicaDBCluster",
       "pipelineProperty": "DBClusterIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReadReplicaDBCluster",
         "ConfirmImpactSetting": "Medium",
@@ -2412,20 +1816,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBClusterIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PurchaseReservedDBInstancesOffering": {
       "verb": "Get",
-      "noun": "RDSReservedDBInstancesOffering",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReservedDBInstancesOffering",
       "pipelineProperty": "ReservedDBInstancesOfferingId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReservedDBInstancesOffering",
         "ConfirmImpactSetting": "Medium",
@@ -2438,25 +1835,12 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RebootDBInstance": {
       "verb": "Restart",
-      "noun": "RDSDBInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DBInstance",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBInstance",
         "ConfirmImpactSetting": "Medium",
@@ -2474,20 +1858,17 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBInstanceIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveRoleFromDBCluster": {
       "verb": "Remove",
-      "noun": "RDSRoleFromDBCluster",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RoleFromDBCluster",
+      "legacyPositionalParameters": [
+        "RoleArn"
+      ],
       "pipelineProperty": "DBClusterIdentifier",
       "output": "Void",
-      "legacyPositionalParameters": "RoleArn",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RoleFromDBCluster",
         "ConfirmImpactSetting": "High",
@@ -2505,20 +1886,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveSourceIdentifierFromSubscription": {
       "verb": "Remove",
-      "noun": "RDSSourceIdentifierFromSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SourceIdentifierFromSubscription",
+      "legacyPositionalParameters": [
+        "SourceIdentifier"
+      ],
       "pipelineProperty": "SubscriptionName",
-      "output": "Default",
-      "legacyPositionalParameters": "SourceIdentifier",
       "shouldProcessTargetProperty": "SourceIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SourceIdentifierFromSubscription",
@@ -2537,26 +1914,23 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "SourceIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveTagsFromResource": {
       "verb": "Remove",
-      "noun": "RDSTagFromResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "ResourceName",
-      "output": "Void",
-      "legacyPositionalParameters": "TagKeys",
-      "shouldProcessTargetProperty": "TagKeys",
+      "noun": "TagFromResource",
+      "legacyPositionalParameters": [
+        "TagKeys"
+      ],
       "passThru": {
         "documentation": "Returns the collection of tag keys that were removed",
         "expression": "cmdletContext.TagKeys",
         "type": null
       },
+      "pipelineProperty": "ResourceName",
+      "output": "Void",
+      "shouldProcessTargetProperty": "TagKeys",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsFromResource",
         "ConfirmImpactSetting": "High",
@@ -2574,20 +1948,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "TagKeys"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ResetDBClusterParameterGroup": {
       "verb": "Reset",
-      "noun": "RDSDBClusterParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBClusterParameterGroup",
+      "legacyPositionalParameters": [
+        "Parameters"
+      ],
       "pipelineProperty": "DBClusterParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "Parameters",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBClusterParameterGroup",
         "ConfirmImpactSetting": "Medium",
@@ -2605,20 +1975,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBClusterParameterGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ResetDBParameterGroup": {
       "verb": "Reset",
-      "noun": "RDSDBParameterGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBParameterGroup",
       "pipelineProperty": "DBParameterGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBParameterGroup",
         "ConfirmImpactSetting": "Medium",
@@ -2636,20 +1999,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBParameterGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RestoreDBClusterFromS3": {
       "verb": "Restore",
-      "noun": "RDSDBClusterFromS3",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBClusterFromS3",
       "pipelineProperty": "DBClusterIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DBClusterIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBClusterFromS3",
@@ -2668,20 +2024,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DBClusterIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RestoreDBClusterFromSnapshot": {
       "verb": "Restore",
-      "noun": "RDSDBClusterFromSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBClusterFromSnapshot",
       "pipelineProperty": "DBClusterIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DBClusterIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBClusterFromSnapshot",
@@ -2700,20 +2049,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DBClusterIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RestoreDBClusterToPointInTime": {
       "verb": "Restore",
-      "noun": "RDSDBClusterToPointInTime",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBClusterToPointInTime",
       "pipelineProperty": "DBClusterIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "DBClusterIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBClusterToPointInTime",
@@ -2732,20 +2074,15 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DBClusterIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RestoreDBInstanceFromDBSnapshot": {
       "verb": "Restore",
-      "noun": "RDSDBInstanceFromDBSnapshot",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "DBSnapshotIdentifier",
+      "noun": "DBInstanceFromDBSnapshot",
+      "legacyPositionalParameters": [
+        "DBSnapshotIdentifier"
+      ],
       "shouldProcessTargetProperty": "DBInstanceIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBInstanceFromDBSnapshot",
@@ -2764,20 +2101,12 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DBInstanceIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RestoreDBInstanceFromS3": {
       "verb": "Restore",
-      "noun": "RDSDBInstanceFromS3",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DBInstanceFromS3",
       "shouldProcessTargetProperty": "DBInstanceIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBInstanceFromS3",
@@ -2796,20 +2125,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "DBInstanceIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RestoreDBInstanceToPointInTime": {
       "verb": "Restore",
-      "noun": "RDSDBInstanceToPointInTime",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBInstanceToPointInTime",
+      "legacyPositionalParameters": [
+        "TargetDBInstanceIdentifier"
+      ],
       "pipelineProperty": "SourceDBInstanceIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": "TargetDBInstanceIdentifier",
       "shouldProcessTargetProperty": "SourceDBInstanceIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBInstanceToPointInTime",
@@ -2828,20 +2153,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "SourceDBInstanceIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RevokeDBSecurityGroupIngress": {
       "verb": "Revoke",
-      "noun": "RDSDBSecurityGroupIngress",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "DBSecurityGroupIngress",
+      "legacyPositionalParameters": [
+        "CIDRIP"
+      ],
       "pipelineProperty": "DBSecurityGroupName",
-      "output": "Default",
-      "legacyPositionalParameters": "CIDRIP",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBSecurityGroupIngress",
         "ConfirmImpactSetting": "Medium",
@@ -2859,20 +2180,12 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBSecurityGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartDBInstance": {
       "verb": "Start",
-      "noun": "RDSDBInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DBInstance",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBInstance",
         "ConfirmImpactSetting": "Medium",
@@ -2890,20 +2203,12 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBInstanceIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopDBInstance": {
       "verb": "Stop",
-      "noun": "RDSDBInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "DBInstance",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DBInstance",
         "ConfirmImpactSetting": "Medium",
@@ -2921,8 +2226,7 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBInstanceIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

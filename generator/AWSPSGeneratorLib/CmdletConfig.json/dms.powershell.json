@@ -1,6 +1,19 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
+  "defaultPaginationSettings": {
+    "excludedOperations": [
+      "DescribeTableStatistics",
+      "DescribeReplicationTaskAssessmentResults"
+    ],
+    "requestTokenMember": "Marker",
+    "responseTokenMember": "Marker",
+    "resultLimitMember": "MaxRecords",
+    "servicePageSize": 100
+  },
+  "defaultPipelineProperty": "EndpointArn",
+  "legacyCmdletPrefix": "DMS",
+  "nounMappings": {
+    "Certificates": "Certificate"
+  },
   "pipelineByValuePropertyNames": [
     "EndpointArn",
     "EndpointIdentifier",
@@ -13,38 +26,15 @@
     "ReplicationSubnetGroupName",
     "ReplicationTaskArn"
   ],
-  "defaultPipelineProperty": "EndpointArn",
+  "sdkServiceClientClass": "AmazonDatabaseMigrationServiceClient",
+  "sdkServiceConfigClass": "AmazonDatabaseMigrationServiceConfig",
   "sdkServiceNamespace": "Amazon.DatabaseMigrationService",
-  "sdkServiceClient": "AmazonDatabaseMigrationServiceClient",
-  "sdkServiceClientConfig": "AmazonDatabaseMigrationServiceConfig",
-  "legacyCmdletPrefix": "DMS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "Marker",
-    "responseTokenMember": "Marker",
-    "resultLimitMember": "MaxRecords",
-    "servicePageSize": 100,
-    "excludedOperations": [
-      "DescribeTableStatistics",
-      "DescribeReplicationTaskAssessmentResults"
-    ]
-  },
-  "nounMappings": {
-    "Certificates": "Certificate"
-  },
-  "verbMappings": {},
   "serviceOperations": {
     "AddTagsToResource": {
       "verb": "Set",
-      "noun": "DMSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsToResource",
         "ConfirmImpactSetting": "Medium",
@@ -54,33 +44,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateEndpoint": {
       "verb": "New",
-      "noun": "DMSEndpoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Endpoint",
       "pipelineProperty": "EndpointIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "EndpointIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Endpoint",
@@ -91,33 +74,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "EndpointIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateEventSubscription": {
       "verb": "New",
-      "noun": "DMSEventSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EventSubscription",
       "pipelineProperty": "SubscriptionName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSubscription",
         "ConfirmImpactSetting": "Medium",
@@ -127,33 +103,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubscriptionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateReplicationInstance": {
       "verb": "New",
-      "noun": "DMSReplicationInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReplicationInstance",
       "pipelineProperty": "ReplicationInstanceIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "ReplicationInstanceIdentifier",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationInstance",
@@ -164,33 +133,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ReplicationInstanceIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateReplicationSubnetGroup": {
       "verb": "New",
-      "noun": "DMSReplicationSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReplicationSubnetGroup",
       "pipelineProperty": "ReplicationSubnetGroupIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationSubnetGroup",
         "ConfirmImpactSetting": "Medium",
@@ -200,33 +162,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubnetIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateReplicationTask": {
       "verb": "New",
-      "noun": "DMSReplicationTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReplicationTask",
       "pipelineProperty": "ReplicationInstanceArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationTask",
         "ConfirmImpactSetting": "Medium",
@@ -236,33 +191,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ReplicationInstanceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteCertificate": {
       "verb": "Remove",
-      "noun": "DMSCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Certificate",
       "pipelineProperty": "CertificateArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Certificate",
         "ConfirmImpactSetting": "High",
@@ -272,33 +220,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CertificateArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteEndpoint": {
       "verb": "Remove",
-      "noun": "DMSEndpoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Endpoint",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Endpoint",
         "ConfirmImpactSetting": "High",
@@ -308,33 +248,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EndpointArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteEventSubscription": {
       "verb": "Remove",
-      "noun": "DMSEventSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EventSubscription",
       "pipelineProperty": "SubscriptionName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSubscription",
         "ConfirmImpactSetting": "High",
@@ -344,33 +277,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubscriptionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteReplicationInstance": {
       "verb": "Remove",
-      "noun": "DMSReplicationInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReplicationInstance",
       "pipelineProperty": "ReplicationInstanceArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationInstance",
         "ConfirmImpactSetting": "High",
@@ -380,33 +306,27 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ReplicationInstanceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteReplicationSubnetGroup": {
       "verb": "Remove",
-      "noun": "DMSReplicationSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReplicationSubnetGroup",
       "pipelineProperty": "ReplicationSubnetGroupIdentifier",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationSubnetGroup",
         "ConfirmImpactSetting": "High",
@@ -416,33 +336,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ReplicationSubnetGroupIdentifier"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteReplicationTask": {
       "verb": "Remove",
-      "noun": "DMSReplicationTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReplicationTask",
       "pipelineProperty": "ReplicationTaskArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationTask",
         "ConfirmImpactSetting": "High",
@@ -452,33 +365,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ReplicationTaskArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAccountAttributes": {
       "verb": "Get",
-      "noun": "DMSAccountAttribute",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AccountAttribute",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountAttributes",
         "ConfirmImpactSetting": "Medium",
@@ -488,33 +393,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeCertificates": {
       "verb": "Get",
-      "noun": "DMSCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Certificate",
       "pipelineProperty": "Filters",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Certificates",
         "ConfirmImpactSetting": "Medium",
@@ -524,33 +417,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeConnections": {
       "verb": "Get",
-      "noun": "DMSConnection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Connection",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Connections",
         "ConfirmImpactSetting": "Medium",
@@ -560,33 +441,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeEndpoints": {
       "verb": "Get",
-      "noun": "DMSEndpoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Endpoint",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Endpoints",
         "ConfirmImpactSetting": "Medium",
@@ -596,33 +465,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeEndpointTypes": {
       "verb": "Get",
-      "noun": "DMSEndpointType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EndpointType",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EndpointTypes",
         "ConfirmImpactSetting": "Medium",
@@ -632,33 +489,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeEventCategories": {
       "verb": "Get",
-      "noun": "DMSEventCategory",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EventCategory",
       "pipelineProperty": "SourceType",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventCategories",
         "ConfirmImpactSetting": "Medium",
@@ -668,33 +513,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeEvents": {
       "verb": "Get",
-      "noun": "DMSEvent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Event",
       "pipelineProperty": "SourceIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Events",
         "ConfirmImpactSetting": "Medium",
@@ -704,33 +537,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeEventSubscriptions": {
       "verb": "Get",
-      "noun": "DMSEventSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EventSubscription",
       "pipelineProperty": "SubscriptionName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSubscriptions",
         "ConfirmImpactSetting": "Medium",
@@ -740,33 +561,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeOrderableReplicationInstances": {
       "verb": "Get",
-      "noun": "DMSOrderableReplicationInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "OrderableReplicationInstance",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OrderableReplicationInstances",
         "ConfirmImpactSetting": "Medium",
@@ -776,33 +585,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeRefreshSchemasStatus": {
       "verb": "Get",
-      "noun": "DMSRefreshSchemasStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "RefreshSchemasStatus",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RefreshSchemasStatus",
         "ConfirmImpactSetting": "Medium",
@@ -812,33 +608,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeReplicationInstances": {
       "verb": "Get",
-      "noun": "DMSReplicationInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReplicationInstance",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationInstances",
         "ConfirmImpactSetting": "Medium",
@@ -848,33 +632,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeReplicationSubnetGroups": {
       "verb": "Get",
-      "noun": "DMSReplicationSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReplicationSubnetGroup",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationSubnetGroups",
         "ConfirmImpactSetting": "Medium",
@@ -884,33 +656,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeReplicationTaskAssessmentResults": {
       "verb": "Get",
-      "noun": "DMSReplicationTaskAssessmentResult",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReplicationTaskAssessmentResult",
       "pipelineProperty": "ReplicationTaskArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationTaskAssessmentResults",
         "ConfirmImpactSetting": "Medium",
@@ -920,33 +681,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeReplicationTasks": {
       "verb": "Get",
-      "noun": "DMSReplicationTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReplicationTask",
       "noPipelineProperty": "true",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationTasks",
         "ConfirmImpactSetting": "Medium",
@@ -956,33 +705,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeSchemas": {
       "verb": "Get",
-      "noun": "DMSSchema",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Schema",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Schemas",
         "ConfirmImpactSetting": "Medium",
@@ -992,33 +728,22 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
+        }
       }
     },
     "DescribeTableStatistics": {
       "verb": "Get",
-      "noun": "DMSTableStatistic",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TableStatistic",
       "pipelineProperty": "ReplicationTaskArn",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TableStatistics",
         "ConfirmImpactSetting": "Medium",
@@ -1028,33 +753,21 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
+        }
       }
     },
     "ImportCertificate": {
       "verb": "Import",
-      "noun": "DMSCertificate",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Certificate",
       "pipelineProperty": "CertificatePem",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Certificate",
         "ConfirmImpactSetting": "Medium",
@@ -1064,14 +777,14 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
@@ -1085,14 +798,8 @@
     },
     "ListTagsForResource": {
       "verb": "Get",
-      "noun": "DMSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsForResource",
         "ConfirmImpactSetting": "Medium",
@@ -1102,33 +809,20 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
+        }
       }
     },
     "ModifyEndpoint": {
       "verb": "Edit",
-      "noun": "DMSEndpoint",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Endpoint",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Endpoint",
         "ConfirmImpactSetting": "Medium",
@@ -1138,33 +832,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EndpointArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyEventSubscription": {
       "verb": "Edit",
-      "noun": "DMSEventSubscription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "EventSubscription",
       "pipelineProperty": "SubscriptionName",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "EventSubscription",
         "ConfirmImpactSetting": "Medium",
@@ -1174,33 +861,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubscriptionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyReplicationInstance": {
       "verb": "Edit",
-      "noun": "DMSReplicationInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReplicationInstance",
       "pipelineProperty": "ReplicationInstanceArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationInstance",
         "ConfirmImpactSetting": "Medium",
@@ -1210,33 +890,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ReplicationInstanceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyReplicationSubnetGroup": {
       "verb": "Edit",
-      "noun": "DMSReplicationSubnetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReplicationSubnetGroup",
       "pipelineProperty": "ReplicationSubnetGroupIdentifier",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationSubnetGroup",
         "ConfirmImpactSetting": "Medium",
@@ -1246,33 +919,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubnetIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyReplicationTask": {
       "verb": "Edit",
-      "noun": "DMSReplicationTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReplicationTask",
       "pipelineProperty": "ReplicationTaskArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationTask",
         "ConfirmImpactSetting": "Medium",
@@ -1282,33 +948,25 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ReplicationTaskArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RefreshSchemas": {
       "verb": "Invoke",
-      "noun": "DMSSchemaRefresh",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SchemaRefresh",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Schemas",
         "ConfirmImpactSetting": "Medium",
@@ -1318,33 +976,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EndpointArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ReloadTables": {
       "verb": "Restore",
-      "noun": "DMSTable",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Table",
       "pipelineProperty": "ReplicationTaskArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tables",
         "ConfirmImpactSetting": "Medium",
@@ -1354,33 +1005,27 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ReplicationTaskArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveTagsFromResource": {
       "verb": "Remove",
-      "noun": "DMSResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceTag",
       "pipelineProperty": "ResourceArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TagsFromResource",
         "ConfirmImpactSetting": "High",
@@ -1390,33 +1035,26 @@
         "PassThruTypeName": "System.String",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartReplicationTask": {
       "verb": "Start",
-      "noun": "DMSReplicationTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReplicationTask",
       "pipelineProperty": "ReplicationTaskArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationTask",
         "ConfirmImpactSetting": "Medium",
@@ -1426,33 +1064,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ReplicationTaskArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StartReplicationTaskAssessment": {
       "verb": "Start",
-      "noun": "DMSReplicationTaskAssessment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReplicationTaskAssessment",
       "pipelineProperty": "ReplicationTaskArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationTaskAssessment",
         "ConfirmImpactSetting": "Medium",
@@ -1462,33 +1093,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ReplicationTaskArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "StopReplicationTask": {
       "verb": "Stop",
-      "noun": "DMSReplicationTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ReplicationTask",
       "pipelineProperty": "ReplicationTaskArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ReplicationTask",
         "ConfirmImpactSetting": "Medium",
@@ -1498,33 +1122,26 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ReplicationTaskArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TestConnection": {
       "verb": "Test",
-      "noun": "DMSConnection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Connection",
       "pipelineProperty": "ReplicationInstanceArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Connection",
         "ConfirmImpactSetting": "Medium",
@@ -1534,21 +1151,15 @@
         "PassThruTypeName": "",
         "RequiresPassThruGeneration": "false",
         "AutoIterateSettings": {
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "servicePageSize": 100,
           "excludedOperations": [
             "DescribeTableStatistics",
             "DescribeReplicationTaskAssessmentResults"
-          ]
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+          ],
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "servicePageSize": 100
+        }
       }
     }
   }

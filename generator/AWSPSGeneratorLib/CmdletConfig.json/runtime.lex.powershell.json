@@ -1,32 +1,20 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.Lex",
-  "sdkServiceClient": "AmazonLexClient",
-  "sdkServiceClientConfig": "AmazonLexConfig",
-  "legacyCmdletPrefix": "LEX",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": null,
     "responseTokenMember": null
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "LEX",
+  "sdkServiceClientClass": "AmazonLexClient",
+  "sdkServiceConfigClass": "AmazonLexConfig",
+  "sdkServiceNamespace": "Amazon.Lex",
   "serviceOperations": {
     "PostContent": {
       "verb": "Send",
-      "noun": "LEXContent",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "suppressShouldProcessConfirmation": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Content",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
+      "suppressShouldProcessConfirmation": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Content",
         "ConfirmImpactSetting": "Medium",
@@ -38,26 +26,15 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PostText": {
       "verb": "Send",
-      "noun": "LEXText",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "suppressShouldProcessConfirmation": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Text",
       "pipelineProperty": "InputText",
       "output": "Response",
-      "legacyPositionalParameters": null,
+      "suppressShouldProcessConfirmation": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Text",
         "ConfirmImpactSetting": "Medium",
@@ -69,13 +46,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

@@ -1,28 +1,12 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "AutoScalingGroupName",
-    "LaunchConfigurationName",
-    "ImageId",
-    "TopicARN",
-    "InstanceId",
-    "PolicyName",
-    "ScheduledActionName"
-  ],
-  "defaultPipelineProperty": "AutoScalingGroupName",
-  "legacyPositionalProperties": "AutoScalingGroupName",
-  "sdkServiceNamespace": "Amazon.AutoScaling",
-  "sdkServiceClient": "AmazonAutoScalingClient",
-  "sdkServiceClientConfig": "AmazonAutoScalingConfig",
-  "legacyCmdletPrefix": "AS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxRecords"
   },
+  "defaultPipelineProperty": "AutoScalingGroupName",
+  "legacyCmdletPrefix": "AS",
+  "legacyPositionalProperties": "AutoScalingGroupName",
   "nounMappings": {
     "AdjustmentTypes": "AdjustmentType",
     "AutoScalingGroups": "AutoScalingGroup",
@@ -39,6 +23,18 @@
     "Tags": "Tag",
     "TerminationPolicyTypes": "TerminationPolicyType"
   },
+  "pipelineByValuePropertyNames": [
+    "AutoScalingGroupName",
+    "LaunchConfigurationName",
+    "ImageId",
+    "TopicARN",
+    "InstanceId",
+    "PolicyName",
+    "ScheduledActionName"
+  ],
+  "sdkServiceClientClass": "AmazonAutoScalingClient",
+  "sdkServiceConfigClass": "AmazonAutoScalingConfig",
+  "sdkServiceNamespace": "Amazon.AutoScaling",
   "verbMappings": {
     "Execute": "Start",
     "Terminate": "Stop",
@@ -47,19 +43,18 @@
   "serviceOperations": {
     "AttachInstances": {
       "verb": "Mount",
-      "noun": "ASInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Instance",
       "legacyAlias": "Add-ASInstances",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "InstanceIds",
-      "output": "Void",
-      "legacyPositionalParameters": "AutoScalingGroupName",
+      "legacyPositionalParameters": [
+        "AutoScalingGroupName"
+      ],
       "passThru": {
         "documentation": "Returns the ids of the EC2 instances that were attached",
         "expression": "cmdletContext.InstanceIds",
         "type": null
       },
+      "pipelineProperty": "InstanceIds",
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instances",
         "ConfirmImpactSetting": "Medium",
@@ -77,20 +72,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AttachLoadBalancers": {
       "verb": "Add",
-      "noun": "ASLoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoadBalancer",
       "pipelineProperty": "LoadBalancerNames",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancers",
         "ConfirmImpactSetting": "Medium",
@@ -108,20 +97,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerNames"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AttachLoadBalancerTargetGroups": {
       "verb": "Add",
-      "noun": "ASLoadBalancerTargetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LoadBalancerTargetGroup",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerTargetGroups",
         "ConfirmImpactSetting": "Medium",
@@ -139,20 +121,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AutoScalingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CompleteLifecycleAction": {
       "verb": "Complete",
-      "noun": "ASLifecycleAction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LifecycleAction",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LifecycleAction",
         "ConfirmImpactSetting": "Medium",
@@ -170,20 +145,18 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AutoScalingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateAutoScalingGroup": {
       "verb": "New",
-      "noun": "ASAutoScalingGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "AutoScalingGroup",
+      "legacyPositionalParameters": [
+        "LaunchConfigurationName",
+        "MinSize",
+        "MaxSize"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "LaunchConfigurationName;MinSize;MaxSize",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AutoScalingGroup",
         "ConfirmImpactSetting": "Medium",
@@ -201,20 +174,19 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AutoScalingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateLaunchConfiguration": {
       "verb": "New",
-      "noun": "ASLaunchConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LaunchConfiguration",
+      "legacyPositionalParameters": [
+        "ImageId",
+        "KeyName",
+        "SecurityGroups"
+      ],
       "pipelineProperty": "LaunchConfigurationName",
       "output": "Void",
-      "legacyPositionalParameters": "ImageId;KeyName;SecurityGroups",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LaunchConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -232,26 +204,20 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LaunchConfigurationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateOrUpdateTags": {
       "verb": "Set",
-      "noun": "ASTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "Tags",
-      "output": "Void",
-      "legacyPositionalParameters": null,
-      "shouldProcessTargetProperty": "Tags",
+      "noun": "Tag",
       "passThru": {
         "documentation": "Returns the collection of Tag objects that were created or updated",
         "expression": "cmdletContext.Tags",
         "type": null
       },
+      "pipelineProperty": "Tags",
+      "output": "Void",
+      "shouldProcessTargetProperty": "Tags",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "OrUpdateTags",
         "ConfirmImpactSetting": "Medium",
@@ -269,20 +235,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Tags"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteAutoScalingGroup": {
       "verb": "Remove",
-      "noun": "ASAutoScalingGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "AutoScalingGroup",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "AutoScalingGroupName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AutoScalingGroup",
@@ -301,20 +260,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "AutoScalingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteLaunchConfiguration": {
       "verb": "Remove",
-      "noun": "ASLaunchConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LaunchConfiguration",
       "pipelineProperty": "LaunchConfigurationName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LaunchConfiguration",
         "ConfirmImpactSetting": "High",
@@ -332,20 +285,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LaunchConfigurationName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteLifecycleHook": {
       "verb": "Remove",
-      "noun": "ASLifecycleHook",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LifecycleHook",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "LifecycleHookName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LifecycleHook",
@@ -364,20 +310,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "LifecycleHookName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteNotificationConfiguration": {
       "verb": "Remove",
-      "noun": "ASNotificationConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "NotificationConfiguration",
+      "legacyPositionalParameters": [
+        "TopicARN"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "TopicARN",
       "shouldProcessTargetProperty": "TopicARN",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NotificationConfiguration",
@@ -396,27 +338,25 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "TopicARN"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeletePolicy": {
       "verb": "Remove",
-      "noun": "ASPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Void",
-      "legacyPositionalParameters": "PolicyName",
-      "shouldProcessTargetProperty": "PolicyName",
+      "noun": "Policy",
       "customParameters": [
         {
           "name": "PolicyName",
-          "aliases": "PolicyARN"
+          "aliases": [
+            "PolicyARN"
+          ]
         }
       ],
+      "legacyPositionalParameters": [
+        "PolicyName"
+      ],
+      "output": "Void",
+      "shouldProcessTargetProperty": "PolicyName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Policy",
         "ConfirmImpactSetting": "High",
@@ -434,20 +374,16 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteScheduledAction": {
       "verb": "Remove",
-      "noun": "ASScheduledAction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ScheduledAction",
+      "legacyPositionalParameters": [
+        "ScheduledActionName"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "ScheduledActionName",
       "shouldProcessTargetProperty": "ScheduledActionName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScheduledAction",
@@ -466,20 +402,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "ScheduledActionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteTags": {
       "verb": "Remove",
-      "noun": "ASTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Tag",
       "pipelineProperty": "Tags",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Tags",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
@@ -498,20 +428,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Tags"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAccountLimits": {
       "verb": "Get",
-      "noun": "ASAccountLimit",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "AccountLimit",
       "legacyAlias": "Get-ASAccountLimits",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AccountLimits",
         "ConfirmImpactSetting": "Medium",
@@ -524,25 +448,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAdjustmentTypes": {
       "verb": "Get",
-      "noun": "ASAdjustmentType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AdjustmentType",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AdjustmentTypes",
         "ConfirmImpactSetting": "Medium",
@@ -555,25 +466,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAutoScalingGroups": {
       "verb": "Get",
-      "noun": "ASAutoScalingGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AutoScalingGroup",
       "pipelineProperty": "AutoScalingGroupNames",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AutoScalingGroups",
         "ConfirmImpactSetting": "Medium",
@@ -586,25 +485,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAutoScalingInstances": {
       "verb": "Get",
-      "noun": "ASAutoScalingInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AutoScalingInstance",
       "pipelineProperty": "InstanceIds",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AutoScalingInstances",
         "ConfirmImpactSetting": "Medium",
@@ -617,25 +504,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAutoScalingNotificationTypes": {
       "verb": "Get",
-      "noun": "ASAutoScalingNotificationType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "AutoScalingNotificationType",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AutoScalingNotificationTypes",
         "ConfirmImpactSetting": "Medium",
@@ -648,25 +522,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeLaunchConfigurations": {
       "verb": "Get",
-      "noun": "ASLaunchConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LaunchConfiguration",
       "pipelineProperty": "LaunchConfigurationNames",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LaunchConfigurations",
         "ConfirmImpactSetting": "Medium",
@@ -679,25 +541,16 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeLifecycleHooks": {
       "verb": "Get",
-      "noun": "ASLifecycleHook",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "LifecycleHook",
       "legacyAlias": "Get-ASLifecycleHooks",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "LifecycleHookNames",
+      "legacyPositionalParameters": [
+        "LifecycleHookNames"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LifecycleHooks",
         "ConfirmImpactSetting": "Medium",
@@ -710,25 +563,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeLifecycleHookTypes": {
       "verb": "Get",
-      "noun": "ASLifecycleHookType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "LifecycleHookType",
       "legacyAlias": "Get-ASLifecycleHookTypes",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LifecycleHookTypes",
         "ConfirmImpactSetting": "Medium",
@@ -741,25 +582,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeLoadBalancers": {
       "verb": "Get",
-      "noun": "ASLoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "LoadBalancer",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancers",
         "ConfirmImpactSetting": "Medium",
@@ -772,25 +600,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeLoadBalancerTargetGroups": {
       "verb": "Get",
-      "noun": "ASLoadBalancerTargetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "LoadBalancerTargetGroup",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerTargetGroups",
         "ConfirmImpactSetting": "Medium",
@@ -803,25 +618,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeMetricCollectionTypes": {
       "verb": "Get",
-      "noun": "ASMetricCollectionType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "MetricCollectionType",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MetricCollectionTypes",
         "ConfirmImpactSetting": "Medium",
@@ -834,25 +637,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeNotificationConfigurations": {
       "verb": "Get",
-      "noun": "ASNotificationConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "NotificationConfiguration",
       "pipelineProperty": "AutoScalingGroupNames",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NotificationConfigurations",
         "ConfirmImpactSetting": "Medium",
@@ -865,25 +656,15 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribePolicies": {
       "verb": "Get",
-      "noun": "ASPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "PolicyNames",
+      "noun": "Policy",
+      "legacyPositionalParameters": [
+        "PolicyNames"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Policies",
         "ConfirmImpactSetting": "Medium",
@@ -896,25 +677,15 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeScalingActivities": {
       "verb": "Get",
-      "noun": "ASScalingActivity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "ActivityIds",
+      "noun": "ScalingActivity",
+      "legacyPositionalParameters": [
+        "ActivityIds"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScalingActivities",
         "ConfirmImpactSetting": "Medium",
@@ -927,25 +698,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeScalingProcessTypes": {
       "verb": "Get",
-      "noun": "ASScalingProcessType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ScalingProcessType",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScalingProcessTypes",
         "ConfirmImpactSetting": "Medium",
@@ -958,25 +716,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeScheduledActions": {
       "verb": "Get",
-      "noun": "ASScheduledAction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ScheduledAction",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScheduledActions",
         "ConfirmImpactSetting": "Medium",
@@ -989,25 +734,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTags": {
       "verb": "Get",
-      "noun": "ASTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Tag",
       "pipelineProperty": "Filters",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -1020,25 +753,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTerminationPolicyTypes": {
       "verb": "Get",
-      "noun": "ASTerminationPolicyType",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "TerminationPolicyType",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TerminationPolicyTypes",
         "ConfirmImpactSetting": "Medium",
@@ -1051,25 +771,17 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxRecords"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DetachInstances": {
       "verb": "Dismount",
-      "noun": "ASInstance",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Instance",
       "legacyAlias": "Dismount-ASInstances",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "AutoScalingGroupName"
+      ],
       "pipelineProperty": "InstanceIds",
-      "output": "Default",
-      "legacyPositionalParameters": "AutoScalingGroupName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Instances",
         "ConfirmImpactSetting": "Medium",
@@ -1087,20 +799,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DetachLoadBalancers": {
       "verb": "Dismount",
-      "noun": "ASLoadBalancer",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "LoadBalancer",
       "pipelineProperty": "LoadBalancerNames",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancers",
         "ConfirmImpactSetting": "Medium",
@@ -1118,20 +824,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerNames"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DetachLoadBalancerTargetGroups": {
       "verb": "Dismount",
-      "noun": "ASLoadBalancerTargetGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LoadBalancerTargetGroup",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoadBalancerTargetGroups",
         "ConfirmImpactSetting": "Medium",
@@ -1149,20 +848,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AutoScalingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisableMetricsCollection": {
       "verb": "Disable",
-      "noun": "ASMetricsCollection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "MetricsCollection",
+      "legacyPositionalParameters": [
+        "Metrics"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "Metrics",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MetricsCollection",
         "ConfirmImpactSetting": "Medium",
@@ -1180,20 +875,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AutoScalingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "EnableMetricsCollection": {
       "verb": "Enable",
-      "noun": "ASMetricsCollection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "MetricsCollection",
+      "legacyPositionalParameters": [
+        "Metrics",
+        "Granularity"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "Metrics;Granularity",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MetricsCollection",
         "ConfirmImpactSetting": "Medium",
@@ -1211,20 +903,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AutoScalingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "EnterStandby": {
       "verb": "Enter",
-      "noun": "ASStandby",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Standby",
+      "legacyPositionalParameters": [
+        "AutoScalingGroupName",
+        "ShouldDecrementDesiredCapacity"
+      ],
       "pipelineProperty": "InstanceIds",
-      "output": "Default",
-      "legacyPositionalParameters": "AutoScalingGroupName;ShouldDecrementDesiredCapacity",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Standby",
         "ConfirmImpactSetting": "Medium",
@@ -1242,20 +931,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ExecutePolicy": {
       "verb": "Start",
-      "noun": "ASPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Policy",
+      "legacyPositionalParameters": [
+        "PolicyName",
+        "HonorCooldown"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "PolicyName;HonorCooldown",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Policy",
         "ConfirmImpactSetting": "Medium",
@@ -1273,20 +959,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AutoScalingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ExitStandby": {
       "verb": "Exit",
-      "noun": "ASStandby",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Standby",
+      "legacyPositionalParameters": [
+        "AutoScalingGroupName"
+      ],
       "pipelineProperty": "InstanceIds",
-      "output": "Default",
-      "legacyPositionalParameters": "AutoScalingGroupName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Standby",
         "ConfirmImpactSetting": "Medium",
@@ -1304,20 +986,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceIds"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutLifecycleHook": {
       "verb": "Write",
-      "noun": "ASLifecycleHook",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LifecycleHook",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LifecycleHook",
         "ConfirmImpactSetting": "Medium",
@@ -1335,20 +1010,17 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AutoScalingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutNotificationConfiguration": {
       "verb": "Write",
-      "noun": "ASNotificationConfiguration",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "NotificationConfiguration",
+      "legacyPositionalParameters": [
+        "TopicARN",
+        "NotificationTypes"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "TopicARN;NotificationTypes",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "NotificationConfiguration",
         "ConfirmImpactSetting": "Medium",
@@ -1366,20 +1038,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AutoScalingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutScalingPolicy": {
       "verb": "Write",
-      "noun": "ASScalingPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ScalingPolicy",
+      "legacyPositionalParameters": [
+        "PolicyName"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "PolicyName",
       "shouldProcessTargetProperty": "AutoScalingGroupName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScalingPolicy",
@@ -1398,20 +1066,18 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "AutoScalingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutScheduledUpdateGroupAction": {
       "verb": "Write",
-      "noun": "ASScheduledUpdateGroupAction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ScheduledUpdateGroupAction",
+      "legacyPositionalParameters": [
+        "ScheduledActionName",
+        "StartTime",
+        "EndTime"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "ScheduledActionName;StartTime;EndTime",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScheduledUpdateGroupAction",
         "ConfirmImpactSetting": "Medium",
@@ -1429,20 +1095,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AutoScalingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RecordLifecycleActionHeartbeat": {
       "verb": "Write",
-      "noun": "ASLifecycleActionHeartbeat",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "LifecycleActionHeartbeat",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LifecycleActionHeartbeat",
         "ConfirmImpactSetting": "Medium",
@@ -1460,20 +1119,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AutoScalingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ResumeProcesses": {
       "verb": "Resume",
-      "noun": "ASProcess",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Process",
+      "legacyPositionalParameters": [
+        "ScalingProcesses"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "ScalingProcesses",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Processes",
         "ConfirmImpactSetting": "Medium",
@@ -1491,20 +1146,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AutoScalingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetDesiredCapacity": {
       "verb": "Set",
-      "noun": "ASDesiredCapacity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "DesiredCapacity",
+      "legacyPositionalParameters": [
+        "DesiredCapacity",
+        "HonorCooldown"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "DesiredCapacity;HonorCooldown",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "DesiredCapacity",
         "ConfirmImpactSetting": "Medium",
@@ -1522,20 +1174,18 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AutoScalingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetInstanceHealth": {
       "verb": "Set",
-      "noun": "ASInstanceHealth",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceHealth",
+      "legacyPositionalParameters": [
+        "HealthStatus",
+        "ShouldRespectGracePeriod"
+      ],
       "pipelineProperty": "InstanceId",
       "output": "Void",
-      "legacyPositionalParameters": "HealthStatus;ShouldRespectGracePeriod",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceHealth",
         "ConfirmImpactSetting": "Medium",
@@ -1553,20 +1203,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetInstanceProtection": {
       "verb": "Set",
-      "noun": "ASInstanceProtection",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "InstanceProtection",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceProtection",
         "ConfirmImpactSetting": "Medium",
@@ -1584,20 +1227,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AutoScalingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SuspendProcesses": {
       "verb": "Suspend",
-      "noun": "ASProcess",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Process",
+      "legacyPositionalParameters": [
+        "ScalingProcesses"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "ScalingProcesses",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Processes",
         "ConfirmImpactSetting": "Medium",
@@ -1615,20 +1254,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AutoScalingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "TerminateInstanceInAutoScalingGroup": {
       "verb": "Stop",
-      "noun": "ASInstanceInAutoScalingGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "InstanceInAutoScalingGroup",
+      "legacyPositionalParameters": [
+        "ShouldDecrementDesiredCapacity"
+      ],
       "pipelineProperty": "InstanceId",
-      "output": "Default",
-      "legacyPositionalParameters": "ShouldDecrementDesiredCapacity",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "InstanceInAutoScalingGroup",
         "ConfirmImpactSetting": "Medium",
@@ -1646,20 +1281,19 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateAutoScalingGroup": {
       "verb": "Update",
-      "noun": "ASAutoScalingGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "AutoScalingGroup",
+      "legacyPositionalParameters": [
+        "LaunchConfigurationName",
+        "MinSize",
+        "MaxSize",
+        "DesiredCapacity"
+      ],
       "output": "Void",
-      "legacyPositionalParameters": "LaunchConfigurationName;MinSize;MaxSize;DesiredCapacity",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AutoScalingGroup",
         "ConfirmImpactSetting": "Medium",
@@ -1677,8 +1311,7 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AutoScalingGroupName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

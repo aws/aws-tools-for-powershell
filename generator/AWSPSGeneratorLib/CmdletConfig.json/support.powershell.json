@@ -1,38 +1,27 @@
 {
-  "additionalNamespaces": [],
-  "regionFallback": "us-east-1",
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [
-    "CaseId",
-    "DisplayId",
-    "CheckId"
-  ],
-  "defaultPipelineProperty": "CaseId",
-  "legacyPositionalProperties": "CaseId",
-  "sdkServiceNamespace": "Amazon.AWSSupport",
-  "sdkServiceClient": "AmazonAWSSupportClient",
-  "sdkServiceClientConfig": "AmazonAWSSupportConfig",
-  "legacyCmdletPrefix": "ASA",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "CaseId",
+  "legacyCmdletPrefix": "ASA",
+  "legacyPositionalProperties": "CaseId",
+  "pipelineByValuePropertyNames": [
+    "CaseId",
+    "DisplayId",
+    "CheckId"
+  ],
+  "regionFallback": "us-east-1",
+  "sdkServiceClientClass": "AmazonAWSSupportClient",
+  "sdkServiceConfigClass": "AmazonAWSSupportConfig",
+  "sdkServiceNamespace": "Amazon.AWSSupport",
   "serviceOperations": {
     "AddAttachmentsToSet": {
       "verb": "Add",
-      "noun": "ASAAttachmentsToSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "AttachmentsToSet",
       "pipelineProperty": "AttachmentSetId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AttachmentsToSet",
         "ConfirmImpactSetting": "Medium",
@@ -50,20 +39,16 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AttachmentSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddCommunicationToCase": {
       "verb": "Add",
-      "noun": "ASACommunicationToCase",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "CommunicationBody;CcEmailAddresses",
+      "noun": "CommunicationToCase",
+      "legacyPositionalParameters": [
+        "CommunicationBody",
+        "CcEmailAddresses"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CommunicationToCase",
         "ConfirmImpactSetting": "Medium",
@@ -81,20 +66,19 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CaseId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateCase": {
       "verb": "New",
-      "noun": "ASACase",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Case",
+      "legacyPositionalParameters": [
+        "ServiceCode",
+        "SeverityCode",
+        "CategoryCode",
+        "CommunicationBody"
+      ],
       "pipelineProperty": "Subject",
-      "output": "Default",
-      "legacyPositionalParameters": "ServiceCode;SeverityCode;CategoryCode;CommunicationBody",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Case",
         "ConfirmImpactSetting": "Medium",
@@ -112,20 +96,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AttachmentSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeAttachment": {
       "verb": "Get",
-      "noun": "ASAAttachment",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Attachment",
       "pipelineProperty": "AttachmentId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Attachment",
         "ConfirmImpactSetting": "Medium",
@@ -138,25 +115,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeCases": {
       "verb": "Get",
-      "noun": "ASACase",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Case",
       "legacyAlias": "Get-ASACases",
-      "metadataOutputProperties": "",
       "pipelineProperty": "CaseIdList",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Cases",
         "ConfirmImpactSetting": "Medium",
@@ -169,25 +135,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeCommunications": {
       "verb": "Get",
-      "noun": "ASACommunication",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Communication",
       "legacyAlias": "Get-ASACommunications",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Communications",
         "ConfirmImpactSetting": "Medium",
@@ -200,25 +154,17 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeServices": {
       "verb": "Get",
-      "noun": "ASAService",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "Service",
       "legacyAlias": "Get-ASAServices",
-      "metadataOutputProperties": "",
+      "legacyPositionalParameters": [
+        "Language"
+      ],
       "pipelineProperty": "ServiceCodeList",
-      "output": "Default",
-      "legacyPositionalParameters": "Language",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Services",
         "ConfirmImpactSetting": "Medium",
@@ -231,25 +177,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeSeverityLevels": {
       "verb": "Get",
-      "noun": "ASASeverityLevel",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "SeverityLevel",
       "legacyAlias": "Get-ASASeverityLevels",
-      "metadataOutputProperties": "",
       "pipelineProperty": "Language",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SeverityLevels",
         "ConfirmImpactSetting": "Medium",
@@ -262,25 +197,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTrustedAdvisorCheckRefreshStatuses": {
       "verb": "Get",
-      "noun": "ASATrustedAdvisorCheckRefreshStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "TrustedAdvisorCheckRefreshStatus",
       "legacyAlias": "Get-ASATrustedAdvisorCheckRefreshStatuses",
-      "metadataOutputProperties": "",
       "pipelineProperty": "CheckIds",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TrustedAdvisorCheckRefreshStatuses",
         "ConfirmImpactSetting": "Medium",
@@ -293,25 +217,16 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTrustedAdvisorCheckResult": {
       "verb": "Get",
-      "noun": "ASATrustedAdvisorCheckResult",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TrustedAdvisorCheckResult",
+      "legacyPositionalParameters": [
+        "Language"
+      ],
       "pipelineProperty": "CheckId",
-      "output": "Default",
-      "legacyPositionalParameters": "Language",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TrustedAdvisorCheckResult",
         "ConfirmImpactSetting": "Medium",
@@ -324,25 +239,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTrustedAdvisorChecks": {
       "verb": "Get",
-      "noun": "ASATrustedAdvisorCheck",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "TrustedAdvisorCheck",
       "legacyAlias": "Get-ASATrustedAdvisorChecks",
-      "metadataOutputProperties": "",
       "pipelineProperty": "Language",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TrustedAdvisorChecks",
         "ConfirmImpactSetting": "Medium",
@@ -355,25 +259,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTrustedAdvisorCheckSummaries": {
       "verb": "Get",
-      "noun": "ASATrustedAdvisorCheckSummary",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "TrustedAdvisorCheckSummary",
       "legacyAlias": "Get-ASATrustedAdvisorCheckSummaries",
-      "metadataOutputProperties": "",
       "pipelineProperty": "CheckIds",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TrustedAdvisorCheckSummaries",
         "ConfirmImpactSetting": "Medium",
@@ -386,25 +279,13 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RefreshTrustedAdvisorCheck": {
       "verb": "Request",
-      "noun": "ASATrustedAdvisorCheckRefresh",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TrustedAdvisorCheckRefresh",
       "pipelineProperty": "CheckId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TrustedAdvisorCheck",
         "ConfirmImpactSetting": "Medium",
@@ -422,20 +303,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CheckId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ResolveCase": {
       "verb": "Resolve",
-      "noun": "ASACase",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Case",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Case",
         "ConfirmImpactSetting": "Medium",
@@ -453,8 +327,7 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CaseId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

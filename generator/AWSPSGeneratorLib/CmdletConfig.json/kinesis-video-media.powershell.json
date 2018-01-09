@@ -1,33 +1,22 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.KinesisVideoMedia",
-  "sdkServiceClient": "AmazonKinesisVideoMediaClient",
-  "sdkServiceClientConfig": "AmazonKinesisVideoMediaConfig",
-  "legacyCmdletPrefix": "KVM",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [
-    "Amazon.KinesisVideoMedia.Model.StartSelector"
-  ],
   "defaultPaginationSettings": {
     "requestTokenMember": null,
     "responseTokenMember": null
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "KVM",
+  "nonFlatteningTypeNames": [
+    "Amazon.KinesisVideoMedia.Model.StartSelector"
+  ],
+  "sdkServiceClientClass": "AmazonKinesisVideoMediaClient",
+  "sdkServiceConfigClass": "AmazonKinesisVideoMediaConfig",
+  "sdkServiceNamespace": "Amazon.KinesisVideoMedia",
   "serviceOperations": {
     "GetMedia": {
       "verb": "Get",
-      "noun": "KVMMedia",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Media",
       "pipelineProperty": "StartSelector",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Media",
         "ConfirmImpactSetting": "Medium",
@@ -39,13 +28,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": null,
           "responseTokenMember": null
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

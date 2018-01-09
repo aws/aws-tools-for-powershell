@@ -1,32 +1,19 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "ServiceNamespace",
-  "sdkServiceNamespace": "Amazon.ApplicationAutoScaling",
-  "sdkServiceClient": "AmazonApplicationAutoScalingClient",
-  "sdkServiceClientConfig": "AmazonApplicationAutoScalingConfig",
-  "legacyCmdletPrefix": "AAS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
     "resultLimitMember": "MaxResults"
   },
-  "nounMappings": {},
-  "verbMappings": {},
+  "defaultPipelineProperty": "ServiceNamespace",
+  "legacyCmdletPrefix": "AAS",
+  "sdkServiceClientClass": "AmazonApplicationAutoScalingClient",
+  "sdkServiceConfigClass": "AmazonApplicationAutoScalingConfig",
+  "sdkServiceNamespace": "Amazon.ApplicationAutoScaling",
   "serviceOperations": {
     "DeleteScalingPolicy": {
       "verb": "Remove",
-      "noun": "AASScalingPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ScalingPolicy",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "PolicyName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScalingPolicy",
@@ -45,20 +32,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteScheduledAction": {
       "verb": "Remove",
-      "noun": "AASScheduledAction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ScheduledAction",
       "pipelineProperty": "ScheduledActionName",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScheduledAction",
         "ConfirmImpactSetting": "High",
@@ -76,20 +57,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ScheduledActionName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeregisterScalableTarget": {
       "verb": "Remove",
-      "noun": "AASScalableTarget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ScalableTarget",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScalableTarget",
         "ConfirmImpactSetting": "High",
@@ -107,20 +81,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeScalableTargets": {
       "verb": "Get",
-      "noun": "AASScalableTarget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ScalableTarget",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScalableTargets",
         "ConfirmImpactSetting": "Medium",
@@ -133,25 +99,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeScalingActivities": {
       "verb": "Get",
-      "noun": "AASScalingActivity",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ScalingActivity",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScalingActivities",
         "ConfirmImpactSetting": "Medium",
@@ -164,25 +117,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeScalingPolicies": {
       "verb": "Get",
-      "noun": "AASScalingPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ScalingPolicy",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScalingPolicies",
         "ConfirmImpactSetting": "Medium",
@@ -195,25 +135,12 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeScheduledActions": {
       "verb": "Get",
-      "noun": "AASScheduledAction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ScheduledAction",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScheduledActions",
         "ConfirmImpactSetting": "Medium",
@@ -226,25 +153,14 @@
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
           "resultLimitMember": "MaxResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutScalingPolicy": {
       "verb": "Set",
-      "noun": "AASScalingPolicy",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ScalingPolicy",
       "legacyAlias": "Write-AASScalingPolicy",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "PolicyName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScalingPolicy",
@@ -263,20 +179,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "PolicyName"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutScheduledAction": {
       "verb": "Set",
-      "noun": "AASScheduledAction",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ScheduledAction",
       "pipelineProperty": "ResourceId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScheduledAction",
         "ConfirmImpactSetting": "Medium",
@@ -294,20 +204,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RegisterScalableTarget": {
       "verb": "Add",
-      "noun": "AASScalableTarget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "ScalableTarget",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ScalableTarget",
         "ConfirmImpactSetting": "Medium",
@@ -325,8 +228,7 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

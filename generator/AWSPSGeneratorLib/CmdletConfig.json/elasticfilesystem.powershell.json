@@ -1,37 +1,26 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "FileSystemId",
-  "sdkServiceNamespace": "Amazon.ElasticFileSystem",
-  "sdkServiceClient": "AmazonElasticFileSystemClient",
-  "sdkServiceClientConfig": "AmazonElasticFileSystemConfig",
-  "legacyCmdletPrefix": "EFS",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "Marker",
     "responseTokenMember": "NextMarker",
     "resultLimitMember": "MaxItems"
   },
+  "defaultPipelineProperty": "FileSystemId",
+  "legacyCmdletPrefix": "EFS",
   "nounMappings": {
     "Tags": "Tag",
     "FileSystems": "FileSystem",
     "MountTargets": "MountTarget",
     "MountTargetSecurityGroups": "MountTargetSecurityGroup"
   },
-  "verbMappings": {},
+  "sdkServiceClientClass": "AmazonElasticFileSystemClient",
+  "sdkServiceConfigClass": "AmazonElasticFileSystemConfig",
+  "sdkServiceNamespace": "Amazon.ElasticFileSystem",
   "serviceOperations": {
     "CreateFileSystem": {
       "verb": "New",
-      "noun": "EFSFileSystem",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "FileSystem",
       "output": "Response",
-      "legacyPositionalParameters": null,
+      "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FileSystem",
         "ConfirmImpactSetting": "Medium",
@@ -49,20 +38,13 @@
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateMountTarget": {
       "verb": "New",
-      "noun": "EFSMountTarget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "MountTarget",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MountTarget",
         "ConfirmImpactSetting": "Medium",
@@ -80,20 +62,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FileSystemId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateTags": {
       "verb": "New",
-      "noun": "EFSTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Tag",
       "pipelineProperty": "Tags",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -111,20 +87,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FileSystemId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteFileSystem": {
       "verb": "Remove",
-      "noun": "EFSFileSystem",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "FileSystem",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FileSystem",
         "ConfirmImpactSetting": "High",
@@ -142,20 +111,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FileSystemId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteMountTarget": {
       "verb": "Remove",
-      "noun": "EFSMountTarget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MountTarget",
       "pipelineProperty": "MountTargetId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MountTarget",
         "ConfirmImpactSetting": "High",
@@ -173,20 +136,14 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "MountTargetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteTags": {
       "verb": "Remove",
-      "noun": "EFSTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Tag",
       "pipelineProperty": "Tags",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "High",
@@ -204,20 +161,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FileSystemId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeFileSystems": {
       "verb": "Get",
-      "noun": "EFSFileSystem",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "FileSystem",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "FileSystems",
         "ConfirmImpactSetting": "Medium",
@@ -230,25 +179,12 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeMountTargets": {
       "verb": "Get",
-      "noun": "EFSMountTarget",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "MountTarget",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MountTargets",
         "ConfirmImpactSetting": "Medium",
@@ -261,25 +197,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeMountTargetSecurityGroups": {
       "verb": "Get",
-      "noun": "EFSMountTargetSecurityGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MountTargetSecurityGroup",
       "pipelineProperty": "MountTargetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MountTargetSecurityGroups",
         "ConfirmImpactSetting": "Medium",
@@ -292,25 +216,12 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeTags": {
       "verb": "Get",
-      "noun": "EFSTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Tag",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -323,25 +234,14 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "MaxItems"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ModifyMountTargetSecurityGroups": {
       "verb": "Edit",
-      "noun": "EFSMountTargetSecurityGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "MountTargetSecurityGroup",
       "pipelineProperty": "SecurityGroups",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "MountTargetSecurityGroups",
         "ConfirmImpactSetting": "Medium",
@@ -359,8 +259,7 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "MountTargetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

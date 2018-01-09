@@ -1,5 +1,16 @@
 {
-  "additionalNamespaces": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "Marker",
+    "responseTokenMember": "Marker",
+    "resultsTruncatedMember": "HasMoreResults"
+  },
+  "defaultPipelineProperty": "PipelineId",
+  "legacyCmdletPrefix": "DP",
+  "legacyPositionalProperties": "PipelineId",
+  "nounMappings": {
+    "Objects": "Object",
+    "Pipelines": "Pipeline"
+  },
   "outputMetadataPropertyNames": [
     "HasMoreResults"
   ],
@@ -7,23 +18,9 @@
     "PipelineId",
     "TaskId"
   ],
-  "defaultPipelineProperty": "PipelineId",
-  "legacyPositionalProperties": "PipelineId",
+  "sdkServiceClientClass": "AmazonDataPipelineClient",
+  "sdkServiceConfigClass": "AmazonDataPipelineConfig",
   "sdkServiceNamespace": "Amazon.DataPipeline",
-  "sdkServiceClient": "AmazonDataPipelineClient",
-  "sdkServiceClientConfig": "AmazonDataPipelineConfig",
-  "legacyCmdletPrefix": "DP",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
-  "defaultPaginationSettings": {
-    "requestTokenMember": "Marker",
-    "responseTokenMember": "Marker",
-    "resultsTruncatedMember": "HasMoreResults"
-  },
-  "nounMappings": {
-    "Objects": "Object",
-    "Pipelines": "Pipeline"
-  },
   "verbMappings": {
     "List": "Get",
     "Report": "Update",
@@ -33,14 +30,8 @@
   "serviceOperations": {
     "ActivatePipeline": {
       "verb": "Enable",
-      "noun": "DPPipeline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Pipeline",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Pipeline",
         "ConfirmImpactSetting": "Medium",
@@ -58,20 +49,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PipelineId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "AddTags": {
       "verb": "Add",
-      "noun": "DPResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "Add-DPTags",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "Medium",
@@ -89,20 +74,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PipelineId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreatePipeline": {
       "verb": "New",
-      "noun": "DPPipeline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Pipeline",
+      "legacyPositionalParameters": [
+        "UniqueId",
+        "Description"
+      ],
       "pipelineProperty": "Name",
-      "output": "Default",
-      "legacyPositionalParameters": "UniqueId;Description",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Pipeline",
         "ConfirmImpactSetting": "Medium",
@@ -120,20 +102,13 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeactivatePipeline": {
       "verb": "Disable",
-      "noun": "DPPipeline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Pipeline",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Pipeline",
         "ConfirmImpactSetting": "Medium",
@@ -151,20 +126,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PipelineId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeletePipeline": {
       "verb": "Remove",
-      "noun": "DPPipeline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "Pipeline",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Pipeline",
         "ConfirmImpactSetting": "High",
@@ -182,20 +150,16 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PipelineId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribeObjects": {
       "verb": "Get",
-      "noun": "DPObject",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "ObjectIds;EvaluateExpressions",
+      "noun": "Object",
+      "legacyPositionalParameters": [
+        "ObjectIds",
+        "EvaluateExpressions"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Objects",
         "ConfirmImpactSetting": "Medium",
@@ -208,25 +172,13 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultsTruncatedMember": "HasMoreResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DescribePipelines": {
       "verb": "Get",
-      "noun": "DPPipelineDescription",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "PipelineDescription",
       "pipelineProperty": "PipelineIds",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Pipelines",
         "ConfirmImpactSetting": "Medium",
@@ -239,25 +191,16 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultsTruncatedMember": "HasMoreResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "EvaluateExpression": {
       "verb": "Invoke",
-      "noun": "DPExpression",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": "ObjectId;Expression",
+      "noun": "Expression",
+      "legacyPositionalParameters": [
+        "ObjectId",
+        "Expression"
+      ],
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Expression",
         "ConfirmImpactSetting": "Medium",
@@ -275,20 +218,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PipelineId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetPipelineDefinition": {
       "verb": "Get",
-      "noun": "DPPipelineDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "PipelineDefinition",
+      "legacyPositionalParameters": [
+        "Version"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "Version",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PipelineDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -301,25 +240,12 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultsTruncatedMember": "HasMoreResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListPipelines": {
       "verb": "Get",
-      "noun": "DPPipeline",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Pipeline",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Pipelines",
         "ConfirmImpactSetting": "Medium",
@@ -332,25 +258,16 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultsTruncatedMember": "HasMoreResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PollForTask": {
       "verb": "Get",
-      "noun": "DPTask",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Task",
+      "legacyPositionalParameters": [
+        "Hostname"
+      ],
       "pipelineProperty": "WorkerGroup",
-      "output": "Default",
-      "legacyPositionalParameters": "Hostname",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ForTask",
         "ConfirmImpactSetting": "Medium",
@@ -363,25 +280,16 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultsTruncatedMember": "HasMoreResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "PutPipelineDefinition": {
       "verb": "Write",
-      "noun": "DPPipelineDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "PipelineDefinition",
+      "legacyPositionalParameters": [
+        "PipelineObjects"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "PipelineObjects",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PipelineDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -399,20 +307,12 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PipelineId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "QueryObjects": {
       "verb": "Find",
-      "noun": "DPObject",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "Object",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Objects",
         "ConfirmImpactSetting": "Medium",
@@ -425,25 +325,14 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultsTruncatedMember": "HasMoreResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "RemoveTags": {
       "verb": "Remove",
-      "noun": "DPResourceTag",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
+      "noun": "ResourceTag",
       "legacyAlias": "Remove-DPTags",
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Tags",
         "ConfirmImpactSetting": "High",
@@ -461,20 +350,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PipelineId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ReportTaskProgress": {
       "verb": "Update",
-      "noun": "DPTaskProgress",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TaskProgress",
       "pipelineProperty": "TaskId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TaskProgress",
         "ConfirmImpactSetting": "Medium",
@@ -492,20 +374,17 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TaskId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ReportTaskRunnerHeartbeat": {
       "verb": "Update",
-      "noun": "DPTaskRunnerHeartbeat",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TaskRunnerHeartbeat",
+      "legacyPositionalParameters": [
+        "WorkerGroup",
+        "Hostname"
+      ],
       "pipelineProperty": "TaskrunnerId",
-      "output": "Default",
-      "legacyPositionalParameters": "WorkerGroup;Hostname",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TaskRunnerHeartbeat",
         "ConfirmImpactSetting": "Medium",
@@ -523,25 +402,22 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TaskrunnerId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetStatus": {
       "verb": "Set",
-      "noun": "DPStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Void",
-      "legacyPositionalParameters": "ObjectIds;Status",
+      "noun": "Status",
+      "legacyPositionalParameters": [
+        "ObjectIds",
+        "Status"
+      ],
       "passThru": {
         "documentation": "Returns the object ids",
         "expression": "cmdletContext.ObjectIds",
         "type": "System.String"
       },
+      "output": "Void",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Status",
         "ConfirmImpactSetting": "Medium",
@@ -559,20 +435,20 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PipelineId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "SetTaskStatus": {
       "verb": "Set",
-      "noun": "DPTaskStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "TaskStatus",
+      "legacyPositionalParameters": [
+        "TaskStatus",
+        "ErrorId",
+        "ErrorMessage",
+        "ErrorStackTrace"
+      ],
       "pipelineProperty": "TaskId",
       "output": "Void",
-      "legacyPositionalParameters": "TaskStatus;ErrorId;ErrorMessage;ErrorStackTrace",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "TaskStatus",
         "ConfirmImpactSetting": "Medium",
@@ -590,20 +466,16 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TaskId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ValidatePipelineDefinition": {
       "verb": "Test",
-      "noun": "DPPipelineDefinition",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
+      "noun": "PipelineDefinition",
+      "legacyPositionalParameters": [
+        "PipelineObjects"
+      ],
       "output": "Response",
-      "legacyPositionalParameters": "PipelineObjects",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "PipelineDefinition",
         "ConfirmImpactSetting": "Medium",
@@ -616,13 +488,7 @@
           "requestTokenMember": "Marker",
           "responseTokenMember": "Marker",
           "resultsTruncatedMember": "HasMoreResults"
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }

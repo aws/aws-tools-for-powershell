@@ -1,35 +1,24 @@
 {
-  "additionalNamespaces": [],
-  "outputMetadataPropertyNames": [],
-  "pipelineByValuePropertyNames": [],
-  "defaultPipelineProperty": "",
-  "sdkServiceNamespace": "Amazon.WAFRegional",
-  "sdkServiceClient": "AmazonWAFRegionalClient",
-  "sdkServiceClientConfig": "AmazonWAFRegionalConfig",
-  "legacyCmdletPrefix": "WAFR",
-  "verbsRequiringShouldProcessConfirmation": [],
-  "nonFlattenedTypes": [],
   "defaultPaginationSettings": {
     "requestTokenMember": "NextMarker",
     "responseTokenMember": "NextMarker",
     "resultLimitMember": "Limit",
     "servicePageSize": 100
   },
-  "nounMappings": {},
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "WAFR",
+  "sdkServiceClientClass": "AmazonWAFRegionalClient",
+  "sdkServiceConfigClass": "AmazonWAFRegionalConfig",
+  "sdkServiceNamespace": "Amazon.WAFRegional",
   "verbMappings": {
     "List": "Get"
   },
   "serviceOperations": {
     "AssociateWebACL": {
       "verb": "Register",
-      "noun": "WAFRWebACL",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "WebACL",
       "pipelineProperty": "WebACLId",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "WebACL",
         "ConfirmImpactSetting": "Medium",
@@ -48,20 +37,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "WebACLId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateByteMatchSet": {
       "verb": "New",
-      "noun": "WAFRByteMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ByteMatchSet",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ByteMatchSet",
         "ConfirmImpactSetting": "Medium",
@@ -80,20 +63,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateGeoMatchSet": {
       "verb": "New",
-      "noun": "WAFRGeoMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GeoMatchSet",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GeoMatchSet",
         "ConfirmImpactSetting": "Medium",
@@ -112,20 +89,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateIPSet": {
       "verb": "New",
-      "noun": "WAFRIPSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IPSet",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IPSet",
         "ConfirmImpactSetting": "Medium",
@@ -144,20 +115,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateRateBasedRule": {
       "verb": "New",
-      "noun": "WAFRRateBasedRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RateBasedRule",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RateBasedRule",
         "ConfirmImpactSetting": "Medium",
@@ -176,20 +141,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateRegexMatchSet": {
       "verb": "New",
-      "noun": "WAFRRegexMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RegexMatchSet",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RegexMatchSet",
         "ConfirmImpactSetting": "Medium",
@@ -208,20 +167,14 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateRegexPatternSet": {
       "verb": "New",
-      "noun": "WAFRRegexPatternSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RegexPatternSet",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RegexPatternSet",
         "ConfirmImpactSetting": "Medium",
@@ -240,21 +193,15 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateRule": {
       "verb": "New",
-      "noun": "WAFRRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "suppressShouldProcessConfirmation": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Rule",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
+      "suppressShouldProcessConfirmation": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Rule",
         "ConfirmImpactSetting": "Medium",
@@ -268,25 +215,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateRuleGroup": {
       "verb": "New",
-      "noun": "WAFRRuleGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RuleGroup",
       "pipelineProperty": "Name",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RuleGroup",
         "ConfirmImpactSetting": "Medium",
@@ -305,20 +241,14 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateSizeConstraintSet": {
       "verb": "New",
-      "noun": "WAFRSizeConstraintSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SizeConstraintSet",
       "pipelineProperty": "ChangeToken",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SizeConstraintSet",
@@ -338,20 +268,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateSqlInjectionMatchSet": {
       "verb": "New",
-      "noun": "WAFRSqlInjectionMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SqlInjectionMatchSet",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SqlInjectionMatchSet",
         "ConfirmImpactSetting": "Medium",
@@ -370,21 +294,15 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateWebACL": {
       "verb": "New",
-      "noun": "WAFRWebACL",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "suppressShouldProcessConfirmation": "true",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "WebACL",
       "noPipelineProperty": "true",
       "output": "Response",
-      "legacyPositionalParameters": null,
+      "suppressShouldProcessConfirmation": "true",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "WebACL",
         "ConfirmImpactSetting": "Medium",
@@ -398,25 +316,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "CreateXssMatchSet": {
       "verb": "New",
-      "noun": "WAFRXssMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "XssMatchSet",
       "pipelineProperty": "ChangeToken",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "Name",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "XssMatchSet",
@@ -436,20 +343,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteByteMatchSet": {
       "verb": "Remove",
-      "noun": "WAFRByteMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ByteMatchSet",
       "pipelineProperty": "ByteMatchSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ByteMatchSet",
         "ConfirmImpactSetting": "High",
@@ -468,20 +368,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ByteMatchSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteGeoMatchSet": {
       "verb": "Remove",
-      "noun": "WAFRGeoMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GeoMatchSet",
       "pipelineProperty": "GeoMatchSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GeoMatchSet",
         "ConfirmImpactSetting": "High",
@@ -500,20 +393,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GeoMatchSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteIPSet": {
       "verb": "Remove",
-      "noun": "WAFRIPSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IPSet",
       "pipelineProperty": "IPSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IPSet",
         "ConfirmImpactSetting": "High",
@@ -532,20 +418,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "IPSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRateBasedRule": {
       "verb": "Remove",
-      "noun": "WAFRRateBasedRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RateBasedRule",
       "pipelineProperty": "RuleId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RateBasedRule",
         "ConfirmImpactSetting": "High",
@@ -564,20 +443,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RuleId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRegexMatchSet": {
       "verb": "Remove",
-      "noun": "WAFRRegexMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RegexMatchSet",
       "pipelineProperty": "RegexMatchSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RegexMatchSet",
         "ConfirmImpactSetting": "High",
@@ -596,20 +468,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RegexMatchSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRegexPatternSet": {
       "verb": "Remove",
-      "noun": "WAFRRegexPatternSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RegexPatternSet",
       "pipelineProperty": "RegexPatternSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RegexPatternSet",
         "ConfirmImpactSetting": "High",
@@ -628,20 +493,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RegexPatternSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRule": {
       "verb": "Remove",
-      "noun": "WAFRRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Rule",
       "pipelineProperty": "RuleId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Rule",
         "ConfirmImpactSetting": "High",
@@ -660,20 +518,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RuleId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteRuleGroup": {
       "verb": "Remove",
-      "noun": "WAFRRuleGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RuleGroup",
       "pipelineProperty": "RuleGroupId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RuleGroup",
         "ConfirmImpactSetting": "High",
@@ -692,20 +543,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RuleGroupId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSizeConstraintSet": {
       "verb": "Remove",
-      "noun": "WAFRSizeConstraintSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SizeConstraintSet",
       "pipelineProperty": "ChangeToken",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "SizeConstraintSetId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SizeConstraintSet",
@@ -725,20 +569,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "SizeConstraintSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteSqlInjectionMatchSet": {
       "verb": "Remove",
-      "noun": "WAFRSqlInjectionMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SqlInjectionMatchSet",
       "pipelineProperty": "SqlInjectionMatchSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SqlInjectionMatchSet",
         "ConfirmImpactSetting": "High",
@@ -757,20 +594,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SqlInjectionMatchSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteWebACL": {
       "verb": "Remove",
-      "noun": "WAFRWebACL",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "WebACL",
       "pipelineProperty": "WebACLId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "WebACL",
         "ConfirmImpactSetting": "High",
@@ -789,20 +619,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "WebACLId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DeleteXssMatchSet": {
       "verb": "Remove",
-      "noun": "WAFRXssMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "XssMatchSet",
       "pipelineProperty": "ChangeToken",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "XssMatchSetId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "XssMatchSet",
@@ -822,20 +645,14 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "XssMatchSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "DisassociateWebACL": {
       "verb": "Unregister",
-      "noun": "WAFRWebACL",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "WebACL",
       "pipelineProperty": "ResourceArn",
       "output": "Void",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "WebACL",
         "ConfirmImpactSetting": "Medium",
@@ -854,20 +671,13 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetByteMatchSet": {
       "verb": "Get",
-      "noun": "WAFRByteMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ByteMatchSet",
       "pipelineProperty": "ByteMatchSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ByteMatchSet",
         "ConfirmImpactSetting": "Medium",
@@ -881,25 +691,12 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetChangeToken": {
       "verb": "Get",
-      "noun": "WAFRChangeToken",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ChangeToken",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ChangeToken",
         "ConfirmImpactSetting": "Medium",
@@ -913,25 +710,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetChangeTokenStatus": {
       "verb": "Get",
-      "noun": "WAFRChangeTokenStatus",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ChangeTokenStatus",
       "pipelineProperty": "ChangeToken",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ChangeTokenStatus",
         "ConfirmImpactSetting": "Medium",
@@ -945,25 +730,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetGeoMatchSet": {
       "verb": "Get",
-      "noun": "WAFRGeoMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GeoMatchSet",
       "pipelineProperty": "GeoMatchSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GeoMatchSet",
         "ConfirmImpactSetting": "Medium",
@@ -977,25 +750,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetIPSet": {
       "verb": "Get",
-      "noun": "WAFRIPSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IPSet",
       "pipelineProperty": "IPSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IPSet",
         "ConfirmImpactSetting": "Medium",
@@ -1009,25 +770,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetRateBasedRule": {
       "verb": "Get",
-      "noun": "WAFRRateBasedRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RateBasedRule",
       "pipelineProperty": "RuleId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RateBasedRule",
         "ConfirmImpactSetting": "Medium",
@@ -1041,30 +790,18 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetRateBasedRuleManagedKeys": {
       "verb": "Get",
-      "noun": "WAFRRateBasedRuleManagedKey",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "RuleId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "RateBasedRuleManagedKey",
       "paginationSettings": {
         "requestTokenMember": "NextMarker",
         "responseTokenMember": "NextMarker",
         "servicePageSize": 100
       },
+      "pipelineProperty": "RuleId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RateBasedRuleManagedKeys",
         "ConfirmImpactSetting": "Medium",
@@ -1077,25 +814,13 @@
           "requestTokenMember": "NextMarker",
           "responseTokenMember": "NextMarker",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetRegexMatchSet": {
       "verb": "Get",
-      "noun": "WAFRRegexMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RegexMatchSet",
       "pipelineProperty": "RegexMatchSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RegexMatchSet",
         "ConfirmImpactSetting": "Medium",
@@ -1109,25 +834,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetRegexPatternSet": {
       "verb": "Get",
-      "noun": "WAFRRegexPatternSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RegexPatternSet",
       "pipelineProperty": "RegexPatternSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RegexPatternSet",
         "ConfirmImpactSetting": "Medium",
@@ -1141,25 +854,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetRule": {
       "verb": "Get",
-      "noun": "WAFRRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Rule",
       "pipelineProperty": "RuleId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Rule",
         "ConfirmImpactSetting": "Medium",
@@ -1173,25 +874,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetRuleGroup": {
       "verb": "Get",
-      "noun": "WAFRRuleGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RuleGroup",
       "pipelineProperty": "RuleGroupId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RuleGroup",
         "ConfirmImpactSetting": "Medium",
@@ -1205,25 +894,14 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSampledRequests": {
       "verb": "Get",
-      "noun": "WAFRSampledRequestList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SampledRequestList",
       "pipelineProperty": "WebACLId",
       "output": "Response",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SampledRequests",
         "ConfirmImpactSetting": "Medium",
@@ -1237,25 +915,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSizeConstraintSet": {
       "verb": "Get",
-      "noun": "WAFRSizeConstraintSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SizeConstraintSet",
       "pipelineProperty": "SizeConstraintSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SizeConstraintSet",
         "ConfirmImpactSetting": "Medium",
@@ -1269,25 +935,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetSqlInjectionMatchSet": {
       "verb": "Get",
-      "noun": "WAFRSqlInjectionMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SqlInjectionMatchSet",
       "pipelineProperty": "SqlInjectionMatchSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SqlInjectionMatchSet",
         "ConfirmImpactSetting": "Medium",
@@ -1301,25 +955,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetWebACL": {
       "verb": "Get",
-      "noun": "WAFRWebACL",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "WebACL",
       "pipelineProperty": "WebACLId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "WebACL",
         "ConfirmImpactSetting": "Medium",
@@ -1333,25 +975,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetWebACLForResource": {
       "verb": "Get",
-      "noun": "WAFRWebACLForResource",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "WebACLForResource",
       "pipelineProperty": "ResourceArn",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "WebACLForResource",
         "ConfirmImpactSetting": "Medium",
@@ -1365,25 +995,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "GetXssMatchSet": {
       "verb": "Get",
-      "noun": "WAFRXssMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "XssMatchSet",
       "pipelineProperty": "XssMatchSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "XssMatchSet",
         "ConfirmImpactSetting": "Medium",
@@ -1397,25 +1015,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListActivatedRulesInRuleGroup": {
       "verb": "Get",
-      "noun": "WAFRActivatedRulesInRuleGroupList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ActivatedRulesInRuleGroupList",
       "pipelineProperty": "RuleGroupId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ActivatedRulesInRuleGroup",
         "ConfirmImpactSetting": "Medium",
@@ -1429,25 +1035,12 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListByteMatchSets": {
       "verb": "Get",
-      "noun": "WAFRByteMatchSetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "ByteMatchSetList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ByteMatchSets",
         "ConfirmImpactSetting": "Medium",
@@ -1461,25 +1054,12 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListGeoMatchSets": {
       "verb": "Get",
-      "noun": "WAFRGeoMatchSetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "GeoMatchSetList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GeoMatchSets",
         "ConfirmImpactSetting": "Medium",
@@ -1493,25 +1073,12 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListIPSets": {
       "verb": "Get",
-      "noun": "WAFRIPSetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "IPSetList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IPSets",
         "ConfirmImpactSetting": "Medium",
@@ -1525,25 +1092,12 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListRateBasedRules": {
       "verb": "Get",
-      "noun": "WAFRRateBasedRuleList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "RateBasedRuleList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RateBasedRules",
         "ConfirmImpactSetting": "Medium",
@@ -1557,25 +1111,12 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListRegexMatchSets": {
       "verb": "Get",
-      "noun": "WAFRRegexMatchSetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "RegexMatchSetList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RegexMatchSets",
         "ConfirmImpactSetting": "Medium",
@@ -1589,25 +1130,12 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListRegexPatternSets": {
       "verb": "Get",
-      "noun": "WAFRRegexPatternSetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "RegexPatternSetList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RegexPatternSets",
         "ConfirmImpactSetting": "Medium",
@@ -1621,25 +1149,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListResourcesForWebACL": {
       "verb": "Get",
-      "noun": "WAFRResourceForWebACLList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ResourceForWebACLList",
       "pipelineProperty": "WebACLId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ResourcesForWebACL",
         "ConfirmImpactSetting": "Medium",
@@ -1653,25 +1169,12 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListRuleGroups": {
       "verb": "Get",
-      "noun": "WAFRRuleGroupList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "RuleGroupList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RuleGroups",
         "ConfirmImpactSetting": "Medium",
@@ -1685,25 +1188,12 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListRules": {
       "verb": "Get",
-      "noun": "WAFRRuleList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "RuleList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Rules",
         "ConfirmImpactSetting": "Medium",
@@ -1717,25 +1207,12 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListSizeConstraintSets": {
       "verb": "Get",
-      "noun": "WAFRSizeConstraintSetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SizeConstraintSetList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SizeConstraintSets",
         "ConfirmImpactSetting": "Medium",
@@ -1749,25 +1226,12 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListSqlInjectionMatchSets": {
       "verb": "Get",
-      "noun": "WAFRSqlInjectionMatchSetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SqlInjectionMatchSetList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SqlInjectionMatchSets",
         "ConfirmImpactSetting": "Medium",
@@ -1781,25 +1245,12 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListSubscribedRuleGroups": {
       "verb": "Get",
-      "noun": "WAFRSubscribedRuleGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "SubscribedRuleGroup",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SubscribedRuleGroups",
         "ConfirmImpactSetting": "Medium",
@@ -1813,25 +1264,12 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListWebACLs": {
       "verb": "Get",
-      "noun": "WAFRWebACLList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "WebACLList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "WebACLs",
         "ConfirmImpactSetting": "Medium",
@@ -1845,25 +1283,12 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "ListXssMatchSets": {
       "verb": "Get",
-      "noun": "WAFRXssMatchSetList",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
-      "pipelineProperty": "",
-      "output": "Default",
-      "legacyPositionalParameters": null,
+      "noun": "XssMatchSetList",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "XssMatchSets",
         "ConfirmImpactSetting": "Medium",
@@ -1877,25 +1302,13 @@
           "responseTokenMember": "NextMarker",
           "resultLimitMember": "Limit",
           "servicePageSize": 100
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
-          "status": "TargetFromConfig",
-          "targetParameterName": ""
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateByteMatchSet": {
       "verb": "Update",
-      "noun": "WAFRByteMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "ByteMatchSet",
       "pipelineProperty": "ByteMatchSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "ByteMatchSet",
         "ConfirmImpactSetting": "Medium",
@@ -1914,20 +1327,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ByteMatchSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateGeoMatchSet": {
       "verb": "Update",
-      "noun": "WAFRGeoMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "GeoMatchSet",
       "pipelineProperty": "GeoMatchSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "GeoMatchSet",
         "ConfirmImpactSetting": "Medium",
@@ -1946,20 +1352,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GeoMatchSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateIPSet": {
       "verb": "Update",
-      "noun": "WAFRIPSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "IPSet",
       "pipelineProperty": "IPSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "IPSet",
         "ConfirmImpactSetting": "Medium",
@@ -1978,20 +1377,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "IPSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateRateBasedRule": {
       "verb": "Update",
-      "noun": "WAFRRateBasedRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RateBasedRule",
       "pipelineProperty": "RuleId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RateBasedRule",
         "ConfirmImpactSetting": "Medium",
@@ -2010,20 +1402,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RuleId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateRegexMatchSet": {
       "verb": "Update",
-      "noun": "WAFRRegexMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RegexMatchSet",
       "pipelineProperty": "RegexMatchSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RegexMatchSet",
         "ConfirmImpactSetting": "Medium",
@@ -2042,20 +1427,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RegexMatchSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateRegexPatternSet": {
       "verb": "Update",
-      "noun": "WAFRRegexPatternSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RegexPatternSet",
       "pipelineProperty": "RegexPatternSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RegexPatternSet",
         "ConfirmImpactSetting": "Medium",
@@ -2074,20 +1452,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RegexPatternSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateRule": {
       "verb": "Update",
-      "noun": "WAFRRule",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "Rule",
       "pipelineProperty": "RuleId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Rule",
         "ConfirmImpactSetting": "Medium",
@@ -2106,20 +1477,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RuleId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateRuleGroup": {
       "verb": "Update",
-      "noun": "WAFRRuleGroup",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "RuleGroup",
       "pipelineProperty": "RuleGroupId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RuleGroup",
         "ConfirmImpactSetting": "Medium",
@@ -2138,20 +1502,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RuleGroupId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateSizeConstraintSet": {
       "verb": "Update",
-      "noun": "WAFRSizeConstraintSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SizeConstraintSet",
       "pipelineProperty": "ChangeToken",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "SizeConstraintSetId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SizeConstraintSet",
@@ -2171,20 +1528,13 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "SizeConstraintSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateSqlInjectionMatchSet": {
       "verb": "Update",
-      "noun": "WAFRSqlInjectionMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "SqlInjectionMatchSet",
       "pipelineProperty": "SqlInjectionMatchSetId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "SqlInjectionMatchSet",
         "ConfirmImpactSetting": "Medium",
@@ -2203,20 +1553,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SqlInjectionMatchSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateWebACL": {
       "verb": "Update",
-      "noun": "WAFRWebACL",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "WebACL",
       "pipelineProperty": "WebACLId",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "WebACL",
         "ConfirmImpactSetting": "Medium",
@@ -2235,20 +1578,13 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "WebACLId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     },
     "UpdateXssMatchSet": {
       "verb": "Update",
-      "noun": "WAFRXssMatchSet",
-      "useAnonymousAuthentication": "Never",
-      "useAnonymousShouldProcessTarget": "false",
-      "legacyAlias": null,
-      "metadataOutputProperties": "",
+      "noun": "XssMatchSet",
       "pipelineProperty": "ChangeToken",
-      "output": "Default",
-      "legacyPositionalParameters": null,
       "shouldProcessTargetProperty": "XssMatchSetId",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "XssMatchSet",
@@ -2268,8 +1604,7 @@
           "analysisMessage": null,
           "status": "TargetFromConfig",
           "targetParameterName": "XssMatchSetId"
-        },
-        "MemoryStreamParameters": []
+        }
       }
     }
   }
