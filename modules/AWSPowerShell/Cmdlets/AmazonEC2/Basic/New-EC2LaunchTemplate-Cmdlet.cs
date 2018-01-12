@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The information for the launch template.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public Amazon.EC2.Model.RequestLaunchTemplateData LaunchTemplateData { get; set; }
         #endregion
         
