@@ -460,6 +460,32 @@
         }
       }
     },
+    "DeleteGitHubAccountToken": {
+      "verb": "Remove",
+      "noun": "GitHubAccountToken",
+      "pipelineProperty": "TokenName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "GitHubAccountToken",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern1",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "excludedOperations": [
+            "ListDeploymentGroups"
+          ],
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "TokenName"
+        }
+      }
+    },
     "DeregisterOnPremisesInstance": {
       "verb": "Unregister",
       "noun": "OnPremiseInstance",

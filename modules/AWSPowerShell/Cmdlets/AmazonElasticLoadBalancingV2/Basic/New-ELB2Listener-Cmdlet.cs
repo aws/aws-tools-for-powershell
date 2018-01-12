@@ -32,12 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// 
     ///  
     /// <para>
+    /// You can create up to 10 listeners per load balancer.
+    /// </para><para>
     /// To update a listener, use <a>ModifyListener</a>. When you are finished with a listener,
     /// you can delete it using <a>DeleteListener</a>. If you are finished with both the listener
     /// and the load balancer, you can delete them both using <a>DeleteLoadBalancer</a>.
-    /// </para><para>
-    /// This operation is idempotent, which means that it completes at most one time. If you
-    /// attempt to create multiple listeners with the same settings, each call succeeds.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html">Listeners
     /// for Your Application Load Balancers</a> in the <i>Application Load Balancers Guide</i>

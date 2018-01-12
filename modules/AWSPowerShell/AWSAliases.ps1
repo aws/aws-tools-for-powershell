@@ -1042,6 +1042,8 @@ Set-Alias -Name Delete-CDDeploymentConfig -Value Remove-CDDeploymentConfig
 Set-Alias -Name CD-DeleteDeploymentConfig -Value Remove-CDDeploymentConfig
 Set-Alias -Name Delete-CDDeploymentGroup -Value Remove-CDDeploymentGroup
 Set-Alias -Name CD-DeleteDeploymentGroup -Value Remove-CDDeploymentGroup
+Set-Alias -Name Delete-CDGitHubAccountToken -Value Remove-CDGitHubAccountToken
+Set-Alias -Name CD-DeleteGitHubAccountToken -Value Remove-CDGitHubAccountToken
 Set-Alias -Name Deregister-CDOnPremiseInstance -Value Unregister-CDOnPremiseInstance
 Set-Alias -Name CD-DeregisterOnPremisesInstance -Value Unregister-CDOnPremiseInstance
 Set-Alias -Name CD-GetApplication -Value Get-CDApplication

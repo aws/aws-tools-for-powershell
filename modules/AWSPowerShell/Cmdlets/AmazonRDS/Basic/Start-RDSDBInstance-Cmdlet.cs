@@ -30,7 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <summary>
     /// Starts a DB instance that was stopped using the AWS console, the stop-db-instance
     /// AWS CLI command, or the StopDBInstance action. For more information, see Stopping
-    /// and Starting a DB instance in the AWS RDS user guide.
+    /// and Starting a DB instance in the AWS RDS user guide. 
+    /// 
+    ///  <note><para>
+    /// This command does not apply to Aurora MySQL and Aurora PostgreSQL.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Start", "RDSDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBInstance")]

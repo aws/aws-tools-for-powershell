@@ -30,21 +30,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <summary>
     /// Creates a new DB instance that acts as a Read Replica for an existing source DB instance.
     /// You can create a Read Replica for a DB instance running MySQL, MariaDB, or PostgreSQL.
-    /// 
-    /// 
-    ///  <note><para>
-    /// Amazon Aurora does not support this action. You must call the <code>CreateDBInstance</code>
-    /// action to create a DB instance for an Aurora DB cluster. 
-    /// </para></note><para>
-    /// All Read Replica DB instances are created as Single-AZ deployments with backups disabled.
-    /// All other DB instance attributes (including DB security groups and DB parameter groups)
-    /// are inherited from the source DB instance, except as specified below. 
-    /// </para><important><para>
-    /// The source DB instance must have backup retention enabled. 
-    /// </para></important><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working
     /// with PostgreSQL, MySQL, and MariaDB Read Replicas</a>. 
-    /// </para>
+    /// 
+    ///  
+    /// <para>
+    /// Amazon Aurora does not support this action. You must call the <code>CreateDBInstance</code>
+    /// action to create a DB instance for an Aurora DB cluster. 
+    /// </para><para>
+    /// All Read Replica DB instances are created with backups disabled. All other DB instance
+    /// attributes (including DB security groups and DB parameter groups) are inherited from
+    /// the source DB instance, except as specified below. 
+    /// </para><important><para>
+    /// Your source DB instance must have backup retention enabled. 
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "RDSDBInstanceReadReplica", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBInstance")]
@@ -205,6 +204,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MonitoringRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter MultiAZ
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the read replica is in a Multi-AZ deployment. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean MultiAZ { get; set; }
         #endregion
         
         #region Parameter OptionGroupName
@@ -392,6 +401,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (ParameterWasBound("MonitoringInterval"))
                 context.MonitoringInterval = this.MonitoringInterval;
             context.MonitoringRoleArn = this.MonitoringRoleArn;
+            if (ParameterWasBound("MultiAZ"))
+                context.MultiAZ = this.MultiAZ;
             context.OptionGroupName = this.OptionGroupName;
             context.PerformanceInsightsKMSKeyId = this.PerformanceInsightsKMSKeyId;
             if (ParameterWasBound("Port"))
@@ -472,6 +483,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.MonitoringRoleArn != null)
             {
                 request.MonitoringRoleArn = cmdletContext.MonitoringRoleArn;
+            }
+            if (cmdletContext.MultiAZ != null)
+            {
+                request.MultiAZ = cmdletContext.MultiAZ.Value;
             }
             if (cmdletContext.OptionGroupName != null)
             {
@@ -582,6 +597,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String KmsKeyId { get; set; }
             public System.Int32? MonitoringInterval { get; set; }
             public System.String MonitoringRoleArn { get; set; }
+            public System.Boolean? MultiAZ { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.String PerformanceInsightsKMSKeyId { get; set; }
             public System.Int32? Port { get; set; }

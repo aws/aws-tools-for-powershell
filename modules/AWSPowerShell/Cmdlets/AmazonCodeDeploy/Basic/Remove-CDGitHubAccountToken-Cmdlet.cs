@@ -22,49 +22,53 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.KeyManagementService;
-using Amazon.KeyManagementService.Model;
+using Amazon.CodeDeploy;
+using Amazon.CodeDeploy.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KMS
+namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
-    /// Gets a key policy attached to the specified customer master key (CMK). You cannot
-    /// perform this operation on a CMK in a different AWS account.
+    /// Deletes a GitHub account connection.
     /// </summary>
-    [Cmdlet("Get", "KMSKeyPolicy")]
+    [Cmdlet("Remove", "CDGitHubAccountToken", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Key Management Service GetKeyPolicy API operation.", Operation = new[] {"GetKeyPolicy"})]
+    [AWSCmdlet("Calls the AWS CodeDeploy DeleteGitHubAccountToken API operation.", Operation = new[] {"DeleteGitHubAccountToken"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type Amazon.KeyManagementService.Model.GetKeyPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.DeleteGitHubAccountTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetKMSKeyPolicyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
+    public partial class RemoveCDGitHubAccountTokenCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
-        #region Parameter KeyId
+        #region Parameter TokenName
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the customer master key (CMK).</para><para>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// <para>The name of the GitHub account connection to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String KeyId { get; set; }
+        public System.String TokenName { get; set; }
         #endregion
         
-        #region Parameter PolicyName
+        #region Parameter Force
         /// <summary>
-        /// <para>
-        /// <para>Specifies the name of the key policy. The only valid name is <code>default</code>.
-        /// To get the names of key policies, use <a>ListKeyPolicies</a>.</para>
-        /// </para>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String PolicyName { get; set; }
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("TokenName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CDGitHubAccountToken (DeleteGitHubAccountToken)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -75,8 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.KeyId = this.KeyId;
-            context.PolicyName = this.PolicyName;
+            context.TokenName = this.TokenName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -91,15 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.KeyManagementService.Model.GetKeyPolicyRequest();
+            var request = new Amazon.CodeDeploy.Model.DeleteGitHubAccountTokenRequest();
             
-            if (cmdletContext.KeyId != null)
+            if (cmdletContext.TokenName != null)
             {
-                request.KeyId = cmdletContext.KeyId;
-            }
-            if (cmdletContext.PolicyName != null)
-            {
-                request.PolicyName = cmdletContext.PolicyName;
+                request.TokenName = cmdletContext.TokenName;
             }
             
             CmdletOutput output;
@@ -110,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Policy;
+                object pipelineOutput = response.TokenName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -135,16 +134,16 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region AWS Service Operation Call
         
-        private Amazon.KeyManagementService.Model.GetKeyPolicyResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.GetKeyPolicyRequest request)
+        private Amazon.CodeDeploy.Model.DeleteGitHubAccountTokenResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.DeleteGitHubAccountTokenRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "GetKeyPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeDeploy", "DeleteGitHubAccountToken");
             try
             {
                 #if DESKTOP
-                return client.GetKeyPolicy(request);
+                return client.DeleteGitHubAccountToken(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetKeyPolicyAsync(request);
+                var task = client.DeleteGitHubAccountTokenAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -165,8 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String KeyId { get; set; }
-            public System.String PolicyName { get; set; }
+            public System.String TokenName { get; set; }
         }
         
     }

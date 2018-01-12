@@ -370,10 +370,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MultiAZ
         /// <summary>
         /// <para>
-        /// <para> Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter does
+        /// <para>Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter does
         /// not result in an outage and the change is applied during the next maintenance window
         /// unless the <code>ApplyImmediately</code> parameter is set to <code>true</code> for
-        /// this request. </para><para>Constraints: Cannot be specified if the DB instance is a Read Replica.</para>
+        /// this request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

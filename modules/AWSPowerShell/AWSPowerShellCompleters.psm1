@@ -2491,6 +2491,13 @@ $DS_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.DirectoryService.DirectoryEdition
+        "New-DSMicrosoftAD/Edition"
+        {
+            $v = "Enterprise","Standard"
+            break
+        }
+        
         # Amazon.DirectoryService.DirectorySize
         {
             ($_ -eq "Connect-DSDirectory/Size") -Or
@@ -2533,6 +2540,7 @@ $DS_Completers = {
 }
 
 $DS_map = @{
+    "Edition"=@("New-DSMicrosoftAD")
     "RadiusSettings_AuthenticationProtocol"=@("Enable-DSRadius","Update-DSRadius")
     "Size"=@("Connect-DSDirectory","New-DSDirectory")
     "TrustDirection"=@("New-DSTrust")

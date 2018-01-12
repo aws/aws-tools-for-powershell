@@ -59,6 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.DS
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter Edition
+        /// <summary>
+        /// <para>
+        /// <para>AWS Microsoft AD is available in two editions: Standard and Enterprise. Enterprise
+        /// is the default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DirectoryService.DirectoryEdition")]
+        public Amazon.DirectoryService.DirectoryEdition Edition { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -146,6 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             PreExecutionContextLoad(context);
             
             context.Description = this.Description;
+            context.Edition = this.Edition;
             context.Name = this.Name;
             context.Password = this.Password;
             context.ShortName = this.ShortName;
@@ -173,6 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Edition != null)
+            {
+                request.Edition = cmdletContext.Edition;
             }
             if (cmdletContext.Name != null)
             {
@@ -280,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public Amazon.DirectoryService.DirectoryEdition Edition { get; set; }
             public System.String Name { get; set; }
             public System.String Password { get; set; }
             public System.String ShortName { get; set; }
