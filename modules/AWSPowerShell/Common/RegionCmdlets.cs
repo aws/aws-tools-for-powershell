@@ -25,7 +25,15 @@ using Amazon.Runtime;
 namespace Amazon.PowerShell.Common
 {
     /// <summary>
+    /// <para>
     /// Sets a default AWS region into the shell environment, accessible as $StoredAWSRegion.
+    /// </para>
+    /// <para>
+    /// <br/><br/>
+    /// <b>Note:</b> The regions available for tab completion to the -Region parameter were those known
+    /// at the time this module was built. Regions launched subsequent to the build will not be listed for
+    /// tab completion but can still be used by simply entering the region system name.
+    /// </para>
     /// </summary>
     [Cmdlet("Set", "DefaultAWSRegion")]
     [AWSCmdlet("Sets a default AWS region system name (e.g. us-west-2, eu-west-1 etc) into the shell variable $StoredAWSRegion. "
@@ -89,7 +97,17 @@ namespace Amazon.PowerShell.Common
     }
 
     /// <summary>
+    /// <para>
     /// Returns the set of available AWS regions.
+    /// </para>
+    /// <para>
+    /// <br/><br/>
+    /// <b>Note:</b> The regions listed as output for this cmdlet are those known
+    /// at the time this module was built. Regions launched subsequent to the build 
+    /// will not be listed in the output. The new regions can still be used with the
+    /// -Region parameter for cmdlets in this module by simply entering the region
+    /// system name (eg us-west-2, eu-west-3 etc).
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "AWSRegion", DefaultParameterSetName = DefaultParameterSet)]
     [OutputType(typeof(AWSRegion))]
