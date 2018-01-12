@@ -1,3 +1,17 @@
+### 3.3.219.0 (2018-01-12)
+  * Amazon EC2
+    * Updated the Get-EC2Snapshot and Get-EC2Volume cmdlets to use pagination to process data when a snapshot id or volume id is not supplied. This update should help customers with large numbers of snapshots or volumes who were experiencing timeout issues in previous versions which attempted to use a single call to obtain all data.
+    * Added support for pipelining the output launch template object types returned by the the New-EC2LaunchTemplate and New-EC2LaunchTemplateVersion into the same cmdlets, and also into the New-EC2Instance cmdlet.
+    * Updated the Get-EC2PasswordData cmdlet to display better error message if used to obtain password before the instance is ready.
+  * Get-AWSRegion
+    * Updated documentation notes and examples to address confusion as to how this cmdlet handles regions launched after the module is released. The cmdlet uses built-in data to display the list of regions, so won't show new regions launched subsequently, but those new regions can still be used with all cmdlets without requiring an update to the tools.
+  * AWS CodeDeploy
+    * Added cmdlet Remove-CDGitHubAccountToken to support the new DeleteGitHubAccountToken API.
+  * AWS Directory Service
+    * Updated the New-DSMicrosoftAD cmdlet to add support for an -Edition parameter. The service now supports Standard and Enterprise (the default) editions of Microsoft Active Directory. Microsoft Active Directory (Standard Edition), also known as AWS Microsoft AD (Standard Edition), is a managed Microsoft Active Directory (AD) that is optimized for small and midsize businesses (SMBs). With this SDK release, you can now create an AWS Microsoft AD directory using API. This enables you to run typical SMB workloads using a cost-effective, highly available, and managed Microsoft AD in the AWS Cloud.
+  * Amazon Relational Database Service
+    * Updated the New-RDSDBInstanceReadReplica cmdlet with support for Multi AZ deployments.
+
 ### 3.3.215.0 (2018-01-02)
   * Amazon API Gateway
     * Added support for tagging resources for cost allocation with new cmdlets Add-AGResourceTag (TagResource API), Get-AGResourceTag (GetTags API) and Remove-AGResourceTag (UntagResource API). The New-AGStage cmdlet was also updated with a new -Tag parameter.
