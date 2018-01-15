@@ -137,5 +137,10 @@ Describe -Tag "Smoke" "S3" {
             (Get-Content "temp\cross-region-copy.txt") | Should Be $content
         }
 
+        It "Can copy with /-prefixed keys" {
+            $prefixedKey = "/key"
+            # this triggered exception before fix: https://github.com/aws/aws-sdk-net/issues/833
+            Copy-S3Object -BucketName $eastBucketName -Key $prefixedKey -DestinationKey "/data/keycopy" -Region us-east-1
+        }
     }
 }

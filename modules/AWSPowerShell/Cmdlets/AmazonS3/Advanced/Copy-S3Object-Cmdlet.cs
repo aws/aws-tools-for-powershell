@@ -553,10 +553,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         private S3Object GetObjectData(IAmazonS3 s3Client, string bucketName, string objectKey)
         {
+            // The underlying S3 api does not like listing with prefixes starting with / so strip
+            // (eg Copy-S3Object -BucketName test-bucket -Key /data/sample.txt -DestinationKey /data/sample-copy.txt)
             var request = new ListObjectsRequest
             {
                 BucketName = bucketName,
-                Prefix = objectKey
+                Prefix = objectKey.TrimStart('/')
             };
 
             var response = CallAWSServiceOperation(s3Client, request);
