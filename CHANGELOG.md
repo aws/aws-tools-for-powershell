@@ -1,3 +1,9 @@
+### 3.3.221.0 (2018-01-15)
+  * Amazon S3
+    * Fixed issue with the Copy-S3Object displaying an error when copying objects between buckets and the object keys started with the '/' character.
+  * AWS Lambda
+    * Updated cmdlets and argument completers to support the newly released dotnetcore2.0 and go1.x runtimes for Lamba functions.
+
 ### 3.3.219.0 (2018-01-12)
   * Amazon EC2
     * Updated the Get-EC2Snapshot and Get-EC2Volume cmdlets to use pagination to process data when a snapshot id or volume id is not supplied. This update should help customers with large numbers of snapshots or volumes who were experiencing timeout issues in previous versions which attempted to use a single call to obtain all data.

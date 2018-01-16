@@ -262,7 +262,7 @@
       <HintPath>..\..\packages\AWSSDK.MachineLearning.3.3.0.23\lib\net35\AWSSDK.MachineLearning.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lambda">
-      <HintPath>..\..\packages\AWSSDK.Lambda.3.3.10\lib\net35\AWSSDK.Lambda.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Lambda.3.3.11\lib\net35\AWSSDK.Lambda.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KinesisFirehose">
       <HintPath>..\..\packages\AWSSDK.KinesisFirehose.3.3.3\lib\net35\AWSSDK.KinesisFirehose.dll</HintPath>

@@ -4299,7 +4299,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnetcore1.0","java8","nodejs","nodejs4.3","nodejs4.3-edge","nodejs6.10","python2.7","python3.6"
+            $v = "dotnetcore1.0","dotnetcore2.0","go1.x","java8","nodejs","nodejs4.3","nodejs4.3-edge","nodejs6.10","python2.7","python3.6"
             break
         }
         

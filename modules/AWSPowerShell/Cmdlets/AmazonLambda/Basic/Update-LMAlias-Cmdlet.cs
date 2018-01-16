@@ -49,8 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter RoutingConfig_AdditionalVersionWeight
         /// <summary>
         /// <para>
-        /// <para>Set this property value to dictate what percentage of traffic will invoke the updated
-        /// function version. If set to an empty string, 100 percent of traffic will invoke <code>function-version</code>.</para>
+        /// <para>Set this value to dictate what percentage of traffic will invoke the updated function
+        /// version. If set to an empty string, 100 percent of traffic will invoke <code>function-version</code>.
+        /// For more information, see <a>lambda-traffic-shifting-using-aliases</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

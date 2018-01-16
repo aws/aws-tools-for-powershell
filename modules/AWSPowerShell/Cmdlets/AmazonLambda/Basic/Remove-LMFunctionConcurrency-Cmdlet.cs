@@ -28,7 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Removes concurrent execution limits from this function.
+    /// Removes concurrent execution limits from this function. For more information, see
+    /// <a>concurrent-executions</a>.
     /// </summary>
     [Cmdlet("Remove", "LMFunctionConcurrency", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -43,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>The name of the function you are removing concurrent execution limits from.</para>
+        /// <para>The name of the function you are removing concurrent execution limits from. For more
+        /// information, see <a>concurrent-executions</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
