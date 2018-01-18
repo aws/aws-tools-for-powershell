@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\> Get-C9EnvironmentData -EnvironmentId 685f892f431b45c2b28cb69eadcdb0EX,1980b80e5f584920801c09086667f0EX
+    
+Arn         : arn:aws:cloud9:us-east-1:123456789012:environment:685f892f431b45c2b28cb69eadcdb0EX
+Description : Created from CodeStar.
+Id          : 685f892f431b45c2b28cb69eadcdb0EX
+Name        : my-demo-ec2-env
+OwnerArn    : arn:aws:iam::123456789012:user/MyDemoUser
+Type        : ec2
+
+Arn         : arn:aws:cloud9:us-east-1:123456789012:environment:1980b80e5f584920801c09086667f0EX
+Description :
+Id          : 1980b80e5f584920801c09086667f0EX
+Name        : my-demo-ssh-env
+OwnerArn    : arn:aws:iam::123456789012:user/MyDemoUser
+Type        : ssh
+    </code>
+	<description>This example gets information about the specified AWS Cloud9 development environments.</description>
+  </example>
+</examples>

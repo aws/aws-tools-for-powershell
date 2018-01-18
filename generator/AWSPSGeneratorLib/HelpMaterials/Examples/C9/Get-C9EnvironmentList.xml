@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\> Get-C9EnvironmentList
+    
+685f892f431b45c2b28cb69eadcdb0EX
+1980b80e5f584920801c09086667f0EX
+    </code>
+	<description>This example gets a list of available AWS Cloud9 development environment identifiers.</description>
+  </example>
+</examples>
