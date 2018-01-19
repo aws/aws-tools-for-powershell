@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// <para>
     /// Each scalable target is identified by a service namespace, resource ID, and scalable
     /// dimension. A scheduled action applies to the scalable target identified by those three
-    /// attributes. You cannot create a scheduled action without first registering a scalable
-    /// target using <a>RegisterScalableTarget</a>.
+    /// attributes. You cannot create a scheduled action until you register the scalable target
+    /// using <a>RegisterScalableTarget</a>.
     /// </para><para>
     /// To update an action, specify its name and the parameters that you want to change.
     /// If you don't specify start and end times, the old values are deleted. Any other parameters
@@ -106,8 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ScalableDimension
         /// <summary>
         /// <para>
-        /// <para>The scalable dimension. This string consists of the service namespace, resource type,
-        /// and scaling property.</para><ul><li><para><code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</para></li><li><para><code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot
+        /// <para>The scalable dimension. This parameter is required if you are creating a scheduled
+        /// action. This string consists of the service namespace, resource type, and scaling
+        /// property.</para><ul><li><para><code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</para></li><li><para><code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot
         /// fleet request.</para></li><li><para><code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of
         /// an EMR Instance Group.</para></li><li><para><code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream
         /// 2.0 fleet.</para></li><li><para><code>dynamodb:table:ReadCapacityUnits</code> - The provisioned read capacity for

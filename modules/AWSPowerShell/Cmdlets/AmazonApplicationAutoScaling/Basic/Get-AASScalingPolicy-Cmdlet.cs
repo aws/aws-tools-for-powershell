@@ -116,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of scalable target results. This value can be between 1 and 50.
-        /// The default value is 50.</para><para>If this parameter is used, the operation returns up to <code>MaxResults</code> results
+        /// <para>The maximum number of scalable targets. This value can be between 1 and 50. The default
+        /// value is 50.</para><para>If this parameter is used, the operation returns up to <code>MaxResults</code> results
         /// at a time, along with a <code>NextToken</code> value. To get the next set of results,
         /// include the <code>NextToken</code> value in a subsequent call. If this parameter is
         /// not used, the operation returns up to 50 results and a <code>NextToken</code> value,

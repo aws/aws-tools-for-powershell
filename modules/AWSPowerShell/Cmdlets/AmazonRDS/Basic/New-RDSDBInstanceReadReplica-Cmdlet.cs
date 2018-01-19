@@ -129,6 +129,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBSubnetGroupName { get; set; }
         #endregion
         
+        #region Parameter EnableCloudwatchLogsExport
+        /// <summary>
+        /// <para>
+        /// <para>The list of logs that the new DB instance is to export to CloudWatch Logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("EnableCloudwatchLogsExports")]
+        public System.String[] EnableCloudwatchLogsExport { get; set; }
+        #endregion
+        
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
@@ -209,7 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MultiAZ
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the read replica is in a Multi-AZ deployment. </para>
+        /// <para>Specifies whether the read replica is in a Multi-AZ deployment. </para><para>You can create a Read Replica as a Multi-AZ DB instance. RDS creates a standby of
+        /// your replica in another Availability Zone for failover support for the replica. Creating
+        /// your Read Replica as a Multi-AZ DB instance is independent of whether the source database
+        /// is a Multi-AZ DB instance. </para><note><para>Currently PostgreSQL Read Replicas can only be created as single-AZ DB instances.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -391,6 +405,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBInstanceClass = this.DBInstanceClass;
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            if (this.EnableCloudwatchLogsExport != null)
+            {
+                context.EnableCloudwatchLogsExports = new List<System.String>(this.EnableCloudwatchLogsExport);
+            }
             if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
                 context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             if (ParameterWasBound("EnablePerformanceInsight"))
@@ -459,6 +477,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.EnableCloudwatchLogsExports != null)
+            {
+                request.EnableCloudwatchLogsExports = cmdletContext.EnableCloudwatchLogsExports;
             }
             if (cmdletContext.EnableIAMDatabaseAuthentication != null)
             {
@@ -591,6 +613,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBInstanceClass { get; set; }
             public System.String DBInstanceIdentifier { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public List<System.String> EnableCloudwatchLogsExports { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.Boolean? EnablePerformanceInsights { get; set; }
             public System.Int32? Iops { get; set; }

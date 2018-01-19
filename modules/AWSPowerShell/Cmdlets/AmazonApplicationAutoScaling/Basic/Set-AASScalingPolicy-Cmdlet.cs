@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// <para>
     /// Each scalable target is identified by a service namespace, resource ID, and scalable
     /// dimension. A scaling policy applies to the scalable target identified by those three
-    /// attributes. You cannot create a scaling policy without first registering a scalable
-    /// target using <a>RegisterScalableTarget</a>.
+    /// attributes. You cannot create a scaling policy until you register the scalable target
+    /// using <a>RegisterScalableTarget</a>.
     /// </para><para>
     /// To update a policy, specify its policy name and the parameters that you want to change.
     /// Any parameters that you don't specify are not changed by this update request.
@@ -173,9 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter PolicyType
         /// <summary>
         /// <para>
-        /// <para>The policy type. If you are creating a new policy, this parameter is required. If
-        /// you are updating a policy, this parameter is not required.</para><para>For DynamoDB, only <code>TargetTrackingScaling</code> is supported. For any other
-        /// service, only <code>StepScaling</code> is supported.</para>
+        /// <para>The policy type. This parameter is required if you are creating a policy.</para><para>For DynamoDB, only <code>TargetTrackingScaling</code> is supported. For Amazon ECS,
+        /// Spot Fleet, and Amazon RDS, both <code>StepScaling</code> and <code>TargetTrackingScaling</code>
+        /// are supported. For any other service, only <code>StepScaling</code> is supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <summary>
         /// <para>
         /// <para>The metric type. The <code>ALBRequestCountPerTarget</code> metric type applies only
-        /// to Spot fleet requests.</para>
+        /// to Spot fleet requests and ECS services.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <para>
         /// <para>Identifies the resource associated with the metric type. You can't specify a resource
         /// label unless the metric type is <code>ALBRequestCountPerTarget</code> and there is
-        /// a target group attached to the Spot fleet request.</para><para>The format is app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt;/targetgroup/&lt;target-group-name&gt;/&lt;target-group-id&gt;,
+        /// a target group attached to the Spot fleet request or ECS service.</para><para>The format is app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt;/targetgroup/&lt;target-group-name&gt;/&lt;target-group-id&gt;,
         /// where:</para><ul><li><para>app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt; is the final portion of the
         /// load balancer ARN</para></li><li><para>targetgroup/&lt;target-group-name&gt;/&lt;target-group-id&gt; is the final portion
         /// of the target group ARN.</para></li></ul>

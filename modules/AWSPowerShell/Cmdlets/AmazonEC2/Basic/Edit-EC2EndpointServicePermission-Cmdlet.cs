@@ -28,9 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modifies the permissions for your VPC endpoint service. You can add or remove permissions
-    /// for service consumers (IAM users, IAM roles, and AWS accounts) to discover your endpoint
-    /// service.
+    /// Modifies the permissions for your <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/endpoint-service.html">VPC
+    /// endpoint service</a>. You can add or remove permissions for service consumers (IAM
+    /// users, IAM roles, and AWS accounts) to connect to your endpoint service.
     /// </summary>
     [Cmdlet("Edit", "EC2EndpointServicePermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]

@@ -65,7 +65,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// or in a VPC (<code>vpc</code>).</para></li><li><para><code>instance-id</code> - The ID of the instance the address is associated with,
         /// if any.</para></li><li><para><code>network-interface-id</code> - [EC2-VPC] The ID of the network interface that
         /// the address is associated with, if any.</para></li><li><para><code>network-interface-owner-id</code> - The AWS account ID of the owner.</para></li><li><para><code>private-ip-address</code> - [EC2-VPC] The private IP address associated with
-        /// the Elastic IP address.</para></li><li><para><code>public-ip</code> - The Elastic IP address.</para></li></ul>
+        /// the Elastic IP address.</para></li><li><para><code>public-ip</code> - The Elastic IP address.</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
+        /// to the resource. Specify the key of the tag in the filter name and the value of the
+        /// tag in the filter value. For example, for the tag Purpose=X, specify <code>tag:Purpose</code>
+        /// for the filter name and <code>X</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is
+        /// independent of the <code>tag-value</code> filter. For example, if you use both the
+        /// filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned
+        /// both the tag key Purpose (regardless of what the tag's value is), and the tag value
+        /// X (regardless of the tag's key). If you want to list only resources where Purpose
+        /// is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

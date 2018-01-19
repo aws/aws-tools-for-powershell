@@ -71,6 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String EndpointConfigName { get; set; }
         #endregion
         
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker
+        /// uses to encrypt data on the storage volume attached to the ML compute instance that
+        /// hosts the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter ProductionVariant
         /// <summary>
         /// <para>
@@ -126,6 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             PreExecutionContextLoad(context);
             
             context.EndpointConfigName = this.EndpointConfigName;
+            context.KmsKeyId = this.KmsKeyId;
             if (this.ProductionVariant != null)
             {
                 context.ProductionVariants = new List<Amazon.SageMaker.Model.ProductionVariant>(this.ProductionVariant);
@@ -153,6 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.EndpointConfigName != null)
             {
                 request.EndpointConfigName = cmdletContext.EndpointConfigName;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             if (cmdletContext.ProductionVariants != null)
             {
@@ -227,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String EndpointConfigName { get; set; }
+            public System.String KmsKeyId { get; set; }
             public List<Amazon.SageMaker.Model.ProductionVariant> ProductionVariants { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tags { get; set; }
         }

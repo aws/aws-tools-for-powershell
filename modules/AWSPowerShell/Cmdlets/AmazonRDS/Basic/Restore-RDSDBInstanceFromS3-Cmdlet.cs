@@ -171,6 +171,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBSubnetGroupName { get; set; }
         #endregion
         
+        #region Parameter EnableCloudwatchLogsExport
+        /// <summary>
+        /// <para>
+        /// <para>The list of logs that the restored DB instance is to export to CloudWatch Logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("EnableCloudwatchLogsExports")]
+        public System.String[] EnableCloudwatchLogsExport { get; set; }
+        #endregion
+        
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
@@ -522,6 +533,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.DBSecurityGroups = new List<System.String>(this.DBSecurityGroup);
             }
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            if (this.EnableCloudwatchLogsExport != null)
+            {
+                context.EnableCloudwatchLogsExports = new List<System.String>(this.EnableCloudwatchLogsExport);
+            }
             if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
                 context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             if (ParameterWasBound("EnablePerformanceInsight"))
@@ -622,6 +637,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.EnableCloudwatchLogsExports != null)
+            {
+                request.EnableCloudwatchLogsExports = cmdletContext.EnableCloudwatchLogsExports;
             }
             if (cmdletContext.EnableIAMDatabaseAuthentication != null)
             {
@@ -806,6 +825,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBParameterGroupName { get; set; }
             public List<System.String> DBSecurityGroups { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public List<System.String> EnableCloudwatchLogsExports { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.Boolean? EnablePerformanceInsights { get; set; }
             public System.String Engine { get; set; }

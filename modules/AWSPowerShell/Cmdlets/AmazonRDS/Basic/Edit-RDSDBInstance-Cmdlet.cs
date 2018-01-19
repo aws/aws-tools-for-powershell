@@ -223,6 +223,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBSubnetGroupName { get; set; }
         #endregion
         
+        #region Parameter CloudwatchLogsExportConfiguration_DisableLogType
+        /// <summary>
+        /// <para>
+        /// <para>The list of log types to disable.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("CloudwatchLogsExportConfiguration_DisableLogTypes")]
+        public System.String[] CloudwatchLogsExportConfiguration_DisableLogType { get; set; }
+        #endregion
+        
         #region Parameter Domain
         /// <summary>
         /// <para>
@@ -256,6 +267,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean EnableIAMDatabaseAuthentication { get; set; }
+        #endregion
+        
+        #region Parameter CloudwatchLogsExportConfiguration_EnableLogType
+        /// <summary>
+        /// <para>
+        /// <para>The list of log types to enable.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("CloudwatchLogsExportConfiguration_EnableLogTypes")]
+        public System.String[] CloudwatchLogsExportConfiguration_EnableLogType { get; set; }
         #endregion
         
         #region Parameter EnablePerformanceInsight
@@ -579,6 +601,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (ParameterWasBound("BackupRetentionPeriod"))
                 context.BackupRetentionPeriod = this.BackupRetentionPeriod;
             context.CACertificateIdentifier = this.CACertificateIdentifier;
+            if (this.CloudwatchLogsExportConfiguration_DisableLogType != null)
+            {
+                context.CloudwatchLogsExportConfiguration_DisableLogTypes = new List<System.String>(this.CloudwatchLogsExportConfiguration_DisableLogType);
+            }
+            if (this.CloudwatchLogsExportConfiguration_EnableLogType != null)
+            {
+                context.CloudwatchLogsExportConfiguration_EnableLogTypes = new List<System.String>(this.CloudwatchLogsExportConfiguration_EnableLogType);
+            }
             if (ParameterWasBound("CopyTagsToSnapshot"))
                 context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DBInstanceClass = this.DBInstanceClass;
@@ -662,6 +692,35 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.CACertificateIdentifier != null)
             {
                 request.CACertificateIdentifier = cmdletContext.CACertificateIdentifier;
+            }
+            
+             // populate CloudwatchLogsExportConfiguration
+            bool requestCloudwatchLogsExportConfigurationIsNull = true;
+            request.CloudwatchLogsExportConfiguration = new Amazon.RDS.Model.CloudwatchLogsExportConfiguration();
+            List<System.String> requestCloudwatchLogsExportConfiguration_cloudwatchLogsExportConfiguration_DisableLogType = null;
+            if (cmdletContext.CloudwatchLogsExportConfiguration_DisableLogTypes != null)
+            {
+                requestCloudwatchLogsExportConfiguration_cloudwatchLogsExportConfiguration_DisableLogType = cmdletContext.CloudwatchLogsExportConfiguration_DisableLogTypes;
+            }
+            if (requestCloudwatchLogsExportConfiguration_cloudwatchLogsExportConfiguration_DisableLogType != null)
+            {
+                request.CloudwatchLogsExportConfiguration.DisableLogTypes = requestCloudwatchLogsExportConfiguration_cloudwatchLogsExportConfiguration_DisableLogType;
+                requestCloudwatchLogsExportConfigurationIsNull = false;
+            }
+            List<System.String> requestCloudwatchLogsExportConfiguration_cloudwatchLogsExportConfiguration_EnableLogType = null;
+            if (cmdletContext.CloudwatchLogsExportConfiguration_EnableLogTypes != null)
+            {
+                requestCloudwatchLogsExportConfiguration_cloudwatchLogsExportConfiguration_EnableLogType = cmdletContext.CloudwatchLogsExportConfiguration_EnableLogTypes;
+            }
+            if (requestCloudwatchLogsExportConfiguration_cloudwatchLogsExportConfiguration_EnableLogType != null)
+            {
+                request.CloudwatchLogsExportConfiguration.EnableLogTypes = requestCloudwatchLogsExportConfiguration_cloudwatchLogsExportConfiguration_EnableLogType;
+                requestCloudwatchLogsExportConfigurationIsNull = false;
+            }
+             // determine if request.CloudwatchLogsExportConfiguration should be set to null
+            if (requestCloudwatchLogsExportConfigurationIsNull)
+            {
+                request.CloudwatchLogsExportConfiguration = null;
             }
             if (cmdletContext.CopyTagsToSnapshot != null)
             {
@@ -849,6 +908,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.Int32? BackupRetentionPeriod { get; set; }
             public System.String CACertificateIdentifier { get; set; }
+            public List<System.String> CloudwatchLogsExportConfiguration_DisableLogTypes { get; set; }
+            public List<System.String> CloudwatchLogsExportConfiguration_EnableLogTypes { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String DBInstanceClass { get; set; }
             public System.String DBInstanceIdentifier { get; set; }

@@ -217,6 +217,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DomainIAMRoleName { get; set; }
         #endregion
         
+        #region Parameter EnableCloudwatchLogsExport
+        /// <summary>
+        /// <para>
+        /// <para>The list of log types that need to be enabled for exporting to CloudWatch Logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("EnableCloudwatchLogsExports")]
+        public System.String[] EnableCloudwatchLogsExport { get; set; }
+        #endregion
+        
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
@@ -607,6 +618,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBSubnetGroupName = this.DBSubnetGroupName;
             context.Domain = this.Domain;
             context.DomainIAMRoleName = this.DomainIAMRoleName;
+            if (this.EnableCloudwatchLogsExport != null)
+            {
+                context.EnableCloudwatchLogsExports = new List<System.String>(this.EnableCloudwatchLogsExport);
+            }
             if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
                 context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             if (ParameterWasBound("EnablePerformanceInsight"))
@@ -723,6 +738,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DomainIAMRoleName != null)
             {
                 request.DomainIAMRoleName = cmdletContext.DomainIAMRoleName;
+            }
+            if (cmdletContext.EnableCloudwatchLogsExports != null)
+            {
+                request.EnableCloudwatchLogsExports = cmdletContext.EnableCloudwatchLogsExports;
             }
             if (cmdletContext.EnableIAMDatabaseAuthentication != null)
             {
@@ -907,6 +926,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBSubnetGroupName { get; set; }
             public System.String Domain { get; set; }
             public System.String DomainIAMRoleName { get; set; }
+            public List<System.String> EnableCloudwatchLogsExports { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.Boolean? EnablePerformanceInsights { get; set; }
             public System.String Engine { get; set; }

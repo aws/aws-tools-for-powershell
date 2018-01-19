@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The service name. To get a list of available services, use the <a>DescribeVpcEndpointServices</a>
-        /// request.</para>
+        /// request, or get the name from the service provider.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
