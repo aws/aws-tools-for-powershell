@@ -40,7 +40,7 @@
 		"AWSSDK.CognitoIdentityProvider": "3.3.8",
 		"AWSSDK.Comprehend": "3.3.0",
 		"AWSSDK.ConfigService": "3.3.12",
-		"AWSSDK.Core": "3.3.21.7",
+		"AWSSDK.Core": "3.3.21.8",
 		"AWSSDK.CostAndUsageReport": "3.3.0.17",
 		"AWSSDK.CostExplorer": "3.3.0",
 		"AWSSDK.DatabaseMigrationService": "3.3.5",
