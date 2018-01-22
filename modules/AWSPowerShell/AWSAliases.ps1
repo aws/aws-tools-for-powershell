@@ -5226,6 +5226,9 @@ Set-Alias -Name STS-GetCallerIdentity -Value Get-STSCallerIdentity
 Set-Alias -Name STS-GetFederationToken -Value Get-STSFederationToken
 Set-Alias -Name STS-GetSessionToken -Value Get-STSSessionToken
 Set-Alias -Name Assume-STSWebIdentityRole -Value Use-STSWebIdentityRole
+Set-Alias -Name TRS-GetTranscriptionJob -Value Get-TRSTranscriptionJob
+Set-Alias -Name TRS-ListTranscriptionJobs -Value Get-TRSTranscriptionJobList
+Set-Alias -Name TRS-StartTranscriptionJob -Value Start-TRSTranscriptionJob
 Set-Alias -Name TRN-TranslateText -Value ConvertTo-TRNTargetLanguage
 Set-Alias -Name Create-WAFByteMatchSet -Value New-WAFByteMatchSet
 Set-Alias -Name WAF-CreateByteMatchSet -Value New-WAFByteMatchSet

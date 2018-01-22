@@ -6251,6 +6251,49 @@ $SSM_map = @{
 _awsArgumentCompleterRegistration $SSM_Completers $SSM_map
 
 
+# Argument completions for service Amazon Transcribe Service
+$TRS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.TranscribeService.LanguageCode
+        "Start-TRSTranscriptionJob/LanguageCode"
+        {
+            $v = "en-US","es-US"
+            break
+        }
+        
+        # Amazon.TranscribeService.MediaFormat
+        "Start-TRSTranscriptionJob/MediaFormat"
+        {
+            $v = "flac","mp3","mp4","wav"
+            break
+        }
+        
+        # Amazon.TranscribeService.TranscriptionJobStatus
+        "Get-TRSTranscriptionJobList/Status"
+        {
+            $v = "COMPLETED","FAILED","IN_PROGRESS"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$TRS_map = @{
+    "LanguageCode"=@("Start-TRSTranscriptionJob")
+    "MediaFormat"=@("Start-TRSTranscriptionJob")
+    "Status"=@("Get-TRSTranscriptionJobList")
+}
+
+_awsArgumentCompleterRegistration $TRS_Completers $TRS_map
+
+
 # Argument completions for service AWS WAF
 $WAF_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

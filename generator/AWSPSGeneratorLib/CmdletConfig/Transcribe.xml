@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>transcribe</C2jFilename>
+    <SourceGenerationRoot>AmazonTranscribe</SourceGenerationRoot>
+    <ServiceNounPrefix>TRS</ServiceNounPrefix>
+    <ServiceName>Amazon Transcribe Service</ServiceName>
+    <ServiceClientInterface>IAmazonTranscribeService</ServiceClientInterface>
+    <ServiceClient>AmazonTranscribeServiceClient</ServiceClient>
+    <ServiceNamespace>Amazon.TranscribeService</ServiceNamespace>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" />
+    <PipelineParameter>TranscriptionJobName</PipelineParameter>
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties>
+        <Property>Status</Property>
+    </MetadataProperties>
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetTranscriptionJob" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TranscriptionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTranscriptionJobs" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TranscriptionJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTranscriptionJob" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="TranscriptionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

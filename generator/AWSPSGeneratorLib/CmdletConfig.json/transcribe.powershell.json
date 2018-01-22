@@ -1,0 +1,81 @@
+{
+  "defaultPaginationSettings": {
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken",
+    "resultLimitMember": "MaxResults",
+    "servicePageSize": 100
+  },
+  "defaultPipelineProperty": "TranscriptionJobName",
+  "legacyCmdletPrefix": "TRS",
+  "outputMetadataPropertyNames": [
+    "Status"
+  ],
+  "sdkServiceClientClass": "AmazonTranscribeServiceClient",
+  "sdkServiceConfigClass": "AmazonTranscribeServiceConfig",
+  "sdkServiceNamespace": "Amazon.TranscribeService",
+  "serviceOperations": {
+    "GetTranscriptionJob": {
+      "verb": "Get",
+      "noun": "TranscriptionJob",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "TranscriptionJob",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "servicePageSize": 100
+        }
+      }
+    },
+    "ListTranscriptionJobs": {
+      "verb": "Get",
+      "noun": "TranscriptionJobList",
+      "pipelineProperty": "Status",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "TranscriptionJobs",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "servicePageSize": 100
+        }
+      }
+    },
+    "StartTranscriptionJob": {
+      "verb": "Start",
+      "noun": "TranscriptionJob",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "TranscriptionJob",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "servicePageSize": 100
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "TranscriptionJobName"
+        }
+      }
+    }
+  }
+}

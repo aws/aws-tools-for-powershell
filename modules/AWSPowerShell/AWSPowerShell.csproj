@@ -186,6 +186,9 @@
     <Reference Include="AWSSDK.SimpleWorkflow">
       <HintPath>..\..\packages\AWSSDK.SimpleWorkflow.3.3.0.24\lib\net35\AWSSDK.SimpleWorkflow.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.TranscribeService">
+      <HintPath>..\..\packages\AWSSDK.TranscribeService.3.3.0\lib\net35\AWSSDK.TranscribeService.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Translate">
       <HintPath>..\..\packages\AWSSDK.Translate.3.3.0\lib\net35\AWSSDK.Translate.dll</HintPath>
     </Reference>
