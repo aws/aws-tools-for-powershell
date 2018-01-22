@@ -96,6 +96,9 @@
     <Reference Include="AWSSDK.DAX">
       <HintPath>..\..\packages\AWSSDK.DAX.3.3.0.6\lib\net35\AWSSDK.DAX.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Glue">
+      <HintPath>..\..\packages\AWSSDK.Glue.3.3.4\lib\net35\AWSSDK.Glue.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Greengrass">
       <HintPath>..\..\packages\AWSSDK.Greengrass.3.3.2\lib\net35\AWSSDK.Greengrass.dll</HintPath>
     </Reference>

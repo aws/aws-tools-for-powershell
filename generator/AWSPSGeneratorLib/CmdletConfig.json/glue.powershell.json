@@ -1,0 +1,1816 @@
+{
+  "defaultPaginationSettings": {
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken",
+    "resultLimitMember": "MaxResults"
+  },
+  "defaultPipelineProperty": "",
+  "legacyCmdletPrefix": "GLUE",
+  "nonFlatteningTypeNames": [
+    "Amazon.Glue.Model.CatalogEntry",
+    "Amazon.Glue.Model.ConnectionInput",
+    "Amazon.Glue.Model.CrawlerTargets",
+    "Amazon.Glue.Model.CreateGrokClassifierRequest",
+    "Amazon.Glue.Model.CreateXMLClassifierRequest",
+    "Amazon.Glue.Model.DatabaseInput",
+    "Amazon.Glue.Model.DevEndpointCustomLibraries",
+    "Amazon.Glue.Model.GetConnectionsFilter",
+    "Amazon.Glue.Model.GrokClassifier",
+    "Amazon.Glue.Model.JobCommand",
+    "Amazon.Glue.Model.JobUpdate",
+    "Amazon.Glue.Model.Location",
+    "Amazon.Glue.Model.PartitionInput",
+    "Amazon.Glue.Model.Predicate",
+    "Amazon.Glue.Model.SchemaChangePolicy",
+    "Amazon.Glue.Model.Segment",
+    "Amazon.Glue.Model.TableInput",
+    "Amazon.Glue.Model.TriggerUpdate",
+    "Amazon.Glue.Model.UpdateGrokClassifierRequest",
+    "Amazon.Glue.Model.UpdateXMLClassifierRequest",
+    "Amazon.Glue.Model.UserDefinedFunctionInput",
+    "Amazon.Glue.Model.XMLClassifier"
+  ],
+  "sdkServiceClientClass": "AmazonGlueClient",
+  "sdkServiceConfigClass": "AmazonGlueConfig",
+  "sdkServiceNamespace": "Amazon.Glue",
+  "serviceOperations": {
+    "BatchCreatePartition": {
+      "verb": "New",
+      "noun": "PartitionBatch",
+      "pipelineProperty": "TableName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "CreatePartition",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "TableName"
+        }
+      }
+    },
+    "BatchDeleteConnection": {
+      "verb": "Remove",
+      "noun": "ConnectionBatch",
+      "pipelineProperty": "ConnectionNameList",
+      "output": "Response",
+      "useAnonymousShouldProcessTarget": "true",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "DeleteConnection",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "AnonymousShouldProcessTarget specified in config",
+          "status": "AnonymousTarget",
+          "targetParameterName": ""
+        }
+      }
+    },
+    "BatchDeletePartition": {
+      "verb": "Remove",
+      "noun": "PartitionBatch",
+      "pipelineProperty": "PartitionsToDelete",
+      "shouldProcessTargetProperty": "TableName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "DeletePartition",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": "TableName"
+        }
+      }
+    },
+    "BatchDeleteTable": {
+      "verb": "Remove",
+      "noun": "TableBatch",
+      "pipelineProperty": "TablesToDelete",
+      "shouldProcessTargetProperty": "DatabaseName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "DeleteTable",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": "DatabaseName"
+        }
+      }
+    },
+    "BatchDeleteTableVersion": {
+      "verb": "Remove",
+      "noun": "TableVersionBatch",
+      "pipelineProperty": "VersionIds",
+      "shouldProcessTargetProperty": "TableName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "DeleteTableVersion",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": "TableName"
+        }
+      }
+    },
+    "BatchGetPartition": {
+      "verb": "Get",
+      "noun": "PartitionBatch",
+      "pipelineProperty": "TableName",
+      "output": "Response",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "GetPartition",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "BatchStopJobRun": {
+      "verb": "Stop",
+      "noun": "JobRunBatch",
+      "pipelineProperty": "JobRunIds",
+      "output": "Response",
+      "shouldProcessTargetProperty": "JobName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "StopJobRun",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": "JobName"
+        }
+      }
+    },
+    "CreateClassifier": {
+      "verb": "New",
+      "noun": "Classifier",
+      "noPipelineProperty": "true",
+      "output": "Void",
+      "useAnonymousShouldProcessTarget": "true",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Classifier",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "AnonymousShouldProcessTarget specified in config",
+          "status": "AnonymousTarget",
+          "targetParameterName": ""
+        }
+      }
+    },
+    "CreateConnection": {
+      "verb": "New",
+      "noun": "Connection",
+      "pipelineProperty": "ConnectionInput",
+      "output": "Void",
+      "useAnonymousShouldProcessTarget": "true",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Connection",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: ConnectionInput",
+        "PassThruTypeName": "Amazon.Glue.Model.ConnectionInput",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "AnonymousShouldProcessTarget specified in config",
+          "status": "AnonymousTarget",
+          "targetParameterName": ""
+        }
+      }
+    },
+    "CreateCrawler": {
+      "verb": "New",
+      "noun": "Crawler",
+      "pipelineProperty": "Name",
+      "output": "Void",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Crawler",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: Name",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        }
+      }
+    },
+    "CreateDatabase": {
+      "verb": "New",
+      "noun": "Database",
+      "pipelineProperty": "DatabaseInput",
+      "output": "Void",
+      "useAnonymousShouldProcessTarget": "true",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Database",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: DatabaseInput",
+        "PassThruTypeName": "Amazon.Glue.Model.DatabaseInput",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "AnonymousShouldProcessTarget specified in config",
+          "status": "AnonymousTarget",
+          "targetParameterName": ""
+        }
+      }
+    },
+    "CreateDevEndpoint": {
+      "verb": "New",
+      "noun": "DevEndpoint",
+      "pipelineProperty": "PublicKey",
+      "output": "Response",
+      "shouldProcessTargetProperty": "EndpointName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "DevEndpoint",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": "EndpointName"
+        }
+      }
+    },
+    "CreateJob": {
+      "verb": "New",
+      "noun": "Job",
+      "pipelineProperty": "Command",
+      "shouldProcessTargetProperty": "Name",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Job",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": "Name"
+        }
+      }
+    },
+    "CreatePartition": {
+      "verb": "New",
+      "noun": "Partition",
+      "pipelineProperty": "PartitionInput",
+      "output": "Void",
+      "shouldProcessTargetProperty": "TableName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Partition",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: PartitionInput",
+        "PassThruTypeName": "Amazon.Glue.Model.PartitionInput",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": "TableName"
+        }
+      }
+    },
+    "CreateScript": {
+      "verb": "New",
+      "noun": "Script",
+      "noPipelineProperty": "true",
+      "output": "Response",
+      "useAnonymousShouldProcessTarget": "true",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Script",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "AnonymousShouldProcessTarget specified in config",
+          "status": "AnonymousTarget",
+          "targetParameterName": ""
+        }
+      }
+    },
+    "CreateTable": {
+      "verb": "New",
+      "noun": "Table",
+      "pipelineProperty": "TableInput",
+      "output": "Void",
+      "shouldProcessTargetProperty": "DatabaseName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Table",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: TableInput",
+        "PassThruTypeName": "Amazon.Glue.Model.TableInput",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": "DatabaseName"
+        }
+      }
+    },
+    "CreateTrigger": {
+      "verb": "New",
+      "noun": "Trigger",
+      "pipelineProperty": "Name",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Trigger",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        }
+      }
+    },
+    "CreateUserDefinedFunction": {
+      "verb": "New",
+      "noun": "UserDefinedFunction",
+      "pipelineProperty": "FunctionInput",
+      "output": "Void",
+      "shouldProcessTargetProperty": "DatabaseName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "UserDefinedFunction",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: FunctionInput",
+        "PassThruTypeName": "Amazon.Glue.Model.UserDefinedFunctionInput",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": "DatabaseName"
+        }
+      }
+    },
+    "DeleteClassifier": {
+      "verb": "Remove",
+      "noun": "Classifier",
+      "pipelineProperty": "Name",
+      "output": "Void",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Classifier",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: Name",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        }
+      }
+    },
+    "DeleteConnection": {
+      "verb": "Remove",
+      "noun": "Connection",
+      "pipelineProperty": "ConnectionName",
+      "output": "Void",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Connection",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: ConnectionName",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ConnectionName"
+        }
+      }
+    },
+    "DeleteCrawler": {
+      "verb": "Remove",
+      "noun": "Crawler",
+      "pipelineProperty": "Name",
+      "output": "Void",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Crawler",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: Name",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        }
+      }
+    },
+    "DeleteDatabase": {
+      "verb": "Remove",
+      "noun": "Database",
+      "pipelineProperty": "Name",
+      "output": "Void",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Database",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: Name",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        }
+      }
+    },
+    "DeleteDevEndpoint": {
+      "verb": "Remove",
+      "noun": "DevEndpoint",
+      "pipelineProperty": "EndpointName",
+      "output": "Void",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "DevEndpoint",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: EndpointName",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "EndpointName"
+        }
+      }
+    },
+    "DeleteJob": {
+      "verb": "Remove",
+      "noun": "Job",
+      "pipelineProperty": "JobName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Job",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "JobName"
+        }
+      }
+    },
+    "DeletePartition": {
+      "verb": "Remove",
+      "noun": "Partition",
+      "pipelineProperty": "TableName",
+      "output": "Void",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Partition",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: TableName",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "TableName"
+        }
+      }
+    },
+    "DeleteTable": {
+      "verb": "Remove",
+      "noun": "Table",
+      "pipelineProperty": "Name",
+      "output": "Void",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Table",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: Name",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        }
+      }
+    },
+    "DeleteTableVersion": {
+      "verb": "Remove",
+      "noun": "TableVersion",
+      "pipelineProperty": "VersionIds",
+      "output": "Void",
+      "shouldProcessTargetProperty": "TableName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "TableVersion",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": "TableName"
+        }
+      }
+    },
+    "DeleteTrigger": {
+      "verb": "Remove",
+      "noun": "Trigger",
+      "pipelineProperty": "Name",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Trigger",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        }
+      }
+    },
+    "DeleteUserDefinedFunction": {
+      "verb": "Remove",
+      "noun": "UserDefinedFunction",
+      "pipelineProperty": "FunctionName",
+      "output": "Void",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "UserDefinedFunction",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: FunctionName",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "FunctionName"
+        }
+      }
+    },
+    "GetCatalogImportStatus": {
+      "verb": "Get",
+      "noun": "CatalogImportStatus",
+      "pipelineProperty": "CatalogId",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "CatalogImportStatus",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetClassifier": {
+      "verb": "Get",
+      "noun": "Classifier",
+      "pipelineProperty": "Name",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Classifier",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetClassifiers": {
+      "verb": "Get",
+      "noun": "ClassifierList",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Classifiers",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetConnection": {
+      "verb": "Get",
+      "noun": "Connection",
+      "pipelineProperty": "Name",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Connection",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetConnections": {
+      "verb": "Get",
+      "noun": "ConnectionList",
+      "noPipelineProperty": "true",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Connections",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetCrawler": {
+      "verb": "Get",
+      "noun": "Crawler",
+      "pipelineProperty": "Name",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Crawler",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetCrawlerMetrics": {
+      "verb": "Get",
+      "noun": "CrawlerMetricsList",
+      "pipelineProperty": "CrawlerNameList",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "CrawlerMetrics",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetCrawlers": {
+      "verb": "Get",
+      "noun": "CrawlerList",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Crawlers",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetDatabase": {
+      "verb": "Get",
+      "noun": "Database",
+      "pipelineProperty": "Name",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Database",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetDatabases": {
+      "verb": "Get",
+      "noun": "DatabaseList",
+      "pipelineProperty": "CatalogId",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Databases",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetDataflowGraph": {
+      "verb": "Get",
+      "noun": "DataflowGraph",
+      "pipelineProperty": "PythonScript",
+      "output": "Response",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "DataflowGraph",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetDevEndpoint": {
+      "verb": "Get",
+      "noun": "DevEndpoint",
+      "pipelineProperty": "EndpointName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "DevEndpoint",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetDevEndpoints": {
+      "verb": "Get",
+      "noun": "DevEndpointList",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "DevEndpoints",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetJob": {
+      "verb": "Get",
+      "noun": "Job",
+      "pipelineProperty": "JobName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Job",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetJobRun": {
+      "verb": "Get",
+      "noun": "JobRun",
+      "pipelineProperty": "RunId",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "JobRun",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetJobRuns": {
+      "verb": "Get",
+      "noun": "JobRunList",
+      "pipelineProperty": "JobName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "JobRuns",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetJobs": {
+      "verb": "Get",
+      "noun": "JobList",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Jobs",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetMapping": {
+      "verb": "Get",
+      "noun": "Mapping",
+      "pipelineProperty": "Source",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Mapping",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetPartition": {
+      "verb": "Get",
+      "noun": "Partition",
+      "pipelineProperty": "TableName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Partition",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetPartitions": {
+      "verb": "Get",
+      "noun": "PartitionList",
+      "pipelineProperty": "TableName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Partitions",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetPlan": {
+      "verb": "Get",
+      "noun": "Plan",
+      "pipelineProperty": "Source",
+      "output": "Response",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Plan",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetTable": {
+      "verb": "Get",
+      "noun": "Table",
+      "pipelineProperty": "Name",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Table",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetTables": {
+      "verb": "Get",
+      "noun": "TableList",
+      "pipelineProperty": "DatabaseName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Tables",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetTableVersion": {
+      "verb": "Get",
+      "noun": "TableVersion",
+      "pipelineProperty": "TableName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "TableVersion",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetTableVersions": {
+      "verb": "Get",
+      "noun": "TableVersionList",
+      "pipelineProperty": "TableName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "TableVersions",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetTrigger": {
+      "verb": "Get",
+      "noun": "Trigger",
+      "pipelineProperty": "Name",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Trigger",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetTriggers": {
+      "verb": "Get",
+      "noun": "TriggerList",
+      "noPipelineProperty": "true",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Triggers",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetUserDefinedFunction": {
+      "verb": "Get",
+      "noun": "UserDefinedFunction",
+      "pipelineProperty": "FunctionName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "UserDefinedFunction",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "GetUserDefinedFunctions": {
+      "verb": "Get",
+      "noun": "UserDefinedFunctionList",
+      "pipelineProperty": "DatabaseName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "UserDefinedFunctions",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        }
+      }
+    },
+    "ImportCatalogToGlue": {
+      "verb": "Import",
+      "noun": "Catalog",
+      "pipelineProperty": "CatalogId",
+      "output": "Void",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "CatalogToGlue",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: CatalogId",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "CatalogId"
+        }
+      }
+    },
+    "ResetJobBookmark": {
+      "verb": "Reset",
+      "noun": "JobBookmark",
+      "pipelineProperty": "JobName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "JobBookmark",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "JobName"
+        }
+      }
+    },
+    "StartCrawler": {
+      "verb": "Start",
+      "noun": "Crawler",
+      "pipelineProperty": "Name",
+      "output": "Void",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Crawler",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: Name",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        }
+      }
+    },
+    "StartCrawlerSchedule": {
+      "verb": "Start",
+      "noun": "CrawlerSchedule",
+      "pipelineProperty": "CrawlerName",
+      "output": "Void",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "CrawlerSchedule",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: CrawlerName",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "CrawlerName"
+        }
+      }
+    },
+    "StartJobRun": {
+      "verb": "Start",
+      "noun": "JobRun",
+      "pipelineProperty": "JobName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "JobRun",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "JobName"
+        }
+      }
+    },
+    "StartTrigger": {
+      "verb": "Start",
+      "noun": "Trigger",
+      "pipelineProperty": "Name",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Trigger",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        }
+      }
+    },
+    "StopCrawler": {
+      "verb": "Stop",
+      "noun": "Crawler",
+      "pipelineProperty": "Name",
+      "output": "Void",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Crawler",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: Name",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        }
+      }
+    },
+    "StopCrawlerSchedule": {
+      "verb": "Stop",
+      "noun": "CrawlerSchedule",
+      "pipelineProperty": "CrawlerName",
+      "output": "Void",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "CrawlerSchedule",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: CrawlerName",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "CrawlerName"
+        }
+      }
+    },
+    "StopTrigger": {
+      "verb": "Stop",
+      "noun": "Trigger",
+      "pipelineProperty": "Name",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Trigger",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        }
+      }
+    },
+    "UpdateClassifier": {
+      "verb": "Update",
+      "noun": "Classifier",
+      "noPipelineProperty": "true",
+      "output": "Void",
+      "useAnonymousShouldProcessTarget": "true",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Classifier",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "AnonymousShouldProcessTarget specified in config",
+          "status": "AnonymousTarget",
+          "targetParameterName": ""
+        }
+      }
+    },
+    "UpdateConnection": {
+      "verb": "Update",
+      "noun": "Connection",
+      "pipelineProperty": "ConnectionInput",
+      "output": "Void",
+      "shouldProcessTargetProperty": "Name",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Connection",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: ConnectionInput",
+        "PassThruTypeName": "Amazon.Glue.Model.ConnectionInput",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": "Name"
+        }
+      }
+    },
+    "UpdateCrawler": {
+      "verb": "Update",
+      "noun": "Crawler",
+      "pipelineProperty": "Name",
+      "output": "Void",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Crawler",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: Name",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        }
+      }
+    },
+    "UpdateCrawlerSchedule": {
+      "verb": "Update",
+      "noun": "CrawlerSchedule",
+      "pipelineProperty": "Schedule",
+      "output": "Void",
+      "shouldProcessTargetProperty": "CrawlerName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "CrawlerSchedule",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: Schedule",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": "CrawlerName"
+        }
+      }
+    },
+    "UpdateDatabase": {
+      "verb": "Update",
+      "noun": "Database",
+      "pipelineProperty": "DatabaseInput",
+      "output": "Void",
+      "shouldProcessTargetProperty": "Name",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Database",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: DatabaseInput",
+        "PassThruTypeName": "Amazon.Glue.Model.DatabaseInput",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": "Name"
+        }
+      }
+    },
+    "UpdateDevEndpoint": {
+      "verb": "Update",
+      "noun": "DevEndpoint",
+      "pipelineProperty": "EndpointName",
+      "output": "Void",
+      "shouldProcessTargetProperty": "EndpointName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "DevEndpoint",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: EndpointName",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": "EndpointName"
+        }
+      }
+    },
+    "UpdateJob": {
+      "verb": "Update",
+      "noun": "Job",
+      "pipelineProperty": "JobUpdate",
+      "shouldProcessTargetProperty": "JobName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Job",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": "JobName"
+        }
+      }
+    },
+    "UpdatePartition": {
+      "verb": "Update",
+      "noun": "Partition",
+      "pipelineProperty": "PartitionInput",
+      "output": "Void",
+      "shouldProcessTargetProperty": "TableName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Partition",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: PartitionInput",
+        "PassThruTypeName": "Amazon.Glue.Model.PartitionInput",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": "TableName"
+        }
+      }
+    },
+    "UpdateTable": {
+      "verb": "Update",
+      "noun": "Table",
+      "pipelineProperty": "TableInput",
+      "output": "Void",
+      "shouldProcessTargetProperty": "DatabaseName",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Table",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: TableInput",
+        "PassThruTypeName": "Amazon.Glue.Model.TableInput",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": "DatabaseName"
+        }
+      }
+    },
+    "UpdateTrigger": {
+      "verb": "Update",
+      "noun": "Trigger",
+      "pipelineProperty": "TriggerUpdate",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Trigger",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        }
+      }
+    },
+    "UpdateUserDefinedFunction": {
+      "verb": "Update",
+      "noun": "UserDefinedFunction",
+      "pipelineProperty": "FunctionName",
+      "output": "Void",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "UserDefinedFunction",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: FunctionName",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "FunctionName"
+        }
+      }
+    }
+  }
+}

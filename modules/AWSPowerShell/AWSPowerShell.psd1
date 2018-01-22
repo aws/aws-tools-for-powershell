@@ -109,6 +109,7 @@ RequiredAssemblies = @(
   "AWSSDK.Elasticsearch.dll",
   "AWSSDK.ElasticTranscoder.dll",
   "AWSSDK.GameLift.dll",
+  "AWSSDK.Glue.dll",
   "AWSSDK.Greengrass.dll",
   "AWSSDK.GuardDuty.dll",
   "AWSSDK.IdentityManagement.dll",

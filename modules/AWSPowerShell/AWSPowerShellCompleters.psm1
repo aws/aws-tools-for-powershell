@@ -3368,6 +3368,44 @@ $ES_map = @{
 _awsArgumentCompleterRegistration $ES_Completers $ES_map
 
 
+# Argument completions for service AWS Glue
+$GLUE_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Glue.Language
+        {
+            ($_ -eq "Get-GLUEPlan/Language") -Or
+            ($_ -eq "New-GLUEScript/Language")
+        }
+        {
+            $v = "PYTHON","SCALA"
+            break
+        }
+        
+        # Amazon.Glue.TriggerType
+        "New-GLUETrigger/Type"
+        {
+            $v = "CONDITIONAL","ON_DEMAND","SCHEDULED"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$GLUE_map = @{
+    "Language"=@("Get-GLUEPlan","New-GLUEScript")
+    "Type"=@("New-GLUETrigger")
+}
+
+_awsArgumentCompleterRegistration $GLUE_Completers $GLUE_map
+
+
 # Argument completions for service Amazon GameLift Service
 $GML_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

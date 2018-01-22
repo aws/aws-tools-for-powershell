@@ -1,0 +1,237 @@
+/*******************************************************************************
+ *  Copyright 2012-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.Glue;
+using Amazon.Glue.Model;
+
+namespace Amazon.PowerShell.Cmdlets.GLUE
+{
+    /// <summary>
+    /// Runs a job.
+    /// </summary>
+    [Cmdlet("Start", "GLUEJobRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Glue StartJobRun API operation.", Operation = new[] {"StartJobRun"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.Glue.Model.StartJobRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class StartGLUEJobRunCmdlet : AmazonGlueClientCmdlet, IExecutor
+    {
+        
+        #region Parameter AllocatedCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The number of AWS Glue data processing units (DPUs) to allocate to this JobRun. From
+        /// 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure of
+        /// processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+        /// For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue
+        /// pricing page</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 AllocatedCapacity { get; set; }
+        #endregion
+        
+        #region Parameter Argument
+        /// <summary>
+        /// <para>
+        /// <para>The job arguments specifically for this run. They override the equivalent default
+        /// arguments set for the job itself.</para><para>You can specify arguments here that your own job-execution script consumes, as well
+        /// as arguments that AWS Glue itself consumes.</para><para>For information about how to specify and consume your own Job arguments, see the <a href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
+        /// AWS Glue APIs in Python</a> topic in the developer guide.</para><para>For information about the key-value pairs that AWS Glue consumes to set up your job,
+        /// see the <a href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html">Special
+        /// Parameters Used by AWS Glue</a> topic in the developer guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Arguments")]
+        public System.Collections.Hashtable Argument { get; set; }
+        #endregion
+        
+        #region Parameter JobName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the job to start.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String JobName { get; set; }
+        #endregion
+        
+        #region Parameter JobRunId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of a previous JobRun to retry.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String JobRunId { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("JobName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-GLUEJobRun (StartJobRun)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound("AllocatedCapacity"))
+                context.AllocatedCapacity = this.AllocatedCapacity;
+            if (this.Argument != null)
+            {
+                context.Arguments = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Argument.Keys)
+                {
+                    context.Arguments.Add((String)hashKey, (String)(this.Argument[hashKey]));
+                }
+            }
+            context.JobName = this.JobName;
+            context.JobRunId = this.JobRunId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.Glue.Model.StartJobRunRequest();
+            
+            if (cmdletContext.AllocatedCapacity != null)
+            {
+                request.AllocatedCapacity = cmdletContext.AllocatedCapacity.Value;
+            }
+            if (cmdletContext.Arguments != null)
+            {
+                request.Arguments = cmdletContext.Arguments;
+            }
+            if (cmdletContext.JobName != null)
+            {
+                request.JobName = cmdletContext.JobName;
+            }
+            if (cmdletContext.JobRunId != null)
+            {
+                request.JobRunId = cmdletContext.JobRunId;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.JobRunId;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.Glue.Model.StartJobRunResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.StartJobRunRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "StartJobRun");
+            try
+            {
+                #if DESKTOP
+                return client.StartJobRun(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.StartJobRunAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.Int32? AllocatedCapacity { get; set; }
+            public Dictionary<System.String, System.String> Arguments { get; set; }
+            public System.String JobName { get; set; }
+            public System.String JobRunId { get; set; }
+        }
+        
+    }
+}
