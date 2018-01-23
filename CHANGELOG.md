@@ -1,6 +1,6 @@
 ### 3.3.225.0 (2018-01-23)
   * Amazon Transcribe
-    * Added cmdlets to support the public preview release of the new Amazon Transcribe service. Cmdlets for the service have the noun prefix TSCR and can be listed with the command *Get-AWSCmdletName -Service TSCR*.
+    * Added cmdlets to support the public preview release of the new Amazon Transcribe service. Cmdlets for the service have the noun prefix TRS and can be listed with the command *Get-AWSCmdletName -Service TRS*.
   * AWS Glue
     * Added cmdlets to support the AWS Glue service. Cmdlets for the service have the noun prefix GLUE and can be listed with the command *Get-AWSCmdletName -Service GLUE*.
   * AWS Cloud9
