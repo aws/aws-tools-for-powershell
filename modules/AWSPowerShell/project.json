@@ -17,7 +17,7 @@
 		"AWSSDK.AWSMarketplaceMetering": "3.3.1.21",
 		"AWSSDK.AWSSupport": "3.3.0.23",
 		"AWSSDK.Batch": "3.3.4",
-		"AWSSDK.Budgets": "3.3.5",
+		"AWSSDK.Budgets": "3.3.6",
 		"AWSSDK.CertificateManager": "3.3.3",
 		"AWSSDK.Cloud9": "3.3.0",
 		"AWSSDK.CloudDirectory": "3.3.6",

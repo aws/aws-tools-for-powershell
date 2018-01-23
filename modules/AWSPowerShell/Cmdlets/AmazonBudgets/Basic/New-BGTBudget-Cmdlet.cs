@@ -138,6 +138,18 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         public System.Boolean CostTypes_IncludeCredit { get; set; }
         #endregion
         
+        #region Parameter CostTypes_IncludeDiscount
+        /// <summary>
+        /// <para>
+        /// A boolean value whether to include discounts
+        /// in the cost budget.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Budget_CostTypes_IncludeDiscount")]
+        public System.Boolean CostTypes_IncludeDiscount { get; set; }
+        #endregion
+        
         #region Parameter CostTypes_IncludeOtherSubscription
         /// <summary>
         /// <para>
@@ -288,6 +300,18 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         public System.String ForecastedSpend_Unit { get; set; }
         #endregion
         
+        #region Parameter CostTypes_UseAmortized
+        /// <summary>
+        /// <para>
+        /// A boolean value whether to include amortized
+        /// costs in the cost budget.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Budget_CostTypes_UseAmortized")]
+        public System.Boolean CostTypes_UseAmortized { get; set; }
+        #endregion
+        
         #region Parameter CostTypes_UseBlended
         /// <summary>
         /// <para>
@@ -372,6 +396,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             }
             if (ParameterWasBound("CostTypes_IncludeCredit"))
                 context.Budget_CostTypes_IncludeCredit = this.CostTypes_IncludeCredit;
+            if (ParameterWasBound("CostTypes_IncludeDiscount"))
+                context.Budget_CostTypes_IncludeDiscount = this.CostTypes_IncludeDiscount;
             if (ParameterWasBound("CostTypes_IncludeOtherSubscription"))
                 context.Budget_CostTypes_IncludeOtherSubscription = this.CostTypes_IncludeOtherSubscription;
             if (ParameterWasBound("CostTypes_IncludeRecurring"))
@@ -386,6 +412,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 context.Budget_CostTypes_IncludeTax = this.CostTypes_IncludeTax;
             if (ParameterWasBound("CostTypes_IncludeUpfront"))
                 context.Budget_CostTypes_IncludeUpfront = this.CostTypes_IncludeUpfront;
+            if (ParameterWasBound("CostTypes_UseAmortized"))
+                context.Budget_CostTypes_UseAmortized = this.CostTypes_UseAmortized;
             if (ParameterWasBound("CostTypes_UseBlended"))
                 context.Budget_CostTypes_UseBlended = this.CostTypes_UseBlended;
             if (ParameterWasBound("TimePeriod_End"))
@@ -631,6 +659,16 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 requestBudget_budget_CostTypes.IncludeCredit = requestBudget_budget_CostTypes_costTypes_IncludeCredit.Value;
                 requestBudget_budget_CostTypesIsNull = false;
             }
+            System.Boolean? requestBudget_budget_CostTypes_costTypes_IncludeDiscount = null;
+            if (cmdletContext.Budget_CostTypes_IncludeDiscount != null)
+            {
+                requestBudget_budget_CostTypes_costTypes_IncludeDiscount = cmdletContext.Budget_CostTypes_IncludeDiscount.Value;
+            }
+            if (requestBudget_budget_CostTypes_costTypes_IncludeDiscount != null)
+            {
+                requestBudget_budget_CostTypes.IncludeDiscount = requestBudget_budget_CostTypes_costTypes_IncludeDiscount.Value;
+                requestBudget_budget_CostTypesIsNull = false;
+            }
             System.Boolean? requestBudget_budget_CostTypes_costTypes_IncludeOtherSubscription = null;
             if (cmdletContext.Budget_CostTypes_IncludeOtherSubscription != null)
             {
@@ -699,6 +737,16 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             if (requestBudget_budget_CostTypes_costTypes_IncludeUpfront != null)
             {
                 requestBudget_budget_CostTypes.IncludeUpfront = requestBudget_budget_CostTypes_costTypes_IncludeUpfront.Value;
+                requestBudget_budget_CostTypesIsNull = false;
+            }
+            System.Boolean? requestBudget_budget_CostTypes_costTypes_UseAmortized = null;
+            if (cmdletContext.Budget_CostTypes_UseAmortized != null)
+            {
+                requestBudget_budget_CostTypes_costTypes_UseAmortized = cmdletContext.Budget_CostTypes_UseAmortized.Value;
+            }
+            if (requestBudget_budget_CostTypes_costTypes_UseAmortized != null)
+            {
+                requestBudget_budget_CostTypes.UseAmortized = requestBudget_budget_CostTypes_costTypes_UseAmortized.Value;
                 requestBudget_budget_CostTypesIsNull = false;
             }
             System.Boolean? requestBudget_budget_CostTypes_costTypes_UseBlended = null;
@@ -807,6 +855,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             public System.String Budget_CalculatedSpend_ForecastedSpend_Unit { get; set; }
             public Dictionary<System.String, List<System.String>> Budget_CostFilters { get; set; }
             public System.Boolean? Budget_CostTypes_IncludeCredit { get; set; }
+            public System.Boolean? Budget_CostTypes_IncludeDiscount { get; set; }
             public System.Boolean? Budget_CostTypes_IncludeOtherSubscription { get; set; }
             public System.Boolean? Budget_CostTypes_IncludeRecurring { get; set; }
             public System.Boolean? Budget_CostTypes_IncludeRefund { get; set; }
@@ -814,6 +863,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             public System.Boolean? Budget_CostTypes_IncludeSupport { get; set; }
             public System.Boolean? Budget_CostTypes_IncludeTax { get; set; }
             public System.Boolean? Budget_CostTypes_IncludeUpfront { get; set; }
+            public System.Boolean? Budget_CostTypes_UseAmortized { get; set; }
             public System.Boolean? Budget_CostTypes_UseBlended { get; set; }
             public System.DateTime? Budget_TimePeriod_End { get; set; }
             public System.DateTime? Budget_TimePeriod_Start { get; set; }

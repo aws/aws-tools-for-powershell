@@ -208,7 +208,7 @@
       <HintPath>..\..\packages\AWSSDK.ServerMigrationService.3.3.0.22\lib\net35\AWSSDK.ServerMigrationService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Budgets">
-      <HintPath>..\..\packages\AWSSDK.Budgets.3.3.5\lib\net35\AWSSDK.Budgets.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Budgets.3.3.6\lib\net35\AWSSDK.Budgets.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.StepFunctions">
       <HintPath>..\..\packages\AWSSDK.StepFunctions.3.3.2\lib\net35\AWSSDK.StepFunctions.dll</HintPath>
