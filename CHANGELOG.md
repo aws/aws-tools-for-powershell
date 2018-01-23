@@ -1,3 +1,17 @@
+### 3.3.225.0 (2018-01-23)
+  * Amazon Transcribe
+    * Added cmdlets to support the public preview release of the new Amazon Transcribe service. Cmdlets for the service have the noun prefix TSCR and can be listed with the command *Get-AWSCmdletName -Service TSCR*.
+  * AWS Glue
+    * Added cmdlets to support the AWS Glue service. Cmdlets for the service have the noun prefix GLUE and can be listed with the command *Get-AWSCmdletName -Service GLUE*.
+  * AWS Cloud9
+    * Added examples for all Cloud9 cmdlets.
+  * Amazon Relational Database Service
+    * Updated the Edit-RDSDBInstance, New-RDSDBInstance, New-RDSDBInstanceReadReplica, Restore-RDSDBInstanceFromDBSnapshot, Restore-RDSDBInstanceFromS3 and Restore-RDSDBInstanceToPointInTime cmdlets with new parameters to support integration with CloudWatch Logs.
+  * Amazon SageMaker Service
+    * Updated the New-SMEndpointConfig cmdlet with support for specifying a KMS key for volume encryption.
+  * AWS Budgets
+    * Updated the New-BGTBudget and Update-BGTBudget cmdlets to support additional cost types (IncludeDiscount and UseAmortized) to support finer control for different charges included in a cost budget.
+
 ### 3.3.221.0 (2018-01-15)
   * Amazon S3
     * Fixed issue with the Copy-S3Object displaying an error when copying objects between buckets and the object keys started with the '/' character.
