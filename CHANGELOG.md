@@ -1,3 +1,7 @@
+### 3.3.225.1 (2018-01-24)
+  * Amazon Guard Duty
+    * Fixed issue with error 'The request is rejected because an invalid or out-of-range value is specified as an input parameter' being emitted when running cmdlets that map to service apis that support pagination (eg Get-GDDetectorList).
+
 ### 3.3.225.0 (2018-01-23)
   * Amazon Transcribe
     * Added cmdlets to support the public preview release of the new Amazon Transcribe service. Cmdlets for the service have the noun prefix TRS and can be listed with the command *Get-AWSCmdletName -Service TRS*.
