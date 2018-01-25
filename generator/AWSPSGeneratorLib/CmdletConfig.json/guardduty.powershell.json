@@ -2,8 +2,7 @@
   "defaultPaginationSettings": {
     "requestTokenMember": "NextToken",
     "responseTokenMember": "NextToken",
-    "resultLimitMember": "MaxResults",
-    "servicePageSize": 7
+    "resultLimitMember": "MaxResults"
   },
   "defaultPipelineProperty": "DetectorId",
   "legacyCmdletPrefix": "GD",
@@ -35,8 +34,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
@@ -60,8 +58,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
@@ -85,8 +82,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
@@ -109,8 +105,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
@@ -134,8 +129,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
@@ -159,8 +153,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
@@ -183,8 +176,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
@@ -208,8 +200,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
@@ -233,8 +224,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
@@ -258,8 +248,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
@@ -284,8 +273,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
@@ -309,8 +297,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
@@ -335,8 +322,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
@@ -360,8 +346,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
@@ -385,8 +370,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
@@ -410,8 +394,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         }
       }
     },
@@ -429,8 +412,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         }
       }
     },
@@ -448,8 +430,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         }
       }
     },
@@ -467,8 +448,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         }
       }
     },
@@ -488,8 +468,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         }
       }
     },
@@ -507,8 +486,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         }
       }
     },
@@ -528,8 +506,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         }
       }
     },
@@ -549,8 +526,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         }
       }
     },
@@ -569,8 +545,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
@@ -593,8 +568,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         }
       }
     },
@@ -612,8 +586,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         }
       }
     },
@@ -631,8 +604,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         }
       }
     },
@@ -650,8 +622,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         }
       }
     },
@@ -669,8 +640,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         }
       }
     },
@@ -688,8 +658,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         }
       }
     },
@@ -708,8 +677,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
@@ -733,8 +701,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
@@ -758,8 +725,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
@@ -783,8 +749,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
@@ -808,8 +773,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
@@ -833,8 +797,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
@@ -858,8 +821,7 @@
         "AutoIterateSettings": {
           "requestTokenMember": "NextToken",
           "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "servicePageSize": 7
+          "resultLimitMember": "MaxResults"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
