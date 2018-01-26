@@ -281,7 +281,7 @@ Set-Alias -Name Set-IOTLoggingOptions -Value Set-IOTLoggingOption
 # AWS Key Management Service
 Set-Alias -Name Get-KMSAliases -Value Get-KMSAliasList
 Set-Alias -Name Get-KMSGrants -Value Get-KMSGrantList
-Set-Alias -Name Get-KMSKeyPolicies -Value Get-KMSKsyPolicyList
+Set-Alias -Name Get-KMSKeyPolicies -Value Get-KMSKeyPolicyList
 Set-Alias -Name Get-KMSKeys -Value Get-KMSKeyList
 
 # AWS Lambda

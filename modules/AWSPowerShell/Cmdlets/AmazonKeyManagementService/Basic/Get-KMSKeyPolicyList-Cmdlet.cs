@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// operation. However, the only valid policy name is <code>default</code>. You cannot
     /// perform this operation on a CMK in a different AWS account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "KMSKsyPolicyList")]
+    [Cmdlet("Get", "KMSKeyPolicyList")]
     [OutputType("System.String")]
     [AWSCmdlet("Calls the AWS Key Management Service ListKeyPolicies API operation.", Operation = new[] {"ListKeyPolicies"}, LegacyAlias="Get-KMSKeyPolicies")]
     [AWSCmdletOutput("System.String",
@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         "The service call response (type Amazon.KeyManagementService.Model.ListKeyPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String), Truncated (type System.Boolean)"
     )]
-    public partial class GetKMSKsyPolicyListCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
+    public partial class GetKMSKeyPolicyListCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter KeyId

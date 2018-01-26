@@ -3429,8 +3429,8 @@ Set-Alias -Name List-KMSAliasList -Value Get-KMSAliasList
 Set-Alias -Name KMS-ListAliases -Value Get-KMSAliasList
 Set-Alias -Name List-KMSGrantList -Value Get-KMSGrantList
 Set-Alias -Name KMS-ListGrants -Value Get-KMSGrantList
-Set-Alias -Name List-KMSKsyPolicyList -Value Get-KMSKsyPolicyList
-Set-Alias -Name KMS-ListKeyPolicies -Value Get-KMSKsyPolicyList
+Set-Alias -Name List-KMSKeyPolicyList -Value Get-KMSKeyPolicyList
+Set-Alias -Name KMS-ListKeyPolicies -Value Get-KMSKeyPolicyList
 Set-Alias -Name List-KMSKeyList -Value Get-KMSKeyList
 Set-Alias -Name KMS-ListKeys -Value Get-KMSKeyList
 Set-Alias -Name List-KMSResourceTag -Value Get-KMSResourceTag
