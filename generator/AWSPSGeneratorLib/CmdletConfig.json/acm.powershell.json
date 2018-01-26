@@ -1,129 +1,296 @@
 {
-  "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken",
-    "resultLimitMember": "MaxItems"
+  "customAliases": [],
+  "inputObjectMappingRules": [],
+  "legacySettings": {
+    "nounPrefix": "ACM",
+    "positionalProperties": [],
+    "paramEmitters": []
   },
-  "defaultPipelineProperty": "CertificateArn",
-  "legacyCmdletPrefix": "ACM",
-  "pipelineByValuePropertyNames": [
-    "CertificateArn",
-    "DomainName"
-  ],
-  "sdkServiceClientClass": "AmazonCertificateManagerClient",
-  "sdkServiceConfigClass": "AmazonCertificateManagerConfig",
-  "sdkServiceNamespace": "Amazon.CertificateManager",
+  "netsdk": {
+    "additionalNamespaces": [],
+    "serviceClientClass": "AmazonCertificateManagerClient",
+    "serviceConfigClass": "AmazonCertificateManagerConfig",
+    "serviceNamespace": "Amazon.CertificateManager"
+  },
+  "nonFlattenedTypeNames": [],
+  "nounMaps": {},
+  "outputMetadataMembers": [],
+  "paginationDefaults": {
+    "excludedOperations": [],
+    "requestMember": "NextToken",
+    "responseMember": "NextToken",
+    "resultLimitMember": "MaxItems",
+    "autoSetMaxResultSize": "false",
+    "resultsTruncatedMember": ""
+  },
+  "pipelineDefaults": {
+    "byValueMembers": [
+      "CertificateArn"
+    ],
+    "byNameMembers": [
+      "CertificateArn",
+      "DomainName"
+    ]
+  },
+  "regionFallback": "",
+  "supportsShouldProcessVerbs": [],
+  "verbMaps": {},
   "serviceOperations": {
     "AddTagsToCertificate": {
       "verb": "Add",
       "noun": "CertificateTag",
-      "legacyPositionalParameters": [
-        "Tags"
-      ],
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TagsToCertificate",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: CertificateArn",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxItems"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "Tags"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "CertificateArn"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TagsToCertificate",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: CertificateArn",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxItems",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CertificateArn"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteCertificate": {
       "verb": "Remove",
       "noun": "Certificate",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Certificate",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: CertificateArn",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxItems"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "CertificateArn"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Certificate",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: CertificateArn",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxItems",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CertificateArn"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribeCertificate": {
       "verb": "Get",
       "noun": "CertificateDetail",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Certificate",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxItems"
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Certificate",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "CertificateArn"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Certificate",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxItems",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetCertificate": {
       "verb": "Get",
       "noun": "Certificate",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Certificate",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxItems"
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "CertificateArn"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Certificate",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxItems",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ImportCertificate": {
       "verb": "Import",
       "noun": "Certificate",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Certificate",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxItems"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "CertificateArn",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "CertificateArn"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Certificate",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxItems",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CertificateArn"
         },
-        "MemoryStreamParameters": [
+        "memoryStreamParameters": [
           "Certificate",
           "CertificateChain",
           "PrivateKey"
@@ -133,111 +300,256 @@
     "ListCertificates": {
       "verb": "Get",
       "noun": "CertificateList",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Certificates",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxItems"
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "CertificateSummaryList",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "CertificateArn"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Certificates",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxItems",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListTagsForCertificate": {
       "verb": "Get",
       "noun": "CertificateTagList",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TagsForCertificate",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxItems"
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Tags",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "CertificateArn"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TagsForCertificate",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxItems",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "RemoveTagsFromCertificate": {
       "verb": "Remove",
       "noun": "CertificateTag",
-      "output": "Void",
-      "shouldProcessTargetProperty": "CertificateArn",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TagsFromCertificate",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: CertificateArn",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxItems"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "CertificateArn"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "CertificateArn"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TagsFromCertificate",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: CertificateArn",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxItems",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
+          "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "CertificateArn"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "RequestCertificate": {
       "verb": "New",
       "noun": "Certificate",
-      "noPipelineProperty": "true",
-      "shouldProcessTargetProperty": "DomainName",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Certificate",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxItems"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "CertificateArn",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "CertificateArn"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "DomainName"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Certificate",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxItems",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
+          "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "DomainName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ResendValidationEmail": {
       "verb": "Send",
       "noun": "ValidationEmail",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ValidationEmail",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: CertificateArn",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxItems"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "CertificateArn"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ValidationEmail",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: CertificateArn",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxItems",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CertificateArn"
-        }
+        },
+        "memoryStreamParameters": []
       }
     }
   }

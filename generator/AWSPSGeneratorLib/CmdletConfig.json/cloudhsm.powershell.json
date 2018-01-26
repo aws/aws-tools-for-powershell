@@ -1,18 +1,38 @@
 {
-  "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken"
+  "customAliases": [],
+  "inputObjectMappingRules": [],
+  "legacySettings": {
+    "nounPrefix": "HSM",
+    "positionalProperties": [],
+    "paramEmitters": []
   },
-  "defaultPipelineProperty": "",
-  "legacyCmdletPrefix": "HSM",
-  "nounMappings": {
+  "netsdk": {
+    "additionalNamespaces": [],
+    "serviceClientClass": "AmazonCloudHSMClient",
+    "serviceConfigClass": "AmazonCloudHSMConfig",
+    "serviceNamespace": "Amazon.CloudHSM"
+  },
+  "nonFlattenedTypeNames": [],
+  "nounMaps": {
     "Hsm": "Item",
     "Hapg": "PartitionGroup"
   },
-  "sdkServiceClientClass": "AmazonCloudHSMClient",
-  "sdkServiceConfigClass": "AmazonCloudHSMConfig",
-  "sdkServiceNamespace": "Amazon.CloudHSM",
-  "verbMappings": {
+  "outputMetadataMembers": [],
+  "paginationDefaults": {
+    "excludedOperations": [],
+    "requestMember": "NextToken",
+    "responseMember": "NextToken",
+    "resultLimitMember": "",
+    "autoSetMaxResultSize": "false",
+    "resultsTruncatedMember": ""
+  },
+  "pipelineDefaults": {
+    "byValueMembers": [],
+    "byNameMembers": []
+  },
+  "regionFallback": "",
+  "supportsShouldProcessVerbs": [],
+  "verbMaps": {
     "Delete": "Remove",
     "Describe": "Get",
     "List": "Get",
@@ -22,421 +42,976 @@
     "AddTagsToResource": {
       "verb": "Set",
       "noun": "ResourceTag",
-      "pipelineProperty": "ResourceArn",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TagsToResource",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Status",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TagsToResource",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateHapg": {
       "verb": "New",
       "noun": "PartitionGroup",
-      "pipelineProperty": "Label",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Hapg",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "HapgArn",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Hapg",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Label"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateHsm": {
       "verb": "New",
       "noun": "Item",
-      "pipelineProperty": "IamRoleArn",
-      "useAnonymousShouldProcessTarget": "true",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Hsm",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "HsmArn",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "true",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Hsm",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
           "targetParameterName": ""
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateLunaClient": {
       "verb": "New",
       "noun": "LunaClient",
-      "pipelineProperty": "Certificate",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "LunaClient",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ClientArn",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "LunaClient",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Certificate"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteHapg": {
       "verb": "Remove",
       "noun": "PartitionGroup",
-      "pipelineProperty": "HapgArn",
-      "shouldProcessTargetProperty": "HapgArn",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Hapg",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Status",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "HapgArn"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Hapg",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HapgArn"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteHsm": {
       "verb": "Remove",
       "noun": "Item",
-      "pipelineProperty": "HsmArn",
-      "shouldProcessTargetProperty": "HsmArn",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Hsm",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Status",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "HsmArn"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Hsm",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HsmArn"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteLunaClient": {
       "verb": "Remove",
       "noun": "LunaClient",
-      "pipelineProperty": "ClientArn",
-      "shouldProcessTargetProperty": "ClientArn",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "LunaClient",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Status",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "ClientArn"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "LunaClient",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClientArn"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribeHapg": {
       "verb": "Get",
       "noun": "PartitionGroup",
-      "pipelineProperty": "HapgArn",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Hapg",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Hapg",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribeHsm": {
       "verb": "Get",
       "noun": "Item",
-      "pipelineProperty": "HsmArn",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Hsm",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Hsm",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribeLunaClient": {
       "verb": "Get",
       "noun": "LunaClient",
-      "pipelineProperty": "ClientArn",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "LunaClient",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "LunaClient",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetConfig": {
       "verb": "Get",
       "noun": "Config",
-      "pipelineProperty": "ClientArn",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Config",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Config",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListAvailableZones": {
       "verb": "Get",
       "noun": "AvailableZone",
-      "legacyAlias": "Get-HSMAvailableZones",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "AvailableZones",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "AZList",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "Get-HSMAvailableZones",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "AvailableZones",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListHapgs": {
       "verb": "Get",
       "noun": "PartitionGroupList",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Hapgs",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "HapgList",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Hapgs",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListHsms": {
       "verb": "Get",
       "noun": "ItemList",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Hsms",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "HsmList",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Hsms",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListLunaClients": {
       "verb": "Get",
       "noun": "LunaClientList",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "LunaClients",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ClientList",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "LunaClients",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListTagsForResource": {
       "verb": "Get",
       "noun": "ResourceTag",
-      "pipelineProperty": "ResourceArn",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TagsForResource",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "TagList",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TagsForResource",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ModifyHapg": {
       "verb": "Edit",
       "noun": "PartitionGroup",
-      "pipelineProperty": "HapgArn",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Hapg",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "HapgArn",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Hapg",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HapgArn"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ModifyHsm": {
       "verb": "Edit",
       "noun": "Item",
-      "pipelineProperty": "HsmArn",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Hsm",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "HsmArn",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Hsm",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HsmArn"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ModifyLunaClient": {
       "verb": "Edit",
       "noun": "LunaClient",
-      "pipelineProperty": "ClientArn",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "LunaClient",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ClientArn",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "LunaClient",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ClientArn"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "RemoveTagsFromResource": {
       "verb": "Remove",
       "noun": "ResourceTag",
-      "pipelineProperty": "ResourceArn",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TagsFromResource",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Status",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TagsFromResource",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceArn"
-        }
+        },
+        "memoryStreamParameters": []
       }
     }
   }

@@ -1,339 +1,806 @@
 {
-  "defaultPaginationSettings": {
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken",
-    "resultLimitMember": "MaxResults"
+  "customAliases": [],
+  "inputObjectMappingRules": [],
+  "legacySettings": {
+    "nounPrefix": "OWCM",
+    "positionalProperties": [],
+    "paramEmitters": []
   },
-  "defaultPipelineProperty": "ServerName",
-  "legacyCmdletPrefix": "OWCM",
+  "netsdk": {
+    "additionalNamespaces": [],
+    "serviceClientClass": "AmazonOpsWorksCMClient",
+    "serviceConfigClass": "AmazonOpsWorksCMConfig",
+    "serviceNamespace": "Amazon.OpsWorksCM"
+  },
+  "nonFlattenedTypeNames": [],
+  "nounMaps": {},
+  "outputMetadataMembers": [],
+  "paginationDefaults": {
+    "excludedOperations": [],
+    "requestMember": "NextToken",
+    "responseMember": "NextToken",
+    "resultLimitMember": "MaxResults",
+    "autoSetMaxResultSize": "false",
+    "resultsTruncatedMember": ""
+  },
+  "pipelineDefaults": {
+    "byValueMembers": [
+      "ServerName"
+    ],
+    "byNameMembers": []
+  },
   "regionFallback": "us-east-1",
-  "sdkServiceClientClass": "AmazonOpsWorksCMClient",
-  "sdkServiceConfigClass": "AmazonOpsWorksCMConfig",
-  "sdkServiceNamespace": "Amazon.OpsWorksCM",
+  "supportsShouldProcessVerbs": [],
+  "verbMaps": {},
   "serviceOperations": {
     "AssociateNode": {
       "verb": "Add",
       "noun": "Node",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Node",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "NodeAssociationStatusToken",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ServerName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Node",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateBackup": {
       "verb": "New",
       "noun": "Backup",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Backup",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Backup",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ServerName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Backup",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateServer": {
       "verb": "New",
       "noun": "Server",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Server",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Server",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ServerName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Server",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteBackup": {
       "verb": "Remove",
       "noun": "Backup",
-      "pipelineProperty": "BackupId",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Backup",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: BackupId",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ServerName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Backup",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: BackupId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BackupId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteServer": {
       "verb": "Remove",
       "noun": "Server",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Server",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: ServerName",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ServerName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Server",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: ServerName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribeAccountAttributes": {
       "verb": "Get",
       "noun": "AccountAttribute",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "AccountAttributes",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults"
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Attributes",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ServerName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "AccountAttributes",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribeBackups": {
       "verb": "Get",
       "noun": "BackupList",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Backups",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults"
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Backups",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ServerName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Backups",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribeEvents": {
       "verb": "Get",
       "noun": "EventList",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Events",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults"
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ServerEvents",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ServerName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Events",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribeNodeAssociationStatus": {
       "verb": "Get",
       "noun": "NodeAssociationStatus",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "NodeAssociationStatus",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults"
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ServerName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "NodeAssociationStatus",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribeServers": {
       "verb": "Get",
       "noun": "ServerList",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Servers",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults"
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Servers",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ServerName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Servers",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "DisassociateNode": {
       "verb": "Remove",
       "noun": "Node",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Node",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "NodeAssociationStatusToken",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ServerName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Node",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "RestoreServer": {
       "verb": "Restore",
       "noun": "Server",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Server",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: ServerName",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ServerName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Server",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: ServerName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "StartMaintenance": {
       "verb": "Start",
       "noun": "Maintenance",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Maintenance",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Server",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ServerName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Maintenance",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "UpdateServer": {
       "verb": "Update",
       "noun": "Server",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Server",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Server",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ServerName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Server",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "UpdateServerEngineAttributes": {
       "verb": "Update",
       "noun": "ServerEngineAttribute",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ServerEngineAttributes",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Server",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ServerName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ServerEngineAttributes",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ServerName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     }
   }

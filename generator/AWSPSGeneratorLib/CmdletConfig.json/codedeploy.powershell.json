@@ -1,1090 +1,2380 @@
 {
-  "defaultPaginationSettings": {
+  "customAliases": [],
+  "inputObjectMappingRules": [],
+  "legacySettings": {
+    "nounPrefix": "CD",
+    "positionalProperties": [],
+    "paramEmitters": []
+  },
+  "netsdk": {
+    "additionalNamespaces": [],
+    "serviceClientClass": "AmazonCodeDeployClient",
+    "serviceConfigClass": "AmazonCodeDeployConfig",
+    "serviceNamespace": "Amazon.CodeDeploy"
+  },
+  "nonFlattenedTypeNames": [],
+  "nounMaps": {},
+  "outputMetadataMembers": [],
+  "paginationDefaults": {
     "excludedOperations": [
       "ListDeploymentGroups"
     ],
-    "requestTokenMember": "NextToken",
-    "responseTokenMember": "NextToken"
+    "requestMember": "NextToken",
+    "responseMember": "NextToken",
+    "resultLimitMember": "",
+    "autoSetMaxResultSize": "false",
+    "resultsTruncatedMember": ""
   },
-  "defaultPipelineProperty": "ApplicationName",
-  "legacyCmdletPrefix": "CD",
-  "sdkServiceClientClass": "AmazonCodeDeployClient",
-  "sdkServiceConfigClass": "AmazonCodeDeployConfig",
-  "sdkServiceNamespace": "Amazon.CodeDeploy",
-  "verbMappings": {
+  "pipelineDefaults": {
+    "byValueMembers": [
+      "ApplicationName"
+    ],
+    "byNameMembers": []
+  },
+  "regionFallback": "",
+  "supportsShouldProcessVerbs": [],
+  "verbMaps": {
     "Deregister": "Unregister"
   },
   "serviceOperations": {
     "AddTagsToOnPremisesInstances": {
       "verb": "Add",
       "noun": "OnPremiseInstanceTag",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TagsToOnPremisesInstances",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TagsToOnPremisesInstances",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceNames"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "BatchGetApplicationRevisions": {
       "verb": "Get",
       "noun": "ApplicationRevisionBatch",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "GetApplicationRevisions",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "GetApplicationRevisions",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "BatchGetApplications": {
       "verb": "Get",
       "noun": "ApplicationBatch",
-      "legacyAlias": "Get-CDApplications",
-      "pipelineProperty": "ApplicationNames",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "GetApplications",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ApplicationsInfo",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "Get-CDApplications",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "GetApplications",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "BatchGetDeploymentGroups": {
       "verb": "Get",
       "noun": "DeploymentGroupBatch",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "GetDeploymentGroups",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "GetDeploymentGroups",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "BatchGetDeploymentInstances": {
       "verb": "Get",
       "noun": "DeploymentInstanceBatch",
-      "pipelineProperty": "DeploymentId",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "GetDeploymentInstances",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "GetDeploymentInstances",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "BatchGetDeployments": {
       "verb": "Get",
       "noun": "DeploymentBatch",
-      "legacyAlias": "Get-CDDeployments",
-      "pipelineProperty": "DeploymentIds",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "GetDeployments",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "DeploymentsInfo",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "Get-CDDeployments",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "GetDeployments",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "BatchGetOnPremisesInstances": {
       "verb": "Get",
       "noun": "OnPremiseInstanceBatch",
-      "pipelineProperty": "InstanceNames",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "GetOnPremisesInstances",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "InstanceInfos",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "GetOnPremisesInstances",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ContinueDeployment": {
       "verb": "Resume",
       "noun": "Deployment",
-      "pipelineProperty": "DeploymentId",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Deployment",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": "Auto-assigned from pipeline parameter: DeploymentId",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Deployment",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "Auto-assigned from pipeline parameter: DeploymentId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeploymentId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateApplication": {
       "verb": "New",
       "noun": "Application",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Application",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ApplicationId",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Application",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateDeployment": {
       "verb": "New",
       "noun": "Deployment",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "DeploymentId",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "TargetInstances_Ec2TagSet_Ec2TagSetList",
           "newName": "Ec2TagSetList",
-          "autoApplyAlias": "false"
+          "aliases": [],
+          "autoApplyAlias": "false",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "TargetInstances_TagFilters",
           "newName": "TargetInstancesTagFilter",
           "aliases": [
-            "TargetInstances_TagFilter"
-          ]
+            "TargetInstances_TagFilter",
+            "TargetInstances_TagFilters"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "Revision_RevisionType",
-          "newName": "RevisionType"
+          "newName": "RevisionType",
+          "aliases": [
+            "Revision_RevisionType"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "TargetInstances_AutoScalingGroups",
           "newName": "TargetInstancesAutoScalingGroup",
           "aliases": [
-            "TargetInstances_AutoScalingGroup"
-          ]
+            "TargetInstances_AutoScalingGroup",
+            "TargetInstances_AutoScalingGroups"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Deployment",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Deployment",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateDeploymentConfig": {
       "verb": "New",
       "noun": "DeploymentConfig",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "DeploymentConfig",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "DeploymentConfigId",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DeploymentConfig",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeploymentConfigName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateDeploymentGroup": {
       "verb": "New",
       "noun": "DeploymentGroup",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "DeploymentGroupId",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "Ec2TagSet_Ec2TagSetList",
           "newName": "Ec2TagSetList",
-          "autoApplyAlias": "false"
+          "aliases": [],
+          "autoApplyAlias": "false",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "OnPremisesTagSet_OnPremisesTagSetList",
           "newName": "OnPremisesTagSetList",
-          "autoApplyAlias": "false"
+          "aliases": [],
+          "autoApplyAlias": "false",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action",
           "newName": "GreenFleetProvisioningOptionAction",
           "aliases": [
-            "GreenFleetProvisioningOption_Action"
-          ]
+            "GreenFleetProvisioningOption_Action",
+            "BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes",
           "newName": "OnSuccessBlueInstanceTerminationWaitTime",
           "aliases": [
-            "TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute"
-          ]
+            "TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute",
+            "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action",
           "newName": "OnSuccessBlueInstanceTerminationAction",
           "aliases": [
-            "TerminateBlueInstancesOnDeploymentSuccess_Action"
-          ]
+            "TerminateBlueInstancesOnDeploymentSuccess_Action",
+            "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes",
           "newName": "DeploymentReadyOptionWaitTime",
           "aliases": [
-            "DeploymentReadyOption_WaitTimeInMinute"
-          ]
+            "DeploymentReadyOption_WaitTimeInMinute",
+            "BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout",
           "newName": "DeploymentReadyOptionTimeoutAction",
           "aliases": [
-            "DeploymentReadyOption_ActionOnTimeout"
-          ]
+            "DeploymentReadyOption_ActionOnTimeout",
+            "BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "DeploymentStyle_DeploymentOption",
-          "newName": "DeploymentStyleOption"
+          "newName": "DeploymentStyleOption",
+          "aliases": [
+            "DeploymentStyle_DeploymentOption"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "DeploymentStyle_DeploymentType",
-          "newName": "DeploymentStyleType"
+          "newName": "DeploymentStyleType",
+          "aliases": [
+            "DeploymentStyle_DeploymentType"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "LoadBalancerInfo_ElbInfoList",
-          "newName": "LoadBalancerInfoList"
+          "newName": "LoadBalancerInfoList",
+          "aliases": [
+            "LoadBalancerInfo_ElbInfoList"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "DeploymentGroup",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DeploymentGroup",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteApplication": {
       "verb": "Remove",
       "noun": "Application",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Application",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": "Auto-assigned from pipeline parameter: ApplicationName",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Application",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "Auto-assigned from pipeline parameter: ApplicationName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteDeploymentConfig": {
       "verb": "Remove",
       "noun": "DeploymentConfig",
-      "pipelineProperty": "DeploymentConfigName",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "DeploymentConfig",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": "Auto-assigned from pipeline parameter: DeploymentConfigName",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DeploymentConfig",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "Auto-assigned from pipeline parameter: DeploymentConfigName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeploymentConfigName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteDeploymentGroup": {
       "verb": "Remove",
       "noun": "DeploymentGroup",
-      "shouldProcessTargetProperty": "DeploymentGroupName",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "DeploymentGroup",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "HooksNotCleanedUp",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "DeploymentGroupName"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DeploymentGroup",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
+          "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "DeploymentGroupName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteGitHubAccountToken": {
       "verb": "Remove",
       "noun": "GitHubAccountToken",
-      "pipelineProperty": "TokenName",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "GitHubAccountToken",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "TokenName",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "GitHubAccountToken",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TokenName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeregisterOnPremisesInstance": {
       "verb": "Unregister",
       "noun": "OnPremiseInstance",
-      "pipelineProperty": "InstanceName",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "OnPremisesInstance",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": "Auto-assigned from pipeline parameter: InstanceName",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "OnPremisesInstance",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "Auto-assigned from pipeline parameter: InstanceName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetApplication": {
       "verb": "Get",
       "noun": "Application",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Application",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Application",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Application",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetApplicationRevision": {
       "verb": "Get",
       "noun": "ApplicationRevision",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ApplicationRevision",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ApplicationRevision",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetDeployment": {
       "verb": "Get",
       "noun": "Deployment",
-      "pipelineProperty": "DeploymentId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Deployment",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "DeploymentInfo",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Deployment",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetDeploymentConfig": {
       "verb": "Get",
       "noun": "DeploymentConfig",
-      "pipelineProperty": "DeploymentConfigName",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "DeploymentConfig",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "DeploymentConfigInfo",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DeploymentConfig",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetDeploymentGroup": {
       "verb": "Get",
       "noun": "DeploymentGroup",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "DeploymentGroup",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "DeploymentGroupInfo",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DeploymentGroup",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetDeploymentInstance": {
       "verb": "Get",
       "noun": "DeploymentInstance",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "DeploymentInstance",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "InstanceSummary",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DeploymentInstance",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetOnPremisesInstance": {
       "verb": "Get",
       "noun": "OnPremiseInstance",
-      "pipelineProperty": "InstanceName",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "OnPremisesInstance",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "InstanceInfo",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "OnPremisesInstance",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListApplicationRevisions": {
       "verb": "Get",
       "noun": "ApplicationRevisionList",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ApplicationRevisions",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Revisions",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ApplicationRevisions",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListApplications": {
       "verb": "Get",
       "noun": "ApplicationList",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Applications",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Applications",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Applications",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListDeploymentConfigs": {
       "verb": "Get",
       "noun": "DeploymentConfigList",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "DeploymentConfigs",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "DeploymentConfigsList",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DeploymentConfigs",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListDeploymentGroups": {
       "verb": "Get",
       "noun": "DeploymentGroupList",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "DeploymentGroups",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DeploymentGroups",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListDeploymentInstances": {
       "verb": "Get",
       "noun": "DeploymentInstanceList",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "DeploymentInstances",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "InstancesList",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DeploymentInstances",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListDeployments": {
       "verb": "Get",
       "noun": "DeploymentList",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Deployments",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Deployments",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Deployments",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListGitHubAccountTokenNames": {
       "verb": "Get",
       "noun": "GitHubAccountTokenNameList",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "GitHubAccountTokenNames",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "TokenNameList",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "GitHubAccountTokenNames",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListOnPremisesInstances": {
       "verb": "Get",
       "noun": "OnPremiseInstanceList",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "OnPremisesInstances",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "InstanceNames",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "OnPremisesInstances",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
-        }
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "PutLifecycleEventHookExecutionStatus": {
       "verb": "Write",
       "noun": "LifecycleEventHookExecutionStatus",
-      "pipelineProperty": "LifecycleEventHookExecutionId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "LifecycleEventHookExecutionStatus",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "LifecycleEventHookExecutionId",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "LifecycleEventHookExecutionStatus",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LifecycleEventHookExecutionId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "RegisterApplicationRevision": {
       "verb": "Register",
       "noun": "ApplicationRevision",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ApplicationRevision",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": "Auto-assigned from pipeline parameter: ApplicationName",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ApplicationRevision",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "Auto-assigned from pipeline parameter: ApplicationName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "RegisterOnPremisesInstance": {
       "verb": "Register",
       "noun": "OnPremiseInstance",
-      "output": "Void",
-      "shouldProcessTargetProperty": "InstanceName",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "OnPremisesInstance",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "InstanceName"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "OnPremisesInstance",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
+          "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "InstanceName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "RemoveTagsFromOnPremisesInstances": {
       "verb": "Remove",
       "noun": "OnPremiseInstanceTag",
-      "output": "Void",
-      "shouldProcessTargetProperty": "InstanceNames",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TagsFromOnPremisesInstances",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "InstanceNames"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TagsFromOnPremisesInstances",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
+          "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "InstanceNames"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "SkipWaitTimeForInstanceTermination": {
       "verb": "Skip",
       "noun": "WaitTimeForInstanceTermination",
-      "pipelineProperty": "DeploymentId",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "WaitTimeForInstanceTermination",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": "Auto-assigned from pipeline parameter: DeploymentId",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "WaitTimeForInstanceTermination",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "Auto-assigned from pipeline parameter: DeploymentId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeploymentId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "StopDeployment": {
       "verb": "Stop",
       "noun": "Deployment",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Deployment",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Deployment",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeploymentId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "UpdateApplication": {
       "verb": "Update",
       "noun": "Application",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Application",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": "Auto-assigned from pipeline parameter: ApplicationName",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Application",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "Auto-assigned from pipeline parameter: ApplicationName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "UpdateDeploymentGroup": {
       "verb": "Update",
       "noun": "DeploymentGroup",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "HooksNotCleanedUp",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "Ec2TagSet_Ec2TagSetList",
           "newName": "Ec2TagSetList",
-          "autoApplyAlias": "false"
+          "aliases": [],
+          "autoApplyAlias": "false",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "OnPremisesTagSet_OnPremisesTagSetList",
           "newName": "OnPremisesTagSetList",
-          "autoApplyAlias": "false"
+          "aliases": [],
+          "autoApplyAlias": "false",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action",
           "newName": "GreenFleetProvisioningOptionAction",
           "aliases": [
-            "GreenFleetProvisioningOption_Action"
-          ]
+            "GreenFleetProvisioningOption_Action",
+            "BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes",
           "newName": "OnSuccessBlueInstanceTerminationWaitTime",
           "aliases": [
-            "TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute"
-          ]
+            "TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute",
+            "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action",
           "newName": "OnSuccessBlueInstanceTerminationAction",
           "aliases": [
-            "TerminateBlueInstancesOnDeploymentSuccess_Action"
-          ]
+            "TerminateBlueInstancesOnDeploymentSuccess_Action",
+            "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes",
           "newName": "DeploymentReadyOptionWaitTime",
           "aliases": [
-            "DeploymentReadyOption_WaitTimeInMinute"
-          ]
+            "DeploymentReadyOption_WaitTimeInMinute",
+            "BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout",
           "newName": "DeploymentReadyOptionTimeoutAction",
           "aliases": [
-            "DeploymentReadyOption_ActionOnTimeout"
-          ]
+            "DeploymentReadyOption_ActionOnTimeout",
+            "BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "DeploymentStyle_DeploymentOption",
-          "newName": "DeploymentStyleOption"
+          "newName": "DeploymentStyleOption",
+          "aliases": [
+            "DeploymentStyle_DeploymentOption"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "DeploymentStyle_DeploymentType",
-          "newName": "DeploymentStyleType"
+          "newName": "DeploymentStyleType",
+          "aliases": [
+            "DeploymentStyle_DeploymentType"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "LoadBalancerInfo_ElbInfoList",
-          "newName": "LoadBalancerInfoList"
+          "newName": "LoadBalancerInfoList",
+          "aliases": [
+            "LoadBalancerInfo_ElbInfoList"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "DeploymentGroup",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern1",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DeploymentGroup",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListDeploymentGroups"
           ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken"
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     }
   }

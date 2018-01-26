@@ -1,19 +1,40 @@
 {
-  "defaultPaginationSettings": {
+  "customAliases": [],
+  "inputObjectMappingRules": [],
+  "legacySettings": {
+    "nounPrefix": "SC",
+    "positionalProperties": [],
+    "paramEmitters": []
+  },
+  "netsdk": {
+    "additionalNamespaces": [],
+    "serviceClientClass": "AmazonServiceCatalogClient",
+    "serviceConfigClass": "AmazonServiceCatalogConfig",
+    "serviceNamespace": "Amazon.ServiceCatalog"
+  },
+  "nonFlattenedTypeNames": [],
+  "nounMaps": {},
+  "outputMetadataMembers": [],
+  "paginationDefaults": {
     "excludedOperations": [
       "DescribeRecord",
       "SearchProducts"
     ],
-    "requestTokenMember": "PageToken",
-    "responseTokenMember": "NextPageToken",
-    "resultLimitMember": "PageSize"
+    "requestMember": "PageToken",
+    "responseMember": "NextPageToken",
+    "resultLimitMember": "PageSize",
+    "autoSetMaxResultSize": "false",
+    "resultsTruncatedMember": ""
   },
-  "defaultPipelineProperty": "Id",
-  "legacyCmdletPrefix": "SC",
-  "sdkServiceClientClass": "AmazonServiceCatalogClient",
-  "sdkServiceConfigClass": "AmazonServiceCatalogConfig",
-  "sdkServiceNamespace": "Amazon.ServiceCatalog",
-  "verbMappings": {
+  "pipelineDefaults": {
+    "byValueMembers": [
+      "Id"
+    ],
+    "byNameMembers": []
+  },
+  "regionFallback": "",
+  "supportsShouldProcessVerbs": [],
+  "verbMaps": {
     "List": "Get",
     "Associate": "Register",
     "Disassociate": "Unregister"
@@ -22,1414 +43,2894 @@
     "AcceptPortfolioShare": {
       "verb": "Receive",
       "noun": "PortfolioShare",
-      "pipelineProperty": "PortfolioId",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "PortfolioShare",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: PortfolioId",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "PortfolioShare",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: PortfolioId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PortfolioId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "AssociatePrincipalWithPortfolio": {
       "verb": "Register",
       "noun": "PrincipalWithPortfolio",
-      "pipelineProperty": "PrincipalARN",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "PrincipalWithPortfolio",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: PrincipalARN",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "PrincipalWithPortfolio",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: PrincipalARN",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PortfolioId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "AssociateProductWithPortfolio": {
       "verb": "Register",
       "noun": "ProductWithPortfolio",
-      "pipelineProperty": "ProductId",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ProductWithPortfolio",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: ProductId",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ProductWithPortfolio",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: ProductId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProductId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "AssociateTagOptionWithResource": {
       "verb": "Add",
       "noun": "TagOptionToResource",
-      "pipelineProperty": "TagOptionId",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TagOptionWithResource",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: TagOptionId",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TagOptionWithResource",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: TagOptionId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TagOptionId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CopyProduct": {
       "verb": "Copy",
       "noun": "Product",
-      "shouldProcessTargetProperty": "TargetProductName",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Product",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "CopyProductToken",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "TargetProductName"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Product",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
+          "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "TargetProductName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateConstraint": {
       "verb": "New",
       "noun": "Constraint",
-      "pipelineProperty": "ProductId",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Constraint",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Constraint",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProductId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreatePortfolio": {
       "verb": "New",
       "noun": "Portfolio",
-      "noPipelineProperty": "true",
-      "output": "Response",
-      "shouldProcessTargetProperty": "DisplayName",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Portfolio",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "DisplayName"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Portfolio",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
+          "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "DisplayName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreatePortfolioShare": {
       "verb": "New",
       "noun": "PortfolioShare",
-      "pipelineProperty": "AccountId",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "PortfolioShare",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: AccountId",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "PortfolioShare",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: AccountId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AccountId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateProduct": {
       "verb": "New",
       "noun": "Product",
-      "noPipelineProperty": "true",
-      "output": "Response",
-      "shouldProcessTargetProperty": "Name",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Product",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "Name"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Product",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
+          "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateProvisioningArtifact": {
       "verb": "New",
       "noun": "ProvisioningArtifact",
-      "pipelineProperty": "ProductId",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ProvisioningArtifact",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ProvisioningArtifact",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProductId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateTagOption": {
       "verb": "New",
       "noun": "TagOption",
-      "pipelineProperty": "Value",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TagOption",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "TagOptionDetail",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TagOption",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Value"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteConstraint": {
       "verb": "Remove",
       "noun": "Constraint",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Constraint",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: Id",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Constraint",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: Id",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeletePortfolio": {
       "verb": "Remove",
       "noun": "Portfolio",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Portfolio",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: Id",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Portfolio",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: Id",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeletePortfolioShare": {
       "verb": "Remove",
       "noun": "PortfolioShare",
-      "pipelineProperty": "AccountId",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "PortfolioShare",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: AccountId",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "PortfolioShare",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: AccountId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AccountId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteProduct": {
       "verb": "Remove",
       "noun": "Product",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Product",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: Id",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Product",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: Id",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteProvisioningArtifact": {
       "verb": "Remove",
       "noun": "ProvisioningArtifact",
-      "pipelineProperty": "ProvisioningArtifactId",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ProvisioningArtifact",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: ProvisioningArtifactId",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ProvisioningArtifact",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: ProvisioningArtifactId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProvisioningArtifactId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribeConstraint": {
       "verb": "Get",
       "noun": "Constraint",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Constraint",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Constraint",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribeCopyProductStatus": {
       "verb": "Get",
       "noun": "CopyProductStatus",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "CopyProductStatus",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "CopyProductStatus",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribePortfolio": {
       "verb": "Get",
       "noun": "Portfolio",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Portfolio",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Portfolio",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribeProduct": {
       "verb": "Get",
       "noun": "Product",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Product",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Product",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribeProductAsAdmin": {
       "verb": "Get",
       "noun": "ProductAsAdmin",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ProductAsAdmin",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ProductAsAdmin",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribeProductView": {
       "verb": "Get",
       "noun": "ProductView",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "Id",
+          "newName": "",
           "aliases": [
             "ProductId"
-          ]
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ProductView",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ProductView",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribeProvisionedProduct": {
       "verb": "Get",
       "noun": "ProvisionedProductDetail",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ProvisionedProductDetail",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "Id",
+          "newName": "",
           "aliases": [
             "ProductId"
-          ]
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ProvisionedProduct",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ProvisionedProduct",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribeProvisioningArtifact": {
       "verb": "Get",
       "noun": "ProvisioningArtifact",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "Verbose",
           "newName": "ReturnCloudFormationTemplate",
-          "autoApplyAlias": "false"
+          "aliases": [],
+          "autoApplyAlias": "false",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "pipelineProperty": "ProvisioningArtifactId",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ProvisioningArtifact",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ProvisioningArtifact",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribeProvisioningParameters": {
       "verb": "Get",
       "noun": "ProvisioningParameter",
-      "pipelineProperty": "ProductId",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ProvisioningParameters",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ProvisioningParameters",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribeRecord": {
       "verb": "Get",
       "noun": "Record",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Record",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Record",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "DescribeTagOption": {
       "verb": "Get",
       "noun": "TagOption",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TagOption",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "TagOptionDetail",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TagOption",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "DisassociatePrincipalFromPortfolio": {
       "verb": "Unregister",
       "noun": "PrincipalFromPortfolio",
-      "pipelineProperty": "PrincipalARN",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "PrincipalFromPortfolio",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: PrincipalARN",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "PrincipalFromPortfolio",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: PrincipalARN",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PortfolioId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DisassociateProductFromPortfolio": {
       "verb": "Unregister",
       "noun": "ProductFromPortfolio",
-      "pipelineProperty": "ProductId",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ProductFromPortfolio",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: ProductId",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ProductFromPortfolio",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: ProductId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProductId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DisassociateTagOptionFromResource": {
       "verb": "Remove",
       "noun": "TagOptionFromResource",
-      "pipelineProperty": "TagOptionId",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TagOptionFromResource",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: TagOptionId",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TagOptionFromResource",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: TagOptionId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TagOptionId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListAcceptedPortfolioShares": {
       "verb": "Get",
       "noun": "AcceptedPortfolioSharesList",
-      "pipelineProperty": "AcceptLanguage",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "AcceptedPortfolioShares",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "PortfolioDetails",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "AcceptedPortfolioShares",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListConstraintsForPortfolio": {
       "verb": "Get",
       "noun": "ConstrainsForPortfolioList",
-      "pipelineProperty": "PortfolioId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ConstraintsForPortfolio",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ConstraintDetails",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ConstraintsForPortfolio",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListLaunchPaths": {
       "verb": "Get",
       "noun": "LaunchPath",
-      "pipelineProperty": "ProductId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "LaunchPaths",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "LaunchPathSummaries",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "LaunchPaths",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListPortfolioAccess": {
       "verb": "Get",
       "noun": "PortfolioAccessList",
-      "pipelineProperty": "PortfolioId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "PortfolioAccess",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "AccountIds",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "PortfolioAccess",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListPortfolios": {
       "verb": "Get",
       "noun": "PortfolioList",
-      "noPipelineProperty": "true",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Portfolios",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "PortfolioDetails",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Portfolios",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListPortfoliosForProduct": {
       "verb": "Get",
       "noun": "ProductPortfoliosList",
-      "pipelineProperty": "ProductId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "PortfoliosForProduct",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "PortfolioDetails",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "PortfoliosForProduct",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListPrincipalsForPortfolio": {
       "verb": "Get",
       "noun": "PrincipalsForPortfolio",
-      "pipelineProperty": "PortfolioId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "PrincipalsForPortfolio",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Principals",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "PrincipalsForPortfolio",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListProvisioningArtifacts": {
       "verb": "Get",
       "noun": "ProvisioningArtifactList",
-      "pipelineProperty": "ProductId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ProvisioningArtifacts",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ProvisioningArtifactDetails",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ProvisioningArtifacts",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListRecordHistory": {
       "verb": "Get",
       "noun": "RecordHistory",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "RecordHistory",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "RecordDetails",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RecordHistory",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListResourcesForTagOption": {
       "verb": "Get",
       "noun": "ResourcesForTagOption",
-      "paginationSettings": {
-        "requestTokenMember": "PageToken",
-        "responseTokenMember": "PageToken",
-        "resultLimitMember": "PageSize"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResourceDetails",
+        "outputMemberWrapper": "",
+        "passThru": {}
       },
-      "pipelineProperty": "TagOptionId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ResourcesForTagOption",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {
+        "excludedOperations": [],
+        "requestMember": "PageToken",
+        "responseMember": "PageToken",
+        "resultLimitMember": "PageSize",
+        "autoSetMaxResultSize": "false",
+        "resultsTruncatedMember": ""
+      },
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResourcesForTagOption",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "PageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "PageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListTagOptions": {
       "verb": "Get",
       "noun": "TagOptionList",
-      "noPipelineProperty": "true",
-      "paginationSettings": {
-        "requestTokenMember": "PageToken",
-        "responseTokenMember": "PageToken",
-        "resultLimitMember": "PageSize"
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "TagOptionDetails",
+        "outputMemberWrapper": "",
+        "passThru": {}
       },
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TagOptions",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {
+        "excludedOperations": [],
+        "requestMember": "PageToken",
+        "responseMember": "PageToken",
+        "resultLimitMember": "PageSize",
+        "autoSetMaxResultSize": "false",
+        "resultsTruncatedMember": ""
+      },
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TagOptions",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "PageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "PageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "ProvisionProduct": {
       "verb": "New",
       "noun": "ProvisionedProduct",
-      "pipelineProperty": "ProvisionedProductName",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Product",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "RecordDetail",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Product",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProvisionedProductName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "RejectPortfolioShare": {
       "verb": "Deny",
       "noun": "PortfolioShare",
-      "pipelineProperty": "PortfolioId",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "PortfolioShare",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": "Auto-assigned from pipeline parameter: PortfolioId",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "PortfolioShare",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: PortfolioId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PortfolioId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ScanProvisionedProducts": {
       "verb": "Get",
       "noun": "ProvisionedProduct",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ProvisionedProducts",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ProvisionedProducts",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ProvisionedProducts",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "SearchProducts": {
       "verb": "Find",
       "noun": "Product",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Products",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Products",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
-        }
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
       }
     },
     "SearchProductsAsAdmin": {
       "verb": "Search",
       "noun": "ProductsAsAdmin",
-      "pipelineProperty": "PortfolioId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ProductsAsAdmin",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ProductViewDetails",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ProductsAsAdmin",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "PortfolioId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "TerminateProvisionedProduct": {
       "verb": "Remove",
       "noun": "ProvisionedProduct",
-      "pipelineProperty": "ProvisionedProductId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ProvisionedProduct",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "RecordDetail",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ProvisionedProduct",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProvisionedProductId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "UpdateConstraint": {
       "verb": "Update",
       "noun": "Constraint",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Constraint",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Constraint",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "UpdatePortfolio": {
       "verb": "Update",
       "noun": "Portfolio",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Portfolio",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Portfolio",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "UpdateProduct": {
       "verb": "Update",
       "noun": "Product",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Product",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Product",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "UpdateProvisionedProduct": {
       "verb": "Update",
       "noun": "ProvisionedProduct",
-      "pipelineProperty": "ProvisionedProductId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ProvisionedProduct",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "RecordDetail",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ProvisionedProduct",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProvisionedProductId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "UpdateProvisioningArtifact": {
       "verb": "Update",
       "noun": "ProvisioningArtifact",
-      "pipelineProperty": "ProvisioningArtifactId",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ProvisioningArtifact",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ProvisioningArtifact",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ProvisioningArtifactId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "UpdateTagOption": {
       "verb": "Update",
       "noun": "TagOption",
-      "pipelineProperty": "Value",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TagOption",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "TagOptionDetail",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TagOption",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "DescribeRecord",
             "SearchProducts"
           ],
-          "requestTokenMember": "PageToken",
-          "responseTokenMember": "NextPageToken",
-          "resultLimitMember": "PageSize"
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "PageSize",
+          "autoSetMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        }
+        },
+        "memoryStreamParameters": []
       }
     }
   }

@@ -1,25 +1,40 @@
 {
-  "defaultPaginationSettings": {
-    "requestTokenMember": null,
-    "responseTokenMember": null
+  "customAliases": [],
+  "inputObjectMappingRules": [],
+  "legacySettings": {
+    "nounPrefix": "SQS",
+    "positionalProperties": [
+      "QueueUrl"
+    ],
+    "paramEmitters": []
   },
-  "defaultPipelineProperty": "QueueUrl",
-  "legacyCmdletPrefix": "SQS",
-  "legacyPositionalProperties": "QueueUrl",
-  "nounMappings": {
+  "netsdk": {
+    "additionalNamespaces": [],
+    "serviceClientClass": "AmazonSQSClient",
+    "serviceConfigClass": "AmazonSQSConfig",
+    "serviceNamespace": "Amazon.SQS"
+  },
+  "nonFlattenedTypeNames": [],
+  "nounMaps": {
     "QueueAttributes": "QueueAttribute",
     "Queues": "Queue"
   },
-  "pipelineByValuePropertyNames": [
-    "QueueUrl",
-    "Id",
-    "QueueName",
-    "ReceiptHandle"
-  ],
-  "sdkServiceClientClass": "AmazonSQSClient",
-  "sdkServiceConfigClass": "AmazonSQSConfig",
-  "sdkServiceNamespace": "Amazon.SQS",
-  "verbMappings": {
+  "outputMetadataMembers": [],
+  "paginationDefaults": {},
+  "pipelineDefaults": {
+    "byValueMembers": [
+      "QueueUrl"
+    ],
+    "byNameMembers": [
+      "QueueUrl",
+      "Id",
+      "QueueName",
+      "ReceiptHandle"
+    ]
+  },
+  "regionFallback": "",
+  "supportsShouldProcessVerbs": [],
+  "verbMaps": {
     "List": "Get",
     "Change": "Edit"
   },
@@ -27,38 +42,63 @@
     "AddPermission": {
       "verb": "Add",
       "noun": "Permission",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "Actions",
           "newName": "Action",
           "aliases": [
-            "ActionNames"
-          ]
+            "ActionNames",
+            "Actions"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "legacyPositionalParameters": [
-        "Label",
-        "AWSAccountIds",
-        "Actions"
-      ],
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Permission",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        },
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "Label",
+          "AWSAccountIds",
+          "Actions"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Permission",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AWSAccountIds"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "AuthorizeS3ToSendMessage": {
@@ -67,481 +107,921 @@
     "ChangeMessageVisibility": {
       "verb": "Edit",
       "noun": "MessageVisibility",
-      "legacyPositionalParameters": [
-        "ReceiptHandle",
-        "VisibilityTimeout",
-        ""
-      ],
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "MessageVisibility",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        },
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "ReceiptHandle",
+          "VisibilityTimeout"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "MessageVisibility",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueueUrl"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ChangeMessageVisibilityBatch": {
       "verb": "Edit",
       "noun": "MessageVisibilityBatch",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "MessageVisibilityBatch",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        },
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "MessageVisibilityBatch",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueueUrl"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateQueue": {
       "verb": "New",
       "noun": "Queue",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "QueueUrl",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "DelaySeconds",
-          "newName": "DelayInSeconds"
+          "newName": "DelayInSeconds",
+          "aliases": [],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "legacyPositionalParameters": [
-        "DefaultVisibilityTimeout",
-        "DelaySeconds",
-        "Attributes"
-      ],
-      "pipelineProperty": "QueueName",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Queue",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        },
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "DefaultVisibilityTimeout",
+          "DelaySeconds",
+          "Attributes"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Queue",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueueName"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteMessage": {
       "verb": "Remove",
       "noun": "Message",
-      "legacyPositionalParameters": [
-        "ReceiptHandle",
-        "Attribute"
-      ],
-      "output": "Void",
-      "shouldProcessTargetProperty": "ReceiptHandle",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Message",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        },
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "ReceiptHandle",
+          "Attribute"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "ReceiptHandle"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Message",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
+          "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "ReceiptHandle"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteMessageBatch": {
       "verb": "Remove",
       "noun": "MessageBatch",
-      "output": "Response",
-      "shouldProcessTargetProperty": "Entries",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "MessageBatch",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        },
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "Entries"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "MessageBatch",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
+          "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "Entries"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteQueue": {
       "verb": "Remove",
       "noun": "Queue",
-      "legacyPositionalParameters": [
-        "Attribute"
-      ],
-      "output": "Void",
-      "shouldProcessTargetProperty": "QueueUrl",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Queue",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        },
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "Attribute"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "QueueUrl"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Queue",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueueUrl"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetQueueAttributes": {
       "verb": "Get",
       "noun": "QueueAttribute",
-      "legacyPositionalParameters": [
-        "AttributeNames"
-      ],
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "QueueAttributes",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "AttributeNames"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "QueueAttributes",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
       }
     },
     "GetQueueUrl": {
       "verb": "Get",
       "noun": "QueueUrl",
-      "legacyPositionalParameters": [
-        "QueueOwnerAWSAccountId"
-      ],
-      "pipelineProperty": "QueueName",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "QueueUrl",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "QueueUrl",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "QueueOwnerAWSAccountId"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "QueueUrl",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
       }
     },
     "ListDeadLetterSourceQueues": {
       "verb": "Get",
       "noun": "DeadLetterSourceQueue",
-      "legacyAlias": "Get-SQSDeadLetterSourceQueues",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "DeadLetterSourceQueues",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "QueueUrls",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "Get-SQSDeadLetterSourceQueues",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DeadLetterSourceQueues",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
       }
     },
     "ListQueues": {
       "verb": "Get",
       "noun": "Queue",
-      "legacyPositionalParameters": [
-        "Attribute"
-      ],
-      "pipelineProperty": "QueueNamePrefix",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Queues",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "QueueUrls",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "Attribute"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Queues",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
       }
     },
     "ListQueueTags": {
       "verb": "Get",
       "noun": "ResourceTag",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "QueueTags",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Tags",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "QueueTags",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
       }
     },
     "PurgeQueue": {
       "verb": "Clear",
       "noun": "Queue",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Queue",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        },
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Queue",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueueUrl"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ReceiveMessage": {
       "verb": "Receive",
       "noun": "Message",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Messages",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "WaitTimeSeconds",
-          "newName": "WaitTimeInSeconds"
+          "newName": "WaitTimeInSeconds",
+          "aliases": [
+            "WaitTimeSeconds"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         },
         {
           "name": "MaxNumberOfMessages",
-          "newName": "MessageCount"
+          "newName": "MessageCount",
+          "aliases": [
+            "MaxNumberOfMessages"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "legacyPositionalParameters": [
-        "MaxNumberOfMessages",
-        "VisibilityTimeout",
-        "AttributeNames",
-        "WaitTimeSeconds"
-      ],
-      "shouldProcessTargetProperty": "QueueUrl",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Message",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        },
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "MaxNumberOfMessages",
+          "VisibilityTimeout",
+          "AttributeNames",
+          "WaitTimeSeconds"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "QueueUrl"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Message",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
+          "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "QueueUrl"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "RemovePermission": {
       "verb": "Remove",
       "noun": "Permission",
-      "legacyPositionalParameters": [
-        "Label"
-      ],
-      "output": "Void",
-      "shouldProcessTargetProperty": "Label",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Permission",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        },
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "Label"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "Label"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Permission",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
+          "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "Label"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "SendMessage": {
       "verb": "Send",
       "noun": "Message",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "DelaySeconds",
-          "newName": "DelayInSeconds"
+          "newName": "DelayInSeconds",
+          "aliases": [
+            "DelaySeconds"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "legacyPositionalParameters": [
-        "MessageBody",
-        "DelaySeconds"
-      ],
-      "output": "Response",
-      "shouldProcessTargetProperty": "MessageDeduplicationId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Message",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        },
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "MessageBody",
+          "DelaySeconds"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "MessageDeduplicationId"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Message",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
+          "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "MessageDeduplicationId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "SendMessageBatch": {
       "verb": "Send",
       "noun": "MessageBatch",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "MessageBatch",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        },
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "MessageBatch",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueueUrl"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "SetQueueAttributes": {
       "verb": "Set",
       "noun": "QueueAttribute",
-      "legacyPositionalParameters": [
-        "Attributes"
-      ],
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "QueueAttributes",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        },
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "Attributes"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "QueueAttributes",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueueUrl"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "TagQueue": {
       "verb": "Add",
       "noun": "ResourceTag",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Queue",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        },
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Queue",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueueUrl"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "UntagQueue": {
       "verb": "Remove",
       "noun": "ResourceTag",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Queue",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        },
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueueUrl"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Queue",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "QueueUrl"
-        }
+        },
+        "memoryStreamParameters": []
       }
     }
   }

@@ -18,9 +18,9 @@
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
-    <PipelineByValueProperties />
+    <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="GetEntitlements" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EntitlementList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductCode" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetEntitlements" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EntitlementList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductCode" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

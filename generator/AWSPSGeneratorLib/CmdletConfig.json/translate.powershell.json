@@ -1,40 +1,74 @@
 {
-  "defaultPaginationSettings": {
-    "requestTokenMember": null,
-    "responseTokenMember": null
+  "customAliases": [],
+  "inputObjectMappingRules": [],
+  "legacySettings": {
+    "nounPrefix": "TRN",
+    "positionalProperties": [],
+    "paramEmitters": []
   },
-  "defaultPipelineProperty": "",
-  "legacyCmdletPrefix": "TRN",
-  "sdkServiceClientClass": "AmazonTranslateClient",
-  "sdkServiceConfigClass": "AmazonTranslateConfig",
-  "sdkServiceNamespace": "Amazon.Translate",
+  "netsdk": {
+    "additionalNamespaces": [],
+    "serviceClientClass": "AmazonTranslateClient",
+    "serviceConfigClass": "AmazonTranslateConfig",
+    "serviceNamespace": "Amazon.Translate"
+  },
+  "nonFlattenedTypeNames": [],
+  "nounMaps": {},
+  "outputMetadataMembers": [],
+  "paginationDefaults": {},
+  "pipelineDefaults": {
+    "byValueMembers": [],
+    "byNameMembers": []
+  },
+  "regionFallback": "",
+  "supportsShouldProcessVerbs": [],
+  "verbMaps": {},
   "serviceOperations": {
     "TranslateText": {
       "verb": "ConvertTo",
       "noun": "TargetLanguage",
-      "outputMetadataPropertyNames": [
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "TranslatedText",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [
         "SourceLanguageCode",
         "TargetLanguageCode"
       ],
-      "pipelineProperty": "Text",
-      "shouldProcessTargetProperty": "TargetLanguageCode",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Text",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        },
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "TargetLanguageCode"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Text",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
+          "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "TargetLanguageCode"
-        }
+        },
+        "memoryStreamParameters": []
       }
     }
   }

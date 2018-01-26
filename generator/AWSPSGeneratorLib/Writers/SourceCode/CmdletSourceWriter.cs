@@ -732,8 +732,8 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             // like Get-CWAlarm | Remove-CWAlarm. Both cmdlets have sdk request properties of 
             // AlarmNames which become AlarmName on output. The objects emitted by Get-CWAlarm
             // have a member called AlarmName -- thus we allow simple pipelining.
-            if (analyzer.CurrentModel.PipelineByValueProperties.Contains(property.AnalyzedName)
-                    || analyzer.CurrentModel.PipelineByValueProperties.Contains(property.CmdletParameterName))
+            if (analyzer.CurrentModel.PipelineByNameProperties.Contains(property.AnalyzedName)
+                    || analyzer.CurrentModel.PipelineByNameProperties.Contains(property.CmdletParameterName))
             {
                 if (paramAttrib.Length > 0)
                     paramAttrib.Append(", ");
@@ -1511,7 +1511,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
                         if (emitErrorOnResultMismatch)
                         {
-                            if (Operation.Output != ServiceOperation.OutputMode.Default)
+                            if (Operation.Output != ServiceOperation.OutputMode.DefaultSingleMember)
                             {
                                 Logger.LogError(string.Format(
                                     "Method [{0} {1}]: the service response contains a single property but the ServiceOperation contains the 'Output' attribute with value 'Void' or 'Response'. THIS MAY BE A BREAKING CHANGE - INVESTIGATE THIS.",

@@ -1,13 +1,28 @@
 {
-  "defaultPaginationSettings": {
-    "requestTokenMember": null,
-    "responseTokenMember": null
+  "customAliases": [],
+  "inputObjectMappingRules": [],
+  "legacySettings": {
+    "nounPrefix": "CSD",
+    "positionalProperties": [],
+    "paramEmitters": []
   },
-  "defaultPipelineProperty": "",
-  "legacyCmdletPrefix": "CSD",
-  "sdkServiceClientClass": "AmazonCloudSearchDomainClient",
-  "sdkServiceConfigClass": "AmazonCloudSearchDomainConfig",
-  "sdkServiceNamespace": "Amazon.CloudSearchDomain",
+  "netsdk": {
+    "additionalNamespaces": [],
+    "serviceClientClass": "AmazonCloudSearchDomainClient",
+    "serviceConfigClass": "AmazonCloudSearchDomainConfig",
+    "serviceNamespace": "Amazon.CloudSearchDomain"
+  },
+  "nonFlattenedTypeNames": [],
+  "nounMaps": {},
+  "outputMetadataMembers": [],
+  "paginationDefaults": {},
+  "pipelineDefaults": {
+    "byValueMembers": [],
+    "byNameMembers": []
+  },
+  "regionFallback": "",
+  "supportsShouldProcessVerbs": [],
+  "verbMaps": {},
   "serviceOperations": {
     "Search": {
       "excludeFromGeneration": "true"

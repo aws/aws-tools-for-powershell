@@ -13,53 +13,90 @@
       ]
     }
   ],
-  "defaultPaginationSettings": {
-    "requestTokenMember": null,
-    "responseTokenMember": null
+  "inputObjectMappingRules": [],
+  "legacySettings": {
+    "nounPrefix": "STS",
+    "positionalProperties": [],
+    "paramEmitters": []
   },
-  "defaultPipelineProperty": "",
-  "legacyCmdletPrefix": "STS",
-  "sdkServiceClientClass": "AmazonSecurityTokenServiceClient",
-  "sdkServiceConfigClass": "AmazonSecurityTokenServiceConfig",
-  "sdkServiceNamespace": "Amazon.SecurityToken",
-  "verbMappings": {
+  "netsdk": {
+    "additionalNamespaces": [],
+    "serviceClientClass": "AmazonSecurityTokenServiceClient",
+    "serviceConfigClass": "AmazonSecurityTokenServiceConfig",
+    "serviceNamespace": "Amazon.SecurityToken"
+  },
+  "nonFlattenedTypeNames": [],
+  "nounMaps": {},
+  "outputMetadataMembers": [],
+  "paginationDefaults": {},
+  "pipelineDefaults": {
+    "byValueMembers": [],
+    "byNameMembers": []
+  },
+  "regionFallback": "",
+  "supportsShouldProcessVerbs": [],
+  "verbMaps": {
     "Decode": "Convert"
   },
   "serviceOperations": {
     "AssumeRole": {
       "verb": "Use",
       "noun": "Role",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "DurationSeconds",
-          "newName": "DurationInSeconds"
+          "newName": "DurationInSeconds",
+          "aliases": [
+            "DurationSeconds"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "legacyPositionalParameters": [
-        "RoleSessionName",
-        "Policy",
-        "DurationSeconds",
-        "ExternalId"
-      ],
-      "pipelineProperty": "RoleArn",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Role",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        },
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "RoleSessionName",
+          "Policy",
+          "DurationSeconds",
+          "ExternalId"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Role",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleArn"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "AssumeRoleWithSAML": {
@@ -71,99 +108,190 @@
     "DecodeAuthorizationMessage": {
       "verb": "Convert",
       "noun": "AuthorizationMessage",
-      "pipelineProperty": "EncodedMessage",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "AuthorizationMessage",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        },
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "DecodedMessage",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "AuthorizationMessage",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "EncodedMessage"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetCallerIdentity": {
       "verb": "Get",
       "noun": "CallerIdentity",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "CallerIdentity",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "CallerIdentity",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
       }
     },
     "GetFederationToken": {
       "verb": "Get",
       "noun": "FederationToken",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "DurationSeconds",
-          "newName": "DurationInSeconds"
+          "newName": "DurationInSeconds",
+          "aliases": [
+            "DurationSeconds"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "legacyPositionalParameters": [
-        "Policy",
-        "DurationSeconds"
-      ],
-      "pipelineProperty": "Name",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "FederationToken",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        }
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "Policy",
+          "DurationSeconds"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "FederationToken",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
       }
     },
     "GetSessionToken": {
       "verb": "Get",
       "noun": "SessionToken",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Credentials",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "DurationSeconds",
-          "newName": "DurationInSeconds"
+          "newName": "DurationInSeconds",
+          "aliases": [
+            "DurationSeconds"
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "legacyPositionalParameters": [
-        "SerialNumber",
-        "TokenCode"
-      ],
-      "pipelineProperty": "DurationSeconds",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "SessionToken",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        }
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "SerialNumber",
+          "TokenCode"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "SessionToken",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
       }
     }
   }

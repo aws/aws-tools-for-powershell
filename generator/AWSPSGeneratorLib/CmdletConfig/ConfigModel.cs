@@ -371,7 +371,7 @@ namespace AWSPowerShellGenerator.CmdletConfig
                 if (_positionalParametersList == null)
                 {
                     _positionalParametersList = !string.IsNullOrEmpty(PositionalParameters) 
-                        ? PositionalParameters.Split(';') 
+                        ? PositionalParameters.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries) 
                         : new string[] {};
                 }
                 return _positionalParametersList;
@@ -553,16 +553,16 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// (ValueFromPipelineByPropertyName=true gets added to the Parameter attribute
         /// for the property).
         /// </summary>
-        [XmlArray("PipelineByValueProperties")]
+        [XmlArray("PipelineByNameProperties")]
         [XmlArrayItem("Property")]
-        public List<string> PipelineByValuePropertyNamesList { get; set; }
+        public List<string> PipelineByNamePropertyNamesList { get; set; }
 
-        HashSet<string> _pipelineByValueProperties;
+        HashSet<string> _pipelineByNameProperties;
 
         [XmlIgnore]
-        public HashSet<string> PipelineByValueProperties
+        public HashSet<string> PipelineByNameProperties
         {
-            get { return _pipelineByValueProperties ?? (_pipelineByValueProperties = new HashSet<string>(PipelineByValuePropertyNamesList)); }
+            get { return _pipelineByNameProperties ?? (_pipelineByNameProperties = new HashSet<string>(PipelineByNamePropertyNamesList)); }
         }
 
         public const string ParamEmitterComplexKeyFormat = "{0}#{1}"; // type#propname
@@ -845,7 +845,13 @@ namespace AWSPowerShellGenerator.CmdletConfig
             /// The response from the service contains a single property; output that
             /// to the pipeline.
             /// </summary>
-            Default = 0,
+            DefaultSingleMember = 0,
+
+            /// <summary>
+            /// Not used in this version of the generator, but allows a specific member
+            /// selector expression to be used to determine the output.
+            /// </summary>
+            SelectedMember,
 
             /// <summary>
             /// The response from the service contains more than one property; output
@@ -861,7 +867,7 @@ namespace AWSPowerShellGenerator.CmdletConfig
         }
 
         [XmlAttribute]
-        public OutputMode Output = OutputMode.Default;
+        public OutputMode Output = OutputMode.DefaultSingleMember;
 
         /// <summary>
         /// If set true, the generator disregards any computed result that would conflict
@@ -1037,7 +1043,7 @@ namespace AWSPowerShellGenerator.CmdletConfig
                 if (_positionalParametersList == null)
                 {
                     _positionalParametersList = !string.IsNullOrEmpty(PositionalParameters) 
-                        ? PositionalParameters.Split(';') 
+                        ? PositionalParameters.Split(new [] {';'}, StringSplitOptions.RemoveEmptyEntries) 
                         : new string[] {};
                 }
 
@@ -1082,7 +1088,7 @@ namespace AWSPowerShellGenerator.CmdletConfig
                 if (_metadataPropertiesList == null)
                 {
                     _metadataPropertiesList = !string.IsNullOrEmpty(MetadataProperties) 
-                        ? MetadataProperties.Split(';') 
+                        ? MetadataProperties.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries) 
                         : new string[] { };
                 }
 

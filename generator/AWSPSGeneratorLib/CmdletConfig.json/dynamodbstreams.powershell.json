@@ -1,35 +1,75 @@
 {
-  "defaultPaginationSettings": {
-    "requestTokenMember": null,
-    "responseTokenMember": null
+  "customAliases": [],
+  "inputObjectMappingRules": [],
+  "legacySettings": {
+    "nounPrefix": "DDB",
+    "positionalProperties": [
+      "TableName"
+    ],
+    "paramEmitters": []
   },
-  "defaultPipelineProperty": "TableName",
-  "legacyCmdletPrefix": "DDB",
-  "legacyPositionalProperties": "TableName",
-  "sdkServiceClientClass": "AmazonDynamoDBStreamsClient",
-  "sdkServiceConfigClass": "AmazonDynamoDBStreamsConfig",
-  "sdkServiceNamespace": "Amazon.DynamoDBv2",
+  "netsdk": {
+    "additionalNamespaces": [],
+    "serviceClientClass": "AmazonDynamoDBStreamsClient",
+    "serviceConfigClass": "AmazonDynamoDBStreamsConfig",
+    "serviceNamespace": "Amazon.DynamoDBv2"
+  },
+  "nonFlattenedTypeNames": [],
+  "nounMaps": {},
+  "outputMetadataMembers": [],
+  "paginationDefaults": {},
+  "pipelineDefaults": {
+    "byValueMembers": [
+      "TableName"
+    ],
+    "byNameMembers": []
+  },
+  "regionFallback": "",
+  "supportsShouldProcessVerbs": [],
+  "verbMaps": {},
   "serviceOperations": {
     "DescribeStream": {
       "verb": "Get",
       "noun": "Stream",
-      "legacyPositionalParameters": [
-        "Limit",
-        "ExclusiveStartShardId"
-      ],
-      "pipelineProperty": "StreamArn",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Stream",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "StreamDescription",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "Limit",
+          "ExclusiveStartShardId"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "TableName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Stream",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
       }
     },
     "GetRecords": {
@@ -41,23 +81,45 @@
     "ListStreams": {
       "verb": "Get",
       "noun": "StreamList",
-      "legacyPositionalParameters": [
-        "Limit",
-        "ExclusiveStartStreamName"
-      ],
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Streams",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "None",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "requestTokenMember": null,
-          "responseTokenMember": null
-        }
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "Limit",
+          "ExclusiveStartStreamName"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "TableName"
+        ]
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Streams",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
       }
     }
   }

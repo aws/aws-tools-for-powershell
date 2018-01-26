@@ -1,5 +1,28 @@
 {
-  "defaultPaginationSettings": {
+  "customAliases": [],
+  "inputObjectMappingRules": [],
+  "legacySettings": {
+    "nounPrefix": "R53",
+    "positionalProperties": [],
+    "paramEmitters": []
+  },
+  "netsdk": {
+    "additionalNamespaces": [],
+    "serviceClientClass": "AmazonRoute53Client",
+    "serviceConfigClass": "AmazonRoute53Config",
+    "serviceNamespace": "Amazon.Route53"
+  },
+  "nonFlattenedTypeNames": [],
+  "nounMaps": {
+    "ResourceRecordSets": "ResourceRecordSet"
+  },
+  "outputMetadataMembers": [
+    "Marker",
+    "NextMarker",
+    "IsTruncated",
+    "MaxItems"
+  ],
+  "paginationDefaults": {
     "excludedOperations": [
       "ListResourceRecordSets",
       "ListGeoLocationsResult",
@@ -7,33 +30,24 @@
       "ListTrafficPolicyInstancesByHostedZone",
       "ListTrafficPolicyInstancesByPolicy"
     ],
-    "requestTokenMember": "Marker",
-    "responseTokenMember": "NextMarker",
+    "requestMember": "Marker",
+    "responseMember": "NextMarker",
     "resultLimitMember": "MaxItems",
-    "servicePageSize": 100,
+    "autoSetMaxResultSize": "true",
+    "maxResultSize": 100,
     "resultsTruncatedMember": "IsTruncated"
   },
-  "defaultPipelineProperty": "",
-  "legacyCmdletPrefix": "R53",
-  "nounMappings": {
-    "ResourceRecordSets": "ResourceRecordSet"
+  "pipelineDefaults": {
+    "byValueMembers": [],
+    "byNameMembers": [
+      "HostedZoneId",
+      "HealthCheckId",
+      "Id"
+    ]
   },
-  "outputMetadataPropertyNames": [
-    "Marker",
-    "NextMarker",
-    "IsTruncated",
-    "MaxItems"
-  ],
-  "pipelineByValuePropertyNames": [
-    "HostedZoneId",
-    "HealthCheckId",
-    "Id"
-  ],
   "regionFallback": "us-east-1",
-  "sdkServiceClientClass": "AmazonRoute53Client",
-  "sdkServiceConfigClass": "AmazonRoute53Config",
-  "sdkServiceNamespace": "Amazon.Route53",
-  "verbMappings": {
+  "supportsShouldProcessVerbs": [],
+  "verbMaps": {
     "List": "Get",
     "Change": "Edit"
   },
@@ -41,24 +55,50 @@
     "AssociateVPCWithHostedZone": {
       "verb": "Register",
       "noun": "VPCWithHostedZone",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ChangeInfo",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "HostedZoneId",
+          "newName": "",
           "aliases": [
             "Id"
-          ]
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "pipelineProperty": "HostedZoneId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "VPCWithHostedZone",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "VPCWithHostedZone",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -66,44 +106,71 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HostedZoneId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ChangeResourceRecordSets": {
       "verb": "Edit",
       "noun": "ResourceRecordSet",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ChangeInfo",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "HostedZoneId",
+          "newName": "",
           "aliases": [
             "Id"
-          ]
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "legacyPositionalParameters": [
-        "ChangeBatch_Comment",
-        "ChangeBatch_Changes"
-      ],
-      "pipelineProperty": "HostedZoneId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ResourceRecordSets",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "ChangeBatch_Comment",
+          "ChangeBatch_Changes"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResourceRecordSets",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -111,33 +178,57 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HostedZoneId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ChangeTagsForResource": {
       "verb": "Edit",
       "noun": "TagsForResource",
-      "pipelineProperty": "ResourceId",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TagsForResource",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": "Auto-assigned from pipeline parameter: ResourceId",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TagsForResource",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "Auto-assigned from pipeline parameter: ResourceId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -145,34 +236,57 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ResourceId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateHealthCheck": {
       "verb": "New",
       "noun": "HealthCheck",
-      "pipelineProperty": "CallerReference",
-      "output": "Response",
-      "suppressShouldProcessConfirmation": "true",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "HealthCheck",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "true",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "HealthCheck",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -180,32 +294,55 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateHostedZone": {
       "verb": "New",
       "noun": "HostedZone",
-      "legacyPositionalParameters": [
-        "CallerReference",
-        "HostedZoneConfig_Comment"
-      ],
-      "pipelineProperty": "Name",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "HostedZone",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "CallerReference",
+          "HostedZoneConfig_Comment"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "HostedZone",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -213,33 +350,57 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateQueryLoggingConfig": {
       "verb": "New",
       "noun": "QueryLoggingConfig",
-      "pipelineProperty": "HostedZoneId",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "QueryLoggingConfig",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "QueryLoggingConfig",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -247,41 +408,68 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HostedZoneId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateReusableDelegationSet": {
       "verb": "New",
       "noun": "ReusableDelegationSet",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "HostedZoneId",
+          "newName": "",
           "aliases": [
             "Id"
-          ]
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "pipelineProperty": "HostedZoneId",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ReusableDelegationSet",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ReusableDelegationSet",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -289,33 +477,57 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HostedZoneId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateTrafficPolicy": {
       "verb": "New",
       "noun": "TrafficPolicy",
-      "pipelineProperty": "Name",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TrafficPolicy",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TrafficPolicy",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -323,33 +535,57 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateTrafficPolicyInstance": {
       "verb": "New",
       "noun": "TrafficPolicyInstance",
-      "pipelineProperty": "Name",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TrafficPolicyInstance",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TrafficPolicyInstance",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -357,33 +593,57 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateTrafficPolicyVersion": {
       "verb": "New",
       "noun": "TrafficPolicyVersion",
-      "pipelineProperty": "Id",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TrafficPolicyVersion",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TrafficPolicyVersion",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -391,34 +651,57 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "CreateVPCAssociationAuthorization": {
       "verb": "New",
       "noun": "VPCAssociationAuthorization",
-      "pipelineProperty": "VPC",
-      "output": "Response",
-      "shouldProcessTargetProperty": "VPC_VPCId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "VPCAssociationAuthorization",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "VPC_VPCId"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "VPCAssociationAuthorization",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -426,33 +709,57 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
+          "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "VPCId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteHealthCheck": {
       "verb": "Remove",
       "noun": "HealthCheck",
-      "pipelineProperty": "HealthCheckId",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "HealthCheck",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": "Auto-assigned from pipeline parameter: HealthCheckId",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "HealthCheck",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "Auto-assigned from pipeline parameter: HealthCheckId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -460,32 +767,57 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HealthCheckId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteHostedZone": {
       "verb": "Remove",
       "noun": "HostedZone",
-      "pipelineProperty": "Id",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "HostedZone",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ChangeInfo",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "HostedZone",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -493,33 +825,57 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteQueryLoggingConfig": {
       "verb": "Remove",
       "noun": "QueryLoggingConfig",
-      "pipelineProperty": "Id",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "QueryLoggingConfig",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": "Auto-assigned from pipeline parameter: Id",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "QueryLoggingConfig",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "Auto-assigned from pipeline parameter: Id",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -527,33 +883,57 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteReusableDelegationSet": {
       "verb": "Remove",
       "noun": "ReusableDelegationSet",
-      "pipelineProperty": "Id",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ReusableDelegationSet",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": "Auto-assigned from pipeline parameter: Id",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ReusableDelegationSet",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "Auto-assigned from pipeline parameter: Id",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -561,33 +941,57 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteTrafficPolicy": {
       "verb": "Remove",
       "noun": "TrafficPolicy",
-      "pipelineProperty": "Id",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TrafficPolicy",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": "Auto-assigned from pipeline parameter: Id",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TrafficPolicy",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "Auto-assigned from pipeline parameter: Id",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -595,33 +999,57 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteTrafficPolicyInstance": {
       "verb": "Remove",
       "noun": "TrafficPolicyInstance",
-      "pipelineProperty": "Id",
-      "output": "Void",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TrafficPolicyInstance",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": "Auto-assigned from pipeline parameter: Id",
-        "PassThruTypeName": "System.String",
-        "RequiresPassThruGeneration": "true",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TrafficPolicyInstance",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "Auto-assigned from pipeline parameter: Id",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -629,34 +1057,57 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DeleteVPCAssociationAuthorization": {
       "verb": "Remove",
       "noun": "VPCAssociationAuthorization",
-      "pipelineProperty": "VPC",
-      "output": "Void",
-      "shouldProcessTargetProperty": "VPC_VPCId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "VPCAssociationAuthorization",
-        "ConfirmImpactSetting": "High",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "VPC_VPCId"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "VPCAssociationAuthorization",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -664,40 +1115,68 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": null,
+          "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "VPCId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "DisassociateVPCFromHostedZone": {
       "verb": "Unregister",
       "noun": "VPCFromHostedZone",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ChangeInfo",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "HostedZoneId",
+          "newName": "",
           "aliases": [
             "Id"
-          ]
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "pipelineProperty": "HostedZoneId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "VPCFromHostedZone",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "VPCFromHostedZone",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -705,33 +1184,57 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "HostedZoneId"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetAccountLimit": {
       "verb": "Get",
       "noun": "AccountLimit",
-      "noPipelineProperty": "true",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "AccountLimit",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "AccountLimit",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -739,27 +1242,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetChange": {
       "verb": "Get",
       "noun": "Change",
-      "pipelineProperty": "Id",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Change",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ChangeInfo",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Change",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -767,27 +1295,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetCheckerIpRanges": {
       "verb": "Get",
       "noun": "CheckerIpRange",
-      "legacyAlias": "Get-R53CheckerIpRanges",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "CheckerIpRanges",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "CheckerIpRanges",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "Get-R53CheckerIpRanges",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "CheckerIpRanges",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -795,27 +1348,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetGeoLocation": {
       "verb": "Get",
       "noun": "GeoLocation",
-      "noPipelineProperty": "true",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "GeoLocation",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "GeoLocationDetails",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "GeoLocation",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -823,27 +1401,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetHealthCheck": {
       "verb": "Get",
       "noun": "HealthCheck",
-      "pipelineProperty": "HealthCheckId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "HealthCheck",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "HealthCheck",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "HealthCheck",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -851,26 +1454,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetHealthCheckCount": {
       "verb": "Get",
       "noun": "HealthCheckCount",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "HealthCheckCount",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "HealthCheckCount",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "HealthCheckCount",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -878,27 +1507,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetHealthCheckLastFailureReason": {
       "verb": "Get",
       "noun": "HealthCheckLastFailureReason",
-      "pipelineProperty": "HealthCheckId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "HealthCheckLastFailureReason",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "HealthCheckObservations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "HealthCheckLastFailureReason",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -906,27 +1560,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetHealthCheckStatus": {
       "verb": "Get",
       "noun": "HealthCheckStatus",
-      "pipelineProperty": "HealthCheckId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "HealthCheckStatus",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "HealthCheckObservations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "HealthCheckStatus",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -934,28 +1613,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetHostedZone": {
       "verb": "Get",
       "noun": "HostedZone",
-      "pipelineProperty": "Id",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "HostedZone",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "HostedZone",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -963,26 +1666,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetHostedZoneCount": {
       "verb": "Get",
       "noun": "HostedZoneCount",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "HostedZoneCount",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "HostedZoneCount",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "HostedZoneCount",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -990,28 +1719,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetHostedZoneLimit": {
       "verb": "Get",
       "noun": "HostedZoneLimit",
-      "pipelineProperty": "HostedZoneId",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "HostedZoneLimit",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "HostedZoneLimit",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1019,27 +1772,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetQueryLoggingConfig": {
       "verb": "Get",
       "noun": "QueryLoggingConfig",
-      "pipelineProperty": "Id",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "QueryLoggingConfig",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "QueryLoggingConfig",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "QueryLoggingConfig",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1047,27 +1825,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetReusableDelegationSet": {
       "verb": "Get",
       "noun": "ReusableDelegationSet",
-      "pipelineProperty": "Id",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ReusableDelegationSet",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "DelegationSet",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ReusableDelegationSet",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1075,28 +1878,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetReusableDelegationSetLimit": {
       "verb": "Get",
       "noun": "ReusableDelegationSetLimit",
-      "pipelineProperty": "DelegationSetId",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ReusableDelegationSetLimit",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ReusableDelegationSetLimit",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1104,27 +1931,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetTrafficPolicy": {
       "verb": "Get",
       "noun": "TrafficPolicy",
-      "pipelineProperty": "Id",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TrafficPolicy",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "TrafficPolicy",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TrafficPolicy",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1132,27 +1984,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetTrafficPolicyInstance": {
       "verb": "Get",
       "noun": "TrafficPolicyInstance",
-      "pipelineProperty": "Id",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TrafficPolicyInstance",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "TrafficPolicyInstance",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TrafficPolicyInstance",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1160,26 +2037,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "GetTrafficPolicyInstanceCount": {
       "verb": "Get",
       "noun": "TrafficPolicyInstanceCount",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TrafficPolicyInstanceCount",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "TrafficPolicyInstanceCount",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TrafficPolicyInstanceCount",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1187,29 +2090,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListGeoLocations": {
       "verb": "Get",
       "noun": "GeoLocationList",
-      "legacyAlias": "Get-R53GeoLocations",
-      "noPipelineProperty": "true",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "GeoLocations",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "Get-R53GeoLocations",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "GeoLocations",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1217,27 +2143,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListHealthChecks": {
       "verb": "Get",
       "noun": "HealthCheckList",
-      "legacyAlias": "Get-R53HealthChecks",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "HealthChecks",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "HealthChecks",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "Get-R53HealthChecks",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "HealthChecks",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1245,28 +2196,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListHostedZones": {
       "verb": "Get",
       "noun": "HostedZoneList",
-      "legacyAlias": "Get-R53HostedZones",
-      "pipelineProperty": "DelegationSetId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "HostedZones",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "HostedZones",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "Get-R53HostedZones",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "HostedZones",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1274,12 +2249,14 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListHostedZonesByName": {
@@ -1288,16 +2265,39 @@
     "ListQueryLoggingConfigs": {
       "verb": "Get",
       "noun": "QueryLoggingConfigList",
-      "pipelineProperty": "HostedZoneId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "QueryLoggingConfigs",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "QueryLoggingConfigs",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "QueryLoggingConfigs",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1305,40 +2305,66 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListResourceRecordSets": {
       "verb": "Get",
       "noun": "ResourceRecordSet",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "HostedZoneId",
+          "newName": "",
           "aliases": [
             "Id"
-          ]
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "legacyPositionalParameters": [
-        "StartRecordName",
-        "StartRecordType"
-      ],
-      "pipelineProperty": "HostedZoneId",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ResourceRecordSets",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [
+          "StartRecordName",
+          "StartRecordType"
+        ],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResourceRecordSets",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1346,27 +2372,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListReusableDelegationSets": {
       "verb": "Get",
       "noun": "ReusableDelegationSetList",
-      "legacyAlias": "Get-R53ReusableDelegationSets",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "ReusableDelegationSets",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "DelegationSets",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "Get-R53ReusableDelegationSets",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ReusableDelegationSets",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1374,27 +2425,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListTagsForResource": {
       "verb": "Get",
       "noun": "TagsForResource",
-      "pipelineProperty": "ResourceId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TagsForResource",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResourceTagSet",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TagsForResource",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1402,28 +2478,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListTagsForResources": {
       "verb": "Get",
       "noun": "TagsForResourceList",
-      "legacyAlias": "Get-R53TagsForResources",
-      "pipelineProperty": "ResourceId",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TagsForResources",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResourceTagSets",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "Get-R53TagsForResources",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TagsForResources",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1431,12 +2531,14 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListTrafficPolicies": {
@@ -1445,18 +2547,39 @@
     "ListTrafficPolicyInstances": {
       "verb": "Get",
       "noun": "TrafficPolicyInstanceList",
-      "legacyAlias": "Get-R53TrafficPolicyInstances",
-      "noPipelineProperty": "true",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TrafficPolicyInstances",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "Get-R53TrafficPolicyInstances",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TrafficPolicyInstances",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1464,36 +2587,63 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListTrafficPolicyInstancesByHostedZone": {
       "verb": "Get",
       "noun": "TrafficPolicyInstancesByHostedZone",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "HostedZoneId",
+          "newName": "",
           "aliases": [
             "Id"
-          ]
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "pipelineProperty": "HostedZoneId",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TrafficPolicyInstancesByHostedZone",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TrafficPolicyInstancesByHostedZone",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1501,28 +2651,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListTrafficPolicyInstancesByPolicy": {
       "verb": "Get",
       "noun": "TrafficPolicyInstancesByPolicy",
-      "pipelineProperty": "TrafficPolicyId",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TrafficPolicyInstancesByPolicy",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TrafficPolicyInstancesByPolicy",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1530,12 +2704,14 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "ListTrafficPolicyVersions": {
@@ -1544,25 +2720,50 @@
     "ListVPCAssociationAuthorizations": {
       "verb": "Get",
       "noun": "VPCAssociationAuthorizationList",
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
       "customParameters": [
         {
           "name": "HostedZoneId",
+          "newName": "",
           "aliases": [
             "Id"
-          ]
+          ],
+          "autoApplyAlias": "true",
+          "autoRename": "true",
+          "exclude": "false"
         }
       ],
-      "pipelineProperty": "HostedZoneId",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "VPCAssociationAuthorizations",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "VPCAssociationAuthorizations",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1570,28 +2771,52 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "TestDNSAnswer": {
       "verb": "Test",
       "noun": "DNSAnswer",
-      "pipelineProperty": "HostedZoneId",
-      "output": "Response",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "DNSAnswer",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DNSAnswer",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1599,12 +2824,14 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "UpdateHealthCheck": {
@@ -1613,16 +2840,39 @@
     "UpdateHostedZoneComment": {
       "verb": "Update",
       "noun": "HostedZoneComment",
-      "pipelineProperty": "Id",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "HostedZoneComment",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "HostedZone",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "HostedZoneComment",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1630,32 +2880,57 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "UpdateTrafficPolicyComment": {
       "verb": "Update",
       "noun": "TrafficPolicyComment",
-      "pipelineProperty": "Id",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TrafficPolicyComment",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "TrafficPolicy",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TrafficPolicyComment",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1663,32 +2938,57 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        }
+        },
+        "memoryStreamParameters": []
       }
     },
     "UpdateTrafficPolicyInstance": {
       "verb": "Update",
       "noun": "TrafficPolicyInstance",
-      "pipelineProperty": "Id",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "TrafficPolicyInstance",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "false",
-        "IterationPattern": "Pattern3",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
+      "allowAnonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "TrafficPolicyInstance",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "customParameters": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "remapMemoryStreamParameters": "true"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TrafficPolicyInstance",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
             "ListGeoLocationsResult",
@@ -1696,17 +2996,19 @@
             "ListTrafficPolicyInstancesByHostedZone",
             "ListTrafficPolicyInstancesByPolicy"
           ],
-          "requestTokenMember": "Marker",
-          "responseTokenMember": "NextMarker",
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "servicePageSize": 100,
+          "autoSetMaxResultSize": "true",
+          "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Id"
-        }
+        },
+        "memoryStreamParameters": []
       }
     }
   }

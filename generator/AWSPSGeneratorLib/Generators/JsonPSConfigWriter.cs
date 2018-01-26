@@ -78,7 +78,7 @@ namespace AWSPowerShellGenerator.Generators
             {
                 _jsonWriter.WritePropertyName(operation.MethodName);
                 _jsonWriter.WriteStartObject();
-                WriteSimpleProperty("excludeFromGeneration", "true");
+                WriteSimpleProperty("excludeFromGeneration", true);
                 _jsonWriter.WriteEndObject();
 
                 return;
@@ -89,78 +89,84 @@ namespace AWSPowerShellGenerator.Generators
             _jsonWriter.WritePropertyName(operation.MethodName);
             _jsonWriter.WriteStartObject();
 
-            // keep the most important verb and noun settings at the top, then go to alpha order for the rest
+            // put the all important verb and noun first, then output the rest in alpha order
             WriteSimpleProperty("verb", analyzer.CurrentOperation.SelectedVerb);
-            WriteSimpleProperty("noun",
-                analyzer.CurrentOperation.SelectedNoun.Substring(analyzer.CurrentModel.ServiceNounPrefix.Length));
+            WriteSimpleProperty("noun", analyzer.CurrentOperation.SelectedNoun.Substring(analyzer.CurrentModel.ServiceNounPrefix.Length));
 
-            if (analyzer.CurrentOperation.CustomParametersList != null)
-            {
-                WriteObjectListProperty("customParameters", analyzer.CurrentOperation.CustomParametersList,
-                    (param) =>
-                    {
-                        WriteSimpleProperty("name", param.Name);
-                        if (!string.IsNullOrEmpty(param.NewName))
-                            WriteSimpleProperty("newName", param.NewName);
-                        if (!string.IsNullOrEmpty(param.AliasesList))
-                            WriteStringListProperty("aliases", param.AliasesList.Split(';'));
-                        if (!param.AutoApplyAlias)
-                            WriteSimpleProperty("autoApplyAlias", "false");
-                        if (!param.AutoRename)
-                            WriteSimpleProperty("autoRename", "false");
-                        if (param.Exclude)
-                            WriteSimpleProperty("exclude", "true");
-                    });
-            }
+            WriteSimpleProperty("allowAnonymousAuthentication", analyzer.CurrentOperation.AnonymousAuthentication.ToString());
 
-            if (!string.IsNullOrEmpty(analyzer.CurrentOperation.LegacyAlias))
-                WriteSimpleProperty("legacyAlias", analyzer.CurrentOperation.LegacyAlias);
+            WriteServiceOperationOutputSettings("cmdletOutput", analyzer.CurrentOperation);
 
-            if (analyzer.CurrentOperation.PositionalParameters != null)
-                WriteStringListProperty("legacyPositionalParameters",
-                    analyzer.CurrentOperation.PositionalParameters.Split(';'));
+            WriteObjectListProperty("customParameters", analyzer.CurrentOperation.CustomParametersList,
+                (param) =>
+                {
+                    WriteSimpleProperty("name", param.Name);
+                    WriteSimpleProperty("newName", param.NewName);
+                    WriteStringListProperty("aliases", param.Aliases);
+                    WriteSimpleProperty("autoApplyAlias", param.AutoApplyAlias);
+                    WriteSimpleProperty("autoRename", param.AutoRename);
+                    WriteSimpleProperty("exclude", param.Exclude);
+                });
 
-            if (!string.IsNullOrEmpty(analyzer.CurrentOperation.MetadataProperties))
-                WriteStringListProperty("outputMetadataPropertyNames", analyzer.CurrentOperation.MetadataProperties.Split(';'));
+            WriteServiceOperationLegacySettings("legacySettings", analyzer.CurrentOperation);
 
-            if (analyzer.CurrentOperation.NoPipelineParameter)
-                WriteSimpleProperty("noPipelineProperty", "true");
+            WriteStringListProperty("outputMetadataMembers", analyzer.CurrentOperation.MetadataPropertiesList);
 
-            if (analyzer.CurrentOperation.AutoIterate != null)
-                WriteAutoIterateObject("paginationSettings", analyzer.CurrentOperation.AutoIterate);
+            WritePaginationSettings("pagination", analyzer.CurrentOperation.AutoIterate);
+            WriteServiceOperationPipelineOverrides("pipeline", analyzer.CurrentOperation);
 
-            WritePassThruObject(analyzer.CurrentOperation.PassThru);
-
-            if (!string.IsNullOrEmpty(analyzer.CurrentOperation.PipelineParameter))
-                WriteSimpleProperty("pipelineProperty", analyzer.CurrentOperation.PipelineParameter);
-
-            if (analyzer.CurrentOperation.Output != ServiceOperation.OutputMode.Default)
-                WriteSimpleProperty("output", analyzer.CurrentOperation.Output.ToString());
-
-            if (!string.IsNullOrEmpty(analyzer.CurrentOperation.OutputWrapper))
-                WriteSimpleProperty("outputWrapperMember", analyzer.CurrentOperation.OutputWrapper);
-
-            if (!analyzer.CurrentOperation.RemapMemoryStreamParameters)
-                WriteSimpleProperty("remapMemoryStreamParameters", "false");
-
-            if (!string.IsNullOrEmpty(analyzer.CurrentOperation.ShouldProcessMsgNoun))
-                WriteSimpleProperty("shouldProcessMsgNoun", analyzer.CurrentOperation.ShouldProcessMsgNoun);
-
-            if (!string.IsNullOrEmpty(analyzer.CurrentOperation.ShouldProcessTarget))
-                WriteSimpleProperty("shouldProcessTargetProperty", analyzer.CurrentOperation.ShouldProcessTarget);
-
-            if (analyzer.CurrentOperation.IgnoreSupportsShouldProcess)
-                WriteSimpleProperty("suppressShouldProcessConfirmation", "true");
-
-            if (analyzer.CurrentOperation.AnonymousAuthentication != ServiceOperation.AnonymousAuthenticationMode.Never)
-                WriteSimpleProperty("useAnonymousAuthentication", analyzer.CurrentOperation.AnonymousAuthentication.ToString());
-
-            if (analyzer.CurrentOperation.AnonymousShouldProcessTarget)
-                WriteSimpleProperty("useAnonymousShouldProcessTarget", "true");
+            WriteShouldProcessSettings("shouldProcess", analyzer.CurrentOperation);
 
             // these are transient in the move to the new generator, so keep at end
             WriteAnalyzerResults(analyzer);
 
+            _jsonWriter.WriteEndObject();
+        }
+
+        private void WriteShouldProcessSettings(string propertyName, ServiceOperation operation)
+        {
+            _jsonWriter.WritePropertyName(propertyName);
+            _jsonWriter.WriteStartObject();
+            WriteSimpleProperty("anonymousTargetParameter", operation.AnonymousShouldProcessTarget);
+            WriteSimpleProperty("customMessageNoun", operation.ShouldProcessMsgNoun);
+            WriteSimpleProperty("suppressShouldProcessConfirmation", operation.IgnoreSupportsShouldProcess);
+            WriteSimpleProperty("targetParameter", operation.ShouldProcessTarget);
+            _jsonWriter.WriteEndObject();
+
+        }
+
+        private void WriteServiceOperationOutputSettings(string propertyName, ServiceOperation operation)
+        {
+            _jsonWriter.WritePropertyName(propertyName);
+            _jsonWriter.WriteStartObject();
+            WriteSimpleProperty("output", operation.Output.ToString());
+            if (operation.Output == ServiceOperation.OutputMode.DefaultSingleMember)
+                WriteSimpleProperty("outputMemberSelector", operation.Analyzer.AnalyzedResult.SingleResultProperty.Name);
+            else
+                WriteSimpleProperty("outputMemberSelector", "");
+            WriteSimpleProperty("outputMemberWrapper", operation.OutputWrapper);
+            WritePassThruObject(operation.PassThru);
+            _jsonWriter.WriteEndObject();
+        }
+
+        private void WriteServiceOperationPipelineOverrides(string propertyName, ServiceOperation operation)
+        {
+            _jsonWriter.WritePropertyName(propertyName);
+            _jsonWriter.WriteStartObject();
+
+            // empty list implies no pipeline parameter
+            WriteStringListProperty("byValueMembers", new[] { Model.PipelineParameter });
+
+            _jsonWriter.WriteEndObject();
+        }
+
+        private void WriteServiceOperationLegacySettings(string propertyName, ServiceOperation operation)
+        {
+            _jsonWriter.WritePropertyName(propertyName);
+            _jsonWriter.WriteStartObject();
+            WriteSimpleProperty("alias", operation.LegacyAlias);
+            WriteStringListProperty("positionalParameters", operation.PositionalParametersList);
+            WriteSimpleProperty("remapMemoryStreamParameters", operation.RemapMemoryStreamParameters.ToString().ToLower());
             _jsonWriter.WriteEndObject();
         }
 
@@ -184,42 +190,66 @@ namespace AWSPowerShellGenerator.Generators
         {
             // keeping this section in alpha order for easier lookup/comparison
 
-            WriteStringListProperty("additionalNamespaces", Model.AdditionalNamespaces);
             WriteCustomAliasesList();
-            WriteAutoIterateObject("defaultPaginationSettings", Model.AutoIterate);
-            WriteSimpleProperty("defaultPipelineProperty", Model.PipelineParameter);
-
-            WriteSimpleProperty("legacyCmdletPrefix", Model.ServiceNounPrefix);
-            if (!string.IsNullOrEmpty(Model.PositionalParameters))
-                WriteSimpleProperty("legacyPositionalProperties", Model.PositionalParameters);
 
             WriteInputObjectMappingRulesList();
 
-            WriteStringListProperty("nonFlatteningTypeNames", Model.TypesNotToFlatten);
+            WriteServiceGlobalLegacySettings("legacySettings");
+
+            WriteServiceGlobalSdkSettings("netsdk");
+
+            WriteStringListProperty("nonFlattenedTypeNames", Model.TypesNotToFlatten);
             
-            WriteMapListProperty("nounMappings", Model.NounMappingsList);
+            WriteMapListProperty("nounMaps", Model.NounMappingsList);
 
-            WriteStringListProperty("outputMetadataPropertyNames", Model.MetadataPropertyNames);
-            WriteStringListProperty("pipelineByValuePropertyNames", Model.PipelineByValuePropertyNamesList);
+            WriteStringListProperty("outputMetadataMembers", Model.MetadataPropertyNames);
 
+            WritePaginationSettings("paginationDefaults", Model.AutoIterate);
+
+            _jsonWriter.WritePropertyName("pipelineDefaults");
+            _jsonWriter.WriteStartObject();
+                WriteStringListProperty("byValueMembers", new[] { Model.PipelineParameter });
+                WriteStringListProperty("byNameMembers", Model.PipelineByNamePropertyNamesList);
+            _jsonWriter.WriteEndObject();
+
+            WriteSimpleProperty("regionFallback", Model.DefaultRegion);
+
+            WriteStringListProperty("supportsShouldProcessVerbs", Model.SupportsShouldProcessVerbsList);
+
+            WriteMapListProperty("verbMaps", Model.VerbMappingsList);
+        }
+
+        private void WriteServiceGlobalSdkSettings(string propertyName)
+        {
+            _jsonWriter.WritePropertyName(propertyName);
+            _jsonWriter.WriteStartObject();
+            WriteStringListProperty("additionalNamespaces", Model.AdditionalNamespaces);
+            WriteSimpleProperty("serviceClientClass", Model.ServiceClient);
+            WriteSimpleProperty("serviceConfigClass", Model.ServiceClientConfig);
+            WriteSimpleProperty("serviceNamespace", Model.ServiceNamespace);
+            _jsonWriter.WriteEndObject();
+        }
+
+        private void WriteServiceGlobalLegacySettings(string propertyName)
+        {
+            _jsonWriter.WritePropertyName(propertyName);
+            _jsonWriter.WriteStartObject();
+            WriteSimpleProperty("nounPrefix", Model.ServiceNounPrefix);
+            WriteStringListProperty("positionalProperties", Model.PositionalParametersList);
             WriteParamEmittersList();
-
-            if (!string.IsNullOrEmpty(Model.DefaultRegion))
-                WriteSimpleProperty("regionFallback", Model.DefaultRegion);
-
-            WriteSimpleProperty("sdkServiceClientClass", Model.ServiceClient);
-            WriteSimpleProperty("sdkServiceConfigClass", Model.ServiceClientConfig);
-            WriteSimpleProperty("sdkServiceNamespace", Model.ServiceNamespace);
-
-            WriteMapListProperty("verbMappings", Model.VerbMappingsList);
-
-            WriteStringListProperty("verbsRequiringShouldProcessConfirmation", Model.SupportsShouldProcessVerbsList);
+            _jsonWriter.WriteEndObject();
         }
 
         private void WriteSimpleProperty(string propertyName, string value)
         {
             _jsonWriter.WritePropertyName(propertyName);
-            _jsonWriter.WriteValue(value);
+            _jsonWriter.WriteValue(value ?? string.Empty);
+        }
+
+        private void WriteSimpleProperty(string propertyName, bool value)
+        {
+            _jsonWriter.WritePropertyName(propertyName);
+            _jsonWriter.WriteValue(value.ToString().ToLower());
         }
 
         private void WriteSimpleProperty(string propertyName, int value)
@@ -228,110 +258,107 @@ namespace AWSPowerShellGenerator.Generators
             _jsonWriter.WriteValue(value);
         }
 
-        private void WriteStringListProperty(string propertyName, IEnumerable<string> list, bool skipIfNullOrEmpty = true)
+        private void WriteStringListProperty(string propertyName, IEnumerable<string> list)
         {
-            if (skipIfNullOrEmpty && (list == null || !list.Any()))
-                return;
-
             _jsonWriter.WritePropertyName(propertyName);
             _jsonWriter.WriteStartArray();
-            if (list != null)
+            if (list != null && list.Any())
             {
                 foreach (var v in list)
                 {
-                    _jsonWriter.WriteValue(v);
+                    if (!string.IsNullOrEmpty(v))
+                        _jsonWriter.WriteValue(v);
                 }
             }
             _jsonWriter.WriteEndArray();
         }
 
-        private void WriteObjectListProperty<T>(string propertyName, List<T> list, Action<T> writeObjectProperties, bool skipIfNullOrEmpty = true)
+        private void WriteObjectListProperty<T>(string propertyName, List<T> list, Action<T> writeObjectProperties)
         {
-            if (skipIfNullOrEmpty && (list == null || !list.Any()))
-                return;
-
             _jsonWriter.WritePropertyName(propertyName);
             _jsonWriter.WriteStartArray();
-            foreach (var obj in list)
+            if (list != null && list.Any())
             {
-                _jsonWriter.WriteStartObject();
-                writeObjectProperties(obj);
-                _jsonWriter.WriteEndObject();
+                foreach (var obj in list)
+                {
+                    _jsonWriter.WriteStartObject();
+                    writeObjectProperties(obj);
+                    _jsonWriter.WriteEndObject();
+                }
             }
             _jsonWriter.WriteEndArray();
         }
 
-        private void WriteMapListProperty(string propertyName, List<Map> list, bool skipIfNullOrEmpty = true)
+        private void WriteMapListProperty(string propertyName, List<Map> list)
         {
-            if (skipIfNullOrEmpty && (list == null || !list.Any()))
-                return;
-
             _jsonWriter.WritePropertyName(propertyName);
             _jsonWriter.WriteStartObject();
-            foreach (var map in list)
+            if (list != null && list.Any())
             {
-                WriteSimpleProperty(map.From, map.To);
+                foreach (var map in list)
+                {
+                    WriteSimpleProperty(map.From, map.To);
+                }
             }
             _jsonWriter.WriteEndObject();
         }
 
-        private void WriteAutoIterateObject(string propertyName, AutoIteration autoIterate)
+        private void WritePaginationSettings(string propertyName, AutoIteration autoIterate)
         {
-            if (autoIterate == null)
-                autoIterate = new AutoIteration();
-
             _jsonWriter.WritePropertyName(propertyName);
             _jsonWriter.WriteStartObject();
 
-            if (!string.IsNullOrEmpty(autoIterate.Exclusions))
+            if (autoIterate != null)
+            {
                 WriteStringListProperty("excludedOperations", autoIterate.ExclusionSet);
-            
-            WriteSimpleProperty("requestTokenMember", autoIterate.Start);
-            WriteSimpleProperty("responseTokenMember", autoIterate.Next);
-            
-            if (!string.IsNullOrEmpty(autoIterate.EmitLimit))
+                WriteSimpleProperty("requestMember", autoIterate.Start);
+                WriteSimpleProperty("responseMember", autoIterate.Next);
                 WriteSimpleProperty("resultLimitMember", autoIterate.EmitLimit);
-            
-            if (autoIterate.ServicePageSize != -1)
-                WriteSimpleProperty("servicePageSize", autoIterate.ServicePageSize);
-            
-            if (!string.IsNullOrEmpty(autoIterate.TruncatedFlag))
+                if (autoIterate.ServicePageSize == -1)
+                    WriteSimpleProperty("autoSetMaxResultSize", false);
+                else
+                {
+                    WriteSimpleProperty("autoSetMaxResultSize", true);
+                    WriteSimpleProperty("maxResultSize", autoIterate.ServicePageSize);
+                }
+
                 WriteSimpleProperty("resultsTruncatedMember", autoIterate.TruncatedFlag);
-            
+            }
+
             _jsonWriter.WriteEndObject();
         }
 
         private void WritePassThruObject(PassThruOverride passThru)
         {
-            if (passThru == null)
-                return;
-
             _jsonWriter.WritePropertyName("passThru");
             _jsonWriter.WriteStartObject();
-            WriteSimpleProperty("documentation", passThru.Documentation);
-            WriteSimpleProperty("expression", passThru.Expression);
-            WriteSimpleProperty("type", passThru.Type);
+            if (passThru != null)
+            {
+                WriteSimpleProperty("documentation", passThru.Documentation);
+                WriteSimpleProperty("memberSelector", passThru.Expression);
+                // type of the passthru is inferable, so we don't output that
+            }
             _jsonWriter.WriteEndObject();
         }
 
         private void WriteAnalyzerResults(OperationAnalyzer analyzer)
         {
-            _jsonWriter.WritePropertyName("AnalyzerResults");
+            _jsonWriter.WritePropertyName("tempAnalyzerResults");
             _jsonWriter.WriteStartObject();
-            WriteSimpleProperty("ConfirmationMessageNoun", analyzer.ConfirmationMessageNoun);
-            WriteSimpleProperty("ConfirmImpactSetting", analyzer.ConfirmImpactSetting.ToString());
-            WriteSimpleProperty("GenerateIterationCode", analyzer.GenerateIterationCode.ToString().ToLower());
-            WriteSimpleProperty("IterationPattern", analyzer.IterationPattern.ToString());
-            WriteSimpleProperty("PassThruSource", analyzer.PassThruSource);
-            if (analyzer.RequiresPassThruGeneration)
-                WriteSimpleProperty("PassThruTypeName", analyzer.PassThruTypeName);
-            else
-                WriteSimpleProperty("PassThruTypeName", "");
-            WriteSimpleProperty("RequiresPassThruGeneration", analyzer.RequiresPassThruGeneration.ToString().ToLower());
-            WriteAutoIterateObject("AutoIterateSettings", analyzer.AutoIterateSettings);
+                WriteSimpleProperty("confirmationMessageNoun", analyzer.ConfirmationMessageNoun);
+                WriteSimpleProperty("confirmImpactSetting", analyzer.ConfirmImpactSetting.ToString());
+                WriteSimpleProperty("generateIterationCode", analyzer.GenerateIterationCode.ToString().ToLower());
+                WriteSimpleProperty("iterationPattern", analyzer.IterationPattern.ToString());
+                WriteSimpleProperty("passThruSource", analyzer.PassThruSource);
+                if (analyzer.RequiresPassThruGeneration)
+                    WriteSimpleProperty("passThruTypeName", analyzer.PassThruTypeName);
+                else
+                    WriteSimpleProperty("passThruTypeName", "");
+                WriteSimpleProperty("requiresPassThruGeneration", analyzer.RequiresPassThruGeneration.ToString().ToLower());
+                WritePaginationSettings("autoIterateSettings", analyzer.AutoIterateSettings);
 
-            WriteSupportsShouldProcessInspectionResult(analyzer.SupportsShouldProcessInspectionResult);
-            WriteStringListProperty("MemoryStreamParameters", analyzer.MemoryStreamParameters);
+                WriteSupportsShouldProcessInspectionResult(analyzer.SupportsShouldProcessInspectionResult);
+                WriteStringListProperty("memoryStreamParameters", analyzer.MemoryStreamParameters);
             _jsonWriter.WriteEndObject();
         }
 
@@ -342,12 +369,12 @@ namespace AWSPowerShellGenerator.Generators
 
             _jsonWriter.WritePropertyName("supportsShouldProcessInspectionResult");
             _jsonWriter.WriteStartObject();
-            WriteSimpleProperty("analysisMessage", supportsShouldProcessInspectionResult.AnalysisMessage);
-            WriteSimpleProperty("status", supportsShouldProcessInspectionResult.Status.ToString());
-            if (supportsShouldProcessInspectionResult.TargetParameter == null)
-                WriteSimpleProperty("targetParameterName", "");
-            else
-                WriteSimpleProperty("targetParameterName", supportsShouldProcessInspectionResult.TargetParameter.Name);
+                WriteSimpleProperty("analysisMessage", supportsShouldProcessInspectionResult.AnalysisMessage);
+                WriteSimpleProperty("status", supportsShouldProcessInspectionResult.Status.ToString());
+                WriteSimpleProperty("targetParameterName",
+                    supportsShouldProcessInspectionResult.TargetParameter == null
+                        ? ""
+                        : supportsShouldProcessInspectionResult.TargetParameter.Name);
             _jsonWriter.WriteEndObject();
         }
 
@@ -381,7 +408,7 @@ namespace AWSPowerShellGenerator.Generators
 
         private void WriteParamEmittersList()
         {
-            WriteObjectListProperty("legacyParamEmitters", Model.ParamEmittersList,
+            WriteObjectListProperty("paramEmitters", Model.ParamEmittersList,
                 (paramEmitter) =>
                 {
                     WriteSimpleProperty("emitterType", paramEmitter.EmitterType);

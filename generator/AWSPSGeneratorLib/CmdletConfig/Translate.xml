@@ -17,9 +17,9 @@
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
-    <PipelineByValueProperties />
+    <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="TranslateText" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="ConvertTo" Noun="TargetLanguage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TargetLanguageCode" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Text" NoPipelineParameter="false" MetadataProperties="SourceLanguageCode;TargetLanguageCode" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TranslateText" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="ConvertTo" Noun="TargetLanguage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TargetLanguageCode" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Text" NoPipelineParameter="false" MetadataProperties="SourceLanguageCode;TargetLanguageCode" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
     </ServiceOperations>
