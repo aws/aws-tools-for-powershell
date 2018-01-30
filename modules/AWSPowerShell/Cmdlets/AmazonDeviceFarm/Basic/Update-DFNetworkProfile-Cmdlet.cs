@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the project that you wish to update network profile
-        /// settings.</para>
+        /// <para>The Amazon Resource Name (ARN) of the project for which you want to update network
+        /// profile settings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

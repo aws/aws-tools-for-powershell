@@ -55,7 +55,7 @@
       <HintPath>..\..\thirdparty\log4net.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AlexaForBusiness">
-      <HintPath>..\..\packages\AWSSDK.AlexaForBusiness.3.3.0\lib\net35\AWSSDK.AlexaForBusiness.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.AlexaForBusiness.3.3.1\lib\net35\AWSSDK.AlexaForBusiness.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppStream">
       <HintPath>..\..\packages\AWSSDK.AppStream.3.3.8\lib\net35\AWSSDK.AppStream.dll</HintPath>
@@ -103,7 +103,7 @@
       <HintPath>..\..\packages\AWSSDK.Greengrass.3.3.2\lib\net35\AWSSDK.Greengrass.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GuardDuty">
-      <HintPath>..\..\packages\AWSSDK.GuardDuty.3.3.0\lib\net35\AWSSDK.GuardDuty.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.GuardDuty.3.3.1\lib\net35\AWSSDK.GuardDuty.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTJobsDataPlane">
       <HintPath>..\..\packages\AWSSDK.IoTJobsDataPlane.3.3.0\lib\net35\AWSSDK.IoTJobsDataPlane.dll</HintPath>
@@ -127,7 +127,7 @@
       <HintPath>..\..\packages\AWSSDK.MediaConvert.3.3.0\lib\net35\AWSSDK.MediaConvert.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaLive">
-      <HintPath>..\..\packages\AWSSDK.MediaLive.3.3.0\lib\net35\AWSSDK.MediaLive.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.MediaLive.3.3.1\lib\net35\AWSSDK.MediaLive.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaPackage">
       <HintPath>..\..\packages\AWSSDK.MediaPackage.3.3.0\lib\net35\AWSSDK.MediaPackage.dll</HintPath>
@@ -145,13 +145,13 @@
       <HintPath>..\..\packages\AWSSDK.MQ.3.3.0\lib\net35\AWSSDK.MQ.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MTurk">
-      <HintPath>..\..\packages\AWSSDK.MTurk.3.3.1.3\lib\net35\AWSSDK.MTurk.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.MTurk.3.3.1.4\lib\net35\AWSSDK.MTurk.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OpsWorksCM">
       <HintPath>..\..\packages\AWSSDK.OpsWorksCM.3.3.4.3\lib\net35\AWSSDK.OpsWorksCM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeBuild">
-      <HintPath>..\..\packages\AWSSDK.CodeBuild.3.3.7\lib\net35\AWSSDK.CodeBuild.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CodeBuild.3.3.8\lib\net35\AWSSDK.CodeBuild.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lightsail">
       <HintPath>..\..\packages\AWSSDK.Lightsail.3.3.5\lib\net35\AWSSDK.Lightsail.dll</HintPath>
@@ -268,7 +268,7 @@
       <HintPath>..\..\packages\AWSSDK.MachineLearning.3.3.0.23\lib\net35\AWSSDK.MachineLearning.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lambda">
-      <HintPath>..\..\packages\AWSSDK.Lambda.3.3.11\lib\net35\AWSSDK.Lambda.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Lambda.3.3.12\lib\net35\AWSSDK.Lambda.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KinesisFirehose">
       <HintPath>..\..\packages\AWSSDK.KinesisFirehose.3.3.3\lib\net35\AWSSDK.KinesisFirehose.dll</HintPath>
@@ -340,7 +340,7 @@
       <HintPath>..\..\packages\AWSSDK.DirectConnect.3.3.5.1\lib\net35\AWSSDK.DirectConnect.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DeviceFarm">
-      <HintPath>..\..\packages\AWSSDK.DeviceFarm.3.3.3.3\lib\net35\AWSSDK.DeviceFarm.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.DeviceFarm.3.3.4\lib\net35\AWSSDK.DeviceFarm.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DataPipeline">
       <HintPath>..\..\packages\AWSSDK.DataPipeline.3.3.0.23\lib\net35\AWSSDK.DataPipeline.dll</HintPath>
@@ -349,7 +349,7 @@
       <HintPath>..\..\packages\AWSSDK.DatabaseMigrationService.3.3.5\lib\net35\AWSSDK.DatabaseMigrationService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Core">
-      <HintPath>..\..\packages\AWSSDK.Core.3.3.21.8\lib\net35\AWSSDK.Core.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Core.3.3.21.9\lib\net35\AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConfigService">
       <HintPath>..\..\packages\AWSSDK.ConfigService.3.3.12\lib\net35\AWSSDK.ConfigService.dll</HintPath>

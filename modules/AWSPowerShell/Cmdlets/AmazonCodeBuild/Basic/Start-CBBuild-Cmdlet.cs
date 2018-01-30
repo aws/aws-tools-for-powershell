@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public Amazon.CodeBuild.Model.EnvironmentVariable[] EnvironmentVariablesOverride { get; set; }
         #endregion
         
+        #region Parameter GitCloneDepthOverride
+        /// <summary>
+        /// <para>
+        /// <para>The user-defined depth of history, with a minimum value of 0, that overrides, for
+        /// this build only, any previous depth of history defined in the build project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 GitCloneDepthOverride { get; set; }
+        #endregion
+        
         #region Parameter ArtifactsOverride_Location
         /// <summary>
         /// <para>
@@ -236,6 +247,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 context.EnvironmentVariablesOverride = new List<Amazon.CodeBuild.Model.EnvironmentVariable>(this.EnvironmentVariablesOverride);
             }
+            if (ParameterWasBound("GitCloneDepthOverride"))
+                context.GitCloneDepthOverride = this.GitCloneDepthOverride;
             context.ProjectName = this.ProjectName;
             context.SourceVersion = this.SourceVersion;
             if (ParameterWasBound("TimeoutInMinutesOverride"))
@@ -333,6 +346,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 request.EnvironmentVariablesOverride = cmdletContext.EnvironmentVariablesOverride;
             }
+            if (cmdletContext.GitCloneDepthOverride != null)
+            {
+                request.GitCloneDepthOverride = cmdletContext.GitCloneDepthOverride.Value;
+            }
             if (cmdletContext.ProjectName != null)
             {
                 request.ProjectName = cmdletContext.ProjectName;
@@ -417,6 +434,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public Amazon.CodeBuild.ArtifactsType ArtifactsOverride_Type { get; set; }
             public System.String BuildspecOverride { get; set; }
             public List<Amazon.CodeBuild.Model.EnvironmentVariable> EnvironmentVariablesOverride { get; set; }
+            public System.Int32? GitCloneDepthOverride { get; set; }
             public System.String ProjectName { get; set; }
             public System.String SourceVersion { get; set; }
             public System.Int32? TimeoutInMinutesOverride { get; set; }

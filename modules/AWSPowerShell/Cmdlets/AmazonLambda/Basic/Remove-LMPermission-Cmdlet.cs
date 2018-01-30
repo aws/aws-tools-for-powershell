@@ -80,6 +80,20 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String Qualifier { get; set; }
         #endregion
         
+        #region Parameter RevisionId
+        /// <summary>
+        /// <para>
+        /// <para>An optional value you can use to ensure you are updating the latest update of the
+        /// function version or alias. If the <code>RevisionID</code> you pass doesn't match the
+        /// latest <code>RevisionId</code> of the function or alias, it will fail with an error
+        /// message, advising you to retrieve the latest function version or alias <code>RevisionID</code>
+        /// using either or .</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RevisionId { get; set; }
+        #endregion
+        
         #region Parameter StatementId
         /// <summary>
         /// <para>
@@ -130,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             
             context.FunctionName = this.FunctionName;
             context.Qualifier = this.Qualifier;
+            context.RevisionId = this.RevisionId;
             context.StatementId = this.StatementId;
             
             // allow further manipulation of loaded context prior to processing
@@ -154,6 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.Qualifier != null)
             {
                 request.Qualifier = cmdletContext.Qualifier;
+            }
+            if (cmdletContext.RevisionId != null)
+            {
+                request.RevisionId = cmdletContext.RevisionId;
             }
             if (cmdletContext.StatementId != null)
             {
@@ -227,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             public System.String FunctionName { get; set; }
             public System.String Qualifier { get; set; }
+            public System.String RevisionId { get; set; }
             public System.String StatementId { get; set; }
         }
         

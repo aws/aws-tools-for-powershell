@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
     public partial class NewEMLChannelCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
+        #region Parameter InputSpecification_Codec
+        /// <summary>
+        /// <para>
+        /// Input codec
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.MediaLive.InputCodec")]
+        public Amazon.MediaLive.InputCodec InputSpecification_Codec { get; set; }
+        #endregion
+        
         #region Parameter Destination
         /// <summary>
         /// <para>
@@ -73,6 +84,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.Model.InputAttachment[] InputAttachment { get; set; }
         #endregion
         
+        #region Parameter InputSpecification_MaximumBitrate
+        /// <summary>
+        /// <para>
+        /// Maximum input bitrate, categorized coarsely
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.MediaLive.InputMaximumBitrate")]
+        public Amazon.MediaLive.InputMaximumBitrate InputSpecification_MaximumBitrate { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -102,6 +124,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Reserved { get; set; }
+        #endregion
+        
+        #region Parameter InputSpecification_Resolution
+        /// <summary>
+        /// <para>
+        /// Input resolution, categorized coarsely
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.MediaLive.InputResolution")]
+        public Amazon.MediaLive.InputResolution InputSpecification_Resolution { get; set; }
         #endregion
         
         #region Parameter RoleArn
@@ -153,6 +186,9 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 context.InputAttachments = new List<Amazon.MediaLive.Model.InputAttachment>(this.InputAttachment);
             }
+            context.InputSpecification_Codec = this.InputSpecification_Codec;
+            context.InputSpecification_MaximumBitrate = this.InputSpecification_MaximumBitrate;
+            context.InputSpecification_Resolution = this.InputSpecification_Resolution;
             context.Name = this.Name;
             context.RequestId = this.RequestId;
             context.Reserved = this.Reserved;
@@ -184,6 +220,45 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.InputAttachments != null)
             {
                 request.InputAttachments = cmdletContext.InputAttachments;
+            }
+            
+             // populate InputSpecification
+            bool requestInputSpecificationIsNull = true;
+            request.InputSpecification = new Amazon.MediaLive.Model.InputSpecification();
+            Amazon.MediaLive.InputCodec requestInputSpecification_inputSpecification_Codec = null;
+            if (cmdletContext.InputSpecification_Codec != null)
+            {
+                requestInputSpecification_inputSpecification_Codec = cmdletContext.InputSpecification_Codec;
+            }
+            if (requestInputSpecification_inputSpecification_Codec != null)
+            {
+                request.InputSpecification.Codec = requestInputSpecification_inputSpecification_Codec;
+                requestInputSpecificationIsNull = false;
+            }
+            Amazon.MediaLive.InputMaximumBitrate requestInputSpecification_inputSpecification_MaximumBitrate = null;
+            if (cmdletContext.InputSpecification_MaximumBitrate != null)
+            {
+                requestInputSpecification_inputSpecification_MaximumBitrate = cmdletContext.InputSpecification_MaximumBitrate;
+            }
+            if (requestInputSpecification_inputSpecification_MaximumBitrate != null)
+            {
+                request.InputSpecification.MaximumBitrate = requestInputSpecification_inputSpecification_MaximumBitrate;
+                requestInputSpecificationIsNull = false;
+            }
+            Amazon.MediaLive.InputResolution requestInputSpecification_inputSpecification_Resolution = null;
+            if (cmdletContext.InputSpecification_Resolution != null)
+            {
+                requestInputSpecification_inputSpecification_Resolution = cmdletContext.InputSpecification_Resolution;
+            }
+            if (requestInputSpecification_inputSpecification_Resolution != null)
+            {
+                request.InputSpecification.Resolution = requestInputSpecification_inputSpecification_Resolution;
+                requestInputSpecificationIsNull = false;
+            }
+             // determine if request.InputSpecification should be set to null
+            if (requestInputSpecificationIsNull)
+            {
+                request.InputSpecification = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -268,6 +343,9 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public List<Amazon.MediaLive.Model.OutputDestination> Destinations { get; set; }
             public Amazon.MediaLive.Model.EncoderSettings EncoderSettings { get; set; }
             public List<Amazon.MediaLive.Model.InputAttachment> InputAttachments { get; set; }
+            public Amazon.MediaLive.InputCodec InputSpecification_Codec { get; set; }
+            public Amazon.MediaLive.InputMaximumBitrate InputSpecification_MaximumBitrate { get; set; }
+            public Amazon.MediaLive.InputResolution InputSpecification_Resolution { get; set; }
             public System.String Name { get; set; }
             public System.String RequestId { get; set; }
             public System.String Reserved { get; set; }

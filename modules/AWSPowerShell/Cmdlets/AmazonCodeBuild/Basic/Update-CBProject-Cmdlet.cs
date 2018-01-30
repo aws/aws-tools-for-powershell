@@ -61,6 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String Source_Buildspec { get; set; }
         #endregion
         
+        #region Parameter Environment_Certificate
+        /// <summary>
+        /// <para>
+        /// <para>The certificate to use with this build project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Environment_Certificate { get; set; }
+        #endregion
+        
         #region Parameter Environment_ComputeType
         /// <summary>
         /// <para>
@@ -106,6 +116,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public Amazon.CodeBuild.Model.EnvironmentVariable[] Environment_EnvironmentVariable { get; set; }
         #endregion
         
+        #region Parameter Source_GitCloneDepth
+        /// <summary>
+        /// <para>
+        /// <para>Information about the git clone depth for the build project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 Source_GitCloneDepth { get; set; }
+        #endregion
+        
         #region Parameter Environment_Image
         /// <summary>
         /// <para>
@@ -114,6 +134,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Environment_Image { get; set; }
+        #endregion
+        
+        #region Parameter Source_InsecureSsl
+        /// <summary>
+        /// <para>
+        /// <para>Enable this flag to ignore SSL warnings while connecting to the project source code.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Source_InsecureSsl { get; set; }
         #endregion
         
         #region Parameter Artifacts_Location
@@ -451,6 +481,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.Cache_Type = this.Cache_Type;
             context.Description = this.Description;
             context.EncryptionKey = this.EncryptionKey;
+            context.Environment_Certificate = this.Environment_Certificate;
             context.Environment_ComputeType = this.Environment_ComputeType;
             if (this.Environment_EnvironmentVariable != null)
             {
@@ -465,6 +496,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.Source_Auth_Resource = this.Auth_Resource;
             context.Source_Auth_Type = this.Auth_Type;
             context.Source_Buildspec = this.Source_Buildspec;
+            if (ParameterWasBound("Source_GitCloneDepth"))
+                context.Source_GitCloneDepth = this.Source_GitCloneDepth;
+            if (ParameterWasBound("Source_InsecureSsl"))
+                context.Source_InsecureSsl = this.Source_InsecureSsl;
             context.Source_Location = this.Source_Location;
             context.Source_Type = this.Source_Type;
             if (this.Tag != null)
@@ -612,6 +647,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
              // populate Environment
             bool requestEnvironmentIsNull = true;
             request.Environment = new Amazon.CodeBuild.Model.ProjectEnvironment();
+            System.String requestEnvironment_environment_Certificate = null;
+            if (cmdletContext.Environment_Certificate != null)
+            {
+                requestEnvironment_environment_Certificate = cmdletContext.Environment_Certificate;
+            }
+            if (requestEnvironment_environment_Certificate != null)
+            {
+                request.Environment.Certificate = requestEnvironment_environment_Certificate;
+                requestEnvironmentIsNull = false;
+            }
             Amazon.CodeBuild.ComputeType requestEnvironment_environment_ComputeType = null;
             if (cmdletContext.Environment_ComputeType != null)
             {
@@ -687,6 +732,26 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestSource_source_Buildspec != null)
             {
                 request.Source.Buildspec = requestSource_source_Buildspec;
+                requestSourceIsNull = false;
+            }
+            System.Int32? requestSource_source_GitCloneDepth = null;
+            if (cmdletContext.Source_GitCloneDepth != null)
+            {
+                requestSource_source_GitCloneDepth = cmdletContext.Source_GitCloneDepth.Value;
+            }
+            if (requestSource_source_GitCloneDepth != null)
+            {
+                request.Source.GitCloneDepth = requestSource_source_GitCloneDepth.Value;
+                requestSourceIsNull = false;
+            }
+            System.Boolean? requestSource_source_InsecureSsl = null;
+            if (cmdletContext.Source_InsecureSsl != null)
+            {
+                requestSource_source_InsecureSsl = cmdletContext.Source_InsecureSsl.Value;
+            }
+            if (requestSource_source_InsecureSsl != null)
+            {
+                request.Source.InsecureSsl = requestSource_source_InsecureSsl.Value;
                 requestSourceIsNull = false;
             }
             System.String requestSource_source_Location = null;
@@ -871,6 +936,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public Amazon.CodeBuild.CacheType Cache_Type { get; set; }
             public System.String Description { get; set; }
             public System.String EncryptionKey { get; set; }
+            public System.String Environment_Certificate { get; set; }
             public Amazon.CodeBuild.ComputeType Environment_ComputeType { get; set; }
             public List<Amazon.CodeBuild.Model.EnvironmentVariable> Environment_EnvironmentVariables { get; set; }
             public System.String Environment_Image { get; set; }
@@ -881,6 +947,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String Source_Auth_Resource { get; set; }
             public Amazon.CodeBuild.SourceAuthType Source_Auth_Type { get; set; }
             public System.String Source_Buildspec { get; set; }
+            public System.Int32? Source_GitCloneDepth { get; set; }
+            public System.Boolean? Source_InsecureSsl { get; set; }
             public System.String Source_Location { get; set; }
             public Amazon.CodeBuild.SourceType Source_Type { get; set; }
             public List<Amazon.CodeBuild.Model.Tag> Tags { get; set; }

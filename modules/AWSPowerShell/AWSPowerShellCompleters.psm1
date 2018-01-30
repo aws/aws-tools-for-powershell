@@ -1505,7 +1505,7 @@ $CB_Completers = {
             ($_ -eq "Update-CBProject/Source_Type")
         }
         {
-            $v = "BITBUCKET","CODECOMMIT","CODEPIPELINE","GITHUB","S3"
+            $v = "BITBUCKET","CODECOMMIT","CODEPIPELINE","GITHUB","GITHUB_ENTERPRISE","S3"
             break
         }
         
@@ -2390,6 +2390,13 @@ $DF_Completers = {
             break
         }
         
+        # Amazon.DeviceFarm.InteractionMode
+        "New-DFRemoteAccessSession/InteractionMode"
+        {
+            $v = "INTERACTIVE","NO_VIDEO","VIDEO_ONLY"
+            break
+        }
+        
         # Amazon.DeviceFarm.NetworkProfileType
         {
             ($_ -eq "Get-DFNetworkProfileList/Type") -Or
@@ -2408,7 +2415,7 @@ $DF_Completers = {
             ($_ -eq "Get-DFDevicePoolCompatibility/TestType")
         }
         {
-            $v = "APPIUM_JAVA_JUNIT","APPIUM_JAVA_TESTNG","APPIUM_PYTHON","APPIUM_WEB_JAVA_JUNIT","APPIUM_WEB_JAVA_TESTNG","APPIUM_WEB_PYTHON","BUILTIN_EXPLORER","BUILTIN_FUZZ","CALABASH","INSTRUMENTATION","UIAUTOMATION","UIAUTOMATOR","XCTEST","XCTEST_UI"
+            $v = "APPIUM_JAVA_JUNIT","APPIUM_JAVA_TESTNG","APPIUM_PYTHON","APPIUM_WEB_JAVA_JUNIT","APPIUM_WEB_JAVA_TESTNG","APPIUM_WEB_PYTHON","BUILTIN_EXPLORER","BUILTIN_FUZZ","CALABASH","INSTRUMENTATION","REMOTE_ACCESS_RECORD","REMOTE_ACCESS_REPLAY","UIAUTOMATION","UIAUTOMATOR","WEB_PERFORMANCE_PROFILE","XCTEST","XCTEST_UI"
             break
         }
         
@@ -2428,6 +2435,7 @@ $DF_Completers = {
 
 $DF_map = @{
     "Configuration_BillingMethod"=@("New-DFRemoteAccessSession","Submit-DFTestRun")
+    "InteractionMode"=@("New-DFRemoteAccessSession")
     "Test_Type"=@("Get-DFDevicePoolCompatibility","Submit-DFTestRun")
     "TestType"=@("Get-DFDevicePoolCompatibility")
     "Type"=@("Get-DFArtifactList","Get-DFDevicePoolList","Get-DFNetworkProfileList","New-DFNetworkProfile","New-DFUpload","Update-DFNetworkProfile")
@@ -4627,6 +4635,27 @@ $EML_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MediaLive.InputCodec
+        "New-EMLChannel/InputSpecification_Codec"
+        {
+            $v = "AVC","HEVC","MPEG2"
+            break
+        }
+        
+        # Amazon.MediaLive.InputMaximumBitrate
+        "New-EMLChannel/InputSpecification_MaximumBitrate"
+        {
+            $v = "MAX_10_MBPS","MAX_20_MBPS","MAX_50_MBPS"
+            break
+        }
+        
+        # Amazon.MediaLive.InputResolution
+        "New-EMLChannel/InputSpecification_Resolution"
+        {
+            $v = "HD","SD","UHD"
+            break
+        }
+        
         # Amazon.MediaLive.InputType
         "New-EMLInput/Type"
         {
@@ -4642,6 +4671,9 @@ $EML_Completers = {
 }
 
 $EML_map = @{
+    "InputSpecification_Codec"=@("New-EMLChannel")
+    "InputSpecification_MaximumBitrate"=@("New-EMLChannel")
+    "InputSpecification_Resolution"=@("New-EMLChannel")
     "Type"=@("New-EMLInput")
 }
 

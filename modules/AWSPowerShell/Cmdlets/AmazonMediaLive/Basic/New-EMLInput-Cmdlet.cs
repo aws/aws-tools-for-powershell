@@ -43,9 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
         #region Parameter Destination
         /// <summary>
         /// <para>
-        /// settings required for PUSH-type inputs; one
-        /// per redundancy group.Only one of sources and destinations can be specified.Note: there
-        /// are currently no settings required for PUSH-type inputs
+        /// Destination settings for PUSH type inputs.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -79,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
         /// <summary>
         /// <para>
         /// Unique identifier of the request to ensure the
-        /// request is handledexactly once in case of retries
+        /// request is handledexactly once in case of retries.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -89,8 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.EML
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// settings required for PULL-type inputs; one per
-        /// redundancy groupOnly one of sources and destinations can be specified
+        /// The source URLs for a PULL-type input. Every PULL
+        /// type input needsexactly two source URLs for redundancy.Only specify sources for PULL
+        /// type Inputs. Leave Destinations empty.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

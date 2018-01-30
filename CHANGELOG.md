@@ -1,3 +1,16 @@
+###
+  * AWS Lambda
+    * [Breaking Change] The response data from the service's GetPolicy API has been extended to emit both the policy and revision ID of the policy. The output from the corresponding Get-LMPolicy cmdlet has therefore been changed to emit the service response to the pipeline. To keep the original behavior your scripts need to be changed to use _(Get-LMPolicy).Policy_ in place of _Get-LMPolicy_.
+    * Updated the Add-LMPermission, Publish-LMVersion, Remove-LMPermission, Update-LMAlias and Update-LMFunctionConfiguration cmdlets to support setting Revision ID on your function versions and aliases, to track and apply conditional updates when you are updating your function version or alias resources.
+  * AWS Key Management Service.
+    * [Breaking Change] The cmdlet for the service's ListKeyPolicies API had been named in error as Get-KMSKysPolicyList due to a typo. This has now been corrected and the cmdlet name updated to Get-KMSKeyPolicyList.
+  * AWS CodeBuild
+    * Added new parameters to the Start-CBBuild and Update-CBProject cmdlets to support shallow clone and GitHub Enterprise.
+  * AWS Device Farm
+    * Updated the New-DFRemoteAccessSession cmdlet to support the service's new InteractionMode setting for the DirectDeviceAccess feature.
+  * AWS Elemental MediaLive
+    * Updated the New-EMLChannel cmdlet to support the new InputSpecification settings (specification of input attributes is used for channel sizing and affects pricing).
+
 ### 3.3.225.1 (2018-01-24)
   * Amazon Guard Duty
     * Fixed issue with error 'The request is rejected because an invalid or out-of-range value is specified as an input parameter' being emitted when running cmdlets that map to service apis that support pagination (eg Get-GDDetectorList).

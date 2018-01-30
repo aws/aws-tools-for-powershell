@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     /// if you are using AWS CodePipeline, we recommend that you disable webhooks in CodeBuild.
     /// In the AWS CodeBuild console, clear the Webhook box. For more information, see step
     /// 9 in <a href="http://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console">Change
-    /// a Build Project’s Settings</a>.
+    /// a Build Project's Settings</a>.
     /// </para></important>
     /// </summary>
     [Cmdlet("New", "CBWebhook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -126,6 +126,20 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String Qualifier { get; set; }
         #endregion
         
+        #region Parameter RevisionId
+        /// <summary>
+        /// <para>
+        /// <para>An optional value you can use to ensure you are updating the latest update of the
+        /// function version or alias. If the <code>RevisionID</code> you pass doesn't match the
+        /// latest <code>RevisionId</code> of the function or alias, it will fail with an error
+        /// message, advising you to retrieve the latest function version or alias <code>RevisionID</code>
+        /// using either or .</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RevisionId { get; set; }
+        #endregion
+        
         #region Parameter SourceAccount
         /// <summary>
         /// <para>
@@ -199,6 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.FunctionName = this.FunctionName;
             context.Principal = this.Principal;
             context.Qualifier = this.Qualifier;
+            context.RevisionId = this.RevisionId;
             context.SourceAccount = this.SourceAccount;
             context.SourceArn = this.SourceArn;
             context.StatementId = this.StatementId;
@@ -237,6 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.Qualifier != null)
             {
                 request.Qualifier = cmdletContext.Qualifier;
+            }
+            if (cmdletContext.RevisionId != null)
+            {
+                request.RevisionId = cmdletContext.RevisionId;
             }
             if (cmdletContext.SourceAccount != null)
             {
@@ -319,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String FunctionName { get; set; }
             public System.String Principal { get; set; }
             public System.String Qualifier { get; set; }
+            public System.String RevisionId { get; set; }
             public System.String SourceAccount { get; set; }
             public System.String SourceArn { get; set; }
             public System.String StatementId { get; set; }

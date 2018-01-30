@@ -41,11 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// You need permission for the <code>lambda:GetPolicy action.</code></para>
     /// </summary>
     [Cmdlet("Get", "LMPolicy")]
-    [OutputType("System.String")]
+    [OutputType("Amazon.Lambda.Model.GetPolicyResponse")]
     [AWSCmdlet("Calls the AWS Lambda GetPolicy API operation.", Operation = new[] {"GetPolicy"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.Lambda.Model.GetPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.Lambda.Model.GetPolicyResponse",
+        "This cmdlet returns a Amazon.Lambda.Model.GetPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetLMPolicyCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -128,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Policy;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

@@ -28,7 +28,7 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Gets information about tests.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Gets information about tests in a given test suite.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "DFTestList")]
     [OutputType("Amazon.DeviceFarm.Model.Test")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The tests' ARNs.</para>
+        /// <para>The test suite's Amazon Resource Name (ARN).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

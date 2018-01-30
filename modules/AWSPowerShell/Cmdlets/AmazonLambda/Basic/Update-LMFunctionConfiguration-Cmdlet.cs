@@ -129,6 +129,20 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public Amazon.Lambda.TracingMode TracingConfig_Mode { get; set; }
         #endregion
         
+        #region Parameter RevisionId
+        /// <summary>
+        /// <para>
+        /// <para>An optional value you can use to ensure you are updating the latest update of the
+        /// function version or alias. If the <code>RevisionID</code> you pass doesn't match the
+        /// latest <code>RevisionId</code> of the function or alias, it will fail with an error
+        /// message, advising you to retrieve the latest function version or alias <code>RevisionID</code>
+        /// using either or .</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RevisionId { get; set; }
+        #endregion
+        
         #region Parameter Role
         /// <summary>
         /// <para>
@@ -258,6 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.KMSKeyArn = this.KMSKeyArn;
             if (ParameterWasBound("MemorySize"))
                 context.MemorySize = this.MemorySize;
+            context.RevisionId = this.RevisionId;
             context.Role = this.Role;
             context.Runtime = this.Runtime;
             if (ParameterWasBound("Timeout"))
@@ -344,6 +359,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.MemorySize != null)
             {
                 request.MemorySize = cmdletContext.MemorySize.Value;
+            }
+            if (cmdletContext.RevisionId != null)
+            {
+                request.RevisionId = cmdletContext.RevisionId;
             }
             if (cmdletContext.Role != null)
             {
@@ -476,6 +495,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String Handler { get; set; }
             public System.String KMSKeyArn { get; set; }
             public System.Int32? MemorySize { get; set; }
+            public System.String RevisionId { get; set; }
             public System.String Role { get; set; }
             public Amazon.Lambda.Runtime Runtime { get; set; }
             public System.Int32? Timeout { get; set; }

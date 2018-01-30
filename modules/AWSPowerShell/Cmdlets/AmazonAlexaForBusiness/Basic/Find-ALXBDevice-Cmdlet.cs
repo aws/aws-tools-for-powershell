@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         /// <summary>
         /// <para>
         /// <para>The filters to use to list a specified set of devices. Supported filter keys are DeviceName,
-        /// DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, and UnassociatedOnly.</para>
+        /// DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType, DeviceSerialNumber, and
+        /// UnassociatedOnly.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

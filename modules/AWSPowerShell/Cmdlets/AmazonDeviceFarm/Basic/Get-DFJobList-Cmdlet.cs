@@ -28,7 +28,7 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Gets information about jobs.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Gets information about jobs for a given test run.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "DFJobList")]
     [OutputType("Amazon.DeviceFarm.Model.Job")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The jobs' ARNs.</para>
+        /// <para>The run's Amazon Resource Name (ARN).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

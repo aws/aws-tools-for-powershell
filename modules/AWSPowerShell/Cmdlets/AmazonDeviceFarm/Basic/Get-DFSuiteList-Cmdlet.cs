@@ -28,7 +28,7 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Gets information about suites.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Gets information about test suites for a given job.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "DFSuiteList")]
     [OutputType("Amazon.DeviceFarm.Model.Suite")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The suites' ARNs.</para>
+        /// <para>The job's Amazon Resource Name (ARN).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

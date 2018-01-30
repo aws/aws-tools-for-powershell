@@ -102,6 +102,20 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter RevisionId
+        /// <summary>
+        /// <para>
+        /// <para>An optional value you can use to ensure you are updating the latest update of the
+        /// function version or alias. If the <code>RevisionID</code> you pass doesn't match the
+        /// latest <code>RevisionId</code> of the function or alias, it will fail with an error
+        /// message, advising you to retrieve the latest function version or alias <code>RevisionID</code>
+        /// using either or .</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RevisionId { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -135,6 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.FunctionName = this.FunctionName;
             context.FunctionVersion = this.FunctionVersion;
             context.Name = this.Name;
+            context.RevisionId = this.RevisionId;
             if (this.RoutingConfig_AdditionalVersionWeight != null)
             {
                 context.RoutingConfig_AdditionalVersionWeights = new Dictionary<System.String, System.Double>(StringComparer.Ordinal);
@@ -174,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.RevisionId != null)
+            {
+                request.RevisionId = cmdletContext.RevisionId;
             }
             
              // populate RoutingConfig
@@ -262,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String FunctionName { get; set; }
             public System.String FunctionVersion { get; set; }
             public System.String Name { get; set; }
+            public System.String RevisionId { get; set; }
             public Dictionary<System.String, System.Double> RoutingConfig_AdditionalVersionWeights { get; set; }
         }
         

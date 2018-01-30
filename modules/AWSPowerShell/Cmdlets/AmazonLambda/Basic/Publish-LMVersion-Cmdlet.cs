@@ -82,6 +82,20 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String FunctionName { get; set; }
         #endregion
         
+        #region Parameter RevisionId
+        /// <summary>
+        /// <para>
+        /// <para>An optional value you can use to ensure you are updating the latest update of the
+        /// function version or alias. If the <code>RevisionID</code> you pass doesn't match the
+        /// latest <code>RevisionId</code> of the function or alias, it will fail with an error
+        /// message, advising you to retrieve the latest function version or alias <code>RevisionID</code>
+        /// using either or .</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RevisionId { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -114,6 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.CodeSha256 = this.CodeSha256;
             context.Description = this.Description;
             context.FunctionName = this.FunctionName;
+            context.RevisionId = this.RevisionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -141,6 +156,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.FunctionName != null)
             {
                 request.FunctionName = cmdletContext.FunctionName;
+            }
+            if (cmdletContext.RevisionId != null)
+            {
+                request.RevisionId = cmdletContext.RevisionId;
             }
             
             CmdletOutput output;
@@ -209,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String CodeSha256 { get; set; }
             public System.String Description { get; set; }
             public System.String FunctionName { get; set; }
+            public System.String RevisionId { get; set; }
         }
         
     }
