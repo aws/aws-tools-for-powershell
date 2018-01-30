@@ -93,18 +93,18 @@ namespace AWSPowerShellGenerator.Generators
             WriteSimpleProperty("verb", analyzer.CurrentOperation.SelectedVerb);
             WriteSimpleProperty("noun", analyzer.CurrentOperation.SelectedNoun.Substring(analyzer.CurrentModel.ServiceNounPrefix.Length));
 
-            WriteSimpleProperty("allowAnonymousAuthentication", analyzer.CurrentOperation.AnonymousAuthentication.ToString());
+            WriteSimpleProperty("anonymousAuthentication", analyzer.CurrentOperation.AnonymousAuthentication.ToString());
 
             WriteServiceOperationOutputSettings("cmdletOutput", analyzer.CurrentOperation);
 
-            WriteObjectListProperty("customParameters", analyzer.CurrentOperation.CustomParametersList,
+            WriteObjectListProperty("parameterCustomizations", analyzer.CurrentOperation.CustomParametersList,
                 (param) =>
                 {
-                    WriteSimpleProperty("name", param.Name);
-                    WriteSimpleProperty("newName", param.NewName);
+                    WriteSimpleProperty("originalName", param.Name);
+                    WriteSimpleProperty("replacementName", param.NewName);
                     WriteStringListProperty("aliases", param.Aliases);
-                    WriteSimpleProperty("autoApplyAlias", param.AutoApplyAlias);
-                    WriteSimpleProperty("autoRename", param.AutoRename);
+                    WriteSimpleProperty("autoApplOriginalNameAlias", param.AutoApplyAlias);
+                    WriteSimpleProperty("disableAutoRename", !param.AutoRename);
                     WriteSimpleProperty("exclude", param.Exclude);
                 });
 
@@ -166,7 +166,7 @@ namespace AWSPowerShellGenerator.Generators
             _jsonWriter.WriteStartObject();
             WriteSimpleProperty("alias", operation.LegacyAlias);
             WriteStringListProperty("positionalParameters", operation.PositionalParametersList);
-            WriteSimpleProperty("remapMemoryStreamParameters", operation.RemapMemoryStreamParameters.ToString().ToLower());
+            WriteSimpleProperty("disableMemoryStreamTypeRemap", (!operation.RemapMemoryStreamParameters).ToString().ToLower());
             _jsonWriter.WriteEndObject();
         }
 
@@ -196,7 +196,7 @@ namespace AWSPowerShellGenerator.Generators
 
             WriteServiceGlobalLegacySettings("legacySettings");
 
-            WriteServiceGlobalSdkSettings("netsdk");
+            WriteServiceGlobalSdkSettings("netSdk");
 
             WriteStringListProperty("nonFlattenedTypeNames", Model.TypesNotToFlatten);
             
@@ -212,7 +212,7 @@ namespace AWSPowerShellGenerator.Generators
                 WriteStringListProperty("byNameMembers", Model.PipelineByNamePropertyNamesList);
             _jsonWriter.WriteEndObject();
 
-            WriteSimpleProperty("regionFallback", Model.DefaultRegion);
+            WriteSimpleProperty("nonSpecifiedRegionFallback", Model.DefaultRegion);
 
             WriteStringListProperty("supportsShouldProcessVerbs", Model.SupportsShouldProcessVerbsList);
 
@@ -235,7 +235,7 @@ namespace AWSPowerShellGenerator.Generators
             _jsonWriter.WritePropertyName(propertyName);
             _jsonWriter.WriteStartObject();
             WriteSimpleProperty("nounPrefix", Model.ServiceNounPrefix);
-            WriteStringListProperty("positionalProperties", Model.PositionalParametersList);
+            WriteStringListProperty("positionalMemberNames", Model.PositionalParametersList);
             WriteParamEmittersList();
             _jsonWriter.WriteEndObject();
         }
@@ -315,10 +315,10 @@ namespace AWSPowerShellGenerator.Generators
                 WriteSimpleProperty("responseMember", autoIterate.Next);
                 WriteSimpleProperty("resultLimitMember", autoIterate.EmitLimit);
                 if (autoIterate.ServicePageSize == -1)
-                    WriteSimpleProperty("autoSetMaxResultSize", false);
+                    WriteSimpleProperty("forceMaxResultSize", false);
                 else
                 {
-                    WriteSimpleProperty("autoSetMaxResultSize", true);
+                    WriteSimpleProperty("forceMaxResultSize", true);
                     WriteSimpleProperty("maxResultSize", autoIterate.ServicePageSize);
                 }
 
@@ -394,7 +394,7 @@ namespace AWSPowerShellGenerator.Generators
                 (inputObjectMapping) =>
                 {
                     WriteSimpleProperty("isGlobalReference", inputObjectMapping.IsGlobalReference.ToString().ToLower());
-                    WriteSimpleProperty("mappingRefName", inputObjectMapping.MappingRefName);
+                    WriteSimpleProperty("mappingReferenceName", inputObjectMapping.MappingRefName);
                     WriteObjectListProperty("mappingRules", inputObjectMapping.MappingRules,
                         (mappingRule) =>
                         {
@@ -408,13 +408,13 @@ namespace AWSPowerShellGenerator.Generators
 
         private void WriteParamEmittersList()
         {
-            WriteObjectListProperty("paramEmitters", Model.ParamEmittersList,
+            WriteObjectListProperty("parameterEmitters", Model.ParamEmittersList,
                 (paramEmitter) =>
                 {
                     WriteSimpleProperty("emitterType", paramEmitter.EmitterType);
-                    WriteSimpleProperty("exclude", paramEmitter.Exclude);
-                    WriteSimpleProperty("paramName", paramEmitter.ParamName);
-                    WriteSimpleProperty("paramType", paramEmitter.ParamType);
+                    WriteStringListProperty("exclusions", new [] { paramEmitter.Exclude });
+                    WriteSimpleProperty("emittedParameterName", paramEmitter.ParamName);
+                    WriteSimpleProperty("emittedTypeName", paramEmitter.ParamType);
                 });
         }
     }
