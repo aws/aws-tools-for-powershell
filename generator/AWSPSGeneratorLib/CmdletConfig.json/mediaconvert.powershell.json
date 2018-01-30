@@ -3,10 +3,10 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "EMC",
-    "positionalProperties": [],
-    "paramEmitters": []
+    "positionalMemberNames": [],
+    "parameterEmitters": []
   },
-  "netsdk": {
+  "netSdk": {
     "additionalNamespaces": [],
     "serviceClientClass": "AmazonMediaConvertClient",
     "serviceConfigClass": "AmazonMediaConvertConfig",
@@ -25,7 +25,7 @@
     "requestMember": "NextToken",
     "responseMember": "NextToken",
     "resultLimitMember": "MaxResults",
-    "autoSetMaxResultSize": "true",
+    "forceMaxResultSize": "true",
     "maxResultSize": 20,
     "resultsTruncatedMember": ""
   },
@@ -33,25 +33,25 @@
     "byValueMembers": [],
     "byNameMembers": []
   },
-  "regionFallback": "",
+  "nonSpecifiedRegionFallback": "",
   "supportsShouldProcessVerbs": [],
   "verbMaps": {},
   "serviceOperations": {
     "CancelJob": {
       "verb": "Stop",
       "noun": "Job",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -77,7 +77,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },
@@ -92,18 +92,18 @@
     "CreateJob": {
       "verb": "New",
       "noun": "Job",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Job",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -129,7 +129,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },
@@ -144,18 +144,18 @@
     "CreateJobTemplate": {
       "verb": "New",
       "noun": "JobTemplate",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "JobTemplate",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -181,7 +181,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },
@@ -196,18 +196,18 @@
     "CreatePreset": {
       "verb": "New",
       "noun": "Preset",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Preset",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -233,7 +233,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },
@@ -248,18 +248,18 @@
     "CreateQueue": {
       "verb": "New",
       "noun": "Queue",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Queue",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -285,7 +285,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },
@@ -300,18 +300,18 @@
     "DeleteJobTemplate": {
       "verb": "Remove",
       "noun": "JobTemplate",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -337,7 +337,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },
@@ -352,18 +352,18 @@
     "DeletePreset": {
       "verb": "Remove",
       "noun": "Preset",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -389,7 +389,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },
@@ -404,18 +404,18 @@
     "DeleteQueue": {
       "verb": "Remove",
       "noun": "Queue",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -441,7 +441,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },
@@ -456,18 +456,18 @@
     "DescribeEndpoints": {
       "verb": "Get",
       "noun": "Endpoint",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Endpoints",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -493,7 +493,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },
@@ -503,18 +503,18 @@
     "GetJob": {
       "verb": "Get",
       "noun": "Job",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Job",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -540,7 +540,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },
@@ -550,29 +550,29 @@
     "GetJobTemplate": {
       "verb": "Get",
       "noun": "JobTemplate",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "JobTemplate",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "Name",
-          "newName": "",
+          "originalName": "Name",
+          "replacementName": "",
           "aliases": [
             "JobTemplate"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -598,7 +598,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },
@@ -608,18 +608,18 @@
     "GetPreset": {
       "verb": "Get",
       "noun": "Preset",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Preset",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -645,7 +645,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },
@@ -655,18 +655,18 @@
     "GetQueue": {
       "verb": "Get",
       "noun": "Queue",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Queue",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -692,7 +692,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },
@@ -702,29 +702,29 @@
     "ListJobs": {
       "verb": "Get",
       "noun": "JobList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Jobs",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "Queue",
-          "newName": "",
+          "originalName": "Queue",
+          "replacementName": "",
           "aliases": [
             "Name"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -750,7 +750,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },
@@ -760,18 +760,18 @@
     "ListJobTemplates": {
       "verb": "Get",
       "noun": "JobTemplateList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "JobTemplates",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -797,7 +797,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },
@@ -807,18 +807,18 @@
     "ListPresets": {
       "verb": "Get",
       "noun": "PresetList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Presets",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -844,7 +844,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },
@@ -854,18 +854,18 @@
     "ListQueues": {
       "verb": "Get",
       "noun": "QueueList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Queues",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -891,7 +891,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },
@@ -901,18 +901,18 @@
     "UpdateJobTemplate": {
       "verb": "Update",
       "noun": "JobTemplate",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "JobTemplate",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -938,7 +938,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },
@@ -953,18 +953,18 @@
     "UpdatePreset": {
       "verb": "Update",
       "noun": "Preset",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Preset",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -990,7 +990,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },
@@ -1005,18 +1005,18 @@
     "UpdateQueue": {
       "verb": "Update",
       "noun": "Queue",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Queue",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1042,7 +1042,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 20,
           "resultsTruncatedMember": ""
         },

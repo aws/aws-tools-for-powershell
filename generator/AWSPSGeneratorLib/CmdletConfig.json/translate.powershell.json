@@ -3,10 +3,10 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "TRN",
-    "positionalProperties": [],
-    "paramEmitters": []
+    "positionalMemberNames": [],
+    "parameterEmitters": []
   },
-  "netsdk": {
+  "netSdk": {
     "additionalNamespaces": [],
     "serviceClientClass": "AmazonTranslateClient",
     "serviceConfigClass": "AmazonTranslateConfig",
@@ -20,25 +20,25 @@
     "byValueMembers": [],
     "byNameMembers": []
   },
-  "regionFallback": "",
+  "nonSpecifiedRegionFallback": "",
   "supportsShouldProcessVerbs": [],
   "verbMaps": {},
   "serviceOperations": {
     "TranslateText": {
       "verb": "ConvertTo",
       "noun": "TargetLanguage",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "TranslatedText",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [
         "SourceLanguageCode",

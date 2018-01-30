@@ -3,10 +3,10 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "ML",
-    "positionalProperties": [],
-    "paramEmitters": []
+    "positionalMemberNames": [],
+    "parameterEmitters": []
   },
-  "netsdk": {
+  "netSdk": {
     "additionalNamespaces": [],
     "serviceClientClass": "AmazonMachineLearningClient",
     "serviceConfigClass": "AmazonMachineLearningConfig",
@@ -22,7 +22,7 @@
     "requestMember": "NextToken",
     "responseMember": "NextToken",
     "resultLimitMember": "Limit",
-    "autoSetMaxResultSize": "true",
+    "forceMaxResultSize": "true",
     "maxResultSize": 100,
     "resultsTruncatedMember": ""
   },
@@ -32,25 +32,25 @@
     ],
     "byNameMembers": []
   },
-  "regionFallback": "",
+  "nonSpecifiedRegionFallback": "",
   "supportsShouldProcessVerbs": [],
   "verbMaps": {},
   "serviceOperations": {
     "AddTags": {
       "verb": "Add",
       "noun": "ResourceTag",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "Add-MLTag",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -78,7 +78,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -93,39 +93,39 @@
     "CreateBatchPrediction": {
       "verb": "New",
       "noun": "BatchPrediction",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "BatchPredictionId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "BatchPredictionName",
-          "newName": "",
+          "originalName": "BatchPredictionName",
+          "replacementName": "",
           "aliases": [
             "Name"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "MLModelId",
-          "newName": "",
+          "originalName": "MLModelId",
+          "replacementName": "",
           "aliases": [
             "ModelId"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -153,7 +153,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -168,18 +168,18 @@
     "CreateDataSourceFromRDS": {
       "verb": "New",
       "noun": "DataSourceFromRDS",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "DataSourceId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -207,7 +207,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -222,18 +222,18 @@
     "CreateDataSourceFromRedshift": {
       "verb": "New",
       "noun": "DataSourceFromRedshift",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "DataSourceId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -261,7 +261,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -276,18 +276,18 @@
     "CreateDataSourceFromS3": {
       "verb": "New",
       "noun": "DataSourceFromS3",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "DataSourceId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -315,7 +315,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -330,39 +330,39 @@
     "CreateEvaluation": {
       "verb": "New",
       "noun": "Evaluation",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "EvaluationId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "EvaluationName",
-          "newName": "",
+          "originalName": "EvaluationName",
+          "replacementName": "",
           "aliases": [
             "Name"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "MLModelId",
-          "newName": "",
+          "originalName": "MLModelId",
+          "replacementName": "",
           "aliases": [
             "ModelId"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -390,7 +390,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -405,49 +405,49 @@
     "CreateMLModel": {
       "verb": "New",
       "noun": "Model",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "MLModelId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "MLModelId",
-          "newName": "",
+          "originalName": "MLModelId",
+          "replacementName": "",
           "aliases": [
             "ModelId"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "MLModelName",
-          "newName": "",
+          "originalName": "MLModelName",
+          "replacementName": "",
           "aliases": [
             "Name"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "MLModelType",
-          "newName": "",
+          "originalName": "MLModelType",
+          "replacementName": "",
           "aliases": [
             "ModelType"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -475,7 +475,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -490,29 +490,29 @@
     "CreateRealtimeEndpoint": {
       "verb": "New",
       "noun": "RealtimeEndpoint",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "MLModelId",
-          "newName": "",
+          "originalName": "MLModelId",
+          "replacementName": "",
           "aliases": [
             "ModelId"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -540,7 +540,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -555,18 +555,18 @@
     "DeleteBatchPrediction": {
       "verb": "Remove",
       "noun": "BatchPrediction",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "BatchPredictionId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -594,7 +594,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -609,18 +609,18 @@
     "DeleteDataSource": {
       "verb": "Remove",
       "noun": "DataSource",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "DataSourceId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -648,7 +648,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -663,18 +663,18 @@
     "DeleteEvaluation": {
       "verb": "Remove",
       "noun": "Evaluation",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "EvaluationId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -702,7 +702,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -717,29 +717,29 @@
     "DeleteMLModel": {
       "verb": "Remove",
       "noun": "Model",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "MLModelId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "MLModelId",
-          "newName": "",
+          "originalName": "MLModelId",
+          "replacementName": "",
           "aliases": [
             "ModelId"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -767,7 +767,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -782,29 +782,29 @@
     "DeleteRealtimeEndpoint": {
       "verb": "Remove",
       "noun": "RealtimeEndpoint",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "MLModelId",
-          "newName": "",
+          "originalName": "MLModelId",
+          "replacementName": "",
           "aliases": [
             "ModelId"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -832,7 +832,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -847,18 +847,18 @@
     "DeleteTags": {
       "verb": "Remove",
       "noun": "ResourceTag",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "Remove-MLTag",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -886,7 +886,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -901,18 +901,18 @@
     "DescribeBatchPredictions": {
       "verb": "Get",
       "noun": "BatchPredictionList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Results",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "Get-MLBatchPredictions",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -940,7 +940,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -950,18 +950,18 @@
     "DescribeDataSources": {
       "verb": "Get",
       "noun": "DataSourceList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Results",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "Get-MLDataSources",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -989,7 +989,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -999,18 +999,18 @@
     "DescribeEvaluations": {
       "verb": "Get",
       "noun": "EvaluationList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Results",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "Get-MLEvaluations",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1038,7 +1038,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -1048,18 +1048,18 @@
     "DescribeMLModels": {
       "verb": "Get",
       "noun": "ModelList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Results",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "Get-MLModels",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1087,7 +1087,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -1097,18 +1097,18 @@
     "DescribeTags": {
       "verb": "Get",
       "noun": "ResourceTag",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "Get-MLTag",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1136,7 +1136,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -1146,18 +1146,18 @@
     "GetBatchPrediction": {
       "verb": "Get",
       "noun": "BatchPrediction",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1185,7 +1185,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -1195,27 +1195,27 @@
     "GetDataSource": {
       "verb": "Get",
       "noun": "DataSource",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "Verbose",
-          "newName": "VerboseResponse",
+          "originalName": "Verbose",
+          "replacementName": "VerboseResponse",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1243,7 +1243,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -1253,18 +1253,18 @@
     "GetEvaluation": {
       "verb": "Get",
       "noun": "Evaluation",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1292,7 +1292,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -1302,37 +1302,37 @@
     "GetMLModel": {
       "verb": "Get",
       "noun": "Model",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "MLModelId",
-          "newName": "",
+          "originalName": "MLModelId",
+          "replacementName": "",
           "aliases": [
             "ModelId"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Verbose",
-          "newName": "VerboseResponse",
+          "originalName": "Verbose",
+          "replacementName": "VerboseResponse",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1360,7 +1360,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -1370,29 +1370,29 @@
     "Predict": {
       "verb": "Get",
       "noun": "Prediction",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Prediction",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "MLModelId",
-          "newName": "",
+          "originalName": "MLModelId",
+          "replacementName": "",
           "aliases": [
             "ModelId"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1420,7 +1420,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -1430,29 +1430,29 @@
     "UpdateBatchPrediction": {
       "verb": "Update",
       "noun": "BatchPrediction",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "BatchPredictionId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "BatchPredictionName",
-          "newName": "",
+          "originalName": "BatchPredictionName",
+          "replacementName": "",
           "aliases": [
             "Name"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1480,7 +1480,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -1495,29 +1495,29 @@
     "UpdateDataSource": {
       "verb": "Update",
       "noun": "DataSource",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "DataSourceId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "DataSourceName",
-          "newName": "",
+          "originalName": "DataSourceName",
+          "replacementName": "",
           "aliases": [
             "Name"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1545,7 +1545,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -1560,29 +1560,29 @@
     "UpdateEvaluation": {
       "verb": "Update",
       "noun": "Evaluation",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "EvaluationId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "EvaluationName",
-          "newName": "",
+          "originalName": "EvaluationName",
+          "replacementName": "",
           "aliases": [
             "Name"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1610,7 +1610,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },
@@ -1625,29 +1625,29 @@
     "UpdateMLModel": {
       "verb": "Update",
       "noun": "MLModel",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "MLModelId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "MLModelId",
-          "newName": "",
+          "originalName": "MLModelId",
+          "replacementName": "",
           "aliases": [
             "ModelId"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1675,7 +1675,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": ""
         },

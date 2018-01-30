@@ -3,10 +3,10 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "CD",
-    "positionalProperties": [],
-    "paramEmitters": []
+    "positionalMemberNames": [],
+    "parameterEmitters": []
   },
-  "netsdk": {
+  "netSdk": {
     "additionalNamespaces": [],
     "serviceClientClass": "AmazonCodeDeployClient",
     "serviceConfigClass": "AmazonCodeDeployConfig",
@@ -22,7 +22,7 @@
     "requestMember": "NextToken",
     "responseMember": "NextToken",
     "resultLimitMember": "",
-    "autoSetMaxResultSize": "false",
+    "forceMaxResultSize": "false",
     "resultsTruncatedMember": ""
   },
   "pipelineDefaults": {
@@ -31,7 +31,7 @@
     ],
     "byNameMembers": []
   },
-  "regionFallback": "",
+  "nonSpecifiedRegionFallback": "",
   "supportsShouldProcessVerbs": [],
   "verbMaps": {
     "Deregister": "Unregister"
@@ -40,18 +40,18 @@
     "AddTagsToOnPremisesInstances": {
       "verb": "Add",
       "noun": "OnPremiseInstanceTag",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -81,7 +81,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -95,18 +95,18 @@
     "BatchGetApplicationRevisions": {
       "verb": "Get",
       "noun": "ApplicationRevisionBatch",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -136,7 +136,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -145,18 +145,18 @@
     "BatchGetApplications": {
       "verb": "Get",
       "noun": "ApplicationBatch",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "ApplicationsInfo",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "Get-CDApplications",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -186,7 +186,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -195,18 +195,18 @@
     "BatchGetDeploymentGroups": {
       "verb": "Get",
       "noun": "DeploymentGroupBatch",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -236,7 +236,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -245,18 +245,18 @@
     "BatchGetDeploymentInstances": {
       "verb": "Get",
       "noun": "DeploymentInstanceBatch",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -286,7 +286,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -295,18 +295,18 @@
     "BatchGetDeployments": {
       "verb": "Get",
       "noun": "DeploymentBatch",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "DeploymentsInfo",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "Get-CDDeployments",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -336,7 +336,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -345,18 +345,18 @@
     "BatchGetOnPremisesInstances": {
       "verb": "Get",
       "noun": "OnPremiseInstanceBatch",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "InstanceInfos",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -386,7 +386,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -395,18 +395,18 @@
     "ContinueDeployment": {
       "verb": "Resume",
       "noun": "Deployment",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -436,7 +436,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -450,18 +450,18 @@
     "CreateApplication": {
       "verb": "New",
       "noun": "Application",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "ApplicationId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -491,7 +491,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -505,59 +505,59 @@
     "CreateDeployment": {
       "verb": "New",
       "noun": "Deployment",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "DeploymentId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "TargetInstances_Ec2TagSet_Ec2TagSetList",
-          "newName": "Ec2TagSetList",
+          "originalName": "TargetInstances_Ec2TagSet_Ec2TagSetList",
+          "replacementName": "Ec2TagSetList",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "TargetInstances_TagFilters",
-          "newName": "TargetInstancesTagFilter",
+          "originalName": "TargetInstances_TagFilters",
+          "replacementName": "TargetInstancesTagFilter",
           "aliases": [
             "TargetInstances_TagFilter",
             "TargetInstances_TagFilters"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Revision_RevisionType",
-          "newName": "RevisionType",
+          "originalName": "Revision_RevisionType",
+          "replacementName": "RevisionType",
           "aliases": [
             "Revision_RevisionType"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "TargetInstances_AutoScalingGroups",
-          "newName": "TargetInstancesAutoScalingGroup",
+          "originalName": "TargetInstances_AutoScalingGroups",
+          "replacementName": "TargetInstancesAutoScalingGroup",
           "aliases": [
             "TargetInstances_AutoScalingGroup",
             "TargetInstances_AutoScalingGroups"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -587,7 +587,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -601,18 +601,18 @@
     "CreateDeploymentConfig": {
       "verb": "New",
       "noun": "DeploymentConfig",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "DeploymentConfigId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -642,7 +642,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -656,120 +656,120 @@
     "CreateDeploymentGroup": {
       "verb": "New",
       "noun": "DeploymentGroup",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "DeploymentGroupId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "Ec2TagSet_Ec2TagSetList",
-          "newName": "Ec2TagSetList",
+          "originalName": "Ec2TagSet_Ec2TagSetList",
+          "replacementName": "Ec2TagSetList",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "OnPremisesTagSet_OnPremisesTagSetList",
-          "newName": "OnPremisesTagSetList",
+          "originalName": "OnPremisesTagSet_OnPremisesTagSetList",
+          "replacementName": "OnPremisesTagSetList",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action",
-          "newName": "GreenFleetProvisioningOptionAction",
+          "originalName": "BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action",
+          "replacementName": "GreenFleetProvisioningOptionAction",
           "aliases": [
             "GreenFleetProvisioningOption_Action",
             "BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes",
-          "newName": "OnSuccessBlueInstanceTerminationWaitTime",
+          "originalName": "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes",
+          "replacementName": "OnSuccessBlueInstanceTerminationWaitTime",
           "aliases": [
             "TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute",
             "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action",
-          "newName": "OnSuccessBlueInstanceTerminationAction",
+          "originalName": "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action",
+          "replacementName": "OnSuccessBlueInstanceTerminationAction",
           "aliases": [
             "TerminateBlueInstancesOnDeploymentSuccess_Action",
             "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes",
-          "newName": "DeploymentReadyOptionWaitTime",
+          "originalName": "BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes",
+          "replacementName": "DeploymentReadyOptionWaitTime",
           "aliases": [
             "DeploymentReadyOption_WaitTimeInMinute",
             "BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout",
-          "newName": "DeploymentReadyOptionTimeoutAction",
+          "originalName": "BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout",
+          "replacementName": "DeploymentReadyOptionTimeoutAction",
           "aliases": [
             "DeploymentReadyOption_ActionOnTimeout",
             "BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "DeploymentStyle_DeploymentOption",
-          "newName": "DeploymentStyleOption",
+          "originalName": "DeploymentStyle_DeploymentOption",
+          "replacementName": "DeploymentStyleOption",
           "aliases": [
             "DeploymentStyle_DeploymentOption"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "DeploymentStyle_DeploymentType",
-          "newName": "DeploymentStyleType",
+          "originalName": "DeploymentStyle_DeploymentType",
+          "replacementName": "DeploymentStyleType",
           "aliases": [
             "DeploymentStyle_DeploymentType"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "LoadBalancerInfo_ElbInfoList",
-          "newName": "LoadBalancerInfoList",
+          "originalName": "LoadBalancerInfo_ElbInfoList",
+          "replacementName": "LoadBalancerInfoList",
           "aliases": [
             "LoadBalancerInfo_ElbInfoList"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -799,7 +799,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -813,18 +813,18 @@
     "DeleteApplication": {
       "verb": "Remove",
       "noun": "Application",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -854,7 +854,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -868,18 +868,18 @@
     "DeleteDeploymentConfig": {
       "verb": "Remove",
       "noun": "DeploymentConfig",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -909,7 +909,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -923,18 +923,18 @@
     "DeleteDeploymentGroup": {
       "verb": "Remove",
       "noun": "DeploymentGroup",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "HooksNotCleanedUp",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -964,7 +964,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -978,18 +978,18 @@
     "DeleteGitHubAccountToken": {
       "verb": "Remove",
       "noun": "GitHubAccountToken",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "TokenName",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1019,7 +1019,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -1033,18 +1033,18 @@
     "DeregisterOnPremisesInstance": {
       "verb": "Unregister",
       "noun": "OnPremiseInstance",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1074,7 +1074,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -1088,18 +1088,18 @@
     "GetApplication": {
       "verb": "Get",
       "noun": "Application",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Application",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1129,7 +1129,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1138,18 +1138,18 @@
     "GetApplicationRevision": {
       "verb": "Get",
       "noun": "ApplicationRevision",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1179,7 +1179,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1188,18 +1188,18 @@
     "GetDeployment": {
       "verb": "Get",
       "noun": "Deployment",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "DeploymentInfo",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1229,7 +1229,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1238,18 +1238,18 @@
     "GetDeploymentConfig": {
       "verb": "Get",
       "noun": "DeploymentConfig",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "DeploymentConfigInfo",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1279,7 +1279,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1288,18 +1288,18 @@
     "GetDeploymentGroup": {
       "verb": "Get",
       "noun": "DeploymentGroup",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "DeploymentGroupInfo",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1329,7 +1329,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1338,18 +1338,18 @@
     "GetDeploymentInstance": {
       "verb": "Get",
       "noun": "DeploymentInstance",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "InstanceSummary",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1379,7 +1379,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1388,18 +1388,18 @@
     "GetOnPremisesInstance": {
       "verb": "Get",
       "noun": "OnPremiseInstance",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "InstanceInfo",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1429,7 +1429,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1438,18 +1438,18 @@
     "ListApplicationRevisions": {
       "verb": "Get",
       "noun": "ApplicationRevisionList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Revisions",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1479,7 +1479,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1488,18 +1488,18 @@
     "ListApplications": {
       "verb": "Get",
       "noun": "ApplicationList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Applications",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1529,7 +1529,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1538,18 +1538,18 @@
     "ListDeploymentConfigs": {
       "verb": "Get",
       "noun": "DeploymentConfigList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "DeploymentConfigsList",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1579,7 +1579,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1588,18 +1588,18 @@
     "ListDeploymentGroups": {
       "verb": "Get",
       "noun": "DeploymentGroupList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1629,7 +1629,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1638,18 +1638,18 @@
     "ListDeploymentInstances": {
       "verb": "Get",
       "noun": "DeploymentInstanceList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "InstancesList",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1679,7 +1679,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1688,18 +1688,18 @@
     "ListDeployments": {
       "verb": "Get",
       "noun": "DeploymentList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Deployments",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1729,7 +1729,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1738,18 +1738,18 @@
     "ListGitHubAccountTokenNames": {
       "verb": "Get",
       "noun": "GitHubAccountTokenNameList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "TokenNameList",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1779,7 +1779,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1788,18 +1788,18 @@
     "ListOnPremisesInstances": {
       "verb": "Get",
       "noun": "OnPremiseInstanceList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "InstanceNames",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1829,7 +1829,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1838,18 +1838,18 @@
     "PutLifecycleEventHookExecutionStatus": {
       "verb": "Write",
       "noun": "LifecycleEventHookExecutionStatus",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "LifecycleEventHookExecutionId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1879,7 +1879,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -1893,18 +1893,18 @@
     "RegisterApplicationRevision": {
       "verb": "Register",
       "noun": "ApplicationRevision",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1934,7 +1934,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -1948,18 +1948,18 @@
     "RegisterOnPremisesInstance": {
       "verb": "Register",
       "noun": "OnPremiseInstance",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1989,7 +1989,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -2003,18 +2003,18 @@
     "RemoveTagsFromOnPremisesInstances": {
       "verb": "Remove",
       "noun": "OnPremiseInstanceTag",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2044,7 +2044,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -2058,18 +2058,18 @@
     "SkipWaitTimeForInstanceTermination": {
       "verb": "Skip",
       "noun": "WaitTimeForInstanceTermination",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2099,7 +2099,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -2113,18 +2113,18 @@
     "StopDeployment": {
       "verb": "Stop",
       "noun": "Deployment",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2154,7 +2154,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -2168,18 +2168,18 @@
     "UpdateApplication": {
       "verb": "Update",
       "noun": "Application",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2209,7 +2209,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -2223,120 +2223,120 @@
     "UpdateDeploymentGroup": {
       "verb": "Update",
       "noun": "DeploymentGroup",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "HooksNotCleanedUp",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "Ec2TagSet_Ec2TagSetList",
-          "newName": "Ec2TagSetList",
+          "originalName": "Ec2TagSet_Ec2TagSetList",
+          "replacementName": "Ec2TagSetList",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "OnPremisesTagSet_OnPremisesTagSetList",
-          "newName": "OnPremisesTagSetList",
+          "originalName": "OnPremisesTagSet_OnPremisesTagSetList",
+          "replacementName": "OnPremisesTagSetList",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action",
-          "newName": "GreenFleetProvisioningOptionAction",
+          "originalName": "BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action",
+          "replacementName": "GreenFleetProvisioningOptionAction",
           "aliases": [
             "GreenFleetProvisioningOption_Action",
             "BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes",
-          "newName": "OnSuccessBlueInstanceTerminationWaitTime",
+          "originalName": "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes",
+          "replacementName": "OnSuccessBlueInstanceTerminationWaitTime",
           "aliases": [
             "TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute",
             "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action",
-          "newName": "OnSuccessBlueInstanceTerminationAction",
+          "originalName": "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action",
+          "replacementName": "OnSuccessBlueInstanceTerminationAction",
           "aliases": [
             "TerminateBlueInstancesOnDeploymentSuccess_Action",
             "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes",
-          "newName": "DeploymentReadyOptionWaitTime",
+          "originalName": "BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes",
+          "replacementName": "DeploymentReadyOptionWaitTime",
           "aliases": [
             "DeploymentReadyOption_WaitTimeInMinute",
             "BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout",
-          "newName": "DeploymentReadyOptionTimeoutAction",
+          "originalName": "BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout",
+          "replacementName": "DeploymentReadyOptionTimeoutAction",
           "aliases": [
             "DeploymentReadyOption_ActionOnTimeout",
             "BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "DeploymentStyle_DeploymentOption",
-          "newName": "DeploymentStyleOption",
+          "originalName": "DeploymentStyle_DeploymentOption",
+          "replacementName": "DeploymentStyleOption",
           "aliases": [
             "DeploymentStyle_DeploymentOption"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "DeploymentStyle_DeploymentType",
-          "newName": "DeploymentStyleType",
+          "originalName": "DeploymentStyle_DeploymentType",
+          "replacementName": "DeploymentStyleType",
           "aliases": [
             "DeploymentStyle_DeploymentType"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "LoadBalancerInfo_ElbInfoList",
-          "newName": "LoadBalancerInfoList",
+          "originalName": "LoadBalancerInfo_ElbInfoList",
+          "replacementName": "LoadBalancerInfoList",
           "aliases": [
             "LoadBalancerInfo_ElbInfoList"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2366,7 +2366,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {

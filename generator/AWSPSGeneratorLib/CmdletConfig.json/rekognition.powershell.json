@@ -3,10 +3,10 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "REK",
-    "positionalProperties": [],
-    "paramEmitters": []
+    "positionalMemberNames": [],
+    "parameterEmitters": []
   },
-  "netsdk": {
+  "netSdk": {
     "additionalNamespaces": [],
     "serviceClientClass": "AmazonRekognitionClient",
     "serviceConfigClass": "AmazonRekognitionConfig",
@@ -31,7 +31,7 @@
     "requestMember": "NextToken",
     "responseMember": "NextToken",
     "resultLimitMember": "MaxResults",
-    "autoSetMaxResultSize": "false",
+    "forceMaxResultSize": "false",
     "resultsTruncatedMember": ""
   },
   "pipelineDefaults": {
@@ -44,90 +44,90 @@
       "ExternalImageId"
     ]
   },
-  "regionFallback": "",
+  "nonSpecifiedRegionFallback": "",
   "supportsShouldProcessVerbs": [],
   "verbMaps": {},
   "serviceOperations": {
     "CompareFaces": {
       "verb": "Compare",
       "noun": "Face",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "SourceImage_S3Object_Bucket",
-          "newName": "SourceImageBucket",
+          "originalName": "SourceImage_S3Object_Bucket",
+          "replacementName": "SourceImageBucket",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "SourceImage_S3Object_Name",
-          "newName": "SourceImageName",
+          "originalName": "SourceImage_S3Object_Name",
+          "replacementName": "SourceImageName",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "SourceImage_S3Object_Version",
-          "newName": "SourceImageVersion",
+          "originalName": "SourceImage_S3Object_Version",
+          "replacementName": "SourceImageVersion",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "SourceImage_Bytes",
-          "newName": "SourceImageContent",
+          "originalName": "SourceImage_Bytes",
+          "replacementName": "SourceImageContent",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "TargetImage_S3Object_Bucket",
-          "newName": "TargetImageBucket",
+          "originalName": "TargetImage_S3Object_Bucket",
+          "replacementName": "TargetImageBucket",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "TargetImage_S3Object_Name",
-          "newName": "TargetImageName",
+          "originalName": "TargetImage_S3Object_Name",
+          "replacementName": "TargetImageName",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "TargetImage_S3Object_Version",
-          "newName": "TargetImageVersion",
+          "originalName": "TargetImage_S3Object_Version",
+          "replacementName": "TargetImageVersion",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "TargetImage_Bytes",
-          "newName": "TargetImageContent",
+          "originalName": "TargetImage_Bytes",
+          "replacementName": "TargetImageContent",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -164,7 +164,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -181,18 +181,18 @@
     "CreateCollection": {
       "verb": "New",
       "noun": "Collection",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -229,7 +229,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -243,18 +243,18 @@
     "CreateStreamProcessor": {
       "verb": "New",
       "noun": "StreamProcessor",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "StreamProcessorArn",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -291,7 +291,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -305,18 +305,18 @@
     "DeleteCollection": {
       "verb": "Remove",
       "noun": "Collection",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "StatusCode",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -353,7 +353,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -367,18 +367,18 @@
     "DeleteFaces": {
       "verb": "Remove",
       "noun": "Face",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "DeletedFaces",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -415,7 +415,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -429,18 +429,18 @@
     "DeleteStreamProcessor": {
       "verb": "Remove",
       "noun": "StreamProcessor",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -477,7 +477,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -491,18 +491,18 @@
     "DescribeStreamProcessor": {
       "verb": "Get",
       "noun": "StreamProcessor",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -539,7 +539,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -548,51 +548,51 @@
     "DetectFaces": {
       "verb": "Find",
       "noun": "Face",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "Image_S3Object_Bucket",
-          "newName": "ImageBucket",
+          "originalName": "Image_S3Object_Bucket",
+          "replacementName": "ImageBucket",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Image_S3Object_Name",
-          "newName": "ImageName",
+          "originalName": "Image_S3Object_Name",
+          "replacementName": "ImageName",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Image_S3Object_Version",
-          "newName": "ImageVersion",
+          "originalName": "Image_S3Object_Version",
+          "replacementName": "ImageVersion",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Image_Bytes",
-          "newName": "ImageContent",
+          "originalName": "Image_Bytes",
+          "replacementName": "ImageContent",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -629,7 +629,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": [
@@ -640,51 +640,51 @@
     "DetectLabels": {
       "verb": "Find",
       "noun": "Label",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "Image_S3Object_Bucket",
-          "newName": "ImageBucket",
+          "originalName": "Image_S3Object_Bucket",
+          "replacementName": "ImageBucket",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Image_S3Object_Name",
-          "newName": "ImageName",
+          "originalName": "Image_S3Object_Name",
+          "replacementName": "ImageName",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Image_S3Object_Version",
-          "newName": "ImageVersion",
+          "originalName": "Image_S3Object_Version",
+          "replacementName": "ImageVersion",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Image_Bytes",
-          "newName": "ImageContent",
+          "originalName": "Image_Bytes",
+          "replacementName": "ImageContent",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -721,7 +721,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": [
@@ -732,18 +732,18 @@
     "DetectModerationLabels": {
       "verb": "Find",
       "noun": "ModerationLabel",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "ModerationLabels",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -780,7 +780,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": [
@@ -791,51 +791,51 @@
     "DetectText": {
       "verb": "Find",
       "noun": "Text",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "TextDetections",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "Image_S3Object_Bucket",
-          "newName": "ImageBucket",
+          "originalName": "Image_S3Object_Bucket",
+          "replacementName": "ImageBucket",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Image_S3Object_Name",
-          "newName": "ImageName",
+          "originalName": "Image_S3Object_Name",
+          "replacementName": "ImageName",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Image_S3Object_Version",
-          "newName": "ImageVersion",
+          "originalName": "Image_S3Object_Version",
+          "replacementName": "ImageVersion",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Image_Bytes",
-          "newName": "ImageContent",
+          "originalName": "Image_Bytes",
+          "replacementName": "ImageContent",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -872,7 +872,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": [
@@ -883,18 +883,18 @@
     "GetCelebrityInfo": {
       "verb": "Get",
       "noun": "CelebrityInfo",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -931,7 +931,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -940,18 +940,18 @@
     "GetCelebrityRecognition": {
       "verb": "Get",
       "noun": "CelebrityRecognition",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -988,7 +988,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -997,18 +997,18 @@
     "GetContentModeration": {
       "verb": "Get",
       "noun": "ContentModeration",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1045,7 +1045,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1054,18 +1054,18 @@
     "GetFaceDetection": {
       "verb": "Get",
       "noun": "FaceDetection",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1102,7 +1102,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1111,18 +1111,18 @@
     "GetFaceSearch": {
       "verb": "Get",
       "noun": "FaceSearch",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1159,7 +1159,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1168,18 +1168,18 @@
     "GetLabelDetection": {
       "verb": "Get",
       "noun": "LabelDetection",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1216,7 +1216,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1225,18 +1225,18 @@
     "GetPersonTracking": {
       "verb": "Get",
       "noun": "PersonTracking",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1273,7 +1273,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1282,51 +1282,51 @@
     "IndexFaces": {
       "verb": "Add",
       "noun": "DetectedFacesToCollection",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "Image_S3Object_Bucket",
-          "newName": "ImageBucket",
+          "originalName": "Image_S3Object_Bucket",
+          "replacementName": "ImageBucket",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Image_S3Object_Name",
-          "newName": "ImageName",
+          "originalName": "Image_S3Object_Name",
+          "replacementName": "ImageName",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Image_S3Object_Version",
-          "newName": "ImageVersion",
+          "originalName": "Image_S3Object_Version",
+          "replacementName": "ImageVersion",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Image_Bytes",
-          "newName": "ImageContent",
+          "originalName": "Image_Bytes",
+          "replacementName": "ImageContent",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1363,7 +1363,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -1379,18 +1379,18 @@
     "ListCollections": {
       "verb": "Get",
       "noun": "CollectionIdList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1427,7 +1427,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1436,18 +1436,18 @@
     "ListFaces": {
       "verb": "Get",
       "noun": "FaceList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1484,7 +1484,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1493,18 +1493,18 @@
     "ListStreamProcessors": {
       "verb": "Get",
       "noun": "StreamProcessorsList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "StreamProcessors",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1541,7 +1541,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1550,51 +1550,51 @@
     "RecognizeCelebrities": {
       "verb": "Find",
       "noun": "Celebrity",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "Image_S3Object_Bucket",
-          "newName": "ImageBucket",
+          "originalName": "Image_S3Object_Bucket",
+          "replacementName": "ImageBucket",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Image_S3Object_Name",
-          "newName": "ImageName",
+          "originalName": "Image_S3Object_Name",
+          "replacementName": "ImageName",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Image_S3Object_Version",
-          "newName": "ImageVersion",
+          "originalName": "Image_S3Object_Version",
+          "replacementName": "ImageVersion",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Image_Bytes",
-          "newName": "ImageContent",
+          "originalName": "Image_Bytes",
+          "replacementName": "ImageContent",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1631,7 +1631,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": [
@@ -1642,18 +1642,18 @@
     "SearchFaces": {
       "verb": "Search",
       "noun": "Face",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1690,7 +1690,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -1704,51 +1704,51 @@
     "SearchFacesByImage": {
       "verb": "Search",
       "noun": "FacesByImage",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "Image_S3Object_Bucket",
-          "newName": "ImageBucket",
+          "originalName": "Image_S3Object_Bucket",
+          "replacementName": "ImageBucket",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Image_S3Object_Name",
-          "newName": "ImageName",
+          "originalName": "Image_S3Object_Name",
+          "replacementName": "ImageName",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Image_S3Object_Version",
-          "newName": "ImageVersion",
+          "originalName": "Image_S3Object_Version",
+          "replacementName": "ImageVersion",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         },
         {
-          "name": "Image_Bytes",
-          "newName": "ImageContent",
+          "originalName": "Image_Bytes",
+          "replacementName": "ImageContent",
           "aliases": [],
-          "autoApplyAlias": "false",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1785,7 +1785,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -1801,18 +1801,18 @@
     "StartCelebrityRecognition": {
       "verb": "Start",
       "noun": "CelebrityRecognition",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "JobId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1849,7 +1849,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -1863,18 +1863,18 @@
     "StartContentModeration": {
       "verb": "Start",
       "noun": "ContentModeration",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "JobId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1911,7 +1911,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -1925,18 +1925,18 @@
     "StartFaceDetection": {
       "verb": "Start",
       "noun": "FaceDetection",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "JobId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1973,7 +1973,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -1987,18 +1987,18 @@
     "StartFaceSearch": {
       "verb": "Start",
       "noun": "FaceSearch",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "JobId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2035,7 +2035,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -2049,18 +2049,18 @@
     "StartLabelDetection": {
       "verb": "Start",
       "noun": "LabelDetection",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "JobId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2097,7 +2097,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -2111,18 +2111,18 @@
     "StartPersonTracking": {
       "verb": "Start",
       "noun": "PersonTracking",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "JobId",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2159,7 +2159,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -2173,18 +2173,18 @@
     "StartStreamProcessor": {
       "verb": "Start",
       "noun": "StreamProcessor",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2221,7 +2221,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
@@ -2235,18 +2235,18 @@
     "StopStreamProcessor": {
       "verb": "Stop",
       "noun": "StreamProcessor",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2283,7 +2283,7 @@
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
-          "autoSetMaxResultSize": "false",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {

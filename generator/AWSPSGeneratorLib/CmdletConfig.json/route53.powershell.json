@@ -3,10 +3,10 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "R53",
-    "positionalProperties": [],
-    "paramEmitters": []
+    "positionalMemberNames": [],
+    "parameterEmitters": []
   },
-  "netsdk": {
+  "netSdk": {
     "additionalNamespaces": [],
     "serviceClientClass": "AmazonRoute53Client",
     "serviceConfigClass": "AmazonRoute53Config",
@@ -33,7 +33,7 @@
     "requestMember": "Marker",
     "responseMember": "NextMarker",
     "resultLimitMember": "MaxItems",
-    "autoSetMaxResultSize": "true",
+    "forceMaxResultSize": "true",
     "maxResultSize": 100,
     "resultsTruncatedMember": "IsTruncated"
   },
@@ -45,7 +45,7 @@
       "Id"
     ]
   },
-  "regionFallback": "us-east-1",
+  "nonSpecifiedRegionFallback": "us-east-1",
   "supportsShouldProcessVerbs": [],
   "verbMaps": {
     "List": "Get",
@@ -55,29 +55,29 @@
     "AssociateVPCWithHostedZone": {
       "verb": "Register",
       "noun": "VPCWithHostedZone",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "ChangeInfo",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "HostedZoneId",
-          "newName": "",
+          "originalName": "HostedZoneId",
+          "replacementName": "",
           "aliases": [
             "Id"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -109,7 +109,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -124,22 +124,22 @@
     "ChangeResourceRecordSets": {
       "verb": "Edit",
       "noun": "ResourceRecordSet",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "ChangeInfo",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "HostedZoneId",
-          "newName": "",
+          "originalName": "HostedZoneId",
+          "replacementName": "",
           "aliases": [
             "Id"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
@@ -149,7 +149,7 @@
           "ChangeBatch_Comment",
           "ChangeBatch_Changes"
         ],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -181,7 +181,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -196,18 +196,18 @@
     "ChangeTagsForResource": {
       "verb": "Edit",
       "noun": "TagsForResource",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -239,7 +239,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -254,18 +254,18 @@
     "CreateHealthCheck": {
       "verb": "New",
       "noun": "HealthCheck",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -297,7 +297,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -307,21 +307,21 @@
     "CreateHostedZone": {
       "verb": "New",
       "noun": "HostedZone",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [
           "CallerReference",
           "HostedZoneConfig_Comment"
         ],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -353,7 +353,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -368,18 +368,18 @@
     "CreateQueryLoggingConfig": {
       "verb": "New",
       "noun": "QueryLoggingConfig",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -411,7 +411,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -426,29 +426,29 @@
     "CreateReusableDelegationSet": {
       "verb": "New",
       "noun": "ReusableDelegationSet",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "HostedZoneId",
-          "newName": "",
+          "originalName": "HostedZoneId",
+          "replacementName": "",
           "aliases": [
             "Id"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -480,7 +480,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -495,18 +495,18 @@
     "CreateTrafficPolicy": {
       "verb": "New",
       "noun": "TrafficPolicy",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -538,7 +538,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -553,18 +553,18 @@
     "CreateTrafficPolicyInstance": {
       "verb": "New",
       "noun": "TrafficPolicyInstance",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -596,7 +596,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -611,18 +611,18 @@
     "CreateTrafficPolicyVersion": {
       "verb": "New",
       "noun": "TrafficPolicyVersion",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -654,7 +654,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -669,18 +669,18 @@
     "CreateVPCAssociationAuthorization": {
       "verb": "New",
       "noun": "VPCAssociationAuthorization",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -712,7 +712,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -727,18 +727,18 @@
     "DeleteHealthCheck": {
       "verb": "Remove",
       "noun": "HealthCheck",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -770,7 +770,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -785,18 +785,18 @@
     "DeleteHostedZone": {
       "verb": "Remove",
       "noun": "HostedZone",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "ChangeInfo",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -828,7 +828,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -843,18 +843,18 @@
     "DeleteQueryLoggingConfig": {
       "verb": "Remove",
       "noun": "QueryLoggingConfig",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -886,7 +886,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -901,18 +901,18 @@
     "DeleteReusableDelegationSet": {
       "verb": "Remove",
       "noun": "ReusableDelegationSet",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -944,7 +944,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -959,18 +959,18 @@
     "DeleteTrafficPolicy": {
       "verb": "Remove",
       "noun": "TrafficPolicy",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1002,7 +1002,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -1017,18 +1017,18 @@
     "DeleteTrafficPolicyInstance": {
       "verb": "Remove",
       "noun": "TrafficPolicyInstance",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1060,7 +1060,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -1075,18 +1075,18 @@
     "DeleteVPCAssociationAuthorization": {
       "verb": "Remove",
       "noun": "VPCAssociationAuthorization",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1118,7 +1118,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -1133,29 +1133,29 @@
     "DisassociateVPCFromHostedZone": {
       "verb": "Unregister",
       "noun": "VPCFromHostedZone",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "ChangeInfo",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "HostedZoneId",
-          "newName": "",
+          "originalName": "HostedZoneId",
+          "replacementName": "",
           "aliases": [
             "Id"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1187,7 +1187,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -1202,18 +1202,18 @@
     "GetAccountLimit": {
       "verb": "Get",
       "noun": "AccountLimit",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1245,7 +1245,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -1255,18 +1255,18 @@
     "GetChange": {
       "verb": "Get",
       "noun": "Change",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "ChangeInfo",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1298,7 +1298,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -1308,18 +1308,18 @@
     "GetCheckerIpRanges": {
       "verb": "Get",
       "noun": "CheckerIpRange",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "CheckerIpRanges",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "Get-R53CheckerIpRanges",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1351,7 +1351,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -1361,18 +1361,18 @@
     "GetGeoLocation": {
       "verb": "Get",
       "noun": "GeoLocation",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "GeoLocationDetails",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1404,7 +1404,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -1414,18 +1414,18 @@
     "GetHealthCheck": {
       "verb": "Get",
       "noun": "HealthCheck",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "HealthCheck",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1457,7 +1457,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -1467,18 +1467,18 @@
     "GetHealthCheckCount": {
       "verb": "Get",
       "noun": "HealthCheckCount",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "HealthCheckCount",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1510,7 +1510,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -1520,18 +1520,18 @@
     "GetHealthCheckLastFailureReason": {
       "verb": "Get",
       "noun": "HealthCheckLastFailureReason",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "HealthCheckObservations",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1563,7 +1563,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -1573,18 +1573,18 @@
     "GetHealthCheckStatus": {
       "verb": "Get",
       "noun": "HealthCheckStatus",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "HealthCheckObservations",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1616,7 +1616,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -1626,18 +1626,18 @@
     "GetHostedZone": {
       "verb": "Get",
       "noun": "HostedZone",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1669,7 +1669,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -1679,18 +1679,18 @@
     "GetHostedZoneCount": {
       "verb": "Get",
       "noun": "HostedZoneCount",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "HostedZoneCount",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1722,7 +1722,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -1732,18 +1732,18 @@
     "GetHostedZoneLimit": {
       "verb": "Get",
       "noun": "HostedZoneLimit",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1775,7 +1775,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -1785,18 +1785,18 @@
     "GetQueryLoggingConfig": {
       "verb": "Get",
       "noun": "QueryLoggingConfig",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "QueryLoggingConfig",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1828,7 +1828,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -1838,18 +1838,18 @@
     "GetReusableDelegationSet": {
       "verb": "Get",
       "noun": "ReusableDelegationSet",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "DelegationSet",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1881,7 +1881,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -1891,18 +1891,18 @@
     "GetReusableDelegationSetLimit": {
       "verb": "Get",
       "noun": "ReusableDelegationSetLimit",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1934,7 +1934,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -1944,18 +1944,18 @@
     "GetTrafficPolicy": {
       "verb": "Get",
       "noun": "TrafficPolicy",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "TrafficPolicy",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -1987,7 +1987,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -1997,18 +1997,18 @@
     "GetTrafficPolicyInstance": {
       "verb": "Get",
       "noun": "TrafficPolicyInstance",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "TrafficPolicyInstance",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2040,7 +2040,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -2050,18 +2050,18 @@
     "GetTrafficPolicyInstanceCount": {
       "verb": "Get",
       "noun": "TrafficPolicyInstanceCount",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "TrafficPolicyInstanceCount",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2093,7 +2093,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -2103,18 +2103,18 @@
     "ListGeoLocations": {
       "verb": "Get",
       "noun": "GeoLocationList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "Get-R53GeoLocations",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2146,7 +2146,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -2156,18 +2156,18 @@
     "ListHealthChecks": {
       "verb": "Get",
       "noun": "HealthCheckList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "HealthChecks",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "Get-R53HealthChecks",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2199,7 +2199,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -2209,18 +2209,18 @@
     "ListHostedZones": {
       "verb": "Get",
       "noun": "HostedZoneList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "HostedZones",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "Get-R53HostedZones",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2252,7 +2252,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -2265,18 +2265,18 @@
     "ListQueryLoggingConfigs": {
       "verb": "Get",
       "noun": "QueryLoggingConfigList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "QueryLoggingConfigs",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2308,7 +2308,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -2318,22 +2318,22 @@
     "ListResourceRecordSets": {
       "verb": "Get",
       "noun": "ResourceRecordSet",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "HostedZoneId",
-          "newName": "",
+          "originalName": "HostedZoneId",
+          "replacementName": "",
           "aliases": [
             "Id"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
@@ -2343,7 +2343,7 @@
           "StartRecordName",
           "StartRecordType"
         ],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2375,7 +2375,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -2385,18 +2385,18 @@
     "ListReusableDelegationSets": {
       "verb": "Get",
       "noun": "ReusableDelegationSetList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "DelegationSets",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "Get-R53ReusableDelegationSets",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2428,7 +2428,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -2438,18 +2438,18 @@
     "ListTagsForResource": {
       "verb": "Get",
       "noun": "TagsForResource",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "ResourceTagSet",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2481,7 +2481,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -2491,18 +2491,18 @@
     "ListTagsForResources": {
       "verb": "Get",
       "noun": "TagsForResourceList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "ResourceTagSets",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "Get-R53TagsForResources",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2534,7 +2534,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -2547,18 +2547,18 @@
     "ListTrafficPolicyInstances": {
       "verb": "Get",
       "noun": "TrafficPolicyInstanceList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "Get-R53TrafficPolicyInstances",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2590,7 +2590,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -2600,29 +2600,29 @@
     "ListTrafficPolicyInstancesByHostedZone": {
       "verb": "Get",
       "noun": "TrafficPolicyInstancesByHostedZone",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "HostedZoneId",
-          "newName": "",
+          "originalName": "HostedZoneId",
+          "replacementName": "",
           "aliases": [
             "Id"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2654,7 +2654,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -2664,18 +2664,18 @@
     "ListTrafficPolicyInstancesByPolicy": {
       "verb": "Get",
       "noun": "TrafficPolicyInstancesByPolicy",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2707,7 +2707,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -2720,29 +2720,29 @@
     "ListVPCAssociationAuthorizations": {
       "verb": "Get",
       "noun": "VPCAssociationAuthorizationList",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "HostedZoneId",
-          "newName": "",
+          "originalName": "HostedZoneId",
+          "replacementName": "",
           "aliases": [
             "Id"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2774,7 +2774,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -2784,18 +2784,18 @@
     "TestDNSAnswer": {
       "verb": "Test",
       "noun": "DNSAnswer",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2827,7 +2827,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -2840,18 +2840,18 @@
     "UpdateHostedZoneComment": {
       "verb": "Update",
       "noun": "HostedZoneComment",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "HostedZone",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2883,7 +2883,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -2898,18 +2898,18 @@
     "UpdateTrafficPolicyComment": {
       "verb": "Update",
       "noun": "TrafficPolicyComment",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "TrafficPolicy",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2941,7 +2941,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },
@@ -2956,18 +2956,18 @@
     "UpdateTrafficPolicyInstance": {
       "verb": "Update",
       "noun": "TrafficPolicyInstance",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "TrafficPolicyInstance",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -2999,7 +2999,7 @@
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
-          "autoSetMaxResultSize": "true",
+          "forceMaxResultSize": "true",
           "maxResultSize": 100,
           "resultsTruncatedMember": "IsTruncated"
         },

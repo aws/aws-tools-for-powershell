@@ -16,10 +16,10 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "STS",
-    "positionalProperties": [],
-    "paramEmitters": []
+    "positionalMemberNames": [],
+    "parameterEmitters": []
   },
-  "netsdk": {
+  "netSdk": {
     "additionalNamespaces": [],
     "serviceClientClass": "AmazonSecurityTokenServiceClient",
     "serviceConfigClass": "AmazonSecurityTokenServiceConfig",
@@ -33,7 +33,7 @@
     "byValueMembers": [],
     "byNameMembers": []
   },
-  "regionFallback": "",
+  "nonSpecifiedRegionFallback": "",
   "supportsShouldProcessVerbs": [],
   "verbMaps": {
     "Decode": "Convert"
@@ -42,22 +42,22 @@
     "AssumeRole": {
       "verb": "Use",
       "noun": "Role",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "DurationSeconds",
-          "newName": "DurationInSeconds",
+          "originalName": "DurationSeconds",
+          "replacementName": "DurationInSeconds",
           "aliases": [
             "DurationSeconds"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
@@ -69,7 +69,7 @@
           "DurationSeconds",
           "ExternalId"
         ],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -108,18 +108,18 @@
     "DecodeAuthorizationMessage": {
       "verb": "Convert",
       "noun": "AuthorizationMessage",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "DecodedMessage",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -152,18 +152,18 @@
     "GetCallerIdentity": {
       "verb": "Get",
       "noun": "CallerIdentity",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [],
+      "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -191,22 +191,22 @@
     "GetFederationToken": {
       "verb": "Get",
       "noun": "FederationToken",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Response",
         "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "DurationSeconds",
-          "newName": "DurationInSeconds",
+          "originalName": "DurationSeconds",
+          "replacementName": "DurationInSeconds",
           "aliases": [
             "DurationSeconds"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
@@ -216,7 +216,7 @@
           "Policy",
           "DurationSeconds"
         ],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
@@ -244,22 +244,22 @@
     "GetSessionToken": {
       "verb": "Get",
       "noun": "SessionToken",
-      "allowAnonymousAuthentication": "Never",
+      "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
         "outputMemberSelector": "Credentials",
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "customParameters": [
+      "parameterCustomizations": [
         {
-          "name": "DurationSeconds",
-          "newName": "DurationInSeconds",
+          "originalName": "DurationSeconds",
+          "replacementName": "DurationInSeconds",
           "aliases": [
             "DurationSeconds"
           ],
-          "autoApplyAlias": "true",
-          "autoRename": "true",
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
           "exclude": "false"
         }
       ],
@@ -269,7 +269,7 @@
           "SerialNumber",
           "TokenCode"
         ],
-        "remapMemoryStreamParameters": "true"
+        "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
       "pagination": {},
