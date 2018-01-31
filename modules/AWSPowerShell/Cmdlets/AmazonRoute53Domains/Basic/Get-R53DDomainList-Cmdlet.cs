@@ -52,6 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// response, and submit another request that includes the value of <code>NextPageMarker</code>
         /// in the <code>Marker</code> element.</para><para>Constraints: The marker must match the value specified in the previous request.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

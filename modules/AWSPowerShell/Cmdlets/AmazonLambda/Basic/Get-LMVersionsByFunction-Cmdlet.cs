@@ -64,6 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para> Optional string. An opaque pagination token returned from a previous <code>ListVersionsByFunction</code>
         /// operation. If present, indicates where to continue the listing. </para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

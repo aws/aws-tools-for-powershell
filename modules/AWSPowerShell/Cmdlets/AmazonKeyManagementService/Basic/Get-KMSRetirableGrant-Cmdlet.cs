@@ -87,6 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// results. Set it to the value of <code>NextMarker</code> from the truncated response
         /// you just received.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

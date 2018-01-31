@@ -50,6 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// of the <code>NextMarker</code> from the current page's response (which is also the
         /// ID of the last identity on that page).</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

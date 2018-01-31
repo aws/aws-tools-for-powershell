@@ -113,6 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <para>The page token for the next set of results. To retrieve the first set of results,
         /// use null.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

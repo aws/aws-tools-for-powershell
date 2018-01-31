@@ -72,6 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// 53 will return if you submit another request.</para><para>If the value of <code>IsTruncated</code> in the previous response was <code>false</code>,
         /// there are no more hosted zones to get.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

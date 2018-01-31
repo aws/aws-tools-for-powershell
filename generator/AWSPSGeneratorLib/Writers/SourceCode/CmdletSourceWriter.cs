@@ -441,7 +441,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         {
             var paramDoc = property.MemberDocumentation;
             if (MethodAnalysis.AutoIterateSettings != null 
-                && (MethodAnalysis.AutoIterateSettings.IsNextToken(property.Name) || MethodAnalysis.AutoIterateSettings.IsEmitLimit(property.Name)))
+                && MethodAnalysis.AutoIterateSettings.IsIterationParameter(property.Name))
             {
                 paramDoc += "\r\n<para>"
                          + "\r\n<br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call."

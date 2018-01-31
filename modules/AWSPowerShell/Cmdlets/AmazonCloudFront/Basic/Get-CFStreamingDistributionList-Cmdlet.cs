@@ -46,6 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>The value that you provided for the <code>Marker</code> request parameter.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

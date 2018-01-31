@@ -66,6 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>A marker used to get the next set of results.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

@@ -61,6 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// to the value of the <code>NextMarker</code> from the current page's response. This
         /// value is the same as the ID of the last invalidation batch on that page. </para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

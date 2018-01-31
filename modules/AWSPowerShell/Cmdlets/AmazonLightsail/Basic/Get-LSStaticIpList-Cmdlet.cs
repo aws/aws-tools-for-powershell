@@ -46,6 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>
         /// <para>A token used for advancing to the next page of results from your get static IPs request.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

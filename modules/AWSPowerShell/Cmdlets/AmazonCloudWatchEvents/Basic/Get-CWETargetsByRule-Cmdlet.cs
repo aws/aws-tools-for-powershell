@@ -70,6 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// <para>
         /// <para>The token returned by a previous call to retrieve the next set of results.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }

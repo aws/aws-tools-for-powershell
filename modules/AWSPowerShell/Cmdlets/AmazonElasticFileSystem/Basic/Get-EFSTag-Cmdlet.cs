@@ -66,6 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// operation (String). If present, it specifies to continue the list from where the previous
         /// call left off.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
