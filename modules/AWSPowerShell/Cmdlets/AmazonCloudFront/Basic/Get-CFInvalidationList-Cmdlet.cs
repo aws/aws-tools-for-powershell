@@ -28,14 +28,15 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Lists invalidation batches.
+    /// Lists invalidation batches.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CFInvalidationList")]
-    [OutputType("Amazon.CloudFront.Model.InvalidationList")]
+    [OutputType("Amazon.CloudFront.Model.InvalidationSummary")]
     [AWSCmdlet("Calls the Amazon CloudFront ListInvalidations API operation.", Operation = new[] {"ListInvalidations"}, LegacyAlias="Get-CFInvalidations")]
-    [AWSCmdletOutput("Amazon.CloudFront.Model.InvalidationList",
-        "This cmdlet returns a InvalidationList object.",
-        "The service call response (type Amazon.CloudFront.Model.ListInvalidationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.CloudFront.Model.InvalidationSummary",
+        "This cmdlet returns a collection of InvalidationSummary objects.",
+        "The service call response (type Amazon.CloudFront.Model.ListInvalidationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type System.Boolean), Marker (type System.String), MaxItems (type System.Int32), NextMarker (type System.String), Quantity (type System.Int32)"
     )]
     public partial class GetCFInvalidationListCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
@@ -62,6 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [Alias("NextToken")]
         public System.String Marker { get; set; }
         #endregion
         
@@ -70,10 +72,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>The maximum number of invalidation batches that you want in the response body.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public System.String MaxItem { get; set; }
+        public int MaxItem { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -91,7 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             
             context.DistributionId = this.DistributionId;
             context.Marker = this.Marker;
-            context.MaxItems = this.MaxItem;
+            if (ParameterWasBound("MaxItem"))
+                context.MaxItems = this.MaxItem;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -105,44 +111,92 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.CloudFront.Model.ListInvalidationsRequest();
             
+            // create request and set iteration invariants
+            var request = new Amazon.CloudFront.Model.ListInvalidationsRequest();
             if (cmdletContext.DistributionId != null)
             {
                 request.DistributionId = cmdletContext.DistributionId;
             }
-            if (cmdletContext.Marker != null)
-            {
-                request.Marker = cmdletContext.Marker;
-            }
-            if (cmdletContext.MaxItems != null)
-            {
-                request.MaxItems = cmdletContext.MaxItems;
-            }
             
-            CmdletOutput output;
+            // Initialize loop variants and commence piping
+            System.String _nextMarker = null;
+            int? _emitLimit = null;
+            int _retrievedSoFar = 0;
+            if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
+            {
+                _nextMarker = cmdletContext.Marker;
+            }
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxItems))
+            {
+                _emitLimit = cmdletContext.MaxItems;
+            }
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxItems);
+            bool _continueIteration = true;
             
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.InvalidationList;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.Marker = _nextMarker;
+                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    {
+                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(_emitLimit.Value);
+                    }
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.InvalidationList.Items;
+                        notes = new Dictionary<string, object>();
+                        notes["IsTruncated"] = response.InvalidationList.IsTruncated;
+                        notes["Marker"] = response.InvalidationList.Marker;
+                        notes["MaxItems"] = response.InvalidationList.MaxItems;
+                        notes["NextMarker"] = response.InvalidationList.NextMarker;
+                        notes["Quantity"] = response.InvalidationList.Quantity;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        int _receivedThisCall = response.InvalidationList.Items.Count;
+                        if (_userControllingPaging)
+                        {
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
+                        }
+                        
+                        _nextMarker = response.InvalidationList.NextMarker;
+                        
+                        _retrievedSoFar += _receivedThisCall;
+                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        {
+                            _continueIteration = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -186,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             public System.String DistributionId { get; set; }
             public System.String Marker { get; set; }
-            public System.String MaxItems { get; set; }
+            public int? MaxItems { get; set; }
         }
         
     }

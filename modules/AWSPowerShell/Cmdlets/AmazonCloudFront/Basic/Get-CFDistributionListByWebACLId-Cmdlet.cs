@@ -28,14 +28,15 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// List the distributions that are associated with a specified AWS WAF web ACL.
+    /// List the distributions that are associated with a specified AWS WAF web ACL.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CFDistributionListByWebACLId")]
-    [OutputType("Amazon.CloudFront.Model.DistributionList")]
+    [OutputType("Amazon.CloudFront.Model.DistributionSummary")]
     [AWSCmdlet("Calls the Amazon CloudFront ListDistributionsByWebACLId API operation.", Operation = new[] {"ListDistributionsByWebACLId"})]
-    [AWSCmdletOutput("Amazon.CloudFront.Model.DistributionList",
-        "This cmdlet returns a DistributionList object.",
-        "The service call response (type Amazon.CloudFront.Model.ListDistributionsByWebACLIdResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.CloudFront.Model.DistributionSummary",
+        "This cmdlet returns a collection of DistributionSummary objects.",
+        "The service call response (type Amazon.CloudFront.Model.ListDistributionsByWebACLIdResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type System.Boolean), Marker (type System.String), MaxItems (type System.Int32), NextMarker (type System.String), Quantity (type System.Int32)"
     )]
     public partial class GetCFDistributionListByWebACLIdCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// that aren't associated with a web ACL. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String WebACLId { get; set; }
         #endregion
         
@@ -64,6 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [Alias("NextToken")]
         public System.String Marker { get; set; }
         #endregion
         
@@ -73,10 +75,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>The maximum number of distributions that you want CloudFront to return in the response
         /// body. The maximum and default values are both 100.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public System.String MaxItem { get; set; }
+        public int MaxItem { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -93,7 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             PreExecutionContextLoad(context);
             
             context.Marker = this.Marker;
-            context.MaxItems = this.MaxItem;
+            if (ParameterWasBound("MaxItem"))
+                context.MaxItems = this.MaxItem;
             context.WebACLId = this.WebACLId;
             
             // allow further manipulation of loaded context prior to processing
@@ -108,44 +114,92 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.CloudFront.Model.ListDistributionsByWebACLIdRequest();
             
-            if (cmdletContext.Marker != null)
-            {
-                request.Marker = cmdletContext.Marker;
-            }
-            if (cmdletContext.MaxItems != null)
-            {
-                request.MaxItems = cmdletContext.MaxItems;
-            }
+            // create request and set iteration invariants
+            var request = new Amazon.CloudFront.Model.ListDistributionsByWebACLIdRequest();
             if (cmdletContext.WebACLId != null)
             {
                 request.WebACLId = cmdletContext.WebACLId;
             }
             
-            CmdletOutput output;
+            // Initialize loop variants and commence piping
+            System.String _nextMarker = null;
+            int? _emitLimit = null;
+            int _retrievedSoFar = 0;
+            if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
+            {
+                _nextMarker = cmdletContext.Marker;
+            }
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxItems))
+            {
+                _emitLimit = cmdletContext.MaxItems;
+            }
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxItems);
+            bool _continueIteration = true;
             
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.DistributionList;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.Marker = _nextMarker;
+                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    {
+                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(_emitLimit.Value);
+                    }
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.DistributionList.Items;
+                        notes = new Dictionary<string, object>();
+                        notes["IsTruncated"] = response.DistributionList.IsTruncated;
+                        notes["Marker"] = response.DistributionList.Marker;
+                        notes["MaxItems"] = response.DistributionList.MaxItems;
+                        notes["NextMarker"] = response.DistributionList.NextMarker;
+                        notes["Quantity"] = response.DistributionList.Quantity;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        int _receivedThisCall = response.DistributionList.Items.Count;
+                        if (_userControllingPaging)
+                        {
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
+                        }
+                        
+                        _nextMarker = response.DistributionList.NextMarker;
+                        
+                        _retrievedSoFar += _receivedThisCall;
+                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        {
+                            _continueIteration = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -188,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Marker { get; set; }
-            public System.String MaxItems { get; set; }
+            public int? MaxItems { get; set; }
             public System.String WebACLId { get; set; }
         }
         

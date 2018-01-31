@@ -1064,7 +1064,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     writer.WriteLine("try");
                     writer.OpenRegion();
                     writer.WriteLine("var response = CallAWSServiceOperation(client, request);");
-                    WriteResultOutput(writer, operationAnalysis, Options.BreakOnOutputMismatchError);
+                    WriteResultOutput(writer, operationAnalysis, Options.BreakOnOutputMismatchError, ComputeResponseMemberPath(operationAnalysis));
                     writer.CloseRegion();
                     writer.WriteLine("catch (Exception e)");
                     writer.OpenRegion();
@@ -1082,19 +1082,30 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         }
 
         /// <summary>
+        /// Forms the member path starting at response class to the output fields.
+        /// </summary>
+        private string ComputeResponseMemberPath(OperationAnalyzer analyzer)
+        {
+            return string.IsNullOrEmpty(analyzer.CurrentOperation.OutputWrapper)
+                ? "response"
+                :string.Format("response.{0}", analyzer.CurrentOperation.OutputWrapper);
+        }
+
+        /// <summary>
         /// Writes an IExecutor implementation compatible with auto-iteration pattern 1
-        /// (use page marker tokens, iterate until itrNext is empty; 
-        /// 'AutoIterate StartMarker="NextToken" NextMarker="NextToken"').
+        /// (use page marker tokens, iterate until the field referenced by 'Next' is empty;
+        /// 'AutoIterate Start="NextToken" Next="NextToken"').
         /// </summary>
         /// <param name="writer"></param>
         /// <param name="operationAnalysis"></param>
         /// <param name="rootSimpleProperties"></param>
         private void WriteIExecutorIterPattern1(IndentedTextWriter writer, OperationAnalyzer operationAnalysis, IEnumerable<SimplePropertyInfo> rootSimpleProperties)
         {
-            var methodName = operationAnalysis.MethodName;
             var analyzedResult = operationAnalysis.AnalyzedResult;
             var requestType = operationAnalysis.RequestType;
             var autoIteration = operationAnalysis.AutoIterateSettings;
+
+            var responseMemberReferencePath = ComputeResponseMemberPath(operationAnalysis);
 
             writer.WriteLine("public object Execute(ExecutorContext context)");
             writer.OpenRegion();
@@ -1162,7 +1173,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                 writer.WriteLine("var response = CallAWSServiceOperation(client, request);");
                                 writer.WriteLine();
 
-                                WriteResultOutput(writer, operationAnalysis, Options.BreakOnOutputMismatchError);
+                                WriteResultOutput(writer, operationAnalysis, Options.BreakOnOutputMismatchError, responseMemberReferencePath);
 
                                 // Most if not all collections are marshalled as List<T>, so assume we have a Count
                                 // property available (if not, compile will break post-generation and we can investigate).
@@ -1172,13 +1183,15 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                 // non-responsiveness (doesn't happen in console shell)
                                 writer.WriteLine("if (_userControllingPaging)");
                                 writer.OpenRegion();
-                                writer.WriteLine("int _receivedThisCall = response.{0}.Count;", analyzedResult.SingleResultProperty.Name);
+                                writer.WriteLine("int _receivedThisCall = {0}.{1}.Count;",
+                                                 responseMemberReferencePath,
+                                                 analyzedResult.SingleResultProperty.Name);
                                 writer.WriteLine("WriteProgressRecord(\"Retrieving\", string.Format(\"Retrieved {{0}} records starting from marker '{{1}}'\", _receivedThisCall, request.{0}));",
                                                  autoIteration.Start);
                                 writer.CloseRegion();
 
                                 writer.WriteLine();
-                                writer.WriteLine("_nextMarker = response.{0};", autoIteration.Next);
+                                writer.WriteLine("_nextMarker = {0}.{1};", responseMemberReferencePath, autoIteration.Next);
                             }
                             writer.CloseRegion();
                             writer.WriteLine("catch (Exception e)");
@@ -1221,7 +1234,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         /// <summary>
         /// Writes an IExecutor implementation compatible with auto-iteration pattern 2
         /// (use page marker tokens and ability to control total data size; iterate until 'next token' is empty;
-        /// 'AutoIterate EmitLimit="MaxRecords" StartMarker="Marker" NextMarker="Marker"')
+        /// 'AutoIterate EmitLimit="MaxRecords" Start="Marker" Next="Marker"')
         /// </summary>
         /// <param name="writer"></param>
         /// <param name="operationAnalysis"></param>
@@ -1233,6 +1246,8 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             var requestType = operationAnalysis.RequestType;
             var autoIteration = operationAnalysis.AutoIterateSettings;
             var pageSizeSet = (autoIteration.ServicePageSize != -1);
+
+            var responseMemberReferencePath = ComputeResponseMemberPath(operationAnalysis);
 
             writer.WriteLine("public object Execute(ExecutorContext context)");
             writer.OpenRegion();
@@ -1365,7 +1380,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                 writer.WriteLine();
 
                                 writer.WriteLine("var response = CallAWSServiceOperation(client, request);");
-                                WriteResultOutput(writer, operationAnalysis, Options.BreakOnOutputMismatchError);
+                                WriteResultOutput(writer, operationAnalysis, Options.BreakOnOutputMismatchError, responseMemberReferencePath);
 
                                 // most if not all collections are marshalled as List<T>, so assume we have a Count
                                 // property available (if not, compile will break post-generation and we can investigate)
@@ -1373,7 +1388,9 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                 // by the presence of an input marker or a max count; PowerShell ISE has an issue where 
                                 // the repeated progress output when in a tight loop in user script bogs down the 
                                 // environment to the point of  non-responsiveness (doesn't happen in console shell)
-                                writer.WriteLine("int _receivedThisCall = response.{0}.Count;", analyzedResult.SingleResultProperty.Name);
+                                writer.WriteLine("int _receivedThisCall = {0}.{1}.Count;",
+                                                responseMemberReferencePath,
+                                                analyzedResult.SingleResultProperty.Name);
                                 writer.WriteLine("if (_userControllingPaging)");
                                 writer.OpenRegion();
                                 writer.WriteLine("WriteProgressRecord(\"Retrieving\", string.Format(\"Retrieved {{0}} records starting from marker '{{1}}'\", _receivedThisCall, request.{0}));",
@@ -1381,7 +1398,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                 writer.CloseRegion();
 
                                 writer.WriteLine();
-                                writer.WriteLine("_nextMarker = response.{0};", autoIteration.Next);
+                                writer.WriteLine("_nextMarker = {0}.{1};", responseMemberReferencePath, autoIteration.Next);
 
                                 writer.WriteLine();
                                 writer.WriteLine("_retrievedSoFar += _receivedThisCall;");
@@ -1455,7 +1472,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         /// <param name="writer"></param>
         /// <param name="operationAnalysis"></param>
         /// <param name="errorOnAnalyzedResultMismatch"></param>
-        private void WriteResultOutput(IndentedTextWriter writer, OperationAnalyzer operationAnalysis, bool errorOnAnalyzedResultMismatch)
+        /// <param name="responseMemberReferencePath"></param>
+        private void WriteResultOutput(IndentedTextWriter writer,
+                                       OperationAnalyzer operationAnalysis,
+                                       bool errorOnAnalyzedResultMismatch,
+                                       string responseMemberReferencePath)
         {
             var analyzedResult = operationAnalysis.AnalyzedResult;
             var emitErrorOnResultMismatch = errorOnAnalyzedResultMismatch;
@@ -1474,7 +1495,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                             writer.WriteLine("if (this.PassThru.IsPresent)");
                             writer.IncreaseIndent();
                             var passThruExpression = operationAnalysis.CurrentOperation.PassThru != null
-                                        ? operationAnalysis.CurrentOperation.PassThru.Expression 
+                                        ? operationAnalysis.CurrentOperation.PassThru.Expression
                                         : string.Format("this.{0}", analyzedResult.PassThruParameter.CmdletParameterName);
                             writer.WriteLine("pipelineOutput = {0};", passThruExpression);
                             writer.DecreaseIndent();
@@ -1497,7 +1518,9 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
                 case AnalyzedResult.ResultOutputTypes.SingleProperty:
                     {
-                        writer.WriteLine("object pipelineOutput = response.{0};", analyzedResult.SingleResultProperty.Name);
+                        writer.WriteLine("object pipelineOutput = {0}.{1};",
+                                         responseMemberReferencePath,
+                                         analyzedResult.SingleResultProperty.Name);
                         if (analyzedResult.MetadataProperties.Count != 0)
                         {
                             writer.WriteLine("notes = new Dictionary<string, object>();");
@@ -1505,7 +1528,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                             {
                                 // still emit all markers in case someone is trying to
                                 // do manual paging
-                                writer.WriteLine("notes[\"{0}\"] = response.{0};", prop.Name);
+                                writer.WriteLine("notes[\"{1}\"] = {0}.{1};", responseMemberReferencePath, prop.Name);
                             }
                         }
 

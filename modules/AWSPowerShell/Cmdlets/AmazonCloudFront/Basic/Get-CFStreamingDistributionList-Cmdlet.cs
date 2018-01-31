@@ -28,14 +28,15 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// List streaming distributions.
+    /// List streaming distributions.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CFStreamingDistributionList")]
-    [OutputType("Amazon.CloudFront.Model.StreamingDistributionList")]
+    [OutputType("Amazon.CloudFront.Model.StreamingDistributionSummary")]
     [AWSCmdlet("Calls the Amazon CloudFront ListStreamingDistributions API operation.", Operation = new[] {"ListStreamingDistributions"}, LegacyAlias="Get-CFStreamingDistributions")]
-    [AWSCmdletOutput("Amazon.CloudFront.Model.StreamingDistributionList",
-        "This cmdlet returns a StreamingDistributionList object.",
-        "The service call response (type Amazon.CloudFront.Model.ListStreamingDistributionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.CloudFront.Model.StreamingDistributionSummary",
+        "This cmdlet returns a collection of StreamingDistributionSummary objects.",
+        "The service call response (type Amazon.CloudFront.Model.ListStreamingDistributionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type System.Boolean), Marker (type System.String), MaxItems (type System.Int32), NextMarker (type System.String), Quantity (type System.Int32)"
     )]
     public partial class GetCFStreamingDistributionListCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
@@ -47,6 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [Alias("NextToken")]
         public System.String Marker { get; set; }
         #endregion
         
@@ -55,10 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>The value that you provided for the <code>MaxItems</code> request parameter.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public System.String MaxItem { get; set; }
+        public int MaxItem { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -75,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             PreExecutionContextLoad(context);
             
             context.Marker = this.Marker;
-            context.MaxItems = this.MaxItem;
+            if (ParameterWasBound("MaxItem"))
+                context.MaxItems = this.MaxItem;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -89,40 +95,88 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
+            
+            // create request and set iteration invariants
             var request = new Amazon.CloudFront.Model.ListStreamingDistributionsRequest();
             
-            if (cmdletContext.Marker != null)
+            // Initialize loop variants and commence piping
+            System.String _nextMarker = null;
+            int? _emitLimit = null;
+            int _retrievedSoFar = 0;
+            if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
             {
-                request.Marker = cmdletContext.Marker;
+                _nextMarker = cmdletContext.Marker;
             }
-            if (cmdletContext.MaxItems != null)
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxItems))
             {
-                request.MaxItems = cmdletContext.MaxItems;
+                _emitLimit = cmdletContext.MaxItems;
             }
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxItems);
+            bool _continueIteration = true;
             
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.StreamingDistributionList;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.Marker = _nextMarker;
+                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    {
+                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(_emitLimit.Value);
+                    }
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.StreamingDistributionList.Items;
+                        notes = new Dictionary<string, object>();
+                        notes["IsTruncated"] = response.StreamingDistributionList.IsTruncated;
+                        notes["Marker"] = response.StreamingDistributionList.Marker;
+                        notes["MaxItems"] = response.StreamingDistributionList.MaxItems;
+                        notes["NextMarker"] = response.StreamingDistributionList.NextMarker;
+                        notes["Quantity"] = response.StreamingDistributionList.Quantity;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        int _receivedThisCall = response.StreamingDistributionList.Items.Count;
+                        if (_userControllingPaging)
+                        {
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
+                        }
+                        
+                        _nextMarker = response.StreamingDistributionList.NextMarker;
+                        
+                        _retrievedSoFar += _receivedThisCall;
+                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        {
+                            _continueIteration = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -165,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Marker { get; set; }
-            public System.String MaxItems { get; set; }
+            public int? MaxItems { get; set; }
         }
         
     }
