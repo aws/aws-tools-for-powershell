@@ -25,6 +25,17 @@ namespace AWSPowerShellGenerator.Writers.Help
         private const string FeedbackSection =
             "<!-- BEGIN-FEEDBACK-SECTION --><span class=\"feedback\">{0}</span><!-- END-FEEDBACK-SECTION -->";
 
+        protected static string SiteCatalystSnippet { get; private set; }
+
+        static BasePageWriter()
+        {
+            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AWSPowerShellGenerator.HelpMaterials.WebHelp.Templates.SiteCatalyst.snippet"))
+            using (var reader = new StreamReader(stream))
+            {
+                SiteCatalystSnippet = reader.ReadToEnd();
+            }
+        }
+
         protected BasePageWriter(GeneratorOptions options, string outputFolder)
         {
             Options = options;
@@ -67,6 +78,7 @@ namespace AWSPowerShellGenerator.Writers.Help
                         // every page needs a title, meta description and canonical url to satisfy indexing
                         writer.WriteLine("<meta name=\"description\" content=\"{0}\">", GetMetaDescription());
                         writer.WriteLine("<title>{0} | AWS Tools for PowerShell</title>", GetTitle());
+                        writer.WriteLine("<script src=\"https://a0.awsstatic.com/s_code/js/1.0/awshome_s_code.js\"></script>");
                         writer.WriteLine("<link rel=\"canonical\" href=\"http://docs.aws.amazon.com/powershell/latest/reference/index.html?page={0}&tocid={1}\"/>",
                                          this.GenerateFilename(),
                                          this.GetTOCID());
@@ -223,15 +235,9 @@ namespace AWSPowerShellGenerator.Writers.Help
             writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/syntaxhighlighter/shBrushCSharp.js\"></script>", RelativePathToRoot);
             writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/syntaxhighlighter/shBrushPlain.js\"></script>", RelativePathToRoot);
             writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/syntaxhighlighter/shBrushXml.js\"></script>", RelativePathToRoot);
-
-            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AWSPowerShellGenerator.HelpMaterials.WebHelp.Templates.SiteCatalyst.snippet"))
-            using (var reader = new StreamReader(stream))
-            {
-                var script = reader.ReadToEnd();
-                writer.WriteLine(script);
-            }
-
             writer.WriteLine("<script type=\"text/javascript\">SyntaxHighlighter.all()</script>");
+
+            writer.WriteLine(SiteCatalystSnippet);
         }
 
         protected void AddMemberTableSectionHeader(TextWriter writer, string name, bool showIconColumn = true)
