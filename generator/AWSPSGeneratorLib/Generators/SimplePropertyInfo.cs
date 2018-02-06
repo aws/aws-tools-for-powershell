@@ -263,7 +263,7 @@ namespace AWSPowerShellGenerator.Generators
 
                     if (propertyDocumentation.Length == 0)
                     {
-                        propertyDocumentation = "Documentation for this parameter is not currently available; please refer to the service API documentation.";
+                        propertyDocumentation = "The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.";
                         // Steve: turning this message off now I have the initial set of shape
                         // members that have no useful documentation. Will re-enable and make a build
                         // error once the doc team members I've contacted finish updating their models.

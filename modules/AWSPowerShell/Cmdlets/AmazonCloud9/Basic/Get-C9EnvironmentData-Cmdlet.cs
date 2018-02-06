@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>The IDs of invidividual environments to get information about.</para>
+        /// <para>The IDs of individual environments to get information about.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

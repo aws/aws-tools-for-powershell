@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPublicVirtualInterface_AddressFamily
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPublicVirtualInterface_AmazonAddress
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPublicVirtualInterface_Asn
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPublicVirtualInterface_AuthKey
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPublicVirtualInterface_CustomerAddress
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPublicVirtualInterface_RouteFilterPrefix
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPublicVirtualInterface_VirtualInterfaceName
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPublicVirtualInterface_Vlan
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

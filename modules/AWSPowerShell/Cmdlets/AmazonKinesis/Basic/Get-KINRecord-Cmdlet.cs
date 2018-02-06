@@ -28,7 +28,7 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Gets data records from a Kinesis stream's shard.
+    /// Gets data records from a Kinesis data stream's shard.
     /// 
     ///  
     /// <para>
@@ -39,17 +39,18 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// take multiple calls to get to a portion of the shard that contains records.
     /// </para><para>
     /// You can scale by provisioning multiple shards per stream while considering service
-    /// limits (for more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams
-    /// Limits</a> in the <i>Amazon Kinesis Streams Developer Guide</i>). Your application
-    /// should have one thread per shard, each reading continuously from its stream. To read
-    /// from a stream continually, call <a>GetRecords</a> in a loop. Use <a>GetShardIterator</a>
-    /// to get the shard iterator to specify in the first <a>GetRecords</a> call. <a>GetRecords</a>
-    /// returns a new shard iterator in <code>NextShardIterator</code>. Specify the shard
-    /// iterator returned in <code>NextShardIterator</code> in subsequent calls to <a>GetRecords</a>.
-    /// If the shard has been closed, the shard iterator can't return more data and <a>GetRecords</a>
-    /// returns <code>null</code> in <code>NextShardIterator</code>. You can terminate the
-    /// loop when the shard is closed, or when the shard iterator reaches the record with
-    /// the sequence number or other attribute that marks it as the last record to process.
+    /// limits (for more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Amazon
+    /// Kinesis Data Streams Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>).
+    /// Your application should have one thread per shard, each reading continuously from
+    /// its stream. To read from a stream continually, call <a>GetRecords</a> in a loop. Use
+    /// <a>GetShardIterator</a> to get the shard iterator to specify in the first <a>GetRecords</a>
+    /// call. <a>GetRecords</a> returns a new shard iterator in <code>NextShardIterator</code>.
+    /// Specify the shard iterator returned in <code>NextShardIterator</code> in subsequent
+    /// calls to <a>GetRecords</a>. If the shard has been closed, the shard iterator can't
+    /// return more data and <a>GetRecords</a> returns <code>null</code> in <code>NextShardIterator</code>.
+    /// You can terminate the loop when the shard is closed, or when the shard iterator reaches
+    /// the record with the sequence number or other attribute that marks it as the last record
+    /// to process.
     /// </para><para>
     /// Each data record can be up to 1 MB in size, and each shard can read up to 2 MB per
     /// second. You can ensure that your calls don't exceed the maximum supported size or
@@ -59,9 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </para><para>
     /// The size of the data returned by <a>GetRecords</a> varies depending on the utilization
     /// of the shard. The maximum size of data that <a>GetRecords</a> can return is 10 MB.
-    /// If a call returns this amount of data, subsequent calls made within the next 5 seconds
-    /// throw <code>ProvisionedThroughputExceededException</code>. If there is insufficient
-    /// provisioned throughput on the shard, subsequent calls made within the next 1 second
+    /// If a call returns this amount of data, subsequent calls made within the next five
+    /// seconds throw <code>ProvisionedThroughputExceededException</code>. If there is insufficient
+    /// provisioned throughput on the stream, subsequent calls made within the next one second
     /// throw <code>ProvisionedThroughputExceededException</code>. <a>GetRecords</a> won't
     /// return any data when it throws an exception. For this reason, we recommend that you
     /// wait one second between calls to <a>GetRecords</a>; however, it's possible that the
@@ -70,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// To detect whether the application is falling behind in processing, you can use the
     /// <code>MillisBehindLatest</code> response attribute. You can also monitor the stream
     /// using CloudWatch metrics and other mechanisms (see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/monitoring.html">Monitoring</a>
-    /// in the <i>Amazon Kinesis Streams Developer Guide</i>).
+    /// in the <i>Amazon Kinesis Data Streams Developer Guide</i>).
     /// </para><para>
     /// Each Amazon Kinesis record includes a value, <code>ApproximateArrivalTimestamp</code>,
     /// that is set when a stream successfully receives and stores a record. This is commonly

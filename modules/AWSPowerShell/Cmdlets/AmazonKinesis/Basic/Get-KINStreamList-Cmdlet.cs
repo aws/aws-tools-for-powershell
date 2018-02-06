@@ -28,13 +28,13 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Lists your Kinesis streams.
+    /// Lists your Kinesis data streams.
     /// 
     ///  
     /// <para>
     /// The number of streams may be too large to return from a single call to <code>ListStreams</code>.
     /// You can limit the number of returned streams using the <code>Limit</code> parameter.
-    /// If you do not specify a value for the <code>Limit</code> parameter, Kinesis Streams
+    /// If you do not specify a value for the <code>Limit</code> parameter, Kinesis Data Streams
     /// uses the default limit, which is currently 10.
     /// </para><para>
     /// You can detect if there are more streams available to list by using the <code>HasMoreStreams</code>
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// to <code>ListStreams</code>. The group of stream names returned by the subsequent
     /// request is then added to the list. You can continue this process until all the stream
     /// names have been collected in the list. 
-    /// </para><para><a>ListStreams</a> has a limit of 5 transactions per second per account.
+    /// </para><para><a>ListStreams</a> has a limit of five transactions per second per account.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "KINStreamList")]

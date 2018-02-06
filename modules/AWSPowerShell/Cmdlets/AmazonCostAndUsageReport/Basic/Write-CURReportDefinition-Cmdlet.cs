@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         #region Parameter ReportDefinition_AdditionalArtifact
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         #region Parameter ReportDefinition_AdditionalSchemaElement
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         #region Parameter ReportDefinition_Compression
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         #region Parameter ReportDefinition_Format
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         #region Parameter ReportDefinition_ReportName
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         #region Parameter ReportDefinition_S3Bucket
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         #region Parameter ReportDefinition_S3Prefix
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         #region Parameter ReportDefinition_S3Region
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         #region Parameter ReportDefinition_TimeUnit
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

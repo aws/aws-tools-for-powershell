@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <para>
         /// <para>List of shard-level metrics to disable.</para><para>The following are the valid shard-level metrics. The value "<code>ALL</code>" disables
         /// every metric.</para><ul><li><para><code>IncomingBytes</code></para></li><li><para><code>IncomingRecords</code></para></li><li><para><code>OutgoingBytes</code></para></li><li><para><code>OutgoingRecords</code></para></li><li><para><code>WriteProvisionedThroughputExceeded</code></para></li><li><para><code>ReadProvisionedThroughputExceeded</code></para></li><li><para><code>IteratorAgeMilliseconds</code></para></li><li><para><code>ALL</code></para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring
-        /// the Amazon Kinesis Streams Service with Amazon CloudWatch</a> in the <i>Amazon Kinesis
-        /// Streams Developer Guide</i>.</para>
+        /// the Amazon Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
+        /// Kinesis Data Streams Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter StreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the Kinesis stream for which to disable enhanced monitoring.</para>
+        /// <para>The name of the Kinesis data stream for which to disable enhanced monitoring.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -60,12 +60,12 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </para><para>
     /// If a <a>GetShardIterator</a> request is made too often, you receive a <code>ProvisionedThroughputExceededException</code>.
     /// For more information about throughput limits, see <a>GetRecords</a>, and <a href="http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams
-    /// Limits</a> in the <i>Amazon Kinesis Streams Developer Guide</i>.
+    /// Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.
     /// </para><para>
     /// If the shard is closed, <a>GetShardIterator</a> returns a valid iterator for the last
     /// sequence number of the shard. A shard can be closed as a result of using <a>SplitShard</a>
     /// or <a>MergeShards</a>.
-    /// </para><para><a>GetShardIterator</a> has a limit of 5 transactions per second per account per
+    /// </para><para><a>GetShardIterator</a> has a limit of five transactions per second per account per
     /// open shard.
     /// </para>
     /// </summary>
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter ShardId
         /// <summary>
         /// <para>
-        /// <para>The shard ID of the Kinesis Streams shard to get the iterator for.</para>
+        /// <para>The shard ID of the Kinesis Data Streams shard to get the iterator for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter StreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon Kinesis stream.</para>
+        /// <para>The name of the Amazon Kinesis data stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

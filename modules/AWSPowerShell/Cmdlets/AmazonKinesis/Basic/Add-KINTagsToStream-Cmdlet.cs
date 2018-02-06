@@ -28,13 +28,14 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Adds or updates tags for the specified Kinesis stream. Each stream can have up to
-    /// 10 tags.
+    /// Adds or updates tags for the specified Kinesis data stream. Each stream can have up
+    /// to 10 tags.
     /// 
     ///  
     /// <para>
     /// If tags have already been assigned to the stream, <code>AddTagsToStream</code> overwrites
     /// any existing tags that correspond to the specified tag keys.
+    /// </para><para><a>AddTagsToStream</a> has a limit of five transactions per second per account.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "KINTagsToStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

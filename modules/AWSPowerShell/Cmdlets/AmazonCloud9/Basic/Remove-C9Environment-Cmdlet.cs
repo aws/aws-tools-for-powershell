@@ -28,8 +28,8 @@ using Amazon.Cloud9.Model;
 namespace Amazon.PowerShell.Cmdlets.C9
 {
     /// <summary>
-    /// Deletes an AWS Cloud9 development environment. If the environment is hosted on an
-    /// Amazon Elastic Compute Cloud (Amazon EC2) instance, also terminates the instance.
+    /// Deletes an AWS Cloud9 development environment. If an Amazon EC2 instance is connected
+    /// to the environment, also terminates the instance.
     /// </summary>
     [Cmdlet("Remove", "C9Environment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

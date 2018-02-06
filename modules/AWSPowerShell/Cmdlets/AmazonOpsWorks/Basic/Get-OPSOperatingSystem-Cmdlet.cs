@@ -22,38 +22,23 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DirectConnect;
-using Amazon.DirectConnect.Model;
+using Amazon.OpsWorks;
+using Amazon.OpsWorks.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DC
+namespace Amazon.PowerShell.Cmdlets.OPS
 {
     /// <summary>
-    /// Displays all connections in this region.
-    /// 
-    ///  
-    /// <para>
-    /// If a connection ID is provided, the call returns only that particular connection.
-    /// </para>
+    /// Describes the operating systems that are supported by AWS OpsWorks Stacks.
     /// </summary>
-    [Cmdlet("Get", "DCConnection")]
-    [OutputType("Amazon.DirectConnect.Model.Connection")]
-    [AWSCmdlet("Calls the AWS Direct Connect DescribeConnections API operation.", Operation = new[] {"DescribeConnections"})]
-    [AWSCmdletOutput("Amazon.DirectConnect.Model.Connection",
-        "This cmdlet returns a collection of Connection objects.",
-        "The service call response (type Amazon.DirectConnect.Model.DescribeConnectionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "OPSOperatingSystem")]
+    [OutputType("Amazon.OpsWorks.Model.OperatingSystem")]
+    [AWSCmdlet("Calls the AWS OpsWorks DescribeOperatingSystems API operation.", Operation = new[] {"DescribeOperatingSystems"})]
+    [AWSCmdletOutput("Amazon.OpsWorks.Model.OperatingSystem",
+        "This cmdlet returns a collection of OperatingSystem objects.",
+        "The service call response (type Amazon.OpsWorks.Model.DescribeOperatingSystemsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetDCConnectionCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
+    public partial class GetOPSOperatingSystemCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
-        
-        #region Parameter ConnectionId
-        /// <summary>
-        /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ConnectionId { get; set; }
-        #endregion
         
         protected override void ProcessRecord()
         {
@@ -68,7 +53,6 @@ namespace Amazon.PowerShell.Cmdlets.DC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ConnectionId = this.ConnectionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -83,12 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectConnect.Model.DescribeConnectionsRequest();
+            var request = new Amazon.OpsWorks.Model.DescribeOperatingSystemsRequest();
             
-            if (cmdletContext.ConnectionId != null)
-            {
-                request.ConnectionId = cmdletContext.ConnectionId;
-            }
             
             CmdletOutput output;
             
@@ -98,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Connections;
+                object pipelineOutput = response.OperatingSystems;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -123,16 +103,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private Amazon.DirectConnect.Model.DescribeConnectionsResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DescribeConnectionsRequest request)
+        private Amazon.OpsWorks.Model.DescribeOperatingSystemsResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeOperatingSystemsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Direct Connect", "DescribeConnections");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "DescribeOperatingSystems");
             try
             {
                 #if DESKTOP
-                return client.DescribeConnections(request);
+                return client.DescribeOperatingSystems(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeConnectionsAsync(request);
+                var task = client.DescribeOperatingSystemsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -153,7 +133,6 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ConnectionId { get; set; }
         }
         
     }

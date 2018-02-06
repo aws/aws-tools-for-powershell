@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Any replacement name for the environment.</para>
+        /// <para>A replacement name for the environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

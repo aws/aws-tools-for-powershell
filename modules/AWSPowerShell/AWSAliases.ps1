@@ -3341,6 +3341,7 @@ Set-Alias -Name Get-KINRecords -Value Get-KINRecord
 Set-Alias -Name KIN-GetRecords -Value Get-KINRecord
 Set-Alias -Name KIN-GetShardIterator -Value Get-KINShardIterator
 Set-Alias -Name KIN-IncreaseStreamRetentionPeriod -Value Request-KINStreamRetentionPeriodIncrease
+Set-Alias -Name KIN-ListShards -Value Get-KINShardList
 Set-Alias -Name KIN-ListStreams -Value Get-KINStreamList
 Set-Alias -Name KIN-ListTagsForStream -Value Get-KINTagsForStream
 Set-Alias -Name Merge-KINShards -Value Merge-KINShard
@@ -3916,6 +3917,7 @@ Set-Alias -Name Describe-OPSLoadBasedAutoScaling -Value Get-OPSLoadBasedAutoScal
 Set-Alias -Name OPS-DescribeLoadBasedAutoScaling -Value Get-OPSLoadBasedAutoScaling
 Set-Alias -Name Describe-OPSMyUserProfile -Value Get-OPSMyUserProfile
 Set-Alias -Name OPS-DescribeMyUserProfile -Value Get-OPSMyUserProfile
+Set-Alias -Name OPS-DescribeOperatingSystems -Value Get-OPSOperatingSystem
 Set-Alias -Name Describe-OPSPermission -Value Get-OPSPermission
 Set-Alias -Name OPS-DescribePermissions -Value Get-OPSPermission
 Set-Alias -Name Describe-OPSRaidArray -Value Get-OPSRaidArray

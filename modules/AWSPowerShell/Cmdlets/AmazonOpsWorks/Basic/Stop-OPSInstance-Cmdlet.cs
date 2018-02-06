@@ -50,6 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     public partial class StopOPSInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
+        #region Parameter StopWithForce
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean StopWithForce { get; set; }
+        #endregion
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>
@@ -98,6 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("StopWithForce"))
+                context.StopWithForce = this.StopWithForce;
             context.InstanceId = this.InstanceId;
             
             // allow further manipulation of loaded context prior to processing
@@ -115,6 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             // create request
             var request = new Amazon.OpsWorks.Model.StopInstanceRequest();
             
+            if (cmdletContext.StopWithForce != null)
+            {
+                request.Force = cmdletContext.StopWithForce.Value;
+            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
@@ -185,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? StopWithForce { get; set; }
             public System.String InstanceId { get; set; }
         }
         

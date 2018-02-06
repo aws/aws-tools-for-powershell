@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
     /// Retrieves a certificate specified by an ARN and its certificate chain . The chain
-    /// is an ordered list of certificates that contains the end entity ertificate, intermediate
+    /// is an ordered list of certificates that contains the end entity certificate, intermediate
     /// certificates of subordinate CAs, and the root certificate in that order. The certificate
     /// and certificate chain are base64 encoded. If you want to decode the certificate to
     /// see the individual fields, you can use OpenSSL.

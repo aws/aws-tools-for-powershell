@@ -1,4 +1,4 @@
-###
+### 3.3.228.0 (2018-02-06)
   * AWS Lambda
     * [Breaking Change] The response data from the service's GetPolicy API has been extended to emit both the policy and revision ID of the policy. The output from the corresponding Get-LMPolicy cmdlet has therefore been changed to emit the service response to the pipeline. To keep the original behavior your scripts need to be changed to use _(Get-LMPolicy).Policy_ in place of _Get-LMPolicy_.
     * Updated the Add-LMPermission, Publish-LMVersion, Remove-LMPermission, Update-LMAlias and Update-LMFunctionConfiguration cmdlets to support setting Revision ID on your function versions and aliases, to track and apply conditional updates when you are updating your function version or alias resources.
@@ -10,6 +10,12 @@
     * Updated the New-DFRemoteAccessSession cmdlet to support the service's new InteractionMode setting for the DirectDeviceAccess feature.
   * AWS Elemental MediaLive
     * Updated the New-EMLChannel cmdlet to support the new InputSpecification settings (specification of input attributes is used for channel sizing and affects pricing).
+  * Amazon CloudFront
+    * Updated the Get-CFCloudFrontOriginAccessIdentityList, Get-CFDistributionList, Get-CFDistributionListByWebACLId, Get-CFInvalidationList and Get-CFStreamDistributionList cmdlets to support automatic pagination of result output. The cmdlets will now make repeated calls to obtain all available data and no longer require users to implement their own pagination logic in scripts or at the command line.
+  * Amazon Kinesis
+    * Added new cmdlet Get-KINShardList to support the new ListShards service API. Using ListShards a Kinesis Data Streams customer or client can get information about shards in a data stream (including meta-data for each shard) without obtaining data stream level information.
+  * AWS OpsWorks
+    * Added new cmdlet Get-OPSOperatingSystem to support the new DescribeOperatingSystems API.
 
 ### 3.3.225.1 (2018-01-24)
   * Amazon Guard Duty

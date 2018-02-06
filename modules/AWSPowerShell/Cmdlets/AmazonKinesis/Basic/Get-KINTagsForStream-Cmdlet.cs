@@ -28,7 +28,8 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Lists the tags for the specified Kinesis stream.
+    /// Lists the tags for the specified Kinesis data stream. This operation has a limit of
+    /// five transactions per second per account.
     /// </summary>
     [Cmdlet("Get", "KINTagsForStream")]
     [OutputType("Amazon.Kinesis.Model.ListTagsForStreamResponse")]

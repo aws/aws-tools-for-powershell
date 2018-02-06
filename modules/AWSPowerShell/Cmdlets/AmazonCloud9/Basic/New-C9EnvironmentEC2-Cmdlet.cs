@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
 {
     /// <summary>
     /// Creates an AWS Cloud9 development environment, launches an Amazon Elastic Compute
-    /// Cloud (Amazon EC2) instance, and then hosts the environment on the instance.
+    /// Cloud (Amazon EC2) instance, and then connects from the instance to the environment.
     /// </summary>
     [Cmdlet("New", "C9EnvironmentEC2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>The type of instance to host the environment on (for example, <code>t2.micro</code>).</para>
+        /// <para>The type of instance to connect to the environment (for example, <code>t2.micro</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

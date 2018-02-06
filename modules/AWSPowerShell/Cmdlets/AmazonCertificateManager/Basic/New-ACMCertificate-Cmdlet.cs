@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter DomainValidationOption
         /// <summary>
         /// <para>
-        /// <para>The domain name that you want ACM to use to send you emails so taht your can validate
+        /// <para>The domain name that you want ACM to use to send you emails so that you can validate
         /// domain ownership.</para>
         /// </para>
         /// </summary>

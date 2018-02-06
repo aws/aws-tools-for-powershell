@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter DatabaseInformation_DatabaseName
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter DatabaseCredentials_Password
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -286,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter DatabaseCredentials_Username
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

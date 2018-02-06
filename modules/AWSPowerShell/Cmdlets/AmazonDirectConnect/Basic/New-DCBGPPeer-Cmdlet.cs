@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewBGPPeer_AddressFamily
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewBGPPeer_AmazonAddress
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewBGPPeer_Asn
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewBGPPeer_AuthKey
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewBGPPeer_CustomerAddress
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

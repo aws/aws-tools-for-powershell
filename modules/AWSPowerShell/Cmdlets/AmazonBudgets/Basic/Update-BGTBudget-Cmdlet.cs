@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter BudgetLimit_Amount
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter ActualSpend_Amount
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter ForecastedSpend_Amount
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NewBudget_BudgetName
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NewBudget_BudgetType
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NewBudget_CostFilter
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter TimePeriod_End
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter TimePeriod_Start
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NewBudget_TimeUnit
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter BudgetLimit_Unit
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -270,7 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter ActualSpend_Unit
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -281,7 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter ForecastedSpend_Unit
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

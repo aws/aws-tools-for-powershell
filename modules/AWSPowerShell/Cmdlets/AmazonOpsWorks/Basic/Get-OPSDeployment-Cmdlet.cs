@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para>The app ID. If you include this parameter, <code>DescribeDeployments</code> returns
-        /// a description of the commands associated with the specified app.</para>
+        /// <para>The app ID. If you include this parameter, the command returns a description of the
+        /// commands associated with the specified app.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter DeploymentId
         /// <summary>
         /// <para>
-        /// <para>An array of deployment IDs to be described. If you include this parameter, <code>DescribeDeployments</code>
+        /// <para>An array of deployment IDs to be described. If you include this parameter, the command
         /// returns a description of the specified deployments. Otherwise, it returns a description
         /// of every deployment.</para>
         /// </para>
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter StackId
         /// <summary>
         /// <para>
-        /// <para>The stack ID. If you include this parameter, <code>DescribeDeployments</code> returns
-        /// a description of the commands associated with the specified stack.</para>
+        /// <para>The stack ID. If you include this parameter, the command returns a description of
+        /// the commands associated with the specified stack.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

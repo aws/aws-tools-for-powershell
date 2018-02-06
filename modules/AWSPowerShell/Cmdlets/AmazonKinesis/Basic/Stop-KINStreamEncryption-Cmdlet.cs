@@ -33,12 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     ///  
     /// <para>
     /// Stopping encryption is an asynchronous operation. Upon receiving the request, Kinesis
-    /// Streams returns immediately and sets the status of the stream to <code>UPDATING</code>.
-    /// After the update is complete, Kinesis Streams sets the status of the stream back to
-    /// <code>ACTIVE</code>. Stopping encryption normally takes a few seconds to complete,
+    /// Data Streams returns immediately and sets the status of the stream to <code>UPDATING</code>.
+    /// After the update is complete, Kinesis Data Streams sets the status of the stream back
+    /// to <code>ACTIVE</code>. Stopping encryption normally takes a few seconds to complete,
     /// but it can take minutes. You can continue to read and write data to your stream while
     /// its status is <code>UPDATING</code>. Once the status of the stream is <code>ACTIVE</code>,
-    /// records written to the stream are no longer encrypted by Kinesis Streams. 
+    /// records written to the stream are no longer encrypted by Kinesis Data Streams. 
     /// </para><para>
     /// API Limits: You can successfully disable server-side encryption 25 times in a rolling
     /// 24-hour period. 
@@ -73,10 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>The GUID for the customer-managed KMS key to use for encryption. This value can be
-        /// a globally unique identifier, a fully specified ARN to either an alias or a key, or
-        /// an alias name prefixed by "alias/".You can also use a master key owned by Kinesis
-        /// Streams by specifying the alias <code>aws/kinesis</code>.</para><ul><li><para>Key ARN example: <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code></para></li><li><para>Alias ARN example: <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code></para></li><li><para>Globally unique key ID example: <code>12345678-1234-1234-1234-123456789012</code></para></li><li><para>Alias name example: <code>alias/MyAliasName</code></para></li><li><para>Master key owned by Kinesis Streams: <code>alias/aws/kinesis</code></para></li></ul>
+        /// <para>The GUID for the customer-managed AWS KMS key to use for encryption. This value can
+        /// be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either
+        /// an alias or a key, or an alias name prefixed by "alias/".You can also use a master
+        /// key owned by Kinesis Data Streams by specifying the alias <code>aws/kinesis</code>.</para><ul><li><para>Key ARN example: <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code></para></li><li><para>Alias ARN example: <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code></para></li><li><para>Globally unique key ID example: <code>12345678-1234-1234-1234-123456789012</code></para></li><li><para>Alias name example: <code>alias/MyAliasName</code></para></li><li><para>Master key owned by Kinesis Data Streams: <code>alias/aws/kinesis</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

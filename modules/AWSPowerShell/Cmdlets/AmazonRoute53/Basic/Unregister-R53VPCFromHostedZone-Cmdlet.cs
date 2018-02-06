@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter VPC_VPCId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

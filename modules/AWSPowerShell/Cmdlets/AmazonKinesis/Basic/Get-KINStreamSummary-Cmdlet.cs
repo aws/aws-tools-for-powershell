@@ -28,8 +28,8 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Provides a summarized description of the specified Kinesis stream without the shard
-    /// list.
+    /// Provides a summarized description of the specified Kinesis data stream without the
+    /// shard list.
     /// 
     ///  
     /// <para>
