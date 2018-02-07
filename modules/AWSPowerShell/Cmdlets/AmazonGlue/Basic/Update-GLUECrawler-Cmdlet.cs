@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// aspects of a Crawler's behavior.</para><para>You can use this field to force partitions to inherit metadata such as classification,
         /// input format, output format, serde information, and schema from their parent table,
         /// rather than detect this information separately for each partition. Use the following
-        /// JSON string to specify that behavior:</para><para>Example:  <code>'{ "Version": 1.0, "CrawlerOutput": { "Partitions": { "AddOrUpdateBehavior":
+        /// JSON string to specify that behavior:</para><para>Example: <code>'{ "Version": 1.0, "CrawlerOutput": { "Partitions": { "AddOrUpdateBehavior":
         /// "InheritFromTable" } } }'</code></para>
         /// </para>
         /// </summary>

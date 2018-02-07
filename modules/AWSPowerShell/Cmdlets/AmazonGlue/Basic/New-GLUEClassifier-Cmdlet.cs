@@ -28,8 +28,9 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Creates a classifier in the user's account. This may be either a <code>GrokClassifier</code>
-    /// or an <code>XMLClassifier</code>.
+    /// Creates a classifier in the user's account. This may be a <code>GrokClassifier</code>,
+    /// an <code>XMLClassifier</code>, or abbrev <code>JsonClassifier</code>, depending on
+    /// which field of the request is present.
     /// </summary>
     [Cmdlet("New", "GLUEClassifier", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -49,6 +50,28 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.Glue.Model.CreateGrokClassifierRequest GrokClassifier { get; set; }
+        #endregion
+        
+        #region Parameter JsonClassifier_JsonPath
+        /// <summary>
+        /// <para>
+        /// <para>A <code>JsonPath</code> string defining the JSON data for the classifier to classify.
+        /// AWS Glue supports a subset of JsonPath, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing
+        /// JsonPath Custom Classifiers</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String JsonClassifier_JsonPath { get; set; }
+        #endregion
+        
+        #region Parameter JsonClassifier_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the classifier.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String JsonClassifier_Name { get; set; }
         #endregion
         
         #region Parameter XMLClassifier
@@ -91,6 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             PreExecutionContextLoad(context);
             
             context.GrokClassifier = this.GrokClassifier;
+            context.JsonClassifier_JsonPath = this.JsonClassifier_JsonPath;
+            context.JsonClassifier_Name = this.JsonClassifier_Name;
             context.XMLClassifier = this.XMLClassifier;
             
             // allow further manipulation of loaded context prior to processing
@@ -111,6 +136,35 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.GrokClassifier != null)
             {
                 request.GrokClassifier = cmdletContext.GrokClassifier;
+            }
+            
+             // populate JsonClassifier
+            bool requestJsonClassifierIsNull = true;
+            request.JsonClassifier = new Amazon.Glue.Model.CreateJsonClassifierRequest();
+            System.String requestJsonClassifier_jsonClassifier_JsonPath = null;
+            if (cmdletContext.JsonClassifier_JsonPath != null)
+            {
+                requestJsonClassifier_jsonClassifier_JsonPath = cmdletContext.JsonClassifier_JsonPath;
+            }
+            if (requestJsonClassifier_jsonClassifier_JsonPath != null)
+            {
+                request.JsonClassifier.JsonPath = requestJsonClassifier_jsonClassifier_JsonPath;
+                requestJsonClassifierIsNull = false;
+            }
+            System.String requestJsonClassifier_jsonClassifier_Name = null;
+            if (cmdletContext.JsonClassifier_Name != null)
+            {
+                requestJsonClassifier_jsonClassifier_Name = cmdletContext.JsonClassifier_Name;
+            }
+            if (requestJsonClassifier_jsonClassifier_Name != null)
+            {
+                request.JsonClassifier.Name = requestJsonClassifier_jsonClassifier_Name;
+                requestJsonClassifierIsNull = false;
+            }
+             // determine if request.JsonClassifier should be set to null
+            if (requestJsonClassifierIsNull)
+            {
+                request.JsonClassifier = null;
             }
             if (cmdletContext.XMLClassifier != null)
             {
@@ -181,6 +235,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Glue.Model.CreateGrokClassifierRequest GrokClassifier { get; set; }
+            public System.String JsonClassifier_JsonPath { get; set; }
+            public System.String JsonClassifier_Name { get; set; }
             public Amazon.Glue.Model.CreateXMLClassifierRequest XMLClassifier { get; set; }
         }
         

@@ -97,7 +97,7 @@
       <HintPath>..\..\packages\AWSSDK.DAX.3.3.0.6\lib\net35\AWSSDK.DAX.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Glue">
-      <HintPath>..\..\packages\AWSSDK.Glue.3.3.4\lib\net35\AWSSDK.Glue.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Glue.3.3.5\lib\net35\AWSSDK.Glue.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Greengrass">
       <HintPath>..\..\packages\AWSSDK.Greengrass.3.3.2\lib\net35\AWSSDK.Greengrass.dll</HintPath>
@@ -232,7 +232,7 @@
       <HintPath>..\..\packages\AWSSDK.Snowball.3.3.2.10\lib\net35\AWSSDK.Snowball.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleSystemsManagement">
-      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.15.2\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.16\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleNotificationService">
       <HintPath>..\..\packages\AWSSDK.SimpleNotificationService.3.3.0.24\lib\net35\AWSSDK.SimpleNotificationService.dll</HintPath>
@@ -241,7 +241,7 @@
       <HintPath>..\..\packages\AWSSDK.SimpleEmail.3.3.6.1\lib\net35\AWSSDK.SimpleEmail.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ServiceCatalog">
-      <HintPath>..\..\packages\AWSSDK.ServiceCatalog.3.3.6\lib\net35\AWSSDK.ServiceCatalog.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ServiceCatalog.3.3.7\lib\net35\AWSSDK.ServiceCatalog.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SecurityToken">
       <HintPath>..\..\packages\AWSSDK.SecurityToken.3.3.3.3\lib\net35\AWSSDK.SecurityToken.dll</HintPath>

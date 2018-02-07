@@ -28,22 +28,18 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Lists the provisioned products that are available (not terminated).
-    /// 
-    ///  
-    /// <para>
-    /// To use additional filtering, see <a>SearchProvisionedProducts</a>.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the plans for the specified provisioned product or all plans the user has access
+    /// to.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "SCProvisionedProduct")]
-    [OutputType("Amazon.ServiceCatalog.Model.ProvisionedProductDetail")]
-    [AWSCmdlet("Calls the AWS Service Catalog ScanProvisionedProducts API operation.", Operation = new[] {"ScanProvisionedProducts"})]
-    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.ProvisionedProductDetail",
-        "This cmdlet returns a collection of ProvisionedProductDetail objects.",
-        "The service call response (type Amazon.ServiceCatalog.Model.ScanProvisionedProductsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "SCProvisionedProductPlanList")]
+    [OutputType("Amazon.ServiceCatalog.Model.ProvisionedProductPlanSummary")]
+    [AWSCmdlet("Calls the AWS Service Catalog ListProvisionedProductPlans API operation.", Operation = new[] {"ListProvisionedProductPlans"})]
+    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.ProvisionedProductPlanSummary",
+        "This cmdlet returns a collection of ProvisionedProductPlanSummary objects.",
+        "The service call response (type Amazon.ServiceCatalog.Model.ListProvisionedProductPlansResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageToken (type System.String)"
     )]
-    public partial class GetSCProvisionedProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class GetSCProvisionedProductPlanListCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -79,6 +75,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int PageSize { get; set; }
+        #endregion
+        
+        #region Parameter ProvisionProductId
+        /// <summary>
+        /// <para>
+        /// <para>The product identifier.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ProvisionProductId { get; set; }
         #endregion
         
         #region Parameter AccessLevelFilter_Value
@@ -125,6 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (ParameterWasBound("PageSize"))
                 context.PageSize = this.PageSize;
             context.PageToken = this.PageToken;
+            context.ProvisionProductId = this.ProvisionProductId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -140,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.ServiceCatalog.Model.ScanProvisionedProductsRequest();
+            var request = new Amazon.ServiceCatalog.Model.ListProvisionedProductPlansRequest();
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
@@ -173,6 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (requestAccessLevelFilterIsNull)
             {
                 request.AccessLevelFilter = null;
+            }
+            if (cmdletContext.ProvisionProductId != null)
+            {
+                request.ProvisionProductId = cmdletContext.ProvisionProductId;
             }
             
             // Initialize loop variants and commence piping
@@ -208,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.ProvisionedProducts;
+                        object pipelineOutput = response.ProvisionedProductPlans;
                         notes = new Dictionary<string, object>();
                         notes["NextPageToken"] = response.NextPageToken;
                         output = new CmdletOutput
@@ -217,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.ProvisionedProducts.Count;
+                        int _receivedThisCall = response.ProvisionedProductPlans.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.PageToken));
@@ -260,16 +271,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private Amazon.ServiceCatalog.Model.ScanProvisionedProductsResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ScanProvisionedProductsRequest request)
+        private Amazon.ServiceCatalog.Model.ListProvisionedProductPlansResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListProvisionedProductPlansRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "ScanProvisionedProducts");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "ListProvisionedProductPlans");
             try
             {
                 #if DESKTOP
-                return client.ScanProvisionedProducts(request);
+                return client.ListProvisionedProductPlans(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ScanProvisionedProductsAsync(request);
+                var task = client.ListProvisionedProductPlansAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -295,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             public System.String AccessLevelFilter_Value { get; set; }
             public int? PageSize { get; set; }
             public System.String PageToken { get; set; }
+            public System.String ProvisionProductId { get; set; }
         }
         
     }

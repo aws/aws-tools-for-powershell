@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to associate with the portfolio.</para>
+        /// <para>One or more tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

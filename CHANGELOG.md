@@ -1,4 +1,4 @@
-### 3.3.228.0 (2018-02-06)
+### 3.3.229.0 (2018-02-07)
   * AWS Lambda
     * [Breaking Change] The response data from the service's GetPolicy API has been extended to emit both the policy and revision ID of the policy. The output from the corresponding Get-LMPolicy cmdlet has therefore been changed to emit the service response to the pipeline. To keep the original behavior your scripts need to be changed to use _(Get-LMPolicy).Policy_ in place of _Get-LMPolicy_.
     * Updated the Add-LMPermission, Publish-LMVersion, Remove-LMPermission, Update-LMAlias and Update-LMFunctionConfiguration cmdlets to support setting Revision ID on your function versions and aliases, to track and apply conditional updates when you are updating your function version or alias resources.
@@ -16,6 +16,13 @@
     * Added new cmdlet Get-KINShardList to support the new ListShards service API. Using ListShards a Kinesis Data Streams customer or client can get information about shards in a data stream (including meta-data for each shard) without obtaining data stream level information.
   * AWS OpsWorks
     * Added new cmdlet Get-OPSOperatingSystem to support the new DescribeOperatingSystems API.
+  * AWS Glue
+    * Added parameters to the New-GLUClassifier and Update-GLUEClassifier cmdlets to support specifying the json paths for customized classifiers. The custom path indicates the object, array or field of the json documents the user would like crawlers to inspect when they crawl json files.
+  * AWS Service Catalog
+    * [Breaking Change] The response data from the service's DescribeProvisionedProduct api has been changed to emit additional data. The output from the corresponding Get-SCProvisionedProduct cmdlet has therefore been changed to now emit the full service response to the pipeline. To keep the original behavior your scriprs need to be changed to use _(Get-SCProvisionedProduct).ProvisionedProductDetail_ in place of _Get-SCProvisionedProduct_.
+    * Added cmdlets to support new APIs: Find-SCProvisionedProduct (SearchProvisionedProduct API), Get-SCProvisionedProductPlan (DescribeProvisionedPlan API), Get-SCProvisionedPlanList (ListProvisionedproductPlans API), New-SCProvisionedproductPlan (CreateProvisionedproductPlan API), Remove-SCProvisionedProductPlan (DeleteProvisionedProductPlan API) and Start-SCProvisionedProductPlanExecution (ExecuteProvisionedProductPlan API).
+    * Amazon Systems Manager
+      * Updated cmdlets with parameters to support Patch Manager enhancements for configuring Linux repos as part of patch baselines, controlling updates of non-OS security packages and also creating patch baselines for SUSE12.
 
 ### 3.3.225.1 (2018-01-24)
   * Amazon Guard Duty

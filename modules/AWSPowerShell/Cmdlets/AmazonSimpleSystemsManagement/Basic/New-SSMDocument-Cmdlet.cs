@@ -83,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A name for the Systems Manager document.</para>
+        /// <para>A name for the Systems Manager document.</para><important><para>Do not use the following to begin the names of documents you create. They are reserved
+        /// by AWS for use as document prefixes:</para><ul><li><para><code>aws</code></para></li><li><para><code>amazon</code></para></li><li><para><code>amzn</code></para></li></ul></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

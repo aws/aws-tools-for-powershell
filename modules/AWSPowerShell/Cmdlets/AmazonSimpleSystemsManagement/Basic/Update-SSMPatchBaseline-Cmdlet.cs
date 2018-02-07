@@ -67,6 +67,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public Amazon.SimpleSystemsManagement.PatchComplianceLevel ApprovedPatchesComplianceLevel { get; set; }
         #endregion
         
+        #region Parameter ApprovedPatchesEnableNonSecurity
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the list of approved patches includes non-security updates that
+        /// should be applied to the instances. The default value is 'false'. Applies to Linux
+        /// instances only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean ApprovedPatchesEnableNonSecurity { get; set; }
+        #endregion
+        
         #region Parameter BaselineId
         /// <summary>
         /// <para>
@@ -130,6 +142,29 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String[] RejectedPatch { get; set; }
         #endregion
         
+        #region Parameter Replace
+        /// <summary>
+        /// <para>
+        /// <para>If True, then all fields that are required by the CreatePatchBaseline action are also
+        /// required for this API request. Optional fields that are not specified are set to null.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Replace { get; set; }
+        #endregion
+        
+        #region Parameter Source
+        /// <summary>
+        /// <para>
+        /// <para>Information about the patches to use to update the instances, including target operating
+        /// systems and source repositories. Applies to Linux instances only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Sources")]
+        public Amazon.SimpleSystemsManagement.Model.PatchSource[] Source { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -168,6 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.ApprovedPatches = new List<System.String>(this.ApprovedPatch);
             }
             context.ApprovedPatchesComplianceLevel = this.ApprovedPatchesComplianceLevel;
+            if (ParameterWasBound("ApprovedPatchesEnableNonSecurity"))
+                context.ApprovedPatchesEnableNonSecurity = this.ApprovedPatchesEnableNonSecurity;
             context.BaselineId = this.BaselineId;
             context.Description = this.Description;
             if (this.GlobalFilters_PatchFilter != null)
@@ -178,6 +215,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (this.RejectedPatch != null)
             {
                 context.RejectedPatches = new List<System.String>(this.RejectedPatch);
+            }
+            if (ParameterWasBound("Replace"))
+                context.Replace = this.Replace;
+            if (this.Source != null)
+            {
+                context.Sources = new List<Amazon.SimpleSystemsManagement.Model.PatchSource>(this.Source);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -222,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.ApprovedPatchesComplianceLevel = cmdletContext.ApprovedPatchesComplianceLevel;
             }
+            if (cmdletContext.ApprovedPatchesEnableNonSecurity != null)
+            {
+                request.ApprovedPatchesEnableNonSecurity = cmdletContext.ApprovedPatchesEnableNonSecurity.Value;
+            }
             if (cmdletContext.BaselineId != null)
             {
                 request.BaselineId = cmdletContext.BaselineId;
@@ -256,6 +303,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.RejectedPatches != null)
             {
                 request.RejectedPatches = cmdletContext.RejectedPatches;
+            }
+            if (cmdletContext.Replace != null)
+            {
+                request.Replace = cmdletContext.Replace.Value;
+            }
+            if (cmdletContext.Sources != null)
+            {
+                request.Sources = cmdletContext.Sources;
             }
             
             CmdletOutput output;
@@ -324,11 +379,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public List<Amazon.SimpleSystemsManagement.Model.PatchRule> ApprovalRules_PatchRules { get; set; }
             public List<System.String> ApprovedPatches { get; set; }
             public Amazon.SimpleSystemsManagement.PatchComplianceLevel ApprovedPatchesComplianceLevel { get; set; }
+            public System.Boolean? ApprovedPatchesEnableNonSecurity { get; set; }
             public System.String BaselineId { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.PatchFilter> GlobalFilters_PatchFilters { get; set; }
             public System.String Name { get; set; }
             public List<System.String> RejectedPatches { get; set; }
+            public System.Boolean? Replace { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.PatchSource> Sources { get; set; }
         }
         
     }

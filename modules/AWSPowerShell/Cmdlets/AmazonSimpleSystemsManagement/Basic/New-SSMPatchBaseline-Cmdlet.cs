@@ -70,6 +70,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public Amazon.SimpleSystemsManagement.PatchComplianceLevel ApprovedPatchesComplianceLevel { get; set; }
         #endregion
         
+        #region Parameter ApprovedPatchesEnableNonSecurity
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the list of approved patches includes non-security updates that
+        /// should be applied to the instances. The default value is 'false'. Applies to Linux
+        /// instances only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean ApprovedPatchesEnableNonSecurity { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -144,6 +156,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String[] RejectedPatch { get; set; }
         #endregion
         
+        #region Parameter Source
+        /// <summary>
+        /// <para>
+        /// <para>Information about the patches to use to update the instances, including target operating
+        /// systems and source repositories. Applies to Linux instances only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Sources")]
+        public Amazon.SimpleSystemsManagement.Model.PatchSource[] Source { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -182,6 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.ApprovedPatches = new List<System.String>(this.ApprovedPatch);
             }
             context.ApprovedPatchesComplianceLevel = this.ApprovedPatchesComplianceLevel;
+            if (ParameterWasBound("ApprovedPatchesEnableNonSecurity"))
+                context.ApprovedPatchesEnableNonSecurity = this.ApprovedPatchesEnableNonSecurity;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             if (this.GlobalFilters_PatchFilter != null)
@@ -193,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (this.RejectedPatch != null)
             {
                 context.RejectedPatches = new List<System.String>(this.RejectedPatch);
+            }
+            if (this.Source != null)
+            {
+                context.Sources = new List<Amazon.SimpleSystemsManagement.Model.PatchSource>(this.Source);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -237,6 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.ApprovedPatchesComplianceLevel = cmdletContext.ApprovedPatchesComplianceLevel;
             }
+            if (cmdletContext.ApprovedPatchesEnableNonSecurity != null)
+            {
+                request.ApprovedPatchesEnableNonSecurity = cmdletContext.ApprovedPatchesEnableNonSecurity.Value;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -275,6 +309,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.RejectedPatches != null)
             {
                 request.RejectedPatches = cmdletContext.RejectedPatches;
+            }
+            if (cmdletContext.Sources != null)
+            {
+                request.Sources = cmdletContext.Sources;
             }
             
             CmdletOutput output;
@@ -343,12 +381,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public List<Amazon.SimpleSystemsManagement.Model.PatchRule> ApprovalRules_PatchRules { get; set; }
             public List<System.String> ApprovedPatches { get; set; }
             public Amazon.SimpleSystemsManagement.PatchComplianceLevel ApprovedPatchesComplianceLevel { get; set; }
+            public System.Boolean? ApprovedPatchesEnableNonSecurity { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.PatchFilter> GlobalFilters_PatchFilters { get; set; }
             public System.String Name { get; set; }
             public Amazon.SimpleSystemsManagement.OperatingSystem OperatingSystem { get; set; }
             public List<System.String> RejectedPatches { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.PatchSource> Sources { get; set; }
         }
         
     }

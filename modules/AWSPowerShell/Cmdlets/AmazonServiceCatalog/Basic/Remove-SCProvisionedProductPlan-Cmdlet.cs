@@ -22,65 +22,54 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Glue;
-using Amazon.Glue.Model;
+using Amazon.ServiceCatalog;
+using Amazon.ServiceCatalog.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GLUE
+namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Modifies an existing classifier (a <code>GrokClassifier</code>, <code>XMLClassifier</code>,
-    /// or <code>JsonClassifier</code>, depending on which field is present).
+    /// Deletes the specified plan.
     /// </summary>
-    [Cmdlet("Update", "GLUEClassifier", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "SCProvisionedProductPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Glue UpdateClassifier API operation.", Operation = new[] {"UpdateClassifier"})]
+    [AWSCmdlet("Calls the AWS Service Catalog DeleteProvisionedProductPlan API operation.", Operation = new[] {"DeleteProvisionedProductPlan"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type Amazon.Glue.Model.UpdateClassifierResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceCatalog.Model.DeleteProvisionedProductPlanResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateGLUEClassifierCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class RemoveSCProvisionedProductPlanCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
-        #region Parameter GrokClassifier
+        #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>A <code>GrokClassifier</code> object with updated fields.</para>
+        /// <para>The language code.</para><ul><li><para><code>en</code> - English (default)</para></li><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Amazon.Glue.Model.UpdateGrokClassifierRequest GrokClassifier { get; set; }
+        public System.String AcceptLanguage { get; set; }
         #endregion
         
-        #region Parameter JsonClassifier_JsonPath
+        #region Parameter IgnoreError
         /// <summary>
         /// <para>
-        /// <para>A <code>JsonPath</code> string defining the JSON data for the classifier to classify.
-        /// AWS Glue supports a subset of JsonPath, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing
-        /// JsonPath Custom Classifiers</a>.</para>
+        /// <para>If set to true, AWS Service Catalog stops managing the specified provisioned product
+        /// even if it cannot delete the underlying resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String JsonClassifier_JsonPath { get; set; }
+        [Alias("IgnoreErrors")]
+        public System.Boolean IgnoreError { get; set; }
         #endregion
         
-        #region Parameter JsonClassifier_Name
+        #region Parameter PlanId
         /// <summary>
         /// <para>
-        /// <para>The name of the classifier.</para>
+        /// <para>The plan identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String JsonClassifier_Name { get; set; }
-        #endregion
-        
-        #region Parameter XMLClassifier
-        /// <summary>
-        /// <para>
-        /// <para>An <code>XMLClassifier</code> object with updated fields.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public Amazon.Glue.Model.UpdateXMLClassifierRequest XMLClassifier { get; set; }
+        public System.String PlanId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -97,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-GLUEClassifier (UpdateClassifier)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("PlanId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SCProvisionedProductPlan (DeleteProvisionedProductPlan)"))
             {
                 return;
             }
@@ -112,10 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.GrokClassifier = this.GrokClassifier;
-            context.JsonClassifier_JsonPath = this.JsonClassifier_JsonPath;
-            context.JsonClassifier_Name = this.JsonClassifier_Name;
-            context.XMLClassifier = this.XMLClassifier;
+            context.AcceptLanguage = this.AcceptLanguage;
+            if (ParameterWasBound("IgnoreError"))
+                context.IgnoreErrors = this.IgnoreError;
+            context.PlanId = this.PlanId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -130,44 +119,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glue.Model.UpdateClassifierRequest();
+            var request = new Amazon.ServiceCatalog.Model.DeleteProvisionedProductPlanRequest();
             
-            if (cmdletContext.GrokClassifier != null)
+            if (cmdletContext.AcceptLanguage != null)
             {
-                request.GrokClassifier = cmdletContext.GrokClassifier;
+                request.AcceptLanguage = cmdletContext.AcceptLanguage;
             }
-            
-             // populate JsonClassifier
-            bool requestJsonClassifierIsNull = true;
-            request.JsonClassifier = new Amazon.Glue.Model.UpdateJsonClassifierRequest();
-            System.String requestJsonClassifier_jsonClassifier_JsonPath = null;
-            if (cmdletContext.JsonClassifier_JsonPath != null)
+            if (cmdletContext.IgnoreErrors != null)
             {
-                requestJsonClassifier_jsonClassifier_JsonPath = cmdletContext.JsonClassifier_JsonPath;
+                request.IgnoreErrors = cmdletContext.IgnoreErrors.Value;
             }
-            if (requestJsonClassifier_jsonClassifier_JsonPath != null)
+            if (cmdletContext.PlanId != null)
             {
-                request.JsonClassifier.JsonPath = requestJsonClassifier_jsonClassifier_JsonPath;
-                requestJsonClassifierIsNull = false;
-            }
-            System.String requestJsonClassifier_jsonClassifier_Name = null;
-            if (cmdletContext.JsonClassifier_Name != null)
-            {
-                requestJsonClassifier_jsonClassifier_Name = cmdletContext.JsonClassifier_Name;
-            }
-            if (requestJsonClassifier_jsonClassifier_Name != null)
-            {
-                request.JsonClassifier.Name = requestJsonClassifier_jsonClassifier_Name;
-                requestJsonClassifierIsNull = false;
-            }
-             // determine if request.JsonClassifier should be set to null
-            if (requestJsonClassifierIsNull)
-            {
-                request.JsonClassifier = null;
-            }
-            if (cmdletContext.XMLClassifier != null)
-            {
-                request.XMLClassifier = cmdletContext.XMLClassifier;
+                request.PlanId = cmdletContext.PlanId;
             }
             
             CmdletOutput output;
@@ -203,16 +167,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.UpdateClassifierResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.UpdateClassifierRequest request)
+        private Amazon.ServiceCatalog.Model.DeleteProvisionedProductPlanResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DeleteProvisionedProductPlanRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "UpdateClassifier");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "DeleteProvisionedProductPlan");
             try
             {
                 #if DESKTOP
-                return client.UpdateClassifier(request);
+                return client.DeleteProvisionedProductPlan(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateClassifierAsync(request);
+                var task = client.DeleteProvisionedProductPlanAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -233,10 +197,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.Glue.Model.UpdateGrokClassifierRequest GrokClassifier { get; set; }
-            public System.String JsonClassifier_JsonPath { get; set; }
-            public System.String JsonClassifier_Name { get; set; }
-            public Amazon.Glue.Model.UpdateXMLClassifierRequest XMLClassifier { get; set; }
+            public System.String AcceptLanguage { get; set; }
+            public System.Boolean? IgnoreErrors { get; set; }
+            public System.String PlanId { get; set; }
         }
         
     }

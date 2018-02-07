@@ -28,17 +28,17 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Gets information about the products for the specified portfolio or all products.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Gets information about the provisioned products that meet the specified criteria.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Search", "SCProductsAsAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ServiceCatalog.Model.ProductViewDetail")]
-    [AWSCmdlet("Calls the AWS Service Catalog SearchProductsAsAdmin API operation.", Operation = new[] {"SearchProductsAsAdmin"})]
-    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.ProductViewDetail",
-        "This cmdlet returns a collection of ProductViewDetail objects.",
-        "The service call response (type Amazon.ServiceCatalog.Model.SearchProductsAsAdminResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageToken (type System.String)"
+    [Cmdlet("Find", "SCProvisionedProduct")]
+    [OutputType("Amazon.ServiceCatalog.Model.ProvisionedProductAttribute")]
+    [AWSCmdlet("Calls the AWS Service Catalog SearchProvisionedProducts API operation.", Operation = new[] {"SearchProvisionedProducts"})]
+    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.ProvisionedProductAttribute",
+        "This cmdlet returns a collection of ProvisionedProductAttribute objects.",
+        "The service call response (type Amazon.ServiceCatalog.Model.SearchProvisionedProductsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageToken (type System.String), TotalResultsCount (type System.Int32)"
     )]
-    public partial class SearchSCProductsAsAdminCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class FindSCProvisionedProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -54,13 +54,27 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The search filters. If no search filters are specified, the output includes all products
-        /// to which the administrator has access.</para>
+        /// <para>The search filters.</para><para>When the key is <code>SearchQuery</code>, the searchable fields are <code>arn</code>,
+        /// <code>createdTime</code>, <code>id</code>, <code>lastRecordId</code>, <code>idempotencyToken</code>,
+        /// <code>name</code>, <code>physicalId</code>, <code>productId</code>, <code>provisioningArtifact</code>,
+        /// <code>type</code>, <code>status</code>, <code>tags</code>, <code>userArn</code>, and
+        /// <code>userArnSession</code>.</para><para>Example: <code>"SearchQuery":["status:AVAILABLE"]</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
         public System.Collections.Hashtable Filter { get; set; }
+        #endregion
+        
+        #region Parameter AccessLevelFilter_Key
+        /// <summary>
+        /// <para>
+        /// <para>The access level.</para><ul><li><para><code>Account</code> - Filter results based on the account.</para></li><li><para><code>Role</code> - Filter results based on the federated role of the specified user.</para></li><li><para><code>User</code> - Filter results based on the specified user.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ServiceCatalog.AccessLevelFilterKey")]
+        public Amazon.ServiceCatalog.AccessLevelFilterKey AccessLevelFilter_Key { get; set; }
         #endregion
         
         #region Parameter PageSize
@@ -77,36 +91,15 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public int PageSize { get; set; }
         #endregion
         
-        #region Parameter PortfolioId
-        /// <summary>
-        /// <para>
-        /// <para>The portfolio identifier.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String PortfolioId { get; set; }
-        #endregion
-        
-        #region Parameter ProductSource
-        /// <summary>
-        /// <para>
-        /// <para>Access level of the source of the product.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.ServiceCatalog.ProductSource")]
-        public Amazon.ServiceCatalog.ProductSource ProductSource { get; set; }
-        #endregion
-        
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The sort field. If no value is specified, the results are not sorted.</para>
+        /// <para>The sort field. If no value is specified, the results are not sorted. The valid values
+        /// are <code>arn</code>, <code>id</code>, <code>name</code>, and <code>lastRecordId</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.ServiceCatalog.ProductViewSortBy")]
-        public Amazon.ServiceCatalog.ProductViewSortBy SortBy { get; set; }
+        public System.String SortBy { get; set; }
         #endregion
         
         #region Parameter SortOrder
@@ -118,6 +111,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.ServiceCatalog.SortOrder")]
         public Amazon.ServiceCatalog.SortOrder SortOrder { get; set; }
+        #endregion
+        
+        #region Parameter AccessLevelFilter_Value
+        /// <summary>
+        /// <para>
+        /// <para>The user to which the access level applies. The only supported value is <code>Self</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AccessLevelFilter_Value { get; set; }
         #endregion
         
         #region Parameter PageToken
@@ -135,25 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String PageToken { get; set; }
         #endregion
         
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("PortfolioId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Search-SCProductsAsAdmin (SearchProductsAsAdmin)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -165,6 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
             PreExecutionContextLoad(context);
             
             context.AcceptLanguage = this.AcceptLanguage;
+            context.AccessLevelFilter_Key = this.AccessLevelFilter_Key;
+            context.AccessLevelFilter_Value = this.AccessLevelFilter_Value;
             if (this.Filter != null)
             {
                 context.Filters = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
@@ -188,8 +177,6 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (ParameterWasBound("PageSize"))
                 context.PageSize = this.PageSize;
             context.PageToken = this.PageToken;
-            context.PortfolioId = this.PortfolioId;
-            context.ProductSource = this.ProductSource;
             context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
             
@@ -207,22 +194,43 @@ namespace Amazon.PowerShell.Cmdlets.SC
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.ServiceCatalog.Model.SearchProductsAsAdminRequest();
+            var request = new Amazon.ServiceCatalog.Model.SearchProvisionedProductsRequest();
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
             }
+            
+             // populate AccessLevelFilter
+            bool requestAccessLevelFilterIsNull = true;
+            request.AccessLevelFilter = new Amazon.ServiceCatalog.Model.AccessLevelFilter();
+            Amazon.ServiceCatalog.AccessLevelFilterKey requestAccessLevelFilter_accessLevelFilter_Key = null;
+            if (cmdletContext.AccessLevelFilter_Key != null)
+            {
+                requestAccessLevelFilter_accessLevelFilter_Key = cmdletContext.AccessLevelFilter_Key;
+            }
+            if (requestAccessLevelFilter_accessLevelFilter_Key != null)
+            {
+                request.AccessLevelFilter.Key = requestAccessLevelFilter_accessLevelFilter_Key;
+                requestAccessLevelFilterIsNull = false;
+            }
+            System.String requestAccessLevelFilter_accessLevelFilter_Value = null;
+            if (cmdletContext.AccessLevelFilter_Value != null)
+            {
+                requestAccessLevelFilter_accessLevelFilter_Value = cmdletContext.AccessLevelFilter_Value;
+            }
+            if (requestAccessLevelFilter_accessLevelFilter_Value != null)
+            {
+                request.AccessLevelFilter.Value = requestAccessLevelFilter_accessLevelFilter_Value;
+                requestAccessLevelFilterIsNull = false;
+            }
+             // determine if request.AccessLevelFilter should be set to null
+            if (requestAccessLevelFilterIsNull)
+            {
+                request.AccessLevelFilter = null;
+            }
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
-            }
-            if (cmdletContext.PortfolioId != null)
-            {
-                request.PortfolioId = cmdletContext.PortfolioId;
-            }
-            if (cmdletContext.ProductSource != null)
-            {
-                request.ProductSource = cmdletContext.ProductSource;
             }
             if (cmdletContext.SortBy != null)
             {
@@ -266,16 +274,17 @@ namespace Amazon.PowerShell.Cmdlets.SC
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.ProductViewDetails;
+                        object pipelineOutput = response.ProvisionedProducts;
                         notes = new Dictionary<string, object>();
                         notes["NextPageToken"] = response.NextPageToken;
+                        notes["TotalResultsCount"] = response.TotalResultsCount;
                         output = new CmdletOutput
                         {
                             PipelineOutput = pipelineOutput,
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.ProductViewDetails.Count;
+                        int _receivedThisCall = response.ProvisionedProducts.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.PageToken));
@@ -318,16 +327,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private Amazon.ServiceCatalog.Model.SearchProductsAsAdminResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.SearchProductsAsAdminRequest request)
+        private Amazon.ServiceCatalog.Model.SearchProvisionedProductsResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.SearchProvisionedProductsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "SearchProductsAsAdmin");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "SearchProvisionedProducts");
             try
             {
                 #if DESKTOP
-                return client.SearchProductsAsAdmin(request);
+                return client.SearchProvisionedProducts(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SearchProductsAsAdminAsync(request);
+                var task = client.SearchProvisionedProductsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -349,12 +358,12 @@ namespace Amazon.PowerShell.Cmdlets.SC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
+            public Amazon.ServiceCatalog.AccessLevelFilterKey AccessLevelFilter_Key { get; set; }
+            public System.String AccessLevelFilter_Value { get; set; }
             public Dictionary<System.String, List<System.String>> Filters { get; set; }
             public int? PageSize { get; set; }
             public System.String PageToken { get; set; }
-            public System.String PortfolioId { get; set; }
-            public Amazon.ServiceCatalog.ProductSource ProductSource { get; set; }
-            public Amazon.ServiceCatalog.ProductViewSortBy SortBy { get; set; }
+            public System.String SortBy { get; set; }
             public Amazon.ServiceCatalog.SortOrder SortOrder { get; set; }
         }
         

@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// underlying resources. You can check the status of this request using <a>DescribeRecord</a>.
     /// </para><para>
     /// If the request contains a tag key with an empty list of values, there is a tag conflict
-    /// for that key. Do not include conflicted keys as tags, or this will cause the error
-    /// "Parameter validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i>".
+    /// for that key. Do not include conflicted keys as tags, or this causes the error "Parameter
+    /// validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i>".
     /// </para>
     /// </summary>
     [Cmdlet("New", "SCProvisionedProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to use as provisioning options.</para>
+        /// <para>One or more tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

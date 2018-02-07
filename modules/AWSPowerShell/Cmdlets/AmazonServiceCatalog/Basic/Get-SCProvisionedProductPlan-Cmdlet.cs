@@ -28,15 +28,15 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Gets information about the specified provisioned product.
+    /// Gets information about the resource changes for the specified plan.
     /// </summary>
-    [Cmdlet("Get", "SCProvisionedProductDetail")]
-    [OutputType("Amazon.ServiceCatalog.Model.DescribeProvisionedProductResponse")]
-    [AWSCmdlet("Calls the AWS Service Catalog DescribeProvisionedProduct API operation.", Operation = new[] {"DescribeProvisionedProduct"})]
-    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribeProvisionedProductResponse",
-        "This cmdlet returns a Amazon.ServiceCatalog.Model.DescribeProvisionedProductResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SCProvisionedProductPlan")]
+    [OutputType("Amazon.ServiceCatalog.Model.DescribeProvisionedProductPlanResponse")]
+    [AWSCmdlet("Calls the AWS Service Catalog DescribeProvisionedProductPlan API operation.", Operation = new[] {"DescribeProvisionedProductPlan"})]
+    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribeProvisionedProductPlanResponse",
+        "This cmdlet returns a Amazon.ServiceCatalog.Model.DescribeProvisionedProductPlanResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSCProvisionedProductDetailCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class GetSCProvisionedProductPlanCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -49,15 +49,43 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
-        #region Parameter Id
+        #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para>The provisioned product identifier.</para>
+        /// <para>The maximum number of items to return with this call.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("ProductId")]
-        public System.String Id { get; set; }
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems")]
+        public System.Int32 PageSize { get; set; }
+        #endregion
+        
+        #region Parameter PlanId
+        /// <summary>
+        /// <para>
+        /// <para>The plan identifier.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PlanId { get; set; }
+        #endregion
+        
+        #region Parameter PageToken
+        /// <summary>
+        /// <para>
+        /// <para>The page token for the next set of results. To retrieve the first set of results,
+        /// use null.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NextToken")]
+        public System.String PageToken { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -74,7 +102,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             PreExecutionContextLoad(context);
             
             context.AcceptLanguage = this.AcceptLanguage;
-            context.Id = this.Id;
+            if (ParameterWasBound("PageSize"))
+                context.PageSize = this.PageSize;
+            context.PageToken = this.PageToken;
+            context.PlanId = this.PlanId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -89,15 +120,23 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ServiceCatalog.Model.DescribeProvisionedProductRequest();
+            var request = new Amazon.ServiceCatalog.Model.DescribeProvisionedProductPlanRequest();
             
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
             }
-            if (cmdletContext.Id != null)
+            if (cmdletContext.PageSize != null)
             {
-                request.Id = cmdletContext.Id;
+                request.PageSize = cmdletContext.PageSize.Value;
+            }
+            if (cmdletContext.PageToken != null)
+            {
+                request.PageToken = cmdletContext.PageToken;
+            }
+            if (cmdletContext.PlanId != null)
+            {
+                request.PlanId = cmdletContext.PlanId;
             }
             
             CmdletOutput output;
@@ -133,16 +172,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private Amazon.ServiceCatalog.Model.DescribeProvisionedProductResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DescribeProvisionedProductRequest request)
+        private Amazon.ServiceCatalog.Model.DescribeProvisionedProductPlanResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DescribeProvisionedProductPlanRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "DescribeProvisionedProduct");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "DescribeProvisionedProductPlan");
             try
             {
                 #if DESKTOP
-                return client.DescribeProvisionedProduct(request);
+                return client.DescribeProvisionedProductPlan(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeProvisionedProductAsync(request);
+                var task = client.DescribeProvisionedProductPlanAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -164,7 +203,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
-            public System.String Id { get; set; }
+            public System.Int32? PageSize { get; set; }
+            public System.String PageToken { get; set; }
+            public System.String PlanId { get; set; }
         }
         
     }

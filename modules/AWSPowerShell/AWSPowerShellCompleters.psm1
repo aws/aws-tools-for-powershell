@@ -5881,7 +5881,9 @@ $SC_Completers = {
     {
         # Amazon.ServiceCatalog.AccessLevelFilterKey
         {
+            ($_ -eq "Find-SCProvisionedProduct/AccessLevelFilter_Key") -Or
             ($_ -eq "Get-SCProvisionedProduct/AccessLevelFilter_Key") -Or
+            ($_ -eq "Get-SCProvisionedProductPlanList/AccessLevelFilter_Key") -Or
             ($_ -eq "Get-SCRecordHistory/AccessLevelFilter_Key")
         }
         {
@@ -5897,7 +5899,7 @@ $SC_Completers = {
         }
         
         # Amazon.ServiceCatalog.ProductSource
-        "Search-SCProductsAsAdmin/ProductSource"
+        "Find-SCProductsAsAdmin/ProductSource"
         {
             $v = "ACCOUNT"
             break
@@ -5913,10 +5915,17 @@ $SC_Completers = {
         # Amazon.ServiceCatalog.ProductViewSortBy
         {
             ($_ -eq "Find-SCProduct/SortBy") -Or
-            ($_ -eq "Search-SCProductsAsAdmin/SortBy")
+            ($_ -eq "Find-SCProductsAsAdmin/SortBy")
         }
         {
             $v = "CreationDate","Title","VersionCount"
+            break
+        }
+        
+        # Amazon.ServiceCatalog.ProvisionedProductPlanType
+        "New-SCProvisionedProductPlan/PlanType"
+        {
+            $v = "CLOUDFORMATION"
             break
         }
         
@@ -5933,7 +5942,8 @@ $SC_Completers = {
         # Amazon.ServiceCatalog.SortOrder
         {
             ($_ -eq "Find-SCProduct/SortOrder") -Or
-            ($_ -eq "Search-SCProductsAsAdmin/SortOrder")
+            ($_ -eq "Find-SCProductsAsAdmin/SortOrder") -Or
+            ($_ -eq "Find-SCProvisionedProduct/SortOrder")
         }
         {
             $v = "ASCENDING","DESCENDING"
@@ -5948,14 +5958,15 @@ $SC_Completers = {
 }
 
 $SC_map = @{
-    "AccessLevelFilter_Key"=@("Get-SCProvisionedProduct","Get-SCRecordHistory")
+    "AccessLevelFilter_Key"=@("Find-SCProvisionedProduct","Get-SCProvisionedProduct","Get-SCProvisionedProductPlanList","Get-SCRecordHistory")
     "Parameters_Type"=@("New-SCProvisioningArtifact")
+    "PlanType"=@("New-SCProvisionedProductPlan")
     "PrincipalType"=@("Register-SCPrincipalWithPortfolio")
-    "ProductSource"=@("Search-SCProductsAsAdmin")
+    "ProductSource"=@("Find-SCProductsAsAdmin")
     "ProductType"=@("New-SCProduct")
     "ProvisioningArtifactParameters_Type"=@("New-SCProduct")
-    "SortBy"=@("Find-SCProduct","Search-SCProductsAsAdmin")
-    "SortOrder"=@("Find-SCProduct","Search-SCProductsAsAdmin")
+    "SortBy"=@("Find-SCProduct","Find-SCProductsAsAdmin")
+    "SortOrder"=@("Find-SCProduct","Find-SCProductsAsAdmin","Find-SCProvisionedProduct")
 }
 
 _awsArgumentCompleterRegistration $SC_Completers $SC_map
@@ -6239,7 +6250,7 @@ $SSM_Completers = {
             ($_ -eq "New-SSMPatchBaseline/OperatingSystem")
         }
         {
-            $v = "AMAZON_LINUX","REDHAT_ENTERPRISE_LINUX","UBUNTU","WINDOWS"
+            $v = "AMAZON_LINUX","REDHAT_ENTERPRISE_LINUX","SUSE","UBUNTU","WINDOWS"
             break
         }
         

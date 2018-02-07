@@ -28,15 +28,16 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Gets information about the specified provisioned product.
+    /// Provisions or modifies a product based on the resource changes for the specified plan.
     /// </summary>
-    [Cmdlet("Get", "SCProvisionedProductDetail")]
-    [OutputType("Amazon.ServiceCatalog.Model.DescribeProvisionedProductResponse")]
-    [AWSCmdlet("Calls the AWS Service Catalog DescribeProvisionedProduct API operation.", Operation = new[] {"DescribeProvisionedProduct"})]
-    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribeProvisionedProductResponse",
-        "This cmdlet returns a Amazon.ServiceCatalog.Model.DescribeProvisionedProductResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Start", "SCProvisionedProductPlanExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ServiceCatalog.Model.RecordDetail")]
+    [AWSCmdlet("Calls the AWS Service Catalog ExecuteProvisionedProductPlan API operation.", Operation = new[] {"ExecuteProvisionedProductPlan"})]
+    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.RecordDetail",
+        "This cmdlet returns a RecordDetail object.",
+        "The service call response (type Amazon.ServiceCatalog.Model.ExecuteProvisionedProductPlanResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSCProvisionedProductDetailCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class StartSCProvisionedProductPlanExecutionCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -49,20 +50,46 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
-        #region Parameter Id
+        #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
-        /// <para>The provisioned product identifier.</para>
+        /// <para>A unique identifier that you provide to ensure idempotency. If multiple requests differ
+        /// only by the idempotency token, the same response is returned for each repeated request.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("ProductId")]
-        public System.String Id { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String IdempotencyToken { get; set; }
+        #endregion
+        
+        #region Parameter PlanId
+        /// <summary>
+        /// <para>
+        /// <para>The plan identifier.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PlanId { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("PlanId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-SCProvisionedProductPlanExecution (ExecuteProvisionedProductPlan)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -74,7 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
             PreExecutionContextLoad(context);
             
             context.AcceptLanguage = this.AcceptLanguage;
-            context.Id = this.Id;
+            context.IdempotencyToken = this.IdempotencyToken;
+            context.PlanId = this.PlanId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -89,15 +117,19 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ServiceCatalog.Model.DescribeProvisionedProductRequest();
+            var request = new Amazon.ServiceCatalog.Model.ExecuteProvisionedProductPlanRequest();
             
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
             }
-            if (cmdletContext.Id != null)
+            if (cmdletContext.IdempotencyToken != null)
             {
-                request.Id = cmdletContext.Id;
+                request.IdempotencyToken = cmdletContext.IdempotencyToken;
+            }
+            if (cmdletContext.PlanId != null)
+            {
+                request.PlanId = cmdletContext.PlanId;
             }
             
             CmdletOutput output;
@@ -108,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.RecordDetail;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -133,16 +165,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private Amazon.ServiceCatalog.Model.DescribeProvisionedProductResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DescribeProvisionedProductRequest request)
+        private Amazon.ServiceCatalog.Model.ExecuteProvisionedProductPlanResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ExecuteProvisionedProductPlanRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "DescribeProvisionedProduct");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "ExecuteProvisionedProductPlan");
             try
             {
                 #if DESKTOP
-                return client.DescribeProvisionedProduct(request);
+                return client.ExecuteProvisionedProductPlan(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeProvisionedProductAsync(request);
+                var task = client.ExecuteProvisionedProductPlanAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -164,7 +196,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
-            public System.String Id { get; set; }
+            public System.String IdempotencyToken { get; set; }
+            public System.String PlanId { get; set; }
         }
         
     }

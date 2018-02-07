@@ -4709,6 +4709,7 @@ Set-Alias -Name Create-SCPortfolioShare -Value New-SCPortfolioShare
 Set-Alias -Name SC-CreatePortfolioShare -Value New-SCPortfolioShare
 Set-Alias -Name Create-SCProduct -Value New-SCProduct
 Set-Alias -Name SC-CreateProduct -Value New-SCProduct
+Set-Alias -Name SC-CreateProvisionedProductPlan -Value New-SCProvisionedProductPlan
 Set-Alias -Name Create-SCProvisioningArtifact -Value New-SCProvisioningArtifact
 Set-Alias -Name SC-CreateProvisioningArtifact -Value New-SCProvisioningArtifact
 Set-Alias -Name Create-SCTagOption -Value New-SCTagOption
@@ -4721,6 +4722,7 @@ Set-Alias -Name Delete-SCPortfolioShare -Value Remove-SCPortfolioShare
 Set-Alias -Name SC-DeletePortfolioShare -Value Remove-SCPortfolioShare
 Set-Alias -Name Delete-SCProduct -Value Remove-SCProduct
 Set-Alias -Name SC-DeleteProduct -Value Remove-SCProduct
+Set-Alias -Name SC-DeleteProvisionedProductPlan -Value Remove-SCProvisionedProductPlan
 Set-Alias -Name Delete-SCProvisioningArtifact -Value Remove-SCProvisioningArtifact
 Set-Alias -Name SC-DeleteProvisioningArtifact -Value Remove-SCProvisioningArtifact
 Set-Alias -Name Describe-SCConstraint -Value Get-SCConstraint
@@ -4737,6 +4739,7 @@ Set-Alias -Name Describe-SCProductView -Value Get-SCProductView
 Set-Alias -Name SC-DescribeProductView -Value Get-SCProductView
 Set-Alias -Name Describe-SCProvisionedProductDetail -Value Get-SCProvisionedProductDetail
 Set-Alias -Name SC-DescribeProvisionedProduct -Value Get-SCProvisionedProductDetail
+Set-Alias -Name SC-DescribeProvisionedProductPlan -Value Get-SCProvisionedProductPlan
 Set-Alias -Name Describe-SCProvisioningArtifact -Value Get-SCProvisioningArtifact
 Set-Alias -Name SC-DescribeProvisioningArtifact -Value Get-SCProvisioningArtifact
 Set-Alias -Name Describe-SCProvisioningParameter -Value Get-SCProvisioningParameter
@@ -4750,6 +4753,7 @@ Set-Alias -Name SC-DisassociatePrincipalFromPortfolio -Value Unregister-SCPrinci
 Set-Alias -Name Disassociate-SCProductFromPortfolio -Value Unregister-SCProductFromPortfolio
 Set-Alias -Name SC-DisassociateProductFromPortfolio -Value Unregister-SCProductFromPortfolio
 Set-Alias -Name SC-DisassociateTagOptionFromResource -Value Remove-SCTagOptionFromResource
+Set-Alias -Name SC-ExecuteProvisionedProductPlan -Value Start-SCProvisionedProductPlanExecution
 Set-Alias -Name SC-ListAcceptedPortfolioShares -Value Get-SCAcceptedPortfolioSharesList
 Set-Alias -Name SC-ListConstraintsForPortfolio -Value Get-SCConstrainsForPortfolioList
 Set-Alias -Name List-SCLaunchPath -Value Get-SCLaunchPath
@@ -4758,6 +4762,7 @@ Set-Alias -Name SC-ListPortfolioAccess -Value Get-SCPortfolioAccessList
 Set-Alias -Name SC-ListPortfolios -Value Get-SCPortfolioList
 Set-Alias -Name SC-ListPortfoliosForProduct -Value Get-SCProductPortfoliosList
 Set-Alias -Name SC-ListPrincipalsForPortfolio -Value Get-SCPrincipalsForPortfolio
+Set-Alias -Name SC-ListProvisionedProductPlans -Value Get-SCProvisionedProductPlanList
 Set-Alias -Name SC-ListProvisioningArtifacts -Value Get-SCProvisioningArtifactList
 Set-Alias -Name List-SCRecordHistory -Value Get-SCRecordHistory
 Set-Alias -Name SC-ListRecordHistory -Value Get-SCRecordHistory
@@ -4767,7 +4772,8 @@ Set-Alias -Name SC-ProvisionProduct -Value New-SCProvisionedProduct
 Set-Alias -Name SC-RejectPortfolioShare -Value Deny-SCPortfolioShare
 Set-Alias -Name SC-ScanProvisionedProducts -Value Get-SCProvisionedProduct
 Set-Alias -Name SC-SearchProducts -Value Find-SCProduct
-Set-Alias -Name SC-SearchProductsAsAdmin -Value Search-SCProductsAsAdmin
+Set-Alias -Name SC-SearchProductsAsAdmin -Value Find-SCProductsAsAdmin
+Set-Alias -Name SC-SearchProvisionedProducts -Value Find-SCProvisionedProduct
 Set-Alias -Name SC-TerminateProvisionedProduct -Value Remove-SCProvisionedProduct
 Set-Alias -Name SC-UpdateConstraint -Value Update-SCConstraint
 Set-Alias -Name SC-UpdatePortfolio -Value Update-SCPortfolio

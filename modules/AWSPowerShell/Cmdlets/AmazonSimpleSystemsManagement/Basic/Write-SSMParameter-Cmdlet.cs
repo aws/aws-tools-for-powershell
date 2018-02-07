@@ -79,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The fully qualified name of the parameter that you want to add to the system. The
         /// fully qualified name includes the complete hierarchy of the parameter path and name.
-        /// For example: <code>/Dev/DBServer/MySQL/db-string13</code></para><note><para>The maximum length constraint listed below includes capacity for additional system
+        /// For example: <code>/Dev/DBServer/MySQL/db-string13</code></para><para>For information about parameter name requirements and restrictions, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html#sysman-paramstore-su-create-about">About
+        /// Creating Systems Manager Parameters</a> in the <i>AWS Systems Manager User Guide</i>.</para><note><para>The maximum length constraint listed below includes capacity for additional system
         /// attributes that are not part of the name. The maximum length for the fully qualified
         /// parameter name is 1011 characters. </para></note>
         /// </para>

@@ -28,25 +28,26 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Requests updates to the configuration of the specified provisioned product.
+    /// Creates a plan. A plan includes the list of resources that will be created (when provisioning
+    /// a new product) or modified (when updating a provisioned product) when the plan is
+    /// executed.
     /// 
     ///  
     /// <para>
-    /// If there are tags associated with the object, they cannot be updated or added. Depending
-    /// on the specific updates requested, this operation can update with no interruption,
-    /// with some interruption, or replace the provisioned product entirely.
+    /// You can create one plan per provisioned product. To create a plan for an existing
+    /// provisioned product, it's status must be AVAILBLE or TAINTED.
     /// </para><para>
-    /// You can check the status of this request using <a>DescribeRecord</a>.
+    /// To view the resource changes in the change set, use <a>DescribeProvisionedProductPlan</a>.
+    /// To create or modify the provisioned product, use <a>ExecuteProvisionedProductPlan</a>.
     /// </para>
     /// </summary>
-    [Cmdlet("Update", "SCProvisionedProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ServiceCatalog.Model.RecordDetail")]
-    [AWSCmdlet("Calls the AWS Service Catalog UpdateProvisionedProduct API operation.", Operation = new[] {"UpdateProvisionedProduct"})]
-    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.RecordDetail",
-        "This cmdlet returns a RecordDetail object.",
-        "The service call response (type Amazon.ServiceCatalog.Model.UpdateProvisionedProductResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "SCProvisionedProductPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ServiceCatalog.Model.CreateProvisionedProductPlanResponse")]
+    [AWSCmdlet("Calls the AWS Service Catalog CreateProvisionedProductPlan API operation.", Operation = new[] {"CreateProvisionedProductPlan"})]
+    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.CreateProvisionedProductPlanResponse",
+        "This cmdlet returns a Amazon.ServiceCatalog.Model.CreateProvisionedProductPlanResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateSCProvisionedProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class NewSCProvisionedProductPlanCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -59,43 +60,76 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
+        #region Parameter IdempotencyToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier that you provide to ensure idempotency. If multiple requests differ
+        /// only by the idempotency token, the same response is returned for each repeated request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String IdempotencyToken { get; set; }
+        #endregion
+        
+        #region Parameter NotificationArn
+        /// <summary>
+        /// <para>
+        /// <para>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NotificationArns")]
+        public System.String[] NotificationArn { get; set; }
+        #endregion
+        
         #region Parameter PathId
         /// <summary>
         /// <para>
-        /// <para>The new path identifier. This value is optional if the product has a default path,
-        /// and required if the product has more than one path.</para>
+        /// <para>The path identifier of the product. This value is optional if the product has a default
+        /// path, and required if the product has more than one path. To list the paths for a
+        /// product, use <a>ListLaunchPaths</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PathId { get; set; }
         #endregion
         
+        #region Parameter PlanName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the plan.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String PlanName { get; set; }
+        #endregion
+        
+        #region Parameter PlanType
+        /// <summary>
+        /// <para>
+        /// <para>The plan type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ServiceCatalog.ProvisionedProductPlanType")]
+        public Amazon.ServiceCatalog.ProvisionedProductPlanType PlanType { get; set; }
+        #endregion
+        
         #region Parameter ProductId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the provisioned product.</para>
+        /// <para>The product identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ProductId { get; set; }
         #endregion
         
-        #region Parameter ProvisionedProductId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the provisioned product. You cannot specify both <code>ProvisionedProductName</code>
-        /// and <code>ProvisionedProductId</code>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ProvisionedProductId { get; set; }
-        #endregion
-        
         #region Parameter ProvisionedProductName
         /// <summary>
         /// <para>
-        /// <para>The updated name of the provisioned product. You cannot specify both <code>ProvisionedProductName</code>
-        /// and <code>ProvisionedProductId</code>.</para>
+        /// <para>A user-friendly name for the provisioned product. This value must be unique for the
+        /// AWS account and cannot be updated after the product is provisioned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -115,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningParameter
         /// <summary>
         /// <para>
-        /// <para>The new parameters.</para>
+        /// <para>Parameters specified by the administrator that are required for provisioning the product.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -123,14 +157,15 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public Amazon.ServiceCatalog.Model.UpdateProvisioningParameter[] ProvisioningParameter { get; set; }
         #endregion
         
-        #region Parameter UpdateToken
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The idempotency token that uniquely identifies the provisioning update request.</para>
+        /// <para>One or more tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String UpdateToken { get; set; }
+        [Alias("Tags")]
+        public Amazon.ServiceCatalog.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Force
@@ -147,8 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ProvisionedProductId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SCProvisionedProduct (UpdateProvisionedProduct)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("PlanName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SCProvisionedProductPlan (CreateProvisionedProductPlan)"))
             {
                 return;
             }
@@ -163,16 +198,25 @@ namespace Amazon.PowerShell.Cmdlets.SC
             PreExecutionContextLoad(context);
             
             context.AcceptLanguage = this.AcceptLanguage;
+            context.IdempotencyToken = this.IdempotencyToken;
+            if (this.NotificationArn != null)
+            {
+                context.NotificationArns = new List<System.String>(this.NotificationArn);
+            }
             context.PathId = this.PathId;
+            context.PlanName = this.PlanName;
+            context.PlanType = this.PlanType;
             context.ProductId = this.ProductId;
-            context.ProvisionedProductId = this.ProvisionedProductId;
             context.ProvisionedProductName = this.ProvisionedProductName;
             context.ProvisioningArtifactId = this.ProvisioningArtifactId;
             if (this.ProvisioningParameter != null)
             {
                 context.ProvisioningParameters = new List<Amazon.ServiceCatalog.Model.UpdateProvisioningParameter>(this.ProvisioningParameter);
             }
-            context.UpdateToken = this.UpdateToken;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.ServiceCatalog.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -187,23 +231,35 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ServiceCatalog.Model.UpdateProvisionedProductRequest();
+            var request = new Amazon.ServiceCatalog.Model.CreateProvisionedProductPlanRequest();
             
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
             }
+            if (cmdletContext.IdempotencyToken != null)
+            {
+                request.IdempotencyToken = cmdletContext.IdempotencyToken;
+            }
+            if (cmdletContext.NotificationArns != null)
+            {
+                request.NotificationArns = cmdletContext.NotificationArns;
+            }
             if (cmdletContext.PathId != null)
             {
                 request.PathId = cmdletContext.PathId;
             }
+            if (cmdletContext.PlanName != null)
+            {
+                request.PlanName = cmdletContext.PlanName;
+            }
+            if (cmdletContext.PlanType != null)
+            {
+                request.PlanType = cmdletContext.PlanType;
+            }
             if (cmdletContext.ProductId != null)
             {
                 request.ProductId = cmdletContext.ProductId;
-            }
-            if (cmdletContext.ProvisionedProductId != null)
-            {
-                request.ProvisionedProductId = cmdletContext.ProvisionedProductId;
             }
             if (cmdletContext.ProvisionedProductName != null)
             {
@@ -217,9 +273,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 request.ProvisioningParameters = cmdletContext.ProvisioningParameters;
             }
-            if (cmdletContext.UpdateToken != null)
+            if (cmdletContext.Tags != null)
             {
-                request.UpdateToken = cmdletContext.UpdateToken;
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -230,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.RecordDetail;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -255,16 +311,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private Amazon.ServiceCatalog.Model.UpdateProvisionedProductResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.UpdateProvisionedProductRequest request)
+        private Amazon.ServiceCatalog.Model.CreateProvisionedProductPlanResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.CreateProvisionedProductPlanRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "UpdateProvisionedProduct");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "CreateProvisionedProductPlan");
             try
             {
                 #if DESKTOP
-                return client.UpdateProvisionedProduct(request);
+                return client.CreateProvisionedProductPlan(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateProvisionedProductAsync(request);
+                var task = client.CreateProvisionedProductPlanAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -286,13 +342,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
+            public System.String IdempotencyToken { get; set; }
+            public List<System.String> NotificationArns { get; set; }
             public System.String PathId { get; set; }
+            public System.String PlanName { get; set; }
+            public Amazon.ServiceCatalog.ProvisionedProductPlanType PlanType { get; set; }
             public System.String ProductId { get; set; }
-            public System.String ProvisionedProductId { get; set; }
             public System.String ProvisionedProductName { get; set; }
             public System.String ProvisioningArtifactId { get; set; }
             public List<Amazon.ServiceCatalog.Model.UpdateProvisioningParameter> ProvisioningParameters { get; set; }
-            public System.String UpdateToken { get; set; }
+            public List<Amazon.ServiceCatalog.Model.Tag> Tags { get; set; }
         }
         
     }
