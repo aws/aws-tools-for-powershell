@@ -133,7 +133,7 @@
     <Map From="Deactivate" To="Disable" />
     <Map From="Delete" To="Remove" />
     <!-- in vNext generator, Attach changed to map to Mount, to match up with Dismount -->
-    <Map From="Attach" To="Add" />
+    <Map From="Attach" To="Mount" />
     <Map From="Detach" To="Dismount" />
     <Map From="Modify" To="Edit" />
     <Map From="Put" To="Write" />
