@@ -15,9 +15,10 @@ Describe -Tag "Smoke" "CloudFront" {
 
 		It "Can list distributions" {
 			$distributions = Get-CFDistributions
-
-			$distributions | Should Not Be $null
-			$distributions.Quantity | Should Be $distributions.Items.Count
+			if ($distributions)
+			{
+				$distributions.Count | Should BeGreaterThan 0
+			}
 		}
 
 	    It "Can read distributions" {
