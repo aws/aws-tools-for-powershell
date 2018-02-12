@@ -322,9 +322,7 @@ Set-Alias -Name ATH-ListQueryExecutions -Value Get-ATHQueryExecutionList
 Set-Alias -Name ATH-StartQueryExecution -Value Start-ATHQueryExecution
 Set-Alias -Name ATH-StopQueryExecution -Value Stop-ATHQueryExecution
 Set-Alias -Name AS-AttachInstances -Value Mount-ASInstance
-Set-Alias -Name Attach-ASLoadBalancer -Value Add-ASLoadBalancer
 Set-Alias -Name AS-AttachLoadBalancers -Value Add-ASLoadBalancer
-Set-Alias -Name Attach-ASLoadBalancerTargetGroup -Value Add-ASLoadBalancerTargetGroup
 Set-Alias -Name AS-AttachLoadBalancerTargetGroups -Value Add-ASLoadBalancerTargetGroup
 Set-Alias -Name AS-CompleteLifecycleAction -Value Complete-ASLifecycleAction
 Set-Alias -Name Create-ASAutoScalingGroup -Value New-ASAutoScalingGroup
@@ -1371,6 +1369,7 @@ Set-Alias -Name Describe-DMSRefreshSchemasStatus -Value Get-DMSRefreshSchemasSta
 Set-Alias -Name DMS-DescribeRefreshSchemasStatus -Value Get-DMSRefreshSchemasStatus
 Set-Alias -Name Describe-DMSReplicationInstance -Value Get-DMSReplicationInstance
 Set-Alias -Name DMS-DescribeReplicationInstances -Value Get-DMSReplicationInstance
+Set-Alias -Name DMS-DescribeReplicationInstanceTaskLogs -Value Get-DMSReplicationInstanceTaskLog
 Set-Alias -Name Describe-DMSReplicationSubnetGroup -Value Get-DMSReplicationSubnetGroup
 Set-Alias -Name DMS-DescribeReplicationSubnetGroups -Value Get-DMSReplicationSubnetGroup
 Set-Alias -Name Describe-DMSReplicationTaskAssessmentResult -Value Get-DMSReplicationTaskAssessmentResult
@@ -1393,6 +1392,7 @@ Set-Alias -Name Modify-DMSReplicationSubnetGroup -Value Edit-DMSReplicationSubne
 Set-Alias -Name DMS-ModifyReplicationSubnetGroup -Value Edit-DMSReplicationSubnetGroup
 Set-Alias -Name Modify-DMSReplicationTask -Value Edit-DMSReplicationTask
 Set-Alias -Name DMS-ModifyReplicationTask -Value Edit-DMSReplicationTask
+Set-Alias -Name DMS-RebootReplicationInstance -Value Restart-DMSReplicationInstance
 Set-Alias -Name DMS-RefreshSchemas -Value Invoke-DMSSchemaRefresh
 Set-Alias -Name DMS-ReloadTables -Value Restore-DMSTable
 Set-Alias -Name DMS-RemoveTagsFromResource -Value Remove-DMSResourceTag
@@ -1721,15 +1721,10 @@ Set-Alias -Name Associate-EC2SubnetCidrBlock -Value Register-EC2SubnetCidrBlock
 Set-Alias -Name EC2-AssociateSubnetCidrBlock -Value Register-EC2SubnetCidrBlock
 Set-Alias -Name Associate-EC2VpcCidrBlock -Value Register-EC2VpcCidrBlock
 Set-Alias -Name EC2-AssociateVpcCidrBlock -Value Register-EC2VpcCidrBlock
-Set-Alias -Name Attach-EC2ClassicLinkVpc -Value Add-EC2ClassicLinkVpc
 Set-Alias -Name EC2-AttachClassicLinkVpc -Value Add-EC2ClassicLinkVpc
-Set-Alias -Name Attach-EC2InternetGateway -Value Add-EC2InternetGateway
 Set-Alias -Name EC2-AttachInternetGateway -Value Add-EC2InternetGateway
-Set-Alias -Name Attach-EC2NetworkInterface -Value Add-EC2NetworkInterface
 Set-Alias -Name EC2-AttachNetworkInterface -Value Add-EC2NetworkInterface
-Set-Alias -Name Attach-EC2Volume -Value Add-EC2Volume
 Set-Alias -Name EC2-AttachVolume -Value Add-EC2Volume
-Set-Alias -Name Attach-EC2VpnGateway -Value Add-EC2VpnGateway
 Set-Alias -Name EC2-AttachVpnGateway -Value Add-EC2VpnGateway
 Set-Alias -Name Authorize-EC2SecurityGroupEgress -Value Grant-EC2SecurityGroupEgress
 Set-Alias -Name EC2-AuthorizeSecurityGroupEgress -Value Grant-EC2SecurityGroupEgress
@@ -1884,6 +1879,7 @@ Set-Alias -Name Describe-EC2AccountAttribute -Value Get-EC2AccountAttribute
 Set-Alias -Name EC2-DescribeAccountAttributes -Value Get-EC2AccountAttribute
 Set-Alias -Name Describe-EC2Addresses -Value Get-EC2Address
 Set-Alias -Name EC2-DescribeAddresses -Value Get-EC2Address
+Set-Alias -Name EC2-DescribeAggregateIdFormat -Value Get-EC2AggregateIdFormat
 Set-Alias -Name Describe-EC2AvailabilityZones -Value Get-EC2AvailabilityZone
 Set-Alias -Name EC2-DescribeAvailabilityZones -Value Get-EC2AvailabilityZone
 Set-Alias -Name Describe-EC2BundleTasks -Value Get-EC2BundleTask
@@ -1953,6 +1949,7 @@ Set-Alias -Name Describe-EC2PlacementGroups -Value Get-EC2PlacementGroup
 Set-Alias -Name EC2-DescribePlacementGroups -Value Get-EC2PlacementGroup
 Set-Alias -Name Describe-EC2PrefixList -Value Get-EC2PrefixList
 Set-Alias -Name EC2-DescribePrefixLists -Value Get-EC2PrefixList
+Set-Alias -Name EC2-DescribePrincipalIdFormat -Value Get-EC2PrincipalIdFormat
 Set-Alias -Name Describe-EC2Regions -Value Get-EC2Region
 Set-Alias -Name EC2-DescribeRegions -Value Get-EC2Region
 Set-Alias -Name Describe-EC2ReservedInstances -Value Get-EC2ReservedInstance
@@ -2318,7 +2315,7 @@ Set-Alias -Name EC-TestFailover -Value Test-ECFailover
 Set-Alias -Name ELB-AddTags -Value Add-ELBResourceTag
 Set-Alias -Name Apply-ELBSecurityGroupsToLoadBalancer -Value Join-ELBSecurityGroupToLoadBalancer
 Set-Alias -Name ELB-ApplySecurityGroupsToLoadBalancer -Value Join-ELBSecurityGroupToLoadBalancer
-Set-Alias -Name Attach-ELBLoadBalancerToSubnets -Value Add-ELBLoadBalancerToSubnet
+Set-Alias -Name Add-ELBLoadBalancerToSubnets -Value Add-ELBLoadBalancerToSubnet
 Set-Alias -Name ELB-AttachLoadBalancerToSubnets -Value Add-ELBLoadBalancerToSubnet
 Set-Alias -Name Configure-ELBHealthCheck -Value Set-ELBHealthCheck
 Set-Alias -Name ELB-ConfigureHealthCheck -Value Set-ELBHealthCheck
@@ -2698,6 +2695,7 @@ Set-Alias -Name GML-RequestUploadCredentials -Value Request-GMLUploadCredential
 Set-Alias -Name GML-ResolveAlias -Value Resolve-GMLAlias
 Set-Alias -Name GML-SearchGameSessions -Value Find-GMLGameSession
 Set-Alias -Name GML-StartGameSessionPlacement -Value Start-GMLGameSessionPlacement
+Set-Alias -Name GML-StartMatchBackfill -Value Start-GMLMatchBackfill
 Set-Alias -Name GML-StartMatchmaking -Value Start-GMLMatchmaking
 Set-Alias -Name GML-StopGameSessionPlacement -Value Stop-GMLGameSessionPlacement
 Set-Alias -Name GML-StopMatchmaking -Value Stop-GMLMatchmaking
@@ -3536,7 +3534,6 @@ Set-Alias -Name LMB-PutIntent -Value Write-LMBIntent
 Set-Alias -Name Put-LMBSlotType -Value Write-LMBSlotType
 Set-Alias -Name LMB-PutSlotType -Value Write-LMBSlotType
 Set-Alias -Name LS-AllocateStaticIp -Value New-LSStaticIp
-Set-Alias -Name Attach-LSDisk -Value Add-LSDisk
 Set-Alias -Name LS-AttachDisk -Value Add-LSDisk
 Set-Alias -Name LS-AttachInstancesToLoadBalancer -Value Add-LSInstancesToLoadBalancer
 Set-Alias -Name LS-AttachLoadBalancerTlsCertificate -Value Add-LSLoadBalancerTlsCertificate
@@ -3681,6 +3678,7 @@ Set-Alias -Name EML-ListInputs -Value Get-EMLInputList
 Set-Alias -Name EML-ListInputSecurityGroups -Value Get-EMLInputSecurityGroupList
 Set-Alias -Name EML-StartChannel -Value Start-EMLChannel
 Set-Alias -Name EML-StopChannel -Value Stop-EMLChannel
+Set-Alias -Name EML-UpdateChannel -Value Update-EMLChannel
 Set-Alias -Name Create-EMPChannel -Value New-EMPChannel
 Set-Alias -Name EMP-CreateChannel -Value New-EMPChannel
 Set-Alias -Name Create-EMPOriginEndpoint -Value New-EMPOriginEndpoint
@@ -3704,12 +3702,15 @@ Set-Alias -Name Delete-EMSContainer -Value Remove-EMSContainer
 Set-Alias -Name EMS-DeleteContainer -Value Remove-EMSContainer
 Set-Alias -Name Delete-EMSContainerPolicy -Value Remove-EMSContainerPolicy
 Set-Alias -Name EMS-DeleteContainerPolicy -Value Remove-EMSContainerPolicy
+Set-Alias -Name EMS-DeleteCorsPolicy -Value Remove-EMSCorsPolicy
 Set-Alias -Name Describe-EMSContainer -Value Get-EMSContainer
 Set-Alias -Name EMS-DescribeContainer -Value Get-EMSContainer
 Set-Alias -Name EMS-GetContainerPolicy -Value Get-EMSContainerPolicy
+Set-Alias -Name EMS-GetCorsPolicy -Value Get-EMSCorsPolicy
 Set-Alias -Name EMS-ListContainers -Value Get-EMSContainerList
 Set-Alias -Name Put-EMSContainerPolicy -Value Write-EMSContainerPolicy
 Set-Alias -Name EMS-PutContainerPolicy -Value Write-EMSContainerPolicy
+Set-Alias -Name EMS-PutCorsPolicy -Value Write-EMSCorsPolicy
 Set-Alias -Name Delete-EMSDObject -Value Remove-EMSDObject
 Set-Alias -Name EMSD-DeleteObject -Value Remove-EMSDObject
 Set-Alias -Name Describe-EMSDObjectMetadata -Value Get-EMSDObjectMetadata
@@ -3860,7 +3861,6 @@ Set-Alias -Name MTR-UpdateQualificationType -Value Update-MTRQualificationType
 Set-Alias -Name OPS-AssignInstance -Value Register-OPSInstanceAssignment
 Set-Alias -Name OPS-AssignVolume -Value Add-OPSVolume
 Set-Alias -Name OPS-AssociateElasticIp -Value Add-OPSElasticIp
-Set-Alias -Name Attach-OPSElasticLoadBalancer -Value Add-OPSElasticLoadBalancer
 Set-Alias -Name OPS-AttachElasticLoadBalancer -Value Add-OPSElasticLoadBalancer
 Set-Alias -Name Clone-OPSStack -Value Copy-OPSStack
 Set-Alias -Name OPS-CloneStack -Value Copy-OPSStack
@@ -3993,7 +3993,6 @@ Set-Alias -Name OWCM-StartMaintenance -Value Start-OWCMMaintenance
 Set-Alias -Name OWCM-UpdateServer -Value Update-OWCMServer
 Set-Alias -Name OWCM-UpdateServerEngineAttributes -Value Update-OWCMServerEngineAttribute
 Set-Alias -Name ORG-AcceptHandshake -Value Confirm-ORGHandshake
-Set-Alias -Name Attach-ORGPolicy -Value Add-ORGPolicy
 Set-Alias -Name ORG-AttachPolicy -Value Add-ORGPolicy
 Set-Alias -Name Cancel-ORGHandshake -Value Stop-ORGHandshake
 Set-Alias -Name ORG-CancelHandshake -Value Stop-ORGHandshake

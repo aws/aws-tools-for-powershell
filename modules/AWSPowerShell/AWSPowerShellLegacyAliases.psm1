@@ -175,10 +175,6 @@ Set-Alias -Name Get-SQSDeadLetterSourceQueues -Value Get-SQSDeadLetterSourceQueu
 # Amazon Simple Storage Service
 Set-Alias -Name Remove-S3MultipartUploads -Value Remove-S3MultipartUpload
 
-# Amazon Simple Systems Management
-Set-Alias -Name Get-SSMMaintenanceWindowTargets -Value Get-SSMMaintenanceWindowTarget
-Set-Alias -Name Get-SSMParameterNameList -Value Get-SSMParameterValue
-
 # Amazon WorkSpaces
 Set-Alias -Name Get-WKSWorkspaceBundles -Value Get-WKSWorkspaceBundle
 Set-Alias -Name Get-WKSWorkspaceDirectories -Value Get-WKSWorkspaceDirectory
@@ -328,6 +324,10 @@ Set-Alias -Name Get-ASASeverityLevels -Value Get-ASASeverityLevel
 Set-Alias -Name Get-ASATrustedAdvisorCheckRefreshStatuses -Value Get-ASATrustedAdvisorCheckRefreshStatus
 Set-Alias -Name Get-ASATrustedAdvisorChecks -Value Get-ASATrustedAdvisorCheck
 Set-Alias -Name Get-ASATrustedAdvisorCheckSummaries -Value Get-ASATrustedAdvisorCheckSummary
+
+# AWS Systems Manager
+Set-Alias -Name Get-SSMMaintenanceWindowTargets -Value Get-SSMMaintenanceWindowTarget
+Set-Alias -Name Get-SSMParameterNameList -Value Get-SSMParameterValue
 
 # Elastic Load Balancing
 Set-Alias -Name Add-ELBTags -Value Add-ELBResourceTag

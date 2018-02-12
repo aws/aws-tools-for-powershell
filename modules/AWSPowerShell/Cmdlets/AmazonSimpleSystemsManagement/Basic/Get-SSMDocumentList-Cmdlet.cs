@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMDocumentList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentIdentifier")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management ListDocuments API operation.", Operation = new[] {"ListDocuments"})]
+    [AWSCmdlet("Calls the AWS Systems Manager ListDocuments API operation.", Operation = new[] {"ListDocuments"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentIdentifier",
         "This cmdlet returns a collection of DocumentIdentifier objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListDocumentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -257,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.ListDocumentsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListDocumentsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "ListDocuments");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ListDocuments");
             try
             {
                 #if DESKTOP

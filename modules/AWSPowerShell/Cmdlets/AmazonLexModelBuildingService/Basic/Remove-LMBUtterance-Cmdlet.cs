@@ -32,10 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// 
     ///  
     /// <para>
-    /// Amazon Lex stores the utterances that users send to your bot unless the <code>childDirected</code>
-    /// field in the bot is set to <code>true</code>. Utterances are stored for 15 days for
-    /// use with the <a>GetUtterancesView</a> operation, and then stored indefinitely for
-    /// use in improving the ability of your bot to respond to user input.
+    /// Amazon Lex stores the utterances that users send to your bot. Utterances are stored
+    /// for 15 days for use with the <a>GetUtterancesView</a> operation, and then stored indefinitely
+    /// for use in improving the ability of your bot to respond to user input.
     /// </para><para>
     /// Use the <code>DeleteStoredUtterances</code> operation to manually delete stored utterances
     /// for a specific user.

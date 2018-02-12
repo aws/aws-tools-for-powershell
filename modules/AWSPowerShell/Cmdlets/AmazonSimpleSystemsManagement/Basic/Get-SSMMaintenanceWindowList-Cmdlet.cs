@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMMaintenanceWindowList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.MaintenanceWindowIdentity")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management DescribeMaintenanceWindows API operation.", Operation = new[] {"DescribeMaintenanceWindows"})]
+    [AWSCmdlet("Calls the AWS Systems Manager DescribeMaintenanceWindows API operation.", Operation = new[] {"DescribeMaintenanceWindows"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.MaintenanceWindowIdentity",
         "This cmdlet returns a collection of MaintenanceWindowIdentity objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -240,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DescribeMaintenanceWindows");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeMaintenanceWindows");
             try
             {
                 #if DESKTOP

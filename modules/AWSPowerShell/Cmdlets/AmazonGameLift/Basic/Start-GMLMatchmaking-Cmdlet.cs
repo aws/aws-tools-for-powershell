@@ -128,8 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter TicketId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a matchmaking ticket. Use this identifier to track the matchmaking
-        /// ticket status and retrieve match results.</para>
+        /// <para>Unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon
+        /// GameLift will generate one in the form of a UUID. Use this identifier to track the
+        /// matchmaking ticket status and retrieve match results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

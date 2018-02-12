@@ -35,22 +35,19 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     ///  Each time you create an On-Demand Backup, the entire table data is backed up. There
     /// is no limit to the number of on-demand backups that can be taken. 
     /// </para><para>
+    ///  When you create an On-Demand Backup, a time marker of the request is cataloged, and
+    /// the backup is created asynchronously, by applying all changes until the time of the
+    /// request to the last full table snapshot. Backup requests are processed instantaneously
+    /// and become available for restore within minutes. 
+    /// </para><para>
     /// You can call <code>CreateBackup</code> at a maximum rate of 50 times per second.
     /// </para><para>
     /// All backups in DynamoDB work without consuming any provisioned throughput on the table.
-    /// This results in a fast, low-cost, and scalable backup process. In general, the larger
-    /// the table, the more time it takes to back up. The backup is stored in an S3 data store
-    /// that is maintained and managed by DynamoDB.
     /// </para><para>
-    /// Backups incorporate all writes (delete, put, update) that were completed within the
-    /// last minute before the backup request was initiated. Backups might include some writes
-    /// (delete, put, update) that were completed before the backup request was finished.
-    /// </para><para>
-    ///  For example, if you submit the backup request on 2018-12-14 at 14:25:00, the backup
-    /// is guaranteed to contain all data committed to the table up to 14:24:00, and data
-    /// committed after 14:26:00 will not be. The backup may or may not contain data modifications
-    /// made between 14:24:00 and 14:26:00. On-Demand Backup does not support causal consistency.
-    /// 
+    ///  If you submit a backup request on 2018-12-14 at 14:25:00, the backup is guaranteed
+    /// to contain all data committed to the table up to 14:24:00, and data committed after
+    /// 14:26:00 will not be. The backup may or may not contain data modifications made between
+    /// 14:24:00 and 14:26:00. On-Demand Backup does not support causal consistency. 
     /// </para><para>
     ///  Along with data, the following are also included on the backups: 
     /// </para><ul><li><para>

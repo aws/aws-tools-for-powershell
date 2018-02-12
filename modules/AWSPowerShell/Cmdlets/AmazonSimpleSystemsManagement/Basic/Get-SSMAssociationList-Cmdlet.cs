@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMAssociationList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Association")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management ListAssociations API operation.", Operation = new[] {"ListAssociations"})]
+    [AWSCmdlet("Calls the AWS Systems Manager ListAssociations API operation.", Operation = new[] {"ListAssociations"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Association",
         "This cmdlet returns a collection of Association objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -238,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.ListAssociationsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "ListAssociations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ListAssociations");
             try
             {
                 #if DESKTOP

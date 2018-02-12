@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMEffectiveInstanceAssociationList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.InstanceAssociation")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management DescribeEffectiveInstanceAssociations API operation.", Operation = new[] {"DescribeEffectiveInstanceAssociations"})]
+    [AWSCmdlet("Calls the AWS Systems Manager DescribeEffectiveInstanceAssociations API operation.", Operation = new[] {"DescribeEffectiveInstanceAssociations"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.InstanceAssociation",
         "This cmdlet returns a collection of InstanceAssociation objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeEffectiveInstanceAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -235,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeEffectiveInstanceAssociationsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeEffectiveInstanceAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DescribeEffectiveInstanceAssociations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeEffectiveInstanceAssociations");
             try
             {
                 #if DESKTOP

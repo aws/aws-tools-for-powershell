@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("New", "SSMPatchBaseline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management CreatePatchBaseline API operation.", Operation = new[] {"CreatePatchBaseline"})]
+    [AWSCmdlet("Calls the AWS Systems Manager CreatePatchBaseline API operation.", Operation = new[] {"CreatePatchBaseline"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.CreatePatchBaselineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -350,7 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.CreatePatchBaselineResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.CreatePatchBaselineRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "CreatePatchBaseline");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "CreatePatchBaseline");
             try
             {
                 #if DESKTOP

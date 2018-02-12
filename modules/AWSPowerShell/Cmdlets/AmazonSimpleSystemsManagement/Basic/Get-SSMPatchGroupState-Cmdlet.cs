@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMPatchGroupState")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DescribePatchGroupStateResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management DescribePatchGroupState API operation.", Operation = new[] {"DescribePatchGroupState"})]
+    [AWSCmdlet("Calls the AWS Systems Manager DescribePatchGroupState API operation.", Operation = new[] {"DescribePatchGroupState"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DescribePatchGroupStateResponse",
         "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.DescribePatchGroupStateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribePatchGroupStateResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribePatchGroupStateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DescribePatchGroupState");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribePatchGroupState");
             try
             {
                 #if DESKTOP

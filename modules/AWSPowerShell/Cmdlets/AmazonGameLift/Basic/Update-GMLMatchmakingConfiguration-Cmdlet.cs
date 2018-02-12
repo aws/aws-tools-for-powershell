@@ -105,9 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameProperty
         /// <summary>
         /// <para>
-        /// <para>Set of developer-defined properties for a game session, formatted as a set of type:value
-        /// pairs. These properties are included in the <a>GameSession</a> object, which is passed
-        /// to the game server with a request to start a new game session (see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// <para>Set of custom properties for a game session, formatted as key:value pairs. These properties
+        /// are passed to a game server process in the <a>GameSession</a> object with a request
+        /// to start a new game session (see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
         /// a Game Session</a>). This information is added to the new <a>GameSession</a> object
         /// that is created for a successful match. </para>
         /// </para>
@@ -120,9 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameSessionData
         /// <summary>
         /// <para>
-        /// <para>Set of developer-defined game session properties, formatted as a single string value.
-        /// This data is included in the <a>GameSession</a> object, which is passed to the game
-        /// server with a request to start a new game session (see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// <para>Set of custom game session properties, formatted as a single string value. This data
+        /// is passed to a game server process in the <a>GameSession</a> object with a request
+        /// to start a new game session (see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
         /// a Game Session</a>). This information is added to the new <a>GameSession</a> object
         /// that is created for a successful match. </para>
         /// </para>

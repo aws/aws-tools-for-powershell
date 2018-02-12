@@ -119,7 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
         #region Parameter Reserved
         /// <summary>
         /// <para>
-        /// Reserved for future use.
+        /// Deprecated field that's only usable by whitelisted
+        /// customers.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

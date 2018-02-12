@@ -28,7 +28,7 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// Returns information about the global table.
+    /// Returns information about the specified global table.
     /// </summary>
     [Cmdlet("Get", "DDBGlobalTable")]
     [OutputType("Amazon.DynamoDBv2.Model.GlobalTableDescription")]

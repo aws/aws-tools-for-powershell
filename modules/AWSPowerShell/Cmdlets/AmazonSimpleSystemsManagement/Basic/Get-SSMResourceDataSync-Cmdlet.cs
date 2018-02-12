@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMResourceDataSync")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ResourceDataSyncItem")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management ListResourceDataSync API operation.", Operation = new[] {"ListResourceDataSync"})]
+    [AWSCmdlet("Calls the AWS Systems Manager ListResourceDataSync API operation.", Operation = new[] {"ListResourceDataSync"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ResourceDataSyncItem",
         "This cmdlet returns a collection of ResourceDataSyncItem objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListResourceDataSyncResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -232,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.ListResourceDataSyncResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListResourceDataSyncRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "ListResourceDataSync");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ListResourceDataSync");
             try
             {
                 #if DESKTOP

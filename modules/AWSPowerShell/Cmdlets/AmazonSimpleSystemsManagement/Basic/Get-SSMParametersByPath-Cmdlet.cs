@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMParametersByPath")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Parameter")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management GetParametersByPath API operation.", Operation = new[] {"GetParametersByPath"})]
+    [AWSCmdlet("Calls the AWS Systems Manager GetParametersByPath API operation.", Operation = new[] {"GetParametersByPath"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Parameter",
         "This cmdlet returns a collection of Parameter objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.GetParametersByPathResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -301,7 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetParametersByPathResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetParametersByPathRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "GetParametersByPath");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetParametersByPath");
             try
             {
                 #if DESKTOP

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMInstancePatch")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.PatchComplianceData")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management DescribeInstancePatches API operation.", Operation = new[] {"DescribeInstancePatches"})]
+    [AWSCmdlet("Calls the AWS Systems Manager DescribeInstancePatches API operation.", Operation = new[] {"DescribeInstancePatches"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.PatchComplianceData",
         "This cmdlet returns a collection of PatchComplianceData objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeInstancePatchesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -254,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeInstancePatchesResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeInstancePatchesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DescribeInstancePatches");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeInstancePatches");
             try
             {
                 #if DESKTOP

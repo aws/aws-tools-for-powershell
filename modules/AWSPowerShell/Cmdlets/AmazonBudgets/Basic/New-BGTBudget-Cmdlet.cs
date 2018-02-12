@@ -28,7 +28,7 @@ using Amazon.Budgets.Model;
 namespace Amazon.PowerShell.Cmdlets.BGT
 {
     /// <summary>
-    /// Create a new budget
+    /// Creates a budget and, if included, notifications and subscribers.
     /// </summary>
     [Cmdlet("New", "BGTBudget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The <code>accountId</code> that is associated with the budget.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter BudgetLimit_Amount
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The cost or usage amount associated with a budget forecast, actual spend, or budget
+        /// threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter ActualSpend_Amount
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The cost or usage amount associated with a budget forecast, actual spend, or budget
+        /// threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter ForecastedSpend_Amount
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The cost or usage amount associated with a budget forecast, actual spend, or budget
+        /// threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,7 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Budget_BudgetName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of a budget. Unique within accounts. <code>:</code> and <code>\</code> characters
+        /// are not allowed in the <code>BudgetName</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Budget_BudgetType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Whether this budget tracks monetary costs, usage, or RI utilization.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Budget_CostFilter
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The cost filters applied to a budget, such as service or region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -118,7 +122,10 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter TimePeriod_End
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The end date for a budget. If you didn't specify an end date, AWS set your end date
+        /// to <code>06/15/87 00:00 UTC</code>. The defaults are the same for the AWS Billing
+        /// and Cost Management console and the API.</para><para>After the end date, AWS deletes the budget and all associated notifications and subscribers.
+        /// You can change your end date with the <code>UpdateBudget</code> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -129,8 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_IncludeCredit
         /// <summary>
         /// <para>
-        /// A boolean value whether to include credits
-        /// in the cost budget.
+        /// <para>Specifies whether a budget includes credits.</para><para>The default value is <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -141,8 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_IncludeDiscount
         /// <summary>
         /// <para>
-        /// A boolean value whether to include discounts
-        /// in the cost budget.
+        /// <para>Specifies whether a budget includes discounts.</para><para>The default value is <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -153,8 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_IncludeOtherSubscription
         /// <summary>
         /// <para>
-        /// A boolean value whether to include
-        /// other subscription costs in the cost budget.
+        /// <para>Specifies whether a budget includes non-RI subscription costs.</para><para>The default value is <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -165,8 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_IncludeRecurring
         /// <summary>
         /// <para>
-        /// A boolean value whether to include recurring
-        /// costs in the cost budget.
+        /// <para>Specifies whether a budget includes recurring fees such as monthly RI fees.</para><para>The default value is <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -177,8 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_IncludeRefund
         /// <summary>
         /// <para>
-        /// A boolean value whether to include refunds
-        /// in the cost budget.
+        /// <para>Specifies whether a budget includes refunds.</para><para>The default value is <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -189,8 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_IncludeSubscription
         /// <summary>
         /// <para>
-        /// A boolean value whether to include
-        /// subscriptions in the cost budget.
+        /// <para>Specifies whether a budget includes subscriptions.</para><para>The default value is <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -201,8 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_IncludeSupport
         /// <summary>
         /// <para>
-        /// A boolean value whether to include support
-        /// costs in the cost budget.
+        /// <para>Specifies whether a budget includes support subscription fees.</para><para>The default value is <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -213,8 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_IncludeTax
         /// <summary>
         /// <para>
-        /// A boolean value whether to include tax in the
-        /// cost budget.
+        /// <para>Specifies whether a budget includes taxes.</para><para>The default value is <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -225,8 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_IncludeUpfront
         /// <summary>
         /// <para>
-        /// A boolean value whether to include upfront
-        /// costs in the cost budget.
+        /// <para>Specifies whether a budget includes upfront RI costs.</para><para>The default value is <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -237,7 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NotificationsWithSubscriber
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A notification that you want to associate with a budget. A budget can have up to five
+        /// notifications, and each notification can have one SNS subscriber and up to ten email
+        /// subscribers. If you include notifications and subscribers in your <code>CreateBudget</code>
+        /// call, AWS creates the notifications and subscribers for you.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -248,7 +249,13 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter TimePeriod_Start
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The start date for a budget. If you created your budget and didn't specify a start
+        /// date, AWS defaults to the start of your chosen time period (i.e. DAILY, MONTHLY, QUARTERLY,
+        /// ANNUALLY). For example, if you created your budget on January 24th 2018, chose <code>DAILY</code>,
+        /// and didn't set a start date, AWS set your start date to <code>01/24/18 00:00 UTC</code>.
+        /// If you chose <code>MONTHLY</code>, AWS set your start date to <code>01/01/18 00:00
+        /// UTC</code>. The defaults are the same for the AWS Billing and Cost Management console
+        /// and the API.</para><para>You can change your start date with the <code>UpdateBudget</code> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -259,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Budget_TimeUnit
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The length of time until a budget resets the actual and forecasted spend.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -270,7 +277,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter BudgetLimit_Unit
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unit of measurement used for the budget forecast, actual spend, or budget threshold,
+        /// such as dollars or GB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -281,7 +289,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter ActualSpend_Unit
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unit of measurement used for the budget forecast, actual spend, or budget threshold,
+        /// such as dollars or GB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -292,7 +301,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter ForecastedSpend_Unit
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unit of measurement used for the budget forecast, actual spend, or budget threshold,
+        /// such as dollars or GB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -303,8 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_UseAmortized
         /// <summary>
         /// <para>
-        /// A boolean value whether to include amortized
-        /// costs in the cost budget.
+        /// <para>Specifies whether a budget uses the amortized rate.</para><para>The default value is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -315,8 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_UseBlended
         /// <summary>
         /// <para>
-        /// A boolean value whether to use blended costs
-        /// in the cost budget.
+        /// <para>Specifies whether a budget uses blended rate.</para><para>The default value is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

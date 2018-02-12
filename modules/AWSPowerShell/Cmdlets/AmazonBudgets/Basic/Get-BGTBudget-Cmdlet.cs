@@ -28,7 +28,7 @@ using Amazon.Budgets.Model;
 namespace Amazon.PowerShell.Cmdlets.BGT
 {
     /// <summary>
-    /// Get a single budget
+    /// Describes a budget.
     /// </summary>
     [Cmdlet("Get", "BGTBudget")]
     [OutputType("Amazon.Budgets.Model.Budget")]
@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The <code>accountId</code> that is associated with the budget that you want a description
+        /// of.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter BudgetName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the budget that you want a description of.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

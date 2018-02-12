@@ -28,8 +28,7 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// Lists all the global tables. Only those global tables that have replicas in the region
-    /// specified as input are returned.
+    /// Lists all global tables that have a replica in the specified region.
     /// </summary>
     [Cmdlet("Get", "DDBGlobalTablesList")]
     [OutputType("Amazon.DynamoDBv2.Model.ListGlobalTablesResponse")]

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMInstanceInformation")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.InstanceInformation")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management DescribeInstanceInformation API operation.", Operation = new[] {"DescribeInstanceInformation"})]
+    [AWSCmdlet("Calls the AWS Systems Manager DescribeInstanceInformation API operation.", Operation = new[] {"DescribeInstanceInformation"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.InstanceInformation",
         "This cmdlet returns a collection of InstanceInformation objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeInstanceInformationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -262,7 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeInstanceInformationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeInstanceInformationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DescribeInstanceInformation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeInstanceInformation");
             try
             {
                 #if DESKTOP

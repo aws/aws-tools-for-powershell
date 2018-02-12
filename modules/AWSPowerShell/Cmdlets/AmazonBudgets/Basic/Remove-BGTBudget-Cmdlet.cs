@@ -28,7 +28,11 @@ using Amazon.Budgets.Model;
 namespace Amazon.PowerShell.Cmdlets.BGT
 {
     /// <summary>
-    /// Delete a budget and related notifications
+    /// Deletes a budget. You can delete your budget at any time.
+    /// 
+    ///  
+    /// <para><b>Deleting a budget also deletes the notifications and subscribers associated with
+    /// that budget.</b></para>
     /// </summary>
     [Cmdlet("Remove", "BGTBudget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -43,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The <code>accountId</code> that is associated with the budget that you want to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter BudgetName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the budget that you want to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

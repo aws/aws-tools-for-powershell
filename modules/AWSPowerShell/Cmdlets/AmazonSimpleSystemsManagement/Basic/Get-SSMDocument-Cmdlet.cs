@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMDocument")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetDocumentResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management GetDocument API operation.", Operation = new[] {"GetDocument"})]
+    [AWSCmdlet("Calls the AWS Systems Manager GetDocument API operation.", Operation = new[] {"GetDocument"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetDocumentResponse",
         "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.GetDocumentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetDocumentResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetDocumentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "GetDocument");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetDocument");
             try
             {
                 #if DESKTOP

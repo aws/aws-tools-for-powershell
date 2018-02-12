@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Update", "SSMDocumentDefaultVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentDefaultVersionDescription")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management UpdateDocumentDefaultVersion API operation.", Operation = new[] {"UpdateDocumentDefaultVersion"})]
+    [AWSCmdlet("Calls the AWS Systems Manager UpdateDocumentDefaultVersion API operation.", Operation = new[] {"UpdateDocumentDefaultVersion"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentDefaultVersionDescription",
         "This cmdlet returns a DocumentDefaultVersionDescription object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.UpdateDocumentDefaultVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.UpdateDocumentDefaultVersionResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateDocumentDefaultVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "UpdateDocumentDefaultVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "UpdateDocumentDefaultVersion");
             try
             {
                 #if DESKTOP

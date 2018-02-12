@@ -211,8 +211,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The type of engine for the endpoint. Valid values, depending on the EndPointType,
-        /// include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, S3, DYNAMODB, MONGODB,
-        /// SYBASE, and SQLSERVER.</para>
+        /// include mysql, oracle, postgres, mariadb, aurora, redshift, S3, sybase, dynamodb,
+        /// mongodb, and sqlserver.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

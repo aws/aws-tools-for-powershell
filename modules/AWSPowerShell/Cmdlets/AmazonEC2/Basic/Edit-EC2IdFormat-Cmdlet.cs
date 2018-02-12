@@ -30,11 +30,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Modifies the ID format for the specified resource on a per-region basis. You can specify
     /// that resources should receive longer IDs (17-character IDs) when they are created.
-    /// The following resource types support longer IDs: <code>instance</code> | <code>reservation</code>
-    /// | <code>snapshot</code> | <code>volume</code>.
     /// 
     ///  
     /// <para>
+    /// This request can only be used to modify longer ID settings for resource types that
+    /// are within the opt-in period. Resources currently in their opt-in period include:
+    /// <code>bundle</code> | <code>conversion-task</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code>
+    /// | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code>
+    /// | <code>image</code> | <code>import-task</code> | <code>internet-gateway</code> |
+    /// <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code>
+    /// | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>route-table</code>
+    /// | <code>route-table-association</code> | <code>security-group</code> | <code>subnet</code>
+    /// | <code>subnet-cidr-block-association</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code>
+    /// | <code>vpc-peering-connection</code>.
+    /// </para><para>
     /// This setting applies to the IAM user who makes the request; it does not apply to the
     /// entire AWS account. By default, an IAM user defaults to the same settings as the root
     /// user. If you're using this action as the root user, then these settings apply to the
@@ -60,8 +69,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The type of resource: <code>instance</code> | <code>reservation</code> | <code>snapshot</code>
-        /// | <code>volume</code></para>
+        /// <para>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>dhcp-options</code>
+        /// | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code>
+        /// | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>internet-gateway</code>
+        /// | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code>
+        /// | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>route-table</code>
+        /// | <code>route-table-association</code> | <code>security-group</code> | <code>subnet</code>
+        /// | <code>subnet-cidr-block-association</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code>
+        /// | <code>vpc-peering-connection</code>.</para><para>Alternatively, use the <code>all-current</code> option to include all resource types
+        /// that are currently within their opt-in period for longer IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

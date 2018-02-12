@@ -70,6 +70,16 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter RedirectURL
+        /// <summary>
+        /// <para>
+        /// <para>The URL the user is redirected to after the streaming session ends.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RedirectURL { get; set; }
+        #endregion
+        
         #region Parameter StorageConnector
         /// <summary>
         /// <para>
@@ -113,6 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             context.Name = this.Name;
+            context.RedirectURL = this.RedirectURL;
             if (this.StorageConnector != null)
             {
                 context.StorageConnectors = new List<Amazon.AppStream.Model.StorageConnector>(this.StorageConnector);
@@ -144,6 +155,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.RedirectURL != null)
+            {
+                request.RedirectURL = cmdletContext.RedirectURL;
             }
             if (cmdletContext.StorageConnectors != null)
             {
@@ -216,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.String Name { get; set; }
+            public System.String RedirectURL { get; set; }
             public List<Amazon.AppStream.Model.StorageConnector> StorageConnectors { get; set; }
         }
         

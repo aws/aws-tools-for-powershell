@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class UpdateAPSStackCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        #region Parameter AttributesToDelete
+        /// <summary>
+        /// <para>
+        /// <para>The stack attributes to delete.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] AttributesToDelete { get; set; }
+        #endregion
+        
         #region Parameter DeleteStorageConnector
         /// <summary>
         /// <para>
@@ -79,6 +89,16 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter RedirectURL
+        /// <summary>
+        /// <para>
+        /// <para>The URL the user is redirected to after the streaming session ends.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RedirectURL { get; set; }
         #endregion
         
         #region Parameter StorageConnector
@@ -121,11 +141,16 @@ namespace Amazon.PowerShell.Cmdlets.APS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.AttributesToDelete != null)
+            {
+                context.AttributesToDelete = new List<System.String>(this.AttributesToDelete);
+            }
             if (ParameterWasBound("DeleteStorageConnector"))
                 context.DeleteStorageConnectors = this.DeleteStorageConnector;
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             context.Name = this.Name;
+            context.RedirectURL = this.RedirectURL;
             if (this.StorageConnector != null)
             {
                 context.StorageConnectors = new List<Amazon.AppStream.Model.StorageConnector>(this.StorageConnector);
@@ -146,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             // create request
             var request = new Amazon.AppStream.Model.UpdateStackRequest();
             
+            if (cmdletContext.AttributesToDelete != null)
+            {
+                request.AttributesToDelete = cmdletContext.AttributesToDelete;
+            }
             if (cmdletContext.DeleteStorageConnectors != null)
             {
                 request.DeleteStorageConnectors = cmdletContext.DeleteStorageConnectors.Value;
@@ -161,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.RedirectURL != null)
+            {
+                request.RedirectURL = cmdletContext.RedirectURL;
             }
             if (cmdletContext.StorageConnectors != null)
             {
@@ -230,10 +263,12 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AttributesToDelete { get; set; }
             public System.Boolean? DeleteStorageConnectors { get; set; }
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.String Name { get; set; }
+            public System.String RedirectURL { get; set; }
             public List<Amazon.AppStream.Model.StorageConnector> StorageConnectors { get; set; }
         }
         

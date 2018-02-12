@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMInventory")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.InventoryResultEntity")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management GetInventory API operation.", Operation = new[] {"GetInventory"})]
+    [AWSCmdlet("Calls the AWS Systems Manager GetInventory API operation.", Operation = new[] {"GetInventory"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.InventoryResultEntity",
         "This cmdlet returns a collection of InventoryResultEntity objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.GetInventoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -280,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetInventoryResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetInventoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "GetInventory");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetInventory");
             try
             {
                 #if DESKTOP

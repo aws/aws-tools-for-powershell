@@ -74,7 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicate whether the VPN connection uses static routes only. If you are creating a
-        /// VPN connection for a device that does not support BGP, you must specify <code>true</code>.</para><para>Default: <code>false</code></para>
+        /// VPN connection for a device that does not support BGP, you must specify <code>true</code>.
+        /// Use <a>CreateVpnConnectionRoute</a> to create a static route.</para><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]

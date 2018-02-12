@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMDocumentPermission")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management DescribeDocumentPermission API operation.", Operation = new[] {"DescribeDocumentPermission"})]
+    [AWSCmdlet("Calls the AWS Systems Manager DescribeDocumentPermission API operation.", Operation = new[] {"DescribeDocumentPermission"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeDocumentPermissionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeDocumentPermissionResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeDocumentPermissionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DescribeDocumentPermission");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeDocumentPermission");
             try
             {
                 #if DESKTOP

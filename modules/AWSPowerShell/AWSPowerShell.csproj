@@ -58,7 +58,7 @@
       <HintPath>..\..\packages\AWSSDK.AlexaForBusiness.3.3.1\lib\net35\AWSSDK.AlexaForBusiness.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppStream">
-      <HintPath>..\..\packages\AWSSDK.AppStream.3.3.8\lib\net35\AWSSDK.AppStream.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.AppStream.3.3.9\lib\net35\AWSSDK.AppStream.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppSync">
       <HintPath>..\..\packages\AWSSDK.AppSync.3.3.0\lib\net35\AWSSDK.AppSync.dll</HintPath>
@@ -115,10 +115,10 @@
       <HintPath>..\..\packages\AWSSDK.KinesisVideoMedia.3.3.0\lib\net35\AWSSDK.KinesisVideoMedia.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lex">
-      <HintPath>..\..\packages\AWSSDK.Lex.3.3.2.3\lib\net35\AWSSDK.Lex.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Lex.3.3.3\lib\net35\AWSSDK.Lex.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LexModelBuildingService">
-      <HintPath>..\..\packages\AWSSDK.LexModelBuildingService.3.3.4\lib\net35\AWSSDK.LexModelBuildingService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.LexModelBuildingService.3.3.5\lib\net35\AWSSDK.LexModelBuildingService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MarketplaceEntitlementService">
       <HintPath>..\..\packages\AWSSDK.MarketplaceEntitlementService.3.3.0.8\lib\net35\AWSSDK.MarketplaceEntitlementService.dll</HintPath>
@@ -127,13 +127,13 @@
       <HintPath>..\..\packages\AWSSDK.MediaConvert.3.3.0\lib\net35\AWSSDK.MediaConvert.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaLive">
-      <HintPath>..\..\packages\AWSSDK.MediaLive.3.3.1\lib\net35\AWSSDK.MediaLive.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.MediaLive.3.3.2\lib\net35\AWSSDK.MediaLive.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaPackage">
       <HintPath>..\..\packages\AWSSDK.MediaPackage.3.3.0\lib\net35\AWSSDK.MediaPackage.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaStore">
-      <HintPath>..\..\packages\AWSSDK.MediaStore.3.3.0\lib\net35\AWSSDK.MediaStore.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.MediaStore.3.3.1\lib\net35\AWSSDK.MediaStore.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaStoreData">
       <HintPath>..\..\packages\AWSSDK.MediaStoreData.3.3.0.1\lib\net35\AWSSDK.MediaStoreData.dll</HintPath>
@@ -208,7 +208,7 @@
       <HintPath>..\..\packages\AWSSDK.ServerMigrationService.3.3.0.22\lib\net35\AWSSDK.ServerMigrationService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Budgets">
-      <HintPath>..\..\packages\AWSSDK.Budgets.3.3.6\lib\net35\AWSSDK.Budgets.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Budgets.3.3.7\lib\net35\AWSSDK.Budgets.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.StepFunctions">
       <HintPath>..\..\packages\AWSSDK.StepFunctions.3.3.2\lib\net35\AWSSDK.StepFunctions.dll</HintPath>
@@ -295,7 +295,7 @@
       <HintPath>..\..\packages\AWSSDK.IdentityManagement.3.3.5.3\lib\net35\AWSSDK.IdentityManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GameLift">
-      <HintPath>..\..\packages\AWSSDK.GameLift.3.3.9.3\lib\net35\AWSSDK.GameLift.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.GameLift.3.3.10\lib\net35\AWSSDK.GameLift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticTranscoder">
       <HintPath>..\..\packages\AWSSDK.ElasticTranscoder.3.3.1.20\lib\net35\AWSSDK.ElasticTranscoder.dll</HintPath>
@@ -328,13 +328,13 @@
       <HintPath>..\..\packages\AWSSDK.ECR.3.3.3.2\lib\net35\AWSSDK.ECR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EC2">
-      <HintPath>..\..\packages\AWSSDK.EC2.3.3.42.1\lib\net35\AWSSDK.EC2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.EC2.3.3.43\lib\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
-      <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.5\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.6\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DirectoryService">
-      <HintPath>..\..\packages\AWSSDK.DirectoryService.3.3.3\lib\net35\AWSSDK.DirectoryService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.DirectoryService.3.3.4\lib\net35\AWSSDK.DirectoryService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DirectConnect">
       <HintPath>..\..\packages\AWSSDK.DirectConnect.3.3.5.1\lib\net35\AWSSDK.DirectConnect.dll</HintPath>
@@ -346,10 +346,10 @@
       <HintPath>..\..\packages\AWSSDK.DataPipeline.3.3.0.23\lib\net35\AWSSDK.DataPipeline.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DatabaseMigrationService">
-      <HintPath>..\..\packages\AWSSDK.DatabaseMigrationService.3.3.5\lib\net35\AWSSDK.DatabaseMigrationService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.DatabaseMigrationService.3.3.6\lib\net35\AWSSDK.DatabaseMigrationService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Core">
-      <HintPath>..\..\packages\AWSSDK.Core.3.3.21.10\lib\net35\AWSSDK.Core.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Core.3.3.21.11\lib\net35\AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConfigService">
       <HintPath>..\..\packages\AWSSDK.ConfigService.3.3.12\lib\net35\AWSSDK.ConfigService.dll</HintPath>

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMAutomationStepExecution")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.StepExecution")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management DescribeAutomationStepExecutions API operation.", Operation = new[] {"DescribeAutomationStepExecutions"})]
+    [AWSCmdlet("Calls the AWS Systems Manager DescribeAutomationStepExecutions API operation.", Operation = new[] {"DescribeAutomationStepExecutions"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.StepExecution",
         "This cmdlet returns a collection of StepExecution objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeAutomationStepExecutionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -271,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeAutomationStepExecutionsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeAutomationStepExecutionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DescribeAutomationStepExecutions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeAutomationStepExecutions");
             try
             {
                 #if DESKTOP

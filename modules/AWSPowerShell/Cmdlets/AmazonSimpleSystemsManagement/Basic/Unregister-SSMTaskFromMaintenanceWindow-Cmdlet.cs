@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Unregister", "SSMTaskFromMaintenanceWindow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DeregisterTaskFromMaintenanceWindowResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management DeregisterTaskFromMaintenanceWindow API operation.", Operation = new[] {"DeregisterTaskFromMaintenanceWindow"})]
+    [AWSCmdlet("Calls the AWS Systems Manager DeregisterTaskFromMaintenanceWindow API operation.", Operation = new[] {"DeregisterTaskFromMaintenanceWindow"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DeregisterTaskFromMaintenanceWindowResponse",
         "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.DeregisterTaskFromMaintenanceWindowResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DeregisterTaskFromMaintenanceWindowResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeregisterTaskFromMaintenanceWindowRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DeregisterTaskFromMaintenanceWindow");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeregisterTaskFromMaintenanceWindow");
             try
             {
                 #if DESKTOP

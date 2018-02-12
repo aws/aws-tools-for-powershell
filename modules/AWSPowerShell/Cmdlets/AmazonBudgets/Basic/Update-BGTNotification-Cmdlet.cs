@@ -28,7 +28,7 @@ using Amazon.Budgets.Model;
 namespace Amazon.PowerShell.Cmdlets.BGT
 {
     /// <summary>
-    /// Update the information about a notification already created
+    /// Updates a notification.
     /// </summary>
     [Cmdlet("Update", "BGTNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The <code>accountId</code> that is associated with the budget whose notification you
+        /// want to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter BudgetName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the budget whose notification you want to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -63,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NewNotification_ComparisonOperator
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The comparison used for this notification.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter OldNotification_ComparisonOperator
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The comparison used for this notification.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -85,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NewNotification_NotificationType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Whether the notification is for how much you have spent (<code>ACTUAL</code>) or for
+        /// how much you are forecasted to spend (<code>FORECASTED</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,7 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter OldNotification_NotificationType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Whether the notification is for how much you have spent (<code>ACTUAL</code>) or for
+        /// how much you are forecasted to spend (<code>FORECASTED</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NewNotification_Threshold
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The threshold associated with a notification. Thresholds are always a percentage.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -117,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter OldNotification_Threshold
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The threshold associated with a notification. Thresholds are always a percentage.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -127,7 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NewNotification_ThresholdType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The type of threshold for a notification. For <code>ACTUAL</code> thresholds, AWS
+        /// notifies you when you go over the threshold, and for <code>FORECASTED</code> thresholds
+        /// AWS notifies you when you are forecasted to go over the threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -138,7 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter OldNotification_ThresholdType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The type of threshold for a notification. For <code>ACTUAL</code> thresholds, AWS
+        /// notifies you when you go over the threshold, and for <code>FORECASTED</code> thresholds
+        /// AWS notifies you when you are forecasted to go over the threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

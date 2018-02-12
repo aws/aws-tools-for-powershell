@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMPatchBaselineForPatchGroup")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetPatchBaselineForPatchGroupResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management GetPatchBaselineForPatchGroup API operation.", Operation = new[] {"GetPatchBaselineForPatchGroup"})]
+    [AWSCmdlet("Calls the AWS Systems Manager GetPatchBaselineForPatchGroup API operation.", Operation = new[] {"GetPatchBaselineForPatchGroup"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetPatchBaselineForPatchGroupResponse",
         "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.GetPatchBaselineForPatchGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetPatchBaselineForPatchGroupResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetPatchBaselineForPatchGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "GetPatchBaselineForPatchGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetPatchBaselineForPatchGroup");
             try
             {
                 #if DESKTOP

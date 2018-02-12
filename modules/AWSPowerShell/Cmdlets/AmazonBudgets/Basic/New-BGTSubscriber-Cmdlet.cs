@@ -28,7 +28,8 @@ using Amazon.Budgets.Model;
 namespace Amazon.PowerShell.Cmdlets.BGT
 {
     /// <summary>
-    /// Create a new Subscriber for a notification
+    /// Creates a subscriber. You must create the associated budget and notification before
+    /// you create the subscriber.
     /// </summary>
     [Cmdlet("New", "BGTSubscriber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -43,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The <code>accountId</code> associated with the budget that you want to create a subscriber
+        /// for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Subscriber_Address
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The address that AWS sends budget notifications to, either an SNS topic or an email.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter BudgetName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the budget that you want to subscribe to. Budget names must be unique
+        /// within an account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -73,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Notification_ComparisonOperator
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The comparison used for this notification.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,7 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Notification_NotificationType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Whether the notification is for how much you have spent (<code>ACTUAL</code>) or for
+        /// how much you are forecasted to spend (<code>FORECASTED</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -95,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Subscriber_SubscriptionType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The type of notification that AWS sends to a subscriber.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -106,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Notification_Threshold
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The threshold associated with a notification. Thresholds are always a percentage.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -116,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Notification_ThresholdType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The type of threshold for a notification. For <code>ACTUAL</code> thresholds, AWS
+        /// notifies you when you go over the threshold, and for <code>FORECASTED</code> thresholds
+        /// AWS notifies you when you are forecasted to go over the threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

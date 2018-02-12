@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the security group.</para><para>Constraints: Up to 255 characters in length</para><para>Constraints for EC2-Classic: ASCII characters</para><para>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</para>
+        /// <para>The name of the security group.</para><para>Constraints: Up to 255 characters in length. Cannot start with <code>sg-</code>.</para><para>Constraints for EC2-Classic: ASCII characters</para><para>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

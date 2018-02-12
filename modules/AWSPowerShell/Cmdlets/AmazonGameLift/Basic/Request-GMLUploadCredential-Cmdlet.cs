@@ -28,9 +28,16 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <i>This API call is not currently in use. </i> Retrieves a fresh set of upload credentials
-    /// and the assigned Amazon S3 storage location for a specific build. Valid credentials
-    /// are required to upload your game build files to Amazon S3.
+    /// Retrieves a fresh set of credentials for use when uploading a new set of game build
+    /// files to Amazon GameLift's Amazon S3. This is done as part of the build creation process;
+    /// see <a>CreateBuild</a>.
+    /// 
+    ///  
+    /// <para>
+    /// To request new credentials, specify the build ID as returned with an initial <code>CreateBuild</code>
+    /// request. If successful, a new set of credentials are returned, along with the S3 storage
+    /// location associated with the build ID.
+    /// </para>
     /// </summary>
     [Cmdlet("Request", "GMLUploadCredential", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.RequestUploadCredentialsResponse")]

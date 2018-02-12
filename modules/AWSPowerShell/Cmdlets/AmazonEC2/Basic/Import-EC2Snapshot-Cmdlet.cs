@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DiskContainer_Format
         /// <summary>
         /// <para>
-        /// <para>The format of the disk image being imported.</para><para>Valid values: <code>RAW</code> | <code>VHD</code> | <code>VMDK</code> | <code>OVA</code></para>
+        /// <para>The format of the disk image being imported.</para><para>Valid values: <code>VHD</code> | <code>VMDK</code> | <code>OVA</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

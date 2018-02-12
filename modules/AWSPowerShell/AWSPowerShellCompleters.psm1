@@ -4636,21 +4636,30 @@ $EML_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.MediaLive.InputCodec
-        "New-EMLChannel/InputSpecification_Codec"
+        {
+            ($_ -eq "New-EMLChannel/InputSpecification_Codec") -Or
+            ($_ -eq "Update-EMLChannel/InputSpecification_Codec")
+        }
         {
             $v = "AVC","HEVC","MPEG2"
             break
         }
         
         # Amazon.MediaLive.InputMaximumBitrate
-        "New-EMLChannel/InputSpecification_MaximumBitrate"
+        {
+            ($_ -eq "New-EMLChannel/InputSpecification_MaximumBitrate") -Or
+            ($_ -eq "Update-EMLChannel/InputSpecification_MaximumBitrate")
+        }
         {
             $v = "MAX_10_MBPS","MAX_20_MBPS","MAX_50_MBPS"
             break
         }
         
         # Amazon.MediaLive.InputResolution
-        "New-EMLChannel/InputSpecification_Resolution"
+        {
+            ($_ -eq "New-EMLChannel/InputSpecification_Resolution") -Or
+            ($_ -eq "Update-EMLChannel/InputSpecification_Resolution")
+        }
         {
             $v = "HD","SD","UHD"
             break
@@ -4671,9 +4680,9 @@ $EML_Completers = {
 }
 
 $EML_map = @{
-    "InputSpecification_Codec"=@("New-EMLChannel")
-    "InputSpecification_MaximumBitrate"=@("New-EMLChannel")
-    "InputSpecification_Resolution"=@("New-EMLChannel")
+    "InputSpecification_Codec"=@("New-EMLChannel","Update-EMLChannel")
+    "InputSpecification_MaximumBitrate"=@("New-EMLChannel","Update-EMLChannel")
+    "InputSpecification_Resolution"=@("New-EMLChannel","Update-EMLChannel")
     "Type"=@("New-EMLInput")
 }
 
@@ -6159,7 +6168,7 @@ $SNOW_map = @{
 _awsArgumentCompleterRegistration $SNOW_Completers $SNOW_map
 
 
-# Argument completions for service Amazon Simple Systems Management
+# Argument completions for service AWS Systems Manager
 $SSM_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
     

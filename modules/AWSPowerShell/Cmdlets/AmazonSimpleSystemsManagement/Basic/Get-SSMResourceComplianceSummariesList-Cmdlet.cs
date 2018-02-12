@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMResourceComplianceSummariesList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ResourceComplianceSummaryItem")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management ListResourceComplianceSummaries API operation.", Operation = new[] {"ListResourceComplianceSummaries"})]
+    [AWSCmdlet("Calls the AWS Systems Manager ListResourceComplianceSummaries API operation.", Operation = new[] {"ListResourceComplianceSummaries"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ResourceComplianceSummaryItem",
         "This cmdlet returns a collection of ResourceComplianceSummaryItem objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListResourceComplianceSummariesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -240,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.ListResourceComplianceSummariesResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListResourceComplianceSummariesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "ListResourceComplianceSummaries");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ListResourceComplianceSummaries");
             try
             {
                 #if DESKTOP

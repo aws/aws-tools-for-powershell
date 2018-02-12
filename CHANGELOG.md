@@ -1,4 +1,4 @@
-### 3.3.229.0 (2018-02-07)
+### 3.3.231.0 (2018-02-12)
   * AWS Lambda
     * [Breaking Change] The response data from the service's GetPolicy API has been extended to emit both the policy and revision ID of the policy. The output from the corresponding Get-LMPolicy cmdlet has therefore been changed to emit the service response to the pipeline. To keep the original behavior your scripts need to be changed to use _(Get-LMPolicy).Policy_ in place of _Get-LMPolicy_.
     * Updated the Add-LMPermission, Publish-LMVersion, Remove-LMPermission, Update-LMAlias and Update-LMFunctionConfiguration cmdlets to support setting Revision ID on your function versions and aliases, to track and apply conditional updates when you are updating your function version or alias resources.
@@ -23,6 +23,19 @@
     * Added cmdlets to support new APIs: Find-SCProvisionedProduct (SearchProvisionedProduct API), Get-SCProvisionedProductPlan (DescribeProvisionedPlan API), Get-SCProvisionedPlanList (ListProvisionedproductPlans API), New-SCProvisionedproductPlan (CreateProvisionedproductPlan API), Remove-SCProvisionedProductPlan (DeleteProvisionedProductPlan API) and Start-SCProvisionedProductPlanExecution (ExecuteProvisionedProductPlan API).
     * Amazon Systems Manager
       * Updated cmdlets with parameters to support Patch Manager enhancements for configuring Linux repos as part of patch baselines, controlling updates of non-OS security packages and also creating patch baselines for SUSE12.
+      * Updated service name in cmdlet help documentation.
+  * Amazon AppStream
+      * Added parameter -RedirectURL to the New-APSStack and Update-APSStack cmdlets enabling a redirect url to be provided for a stack. Users will be redirected to the link provided by the admin at the end of their streaming session. Update-APSStack also now supports a new parameter enabling attributes to be deleted from a stack.
+  * AWS Database Migration Service
+    * Added cmdlets to support new APIs for replication instance task logs and rebooting instances. Replication instance task logs allows users to see how much storage each log for a task on a given instance is occupying. The reboot API gives users the option to reboot the application software on the instance and force a fail over for MAZ instances to test robustness of their integration with our service. The new cmdlets are Get-DMSReplicationInstanceTaskLog (DescribeReplicationInstanceTaskLogs API) and Restart-DMSReplicationInstance (RebootReplicationInstance API).
+  * Amazon EC2
+    * Added cmdlets for new APIs to support determining the longer ID opt-in status of their account. The new cmdlets are Get-EC2AggregatedIdFormat (DescribeAggregatedIdFormat API) and Get-EC2PrincipalIdFormat (DescribePrincipalIdFormat API).
+  * Amazon GameLift
+    * Added cmdlet Start-GMLMatchBackfill to support the new StartMatchBackfill API. This API allows developers to add new players to an existing game session using the same matchmaking rules and player data that were used to initially create the session.
+  * AWS Elemental Media Live
+    * Added cmdlet Update-EMLChannel to support the new UpdateChannel API. For idle channels you can now update channel name, channel outputs and output destinations, encoder settings, user role ARN, and input specifications. Channel settings can be updated in the console or with API calls. Please note that running channels need to be stopped before they can be updated. We've also deprecated the 'Reserved' field.
+  * AWS Elemental Media Store
+    * Added cmdlets Get-EMSCorsPolicy (GetCorsPolicy API), Write-EMSCorsPolicy (PutCorsPolicy API) and Remove-EMSCorsPolicy (DeleteCorsPolicy API) to support per-container CORS configuration.
 
 ### 3.3.225.1 (2018-01-24)
   * Amazon Guard Duty

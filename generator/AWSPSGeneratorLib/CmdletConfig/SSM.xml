@@ -4,7 +4,7 @@
     <C2jFilename>ssm</C2jFilename>
     <SourceGenerationRoot>AmazonSimpleSystemsManagement</SourceGenerationRoot>
     <ServiceNounPrefix>SSM</ServiceNounPrefix>
-    <ServiceName>Amazon Simple Systems Management</ServiceName>
+    <ServiceName>AWS Systems Manager</ServiceName>
     <ServiceClientInterface>IAmazonSimpleSystemsManagement</ServiceClientInterface>
     <ServiceClient>AmazonSimpleSystemsManagementClient</ServiceClient>
     <ServiceNamespace>Amazon.SimpleSystemsManagement</ServiceNamespace>

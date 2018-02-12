@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Unregister", "SSMPatchBaselineForPatchGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DeregisterPatchBaselineForPatchGroupResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management DeregisterPatchBaselineForPatchGroup API operation.", Operation = new[] {"DeregisterPatchBaselineForPatchGroup"})]
+    [AWSCmdlet("Calls the AWS Systems Manager DeregisterPatchBaselineForPatchGroup API operation.", Operation = new[] {"DeregisterPatchBaselineForPatchGroup"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DeregisterPatchBaselineForPatchGroupResponse",
         "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.DeregisterPatchBaselineForPatchGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DeregisterPatchBaselineForPatchGroupResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeregisterPatchBaselineForPatchGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DeregisterPatchBaselineForPatchGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeregisterPatchBaselineForPatchGroup");
             try
             {
                 #if DESKTOP

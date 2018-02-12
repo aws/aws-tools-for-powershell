@@ -28,43 +28,47 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves a set of game sessions that match a set of search criteria and sorts them
-    /// in a specified order. A game session search is limited to a single fleet. Search results
-    /// include only game sessions that are in <code>ACTIVE</code> status. If you need to
-    /// retrieve game sessions with a status other than active, use <a>DescribeGameSessions</a>.
-    /// If you need to retrieve the protection policy for each game session, use <a>DescribeGameSessionDetails</a>.
+    /// Retrieves all active game sessions that match a set of search criteria and sorts them
+    /// in a specified order. You can search or sort by the following game session attributes:
     /// 
-    ///  
-    /// <para>
-    /// You can search or sort by the following game session attributes:
-    /// </para><ul><li><para><b>gameSessionId</b> -- Unique identifier for the game session. You can use either
+    ///  <ul><li><para><b>gameSessionId</b> -- Unique identifier for the game session. You can use either
     /// a <code>GameSessionId</code> or <code>GameSessionArn</code> value. 
     /// </para></li><li><para><b>gameSessionName</b> -- Name assigned to a game session. This value is set when
     /// requesting a new game session with <a>CreateGameSession</a> or updating with <a>UpdateGameSession</a>.
     /// Game session names do not need to be unique to a game session.
+    /// </para></li><li><para><b>gameSessionProperties</b> -- Custom data defined in a game session's <code>GameProperty</code>
+    /// parameter. <code>GameProperty</code> values are stored as key:value pairs; the filter
+    /// expression must indicate the key and a string to search the data values for. For example,
+    /// to search for game sessions with custom data containing the key:value pair "gameMode:brawl",
+    /// specify the following: gameSessionProperties.gameMode = "brawl". All custom data values
+    /// are searched as strings.
+    /// </para></li><li><para><b>maximumSessions</b> -- Maximum number of player sessions allowed for a game session.
+    /// This value is set when requesting a new game session with <a>CreateGameSession</a>
+    /// or updating with <a>UpdateGameSession</a>.
     /// </para></li><li><para><b>creationTimeMillis</b> -- Value indicating when a game session was created. It
     /// is expressed in Unix time as milliseconds.
     /// </para></li><li><para><b>playerSessionCount</b> -- Number of players currently connected to a game session.
     /// This value changes rapidly as players join the session or drop out.
-    /// </para></li><li><para><b>maximumSessions</b> -- Maximum number of player sessions allowed for a game session.
-    /// This value is set when requesting a new game session with <a>CreateGameSession</a>
-    /// or updating with <a>UpdateGameSession</a>.
     /// </para></li><li><para><b>hasAvailablePlayerSessions</b> -- Boolean value indicating whether a game session
-    /// has reached its maximum number of players. When searching with this attribute, the
-    /// search value must be <code>true</code> or <code>false</code>. It is highly recommended
-    /// that all search requests include this filter attribute to optimize search performance
-    /// and return only sessions that players can join. 
-    /// </para></li></ul><para>
-    /// To search or sort, specify either a fleet ID or an alias ID, and provide a search
-    /// filter expression, a sort expression, or both. Use the pagination parameters to retrieve
-    /// results as a set of sequential pages. If successful, a collection of <a>GameSession</a>
-    /// objects matching the request is returned.
-    /// </para><note><para>
+    /// has reached its maximum number of players. It is highly recommended that all search
+    /// requests include this filter attribute to optimize search performance and return only
+    /// sessions that players can join. 
+    /// </para></li></ul><note><para>
     /// Returned values for <code>playerSessionCount</code> and <code>hasAvailablePlayerSessions</code>
     /// change quickly as players join sessions and others drop out. Results should be considered
     /// a snapshot in time. Be sure to refresh search results often, and handle sessions that
     /// fill up before a player can join. 
     /// </para></note><para>
+    /// To search or sort, specify either a fleet ID or an alias ID, and provide a search
+    /// filter expression, a sort expression, or both. If successful, a collection of <a>GameSession</a>
+    /// objects matching the request is returned. Use the pagination parameters to retrieve
+    /// results as a set of sequential pages. 
+    /// </para><para>
+    /// You can search for game sessions one fleet at a time only. To find game sessions across
+    /// multiple fleets, you must search each fleet separately and combine the results. This
+    /// search feature finds only game sessions that are in <code>ACTIVE</code> status. To
+    /// locate games in statuses other than active, use <a>DescribeGameSessionDetails</a>.
+    /// </para><para>
     /// Game-session-related operations include:
     /// </para><ul><li><para><a>CreateGameSession</a></para></li><li><para><a>DescribeGameSessions</a></para></li><li><para><a>DescribeGameSessionDetails</a></para></li><li><para><a>SearchGameSessions</a></para></li><li><para><a>UpdateGameSession</a></para></li><li><para><a>GetGameSessionLogUrl</a></para></li><li><para>
     /// Game session placements
@@ -99,14 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// is included, the request returns results for all game sessions in the fleet that are
         /// in <code>ACTIVE</code> status.</para><para>A filter expression can contain one or multiple conditions. Each condition consists
         /// of the following:</para><ul><li><para><b>Operand</b> -- Name of a game session attribute. Valid values are <code>gameSessionName</code>,
-        /// <code>gameSessionId</code>, <code>creationTimeMillis</code>, <code>playerSessionCount</code>,
-        /// <code>maximumSessions</code>, <code>hasAvailablePlayerSessions</code>.</para></li><li><para><b>Comparator</b> -- Valid comparators are: <code>=</code>, <code>&lt;&gt;</code>,
-        /// <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>. </para></li><li><para><b>Value</b> -- Value to be searched for. Values can be numbers, boolean values (true/false)
-        /// or strings. String values are case sensitive, enclosed in single quotes. Special characters
-        /// must be escaped. Boolean and string values can only be used with the comparators <code>=</code>
-        /// and <code>&lt;&gt;</code>. For example, the following filter expression searches on
-        /// <code>gameSessionName</code>: "<code>FilterExpression": "gameSessionName = 'Matt\\'s
-        /// Awesome Game 1'"</code>. </para></li></ul><para>To chain multiple conditions in a single expression, use the logical keywords <code>AND</code>,
+        /// <code>gameSessionId</code>, <code>gameSessionProperties</code>, <code>maximumSessions</code>,
+        /// <code>creationTimeMillis</code>, <code>playerSessionCount</code>, <code>hasAvailablePlayerSessions</code>.</para></li><li><para><b>Comparator</b> -- Valid comparators are: <code>=</code>, <code>&lt;&gt;</code>,
+        /// <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>. </para></li><li><para><b>Value</b> -- Value to be searched for. Values may be numbers, boolean values (true/false)
+        /// or strings depending on the operand. String values are case sensitive and must be
+        /// enclosed in single quotes. Special characters must be escaped. Boolean and string
+        /// values can only be used with the comparators <code>=</code> and <code>&lt;&gt;</code>.
+        /// For example, the following filter expression searches on <code>gameSessionName</code>:
+        /// "<code>FilterExpression": "gameSessionName = 'Matt\\'s Awesome Game 1'"</code>. </para></li></ul><para>To chain multiple conditions in a single expression, use the logical keywords <code>AND</code>,
         /// <code>OR</code>, and <code>NOT</code> and parentheses as needed. For example: <code>x
         /// AND y AND NOT z</code>, <code>NOT (x OR y)</code>.</para><para>Session search evaluates conditions from left to right using the following precedence
         /// rules:</para><ol><li><para><code>=</code>, <code>&lt;&gt;</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>,
@@ -136,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>Instructions on how to sort the search results. If no sort expression is included,
         /// the request returns results in random order. A sort expression consists of the following
         /// elements:</para><ul><li><para><b>Operand</b> -- Name of a game session attribute. Valid values are <code>gameSessionName</code>,
-        /// <code>gameSessionId</code>, <code>creationTimeMillis</code>, <code>playerSessionCount</code>,
-        /// <code>maximumSessions</code>, <code>hasAvailablePlayerSessions</code>.</para></li><li><para><b>Order</b> -- Valid sort orders are <code>ASC</code> (ascending) and <code>DESC</code>
+        /// <code>gameSessionId</code>, <code>gameSessionProperties</code>, <code>maximumSessions</code>,
+        /// <code>creationTimeMillis</code>, <code>playerSessionCount</code>, <code>hasAvailablePlayerSessions</code>.</para></li><li><para><b>Order</b> -- Valid sort orders are <code>ASC</code> (ascending) and <code>DESC</code>
         /// (descending).</para></li></ul><para>For example, this sort expression returns the oldest active sessions first: <code>"SortExpression":
         /// "creationTimeMillis ASC"</code>. Results with a null value for the sort operand are
         /// returned at the end of the list.</para>

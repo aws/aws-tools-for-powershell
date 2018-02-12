@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMCommand")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Command")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management ListCommands API operation.", Operation = new[] {"ListCommands"})]
+    [AWSCmdlet("Calls the AWS Systems Manager ListCommands API operation.", Operation = new[] {"ListCommands"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Command",
         "This cmdlet returns a collection of Command objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListCommandsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -270,7 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.ListCommandsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListCommandsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "ListCommands");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ListCommands");
             try
             {
                 #if DESKTOP

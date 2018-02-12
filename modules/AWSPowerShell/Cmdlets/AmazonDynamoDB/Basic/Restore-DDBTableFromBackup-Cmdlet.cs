@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// </para></li><li><para>
     /// Tags
     /// </para></li><li><para>
+    /// Stream settings
+    /// </para></li><li><para>
     /// Time to Live (TTL) settings
     /// </para></li></ul>
     /// </summary>

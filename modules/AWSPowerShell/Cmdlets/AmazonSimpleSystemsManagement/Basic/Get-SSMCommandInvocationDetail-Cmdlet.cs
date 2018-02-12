@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMCommandInvocationDetail")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetCommandInvocationResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management GetCommandInvocation API operation.", Operation = new[] {"GetCommandInvocation"})]
+    [AWSCmdlet("Calls the AWS Systems Manager GetCommandInvocation API operation.", Operation = new[] {"GetCommandInvocation"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetCommandInvocationResponse",
         "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.GetCommandInvocationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.GetCommandInvocationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetCommandInvocationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "GetCommandInvocation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetCommandInvocation");
             try
             {
                 #if DESKTOP

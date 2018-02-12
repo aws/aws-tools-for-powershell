@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMParameterList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ParameterMetadata")]
-    [AWSCmdlet("Calls the Amazon Simple Systems Management DescribeParameters API operation.", Operation = new[] {"DescribeParameters"})]
+    [AWSCmdlet("Calls the AWS Systems Manager DescribeParameters API operation.", Operation = new[] {"DescribeParameters"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ParameterMetadata",
         "This cmdlet returns a collection of ParameterMetadata objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -269,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private Amazon.SimpleSystemsManagement.Model.DescribeParametersResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeParametersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DescribeParameters");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeParameters");
             try
             {
                 #if DESKTOP

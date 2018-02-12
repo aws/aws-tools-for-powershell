@@ -28,9 +28,9 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves a set of one or more matchmaking tickets. Use this operation to retrieve
-    /// ticket information, including status and--once a successful match is made--acquire
-    /// connection information for the resulting new game session. 
+    /// Retrieves one or more matchmaking tickets. Use this operation to retrieve ticket information,
+    /// including status and--once a successful match is made--acquire connection information
+    /// for the resulting new game session. 
     /// 
     ///  
     /// <para>
@@ -39,9 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// matchmaking requests through polling or notifications in <a>StartMatchmaking</a>.
     /// 
     /// </para><para>
-    /// You can request data for a one or a list of ticket IDs. If the request is successful,
-    /// a ticket object is returned for each requested ID. When specifying a list of ticket
-    /// IDs, objects are returned only for tickets that currently exist. 
+    /// To request matchmaking tickets, provide a list of up to 10 ticket IDs. If the request
+    /// is successful, a ticket object is returned for each requested ID that currently exists.
     /// </para><para>
     /// Matchmaking-related operations include:
     /// </para><ul><li><para><a>StartMatchmaking</a></para></li><li><para><a>DescribeMatchmaking</a></para></li><li><para><a>StopMatchmaking</a></para></li><li><para><a>AcceptMatch</a></para></li></ul>
@@ -59,8 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter TicketId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a matchmaking ticket. To request all existing tickets, leave
-        /// this parameter empty.</para>
+        /// <para>Unique identifier for a matchmaking ticket. You can include up to 10 ID values. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

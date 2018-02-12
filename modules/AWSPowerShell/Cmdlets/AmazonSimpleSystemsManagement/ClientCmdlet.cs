@@ -27,7 +27,7 @@ using Amazon.SimpleSystemsManagement.Model;
 
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
-    [AWSClientCmdlet("Amazon Simple Systems Management", "SSM", "2014-11-06")]
+    [AWSClientCmdlet("AWS Systems Manager", "SSM", "2014-11-06")]
     public abstract partial class AmazonSimpleSystemsManagementClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSimpleSystemsManagement Client { get; private set; }

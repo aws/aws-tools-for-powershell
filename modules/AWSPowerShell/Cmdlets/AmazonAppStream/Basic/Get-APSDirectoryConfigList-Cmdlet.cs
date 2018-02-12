@@ -28,7 +28,9 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Describes the specified directory configurations.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes the specified directory configurations. Note that although the response
+    /// syntax in this topic includes the account password, this password is not returned
+    /// in the actual response.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "APSDirectoryConfigList")]
     [OutputType("Amazon.AppStream.Model.DirectoryConfig")]

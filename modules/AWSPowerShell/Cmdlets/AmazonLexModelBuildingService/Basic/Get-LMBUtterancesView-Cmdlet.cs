@@ -43,15 +43,11 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// </para><para>
     /// After you publish a new version of a bot, you can get information about the old version
     /// and the new so that you can compare the performance across the two versions. 
-    /// </para><para>
-    /// Data is available for the last 15 days. You can request information for up to 5 versions
-    /// in each request. The response contains information about a maximum of 100 utterances
-    /// for each version.
-    /// </para><para>
-    /// If the bot's <code>childDirected</code> field is set to <code>true</code>, utterances
-    /// for the bot are not stored and cannot be retrieved with the <code>GetUtterancesView</code>
-    /// operation. For more information, see <a>PutBot</a>.
-    /// </para><para>
+    /// </para><note><para>
+    /// Utterance statistics are generated once a day. Data is available for the last 15 days.
+    /// You can request information for up to 5 versions in each request. The response contains
+    /// information about a maximum of 100 utterances for each version.
+    /// </para></note><para>
     /// This operation requires permissions for the <code>lex:GetUtterancesView</code> action.
     /// </para>
     /// </summary>

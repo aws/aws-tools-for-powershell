@@ -37,8 +37,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// The following resource types support longer IDs: <code>instance</code> | <code>reservation</code>
-    /// | <code>snapshot</code> | <code>volume</code>. 
+    /// The following resource types support longer IDs: <code>bundle</code> | <code>conversion-task</code>
+    /// | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code>
+    /// | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code>
+    /// | <code>instance</code> | <code>internet-gateway</code> | <code>network-acl</code>
+    /// | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code>
+    /// | <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
+    /// <code>route-table-association</code> | <code>security-group</code> | <code>snapshot</code>
+    /// | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>volume</code>
+    /// | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-peering-connection</code>.
+    /// 
     /// </para><para>
     /// These settings apply to the principal specified in the request. They do not apply
     /// to the principal that makes the request.
@@ -67,8 +75,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The type of resource: <code>instance</code> | <code>reservation</code> | <code>snapshot</code>
-        /// | <code>volume</code></para>
+        /// <para>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>dhcp-options</code>
+        /// | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code>
+        /// | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>instance</code>
+        /// | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code>
+        /// | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code>
+        /// | <code>reservation</code> | <code>route-table</code> | <code>route-table-association</code>
+        /// | <code>security-group</code> | <code>snapshot</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code>
+        /// | <code>volume</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code>
+        /// | <code>vpc-peering-connection</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
