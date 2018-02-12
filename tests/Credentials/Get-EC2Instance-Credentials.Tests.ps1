@@ -3,7 +3,9 @@
 . (Join-Path (Join-Path (Get-Location) "Credentials") "CredentialsTestHelper.ps1")
 $helper = New-Object CredentialsTestHelper
 
-Describe -Tag "Smoke" "Get-EC2Instance-Credentials" {
+# Test temporarily disabled due to changes in the underlying sdk instance profile class
+# that affects the mocking
+Describe -Tag "Smoke","Disabled" "Get-EC2Instance-Credentials" {
 
     BeforeAll {
         $helper.BeforeAll()
