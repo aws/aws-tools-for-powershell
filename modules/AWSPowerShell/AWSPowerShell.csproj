@@ -103,7 +103,7 @@
       <HintPath>..\..\packages\AWSSDK.Greengrass.3.3.2\lib\net35\AWSSDK.Greengrass.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GuardDuty">
-      <HintPath>..\..\packages\AWSSDK.GuardDuty.3.3.1\lib\net35\AWSSDK.GuardDuty.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.GuardDuty.3.3.2\lib\net35\AWSSDK.GuardDuty.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTJobsDataPlane">
       <HintPath>..\..\packages\AWSSDK.IoTJobsDataPlane.3.3.0\lib\net35\AWSSDK.IoTJobsDataPlane.dll</HintPath>
@@ -259,7 +259,7 @@
       <HintPath>..\..\packages\AWSSDK.Redshift.3.3.3.3\lib\net35\AWSSDK.Redshift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RDS">
-      <HintPath>..\..\packages\AWSSDK.RDS.3.3.20\lib\net35\AWSSDK.RDS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.RDS.3.3.20.1\lib\net35\AWSSDK.RDS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OpsWorks">
       <HintPath>..\..\packages\AWSSDK.OpsWorks.3.3.3\lib\net35\AWSSDK.OpsWorks.dll</HintPath>
@@ -280,7 +280,7 @@
       <HintPath>..\..\packages\AWSSDK.Kinesis.3.3.5\lib\net35\AWSSDK.Kinesis.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KeyManagementService">
-      <HintPath>..\..\packages\AWSSDK.KeyManagementService.3.3.4.2\lib\net35\AWSSDK.KeyManagementService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.KeyManagementService.3.3.5\lib\net35\AWSSDK.KeyManagementService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoT">
       <HintPath>..\..\packages\AWSSDK.IoT.3.3.8\lib\net35\AWSSDK.IoT.dll</HintPath>
@@ -328,7 +328,7 @@
       <HintPath>..\..\packages\AWSSDK.ECR.3.3.3.2\lib\net35\AWSSDK.ECR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EC2">
-      <HintPath>..\..\packages\AWSSDK.EC2.3.3.43\lib\net35\AWSSDK.EC2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.EC2.3.3.44\lib\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.6\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
@@ -355,7 +355,7 @@
       <HintPath>..\..\packages\AWSSDK.ConfigService.3.3.12\lib\net35\AWSSDK.ConfigService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CognitoIdentityProvider">
-      <HintPath>..\..\packages\AWSSDK.CognitoIdentityProvider.3.3.8\lib\net35\AWSSDK.CognitoIdentityProvider.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CognitoIdentityProvider.3.3.9\lib\net35\AWSSDK.CognitoIdentityProvider.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CognitoIdentity">
       <HintPath>..\..\packages\AWSSDK.CognitoIdentity.3.3.2.17\lib\net35\AWSSDK.CognitoIdentity.dll</HintPath>

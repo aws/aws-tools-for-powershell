@@ -30,12 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <summary>
     /// Promotes a Read Replica DB instance to a standalone DB instance.
     /// 
-    ///  <note><para>
+    ///  <note><ul><li><para>
     /// We recommend that you enable automated backups on your Read Replica before promoting
     /// the Read Replica. This ensures that no backup is taken during the promotion process.
     /// Once the instance is promoted to a primary instance, backups are taken based on your
     /// backup settings.
-    /// </para></note>
+    /// </para></li><li><para>
+    /// This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.
+    /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Convert", "RDSReadReplicaToStandalone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBInstance")]

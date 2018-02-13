@@ -60,10 +60,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>The authentication flow for this call to execute. The API action will depend on this
         /// value. For example:</para><ul><li><para><code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new
         /// tokens.</para></li><li><para><code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code>
-        /// and return the SRP variables to be used for next challenge execution.</para></li></ul><para>Valid values include:</para><ul><li><para><code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP)
+        /// and return the SRP variables to be used for next challenge execution.</para></li><li><para><code>USER_PASSWORD_AUTH</code> will take in <code>USERNAME</code> and <code>PASSWORD</code>
+        /// and return the next challenge or tokens.</para></li></ul><para>Valid values include:</para><ul><li><para><code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP)
         /// protocol.</para></li><li><para><code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for
         /// refreshing the access token and ID token by supplying a valid refresh token.</para></li><li><para><code>CUSTOM_AUTH</code>: Custom authentication flow.</para></li><li><para><code>ADMIN_NO_SRP_AUTH</code>: Non-SRP authentication flow; you can pass in the
-        /// USERNAME and PASSWORD directly if the flow is enabled for calling the app client.</para></li></ul>
+        /// USERNAME and PASSWORD directly if the flow is enabled for calling the app client.</para></li><li><para><code>USER_PASSWORD_AUTH</code>: Non-SRP authentication flow; USERNAME and PASSWORD
+        /// are passed directly. If a user migration Lambda trigger is set, this flow will invoke
+        /// the user migration Lambda if the USERNAME is not found in the user pool. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,9 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code>
         /// that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</para><ul><li><para>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code>
         /// (required), <code>SECRET_HASH</code> (required if the app client is configured with
-        /// a client secret), <code>DEVICE_KEY</code></para></li><li><para>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>USERNAME</code> (required),
+        /// a client secret), <code>DEVICE_KEY</code></para></li><li><para>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>REFRESH_TOKEN</code> (required),
         /// <code>SECRET_HASH</code> (required if the app client is configured with a client secret),
-        /// <code>REFRESH_TOKEN</code> (required), <code>DEVICE_KEY</code></para></li><li><para>For <code>ADMIN_NO_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code>
+        /// <code>DEVICE_KEY</code></para></li><li><para>For <code>ADMIN_NO_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code>
         /// (if app client is configured with client secret), <code>PASSWORD</code> (required),
         /// <code>DEVICE_KEY</code></para></li><li><para>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code>
         /// (if app client is configured with client secret), <code>DEVICE_KEY</code></para></li></ul>

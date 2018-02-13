@@ -1,4 +1,4 @@
-### 3.3.231.0 (2018-02-12)
+### 3.3.232.0 (2018-02-13)
   * AWS Lambda
     * [Breaking Change] The response data from the service's GetPolicy API has been extended to emit both the policy and revision ID of the policy. The output from the corresponding Get-LMPolicy cmdlet has therefore been changed to emit the service response to the pipeline. To keep the original behavior your scripts need to be changed to use _(Get-LMPolicy).Policy_ in place of _Get-LMPolicy_.
     * Updated the Add-LMPermission, Publish-LMVersion, Remove-LMPermission, Update-LMAlias and Update-LMFunctionConfiguration cmdlets to support setting Revision ID on your function versions and aliases, to track and apply conditional updates when you are updating your function version or alias resources.
@@ -36,6 +36,9 @@
     * Added cmdlet Update-EMLChannel to support the new UpdateChannel API. For idle channels you can now update channel name, channel outputs and output destinations, encoder settings, user role ARN, and input specifications. Channel settings can be updated in the console or with API calls. Please note that running channels need to be stopped before they can be updated. We've also deprecated the 'Reserved' field.
   * AWS Elemental Media Store
     * Added cmdlets Get-EMSCorsPolicy (GetCorsPolicy API), Write-EMSCorsPolicy (PutCorsPolicy API) and Remove-EMSCorsPolicy (DeleteCorsPolicy API) to support per-container CORS configuration.
+  * Amazon Cognito Identity Provider
+    * Added cmdlet Get-CGIPSigningCertificate to support the new  GetSigningCertificate API.
+    * Updated the New-CGIPUserPool and Update-CGIPUserPool cmdlets to support user migration using an AWS Lambda trigger.
 
 ### 3.3.225.1 (2018-01-24)
   * Amazon Guard Duty

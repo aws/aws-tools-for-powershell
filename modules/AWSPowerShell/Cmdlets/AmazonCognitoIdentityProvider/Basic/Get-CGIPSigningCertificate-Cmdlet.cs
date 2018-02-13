@@ -22,59 +22,37 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.RDS;
-using Amazon.RDS.Model;
+using Amazon.CognitoIdentityProvider;
+using Amazon.CognitoIdentityProvider.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RDS
+namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Starts a DB instance that was stopped using the AWS console, the stop-db-instance
-    /// AWS CLI command, or the StopDBInstance action. For more information, see Stopping
-    /// and Starting a DB instance in the AWS RDS user guide. 
-    /// 
-    ///  <note><para>
-    /// This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.
-    /// </para></note>
+    /// This method takes a user pool ID, and returns the signing certificate.
     /// </summary>
-    [Cmdlet("Start", "RDSDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.RDS.Model.DBInstance")]
-    [AWSCmdlet("Calls the Amazon Relational Database Service StartDBInstance API operation.", Operation = new[] {"StartDBInstance"})]
-    [AWSCmdletOutput("Amazon.RDS.Model.DBInstance",
-        "This cmdlet returns a DBInstance object.",
-        "The service call response (type Amazon.RDS.Model.StartDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CGIPSigningCertificate")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider GetSigningCertificate API operation.", Operation = new[] {"GetSigningCertificate"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.GetSigningCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StartRDSDBInstanceCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class GetCGIPSigningCertificateCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
-        #region Parameter DBInstanceIdentifier
+        #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para> The user-supplied instance identifier. </para>
+        /// <para>The user pool ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String DBInstanceIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public System.String UserPoolId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DBInstanceIdentifier", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-RDSDBInstance (StartDBInstance)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -85,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.DBInstanceIdentifier = this.DBInstanceIdentifier;
+            context.UserPoolId = this.UserPoolId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -100,11 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RDS.Model.StartDBInstanceRequest();
+            var request = new Amazon.CognitoIdentityProvider.Model.GetSigningCertificateRequest();
             
-            if (cmdletContext.DBInstanceIdentifier != null)
+            if (cmdletContext.UserPoolId != null)
             {
-                request.DBInstanceIdentifier = cmdletContext.DBInstanceIdentifier;
+                request.UserPoolId = cmdletContext.UserPoolId;
             }
             
             CmdletOutput output;
@@ -115,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.DBInstance;
+                object pipelineOutput = response.Certificate;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -140,16 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private Amazon.RDS.Model.StartDBInstanceResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.StartDBInstanceRequest request)
+        private Amazon.CognitoIdentityProvider.Model.GetSigningCertificateResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.GetSigningCertificateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "StartDBInstance");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "GetSigningCertificate");
             try
             {
                 #if DESKTOP
-                return client.StartDBInstance(request);
+                return client.GetSigningCertificate(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StartDBInstanceAsync(request);
+                var task = client.GetSigningCertificateAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -170,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DBInstanceIdentifier { get; set; }
+            public System.String UserPoolId { get; set; }
         }
         
     }

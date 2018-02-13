@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// 
     ///  
     /// <para>
-    /// This command does not take any parameters.
+    /// This command doesn't take any parameters.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "RDSAccountAttribute")]

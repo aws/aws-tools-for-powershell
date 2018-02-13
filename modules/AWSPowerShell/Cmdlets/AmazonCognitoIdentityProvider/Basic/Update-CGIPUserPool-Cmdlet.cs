@@ -436,6 +436,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.Int32 AdminCreateUserConfig_UnusedAccountValidityDay { get; set; }
         #endregion
         
+        #region Parameter LambdaConfig_UserMigration
+        /// <summary>
+        /// <para>
+        /// <para>The user migration Lambda config type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String LambdaConfig_UserMigration { get; set; }
+        #endregion
+        
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
@@ -533,6 +543,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             context.LambdaConfig_PreAuthentication = this.LambdaConfig_PreAuthentication;
             context.LambdaConfig_PreSignUp = this.LambdaConfig_PreSignUp;
             context.LambdaConfig_PreTokenGeneration = this.LambdaConfig_PreTokenGeneration;
+            context.LambdaConfig_UserMigration = this.LambdaConfig_UserMigration;
             context.LambdaConfig_VerifyAuthChallengeResponse = this.LambdaConfig_VerifyAuthChallengeResponse;
             context.MfaConfiguration = this.MfaConfiguration;
             if (ParameterWasBound("PasswordPolicy_MinimumLength"))
@@ -807,6 +818,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (requestLambdaConfig_lambdaConfig_PreTokenGeneration != null)
             {
                 request.LambdaConfig.PreTokenGeneration = requestLambdaConfig_lambdaConfig_PreTokenGeneration;
+                requestLambdaConfigIsNull = false;
+            }
+            System.String requestLambdaConfig_lambdaConfig_UserMigration = null;
+            if (cmdletContext.LambdaConfig_UserMigration != null)
+            {
+                requestLambdaConfig_lambdaConfig_UserMigration = cmdletContext.LambdaConfig_UserMigration;
+            }
+            if (requestLambdaConfig_lambdaConfig_UserMigration != null)
+            {
+                request.LambdaConfig.UserMigration = requestLambdaConfig_lambdaConfig_UserMigration;
                 requestLambdaConfigIsNull = false;
             }
             System.String requestLambdaConfig_lambdaConfig_VerifyAuthChallengeResponse = null;
@@ -1121,6 +1142,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String LambdaConfig_PreAuthentication { get; set; }
             public System.String LambdaConfig_PreSignUp { get; set; }
             public System.String LambdaConfig_PreTokenGeneration { get; set; }
+            public System.String LambdaConfig_UserMigration { get; set; }
             public System.String LambdaConfig_VerifyAuthChallengeResponse { get; set; }
             public Amazon.CognitoIdentityProvider.UserPoolMfaType MfaConfiguration { get; set; }
             public System.Int32? Policies_PasswordPolicy_MinimumLength { get; set; }

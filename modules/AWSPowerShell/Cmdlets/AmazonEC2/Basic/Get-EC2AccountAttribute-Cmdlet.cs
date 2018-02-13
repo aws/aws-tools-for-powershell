@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  <ul><li><para><code>supported-platforms</code>: Indicates whether your account can launch instances
     /// into EC2-Classic and EC2-VPC, or only into EC2-VPC.
     /// </para></li><li><para><code>default-vpc</code>: The ID of the default VPC for your account, or <code>none</code>.
-    /// </para></li><li><para><code>max-instances</code>: The maximum number of On-Demand instances that you can
+    /// </para></li><li><para><code>max-instances</code>: The maximum number of On-Demand Instances that you can
     /// run.
     /// </para></li><li><para><code>vpc-max-security-groups-per-interface</code>: The maximum number of security
     /// groups that you can assign to a network interface.

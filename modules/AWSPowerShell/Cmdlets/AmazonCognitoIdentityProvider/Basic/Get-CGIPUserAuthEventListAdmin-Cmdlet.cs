@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The user pool username.</para>
+        /// <para>The user pool username or an alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

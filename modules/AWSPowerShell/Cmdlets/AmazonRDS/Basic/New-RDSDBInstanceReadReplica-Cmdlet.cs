@@ -35,12 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// 
     ///  
     /// <para>
-    /// Amazon Aurora does not support this action. You must call the <code>CreateDBInstance</code>
+    /// Amazon Aurora doesn't support this action. You must call the <code>CreateDBInstance</code>
     /// action to create a DB instance for an Aurora DB cluster. 
     /// </para><para>
     /// All Read Replica DB instances are created with backups disabled. All other DB instance
     /// attributes (including DB security groups and DB parameter groups) are inherited from
-    /// the source DB instance, except as specified below. 
+    /// the source DB instance, except as specified following. 
     /// </para><important><para>
     /// Your source DB instance must have backup retention enabled. 
     /// </para></important>
@@ -220,10 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MultiAZ
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the read replica is in a Multi-AZ deployment. </para><para>You can create a Read Replica as a Multi-AZ DB instance. RDS creates a standby of
+        /// <para>Specifies whether the Read Replica is in a Multi-AZ deployment. </para><para>You can create a Read Replica as a Multi-AZ DB instance. RDS creates a standby of
         /// your replica in another Availability Zone for failover support for the replica. Creating
         /// your Read Replica as a Multi-AZ DB instance is independent of whether the source database
-        /// is a Multi-AZ DB instance. </para><note><para>Currently PostgreSQL Read Replicas can only be created as single-AZ DB instances.</para></note>
+        /// is a Multi-AZ DB instance. </para><note><para>Currently, you can't create PostgreSQL Read Replicas as Multi-AZ DB instances.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

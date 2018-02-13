@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the database engine to use.</para><para><b>Aurora</b></para><para>Example: <code>5.6.10a</code></para>
+        /// <para>The version number of the database engine to use.</para><para><b>Aurora MySQL</b></para><para>Example: <code>5.6.10a</code></para><para><b>Aurora PostgreSQL</b></para><para>Example: <code>9.6.3</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

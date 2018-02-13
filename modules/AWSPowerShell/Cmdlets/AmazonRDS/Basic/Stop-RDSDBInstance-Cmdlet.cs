@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// AWS RDS user guide. 
     /// 
     ///  <note><para>
-    /// This command does not apply to Aurora MySQL and Aurora PostgreSQL.
+    /// This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.
     /// </para></note>
     /// </summary>
     [Cmdlet("Stop", "RDSDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

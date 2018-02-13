@@ -141,7 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this DB cluster.</para><para>Valid Values: <code>aurora</code>, <code>aurora-postgresql</code></para>
+        /// <para>The name of the database engine to be used for this DB cluster.</para><para>Valid Values: <code>aurora</code> (for MySQL 5.6-compatible Aurora), <code>aurora-mysql</code>
+        /// (for MySQL 5.7-compatible Aurora), and <code>aurora-postgresql</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the database engine to use.</para><para><b>Aurora</b></para><para>Example: <code>5.6.10a</code></para>
+        /// <para>The version number of the database engine to use.</para><para><b>Aurora MySQL</b></para><para>Example: <code>5.6.10a</code>, <code>5.7.12</code></para><para><b>Aurora PostgreSQL</b></para><para>Example: <code>9.6.3</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

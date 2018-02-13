@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AllowMajorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>Indicates that major version upgrades are allowed. Changing this parameter does not
+        /// <para>Indicates that major version upgrades are allowed. Changing this parameter doesn't
         /// result in an outage and the change is asynchronously applied as soon as possible.</para><para>Constraints: This parameter must be set to true when specifying a value for the EngineVersion
         /// parameter that is a different major version than the DB instance's current version.</para>
         /// </para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> Indicates that minor version upgrades are applied automatically to the DB instance
-        /// during the maintenance window. Changing this parameter does not result in an outage
+        /// during the maintenance window. Changing this parameter doesn't result in an outage
         /// except in the following case and the change is asynchronously applied as soon as possible.
         /// An outage will result if this parameter is set to <code>true</code> during the maintenance
         /// window, and a newer minor version is available, and RDS has enabled auto patching
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the DB parameter group to apply to the DB instance. Changing this setting
-        /// does not result in an outage. The parameter group name itself is changed immediately,
+        /// doesn't result in an outage. The parameter group name itself is changed immediately,
         /// but the actual parameter changes are not applied until you reboot the instance without
         /// failover. The db instance will NOT be rebooted automatically and the parameter changes
         /// will NOT be applied during the next maintenance window.</para><para>Default: Uses existing setting</para><para>Constraints: The DB parameter group must be in the same DB parameter group family
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A list of DB security groups to authorize on this DB instance. Changing this setting
-        /// does not result in an outage and the change is asynchronously applied as soon as possible.</para><para>Constraints:</para><ul><li><para>If supplied, must match existing DBSecurityGroups.</para></li></ul>
+        /// doesn't result in an outage and the change is asynchronously applied as soon as possible.</para><para>Constraints:</para><ul><li><para>If supplied, must match existing DBSecurityGroups.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -310,7 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Iops
         /// <summary>
         /// <para>
-        /// <para>The new Provisioned IOPS (I/O operations per second) value for the RDS instance. </para><para>Changing this setting does not result in an outage and the change is applied during
+        /// <para>The new Provisioned IOPS (I/O operations per second) value for the RDS instance. </para><para>Changing this setting doesn't result in an outage and the change is applied during
         /// the next maintenance window unless the <code>ApplyImmediately</code> parameter is
         /// set to <code>true</code> for this request. If you are migrating from Provisioned IOPS
         /// to standard storage, set this value to 0. The DB instance will require a reboot for
@@ -349,7 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The new password for the master user. The password can include any printable ASCII
-        /// character except "/", """, or "@".</para><para> Changing this parameter does not result in an outage and the change is asynchronously
+        /// character except "/", """, or "@".</para><para> Changing this parameter doesn't result in an outage and the change is asynchronously
         /// applied as soon as possible. Between the time of the request and the completion of
         /// the request, the <code>MasterUserPassword</code> element exists in the <code>PendingModifiedValues</code>
         /// element of the operation response. </para><para><b>Amazon Aurora</b></para><para>Not applicable. The password for the master user is managed by the DB cluster. For
@@ -392,10 +392,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MultiAZ
         /// <summary>
         /// <para>
-        /// <para>Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter does
-        /// not result in an outage and the change is applied during the next maintenance window
-        /// unless the <code>ApplyImmediately</code> parameter is set to <code>true</code> for
-        /// this request. </para>
+        /// <para>Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter doesn't
+        /// result in an outage and the change is applied during the next maintenance window unless
+        /// the <code>ApplyImmediately</code> parameter is set to <code>true</code> for this request.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -420,8 +420,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> Indicates that the DB instance should be associated with the specified option group.
-        /// Changing this parameter does not result in an outage except in the following case
-        /// and the change is applied during the next maintenance window unless the <code>ApplyImmediately</code>
+        /// Changing this parameter doesn't result in an outage except in the following case and
+        /// the change is applied during the next maintenance window unless the <code>ApplyImmediately</code>
         /// parameter is set to <code>true</code> for this request. If the parameter change results
         /// in an option group that enables OEM, this change can cause a brief (sub-second) period
         /// during which new connections are rejected but existing connections are not interrupted.
@@ -451,7 +451,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The daily time range during which automated backups are created if automated backups
         /// are enabled, as determined by the <code>BackupRetentionPeriod</code> parameter. Changing
-        /// this parameter does not result in an outage and the change is asynchronously applied
+        /// this parameter doesn't result in an outage and the change is asynchronously applied
         /// as soon as possible. </para><para><b>Amazon Aurora</b></para><para>Not applicable. The daily time range for creating automated backups is managed by
         /// the DB cluster. For more information, see <a>ModifyDBCluster</a>.</para><para>Constraints:</para><ul><li><para>Must be in the format hh24:mi-hh24:mi</para></li><li><para>Must be in Universal Time Coordinated (UTC)</para></li><li><para>Must not conflict with the preferred maintenance window</para></li><li><para>Must be at least 30 minutes</para></li></ul>
         /// </para>
@@ -464,8 +464,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The weekly time range (in UTC) during which system maintenance can occur, which might
-        /// result in an outage. Changing this parameter does not result in an outage, except
-        /// in the following situation, and the change is asynchronously applied as soon as possible.
+        /// result in an outage. Changing this parameter doesn't result in an outage, except in
+        /// the following situation, and the change is asynchronously applied as soon as possible.
         /// If there are pending actions that cause a reboot, and the maintenance window is changed
         /// to include the current time, then changing this parameter will cause a reboot of the
         /// DB instance. If moving this window to the current time, there must be at least 30

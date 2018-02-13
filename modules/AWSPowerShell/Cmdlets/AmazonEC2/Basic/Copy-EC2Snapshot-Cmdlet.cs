@@ -104,15 +104,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when creating
-        /// the snapshot copy. This parameter is only required if you want to use a non-default
-        /// CMK; if this parameter is not specified, the default CMK for EBS is used. The ARN
-        /// contains the <code>arn:aws:kms</code> namespace, followed by the region of the CMK,
-        /// the AWS account ID of the CMK owner, the <code>key</code> namespace, and then the
-        /// CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.
-        /// The specified CMK must exist in the region that the snapshot is being copied to. If
-        /// a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also be
-        /// set.</para>
+        /// <para>An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK)
+        /// to use when creating the encrypted volume. This parameter is only required if you
+        /// want to use a non-default CMK; if this parameter is not specified, the default CMK
+        /// for EBS is used. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code>
+        /// flag must also be set. </para><para>The CMK identifier may be provided in any of the following formats: </para><ul><li><para>Key ID</para></li><li><para>Key alias</para></li><li><para>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed
+        /// by the region of the CMK, the AWS account ID of the CMK owner, the <code>key</code>
+        /// namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.
+        /// </para></li><li><para>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace,
+        /// followed by the region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code>
+        /// namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.
+        /// </para></li></ul><para>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the action you call
+        /// may appear to complete even though you provided an invalid identifier. The action
+        /// will eventually fail. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -1225,6 +1225,7 @@ Set-Alias -Name CGIP-GetCSVHeader -Value Get-CGIPCSVHeader
 Set-Alias -Name CGIP-GetDevice -Value Get-CGIPDevice
 Set-Alias -Name CGIP-GetGroup -Value Get-CGIPGroup
 Set-Alias -Name CGIP-GetIdentityProviderByIdentifier -Value Get-CGIPIdentityProviderByIdentifier
+Set-Alias -Name CGIP-GetSigningCertificate -Value Get-CGIPSigningCertificate
 Set-Alias -Name CGIP-GetUICustomization -Value Get-CGIPUICustomization
 Set-Alias -Name CGIP-GetUser -Value Get-CGIPUser
 Set-Alias -Name CGIP-GetUserAttributeVerificationCode -Value Get-CGIPUserAttributeVerificationCode
