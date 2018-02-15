@@ -28,84 +28,58 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Creates a <code>Resolver</code> object.
-    /// 
-    ///  
-    /// <para>
-    /// A resolver converts incoming requests into a format that a data source can understand
-    /// and converts the data source's responses into GraphQL.
-    /// </para>
+    /// Updates an API key.
     /// </summary>
-    [Cmdlet("New", "ASYNResolver", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.AppSync.Model.Resolver")]
-    [AWSCmdlet("Calls the AWS AppSync CreateResolver API operation.", Operation = new[] {"CreateResolver"})]
-    [AWSCmdletOutput("Amazon.AppSync.Model.Resolver",
-        "This cmdlet returns a Resolver object.",
-        "The service call response (type Amazon.AppSync.Model.CreateResolverResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "ASYNApiKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.AppSync.Model.ApiKey")]
+    [AWSCmdlet("Calls the AWS AppSync UpdateApiKey API operation.", Operation = new[] {"UpdateApiKey"})]
+    [AWSCmdletOutput("Amazon.AppSync.Model.ApiKey",
+        "This cmdlet returns a ApiKey object.",
+        "The service call response (type Amazon.AppSync.Model.UpdateApiKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewASYNResolverCmdlet : AmazonAppSyncClientCmdlet, IExecutor
+    public partial class UpdateASYNApiKeyCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {
         
         #region Parameter ApiId
         /// <summary>
         /// <para>
-        /// <para>The ID for the GraphQL API for which the resolver is being created.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ApiId { get; set; }
-        #endregion
-        
-        #region Parameter DataSourceName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the data source for which the resolver is being created.</para>
+        /// <para>The ID for the GraphQL API</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String DataSourceName { get; set; }
+        public System.String ApiId { get; set; }
         #endregion
         
-        #region Parameter FieldName
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The name of the field to attach the resolver to.</para>
+        /// <para>A description of the purpose of the API key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String FieldName { get; set; }
+        public System.String Description { get; set; }
         #endregion
         
-        #region Parameter RequestMappingTemplate
+        #region Parameter Expire
         /// <summary>
         /// <para>
-        /// <para>The mapping template to be used for requests.</para><para>A resolver uses a request mapping template to convert a GraphQL expression into a
-        /// format that a data source can understand. Mapping templates are written in Apache
-        /// Velocity Template Language (VTL).</para>
+        /// <para>The time after which the API key expires. The date is represented as seconds since
+        /// the epoch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String RequestMappingTemplate { get; set; }
+        [Alias("Expires")]
+        public System.Int64 Expire { get; set; }
         #endregion
         
-        #region Parameter ResponseMappingTemplate
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The mapping template to be used for responses from the data source.</para>
+        /// <para>The API key ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ResponseMappingTemplate { get; set; }
-        #endregion
-        
-        #region Parameter TypeName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the <code>Type</code>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String TypeName { get; set; }
+        public System.String Id { get; set; }
         #endregion
         
         #region Parameter Force
@@ -122,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DataSourceName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-ASYNResolver (CreateResolver)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ApiId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-ASYNApiKey (UpdateApiKey)"))
             {
                 return;
             }
@@ -138,11 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             PreExecutionContextLoad(context);
             
             context.ApiId = this.ApiId;
-            context.DataSourceName = this.DataSourceName;
-            context.FieldName = this.FieldName;
-            context.RequestMappingTemplate = this.RequestMappingTemplate;
-            context.ResponseMappingTemplate = this.ResponseMappingTemplate;
-            context.TypeName = this.TypeName;
+            context.Description = this.Description;
+            if (ParameterWasBound("Expire"))
+                context.Expires = this.Expire;
+            context.Id = this.Id;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -157,31 +130,23 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AppSync.Model.CreateResolverRequest();
+            var request = new Amazon.AppSync.Model.UpdateApiKeyRequest();
             
             if (cmdletContext.ApiId != null)
             {
                 request.ApiId = cmdletContext.ApiId;
             }
-            if (cmdletContext.DataSourceName != null)
+            if (cmdletContext.Description != null)
             {
-                request.DataSourceName = cmdletContext.DataSourceName;
+                request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.FieldName != null)
+            if (cmdletContext.Expires != null)
             {
-                request.FieldName = cmdletContext.FieldName;
+                request.Expires = cmdletContext.Expires.Value;
             }
-            if (cmdletContext.RequestMappingTemplate != null)
+            if (cmdletContext.Id != null)
             {
-                request.RequestMappingTemplate = cmdletContext.RequestMappingTemplate;
-            }
-            if (cmdletContext.ResponseMappingTemplate != null)
-            {
-                request.ResponseMappingTemplate = cmdletContext.ResponseMappingTemplate;
-            }
-            if (cmdletContext.TypeName != null)
-            {
-                request.TypeName = cmdletContext.TypeName;
+                request.Id = cmdletContext.Id;
             }
             
             CmdletOutput output;
@@ -192,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Resolver;
+                object pipelineOutput = response.ApiKey;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -217,16 +182,16 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         
         #region AWS Service Operation Call
         
-        private Amazon.AppSync.Model.CreateResolverResponse CallAWSServiceOperation(IAmazonAppSync client, Amazon.AppSync.Model.CreateResolverRequest request)
+        private Amazon.AppSync.Model.UpdateApiKeyResponse CallAWSServiceOperation(IAmazonAppSync client, Amazon.AppSync.Model.UpdateApiKeyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppSync", "CreateResolver");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppSync", "UpdateApiKey");
             try
             {
                 #if DESKTOP
-                return client.CreateResolver(request);
+                return client.UpdateApiKey(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateResolverAsync(request);
+                var task = client.UpdateApiKeyAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -248,11 +213,9 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApiId { get; set; }
-            public System.String DataSourceName { get; set; }
-            public System.String FieldName { get; set; }
-            public System.String RequestMappingTemplate { get; set; }
-            public System.String ResponseMappingTemplate { get; set; }
-            public System.String TypeName { get; set; }
+            public System.String Description { get; set; }
+            public System.Int64? Expires { get; set; }
+            public System.String Id { get; set; }
         }
         
     }

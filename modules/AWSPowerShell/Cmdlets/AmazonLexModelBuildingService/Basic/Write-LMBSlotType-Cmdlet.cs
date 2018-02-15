@@ -69,6 +69,16 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         public System.String Checksum { get; set; }
         #endregion
         
+        #region Parameter CreateVersion
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean CreateVersion { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -156,6 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             PreExecutionContextLoad(context);
             
             context.Checksum = this.Checksum;
+            if (ParameterWasBound("CreateVersion"))
+                context.CreateVersion = this.CreateVersion;
             context.Description = this.Description;
             if (this.EnumerationValue != null)
             {
@@ -182,6 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             if (cmdletContext.Checksum != null)
             {
                 request.Checksum = cmdletContext.Checksum;
+            }
+            if (cmdletContext.CreateVersion != null)
+            {
+                request.CreateVersion = cmdletContext.CreateVersion.Value;
             }
             if (cmdletContext.Description != null)
             {
@@ -264,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Checksum { get; set; }
+            public System.Boolean? CreateVersion { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.LexModelBuildingService.Model.EnumerationValue> EnumerationValues { get; set; }
             public System.String Name { get; set; }

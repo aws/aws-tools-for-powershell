@@ -119,6 +119,16 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         public System.Boolean ChildDirected { get; set; }
         #endregion
         
+        #region Parameter CreateVersion
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean CreateVersion { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -208,9 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter ProcessBehavior
         /// <summary>
         /// <para>
-        /// <para>If you set the <code>processBehavior</code> element to <code>Build</code>, Amazon
-        /// Lex builds the bot so that it can be run. If you set the element to <code>Save</code>Amazon
-        /// Lex saves the bot, but doesn't build it. </para><para>If you don't specify this value, the default value is <code>Save</code>.</para>
+        /// <para>If you set the <code>processBehavior</code> element to <code>BUILD</code>, Amazon
+        /// Lex builds the bot so that it can be run. If you set the element to <code>SAVE</code>
+        /// Amazon Lex saves the bot, but doesn't build it. </para><para>If you don't specify this value, the default value is <code>BUILD</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -283,6 +293,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
                 context.ClarificationPrompt_Messages = new List<Amazon.LexModelBuildingService.Model.Message>(this.ClarificationPrompt_Message);
             }
             context.ClarificationPrompt_ResponseCard = this.ClarificationPrompt_ResponseCard;
+            if (ParameterWasBound("CreateVersion"))
+                context.CreateVersion = this.CreateVersion;
             context.Description = this.Description;
             if (ParameterWasBound("IdleSessionTTLInSecond"))
                 context.IdleSessionTTLInSeconds = this.IdleSessionTTLInSecond;
@@ -360,6 +372,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             if (requestClarificationPromptIsNull)
             {
                 request.ClarificationPrompt = null;
+            }
+            if (cmdletContext.CreateVersion != null)
+            {
+                request.CreateVersion = cmdletContext.CreateVersion.Value;
             }
             if (cmdletContext.Description != null)
             {
@@ -459,6 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             public System.Int32? ClarificationPrompt_MaxAttempts { get; set; }
             public List<Amazon.LexModelBuildingService.Model.Message> ClarificationPrompt_Messages { get; set; }
             public System.String ClarificationPrompt_ResponseCard { get; set; }
+            public System.Boolean? CreateVersion { get; set; }
             public System.String Description { get; set; }
             public System.Int32? IdleSessionTTLInSeconds { get; set; }
             public List<Amazon.LexModelBuildingService.Model.Intent> Intents { get; set; }

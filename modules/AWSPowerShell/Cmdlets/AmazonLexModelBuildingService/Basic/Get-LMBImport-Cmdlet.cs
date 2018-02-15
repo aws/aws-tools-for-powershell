@@ -22,76 +22,36 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AppSync;
-using Amazon.AppSync.Model;
+using Amazon.LexModelBuildingService;
+using Amazon.LexModelBuildingService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ASYN
+namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
-    /// Creates a unique key that you can distribute to clients who are executing your API.
+    /// Gets information about an import job started with the <code>StartImport</code> operation.
     /// </summary>
-    [Cmdlet("New", "ASYNApiKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.AppSync.Model.ApiKey")]
-    [AWSCmdlet("Calls the AWS AppSync CreateApiKey API operation.", Operation = new[] {"CreateApiKey"})]
-    [AWSCmdletOutput("Amazon.AppSync.Model.ApiKey",
-        "This cmdlet returns a ApiKey object.",
-        "The service call response (type Amazon.AppSync.Model.CreateApiKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "LMBImport")]
+    [OutputType("Amazon.LexModelBuildingService.Model.GetImportResponse")]
+    [AWSCmdlet("Calls the Amazon Lex Model Building Service GetImport API operation.", Operation = new[] {"GetImport"})]
+    [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.GetImportResponse",
+        "This cmdlet returns a Amazon.LexModelBuildingService.Model.GetImportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewASYNApiKeyCmdlet : AmazonAppSyncClientCmdlet, IExecutor
+    public partial class GetLMBImportCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter ApiId
+        #region Parameter ImportId
         /// <summary>
         /// <para>
-        /// <para>The ID for your GraphQL API.</para>
+        /// <para>The identifier of the import job information to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ApiId { get; set; }
-        #endregion
-        
-        #region Parameter Description
-        /// <summary>
-        /// <para>
-        /// <para>A description of the purpose of the API key.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter Expire
-        /// <summary>
-        /// <para>
-        /// <para>The time after which the API key expires. The date is represented as seconds since
-        /// the epoch, rounded down to the nearest hour. The default value for this parameter
-        /// is 7 days from creation time.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("Expires")]
-        public System.Int64 Expire { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public System.String ImportId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ApiId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-ASYNApiKey (CreateApiKey)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -102,10 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ApiId = this.ApiId;
-            context.Description = this.Description;
-            if (ParameterWasBound("Expire"))
-                context.Expires = this.Expire;
+            context.ImportId = this.ImportId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -120,19 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AppSync.Model.CreateApiKeyRequest();
+            var request = new Amazon.LexModelBuildingService.Model.GetImportRequest();
             
-            if (cmdletContext.ApiId != null)
+            if (cmdletContext.ImportId != null)
             {
-                request.ApiId = cmdletContext.ApiId;
-            }
-            if (cmdletContext.Description != null)
-            {
-                request.Description = cmdletContext.Description;
-            }
-            if (cmdletContext.Expires != null)
-            {
-                request.Expires = cmdletContext.Expires.Value;
+                request.ImportId = cmdletContext.ImportId;
             }
             
             CmdletOutput output;
@@ -143,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ApiKey;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -168,16 +117,16 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         
         #region AWS Service Operation Call
         
-        private Amazon.AppSync.Model.CreateApiKeyResponse CallAWSServiceOperation(IAmazonAppSync client, Amazon.AppSync.Model.CreateApiKeyRequest request)
+        private Amazon.LexModelBuildingService.Model.GetImportResponse CallAWSServiceOperation(IAmazonLexModelBuildingService client, Amazon.LexModelBuildingService.Model.GetImportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppSync", "CreateApiKey");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lex Model Building Service", "GetImport");
             try
             {
                 #if DESKTOP
-                return client.CreateApiKey(request);
+                return client.GetImport(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateApiKeyAsync(request);
+                var task = client.GetImportAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -198,9 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApiId { get; set; }
-            public System.String Description { get; set; }
-            public System.Int64? Expires { get; set; }
+            public System.String ImportId { get; set; }
         }
         
     }

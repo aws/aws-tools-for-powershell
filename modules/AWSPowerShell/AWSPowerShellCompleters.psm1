@@ -516,7 +516,7 @@ $ASYN_Completers = {
             ($_ -eq "Update-ASYNDataSource/Type")
         }
         {
-            $v = "AMAZON_DYNAMODB","AMAZON_ELASTICSEARCH","AWS_LAMBDA"
+            $v = "AMAZON_DYNAMODB","AMAZON_ELASTICSEARCH","AWS_LAMBDA","NONE"
             break
         }
         
@@ -4384,7 +4384,7 @@ $LMB_Completers = {
         # Amazon.LexModelBuildingService.ExportType
         "Get-LMBExport/ExportType"
         {
-            $v = "ALEXA_SKILLS_KIT"
+            $v = "ALEXA_SKILLS_KIT","LEX"
             break
         }
         
@@ -4402,7 +4402,14 @@ $LMB_Completers = {
             ($_ -eq "Write-LMBBot/Locale")
         }
         {
-            $v = "en-US"
+            $v = "de-DE","en-GB","en-US"
+            break
+        }
+        
+        # Amazon.LexModelBuildingService.MergeStrategy
+        "Start-LMBImport/MergeStrategy"
+        {
+            $v = "FAIL_ON_CONFLICT","OVERWRITE_LATEST"
             break
         }
         
@@ -4414,9 +4421,12 @@ $LMB_Completers = {
         }
         
         # Amazon.LexModelBuildingService.ResourceType
-        "Get-LMBExport/ResourceType"
         {
-            $v = "BOT"
+            ($_ -eq "Get-LMBExport/ResourceType") -Or
+            ($_ -eq "Start-LMBImport/ResourceType")
+        }
+        {
+            $v = "BOT","INTENT","SLOT_TYPE"
             break
         }
         
@@ -4445,8 +4455,9 @@ $LMB_map = @{
     "ExportType"=@("Get-LMBExport")
     "FulfillmentActivity_Type"=@("Write-LMBIntent")
     "Locale"=@("Get-LMBBuiltinIntentList","Get-LMBBuiltinSlotType","Write-LMBBot")
+    "MergeStrategy"=@("Start-LMBImport")
     "ProcessBehavior"=@("Write-LMBBot")
-    "ResourceType"=@("Get-LMBExport")
+    "ResourceType"=@("Get-LMBExport","Start-LMBImport")
     "StatusType"=@("Get-LMBUtterancesView")
     "ValueSelectionStrategy"=@("Write-LMBSlotType")
 }
@@ -5450,7 +5461,7 @@ $R53_Completers = {
             ($_ -eq "New-R53HealthCheck/HealthCheckConfig_AlarmIdentifier_Region")
         }
         {
-            $v = "ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","eu-central-1","eu-west-1","eu-west-2","eu-west-3","sa-east-1","us-east-1","us-east-2","us-west-1","us-west-2"
+            $v = "ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","eu-central-1","eu-west-1","eu-west-2","eu-west-3","sa-east-1","us-east-1","us-east-2","us-west-1","us-west-2"
             break
         }
         
@@ -5518,7 +5529,7 @@ $R53_Completers = {
             ($_ -eq "Unregister-R53VPCFromHostedZone/VPC_VPCRegion")
         }
         {
-            $v = "ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","cn-north-1","eu-central-1","eu-west-1","eu-west-2","eu-west-3","sa-east-1","us-east-1","us-east-2","us-west-1","us-west-2"
+            $v = "ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","cn-north-1","eu-central-1","eu-west-1","eu-west-2","eu-west-3","sa-east-1","us-east-1","us-east-2","us-west-1","us-west-2"
             break
         }
         

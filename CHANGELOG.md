@@ -1,3 +1,10 @@
+### 3.3.234.0 (2018-02-14)
+  (This version was only released as part of the combined AWS Tools for Windows installer. It was not released to the PowerShell Gallery.)
+  * AWS AppSync
+    * Added cmdlet Update-ASYNApiKey to support the new UpdateApiKey API.
+  * Amazon Lex Model Builder Service
+    * Added cmdlets Get-LMBImport (GetImport API) and Start-LMBImport (StartImport API) to support the new to export and import your Amazon Lex chatbot definition as a JSON file.
+
 ### 3.3.232.0 (2018-02-13)
   * AWS Lambda
     * [Breaking Change] The response data from the service's GetPolicy API has been extended to emit both the policy and revision ID of the policy. The output from the corresponding Get-LMPolicy cmdlet has therefore been changed to emit the service response to the pipeline. To keep the original behavior your scripts need to be changed to use _(Get-LMPolicy).Policy_ in place of _Get-LMPolicy_.

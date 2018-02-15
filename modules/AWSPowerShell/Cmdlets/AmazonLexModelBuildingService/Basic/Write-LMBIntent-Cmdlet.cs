@@ -112,6 +112,16 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         public Amazon.LexModelBuildingService.Model.Statement ConclusionStatement { get; set; }
         #endregion
         
+        #region Parameter CreateVersion
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean CreateVersion { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -362,6 +372,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
                 context.ConfirmationPrompt_Messages = new List<Amazon.LexModelBuildingService.Model.Message>(this.ConfirmationPrompt_Message);
             }
             context.ConfirmationPrompt_ResponseCard = this.ConfirmationPrompt_ResponseCard;
+            if (ParameterWasBound("CreateVersion"))
+                context.CreateVersion = this.CreateVersion;
             context.Description = this.Description;
             context.DialogCodeHook_MessageVersion = this.DialogCodeHook_MessageVersion;
             context.DialogCodeHook_Uri = this.DialogCodeHook_Uri;
@@ -449,6 +461,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             if (requestConfirmationPromptIsNull)
             {
                 request.ConfirmationPrompt = null;
+            }
+            if (cmdletContext.CreateVersion != null)
+            {
+                request.CreateVersion = cmdletContext.CreateVersion.Value;
             }
             if (cmdletContext.Description != null)
             {
@@ -690,6 +706,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             public System.Int32? ConfirmationPrompt_MaxAttempts { get; set; }
             public List<Amazon.LexModelBuildingService.Model.Message> ConfirmationPrompt_Messages { get; set; }
             public System.String ConfirmationPrompt_ResponseCard { get; set; }
+            public System.Boolean? CreateVersion { get; set; }
             public System.String Description { get; set; }
             public System.String DialogCodeHook_MessageVersion { get; set; }
             public System.String DialogCodeHook_Uri { get; set; }

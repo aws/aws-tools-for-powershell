@@ -61,7 +61,7 @@
       <HintPath>..\..\packages\AWSSDK.AppStream.3.3.9\lib\net35\AWSSDK.AppStream.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppSync">
-      <HintPath>..\..\packages\AWSSDK.AppSync.3.3.0\lib\net35\AWSSDK.AppSync.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.AppSync.3.3.1\lib\net35\AWSSDK.AppSync.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Athena">
       <HintPath>..\..\packages\AWSSDK.Athena.3.3.0.6\lib\net35\AWSSDK.Athena.dll</HintPath>
@@ -118,7 +118,7 @@
       <HintPath>..\..\packages\AWSSDK.Lex.3.3.3\lib\net35\AWSSDK.Lex.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LexModelBuildingService">
-      <HintPath>..\..\packages\AWSSDK.LexModelBuildingService.3.3.5\lib\net35\AWSSDK.LexModelBuildingService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.LexModelBuildingService.3.3.6\lib\net35\AWSSDK.LexModelBuildingService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MarketplaceEntitlementService">
       <HintPath>..\..\packages\AWSSDK.MarketplaceEntitlementService.3.3.0.8\lib\net35\AWSSDK.MarketplaceEntitlementService.dll</HintPath>
@@ -253,7 +253,7 @@
       <HintPath>..\..\packages\AWSSDK.Route53Domains.3.3.1.3\lib\net35\AWSSDK.Route53Domains.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53">
-      <HintPath>..\..\packages\AWSSDK.Route53.3.3.13\lib\net35\AWSSDK.Route53.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Route53.3.3.14\lib\net35\AWSSDK.Route53.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Redshift">
       <HintPath>..\..\packages\AWSSDK.Redshift.3.3.3.3\lib\net35\AWSSDK.Redshift.dll</HintPath>

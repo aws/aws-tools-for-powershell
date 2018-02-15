@@ -305,6 +305,7 @@ Set-Alias -Name ASYN-ListGraphqlApis -Value Get-ASYNGraphqlApiList
 Set-Alias -Name ASYN-ListResolvers -Value Get-ASYNResolverList
 Set-Alias -Name ASYN-ListTypes -Value Get-ASYNTypeList
 Set-Alias -Name ASYN-StartSchemaCreation -Value Start-ASYNSchemaCreation
+Set-Alias -Name ASYN-UpdateApiKey -Value Update-ASYNApiKey
 Set-Alias -Name ASYN-UpdateDataSource -Value Update-ASYNDataSource
 Set-Alias -Name ASYN-UpdateGraphqlApi -Value Update-ASYNGraphqlApi
 Set-Alias -Name ASYN-UpdateResolver -Value Update-ASYNResolver
@@ -3519,6 +3520,7 @@ Set-Alias -Name LMB-GetBuiltinIntent -Value Get-LMBBuiltinIntent
 Set-Alias -Name LMB-GetBuiltinIntents -Value Get-LMBBuiltinIntentList
 Set-Alias -Name LMB-GetBuiltinSlotTypes -Value Get-LMBBuiltinSlotType
 Set-Alias -Name LMB-GetExport -Value Get-LMBExport
+Set-Alias -Name LMB-GetImport -Value Get-LMBImport
 Set-Alias -Name LMB-GetIntent -Value Get-LMBIntent
 Set-Alias -Name LMB-GetIntents -Value Get-LMBIntentList
 Set-Alias -Name LMB-GetIntentVersions -Value Get-LMBIntentVersion
@@ -3534,6 +3536,7 @@ Set-Alias -Name Put-LMBIntent -Value Write-LMBIntent
 Set-Alias -Name LMB-PutIntent -Value Write-LMBIntent
 Set-Alias -Name Put-LMBSlotType -Value Write-LMBSlotType
 Set-Alias -Name LMB-PutSlotType -Value Write-LMBSlotType
+Set-Alias -Name LMB-StartImport -Value Start-LMBImport
 Set-Alias -Name LS-AllocateStaticIp -Value New-LSStaticIp
 Set-Alias -Name LS-AttachDisk -Value Add-LSDisk
 Set-Alias -Name LS-AttachInstancesToLoadBalancer -Value Add-LSInstancesToLoadBalancer
