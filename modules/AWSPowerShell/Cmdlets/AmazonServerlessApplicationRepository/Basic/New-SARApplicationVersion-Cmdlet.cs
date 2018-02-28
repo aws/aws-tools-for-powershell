@@ -42,8 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The id of the application to create a new
-        /// version for
+        /// <para>The ID of the application to get.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter SemanticVersion
         /// <summary>
         /// <para>
-        /// The semantic version of the new version
+        /// <para>The semantic version of the new version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -63,8 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter SourceCodeUrl
         /// <summary>
         /// <para>
-        /// A link to a public repository for the source
-        /// code of your application.
+        /// <para>A link to a public repository for the source code of your application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter TemplateBody
         /// <summary>
         /// <para>
-        /// The raw packaged SAM template of your application.
+        /// <para>The raw packaged AWS SAM template of your application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,8 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter TemplateUrl
         /// <summary>
         /// <para>
-        /// A link to the packaged SAM template of your
-        /// application.
+        /// <para>A link to the packaged AWS SAM template of your application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

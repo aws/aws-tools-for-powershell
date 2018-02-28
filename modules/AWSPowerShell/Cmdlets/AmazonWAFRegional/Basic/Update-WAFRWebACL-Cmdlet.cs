@@ -120,10 +120,12 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         /// <summary>
         /// <para>
         /// <para>An array of updates to make to the <a>WebACL</a>.</para><para>An array of <code>WebACLUpdate</code> objects that you want to insert into or delete
-        /// from a <a>WebACL</a>. For more information, see the applicable data types:</para><ul><li><para><a>WebACLUpdate</a>: Contains <code>Action</code> and <code>ActivatedRule</code></para></li><li><para><a>ActivatedRule</a>: Contains <code>Action</code>, <code>Priority</code>, <code>RuleId</code>,
-        /// and <code>Type</code>. The <code>OverrideAction</code> data type within <code>ActivatedRule</code>
-        /// is used only when submitting an <code>UpdateRuleGroup</code> request. <code>ActivatedRule|OverrideAction</code>
-        /// is not applicable and therefore not available for <code>UpdateWebACL</code>. </para></li><li><para><a>WafAction</a>: Contains <code>Type</code></para></li></ul>
+        /// from a <a>WebACL</a>. For more information, see the applicable data types:</para><ul><li><para><a>WebACLUpdate</a>: Contains <code>Action</code> and <code>ActivatedRule</code></para></li><li><para><a>ActivatedRule</a>: Contains <code>Action</code>, <code>OverrideAction</code>,
+        /// <code>Priority</code>, <code>RuleId</code>, and <code>Type</code>. <code>ActivatedRule|OverrideAction</code>
+        /// applies only when updating or adding a <code>RuleGroup</code> to a <code>WebACL</code>.
+        /// In this case you do not use <code>ActivatedRule|Action</code>. For all other update
+        /// requests, <code>ActivatedRule|Action</code> is used instead of <code>ActivatedRule|OverrideAction</code>.
+        /// </para></li><li><para><a>WafAction</a>: Contains <code>Type</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

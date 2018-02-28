@@ -53,8 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the repository that is associated with the repository policy to 
-        /// delete.</para>
+        /// <para>The name of the repository.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The id of the application to put policy
-        /// for
+        /// <para>The ID of the application to get.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -54,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter Statement
         /// <summary>
         /// <para>
-        /// Array of policy statements applied to the application.
+        /// <para>Array of policy statements applied to the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

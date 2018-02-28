@@ -22,59 +22,37 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AutoScaling;
-using Amazon.AutoScaling.Model;
+using Amazon.ServerlessApplicationRepository;
+using Amazon.ServerlessApplicationRepository.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AS
+namespace Amazon.PowerShell.Cmdlets.SAR
 {
     /// <summary>
-    /// Attaches one or more Classic Load Balancers to the specified Auto Scaling group.
-    /// 
-    ///  
-    /// <para>
-    /// To attach an Application Load Balancer instead, see <a>AttachLoadBalancerTargetGroups</a>.
-    /// </para><para>
-    /// To describe the load balancers for an Auto Scaling group, use <a>DescribeLoadBalancers</a>.
-    /// To detach the load balancer from the Auto Scaling group, use <a>DetachLoadBalancers</a>.
-    /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/attach-load-balancer-asg.html">Attach
-    /// a Load Balancer to Your Auto Scaling Group</a> in the <i>Auto Scaling User Guide</i>.
-    /// </para>
+    /// Deletes the specified application.
     /// </summary>
-    [Cmdlet("Add", "ASLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "SARApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the Auto Scaling AttachLoadBalancers API operation.", Operation = new[] {"AttachLoadBalancers"})]
+    [AWSCmdlet("Calls the AWS Serverless Application Repository DeleteApplication API operation.", Operation = new[] {"DeleteApplication"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.AutoScaling.Model.AttachLoadBalancersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ApplicationId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.ServerlessApplicationRepository.Model.DeleteApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddASLoadBalancerCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class RemoveSARApplicationCmdlet : AmazonServerlessApplicationRepositoryClientCmdlet, IExecutor
     {
         
-        #region Parameter AutoScalingGroupName
+        #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The name of the Auto Scaling group.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public System.String AutoScalingGroupName { get; set; }
-        #endregion
-        
-        #region Parameter LoadBalancerName
-        /// <summary>
-        /// <para>
-        /// <para>The names of the load balancers. You can specify up to 10 load balancers.</para>
+        /// <para>The ID of the application to get.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("LoadBalancerNames")]
-        public System.String[] LoadBalancerName { get; set; }
+        public System.String ApplicationId { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the LoadBalancerName parameter.
+        /// Returns the value passed to the ApplicationId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -95,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("LoadBalancerName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-ASLoadBalancer (AttachLoadBalancers)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ApplicationId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SARApplication (DeleteApplication)"))
             {
                 return;
             }
@@ -110,11 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.AutoScalingGroupName = this.AutoScalingGroupName;
-            if (this.LoadBalancerName != null)
-            {
-                context.LoadBalancerNames = new List<System.String>(this.LoadBalancerName);
-            }
+            context.ApplicationId = this.ApplicationId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -129,15 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AutoScaling.Model.AttachLoadBalancersRequest();
+            var request = new Amazon.ServerlessApplicationRepository.Model.DeleteApplicationRequest();
             
-            if (cmdletContext.AutoScalingGroupName != null)
+            if (cmdletContext.ApplicationId != null)
             {
-                request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
-            }
-            if (cmdletContext.LoadBalancerNames != null)
-            {
-                request.LoadBalancerNames = cmdletContext.LoadBalancerNames;
+                request.ApplicationId = cmdletContext.ApplicationId;
             }
             
             CmdletOutput output;
@@ -150,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.LoadBalancerName;
+                    pipelineOutput = this.ApplicationId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -175,16 +145,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private Amazon.AutoScaling.Model.AttachLoadBalancersResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.AttachLoadBalancersRequest request)
+        private Amazon.ServerlessApplicationRepository.Model.DeleteApplicationResponse CallAWSServiceOperation(IAmazonServerlessApplicationRepository client, Amazon.ServerlessApplicationRepository.Model.DeleteApplicationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "AttachLoadBalancers");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Serverless Application Repository", "DeleteApplication");
             try
             {
                 #if DESKTOP
-                return client.AttachLoadBalancers(request);
+                return client.DeleteApplication(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AttachLoadBalancersAsync(request);
+                var task = client.DeleteApplicationAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -205,8 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AutoScalingGroupName { get; set; }
-            public List<System.String> LoadBalancerNames { get; set; }
+            public System.String ApplicationId { get; set; }
         }
         
     }

@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ShouldDecrementDesiredCapacity
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, terminating the instance also decrements the size of the Auto
-        /// Scaling group.</para>
+        /// <para>Indicates whether terminating the instance also decrements the size of the Auto Scaling
+        /// group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

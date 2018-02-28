@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// with status set to QUEUED. The ticket is placed in the matchmaker's ticket pool and
     /// processed. Track the status of the ticket to respond as needed. For more detail how
     /// to set up backfilling, see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/match-backfill.html">
-    /// Set up Match Backfilling</a>. 
+    /// Backfill Existing Games with FlexMatch</a>. 
     /// </para><para>
     /// The process of finding backfill matches is essentially identical to the initial matchmaking
     /// process. The matchmaker searches the pool and groups tickets together to form potential
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// How Amazon GameLift FlexMatch Works</a>. 
     /// </para><para>
     /// Matchmaking-related operations include:
-    /// </para><ul><li><para><a>StartMatchmaking</a></para></li><li><para><a>DescribeMatchmaking</a></para></li><li><para><a>StopMatchmaking</a></para></li><li><para><a>AcceptMatch</a></para></li></ul>
+    /// </para><ul><li><para><a>StartMatchmaking</a></para></li><li><para><a>DescribeMatchmaking</a></para></li><li><para><a>StopMatchmaking</a></para></li><li><para><a>AcceptMatch</a></para></li><li><para><a>StartMatchBackfill</a></para></li></ul>
     /// </summary>
     [Cmdlet("Start", "GMLMatchBackfill", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.MatchmakingTicket")]
@@ -97,11 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>Match information on all players that are currently assigned to the game session.
         /// This information is used by the matchmaker to find new players and add them to the
-        /// existing game.</para><ul><li><para>PlayerID, PlayerAttributes, Team -- This information is maintained in the <a>GameSession</a>
+        /// existing game.</para><ul><li><para>PlayerID, PlayerAttributes, Team -\\- This information is maintained in the <a>GameSession</a>
         /// object, <code>MatchmakerData</code> property, for all players who are currently assigned
         /// to the game session. The matchmaker data is in JSON syntax, formatted as a string.
         /// For more details, see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/match-server.html#match-server-data">
-        /// Match Data</a>. </para></li><li><para>LatencyInMs -- If the matchmaker uses player latency, include a latency value, in
+        /// Match Data</a>. </para></li><li><para>LatencyInMs -\\- If the matchmaker uses player latency, include a latency value, in
         /// milliseconds, for the region that the game session is currently in. Do not include
         /// latency values for any other region.</para></li></ul>
         /// </para>

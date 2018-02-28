@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>Specifies whether the Read Replica is in a Multi-AZ deployment. </para><para>You can create a Read Replica as a Multi-AZ DB instance. RDS creates a standby of
         /// your replica in another Availability Zone for failover support for the replica. Creating
         /// your Read Replica as a Multi-AZ DB instance is independent of whether the source database
-        /// is a Multi-AZ DB instance. </para><note><para>Currently, you can't create PostgreSQL Read Replicas as Multi-AZ DB instances.</para></note>
+        /// is a Multi-AZ DB instance. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The id of the application to update
+        /// <para>The ID of the application to get.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -52,8 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter Author
         /// <summary>
         /// <para>
-        /// The name of the author publishing the app.\nMin
-        /// Length=1. Max Length=127.\nPattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+        /// <para>The name of the author publishing the app.</para><para>Min Length=1. Max Length=127.</para><para>Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,19 +62,28 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// The description of the application.\nMin Length=1.
-        /// Max Length=256
+        /// <para>The description of the application.</para><para>Min Length=1. Max Length=256</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter HomePageUrl
+        /// <summary>
+        /// <para>
+        /// <para>A URL with more information about the application, for example the location of your
+        /// GitHub repository for the application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String HomePageUrl { get; set; }
+        #endregion
+        
         #region Parameter Label
         /// <summary>
         /// <para>
-        /// Labels to improve discovery of apps in search results.\nMin
-        /// Length=1. Max Length=127. Maximum number of labels: 10\nPattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+        /// <para>Labels to improve discovery of apps in search results.</para><para>Min Length=1. Max Length=127. Maximum number of labels: 10</para><para>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,9 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter ReadmeBody
         /// <summary>
         /// <para>
-        /// A raw text Readme file that contains a more
-        /// detailed description of the application and how it works in markdown language.\nMax
-        /// size 5 MB
+        /// <para>A raw text Readme file that contains a more detailed description of the application
+        /// and how it works in markdown language.</para><para>Max size 5 MB</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,9 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter ReadmeUrl
         /// <summary>
         /// <para>
-        /// A link to the Readme file that contains a more
-        /// detailed description of the application and how it works in markdown language.\nMax
-        /// size 5 MB
+        /// <para>A link to the Readme file that contains a more detailed description of the application
+        /// and how it works in markdown language.</para><para>Max size 5 MB</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -139,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
             context.ApplicationId = this.ApplicationId;
             context.Author = this.Author;
             context.Description = this.Description;
+            context.HomePageUrl = this.HomePageUrl;
             if (this.Label != null)
             {
                 context.Labels = new List<System.String>(this.Label);
@@ -172,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.SAR
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.HomePageUrl != null)
+            {
+                request.HomePageUrl = cmdletContext.HomePageUrl;
             }
             if (cmdletContext.Labels != null)
             {
@@ -252,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
             public System.String ApplicationId { get; set; }
             public System.String Author { get; set; }
             public System.String Description { get; set; }
+            public System.String HomePageUrl { get; set; }
             public List<System.String> Labels { get; set; }
             public System.String ReadmeBody { get; set; }
             public System.String ReadmeUrl { get; set; }

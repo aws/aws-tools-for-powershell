@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The id of the application to get policy
-        /// for
+        /// <para>The ID of the application to get.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

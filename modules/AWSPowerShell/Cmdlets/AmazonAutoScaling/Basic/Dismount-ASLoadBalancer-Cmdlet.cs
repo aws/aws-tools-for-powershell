@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
-        /// <para>One or more load balancer names.</para>
+        /// <para>The names of the load balancers. You can specify up to 10 load balancers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

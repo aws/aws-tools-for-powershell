@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return with this call. The default value is 50 and
-        /// the maximum value is 100.</para>
+        /// the maximum value is 50.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

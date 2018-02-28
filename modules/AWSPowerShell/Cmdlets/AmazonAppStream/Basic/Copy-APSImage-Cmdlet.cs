@@ -22,63 +22,64 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AutoScaling;
-using Amazon.AutoScaling.Model;
+using Amazon.AppStream;
+using Amazon.AppStream.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AS
+namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Attaches one or more Classic Load Balancers to the specified Auto Scaling group.
-    /// 
-    ///  
-    /// <para>
-    /// To attach an Application Load Balancer instead, see <a>AttachLoadBalancerTargetGroups</a>.
-    /// </para><para>
-    /// To describe the load balancers for an Auto Scaling group, use <a>DescribeLoadBalancers</a>.
-    /// To detach the load balancer from the Auto Scaling group, use <a>DetachLoadBalancers</a>.
-    /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/attach-load-balancer-asg.html">Attach
-    /// a Load Balancer to Your Auto Scaling Group</a> in the <i>Auto Scaling User Guide</i>.
-    /// </para>
+    /// Copies the image within the same region or to a new region within the same AWS account.
+    /// Note that any tags you added to the image will not be copied.
     /// </summary>
-    [Cmdlet("Add", "ASLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the Auto Scaling AttachLoadBalancers API operation.", Operation = new[] {"AttachLoadBalancers"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.AutoScaling.Model.AttachLoadBalancersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Copy", "APSImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS AppStream CopyImage API operation.", Operation = new[] {"CopyImage"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.AppStream.Model.CopyImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddASLoadBalancerCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class CopyAPSImageCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
-        #region Parameter AutoScalingGroupName
+        #region Parameter DestinationImageDescription
         /// <summary>
         /// <para>
-        /// <para>The name of the Auto Scaling group.</para>
+        /// <para>The description that the image will have when it is copied to the destination.</para>
         /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public System.String AutoScalingGroupName { get; set; }
-        #endregion
-        
-        #region Parameter LoadBalancerName
-        /// <summary>
-        /// <para>
-        /// <para>The names of the load balancers. You can specify up to 10 load balancers.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("LoadBalancerNames")]
-        public System.String[] LoadBalancerName { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the LoadBalancerName parameter.
-        /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        public System.String DestinationImageDescription { get; set; }
+        #endregion
+        
+        #region Parameter DestinationImageName
+        /// <summary>
+        /// <para>
+        /// <para>The name that the image will have when it is copied to the destination.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DestinationImageName { get; set; }
+        #endregion
+        
+        #region Parameter DestinationRegion
+        /// <summary>
+        /// <para>
+        /// <para>The destination region to which the image will be copied. This parameter is required,
+        /// even if you are copying an image within the same region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DestinationRegion { get; set; }
+        #endregion
+        
+        #region Parameter SourceImageName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the image to copy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SourceImageName { get; set; }
         #endregion
         
         #region Parameter Force
@@ -95,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("LoadBalancerName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-ASLoadBalancer (AttachLoadBalancers)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("SourceImageName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Copy-APSImage (CopyImage)"))
             {
                 return;
             }
@@ -110,11 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.AutoScalingGroupName = this.AutoScalingGroupName;
-            if (this.LoadBalancerName != null)
-            {
-                context.LoadBalancerNames = new List<System.String>(this.LoadBalancerName);
-            }
+            context.DestinationImageDescription = this.DestinationImageDescription;
+            context.DestinationImageName = this.DestinationImageName;
+            context.DestinationRegion = this.DestinationRegion;
+            context.SourceImageName = this.SourceImageName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -129,15 +129,23 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AutoScaling.Model.AttachLoadBalancersRequest();
+            var request = new Amazon.AppStream.Model.CopyImageRequest();
             
-            if (cmdletContext.AutoScalingGroupName != null)
+            if (cmdletContext.DestinationImageDescription != null)
             {
-                request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
+                request.DestinationImageDescription = cmdletContext.DestinationImageDescription;
             }
-            if (cmdletContext.LoadBalancerNames != null)
+            if (cmdletContext.DestinationImageName != null)
             {
-                request.LoadBalancerNames = cmdletContext.LoadBalancerNames;
+                request.DestinationImageName = cmdletContext.DestinationImageName;
+            }
+            if (cmdletContext.DestinationRegion != null)
+            {
+                request.DestinationRegion = cmdletContext.DestinationRegion;
+            }
+            if (cmdletContext.SourceImageName != null)
+            {
+                request.SourceImageName = cmdletContext.SourceImageName;
             }
             
             CmdletOutput output;
@@ -148,9 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.LoadBalancerName;
+                object pipelineOutput = response.DestinationImageName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -175,16 +181,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private Amazon.AutoScaling.Model.AttachLoadBalancersResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.AttachLoadBalancersRequest request)
+        private Amazon.AppStream.Model.CopyImageResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.CopyImageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "AttachLoadBalancers");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "CopyImage");
             try
             {
                 #if DESKTOP
-                return client.AttachLoadBalancers(request);
+                return client.CopyImage(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AttachLoadBalancersAsync(request);
+                var task = client.CopyImageAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -205,8 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AutoScalingGroupName { get; set; }
-            public List<System.String> LoadBalancerNames { get; set; }
+            public System.String DestinationImageDescription { get; set; }
+            public System.String DestinationImageName { get; set; }
+            public System.String DestinationRegion { get; set; }
+            public System.String SourceImageName { get; set; }
         }
         
     }

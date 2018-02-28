@@ -103,7 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// response element. The remaining results of the initial request can be seen by sending
         /// another <code>DescribeImages</code> request with the returned <code>nextToken</code>
         /// value. This value can be between 1 and 100. If this parameter is not used, then <code>DescribeImages</code>
-        /// returns up to 100 results and a <code>nextToken</code> value, if applicable.</para>
+        /// returns up to 100 results and a <code>nextToken</code> value, if applicable. This
+        /// option cannot be used when you specify images with <code>imageIds</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -121,7 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// request where <code>maxResults</code> was used and the results exceeded the value
         /// of that parameter. Pagination continues from the end of the previous results that
         /// returned the <code>nextToken</code> value. This value is <code>null</code> when there
-        /// are no more results to return.</para>
+        /// are no more results to return. This option cannot be used when you specify images
+        /// with <code>imageIds</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

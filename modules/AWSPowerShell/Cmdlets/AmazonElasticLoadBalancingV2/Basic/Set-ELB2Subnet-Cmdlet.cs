@@ -28,7 +28,7 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Enables the Availability Zone for the specified subnets for the specified Application
+    /// Enables the Availability Zone for the specified public subnets for the specified Application
     /// Load Balancer. The specified subnets replace the previously enabled subnets.
     /// 
     ///  
@@ -59,10 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter SubnetMapping
         /// <summary>
         /// <para>
-        /// <para>The IDs of the subnets. You must specify subnets from at least two Availability Zones.
-        /// You can specify only one subnet per Availability Zone. You must specify either subnets
-        /// or subnet mappings.</para><para>The load balancer is allocated one static IP address per subnet. You cannot specify
-        /// your own Elastic IP addresses.</para>
+        /// <para>The IDs of the public subnets. You must specify subnets from at least two Availability
+        /// Zones. You can specify only one subnet per Availability Zone. You must specify either
+        /// subnets or subnet mappings.</para><para>You cannot specify Elastic IP addresses for your subnets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,9 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Subnet
         /// <summary>
         /// <para>
-        /// <para>The IDs of the subnets. You must specify subnets from at least two Availability Zones.
-        /// You can specify only one subnet per Availability Zone. You must specify either subnets
-        /// or subnet mappings.</para>
+        /// <para>The IDs of the public subnets. You must specify subnets from at least two Availability
+        /// Zones. You can specify only one subnet per Availability Zone. You must specify either
+        /// subnets or subnet mappings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

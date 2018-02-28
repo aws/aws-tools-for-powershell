@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The id of the application to list
+        /// <para>The ID of the application to get.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// The total number of items to return
+        /// <para>The total number of items to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// A token to specify where to start paginating
+        /// <para>A token to specify where to start paginating.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -59,8 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>One or more instances to move into <code>Standby</code> mode. You must specify at
-        /// least one instance ID.</para>
+        /// <para>The IDs of the instances. You can specify up to 20 instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -71,10 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ShouldDecrementDesiredCapacity
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the instances moved to <code>Standby</code> mode count as part of
-        /// the Auto Scaling group's desired capacity. If set, the desired capacity for the Auto
-        /// Scaling group decrements by the number of instances moved to <code>Standby</code>
-        /// mode.</para>
+        /// <para>Indicates whether to decrement the desired capacity of the Auto Scaling group by the
+        /// number of instances moved to <code>Standby</code> mode.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The id of the application to get
+        /// <para>The ID of the application to get.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -52,8 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter SemanticVersion
         /// <summary>
         /// <para>
-        /// The semantic version of the application
-        /// to get
+        /// <para>The semantic version of the application to get.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

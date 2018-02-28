@@ -136,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LaunchConfigurationName
         /// <summary>
         /// <para>
-        /// <para>The name of the launch configuration. You must specify either a launch configuration
-        /// or a launch template.</para>
+        /// <para>The name of the launch configuration. If you specify a launch configuration, you can't
+        /// specify a launch template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -209,6 +209,17 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String PlacementGroup { get; set; }
         #endregion
         
+        #region Parameter ServiceLinkedRoleARN
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group
+        /// uses to call other AWS services on your behalf.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ServiceLinkedRoleARN { get; set; }
+        #endregion
+        
         #region Parameter TerminationPolicy
         /// <summary>
         /// <para>
@@ -226,7 +237,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LaunchTemplate_Version
         /// <summary>
         /// <para>
-        /// <para>The version number. By default, the default version of the launch template is used.</para>
+        /// <para>The version number, <code>$Latest</code>, or <code>$Default</code>. If the value is
+        /// <code>$Latest</code>, Auto Scaling selects the latest version of the launch template
+        /// when launching instances. If the value is <code>$Default</code>, Auto Scaling selects
+        /// the default version of the launch template when launching instances. The default value
+        /// is <code>$Default</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -307,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (ParameterWasBound("NewInstancesProtectedFromScaleIn"))
                 context.NewInstancesProtectedFromScaleIn = this.NewInstancesProtectedFromScaleIn;
             context.PlacementGroup = this.PlacementGroup;
+            context.ServiceLinkedRoleARN = this.ServiceLinkedRoleARN;
             if (this.TerminationPolicy != null)
             {
                 context.TerminationPolicies = new List<System.String>(this.TerminationPolicy);
@@ -411,6 +427,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 request.PlacementGroup = cmdletContext.PlacementGroup;
             }
+            if (cmdletContext.ServiceLinkedRoleARN != null)
+            {
+                request.ServiceLinkedRoleARN = cmdletContext.ServiceLinkedRoleARN;
+            }
             if (cmdletContext.TerminationPolicies != null)
             {
                 request.TerminationPolicies = cmdletContext.TerminationPolicies;
@@ -499,6 +519,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.Int32? MinSize { get; set; }
             public System.Boolean? NewInstancesProtectedFromScaleIn { get; set; }
             public System.String PlacementGroup { get; set; }
+            public System.String ServiceLinkedRoleARN { get; set; }
             public List<System.String> TerminationPolicies { get; set; }
             public System.String VPCZoneIdentifier { get; set; }
         }

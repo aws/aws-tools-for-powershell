@@ -28,27 +28,43 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// You can retrieve the Reservation utilization for your account. Master accounts in
-    /// an organization have access to their associated member accounts. You can filter data
-    /// by dimensions in a time period. You can use <code>GetDimensionValues</code> to determine
-    /// the possible dimension values. Currently, you can group only by <code>SUBSCRIPTION_ID</code>.
+    /// Retrieve the reservation coverage for your account. An organization's master account
+    /// has access to the associated member accounts. For any time period, you can filter
+    /// data about reservation usage by the following dimensions. 
+    /// 
+    ///  <ul><li><para>
+    /// AZ
+    /// </para></li><li><para>
+    /// INSTANCE_TYPE
+    /// </para></li><li><para>
+    /// LINKED_ACCOUNT
+    /// </para></li><li><para>
+    /// PLATFORM
+    /// </para></li><li><para>
+    /// REGION
+    /// </para></li><li><para>
+    /// TENANCY
+    /// </para></li></ul><para>
+    /// To determine valid values for a dimension, use the <code>GetDimensionValues</code>
+    /// operation. 
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "CEReservationUtilization")]
-    [OutputType("Amazon.CostExplorer.Model.GetReservationUtilizationResponse")]
-    [AWSCmdlet("Calls the AWS Cost Explorer GetReservationUtilization API operation.", Operation = new[] {"GetReservationUtilization"})]
-    [AWSCmdletOutput("Amazon.CostExplorer.Model.GetReservationUtilizationResponse",
-        "This cmdlet returns a Amazon.CostExplorer.Model.GetReservationUtilizationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CEReservationCoverage")]
+    [OutputType("Amazon.CostExplorer.Model.GetReservationCoverageResponse")]
+    [AWSCmdlet("Calls the AWS Cost Explorer GetReservationCoverage API operation.", Operation = new[] {"GetReservationCoverage"})]
+    [AWSCmdletOutput("Amazon.CostExplorer.Model.GetReservationCoverageResponse",
+        "This cmdlet returns a Amazon.CostExplorer.Model.GetReservationCoverageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCEReservationUtilizationCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
+    public partial class GetCEReservationCoverageCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters utilization data by using different dimensions. <code>GetReservationUtilization</code>
-        /// uses the same <code>Expression</code> object as the other operations, but only <code>AND</code>
-        /// is supported among each dimension, and nesting is supported up to only one level deep.
-        /// If there are multiple values for a dimension, they are OR'd together.</para>
+        /// <para>Filters utilization data by dimensions. You can filter by the following dimensions.</para><ul><li><para>AZ</para></li><li><para>INSTANCE_TYPE</para></li><li><para>LINKED_ACCOUNT</para></li><li><para>PLATFORM</para></li><li><para>REGION</para></li><li><para>TENANCY</para></li></ul><para><code>GetReservationCoverage</code> uses the same <code>Expression</code> object
+        /// as the other operations, but only <code>AND</code> is supported among each dimension.
+        /// You can nest only one level deep. If there are multiple values for a dimension, they
+        /// are OR'd together.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -58,10 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Granularity
         /// <summary>
         /// <para>
-        /// <para>If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code>
+        /// <para>The granularity of the AWS cost data for the reservation. Valid values are <code>MONTHLY</code>
+        /// and <code>DAILY</code>.</para><para>If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code>
         /// isn't set, the response object doesn't include the <code>Granularity</code>, either
-        /// <code>MONTHLY</code> or <code>DAILY</code>. If both <code>GroupBy</code> and <code>Granularity</code>
-        /// aren't set, <code>GetReservationUtilization</code> defaults to <code>DAILY</code>.</para>
+        /// <code>MONTHLY</code> or <code>DAILY</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter GroupBy
         /// <summary>
         /// <para>
-        /// <para>Groups only by <code>SUBSCRIPTION_ID</code>. Metadata is included.</para>
+        /// <para>You can group the data by the following attributes. </para><ul><li><para>AZ</para></li><li><para>INSTANCE_TYPE</para></li><li><para>LINKED_ACCOUNT</para></li><li><para>PLATFORM</para></li><li><para>REGION</para></li><li><para>TENANCY</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,14 +98,16 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter TimePeriod
         /// <summary>
         /// <para>
-        /// <para>Sets the start and end dates for retrieving reserve instance (RI) utilization. The
-        /// start date is inclusive, but the end date is exclusive. For example, if <code>start</code>
-        /// is <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the
-        /// cost and usage data is retrieved from <code>2017-01-01</code> up to and including
-        /// <code>2017-04-30</code> but not including <code>2017-05-01</code>. </para>
+        /// <para>The start and end dates of the period for which you want to retrieve data about reservation
+        /// coverage. You can retrieve data for a maximum of 13 months-the last 12 months and
+        /// the current month. The start date is inclusive, but the end date is exclusive. For
+        /// example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is
+        /// <code>2017-05-01</code>, then the cost and usage data is retrieved from <code>2017-01-01</code>
+        /// up to and including <code>2017-04-30</code> but not including <code>2017-05-01</code>.
+        /// </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public Amazon.CostExplorer.Model.DateInterval TimePeriod { get; set; }
         #endregion
         
@@ -139,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CostExplorer.Model.GetReservationUtilizationRequest();
+            var request = new Amazon.CostExplorer.Model.GetReservationCoverageRequest();
             
             if (cmdletContext.Filter != null)
             {
@@ -195,16 +213,16 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         #region AWS Service Operation Call
         
-        private Amazon.CostExplorer.Model.GetReservationUtilizationResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.GetReservationUtilizationRequest request)
+        private Amazon.CostExplorer.Model.GetReservationCoverageResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.GetReservationCoverageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "GetReservationUtilization");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "GetReservationCoverage");
             try
             {
                 #if DESKTOP
-                return client.GetReservationUtilization(request);
+                return client.GetReservationCoverage(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetReservationUtilizationAsync(request);
+                var task = client.GetReservationCoverageAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"

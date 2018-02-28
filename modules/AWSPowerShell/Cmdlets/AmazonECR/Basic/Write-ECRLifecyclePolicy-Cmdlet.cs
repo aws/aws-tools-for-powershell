@@ -28,7 +28,9 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Creates or updates a lifecycle policy.
+    /// Creates or updates a lifecycle policy. For information about lifecycle policy syntax,
+    /// see <a href="http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html">Lifecycle
+    /// Policy Template</a>.
     /// </summary>
     [Cmdlet("Write", "ECRLifecyclePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.PutLifecyclePolicyResponse")]

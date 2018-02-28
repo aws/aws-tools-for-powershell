@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// is successful, a ticket object is returned for each requested ID that currently exists.
     /// </para><para>
     /// Matchmaking-related operations include:
-    /// </para><ul><li><para><a>StartMatchmaking</a></para></li><li><para><a>DescribeMatchmaking</a></para></li><li><para><a>StopMatchmaking</a></para></li><li><para><a>AcceptMatch</a></para></li></ul>
+    /// </para><ul><li><para><a>StartMatchmaking</a></para></li><li><para><a>DescribeMatchmaking</a></para></li><li><para><a>StopMatchmaking</a></para></li><li><para><a>AcceptMatch</a></para></li><li><para><a>StartMatchBackfill</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "GMLMatchmaking")]
     [OutputType("Amazon.GameLift.Model.MatchmakingTicket")]

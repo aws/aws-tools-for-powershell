@@ -1541,6 +1541,13 @@ $CC_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CodeCommit.FileModeTypeEnum
+        "Write-CCFile/FileMode"
+        {
+            $v = "EXECUTABLE","NORMAL","SYMLINK"
+            break
+        }
+        
         # Amazon.CodeCommit.MergeOptionTypeEnum
         "Get-CCMergeConflict/MergeOption"
         {
@@ -1597,6 +1604,7 @@ $CC_Completers = {
 }
 
 $CC_map = @{
+    "FileMode"=@("Write-CCFile")
     "Location_RelativeFileVersion"=@("Send-CCCommentForComparedCommit","Send-CCCommentForPullRequest")
     "MergeOption"=@("Get-CCMergeConflict")
     "Order"=@("Get-CCRepositoryList")
@@ -2164,13 +2172,14 @@ $CE_Completers = {
         # Amazon.CostExplorer.Dimension
         "Get-CEDimensionValue/Dimension"
         {
-            $v = "AZ","INSTANCE_TYPE","LINKED_ACCOUNT","OPERATING_SYSTEM","OPERATION","PLATFORM","PURCHASE_TYPE","RECORD_TYPE","REGION","SCOPE","SERVICE","SUBSCRIPTION_ID","TENANCY","USAGE_TYPE","USAGE_TYPE_GROUP"
+            $v = "AZ","CACHE_ENGINE","DATABASE_ENGINE","DEPLOYMENT_OPTION","INSTANCE_TYPE","INSTANCE_TYPE_FAMILY","LEGAL_ENTITY_NAME","LINKED_ACCOUNT","OPERATING_SYSTEM","OPERATION","PLATFORM","PURCHASE_TYPE","RECORD_TYPE","REGION","SCOPE","SERVICE","SUBSCRIPTION_ID","TENANCY","USAGE_TYPE","USAGE_TYPE_GROUP"
             break
         }
         
         # Amazon.CostExplorer.Granularity
         {
             ($_ -eq "Get-CECostAndUsage/Granularity") -Or
+            ($_ -eq "Get-CEReservationCoverage/Granularity") -Or
             ($_ -eq "Get-CEReservationUtilization/Granularity")
         }
         {
@@ -2188,7 +2197,7 @@ $CE_Completers = {
 $CE_map = @{
     "Context"=@("Get-CEDimensionValue")
     "Dimension"=@("Get-CEDimensionValue")
-    "Granularity"=@("Get-CECostAndUsage","Get-CEReservationUtilization")
+    "Granularity"=@("Get-CECostAndUsage","Get-CEReservationCoverage","Get-CEReservationUtilization")
 }
 
 _awsArgumentCompleterRegistration $CE_Completers $CE_map
@@ -3451,6 +3460,13 @@ $GML_Completers = {
             break
         }
         
+        # Amazon.GameLift.FleetType
+        "New-GMLFleet/FleetType"
+        {
+            $v = "ON_DEMAND","SPOT"
+            break
+        }
+        
         # Amazon.GameLift.MetricName
         "Write-GMLScalingPolicy/MetricName"
         {
@@ -3519,6 +3535,7 @@ $GML_map = @{
     "AcceptanceType"=@("Confirm-GMLMatch")
     "ComparisonOperator"=@("Write-GMLScalingPolicy")
     "EC2InstanceType"=@("Get-GMLEC2InstanceLimit","New-GMLFleet")
+    "FleetType"=@("New-GMLFleet")
     "MetricName"=@("Write-GMLScalingPolicy")
     "NewGameSessionProtectionPolicy"=@("New-GMLFleet","Update-GMLFleetAttribute")
     "OperatingSystem"=@("New-GMLBuild")

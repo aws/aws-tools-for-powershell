@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>One or more instance IDs. You must specify at least one instance ID.</para>
+        /// <para>The IDs of the instances. You can specify up to 20 instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

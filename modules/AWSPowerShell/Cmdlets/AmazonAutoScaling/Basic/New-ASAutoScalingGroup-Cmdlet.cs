@@ -32,9 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// If you exceed your maximum limit of Auto Scaling groups, which by default is 20 per
-    /// region, the call fails. For information about viewing and updating this limit, see
-    /// <a>DescribeAccountLimits</a>.
+    /// If you exceed your maximum limit of Auto Scaling groups, the call fails. For information
+    /// about viewing this limit, see <a>DescribeAccountLimits</a>. For information about
+    /// updating this limit, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-account-limits.html">Auto
+    /// Scaling Limits</a> in the <i>Auto Scaling User Guide</i>.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroup.html">Auto
     /// Scaling Groups</a> in the <i>Auto Scaling User Guide</i>.
@@ -238,6 +239,18 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String PlacementGroup { get; set; }
         #endregion
         
+        #region Parameter ServiceLinkedRoleARN
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group
+        /// uses to call other AWS services on your behalf. By default, Auto Scaling uses a service-linked
+        /// role named AWSServiceRoleForAutoScaling, which it creates if it does not exist.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ServiceLinkedRoleARN { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -277,7 +290,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LaunchTemplate_Version
         /// <summary>
         /// <para>
-        /// <para>The version number. By default, the default version of the launch template is used.</para>
+        /// <para>The version number, <code>$Latest</code>, or <code>$Default</code>. If the value is
+        /// <code>$Latest</code>, Auto Scaling selects the latest version of the launch template
+        /// when launching instances. If the value is <code>$Default</code>, Auto Scaling selects
+        /// the default version of the launch template when launching instances. The default value
+        /// is <code>$Default</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -366,6 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (ParameterWasBound("NewInstancesProtectedFromScaleIn"))
                 context.NewInstancesProtectedFromScaleIn = this.NewInstancesProtectedFromScaleIn;
             context.PlacementGroup = this.PlacementGroup;
+            context.ServiceLinkedRoleARN = this.ServiceLinkedRoleARN;
             if (this.Tag != null)
             {
                 context.Tags = new List<Amazon.AutoScaling.Model.Tag>(this.Tag);
@@ -490,6 +508,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 request.PlacementGroup = cmdletContext.PlacementGroup;
             }
+            if (cmdletContext.ServiceLinkedRoleARN != null)
+            {
+                request.ServiceLinkedRoleARN = cmdletContext.ServiceLinkedRoleARN;
+            }
             if (cmdletContext.Tags != null)
             {
                 request.Tags = cmdletContext.Tags;
@@ -589,6 +611,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.Int32? MinSize { get; set; }
             public System.Boolean? NewInstancesProtectedFromScaleIn { get; set; }
             public System.String PlacementGroup { get; set; }
+            public System.String ServiceLinkedRoleARN { get; set; }
             public List<Amazon.AutoScaling.Model.Tag> Tags { get; set; }
             public List<System.String> TargetGroupARNs { get; set; }
             public List<System.String> TerminationPolicies { get; set; }

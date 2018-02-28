@@ -1,3 +1,22 @@
+### 3.3.243.0 
+  * AWS AppStream
+    * Added cmdlet Copy-APSImage to support the new CopyImage API. This API enables customers to copy their Amazon AppStream 2.0 images within and between AWS Regions.
+  * Auto Scaling
+    * Updated the New-ASAutoScalingGroup and Update-ASAutoScalingGroup cmdlets with a new parameter, -ServiceLinkedRoleARN, to support service linked roles.
+  * AWS CodeCommit
+    * Added cmdlet Write-CFFile to support the new PutFile API. This API enables customers to add a file directly to an AWS CodeCommit repository without requiring a Git client.
+  * AWS Cost Explorer
+    * Added cmdlet Get-CEReservationCoverage to support the new GetReservationCoverage API.
+  * Amazon EC2
+    * Updated the New-EC2Snapshot cmdlet to add suport for tagging EBS snapshots.
+  * Serverless Application Repository
+    * Updated the New-SARApplication and Update-SARApplication cmdlets to support setting a home page URL for the application.
+    * Added cmdlet Remove-SARApplication to support the new DeleteApplication API.
+  * AWS WAF
+    * Added cmdlets Get-WAFPermissionPolicy (GetPermissionPolicy API) and Remove-WAFPermissionPolicy (DeletePermissionPolicy API).
+  * AWS WAF Regional
+    * Added cmdlets Get-WAFRPermissionPolicy (GetPermissionPolicy API) and Remove-WAFRPermissionPolicy (DeletePermissionPolicy API).
+
 ### 3.3.234.0 (2018-02-14)
   (This version was only released as part of the combined AWS Tools for Windows installer. It was not released to the PowerShell Gallery.)
   * AWS AppSync

@@ -30,19 +30,17 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <summary>
     /// Creates a new fleet to run your game servers. A fleet is a set of Amazon Elastic Compute
     /// Cloud (Amazon EC2) instances, each of which can run multiple server processes to host
-    /// game sessions. You configure a fleet to create instances with certain hardware specifications
+    /// game sessions. You set up a fleet to use instances with certain hardware specifications
     /// (see <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a>
-    /// for more information), and deploy a specified game build to each instance. A newly
-    /// created fleet passes through several statuses; once it reaches the <code>ACTIVE</code>
-    /// status, it can begin hosting game sessions.
+    /// for more information), and deploy your game build to run on each instance. 
     /// 
     ///  
     /// <para>
-    /// To create a new fleet, you must specify the following: (1) fleet name, (2) build ID
-    /// of an uploaded game build, (3) an EC2 instance type, and (4) a run-time configuration
-    /// that describes which server processes to run on each instance in the fleet. (Although
-    /// the run-time configuration is not a required parameter, the fleet cannot be successfully
-    /// activated without it.)
+    /// To create a new fleet, you must specify the following: (1) a fleet name, (2) the build
+    /// ID of a successfully uploaded game build, (3) an EC2 instance type, and (4) a run-time
+    /// configuration, which describes the server processes to run on each instance in the
+    /// fleet. If you don't specify a fleet type (on-demand or spot), the new fleet uses on-demand
+    /// instances by default.
     /// </para><para>
     /// You can also configure the new fleet with the following settings:
     /// </para><ul><li><para>
@@ -52,33 +50,36 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li><li><para>
     /// Fleet-wide game session protection
     /// </para></li><li><para>
-    /// Resource creation limit
+    /// Resource usage limits
+    /// </para></li></ul><ul><li><para>
+    /// VPC peering connection (see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
+    /// Peering with Amazon GameLift Fleets</a>)
     /// </para></li></ul><para>
     /// If you use Amazon CloudWatch for metrics, you can add the new fleet to a metric group.
-    /// This allows you to view aggregated metrics for a set of fleets. Once you specify a
-    /// metric group, the new fleet's metrics are included in the metric group's data.
+    /// By adding multiple fleets to a metric group, you can view aggregated metrics for all
+    /// the fleets in the group. 
     /// </para><para>
-    /// You have the option of creating a VPC peering connection with the new fleet. For more
-    /// information, see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
-    /// Peering with Amazon GameLift Fleets</a>.
-    /// </para><para>
-    /// If the CreateFleet call is successful, Amazon GameLift performs the following tasks:
+    /// If the <code>CreateFleet</code> call is successful, Amazon GameLift performs the following
+    /// tasks. You can track the process of a fleet by checking the fleet status or by monitoring
+    /// fleet creation events:
     /// </para><ul><li><para>
-    /// Creates a fleet record and sets the status to <code>NEW</code> (followed by other
-    /// statuses as the fleet is activated).
-    /// </para></li><li><para>
-    /// Sets the fleet's target capacity to 1 (desired instances), which causes Amazon GameLift
-    /// to start one new EC2 instance.
-    /// </para></li><li><para>
-    /// Starts launching server processes on the instance. If the fleet is configured to run
-    /// multiple server processes per instance, Amazon GameLift staggers each launch by a
-    /// few seconds.
+    /// Creates a fleet record. Status: <code>NEW</code>.
     /// </para></li><li><para>
     /// Begins writing events to the fleet event log, which can be accessed in the Amazon
     /// GameLift console.
+    /// </para><para>
+    /// Sets the fleet's target capacity to 1 (desired instances), which triggers Amazon GameLift
+    /// to start one new EC2 instance.
     /// </para></li><li><para>
-    /// Sets the fleet's status to <code>ACTIVE</code> as soon as one server process in the
-    /// fleet is ready to host a game session.
+    /// Downloads the game build to the new instance and installs it. Statuses: <code>DOWNLOADING</code>,
+    /// <code>VALIDATING</code>, <code>BUILDING</code>. 
+    /// </para></li><li><para>
+    /// Starts launching server processes on the instance. If the fleet is configured to run
+    /// multiple server processes per instance, Amazon GameLift staggers each launch by a
+    /// few seconds. Status: <code>ACTIVATING</code>.
+    /// </para></li><li><para>
+    /// Sets the fleet's status to <code>ACTIVE</code> as soon as one server process is ready
+    /// to host a game session.
     /// </para></li></ul><para>
     /// Fleet-related operations include:
     /// </para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para>
@@ -151,6 +152,24 @@ namespace Amazon.PowerShell.Cmdlets.GML
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.GameLift.EC2InstanceType")]
         public Amazon.GameLift.EC2InstanceType EC2InstanceType { get; set; }
+        #endregion
+        
+        #region Parameter FleetType
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to use on-demand instances or spot instances for this fleet. If
+        /// empty, the default is ON_DEMAND. Both categories of instances use identical hardware
+        /// and configurations, based on the instance type selected for this fleet. You can acquire
+        /// on-demand instances at any time for a fixed price and keep them as long as you need
+        /// them. Spot instances have lower prices, but spot pricing is variable, and while in
+        /// use they can be interrupted (with a two-minute notification). Learn more about Amazon
+        /// GameLift spot instances with at <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html">
+        /// Choose Computing Resources</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.GameLift.FleetType")]
+        public Amazon.GameLift.FleetType FleetType { get; set; }
         #endregion
         
         #region Parameter RuntimeConfiguration_GameSessionActivationTimeoutSecond
@@ -354,6 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 context.EC2InboundPermissions = new List<Amazon.GameLift.Model.IpPermission>(this.EC2InboundPermission);
             }
             context.EC2InstanceType = this.EC2InstanceType;
+            context.FleetType = this.FleetType;
             if (this.LogPath != null)
             {
                 context.LogPaths = new List<System.String>(this.LogPath);
@@ -411,6 +431,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.EC2InstanceType != null)
             {
                 request.EC2InstanceType = cmdletContext.EC2InstanceType;
+            }
+            if (cmdletContext.FleetType != null)
+            {
+                request.FleetType = cmdletContext.FleetType;
             }
             if (cmdletContext.LogPaths != null)
             {
@@ -580,6 +604,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public System.String Description { get; set; }
             public List<Amazon.GameLift.Model.IpPermission> EC2InboundPermissions { get; set; }
             public Amazon.GameLift.EC2InstanceType EC2InstanceType { get; set; }
+            public Amazon.GameLift.FleetType FleetType { get; set; }
             public List<System.String> LogPaths { get; set; }
             public List<System.String> MetricGroups { get; set; }
             public System.String Name { get; set; }

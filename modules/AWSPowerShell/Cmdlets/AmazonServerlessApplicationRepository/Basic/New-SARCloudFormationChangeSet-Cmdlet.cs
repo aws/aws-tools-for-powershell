@@ -42,8 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The id of the application to create the
-        /// ChangeSet for
+        /// <para>The ID of the application to get.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,8 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter ParameterOverride
         /// <summary>
         /// <para>
-        /// A list of parameter values for the
-        /// parameters of the application.
+        /// <para>A list of parameter values for the parameters of the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter SemanticVersion
         /// <summary>
         /// <para>
-        /// The semantic version of the application:\n\n
-        /// https://semver.org/
+        /// Amazon.ServerlessApplicationRepository.Model.CreateCloudFormationChangeSetRequest.SemanticVersion
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -76,11 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// The name or the unique ID of the stack for which
-        /// you are creating a change set. AWS CloudFormation generates\n the change set by comparing
-        /// this stack's information with the information that you submit, such as a modified\n
-        /// template or different parameter input values. \nConstraints: Minimum length of 1.\nPattern:
-        /// ([a-zA-Z][-a-zA-Z0-9]*)|(arn:\b(aws|aws-us-gov|aws-cn)\b:[-a-zA-Z0-9:/._+]*)
+        /// <para>The name or the unique ID of the stack for which you are creating a change set. AWS
+        /// CloudFormation generates the change set by comparing this stack's information with
+        /// the information that you submit, such as a modified template or different parameter
+        /// input values. </para><para>Constraints: Minimum length of 1.</para><para>Pattern: ([a-zA-Z][-a-zA-Z0-9]*)|(arn:\b(aws|aws-us-gov|aws-cn)\b:[-a-zA-Z0-9:/._+]*)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

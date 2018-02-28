@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// </para><para>
     /// To assume a role, your AWS account must be trusted by the role. The trust relationship
     /// is defined in the role's trust policy when the role is created. That trust policy
-    /// states which accounts are allowed to delegate access to this account's role.
+    /// states which accounts are allowed to delegate access to this account's role. 
     /// </para><para>
     /// The user who wants to access the role must also have permissions delegated from the
     /// role's administrator. If the user is in a different account than the role, then the
@@ -92,7 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// on the ARN of the role in the other account. If the user is in the same account as
     /// the role, then you can either attach a policy to the user (identical to the previous
     /// different account user), or you can add the user as a principal directly in the role's
-    /// trust policy
+    /// trust policy. In this case, the trust policy acts as the only resource-based policy
+    /// in IAM, and users in the same account as the role do not need explicit permission
+    /// to assume the role. For more information about trust policies and resource-based policies,
+    /// see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM
+    /// Policies</a> in the <i>IAM User Guide</i>.
     /// </para><para><b>Using MFA with AssumeRole</b></para><para>
     /// You can optionally include multi-factor authentication (MFA) information when you
     /// call <code>AssumeRole</code>. This is useful for cross-account scenarios in which

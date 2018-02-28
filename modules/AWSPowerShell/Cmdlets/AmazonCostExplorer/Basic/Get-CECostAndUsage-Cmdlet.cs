@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// Retrieve cost and usage metrics for your account. You can specify which cost and usage-related
     /// metric, such as <code>BlendedCosts</code> or <code>UsageQuantity</code>, that you
     /// want the request to return. You can also filter and group your data by various dimensions,
-    /// such as <code>AWS Service</code> or <code>AvailabilityZone</code>, in a specific time
-    /// range. See the <code>GetDimensionValues</code> action for a complete list of the valid
-    /// dimensions. Master accounts in an organization have access to all member accounts.
+    /// such as <code>SERVICE</code> or <code>AZ</code>, in a specific time range. See the
+    /// <code>GetDimensionValues</code> action for a complete list of the valid dimensions.
+    /// Master accounts in an organization have access to all member accounts.
     /// </summary>
     [Cmdlet("Get", "CECostAndUsage")]
     [OutputType("Amazon.CostExplorer.Model.GetCostAndUsageResponse")]
@@ -47,11 +47,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters AWS costs by different dimensions. For example, you can specify <code>Service</code>
-        /// and <code>Linked Account</code> and get the costs associated with that account's usage
+        /// <para>Filters AWS costs by different dimensions. For example, you can specify <code>SERVICE</code>
+        /// and <code>LINKED_ACCOUNT</code> and get the costs associated with that account's usage
         /// of that service. You can nest <code>Expression</code> objects to define any combination
-        /// of dimension filters. For more information, see the <code>Expression</code> object
-        /// or <code>More Examples</code>. </para>
+        /// of dimension filters. For more information, see <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -61,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Granularity
         /// <summary>
         /// <para>
-        /// <para>Sets the AWS cost granularity to <code>MONTHLY</code> or <code>DAILY</code>.</para>
+        /// <para>Sets the AWS cost granularity to <code>MONTHLY</code> or <code>DAILY</code>. If <code>Granularity</code>
+        /// isn't set, the response object doesn't include the <code>Granularity</code>, either
+        /// <code>MONTHLY</code> or <code>DAILY</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,9 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>You can group AWS costs using up to two different groups, either dimensions, tag keys,
-        /// or both.</para><para>When you group by tag key, you get all tag values, including empty strings.</para><para>Valid values are: <code>AZ</code>, <code>INSTANCE_TYPE</code>, <code>LINKED_ACCCOUNT</code>,
-        /// <code>OPERATION</code>, <code>PURCHASE_TYPE</code>, <code>SERVICE</code>, <code>USAGE_TYPE</code>,
-        /// <code>TAGS</code>, and <code>PLATFORM</code>.</para>
+        /// or both.</para><para>When you group by tag key, you get all tag values, including empty strings.</para><para>Valid values are <code>AZ</code>, <code>INSTANCE_TYPE</code>, <code>LINKED_ACCOUNT</code>,
+        /// <code>OPERATION</code>, <code>PLATFORM</code>, <code>PURCHASE_TYPE</code>, <code>SERVICE</code>,
+        /// <code>TAGS</code>, <code>TENANCY</code>, and <code>USAGE_TYPE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>Which metrics are returned in the query. For more information about blended and unblended
-        /// rates, see https://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/.
-        /// </para><para>Valid values are <code>BlendedCost</code>, <code>UnblendedCost</code>, and <code>UsageQuantity</code>.</para><note><para>If you return the <code>UsageQuantity</code> metric, the service aggregates all usage
+        /// rates, see <a href="https://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why
+        /// does the "blended" annotation appear on some line items in my bill?</a>. </para><para>Valid values are <code>BlendedCost</code>, <code>UnblendedCost</code>, and <code>UsageQuantity</code>.</para><note><para>If you return the <code>UsageQuantity</code> metric, the service aggregates all usage
         /// numbers without taking into account the units. For example, if you aggregate <code>usageQuantity</code>
         /// across all of EC2, the results aren't meaningful because EC2 compute hours and data
         /// transfer are measured in different units (for example, hours vs. GB). To get more

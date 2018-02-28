@@ -240,6 +240,7 @@ Set-Alias -Name ADS-StartExportTask -Value Start-ADSExportTask
 Set-Alias -Name ADS-StopDataCollectionByAgentIds -Value Stop-ADSDataCollectionByAgentId
 Set-Alias -Name ADS-UpdateApplication -Value Update-ADSApplication
 Set-Alias -Name APS-AssociateFleet -Value Register-APSFleet
+Set-Alias -Name APS-CopyImage -Value Copy-APSImage
 Set-Alias -Name Create-APSDirectoryConfig -Value New-APSDirectoryConfig
 Set-Alias -Name APS-CreateDirectoryConfig -Value New-APSDirectoryConfig
 Set-Alias -Name Create-APSFleet -Value New-APSFleet
@@ -1010,6 +1011,7 @@ Set-Alias -Name CC-MergePullRequestByFastForward -Value Merge-CCPullRequestByFas
 Set-Alias -Name CC-PostCommentForComparedCommit -Value Send-CCCommentForComparedCommit
 Set-Alias -Name CC-PostCommentForPullRequest -Value Send-CCCommentForPullRequest
 Set-Alias -Name CC-PostCommentReply -Value Send-CCCommentReply
+Set-Alias -Name CC-PutFile -Value Write-CCFile
 Set-Alias -Name CC-PutRepositoryTriggers -Value Set-CCRepositoryTrigger
 Set-Alias -Name CC-TestRepositoryTriggers -Value Test-CCRepositoryTrigger
 Set-Alias -Name CC-UpdateComment -Value Update-CCComment
@@ -1324,6 +1326,7 @@ Set-Alias -Name Put-CURReportDefinition -Value Write-CURReportDefinition
 Set-Alias -Name CUR-PutReportDefinition -Value Write-CURReportDefinition
 Set-Alias -Name CE-GetCostAndUsage -Value Get-CECostAndUsage
 Set-Alias -Name CE-GetDimensionValues -Value Get-CEDimensionValue
+Set-Alias -Name CE-GetReservationCoverage -Value Get-CEReservationCoverage
 Set-Alias -Name CE-GetReservationUtilization -Value Get-CEReservationUtilization
 Set-Alias -Name CE-GetTags -Value Get-CETag
 Set-Alias -Name DMS-AddTagsToResource -Value Set-DMSResourceTag
@@ -4691,6 +4694,7 @@ Set-Alias -Name SMR-InvokeEndpoint -Value Invoke-SMREndpoint
 Set-Alias -Name SAR-CreateApplication -Value New-SARApplication
 Set-Alias -Name SAR-CreateApplicationVersion -Value New-SARApplicationVersion
 Set-Alias -Name SAR-CreateCloudFormationChangeSet -Value New-SARCloudFormationChangeSet
+Set-Alias -Name SAR-DeleteApplication -Value Remove-SARApplication
 Set-Alias -Name SAR-GetApplication -Value Get-SARApplication
 Set-Alias -Name SAR-GetApplicationPolicy -Value Get-SARApplicationPolicy
 Set-Alias -Name SAR-ListApplications -Value Get-SARApplicationList
@@ -5348,6 +5352,7 @@ Set-Alias -Name Delete-WAFGeoMatchSet -Value Remove-WAFGeoMatchSet
 Set-Alias -Name WAF-DeleteGeoMatchSet -Value Remove-WAFGeoMatchSet
 Set-Alias -Name Delete-WAFIPSet -Value Remove-WAFIPSet
 Set-Alias -Name WAF-DeleteIPSet -Value Remove-WAFIPSet
+Set-Alias -Name WAF-DeletePermissionPolicy -Value Remove-WAFPermissionPolicy
 Set-Alias -Name Delete-WAFRateBasedRule -Value Remove-WAFRateBasedRule
 Set-Alias -Name WAF-DeleteRateBasedRule -Value Remove-WAFRateBasedRule
 Set-Alias -Name Delete-WAFRegexMatchSet -Value Remove-WAFRegexMatchSet
@@ -5370,6 +5375,7 @@ Set-Alias -Name WAF-GetChangeToken -Value Get-WAFChangeToken
 Set-Alias -Name WAF-GetChangeTokenStatus -Value Get-WAFChangeTokenStatus
 Set-Alias -Name WAF-GetGeoMatchSet -Value Get-WAFGeoMatchSet
 Set-Alias -Name WAF-GetIPSet -Value Get-WAFIPSet
+Set-Alias -Name WAF-GetPermissionPolicy -Value Get-WAFPermissionPolicy
 Set-Alias -Name WAF-GetRateBasedRule -Value Get-WAFRateBasedRule
 Set-Alias -Name WAF-GetRateBasedRuleManagedKeys -Value Get-WAFRateBasedRuleManagedKey
 Set-Alias -Name WAF-GetRegexMatchSet -Value Get-WAFRegexMatchSet
@@ -5406,6 +5412,7 @@ Set-Alias -Name List-WAFWebACLList -Value Get-WAFWebACLList
 Set-Alias -Name WAF-ListWebACLs -Value Get-WAFWebACLList
 Set-Alias -Name List-WAFXssMatchSetList -Value Get-WAFXssMatchSetList
 Set-Alias -Name WAF-ListXssMatchSets -Value Get-WAFXssMatchSetList
+Set-Alias -Name WAF-PutPermissionPolicy -Value Write-WAFPermissionPolicy
 Set-Alias -Name WAF-UpdateByteMatchSet -Value Update-WAFByteMatchSet
 Set-Alias -Name WAF-UpdateGeoMatchSet -Value Update-WAFGeoMatchSet
 Set-Alias -Name WAF-UpdateIPSet -Value Update-WAFIPSet
@@ -5448,6 +5455,7 @@ Set-Alias -Name Delete-WAFRGeoMatchSet -Value Remove-WAFRGeoMatchSet
 Set-Alias -Name WAFR-DeleteGeoMatchSet -Value Remove-WAFRGeoMatchSet
 Set-Alias -Name Delete-WAFRIPSet -Value Remove-WAFRIPSet
 Set-Alias -Name WAFR-DeleteIPSet -Value Remove-WAFRIPSet
+Set-Alias -Name WAFR-DeletePermissionPolicy -Value Remove-WAFRPermissionPolicy
 Set-Alias -Name Delete-WAFRRateBasedRule -Value Remove-WAFRRateBasedRule
 Set-Alias -Name WAFR-DeleteRateBasedRule -Value Remove-WAFRRateBasedRule
 Set-Alias -Name Delete-WAFRRegexMatchSet -Value Remove-WAFRRegexMatchSet
@@ -5471,6 +5479,7 @@ Set-Alias -Name WAFR-GetChangeToken -Value Get-WAFRChangeToken
 Set-Alias -Name WAFR-GetChangeTokenStatus -Value Get-WAFRChangeTokenStatus
 Set-Alias -Name WAFR-GetGeoMatchSet -Value Get-WAFRGeoMatchSet
 Set-Alias -Name WAFR-GetIPSet -Value Get-WAFRIPSet
+Set-Alias -Name WAFR-GetPermissionPolicy -Value Get-WAFRPermissionPolicy
 Set-Alias -Name WAFR-GetRateBasedRule -Value Get-WAFRRateBasedRule
 Set-Alias -Name WAFR-GetRateBasedRuleManagedKeys -Value Get-WAFRRateBasedRuleManagedKey
 Set-Alias -Name WAFR-GetRegexMatchSet -Value Get-WAFRRegexMatchSet
@@ -5510,6 +5519,7 @@ Set-Alias -Name List-WAFRWebACLList -Value Get-WAFRWebACLList
 Set-Alias -Name WAFR-ListWebACLs -Value Get-WAFRWebACLList
 Set-Alias -Name List-WAFRXssMatchSetList -Value Get-WAFRXssMatchSetList
 Set-Alias -Name WAFR-ListXssMatchSets -Value Get-WAFRXssMatchSetList
+Set-Alias -Name WAFR-PutPermissionPolicy -Value Write-WAFRPermissionPolicy
 Set-Alias -Name WAFR-UpdateByteMatchSet -Value Update-WAFRByteMatchSet
 Set-Alias -Name WAFR-UpdateGeoMatchSet -Value Update-WAFRGeoMatchSet
 Set-Alias -Name WAFR-UpdateIPSet -Value Update-WAFRIPSet

@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>One or more instance IDs.</para>
+        /// <para>The IDs of the instances. You can specify up to 20 instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ShouldDecrementDesiredCapacity
         /// <summary>
         /// <para>
-        /// <para>If <code>True</code>, the Auto Scaling group decrements the desired capacity value
-        /// by the number of instances detached.</para>
+        /// <para>Indicates whether the Auto Scaling group decrements the desired capacity value by
+        /// the number of instances detached.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

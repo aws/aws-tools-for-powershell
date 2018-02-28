@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Defines a new matchmaking configuration for use with FlexMatch. A matchmaking configuration
     /// sets out guidelines for matching players and getting the matches into games. You can
     /// set up multiple matchmaking configurations to handle the scenarios needed for your
-    /// game. Each matchmaking request (<a>StartMatchmaking</a>) specifies a configuration
-    /// for the match and provides player attributes to support the configuration being used.
-    /// 
+    /// game. Each matchmaking ticket (<a>StartMatchmaking</a> or <a>StartMatchBackfill</a>)
+    /// specifies a configuration for the match and provides player attributes to support
+    /// the configuration being used. 
     /// 
     ///  
     /// <para>

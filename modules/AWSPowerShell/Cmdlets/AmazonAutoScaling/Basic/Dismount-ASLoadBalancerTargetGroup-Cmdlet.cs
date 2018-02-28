@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter TargetGroupARNs
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARN) of the target groups.</para>
+        /// <para>The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target
+        /// groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

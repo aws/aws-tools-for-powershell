@@ -22,42 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ECR;
-using Amazon.ECR.Model;
+using Amazon.WAF;
+using Amazon.WAF.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ECR
+namespace Amazon.PowerShell.Cmdlets.WAF
 {
     /// <summary>
-    /// Retrieves the specified lifecycle policy.
+    /// Returns the IAM policy attached to the RuleGroup.
     /// </summary>
-    [Cmdlet("Get", "ECRLifecyclePolicy")]
-    [OutputType("Amazon.ECR.Model.GetLifecyclePolicyResponse")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry GetLifecyclePolicy API operation.", Operation = new[] {"GetLifecyclePolicy"})]
-    [AWSCmdletOutput("Amazon.ECR.Model.GetLifecyclePolicyResponse",
-        "This cmdlet returns a Amazon.ECR.Model.GetLifecyclePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "WAFPermissionPolicy")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS WAF GetPermissionPolicy API operation.", Operation = new[] {"GetPermissionPolicy"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.WAF.Model.GetPermissionPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetECRLifecyclePolicyCmdlet : AmazonECRClientCmdlet, IExecutor
+    public partial class GetWAFPermissionPolicyCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
-        #region Parameter RegistryId
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the registry that contains the repository. If you
-        /// do not specify a registry, the default registry is assumed.</para>
+        /// <para>The Amazon Resource Name (ARN) of the RuleGroup for which you want to get the policy.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RegistryId { get; set; }
-        #endregion
-        
-        #region Parameter RepositoryName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the repository.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String RepositoryName { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ResourceArn { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -73,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.RegistryId = this.RegistryId;
-            context.RepositoryName = this.RepositoryName;
+            context.ResourceArn = this.ResourceArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -89,15 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ECR.Model.GetLifecyclePolicyRequest();
+            var request = new Amazon.WAF.Model.GetPermissionPolicyRequest();
             
-            if (cmdletContext.RegistryId != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.RegistryId = cmdletContext.RegistryId;
-            }
-            if (cmdletContext.RepositoryName != null)
-            {
-                request.RepositoryName = cmdletContext.RepositoryName;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -108,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.Policy;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -133,16 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #region AWS Service Operation Call
         
-        private Amazon.ECR.Model.GetLifecyclePolicyResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.GetLifecyclePolicyRequest request)
+        private Amazon.WAF.Model.GetPermissionPolicyResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.GetPermissionPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "GetLifecyclePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF", "GetPermissionPolicy");
             try
             {
                 #if DESKTOP
-                return client.GetLifecyclePolicy(request);
+                return client.GetPermissionPolicy(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetLifecyclePolicyAsync(request);
+                var task = client.GetPermissionPolicyAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -163,8 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String RegistryId { get; set; }
-            public System.String RepositoryName { get; set; }
+            public System.String ResourceArn { get; set; }
         }
         
     }

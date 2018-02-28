@@ -53,6 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// that are created from encrypted snapshots are also automatically encrypted. Your encrypted
     /// volumes and any associated snapshots always remain protected.
     /// </para><para>
+    /// You can tag your snapshots during creation. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging
+    /// Your Amazon EC2 Resources</a>.
+    /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">Amazon
     /// Elastic Block Store</a> and <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
     /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
@@ -76,6 +79,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the snapshot during creation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
         #region Parameter VolumeId
@@ -118,6 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             PreExecutionContextLoad(context);
             
             context.Description = this.Description;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecifications = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             context.VolumeId = this.VolumeId;
             
             // allow further manipulation of loaded context prior to processing
@@ -138,6 +156,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.TagSpecifications != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecifications;
             }
             if (cmdletContext.VolumeId != null)
             {
@@ -208,6 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecifications { get; set; }
             public System.String VolumeId { get; set; }
         }
         

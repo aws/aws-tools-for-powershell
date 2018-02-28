@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  
     /// <para>
     /// Once created, matchmaking rule sets cannot be changed or deleted, so we recommend
-    /// checking the rule set syntax using <a>ValidateMatchmakingRuleSet</a>before creating
+    /// checking the rule set syntax using <a>ValidateMatchmakingRuleSet</a> before creating
     /// the rule set.
     /// </para><para>
     /// To create a matchmaking rule set, provide the set of rules and a unique name. Rule

@@ -69,7 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return with this call. The default value is 100.</para>
+        /// <para>The maximum number of items to return with this call. The default value is 100 and
+        /// the maximum value is 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

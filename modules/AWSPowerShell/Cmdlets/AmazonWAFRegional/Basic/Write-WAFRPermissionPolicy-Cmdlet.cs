@@ -22,59 +22,76 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AutoScaling;
-using Amazon.AutoScaling.Model;
+using Amazon.WAFRegional;
+using Amazon.WAFRegional.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AS
+namespace Amazon.PowerShell.Cmdlets.WAFR
 {
     /// <summary>
-    /// Attaches one or more Classic Load Balancers to the specified Auto Scaling group.
+    /// Attaches a IAM policy to the specified resource. The only supported use for this action
+    /// is to share a RuleGroup across accounts.
     /// 
     ///  
     /// <para>
-    /// To attach an Application Load Balancer instead, see <a>AttachLoadBalancerTargetGroups</a>.
+    /// The <code>PutPermissionPolicy</code> is subject to the following restrictions:
+    /// </para><ul><li><para>
+    /// You can attach only one policy with each <code>PutPermissionPolicy</code> request.
+    /// </para></li><li><para>
+    /// The policy must include an <code>Effect</code>, <code>Action</code> and <code>Principal</code>.
+    /// 
+    /// </para></li><li><para><code>Effect</code> must specify <code>Allow</code>.
+    /// </para></li><li><para>
+    /// The <code>Action</code> in the policy must be <code>waf:UpdateWebACL</code> and <code>waf-regional:UpdateWebACL</code>.
+    /// Any extra or wildcard actions in the policy will be rejected.
+    /// </para></li><li><para>
+    /// The policy cannot include a <code>Resource</code> parameter.
+    /// </para></li><li><para>
+    /// The ARN in the request must be a valid WAF RuleGroup ARN and the RuleGroup must exist
+    /// in the same region.
+    /// </para></li><li><para>
+    /// The user making the request must be the owner of the RuleGroup.
+    /// </para></li><li><para>
+    /// Your policy must be composed using IAM Policy version 2012-10-17.
+    /// </para></li></ul><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM
+    /// Policies</a>. 
     /// </para><para>
-    /// To describe the load balancers for an Auto Scaling group, use <a>DescribeLoadBalancers</a>.
-    /// To detach the load balancer from the Auto Scaling group, use <a>DetachLoadBalancers</a>.
-    /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/attach-load-balancer-asg.html">Attach
-    /// a Load Balancer to Your Auto Scaling Group</a> in the <i>Auto Scaling User Guide</i>.
+    /// An example of a valid policy parameter is shown in the Examples section below.
     /// </para>
     /// </summary>
-    [Cmdlet("Add", "ASLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Write", "WAFRPermissionPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the Auto Scaling AttachLoadBalancers API operation.", Operation = new[] {"AttachLoadBalancers"})]
+    [AWSCmdlet("Calls the AWS WAF Regional PutPermissionPolicy API operation.", Operation = new[] {"PutPermissionPolicy"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.AutoScaling.Model.AttachLoadBalancersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Policy parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.WAFRegional.Model.PutPermissionPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddASLoadBalancerCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class WriteWAFRPermissionPolicyCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {
         
-        #region Parameter AutoScalingGroupName
+        #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The name of the Auto Scaling group.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public System.String AutoScalingGroupName { get; set; }
-        #endregion
-        
-        #region Parameter LoadBalancerName
-        /// <summary>
-        /// <para>
-        /// <para>The names of the load balancers. You can specify up to 10 load balancers.</para>
+        /// <para>The policy to attach to the specified RuleGroup.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("LoadBalancerNames")]
-        public System.String[] LoadBalancerName { get; set; }
+        public System.String Policy { get; set; }
+        #endregion
+        
+        #region Parameter ResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the RuleGroup to which you want to attach the policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the LoadBalancerName parameter.
+        /// Returns the value passed to the Policy parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -95,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("LoadBalancerName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-ASLoadBalancer (AttachLoadBalancers)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceArn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-WAFRPermissionPolicy (PutPermissionPolicy)"))
             {
                 return;
             }
@@ -110,11 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.AutoScalingGroupName = this.AutoScalingGroupName;
-            if (this.LoadBalancerName != null)
-            {
-                context.LoadBalancerNames = new List<System.String>(this.LoadBalancerName);
-            }
+            context.Policy = this.Policy;
+            context.ResourceArn = this.ResourceArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -129,15 +143,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AutoScaling.Model.AttachLoadBalancersRequest();
+            var request = new Amazon.WAFRegional.Model.PutPermissionPolicyRequest();
             
-            if (cmdletContext.AutoScalingGroupName != null)
+            if (cmdletContext.Policy != null)
             {
-                request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
+                request.Policy = cmdletContext.Policy;
             }
-            if (cmdletContext.LoadBalancerNames != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.LoadBalancerNames = cmdletContext.LoadBalancerNames;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -150,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.LoadBalancerName;
+                    pipelineOutput = this.Policy;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -175,16 +189,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private Amazon.AutoScaling.Model.AttachLoadBalancersResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.AttachLoadBalancersRequest request)
+        private Amazon.WAFRegional.Model.PutPermissionPolicyResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.PutPermissionPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "AttachLoadBalancers");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF Regional", "PutPermissionPolicy");
             try
             {
                 #if DESKTOP
-                return client.AttachLoadBalancers(request);
+                return client.PutPermissionPolicy(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AttachLoadBalancersAsync(request);
+                var task = client.PutPermissionPolicyAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -205,8 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AutoScalingGroupName { get; set; }
-            public List<System.String> LoadBalancerNames { get; set; }
+            public System.String Policy { get; set; }
+            public System.String ResourceArn { get; set; }
         }
         
     }
