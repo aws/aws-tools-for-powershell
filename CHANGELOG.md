@@ -1,4 +1,4 @@
-### 3.3.243.0 
+### 3.3.244.0 (2018-03-01)
   * AWS AppStream
     * Added cmdlet Copy-APSImage to support the new CopyImage API. This API enables customers to copy their Amazon AppStream 2.0 images within and between AWS Regions.
   * Auto Scaling

@@ -365,7 +365,7 @@ $AAS_Completers = {
         # Amazon.ApplicationAutoScaling.MetricType
         "Set-AASScalingPolicy/TargetTrackingScalingPolicyConfiguration_PredefinedMetricSpecification_PredefinedMetricType"
         {
-            $v = "ALBRequestCountPerTarget","DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization","EC2SpotFleetRequestAverageCPUUtilization","EC2SpotFleetRequestAverageNetworkIn","EC2SpotFleetRequestAverageNetworkOut","ECSServiceAverageCPUUtilization","ECSServiceAverageMemoryUtilization","RDSReaderAverageCPUUtilization","RDSReaderAverageDatabaseConnections"
+            $v = "ALBRequestCountPerTarget","DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization","EC2SpotFleetRequestAverageCPUUtilization","EC2SpotFleetRequestAverageNetworkIn","EC2SpotFleetRequestAverageNetworkOut","ECSServiceAverageCPUUtilization","ECSServiceAverageMemoryUtilization","RDSReaderAverageCPUUtilization","RDSReaderAverageDatabaseConnections","SageMakerVariantInvocationsPerInstance"
             break
         }
         
@@ -390,7 +390,7 @@ $AAS_Completers = {
             ($_ -eq "Set-AASScheduledAction/ScalableDimension")
         }
         {
-            $v = "appstream:fleet:DesiredCapacity","dynamodb:index:ReadCapacityUnits","dynamodb:index:WriteCapacityUnits","dynamodb:table:ReadCapacityUnits","dynamodb:table:WriteCapacityUnits","ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticmapreduce:instancegroup:InstanceCount","rds:cluster:ReadReplicaCount"
+            $v = "appstream:fleet:DesiredCapacity","dynamodb:index:ReadCapacityUnits","dynamodb:index:WriteCapacityUnits","dynamodb:table:ReadCapacityUnits","dynamodb:table:WriteCapacityUnits","ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticmapreduce:instancegroup:InstanceCount","rds:cluster:ReadReplicaCount","sagemaker:variant:DesiredInstanceCount"
             break
         }
         
@@ -408,7 +408,7 @@ $AAS_Completers = {
             ($_ -eq "Set-AASScheduledAction/ServiceNamespace")
         }
         {
-            $v = "appstream","dynamodb","ec2","ecs","elasticmapreduce","rds"
+            $v = "appstream","dynamodb","ec2","ecs","elasticmapreduce","rds","sagemaker"
             break
         }
         

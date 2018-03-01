@@ -415,7 +415,7 @@
       <HintPath>..\..\packages\AWSSDK.ApplicationDiscoveryService.3.3.3.4\lib\net35\AWSSDK.ApplicationDiscoveryService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationAutoScaling">
-      <HintPath>..\..\packages\AWSSDK.ApplicationAutoScaling.3.3.8\lib\net35\AWSSDK.ApplicationAutoScaling.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ApplicationAutoScaling.3.3.9\lib\net35\AWSSDK.ApplicationAutoScaling.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.APIGateway">
       <HintPath>..\..\packages\AWSSDK.APIGateway.3.3.16\lib\net35\AWSSDK.APIGateway.dll</HintPath>

@@ -6,7 +6,7 @@
 	"dependencies": {
 		"AWSSDK.AlexaForBusiness": "3.3.1",
 		"AWSSDK.APIGateway": "3.3.16",
-		"AWSSDK.ApplicationAutoScaling": "3.3.8",
+		"AWSSDK.ApplicationAutoScaling": "3.3.9",
 		"AWSSDK.ApplicationDiscoveryService": "3.3.3.4",
 		"AWSSDK.AppStream": "3.3.10",
 		"AWSSDK.AppSync": "3.3.1",
