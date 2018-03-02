@@ -33,6 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// 
     ///  
     /// <para>
+    /// If you are updating an existing rule, the rule is completely replaced with what you
+    /// specify in this <code>PutRule</code> command. If you omit arguments in <code>PutRule</code>,
+    /// the old values for those arguments are not kept. Instead, they are replaced with null
+    /// values.
+    /// </para><para>
     /// When you create or update a rule, incoming events might not immediately start matching
     /// to new or updated rules. Please allow a short period of time for changes to take effect.
     /// </para><para>

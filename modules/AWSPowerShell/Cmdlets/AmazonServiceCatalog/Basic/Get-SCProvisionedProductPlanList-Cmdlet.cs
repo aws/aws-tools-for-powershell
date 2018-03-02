@@ -28,8 +28,8 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Lists the plans for the specified provisioned product or all plans the user has access
-    /// to.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the plans for the specified provisioned product or all plans to which the user
+    /// has access.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SCProvisionedProductPlanList")]
     [OutputType("Amazon.ServiceCatalog.Model.ProvisionedProductPlanSummary")]

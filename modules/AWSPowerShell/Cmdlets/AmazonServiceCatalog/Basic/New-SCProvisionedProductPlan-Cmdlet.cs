@@ -28,14 +28,14 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Creates a plan. A plan includes the list of resources that will be created (when provisioning
+    /// Creates a plan. A plan includes the list of resources to be created (when provisioning
     /// a new product) or modified (when updating a provisioned product) when the plan is
     /// executed.
     /// 
     ///  
     /// <para>
     /// You can create one plan per provisioned product. To create a plan for an existing
-    /// provisioned product, it's status must be AVAILBLE or TAINTED.
+    /// provisioned product, the product status must be AVAILBLE or TAINTED.
     /// </para><para>
     /// To view the resource changes in the change set, use <a>DescribeProvisionedProductPlan</a>.
     /// To create or modify the provisioned product, use <a>ExecuteProvisionedProductPlan</a>.

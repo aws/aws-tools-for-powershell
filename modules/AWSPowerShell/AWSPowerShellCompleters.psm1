@@ -6369,6 +6369,36 @@ $SSM_map = @{
 _awsArgumentCompleterRegistration $SSM_Completers $SSM_map
 
 
+# Argument completions for service AWS Storage Gateway
+$SG_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.StorageGateway.ObjectACL
+        {
+            ($_ -eq "New-SGNFSFileShare/ObjectACL") -Or
+            ($_ -eq "Update-SGNFSFileShare/ObjectACL")
+        }
+        {
+            $v = "authenticated-read","aws-exec-read","bucket-owner-full-control","bucket-owner-read","private","public-read","public-read-write"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SG_map = @{
+    "ObjectACL"=@("New-SGNFSFileShare","Update-SGNFSFileShare")
+}
+
+_awsArgumentCompleterRegistration $SG_Completers $SG_map
+
+
 # Argument completions for service Amazon Transcribe Service
 $TRS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Enable/disable communication over the peering connection between instances in your
     /// VPC and an EC2-Classic instance that's linked to the peer VPC.
     /// </para></li><li><para>
-    /// Enable/disable a local VPC to resolve public DNS hostnames to private IP addresses
+    /// Enable/disable the ability to resolve public DNS hostnames to private IP addresses
     /// when queried from instances in the peer VPC.
     /// </para></li></ul><para>
     /// If the peered VPCs are in different accounts, each owner must initiate a separate

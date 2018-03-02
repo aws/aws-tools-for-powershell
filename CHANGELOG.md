@@ -1,4 +1,4 @@
-### 3.3.244.0 (2018-03-01)
+### 3.3.245.0 (2018-03-02)
   * AWS AppStream
     * Added cmdlet Copy-APSImage to support the new CopyImage API. This API enables customers to copy their Amazon AppStream 2.0 images within and between AWS Regions.
   * Auto Scaling
@@ -16,6 +16,10 @@
     * Added cmdlets Get-WAFPermissionPolicy (GetPermissionPolicy API) and Remove-WAFPermissionPolicy (DeletePermissionPolicy API).
   * AWS WAF Regional
     * Added cmdlets Get-WAFRPermissionPolicy (GetPermissionPolicy API) and Remove-WAFRPermissionPolicy (DeletePermissionPolicy API).
+  * AWS Service Catalog
+    * Added cmdlet Remove-SCTagOption to support the new DeleteTagOption API.
+  * AWS Storage Gateway
+    * Updated the New-SGNFSFileShare and Update-SGNFSFileShare cmdlets to support new service features for file share attributes. Users can now specify the S3 Canned ACL to use for new objects created in the file share and create file shares for requester-pays buckets.
 
 ### 3.3.234.0 (2018-02-14)
   (This version was only released as part of the combined AWS Tools for Windows installer. It was not released to the PowerShell Gallery.)

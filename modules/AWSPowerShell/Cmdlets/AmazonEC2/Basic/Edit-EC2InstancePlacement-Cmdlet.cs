@@ -28,25 +28,28 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Set the instance affinity value for a specific stopped instance and modify the instance
-    /// tenancy setting.
+    /// Modifies the placement attributes for a specified instance. You can do the following:
     /// 
-    ///  
-    /// <para>
-    /// Instance affinity is disabled by default. When instance affinity is <code>host</code>
-    /// and it is not associated with a specific Dedicated Host, the next time it is launched
-    /// it will automatically be associated with the host it lands on. This relationship will
-    /// persist if the instance is stopped/started, or rebooted.
+    ///  <ul><li><para>
+    /// Modify the affinity between an instance and a <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
+    /// Host</a>. When affinity is set to <code>host</code> and the instance is not associated
+    /// with a specific Dedicated Host, the next time the instance is launched, it is automatically
+    /// associated with the host on which it lands. If the instance is restarted or rebooted,
+    /// this relationship persists.
+    /// </para></li><li><para>
+    /// Change the Dedicated Host with which an instance is associated.
+    /// </para></li><li><para>
+    /// Change the instance tenancy of an instance from <code>host</code> to <code>dedicated</code>,
+    /// or from <code>dedicated</code> to <code>host</code>.
+    /// </para></li><li><para>
+    /// Move an instance to or from a <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">placement
+    /// group</a>.
+    /// </para></li></ul><para>
+    /// At least one attribute for affinity, host ID, tenancy, or placement group name must
+    /// be specified in the request. Affinity and tenancy can be modified in the same request.
     /// </para><para>
-    /// You can modify the host ID associated with a stopped instance. If a stopped instance
-    /// has a new host ID association, the instance will target that host when restarted.
-    /// </para><para>
-    /// You can modify the tenancy of a stopped instance with a tenancy of <code>host</code>
-    /// or <code>dedicated</code>.
-    /// </para><para>
-    /// Affinity, hostID, and tenancy are not required parameters, but at least one of them
-    /// must be specified in the request. Affinity and tenancy can be modified in the same
-    /// request, but tenancy can only be modified on instances that are stopped.
+    /// To modify the host ID, tenancy, or placement group for an instance, the instance must
+    /// be in the <code>stopped</code> state.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2InstancePlacement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -62,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Affinity
         /// <summary>
         /// <para>
-        /// <para>The new affinity setting for the instance.</para>
+        /// <para>The affinity setting for the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -70,10 +73,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Affinity Affinity { get; set; }
         #endregion
         
+        #region Parameter GroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the placement group in which to place the instance. For spread placement
+        /// groups, the instance must have a tenancy of <code>default</code>. For cluster placement
+        /// groups, the instance must have a tenancy of <code>default</code> or <code>dedicated</code>.</para><para>To remove an instance from a placement group, specify an empty string ("").</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String GroupName { get; set; }
+        #endregion
+        
         #region Parameter HostId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Dedicated Host that the instance will have affinity with.</para>
+        /// <para>The ID of the Dedicated Host with which to associate the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Tenancy
         /// <summary>
         /// <para>
-        /// <para>The tenancy of the instance that you are modifying.</para>
+        /// <para>The tenancy for the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -131,6 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             PreExecutionContextLoad(context);
             
             context.Affinity = this.Affinity;
+            context.GroupName = this.GroupName;
             context.HostId = this.HostId;
             context.InstanceId = this.InstanceId;
             context.Tenancy = this.Tenancy;
@@ -153,6 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Affinity != null)
             {
                 request.Affinity = cmdletContext.Affinity;
+            }
+            if (cmdletContext.GroupName != null)
+            {
+                request.GroupName = cmdletContext.GroupName;
             }
             if (cmdletContext.HostId != null)
             {
@@ -231,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.EC2.Affinity Affinity { get; set; }
+            public System.String GroupName { get; set; }
             public System.String HostId { get; set; }
             public System.String InstanceId { get; set; }
             public Amazon.EC2.HostTenancy Tenancy { get; set; }

@@ -28,13 +28,11 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Activates the gateway you previously deployed on your host. For more information,
-    /// see <a href="http://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedActivateGateway-common.html">
-    /// Activate the AWS Storage Gateway</a>. In the activation process, you specify information
-    /// such as the region you want to use for storing snapshots or tapes, the time zone for
-    /// scheduled snapshots the gateway snapshot schedule window, an activation key, and a
-    /// name for your gateway. The activation process also associates your gateway with your
-    /// account; for more information, see <a>UpdateGatewayInformation</a>.
+    /// Activates the gateway you previously deployed on your host. In the activation process,
+    /// you specify information such as the region you want to use for storing snapshots or
+    /// tapes, the time zone for scheduled snapshots the gateway snapshot schedule window,
+    /// an activation key, and a name for your gateway. The activation process also associates
+    /// your gateway with your account; for more information, see <a>UpdateGatewayInformation</a>.
     /// 
     ///  <note><para>
     /// You must turn on the gateway VM before you can activate your gateway.
@@ -58,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// URL returned in the response provides you the activation key for your gateway in the
         /// query string parameter <code>activationKey</code>. It may also include other activation-related
         /// parameters, however, these are merely defaults -- the arguments you pass to the <code>ActivateGateway</code>
-        /// API call determine the actual configuration of your gateway.</para>
+        /// API call determine the actual configuration of your gateway. </para><para>For more information, see https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html
+        /// in the Storage Gateway User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -83,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// the request. For more information about available regions and endpoints for AWS Storage
         /// Gateway, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region">Regions
         /// and Endpoints</a> in the <i>Amazon Web Services Glossary</i>.</para><para> Valid Values: "us-east-1", "us-east-2", "us-west-1", "us-west-2", "ca-central-1",
-        /// "eu-west-1", "eu-central-1", "eu-west-2", "ap-northeast-1", "ap-northeast-2", "ap-southeast-1",
-        /// "ap-southeast-2", "ap-south-1", "sa-east-1"</para>
+        /// "eu-west-1", "eu-central-1", "eu-west-2", "eu-west-3", "ap-northeast-1", "ap-northeast-2",
+        /// "ap-southeast-1", "ap-southeast-2", "ap-south-1", "sa-east-1"</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]

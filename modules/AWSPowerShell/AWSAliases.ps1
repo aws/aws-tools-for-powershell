@@ -4732,6 +4732,8 @@ Set-Alias -Name SC-DeleteProduct -Value Remove-SCProduct
 Set-Alias -Name SC-DeleteProvisionedProductPlan -Value Remove-SCProvisionedProductPlan
 Set-Alias -Name Delete-SCProvisioningArtifact -Value Remove-SCProvisioningArtifact
 Set-Alias -Name SC-DeleteProvisioningArtifact -Value Remove-SCProvisioningArtifact
+Set-Alias -Name Delete-SCTagOption -Value Remove-SCTagOption
+Set-Alias -Name SC-DeleteTagOption -Value Remove-SCTagOption
 Set-Alias -Name Describe-SCConstraint -Value Get-SCConstraint
 Set-Alias -Name SC-DescribeConstraint -Value Get-SCConstraint
 Set-Alias -Name Describe-SCCopyProductStatus -Value Get-SCCopyProductStatus

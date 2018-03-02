@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter GuessMIMETypeEnabled
         /// <summary>
         /// <para>
-        /// <para>Enables guessing of the MIME type for uploaded objects based on file extensions: "true"
-        /// to enable MIME type guessing, and otherwise "false".</para>
+        /// <para>Enables guessing of the MIME type for uploaded objects based on file extensions. Set
+        /// this value to true to enable MIME type guessing, and otherwise to false. The default
+        /// value is true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -174,6 +175,18 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String LocationARN { get; set; }
         #endregion
         
+        #region Parameter ObjectACL
+        /// <summary>
+        /// <para>
+        /// <para>Sets the access control list permission for objects in the Amazon S3 bucket that a
+        /// file gateway puts objects into. The default value is "private".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.StorageGateway.ObjectACL")]
+        public Amazon.StorageGateway.ObjectACL ObjectACL { get; set; }
+        #endregion
+        
         #region Parameter NFSFileShareDefaults_OwnerId
         /// <summary>
         /// <para>
@@ -188,12 +201,25 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter ReadOnly
         /// <summary>
         /// <para>
-        /// <para>Sets the write status of a file share: "true" if the write status is read-only, and
-        /// otherwise "false".</para>
+        /// <para>Sets the write status of a file share. This value is true if the write status is read-only,
+        /// and otherwise false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean ReadOnly { get; set; }
+        #endregion
+        
+        #region Parameter RequesterPay
+        /// <summary>
+        /// <para>
+        /// <para>Sets who pays the cost of the request and the data download from the Amazon S3 bucket.
+        /// Set this value to true if you want the requester to pay instead of the bucket owner,
+        /// and otherwise to false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RequesterPays")]
+        public System.Boolean RequesterPay { get; set; }
         #endregion
         
         #region Parameter Role
@@ -265,8 +291,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 context.NFSFileShareDefaults_GroupId = this.NFSFileShareDefaults_GroupId;
             if (ParameterWasBound("NFSFileShareDefaults_OwnerId"))
                 context.NFSFileShareDefaults_OwnerId = this.NFSFileShareDefaults_OwnerId;
+            context.ObjectACL = this.ObjectACL;
             if (ParameterWasBound("ReadOnly"))
                 context.ReadOnly = this.ReadOnly;
+            if (ParameterWasBound("RequesterPay"))
+                context.RequesterPays = this.RequesterPay;
             context.Role = this.Role;
             context.Squash = this.Squash;
             
@@ -366,9 +395,17 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 request.NFSFileShareDefaults = null;
             }
+            if (cmdletContext.ObjectACL != null)
+            {
+                request.ObjectACL = cmdletContext.ObjectACL;
+            }
             if (cmdletContext.ReadOnly != null)
             {
                 request.ReadOnly = cmdletContext.ReadOnly.Value;
+            }
+            if (cmdletContext.RequesterPays != null)
+            {
+                request.RequesterPays = cmdletContext.RequesterPays.Value;
             }
             if (cmdletContext.Role != null)
             {
@@ -454,7 +491,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.String NFSFileShareDefaults_FileMode { get; set; }
             public System.Int64? NFSFileShareDefaults_GroupId { get; set; }
             public System.Int64? NFSFileShareDefaults_OwnerId { get; set; }
+            public Amazon.StorageGateway.ObjectACL ObjectACL { get; set; }
             public System.Boolean? ReadOnly { get; set; }
+            public System.Boolean? RequesterPays { get; set; }
             public System.String Role { get; set; }
             public System.String Squash { get; set; }
         }

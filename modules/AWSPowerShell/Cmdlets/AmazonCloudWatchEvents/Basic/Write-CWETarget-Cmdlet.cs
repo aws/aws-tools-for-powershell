@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// </para></li><li><para>
     /// AWS Step Functions state machines
     /// </para></li><li><para>
+    /// AWS Batch jobs
+    /// </para></li><li><para>
     /// Pipelines in Amazon Code Pipeline
     /// </para></li><li><para>
     /// Amazon Inspector assessment templates
@@ -105,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// extracted from the event and used as values in a template that you specify as the
     /// input to the target.
     /// </para></li></ul><para>
-    /// When you specify <code>Input</code>, <code>InputPath</code>, or <code>InputTransformer</code>,
-    /// you must use JSON dot notation, not bracket notation.
+    /// When you specify <code>InputPath</code> or <code>InputTransformer</code>, you must
+    /// use JSON dot notation, not bracket notation.
     /// </para><para>
     /// When you add targets to a rule and the associated rule triggers soon after, new or
     /// updated targets might not be immediately invoked. Please allow a short period of time

@@ -28,8 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Sends you notification when all file data written to the NFS file share has been uploaded
-    /// to Amazon S3.
+    /// Sends you notification through CloudWatch Events when all files written to your NFS
+    /// file share have been uploaded to Amazon S3.
     /// 
     ///  
     /// <para>
@@ -37,10 +37,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// all files written to your file share up to that point in time have been uploaded to
     /// Amazon S3. These files include files written to the NFS file share up to the time
     /// that you make a request for notification. When the upload is done, Storage Gateway
-    /// sends you notification through an Amazon CloudWatch event. You can configure CloudWatch
-    /// Events to sent the notification through event targets such as email, SNS or a Lambda
-    /// function. text or Lambda functions. This operation is only supported in the file gateway
-    /// type.
+    /// sends you notification through an Amazon CloudWatch Event. You can configure CloudWatch
+    /// Events to send the notification through event targets such as Amazon SNS or AWS Lambda
+    /// function. This operation is only supported in the file gateway type.
+    /// </para><para>
+    /// For more information, see Getting File Upload Notification in the Storage Gateway
+    /// User Guide (https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-upload-notification).
+    /// 
     /// </para>
     /// </summary>
     [Cmdlet("Send", "SGUploadedNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

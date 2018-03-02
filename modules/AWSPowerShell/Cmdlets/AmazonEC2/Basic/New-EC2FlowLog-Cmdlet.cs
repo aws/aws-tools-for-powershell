@@ -39,6 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// In your request, you must also specify an IAM role that has permission to publish
     /// logs to CloudWatch Logs.
+    /// </para><para>
+    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html">VPC
+    /// Flow Logs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2FlowLog", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

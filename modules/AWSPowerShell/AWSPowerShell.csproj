@@ -223,7 +223,7 @@
       <HintPath>..\..\packages\AWSSDK.WAF.3.3.5\lib\net35\AWSSDK.WAF.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.StorageGateway">
-      <HintPath>..\..\packages\AWSSDK.StorageGateway.3.3.6\lib\net35\AWSSDK.StorageGateway.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.StorageGateway.3.3.7\lib\net35\AWSSDK.StorageGateway.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SQS">
       <HintPath>..\..\packages\AWSSDK.SQS.3.3.3.2\lib\net35\AWSSDK.SQS.dll</HintPath>
@@ -232,7 +232,7 @@
       <HintPath>..\..\packages\AWSSDK.Snowball.3.3.2.10\lib\net35\AWSSDK.Snowball.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleSystemsManagement">
-      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.16\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.17\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleNotificationService">
       <HintPath>..\..\packages\AWSSDK.SimpleNotificationService.3.3.0.24\lib\net35\AWSSDK.SimpleNotificationService.dll</HintPath>
@@ -241,7 +241,7 @@
       <HintPath>..\..\packages\AWSSDK.SimpleEmail.3.3.6.1\lib\net35\AWSSDK.SimpleEmail.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ServiceCatalog">
-      <HintPath>..\..\packages\AWSSDK.ServiceCatalog.3.3.7\lib\net35\AWSSDK.ServiceCatalog.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ServiceCatalog.3.3.8\lib\net35\AWSSDK.ServiceCatalog.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SecurityToken">
       <HintPath>..\..\packages\AWSSDK.SecurityToken.3.3.3.4\lib\net35\AWSSDK.SecurityToken.dll</HintPath>
@@ -328,7 +328,7 @@
       <HintPath>..\..\packages\AWSSDK.ECR.3.3.3.3\lib\net35\AWSSDK.ECR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EC2">
-      <HintPath>..\..\packages\AWSSDK.EC2.3.3.46\lib\net35\AWSSDK.EC2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.EC2.3.3.47\lib\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.6\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
@@ -373,7 +373,7 @@
       <HintPath>..\..\packages\AWSSDK.CloudWatchLogs.3.3.4.3\lib\net35\AWSSDK.CloudWatchLogs.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatchEvents">
-      <HintPath>..\..\packages\AWSSDK.CloudWatchEvents.3.3.3.3\lib\net35\AWSSDK.CloudWatchEvents.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudWatchEvents.3.3.4\lib\net35\AWSSDK.CloudWatchEvents.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatch">
       <HintPath>..\..\packages\AWSSDK.CloudWatch.3.3.5.1\lib\net35\AWSSDK.CloudWatch.dll</HintPath>
