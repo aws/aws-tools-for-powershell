@@ -6698,4 +6698,31 @@ $WKS_map = @{
 
 _awsArgumentCompleterRegistration $WKS_Completers $WKS_map
 
+
+# Argument completions for service Amazon WorkMail
+$WM_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.WorkMail.ResourceType
+        "New-WMResource/Type"
+        {
+            $v = "EQUIPMENT","ROOM"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$WM_map = @{
+    "Type"=@("New-WMResource")
+}
+
+_awsArgumentCompleterRegistration $WM_Completers $WM_map
+
 # end auto-generated service completers

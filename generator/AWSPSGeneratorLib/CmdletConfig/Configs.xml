@@ -121,6 +121,7 @@
     <Path>WAFRegional.xml</Path>
     <Path>WD.xml</Path>
     <Path>WKS.xml</Path>
+    <Path>WorkMail.xml</Path>
     <Path>XRay.xml</Path>
   </Configs>
 

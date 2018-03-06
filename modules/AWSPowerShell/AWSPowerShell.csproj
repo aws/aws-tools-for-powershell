@@ -201,6 +201,9 @@
     <Reference Include="AWSSDK.WorkDocs">
       <HintPath>..\..\packages\AWSSDK.WorkDocs.3.3.4\lib\net35\AWSSDK.WorkDocs.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.WorkMail">
+      <HintPath>..\..\packages\AWSSDK.WorkMail.3.3.0\lib\net35\AWSSDK.WorkMail.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.XRay">
       <HintPath>..\..\packages\AWSSDK.XRay.3.3.1.6\lib\net35\AWSSDK.XRay.dll</HintPath>
     </Reference>

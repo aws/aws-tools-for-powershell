@@ -1,3 +1,7 @@
+###
+  * Amazon WorkMail
+    * Added cmdlets to support the Amazon WorkMail service. Cmdlets for the service have the noun prefix WM and can be listed with the command *Get-AWSCmdletName -Service WM*.
+
 ### 3.3.245.0 (2018-03-02)
   * AWS AppStream
     * Added cmdlet Copy-APSImage to support the new CopyImage API. This API enables customers to copy their Amazon AppStream 2.0 images within and between AWS Regions.

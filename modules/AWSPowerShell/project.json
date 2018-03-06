@@ -124,6 +124,7 @@
 		"AWSSDK.WAF": "3.3.5",
 		"AWSSDK.WAFRegional": "3.3.4",
 		"AWSSDK.WorkDocs": "3.3.4",
+		"AWSSDK.WorkMail": "3.3.0",
 		"AWSSDK.WorkSpaces": "3.3.1",
 		"AWSSDK.XRay": "3.3.1.6"
  	},

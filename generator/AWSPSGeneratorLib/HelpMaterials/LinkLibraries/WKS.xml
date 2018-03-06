@@ -3,5 +3,7 @@
   <set target="*">
 	<link name="Administration Guide">https://docs.aws.amazon.com/workspaces/latest/adminguide/</link>
 	<link name="Developer Guide">https://docs.aws.amazon.com/workspaces/latest/devguide/</link>
+	<link name="Service API Reference">https://docs.aws.amazon.com/workspaces/latest/api/</link>
+	<link name="User Guide">https://docs.aws.amazon.com/workspaces/latest/userguide/</link>
   </set>
 </links>

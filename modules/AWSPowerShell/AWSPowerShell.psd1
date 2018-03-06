@@ -171,6 +171,7 @@ RequiredAssemblies = @(
   "AWSSDK.WAF.dll",
   "AWSSDK.WAFRegional.dll",
   "AWSSDK.WorkDocs.dll",
+  "AWSSDK.WorkMail.dll",
   "AWSSDK.WorkSpaces.dll",
   "AWSSDK.XRay.dll"
 )
