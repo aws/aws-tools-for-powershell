@@ -144,7 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ForceNewDeployment
         /// <summary>
         /// <para>
-        /// <para>Whether or not to force a new deployment of the service.</para>
+        /// <para>Whether or not to force a new deployment of the service. By default, <code>--no-force-new-deployment</code>
+        /// is assumed unless specified otherwise.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

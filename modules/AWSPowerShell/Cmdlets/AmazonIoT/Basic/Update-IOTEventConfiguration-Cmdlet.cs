@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// Updates the event configurations.
     /// </summary>
     [Cmdlet("Update", "IOTEventConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Amazon.IoT.Model.Configuration, AWSSDK.IoT, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604]]")]
+    [OutputType("None","System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Amazon.IoT.Model.Configuration, AWSSDK.IoT, Version=3.3.0.0, Culture=neutral, PublicKeyToken=71c852f8be1c371d]]")]
     [AWSCmdlet("Calls the AWS IoT UpdateEventConfigurations API operation.", Operation = new[] {"UpdateEventConfigurations"})]
-    [AWSCmdletOutput("None or System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Amazon.IoT.Model.Configuration, AWSSDK.IoT, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604]]",
+    [AWSCmdletOutput("None or System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Amazon.IoT.Model.Configuration, AWSSDK.IoT, Version=3.3.0.0, Culture=neutral, PublicKeyToken=71c852f8be1c371d]]",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the EventConfiguration parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IoT.Model.UpdateEventConfigurationsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
