@@ -43,7 +43,7 @@ namespace AWSPowerShellGenerator.Generators
         const string AWSCredentialsArgumentsFullTypename = "Amazon.PowerShell.Common.AWSCredentialsArgumentsFull";
         const string AWSRegionArgumentsTypename = "Amazon.PowerShell.Common.AWSRegionArguments";
 
-        private List<string> _dynamicParameterCmdlets = new List<string>
+        private readonly List<string> _dynamicParameterCmdlets = new List<string>
         {
             "Amazon.PowerShell.Common.SetCredentialCmdlet",
             "Amazon.PowerShell.Common.NewCredentialCmdlet",
@@ -55,14 +55,23 @@ namespace AWSPowerShellGenerator.Generators
         // schema builders). This inverted map lets us detect these when introspecting for the service owner
         // so that we categorize them correctly. I could have made it a simple string:string map but
         // I wanted to retain the grouping with minimal duplication.
-        private static readonly Dictionary<string, string[]> _specialCmdletsMap = new Dictionary<string, string[]>
+        private static readonly Dictionary<string, string[]> SpecialCmdletsMap = new Dictionary<string, string[]>
         {
             {
+                "Amazon CloudFront",
+                new[] {"NewCFSignedUrlCmdlet", "NewCFSignedCookieCmdlet"}},
+            {
                 "Amazon DynamoDB",
-                new string[] {"NewDDBTableSchemaCmdlet", "AddDDBKeySchemaCmdlet", "AddDDBIndexSchemaCmdlet"}
+                new[] {"NewDDBTableSchemaCmdlet", "AddDDBKeySchemaCmdlet", "AddDDBIndexSchemaCmdlet"}
             },
-            {"Amazon CloudFront", new string[] {"NewCFSignedUrlCmdlet", "NewCFSignedCookieCmdlet"}},
-            {"AWS Security Token Service", new string[] {"Use-STSRoleWithSAML", "Use-STSWebIdentityRole"}}
+            {
+                "Amazon Elastic Compute Cloud",
+                new[] { "GetEC2InstanceMetadataCmdlet" }
+            },
+            {
+                "AWS Security Token Service",
+                new[] { "UseSTSRoleWithSAMLCmdlet", "UseSTSWebIdentityRoleCmdlet" }
+            }
         };
 
         // matchs same collection in the sdk, where we shorten paths to avoid issues with
@@ -233,8 +242,8 @@ namespace AWSPowerShellGenerator.Generators
             // if cmdlet doesn't invoke a service call, could it be one of our known schema builder or 'high level' cmdlets?
             foreach (
                 var serviceKey in
-                _specialCmdletsMap.Keys.Where(
-                    serviceKey => _specialCmdletsMap[serviceKey].Contains(cmdletType.Name, StringComparer.Ordinal)))
+                SpecialCmdletsMap.Keys.Where(
+                    serviceKey => SpecialCmdletsMap[serviceKey].Contains(cmdletType.Name, StringComparer.Ordinal)))
             {
                 return serviceKey;
             }
