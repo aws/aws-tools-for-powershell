@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-	<code>PS C:\> Send-SSMCommand -DocumentName "AWS-RunPowerShellScript" -Parameter @{commands = "echo helloWorld"} -Target @{Key="instanceids";Values=@("i-0cb2b964d3e14fd9f")}
+        <code>PS C:\> Send-SSMCommand -DocumentName "AWS-RunPowerShellScript" -Parameter @{commands = "echo helloWorld"} -Target @{Key="instanceids";Values=@("i-0cb2b964d3e14fd9f")}
 
 CommandId          : d8d190fc-32c1-4d65-a0df-ff5ff3965524
 Comment            : 
@@ -22,7 +22,12 @@ ServiceRole        :
 Status             : Pending
 StatusDetails      : Pending
 TargetCount        : 0
-Targets            : {instanceids}</code>
-<description>This example runs an echo command on a target instance.</description>
-</example>
+Targets            : {instanceids}
+    </code>
+        <description>This example runs an echo command on a target instance.</description>
+    </example>
+    <example>
+        <code>Send-SSMCommand -DocumentName "AWS-RunRemoteScript" -Parameter @{ sourceType="GitHub";sourceInfo='{"owner": "me","repository": "amazon-ssm","path": "Examples/Install-Win32OpenSSH"}'; "commandLine"=".\Install-Win32OpenSSH.ps1"} -InstanceId i-0cb2b964d3e14fd9f</code>
+        <description>This example shows how to run a command that accepts nested parameters.</description>
+    </example>
 </examples>
