@@ -5173,7 +5173,7 @@ $PIN_Completers = {
         # Amazon.Pinpoint.ChannelType
         "Update-PINEndpoint/EndpointRequest_ChannelType"
         {
-            $v = "ADM","APNS","APNS_SANDBOX","APNS_VOIP","APNS_VOIP_SANDBOX","BAIDU","EMAIL","GCM","SMS"
+            $v = "ADM","APNS","APNS_SANDBOX","APNS_VOIP","APNS_VOIP_SANDBOX","BAIDU","CUSTOM","EMAIL","GCM","SMS"
             break
         }
         
@@ -5238,6 +5238,17 @@ $PIN_Completers = {
             break
         }
         
+        # Amazon.Pinpoint.Mode
+        {
+            ($_ -eq "Update-PINApplicationSettingList/WriteApplicationSettingsRequest_CampaignHook_Mode") -Or
+            ($_ -eq "New-PINCampaign/WriteCampaignRequest_Hook_Mode") -Or
+            ($_ -eq "Update-PINCampaign/WriteCampaignRequest_Hook_Mode")
+        }
+        {
+            $v = "DELIVERY","FILTER"
+            break
+        }
+        
         # Amazon.Pinpoint.RecencyType
         {
             ($_ -eq "New-PINSegment/WriteSegmentRequest_Dimensions_Behavior_Recency_RecencyType") -Or
@@ -5270,6 +5281,8 @@ $PIN_map = @{
     "SendUsersMessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Action"=@("Send-PINUserMessageBatch")
     "SendUsersMessageRequest_MessageConfiguration_GCMMessage_Action"=@("Send-PINUserMessageBatch")
     "SendUsersMessageRequest_MessageConfiguration_SMSMessage_MessageType"=@("Send-PINUserMessageBatch")
+    "WriteApplicationSettingsRequest_CampaignHook_Mode"=@("Update-PINApplicationSettingList")
+    "WriteCampaignRequest_Hook_Mode"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_MessageConfiguration_ADMMessage_Action"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_MessageConfiguration_APNSMessage_Action"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_MessageConfiguration_BaiduMessage_Action"=@("New-PINCampaign","Update-PINCampaign")

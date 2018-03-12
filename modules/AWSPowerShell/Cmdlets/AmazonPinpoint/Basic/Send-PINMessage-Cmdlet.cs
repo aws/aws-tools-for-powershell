@@ -266,9 +266,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter APNSMessage_CollapseId
         /// <summary>
         /// <para>
-        /// Multiple notifications with the same collapse
-        /// identifier are displayed to the user as a single notification. The value of this key
-        /// must not exceed 64 bytes.
+        /// An ID that, if assigned to multiple messages,
+        /// causes APNs to coalesce the messages into a single push notification instead of delivering
+        /// each message individually. The value must not exceed 64 bytes. Amazon Pinpoint uses
+        /// this value to set the apns-collapse-id request header when it sends the message to
+        /// APNs.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -561,8 +563,15 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter APNSMessage_Priority
         /// <summary>
         /// <para>
-        /// Is this a transaction priority message or lower
-        /// priority.
+        /// The message priority. Amazon Pinpoint uses this
+        /// value to set the apns-priority request header when it sends the message to APNs. Accepts
+        /// the following values:"5" - Low priority. Messages might be delayed, delivered in groups,
+        /// and throttled."10" - High priority. Messages are sent immediately. High priority messages
+        /// must cause an alert, sound, or badge on the receiving device.The default value is
+        /// "10".The equivalent values for FCM or GCM messages are "normal" and "high". Amazon
+        /// Pinpoint accepts these values for APNs messages and converts them.For more information
+        /// about the apns-priority parameter, see Communicating with APNs in the APNs Local and
+        /// Remote Notification Programming Guide.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -573,8 +582,14 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter GCMMessage_Priority
         /// <summary>
         /// <para>
-        /// Is this a transaction priority message or lower
-        /// priority.
+        /// The message priority. Amazon Pinpoint uses this
+        /// value to set the FCM or GCM priority parameter when it sends the message. Accepts
+        /// the following values:"Normal" - Messages might be delayed. Delivery is optimized for
+        /// battery usage on the receiving device. Use normal priority unless immediate delivery
+        /// is required."High" - Messages are sent immediately and might wake a sleeping device.The
+        /// equivalent values for APNs messages are "5" and "10". Amazon Pinpoint accepts these
+        /// values here and converts them.For more information, see About FCM Messages in the
+        /// Firebase documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -912,11 +927,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter APNSMessage_TimeToLive
         /// <summary>
         /// <para>
-        /// This parameter specifies how long (in seconds)
-        /// the message should be kept if APNS is unable to deliver the notification the first
-        /// time. If the value is 0, APNS treats the notification as if it expires immediately
-        /// and does not store the notification or attempt to redeliver it. This value is converted
-        /// to the expiration field when sent to APNS
+        /// The length of time (in seconds) that APNs stores
+        /// and attempts to deliver the message. If the value is 0, APNs does not store the message
+        /// or attempt to deliver it more than once. Amazon Pinpoint uses this value to set the
+        /// apns-expiration request header when it sends the message to APNs.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -927,9 +941,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter GCMMessage_TimeToLive
         /// <summary>
         /// <para>
-        /// This parameter specifies how long (in seconds)
-        /// the message should be kept in GCM storage if the device is offline. The maximum time
-        /// to live supported is 4 weeks, and the default value is 4 weeks.
+        /// The length of time (in seconds) that FCM or
+        /// GCM stores and attempts to deliver the message. If unspecified, the value defaults
+        /// to the maximum, which is 2,419,200 seconds (28 days). Amazon Pinpoint uses this value
+        /// to set the FCM or GCM time_to_live parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

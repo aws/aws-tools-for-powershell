@@ -73,11 +73,24 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String QuietTime_End { get; set; }
         #endregion
         
+        #region Parameter CampaignHook_LambdaFunctionName
+        /// <summary>
+        /// <para>
+        /// Lambda function name or arn to be called
+        /// for delivery
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteApplicationSettingsRequest_CampaignHook_LambdaFunctionName")]
+        public System.String CampaignHook_LambdaFunctionName { get; set; }
+        #endregion
+        
         #region Parameter Limits_MaximumDuration
         /// <summary>
         /// <para>
-        /// The maximum duration of a campaign from
-        /// the scheduled start. Must be a minimum of 60 seconds.
+        /// The length of time (in seconds) that the
+        /// campaign can run before it ends and message deliveries stop. This duration begins
+        /// at the scheduled start time for the campaign. The minimum value is 60.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,14 +101,25 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Limits_MessagesPerSecond
         /// <summary>
         /// <para>
-        /// The maximum number of messages per second
-        /// that the campaign will send. This is a best effort maximum cap and can go as high
-        /// as 20000 and as low as 50
+        /// The number of messages that the campaign
+        /// can send per second. The minimum value is 50, and the maximum is 20000.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("WriteApplicationSettingsRequest_Limits_MessagesPerSecond")]
         public System.Int32 Limits_MessagesPerSecond { get; set; }
+        #endregion
+        
+        #region Parameter CampaignHook_Mode
+        /// <summary>
+        /// <para>
+        /// What mode Lambda should be invoked in.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteApplicationSettingsRequest_CampaignHook_Mode")]
+        [AWSConstantClassSource("Amazon.Pinpoint.Mode")]
+        public Amazon.Pinpoint.Mode CampaignHook_Mode { get; set; }
         #endregion
         
         #region Parameter QuietTime_Start
@@ -120,6 +144,18 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter]
         [Alias("WriteApplicationSettingsRequest_Limits_Total")]
         public System.Int32 Limits_Total { get; set; }
+        #endregion
+        
+        #region Parameter CampaignHook_WebUrl
+        /// <summary>
+        /// <para>
+        /// Web URL to call for hook. If the URL has authentication
+        /// specified it will be added as authentication to the request
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteApplicationSettingsRequest_CampaignHook_WebUrl")]
+        public System.String CampaignHook_WebUrl { get; set; }
         #endregion
         
         #region Parameter Force
@@ -152,6 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             PreExecutionContextLoad(context);
             
             context.ApplicationId = this.ApplicationId;
+            context.WriteApplicationSettingsRequest_CampaignHook_LambdaFunctionName = this.CampaignHook_LambdaFunctionName;
+            context.WriteApplicationSettingsRequest_CampaignHook_Mode = this.CampaignHook_Mode;
+            context.WriteApplicationSettingsRequest_CampaignHook_WebUrl = this.CampaignHook_WebUrl;
             if (ParameterWasBound("Limits_Daily"))
                 context.WriteApplicationSettingsRequest_Limits_Daily = this.Limits_Daily;
             if (ParameterWasBound("Limits_MaximumDuration"))
@@ -219,6 +258,51 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_QuietTime != null)
             {
                 request.WriteApplicationSettingsRequest.QuietTime = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_QuietTime;
+                requestWriteApplicationSettingsRequestIsNull = false;
+            }
+            Amazon.Pinpoint.Model.CampaignHook requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook = null;
+            
+             // populate CampaignHook
+            bool requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHookIsNull = true;
+            requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook = new Amazon.Pinpoint.Model.CampaignHook();
+            System.String requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook_campaignHook_LambdaFunctionName = null;
+            if (cmdletContext.WriteApplicationSettingsRequest_CampaignHook_LambdaFunctionName != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook_campaignHook_LambdaFunctionName = cmdletContext.WriteApplicationSettingsRequest_CampaignHook_LambdaFunctionName;
+            }
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook_campaignHook_LambdaFunctionName != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook.LambdaFunctionName = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook_campaignHook_LambdaFunctionName;
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHookIsNull = false;
+            }
+            Amazon.Pinpoint.Mode requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook_campaignHook_Mode = null;
+            if (cmdletContext.WriteApplicationSettingsRequest_CampaignHook_Mode != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook_campaignHook_Mode = cmdletContext.WriteApplicationSettingsRequest_CampaignHook_Mode;
+            }
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook_campaignHook_Mode != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook.Mode = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook_campaignHook_Mode;
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHookIsNull = false;
+            }
+            System.String requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook_campaignHook_WebUrl = null;
+            if (cmdletContext.WriteApplicationSettingsRequest_CampaignHook_WebUrl != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook_campaignHook_WebUrl = cmdletContext.WriteApplicationSettingsRequest_CampaignHook_WebUrl;
+            }
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook_campaignHook_WebUrl != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook.WebUrl = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook_campaignHook_WebUrl;
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHookIsNull = false;
+            }
+             // determine if requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook should be set to null
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHookIsNull)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook = null;
+            }
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook != null)
+            {
+                request.WriteApplicationSettingsRequest.CampaignHook = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook;
                 requestWriteApplicationSettingsRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.CampaignLimits requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits = null;
@@ -346,6 +430,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
+            public System.String WriteApplicationSettingsRequest_CampaignHook_LambdaFunctionName { get; set; }
+            public Amazon.Pinpoint.Mode WriteApplicationSettingsRequest_CampaignHook_Mode { get; set; }
+            public System.String WriteApplicationSettingsRequest_CampaignHook_WebUrl { get; set; }
             public System.Int32? WriteApplicationSettingsRequest_Limits_Daily { get; set; }
             public System.Int32? WriteApplicationSettingsRequest_Limits_MaximumDuration { get; set; }
             public System.Int32? WriteApplicationSettingsRequest_Limits_MessagesPerSecond { get; set; }

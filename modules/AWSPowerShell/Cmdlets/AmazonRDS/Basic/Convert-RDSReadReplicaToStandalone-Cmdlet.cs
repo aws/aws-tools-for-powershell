@@ -31,10 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// Promotes a Read Replica DB instance to a standalone DB instance.
     /// 
     ///  <note><ul><li><para>
-    /// We recommend that you enable automated backups on your Read Replica before promoting
-    /// the Read Replica. This ensures that no backup is taken during the promotion process.
-    /// Once the instance is promoted to a primary instance, backups are taken based on your
-    /// backup settings.
+    /// Backup duration is a function of the amount of changes to the database since the previous
+    /// backup. If you plan to promote a Read Replica to a standalone instance, we recommend
+    /// that you enable backups and complete at least one backup prior to promotion. In addition,
+    /// a Read Replica cannot be promoted to a standalone instance when it is in the <code>backing-up</code>
+    /// status. If you have enabled backups on your Read Replica, configure the automated
+    /// backup window so that daily backups do not interfere with Read Replica promotion.
     /// </para></li><li><para>
     /// This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.
     /// </para></li></ul></note>

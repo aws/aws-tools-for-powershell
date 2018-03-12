@@ -574,11 +574,24 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String GCMMessage_JsonBody { get; set; }
         #endregion
         
+        #region Parameter Hook_LambdaFunctionName
+        /// <summary>
+        /// <para>
+        /// Lambda function name or arn to be called
+        /// for delivery
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_Hook_LambdaFunctionName")]
+        public System.String Hook_LambdaFunctionName { get; set; }
+        #endregion
+        
         #region Parameter Limits_MaximumDuration
         /// <summary>
         /// <para>
-        /// The maximum duration of a campaign from
-        /// the scheduled start. Must be a minimum of 60 seconds.
+        /// The length of time (in seconds) that the
+        /// campaign can run before it ends and message deliveries stop. This duration begins
+        /// at the scheduled start time for the campaign. The minimum value is 60.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -649,9 +662,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Limits_MessagesPerSecond
         /// <summary>
         /// <para>
-        /// The maximum number of messages per second
-        /// that the campaign will send. This is a best effort maximum cap and can go as high
-        /// as 20000 and as low as 50
+        /// The number of messages that the campaign
+        /// can send per second. The minimum value is 50, and the maximum is 20000.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -670,6 +682,18 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [Alias("WriteCampaignRequest_MessageConfiguration_SMSMessage_MessageType")]
         [AWSConstantClassSource("Amazon.Pinpoint.MessageType")]
         public Amazon.Pinpoint.MessageType SMSMessage_MessageType { get; set; }
+        #endregion
+        
+        #region Parameter Hook_Mode
+        /// <summary>
+        /// <para>
+        /// What mode Lambda should be invoked in.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_Hook_Mode")]
+        [AWSConstantClassSource("Amazon.Pinpoint.Mode")]
+        public Amazon.Pinpoint.Mode Hook_Mode { get; set; }
         #endregion
         
         #region Parameter WriteCampaignRequest_Name
@@ -1040,6 +1064,18 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String GCMMessage_Url { get; set; }
         #endregion
         
+        #region Parameter Hook_WebUrl
+        /// <summary>
+        /// <para>
+        /// Web URL to call for hook. If the URL has authentication
+        /// specified it will be added as authentication to the request
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_Hook_WebUrl")]
+        public System.String Hook_WebUrl { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -1077,6 +1113,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.WriteCampaignRequest_Description = this.WriteCampaignRequest_Description;
             if (ParameterWasBound("WriteCampaignRequest_HoldoutPercent"))
                 context.WriteCampaignRequest_HoldoutPercent = this.WriteCampaignRequest_HoldoutPercent;
+            context.WriteCampaignRequest_Hook_LambdaFunctionName = this.Hook_LambdaFunctionName;
+            context.WriteCampaignRequest_Hook_Mode = this.Hook_Mode;
+            context.WriteCampaignRequest_Hook_WebUrl = this.Hook_WebUrl;
             if (ParameterWasBound("WriteCampaignRequest_IsPaused"))
                 context.WriteCampaignRequest_IsPaused = this.WriteCampaignRequest_IsPaused;
             if (ParameterWasBound("Limits_Daily"))
@@ -1280,6 +1319,51 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_TreatmentName != null)
             {
                 request.WriteCampaignRequest.TreatmentName = requestWriteCampaignRequest_writeCampaignRequest_TreatmentName;
+                requestWriteCampaignRequestIsNull = false;
+            }
+            Amazon.Pinpoint.Model.CampaignHook requestWriteCampaignRequest_writeCampaignRequest_Hook = null;
+            
+             // populate Hook
+            bool requestWriteCampaignRequest_writeCampaignRequest_HookIsNull = true;
+            requestWriteCampaignRequest_writeCampaignRequest_Hook = new Amazon.Pinpoint.Model.CampaignHook();
+            System.String requestWriteCampaignRequest_writeCampaignRequest_Hook_hook_LambdaFunctionName = null;
+            if (cmdletContext.WriteCampaignRequest_Hook_LambdaFunctionName != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Hook_hook_LambdaFunctionName = cmdletContext.WriteCampaignRequest_Hook_LambdaFunctionName;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Hook_hook_LambdaFunctionName != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Hook.LambdaFunctionName = requestWriteCampaignRequest_writeCampaignRequest_Hook_hook_LambdaFunctionName;
+                requestWriteCampaignRequest_writeCampaignRequest_HookIsNull = false;
+            }
+            Amazon.Pinpoint.Mode requestWriteCampaignRequest_writeCampaignRequest_Hook_hook_Mode = null;
+            if (cmdletContext.WriteCampaignRequest_Hook_Mode != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Hook_hook_Mode = cmdletContext.WriteCampaignRequest_Hook_Mode;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Hook_hook_Mode != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Hook.Mode = requestWriteCampaignRequest_writeCampaignRequest_Hook_hook_Mode;
+                requestWriteCampaignRequest_writeCampaignRequest_HookIsNull = false;
+            }
+            System.String requestWriteCampaignRequest_writeCampaignRequest_Hook_hook_WebUrl = null;
+            if (cmdletContext.WriteCampaignRequest_Hook_WebUrl != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Hook_hook_WebUrl = cmdletContext.WriteCampaignRequest_Hook_WebUrl;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Hook_hook_WebUrl != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Hook.WebUrl = requestWriteCampaignRequest_writeCampaignRequest_Hook_hook_WebUrl;
+                requestWriteCampaignRequest_writeCampaignRequest_HookIsNull = false;
+            }
+             // determine if requestWriteCampaignRequest_writeCampaignRequest_Hook should be set to null
+            if (requestWriteCampaignRequest_writeCampaignRequest_HookIsNull)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Hook = null;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Hook != null)
+            {
+                request.WriteCampaignRequest.Hook = requestWriteCampaignRequest_writeCampaignRequest_Hook;
                 requestWriteCampaignRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.CampaignLimits requestWriteCampaignRequest_writeCampaignRequest_Limits = null;
@@ -2250,6 +2334,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public List<Amazon.Pinpoint.Model.WriteTreatmentResource> WriteCampaignRequest_AdditionalTreatments { get; set; }
             public System.String WriteCampaignRequest_Description { get; set; }
             public System.Int32? WriteCampaignRequest_HoldoutPercent { get; set; }
+            public System.String WriteCampaignRequest_Hook_LambdaFunctionName { get; set; }
+            public Amazon.Pinpoint.Mode WriteCampaignRequest_Hook_Mode { get; set; }
+            public System.String WriteCampaignRequest_Hook_WebUrl { get; set; }
             public System.Boolean? WriteCampaignRequest_IsPaused { get; set; }
             public System.Int32? WriteCampaignRequest_Limits_Daily { get; set; }
             public System.Int32? WriteCampaignRequest_Limits_MaximumDuration { get; set; }

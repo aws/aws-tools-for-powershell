@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.MH
     /// The only parameter needed for <code>DeleteProgressUpdateStream</code> is the stream
     /// name (same as a <code>CreateProgressUpdateStream</code> call).
     /// </para></li><li><para>
-    /// The call will return, and a background process will asynchronously be doing the actual
-    /// delete of the stream and all of its resources (tasks, associated resources, resource
-    /// attributes, created artifacts).
+    /// The call will return, and a background process will asynchronously delete the stream
+    /// and all of its resources (tasks, associated resources, resource attributes, created
+    /// artifacts).
     /// </para></li><li><para>
     /// If the stream takes time to be deleted, it might still show up on a <code>ListProgressUpdateStreams</code>
     /// call.

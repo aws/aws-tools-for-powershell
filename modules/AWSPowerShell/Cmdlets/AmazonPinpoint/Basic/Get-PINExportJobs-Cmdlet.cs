@@ -28,16 +28,16 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Get an APNS VoIPSandbox channel
+    /// Returns information about your export jobs.
     /// </summary>
-    [Cmdlet("Get", "PINApnsVoipSandboxChannel")]
-    [OutputType("Amazon.Pinpoint.Model.APNSVoipSandboxChannelResponse")]
-    [AWSCmdlet("Calls the Amazon Pinpoint GetApnsVoipSandboxChannel API operation.", Operation = new[] {"GetApnsVoipSandboxChannel"})]
-    [AWSCmdletOutput("Amazon.Pinpoint.Model.APNSVoipSandboxChannelResponse",
-        "This cmdlet returns a APNSVoipSandboxChannelResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.GetApnsVoipSandboxChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "PINExportJobs")]
+    [OutputType("Amazon.Pinpoint.Model.ExportJobsResponse")]
+    [AWSCmdlet("Calls the Amazon Pinpoint GetExportJobs API operation.", Operation = new[] {"GetExportJobs"})]
+    [AWSCmdletOutput("Amazon.Pinpoint.Model.ExportJobsResponse",
+        "This cmdlet returns a ExportJobsResponse object.",
+        "The service call response (type Amazon.Pinpoint.Model.GetExportJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetPINApnsVoipSandboxChannelCmdlet : AmazonPinpointClientCmdlet, IExecutor
+    public partial class GetPINExportJobsCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationId
@@ -48,6 +48,28 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ApplicationId { get; set; }
+        #endregion
+        
+        #region Parameter PageSize
+        /// <summary>
+        /// <para>
+        /// The number of entries you want on each page in
+        /// the response.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PageSize { get; set; }
+        #endregion
+        
+        #region Parameter Token
+        /// <summary>
+        /// <para>
+        /// The NextToken string returned on a previous page
+        /// that you use to get the next page of results in a paginated response.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Token { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -64,6 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             PreExecutionContextLoad(context);
             
             context.ApplicationId = this.ApplicationId;
+            context.PageSize = this.PageSize;
+            context.Token = this.Token;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -78,11 +102,19 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Pinpoint.Model.GetApnsVoipSandboxChannelRequest();
+            var request = new Amazon.Pinpoint.Model.GetExportJobsRequest();
             
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
+            }
+            if (cmdletContext.PageSize != null)
+            {
+                request.PageSize = cmdletContext.PageSize;
+            }
+            if (cmdletContext.Token != null)
+            {
+                request.Token = cmdletContext.Token;
             }
             
             CmdletOutput output;
@@ -93,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.APNSVoipSandboxChannelResponse;
+                object pipelineOutput = response.ExportJobsResponse;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -118,16 +150,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Pinpoint.Model.GetApnsVoipSandboxChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetApnsVoipSandboxChannelRequest request)
+        private Amazon.Pinpoint.Model.GetExportJobsResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetExportJobsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "GetApnsVoipSandboxChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "GetExportJobs");
             try
             {
                 #if DESKTOP
-                return client.GetApnsVoipSandboxChannel(request);
+                return client.GetExportJobs(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetApnsVoipSandboxChannelAsync(request);
+                var task = client.GetExportJobsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -149,6 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
+            public System.String PageSize { get; set; }
+            public System.String Token { get; set; }
         }
         
     }

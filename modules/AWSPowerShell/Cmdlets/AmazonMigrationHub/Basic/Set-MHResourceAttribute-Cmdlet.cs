@@ -32,15 +32,18 @@ namespace Amazon.PowerShell.Cmdlets.MH
     /// in the Application Discovery Service (ADS)'s repository. This association occurs asynchronously
     /// after <code>PutResourceAttributes</code> returns.
     /// 
-    ///  <important><para>
+    ///  <important><ul><li><para>
     /// Keep in mind that subsequent calls to PutResourceAttributes will override previously
     /// stored attributes. For example, if it is first called with a MAC address, but later,
     /// it is desired to <i>add</i> an IP address, it will then be required to call it with
     /// <i>both</i> the IP and MAC addresses to prevent overiding the MAC address.
-    /// </para></important><note><para>
+    /// </para></li><li><para>
+    /// Note the instructions regarding the special use case of the <code>ResourceAttributeList</code>
+    /// parameter when specifying any "VM" related value.
+    /// </para></li></ul></important><note><para>
     /// Because this is an asynchronous call, it will always return 200, whether an association
     /// occurs or not. To confirm if an association was found based on the provided details,
-    /// call <code>ListAssociatedResource</code>.
+    /// call <code>ListDiscoveredResources</code>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Set", "MHResourceAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -88,7 +91,15 @@ namespace Amazon.PowerShell.Cmdlets.MH
         /// <summary>
         /// <para>
         /// <para>Information about the resource that is being migrated. This data will be used to map
-        /// the task to a resource in the Application Discovery Service (ADS)'s repository.</para>
+        /// the task to a resource in the Application Discovery Service (ADS)'s repository.</para><note><para>In the <code>ResourceAttribute</code> object array, the <code>Type</code> field is
+        /// reserved for the following values: <code>IPV4_ADDRESS | IPV6_ADDRESS | MAC_ADDRESS
+        /// | FQDN | VM_MANAGER_ID | VM_MANAGED_OBJECT_REFERENCE | VM_NAME | VM_PATH | BIOS_ID
+        /// | MOTHERBOARD_SERIAL_NUMBER</code>, and the identifying value can be a string up to
+        /// 256 characters.</para></note><important><para>If any "VM" related value is used for a <code>ResourceAttribute</code> object, it
+        /// is required that <code>VM_MANAGER_ID</code>, as a minimum, is always used. If it is
+        /// not used, the server will not be associated in the Application Discovery Service (ADS)'s
+        /// repository using any of the other "VM" related values, and you will experience data
+        /// loss. See the Example section below for a use case of specifying "VM" related values.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -85,12 +85,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <code>128</code> CPU units (<code>0.125</code> vCPUs) and <code>10240</code> CPU units
         /// (<code>10</code> vCPUs).</para><para>If using the Fargate launch type, this field is required and you must use one of the
         /// following values, which determines your range of supported values for the <code>memory</code>
-        /// parameter:</para><ul><li><para>256 (.25 vCPU) - Available <code>memory</code> values: 512 (0.5GB), 1024 (1GB), 2048
-        /// (2GB)</para></li><li><para>512 (.5 vCPU) - Available <code>memory</code> values: 1024 (1GB), 2048 (2GB), 3072
-        /// (3GB), 4096 (4GB)</para></li><li><para>1024 (1 vCPU) - Available <code>memory</code> values: 2048 (2GB), 3072 (3GB), 4096
-        /// (4GB), 5120 (5GB), 6144 (6GB), 7168 (7GB), 8192 (8GB)</para></li><li><para>2048 (2 vCPU) - Available <code>memory</code> values: Between 4096 (4GB) and 16384
-        /// (16GB) in increments of 1024 (1GB)</para></li><li><para>4096 (4 vCPU) - Available <code>memory</code> values: Between 8192 (8GB) and 30720
-        /// (30GB) in increments of 1024 (1GB)</para></li></ul>
+        /// parameter:</para><ul><li><para>256 (.25 vCPU) - Available <code>memory</code> values: 512 (0.5 GB), 1024 (1 GB),
+        /// 2048 (2 GB)</para></li><li><para>512 (.5 vCPU) - Available <code>memory</code> values: 1024 (1 GB), 2048 (2 GB), 3072
+        /// (3 GB), 4096 (4 GB)</para></li><li><para>1024 (1 vCPU) - Available <code>memory</code> values: 2048 (2 GB), 3072 (3 GB), 4096
+        /// (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)</para></li><li><para>2048 (2 vCPU) - Available <code>memory</code> values: Between 4096 (4 GB) and 16384
+        /// (16 GB) in increments of 1024 (1 GB)</para></li><li><para>4096 (4 vCPU) - Available <code>memory</code> values: Between 8192 (8 GB) and 30720
+        /// (30 GB) in increments of 1024 (1 GB)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -130,11 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// the MiB when the task definition is registered.</para><note><para>Task-level CPU and memory parameters are ignored for Windows containers. We recommend
         /// specifying container-level resources for Windows containers.</para></note><para>If using the EC2 launch type, this field is optional.</para><para>If using the Fargate launch type, this field is required and you must use one of the
         /// following values, which determines your range of supported values for the <code>cpu</code>
-        /// parameter:</para><ul><li><para>512 (0.5GB), 1024 (1GB), 2048 (2GB) - Available <code>cpu</code> values: 256 (.25
-        /// vCPU)</para></li><li><para>1024 (1GB), 2048 (2GB), 3072 (3GB), 4096 (4GB) - Available <code>cpu</code> values:
-        /// 512 (.5 vCPU)</para></li><li><para>2048 (2GB), 3072 (3GB), 4096 (4GB), 5120 (5GB), 6144 (6GB), 7168 (7GB), 8192 (8GB)
-        /// - Available <code>cpu</code> values: 1024 (1 vCPU)</para></li><li><para>Between 4096 (4GB) and 16384 (16GB) in increments of 1024 (1GB) - Available <code>cpu</code>
-        /// values: 2048 (2 vCPU)</para></li><li><para>Between 8192 (8GB) and 30720 (30GB) in increments of 1024 (1GB) - Available <code>cpu</code>
+        /// parameter:</para><ul><li><para>512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available <code>cpu</code> values: 256 (.25
+        /// vCPU)</para></li><li><para>1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available <code>cpu</code> values:
+        /// 512 (.5 vCPU)</para></li><li><para>2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192
+        /// (8 GB) - Available <code>cpu</code> values: 1024 (1 vCPU)</para></li><li><para>Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available <code>cpu</code>
+        /// values: 2048 (2 vCPU)</para></li><li><para>Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available <code>cpu</code>
         /// values: 4096 (4 vCPU)</para></li></ul>
         /// </para>
         /// </summary>

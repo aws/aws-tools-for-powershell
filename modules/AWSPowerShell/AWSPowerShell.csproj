@@ -139,7 +139,7 @@
       <HintPath>..\..\packages\AWSSDK.MediaStoreData.3.3.0.2\lib\net35\AWSSDK.MediaStoreData.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MigrationHub">
-      <HintPath>..\..\packages\AWSSDK.MigrationHub.3.3.0.4\lib\net35\AWSSDK.MigrationHub.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.MigrationHub.3.3.1\lib\net35\AWSSDK.MigrationHub.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MQ">
       <HintPath>..\..\packages\AWSSDK.MQ.3.3.0.1\lib\net35\AWSSDK.MQ.dll</HintPath>
@@ -160,7 +160,7 @@
       <HintPath>..\..\packages\AWSSDK.Organizations.3.3.7.1\lib\net35\AWSSDK.Organizations.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Pinpoint">
-      <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.5.2\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.6\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Pricing">
       <HintPath>..\..\packages\AWSSDK.Pricing.3.3.0.2\lib\net35\AWSSDK.Pricing.dll</HintPath>
@@ -262,7 +262,7 @@
       <HintPath>..\..\packages\AWSSDK.Redshift.3.3.3.4\lib\net35\AWSSDK.Redshift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RDS">
-      <HintPath>..\..\packages\AWSSDK.RDS.3.3.21.1\lib\net35\AWSSDK.RDS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.RDS.3.3.21.2\lib\net35\AWSSDK.RDS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OpsWorks">
       <HintPath>..\..\packages\AWSSDK.OpsWorks.3.3.3.1\lib\net35\AWSSDK.OpsWorks.dll</HintPath>
@@ -325,7 +325,7 @@
       <HintPath>..\..\packages\AWSSDK.ElastiCache.3.3.5.2\lib\net35\AWSSDK.ElastiCache.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECS">
-      <HintPath>..\..\packages\AWSSDK.ECS.3.3.10.2\lib\net35\AWSSDK.ECS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ECS.3.3.11\lib\net35\AWSSDK.ECS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECR">
       <HintPath>..\..\packages\AWSSDK.ECR.3.3.3.4\lib\net35\AWSSDK.ECR.dll</HintPath>
