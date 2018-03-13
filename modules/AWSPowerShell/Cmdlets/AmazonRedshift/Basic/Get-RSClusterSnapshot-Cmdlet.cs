@@ -57,6 +57,20 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class GetRSClusterSnapshotCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        #region Parameter ClusterExist
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to return snapshots only for an existing cluster. Table-level
+        /// restore can be performed only using a snapshot of an existing cluster, that is, a
+        /// cluster that has not been deleted. If <code>ClusterExists</code> is set to <code>true</code>,
+        /// <code>ClusterIdentifier</code> is required.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ClusterExists")]
+        public System.Boolean ClusterExist { get; set; }
+        #endregion
+        
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
@@ -204,6 +218,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("ClusterExist"))
+                context.ClusterExists = this.ClusterExist;
             context.ClusterIdentifier = this.ClusterIdentifier;
             if (ParameterWasBound("EndTime"))
                 context.EndTime = this.EndTime;
@@ -239,6 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             
             // create request and set iteration invariants
             var request = new Amazon.Redshift.Model.DescribeClusterSnapshotsRequest();
+            if (cmdletContext.ClusterExists != null)
+            {
+                request.ClusterExists = cmdletContext.ClusterExists.Value;
+            }
             if (cmdletContext.ClusterIdentifier != null)
             {
                 request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
@@ -417,6 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? ClusterExists { get; set; }
             public System.String ClusterIdentifier { get; set; }
             public System.DateTime? EndTime { get; set; }
             public System.String Marker { get; set; }

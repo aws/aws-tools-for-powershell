@@ -267,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The user name associated with the master user account for the cluster that is being
-        /// created.</para><para>Constraints:</para><ul><li><para>Must be 1 - 128 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
+        /// created.</para><para>Constraints:</para><ul><li><para>Must be 1 - 128 alphanumeric characters. The user name can't be <code>PUBLIC</code>.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
         /// Words</a> in the Amazon Redshift Database Developer Guide. </para></li></ul>
         /// </para>
         /// </summary>
@@ -293,8 +293,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>The node type to be provisioned for the cluster. For information about node types,
         /// go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes">
         /// Working with Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
-        /// </para><para>Valid Values: <code>ds1.xlarge</code> | <code>ds1.8xlarge</code> | <code>ds2.xlarge</code>
-        /// | <code>ds2.8xlarge</code> | <code>dc1.large</code> | <code>dc1.8xlarge</code>. </para>
+        /// </para><para>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> | <code>ds2.xlarge</code>
+        /// | <code>ds2.8xlarge</code> | <code>dc1.large</code> | <code>dc1.8xlarge</code> | <code>dc2.large</code>
+        /// | <code>dc2.8xlarge</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]

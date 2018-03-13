@@ -225,8 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// to your resize requirements, there will be a temporary outage while the old cluster
         /// is deleted and your connection is switched to the new cluster. When the new connection
         /// is complete, the original access permissions for the cluster are restored. You can
-        /// use <a>DescribeResize</a> to track the progress of the resize request. </para><para>Valid Values: <code> ds1.xlarge</code> | <code>ds1.8xlarge</code> | <code> ds2.xlarge</code>
-        /// | <code>ds2.8xlarge</code> | <code>dc1.large</code> | <code>dc1.8xlarge</code>.</para>
+        /// use <a>DescribeResize</a> to track the progress of the resize request. </para><para>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> | <code>dc1.large</code>
+        /// | <code>dc1.8xlarge</code> | <code>dc2.large</code> | <code>dc2.8xlarge</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
