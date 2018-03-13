@@ -1594,7 +1594,7 @@
     },
     "GetExportJobs": {
       "verb": "Get",
-      "noun": "ExportJobs",
+      "noun": "ExportJobList",
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
@@ -1799,7 +1799,7 @@
     },
     "GetSegmentExportJobs": {
       "verb": "Get",
-      "noun": "SegmentExportJobs",
+      "noun": "SegmentExportJobList",
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",

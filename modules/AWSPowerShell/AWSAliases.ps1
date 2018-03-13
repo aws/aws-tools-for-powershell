@@ -4061,7 +4061,6 @@ Set-Alias -Name Create-PINApp -Value New-PINApp
 Set-Alias -Name PIN-CreateApp -Value New-PINApp
 Set-Alias -Name Create-PINCampaign -Value New-PINCampaign
 Set-Alias -Name PIN-CreateCampaign -Value New-PINCampaign
-Set-Alias -Name Create-PINExportJob -Value New-PINExportJob
 Set-Alias -Name PIN-CreateExportJob -Value New-PINExportJob
 Set-Alias -Name Create-PINImportJob -Value New-PINImportJob
 Set-Alias -Name PIN-CreateImportJob -Value New-PINImportJob
@@ -4111,12 +4110,12 @@ Set-Alias -Name PIN-GetEmailChannel -Value Get-PINEmailChannel
 Set-Alias -Name PIN-GetEndpoint -Value Get-PINEndpoint
 Set-Alias -Name PIN-GetEventStream -Value Get-PINEventStream
 Set-Alias -Name PIN-GetExportJob -Value Get-PINExportJob
-Set-Alias -Name PIN-GetExportJobs -Value Get-PINExportJobs
+Set-Alias -Name PIN-GetExportJobs -Value Get-PINExportJobList
 Set-Alias -Name PIN-GetGcmChannel -Value Get-PINGcmChannel
 Set-Alias -Name PIN-GetImportJob -Value Get-PINImportJob
 Set-Alias -Name PIN-GetImportJobs -Value Get-PINImportJobList
 Set-Alias -Name PIN-GetSegment -Value Get-PINSegment
-Set-Alias -Name PIN-GetSegmentExportJobs -Value Get-PINSegmentExportJobs
+Set-Alias -Name PIN-GetSegmentExportJobs -Value Get-PINSegmentExportJobList
 Set-Alias -Name PIN-GetSegmentImportJobs -Value Get-PINSegmentImportJobList
 Set-Alias -Name PIN-GetSegments -Value Get-PINSegmentList
 Set-Alias -Name PIN-GetSegmentVersion -Value Get-PINSegmentVersion
