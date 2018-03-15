@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
     /// Detaches the specified instances from a Lightsail load balancer.
+    /// 
+    ///  
+    /// <para>
+    /// This operation waits until the instances are no longer needed before they are detached
+    /// from the load balancer.
+    /// </para>
     /// </summary>
     [Cmdlet("Dismount", "LSInstancesFromLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.Operation")]

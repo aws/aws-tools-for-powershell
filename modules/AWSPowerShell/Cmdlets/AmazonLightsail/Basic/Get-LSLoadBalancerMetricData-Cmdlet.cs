@@ -128,7 +128,14 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>An array of statistics that you want to request metrics for. Valid values are listed
-        /// below.</para>
+        /// below.</para><ul><li><para><b><code>SampleCount</code></b> - The count (number) of data points used for the
+        /// statistical calculation.</para></li><li><para><b><code>Average</code></b> - The value of Sum / SampleCount during the specified
+        /// period. By comparing this statistic with the Minimum and Maximum, you can determine
+        /// the full scope of a metric and how close the average use is to the Minimum and Maximum.
+        /// This comparison helps you to know when to increase or decrease your resources as needed.</para></li><li><para><b><code>Sum</code></b> - All values submitted for the matching metric added together.
+        /// This statistic can be useful for determining the total volume of a metric.</para></li><li><para><b><code>Minimum</code></b> - The lowest value observed during the specified period.
+        /// You can use this value to determine low volumes of activity for your application.</para></li><li><para><b><code>Maximum</code></b> - The highest value observed during the specified period.
+        /// You can use this value to determine high volumes of activity for your application.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

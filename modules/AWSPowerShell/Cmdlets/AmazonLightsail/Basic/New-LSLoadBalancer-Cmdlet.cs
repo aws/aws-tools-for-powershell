@@ -28,12 +28,16 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Creates a Lightsail load balancer.
+    /// Creates a Lightsail load balancer. To learn more about deciding whether to load balance
+    /// your application, see <a href="https://lightsail.aws.amazon.com/ls/docs/how-to/article/configure-lightsail-instances-for-load-balancing">Configure
+    /// your Lightsail instances for load balancing</a>. You can create up to 5 load balancers
+    /// per AWS Region in your account.
     /// 
     ///  
     /// <para>
-    /// When you create a load balancer, you can specify certificates and port settings. You
-    /// can create up to 5 load balancers per AWS Region in your account.
+    /// When you create a load balancer, you can specify a unique name and port settings.
+    /// To change additional load balancer settings, use the <code>UpdateLoadBalancerAttribute</code>
+    /// operation.
     /// </para>
     /// </summary>
     [Cmdlet("New", "LSLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,8 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter CertificateAlternativeName
         /// <summary>
         /// <para>
-        /// <para>The alternative domain names to use with your TLS/SSL certificate (e.g., <code>www.example.com</code>,
-        /// <code>www.ejemplo.com</code>, <code>ejemplo.com</code>).</para>
+        /// <para>The optional alternative domains and subdomains to use with your SSL/TLS certificate
+        /// (e.g., <code>www.example.com</code>, <code>example.com</code>, <code>m.example.com</code>,
+        /// <code>blog.example.com</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter CertificateName
         /// <summary>
         /// <para>
-        /// <para>The name of the TLS/SSL certificate.</para><para>If you specify <code>certificateName</code>, then <code>certificateDomainName</code>
+        /// <para>The name of the SSL/TLS certificate.</para><para>If you specify <code>certificateName</code>, then <code>certificateDomainName</code>
         /// is required (and vice-versa).</para>
         /// </para>
         /// </summary>
@@ -84,7 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The path you provided to perform the load balancer health check. If you didn't specify
-        /// a health check path, Lightsail uses the root path of your website (e.g., <code>"/"</code>).</para>
+        /// a health check path, Lightsail uses the root path of your website (e.g., <code>"/"</code>).</para><para>You may want to specify a custom health check path other than the root of your application
+        /// if your home page loads slowly or has a lot of media or scripting on it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

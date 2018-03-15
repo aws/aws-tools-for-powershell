@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>When <code>true</code>, specifies whether the domain entry is an alias used by the
-        /// Lightsail load balancer.</para>
+        /// Lightsail load balancer. You can include an alias (A type) record in your request,
+        /// which points to a load balancer DNS name and routes traffic to your load balancer</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DomainEntry_Target
         /// <summary>
         /// <para>
-        /// <para>The target AWS name server (e.g., <code>ns-111.awsdns-22.com.</code>).</para>
+        /// <para>The target AWS name server (e.g., <code>ns-111.awsdns-22.com.</code>).</para><para>For Lightsail load balancers, the value looks like <code>ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com</code>.
+        /// Be sure to also set <code>isAlias</code> to <code>true</code> when setting up an A
+        /// record for a load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,7 +28,8 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Updates the specified attribute for a load balancer.
+    /// Updates the specified attribute for a load balancer. You can only update one attribute
+    /// at a time.
     /// </summary>
     [Cmdlet("Update", "LSLoadBalancerAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.Operation")]
@@ -64,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
-        /// <para>The name of the load balancer that you want to modify.</para>
+        /// <para>The name of the load balancer that you want to modify (e.g., <code>my-load-balancer</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

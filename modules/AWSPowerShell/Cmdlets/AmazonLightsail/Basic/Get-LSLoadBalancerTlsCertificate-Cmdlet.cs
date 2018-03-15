@@ -34,6 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
     ///  
     /// <para>
     /// TLS is just an updated, more secure version of Secure Socket Layer (SSL).
+    /// </para><para>
+    /// You can have a maximum of 2 certificates associated with a Lightsail load balancer.
+    /// One is active and the other is inactive.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "LSLoadBalancerTlsCertificate")]
@@ -49,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
-        /// <para>The name of the load balancer where you stored your TLS/SSL certificate.</para>
+        /// <para>The name of the load balancer you associated with your SSL/TLS certificate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

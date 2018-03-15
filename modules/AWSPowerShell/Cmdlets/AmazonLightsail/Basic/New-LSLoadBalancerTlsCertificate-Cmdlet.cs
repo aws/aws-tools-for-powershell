@@ -48,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter CertificateAlternativeName
         /// <summary>
         /// <para>
-        /// <para>An array of strings listing alternative domain names for your TLS/SSL certificate.</para>
+        /// <para>An array of strings listing alternative domains and subdomains for your SSL/TLS certificate.
+        /// Lightsail will de-dupe the names for you. You can have a maximum of 9 alternative
+        /// names (in addition to the 1 primary domain). We do not support wildcards (e.g., <code>*.example.com</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -59,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter CertificateDomainName
         /// <summary>
         /// <para>
-        /// <para>The domain name (e.g., <code>example.com</code>) for your TLS/SSL certificate.</para>
+        /// <para>The domain name (e.g., <code>example.com</code>) for your SSL/TLS certificate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -69,7 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter CertificateName
         /// <summary>
         /// <para>
-        /// <para>The TLS/SSL certificate name.</para>
+        /// <para>The SSL/TLS certificate name.</para><para>You can have up to 10 certificates in your account at one time. Each Lightsail load
+        /// balancer can have up to 2 certificates associated with it at one time. There is also
+        /// an overall limit to the number of certificates that can be issue in a 365-day period.
+        /// For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -79,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
-        /// <para>The load balancer name where you want to create the TLS/SSL certificate.</para>
+        /// <para>The load balancer name where you want to create the SSL/TLS certificate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

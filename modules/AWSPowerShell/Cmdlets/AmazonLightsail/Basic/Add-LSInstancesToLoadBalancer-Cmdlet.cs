@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
     /// Attaches one or more Lightsail instances to a load balancer.
+    /// 
+    ///  
+    /// <para>
+    /// After some time, the instances are attached to the load balancer and the health check
+    /// status is available.
+    /// </para>
     /// </summary>
     [Cmdlet("Add", "LSInstancesToLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.Operation")]
@@ -44,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>An array of strings representing the instance name(s) you want to attach to your load
-        /// balancer.</para>
+        /// balancer.</para><para>An instance must be <code>running</code> before you can attach it to your load balancer.</para><para>There are no additional limits on the number of instances you can attach to your load
+        /// balancer, aside from the limit of Lightsail instances you can create in your account
+        /// (20).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

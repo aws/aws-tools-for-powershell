@@ -28,7 +28,7 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Deletes a TLS/SSL certificate associated with a Lightsail load balancer.
+    /// Deletes an SSL/TLS certificate associated with a Lightsail load balancer.
     /// </summary>
     [Cmdlet("Remove", "LSLoadBalancerTlsCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Lightsail.Model.Operation")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter CertificateName
         /// <summary>
         /// <para>
-        /// <para>The TLS/SSL certificate name.</para>
+        /// <para>The SSL/TLS certificate name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -53,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DeleteWithForce
         /// <summary>
         /// <para>
-        /// <para>When <code>true</code>, forces the deletion of a TLS/SSL certificate.</para>
+        /// <para>When <code>true</code>, forces the deletion of an SSL/TLS certificate.</para><para>There can be two certificates associated with a Lightsail load balancer: the primary
+        /// and the backup. The force parameter is required when the primary SSL/TLS certificate
+        /// is in use by an instance attached to the load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
