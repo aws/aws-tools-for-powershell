@@ -22,59 +22,41 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Organizations;
-using Amazon.Organizations.Model;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ORG
+namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Disables an organizational control policy type in a root. A policy of a certain type
-    /// can be attached to entities in a root only if that type is enabled in the root. After
-    /// you perform this operation, you no longer can attach policies of the specified type
-    /// to that root or to any OU or account in that root. You can undo this by using the
-    /// <a>EnablePolicyType</a> operation.
-    /// 
-    ///  
-    /// <para>
-    /// This operation can be called only from the organization's master account.
-    /// </para><note><para>
-    /// If you disable a policy type for a root, it still shows as enabled for the organization
-    /// if all features are enabled in that organization. Use <a>ListRoots</a> to see the
-    /// status of policy types for a specified root. Use <a>DescribeOrganization</a> to see
-    /// the status of policy types in the organization.
-    /// </para></note>
+    /// Deletes a notebook instance lifecycle configuration.
     /// </summary>
-    [Cmdlet("Disable", "ORGPolicyType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Organizations.Model.Root")]
-    [AWSCmdlet("Calls the AWS Organizations DisablePolicyType API operation.", Operation = new[] {"DisablePolicyType"})]
-    [AWSCmdletOutput("Amazon.Organizations.Model.Root",
-        "This cmdlet returns a Root object.",
-        "The service call response (type Amazon.Organizations.Model.DisablePolicyTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "SMNotebookInstanceLifecycleConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service DeleteNotebookInstanceLifecycleConfig API operation.", Operation = new[] {"DeleteNotebookInstanceLifecycleConfig"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the NotebookInstanceLifecycleConfigName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.SageMaker.Model.DeleteNotebookInstanceLifecycleConfigResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class DisableORGPolicyTypeCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
+    public partial class RemoveSMNotebookInstanceLifecycleConfigCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
-        #region Parameter PolicyType
+        #region Parameter NotebookInstanceLifecycleConfigName
         /// <summary>
         /// <para>
-        /// <para>The policy type that you want to disable in this root.</para>
+        /// <para>The name of the lifecycle configuration to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [AWSConstantClassSource("Amazon.Organizations.PolicyType")]
-        public Amazon.Organizations.PolicyType PolicyType { get; set; }
+        public System.String NotebookInstanceLifecycleConfigName { get; set; }
         #endregion
         
-        #region Parameter RootId
+        #region Parameter PassThru
         /// <summary>
-        /// <para>
-        /// <para>The unique identifier (ID) of the root in which you want to disable a policy type.
-        /// You can get the ID from the <a>ListRoots</a> operation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string
-        /// requires "r-" followed by from 4 to 32 lower-case letters or digits.</para>
-        /// </para>
+        /// Returns the value passed to the NotebookInstanceLifecycleConfigName parameter.
+        /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String RootId { get; set; }
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -91,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RootId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-ORGPolicyType (DisablePolicyType)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("NotebookInstanceLifecycleConfigName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SMNotebookInstanceLifecycleConfig (DeleteNotebookInstanceLifecycleConfig)"))
             {
                 return;
             }
@@ -106,8 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.PolicyType = this.PolicyType;
-            context.RootId = this.RootId;
+            context.NotebookInstanceLifecycleConfigName = this.NotebookInstanceLifecycleConfigName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -122,15 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Organizations.Model.DisablePolicyTypeRequest();
+            var request = new Amazon.SageMaker.Model.DeleteNotebookInstanceLifecycleConfigRequest();
             
-            if (cmdletContext.PolicyType != null)
+            if (cmdletContext.NotebookInstanceLifecycleConfigName != null)
             {
-                request.PolicyType = cmdletContext.PolicyType;
-            }
-            if (cmdletContext.RootId != null)
-            {
-                request.RootId = cmdletContext.RootId;
+                request.NotebookInstanceLifecycleConfigName = cmdletContext.NotebookInstanceLifecycleConfigName;
             }
             
             CmdletOutput output;
@@ -141,7 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Root;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.NotebookInstanceLifecycleConfigName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -166,16 +145,16 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private Amazon.Organizations.Model.DisablePolicyTypeResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.DisablePolicyTypeRequest request)
+        private Amazon.SageMaker.Model.DeleteNotebookInstanceLifecycleConfigResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DeleteNotebookInstanceLifecycleConfigRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "DisablePolicyType");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DeleteNotebookInstanceLifecycleConfig");
             try
             {
                 #if DESKTOP
-                return client.DisablePolicyType(request);
+                return client.DeleteNotebookInstanceLifecycleConfig(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisablePolicyTypeAsync(request);
+                var task = client.DeleteNotebookInstanceLifecycleConfigAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -196,8 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.Organizations.PolicyType PolicyType { get; set; }
-            public System.String RootId { get; set; }
+            public System.String NotebookInstanceLifecycleConfigName { get; set; }
         }
         
     }

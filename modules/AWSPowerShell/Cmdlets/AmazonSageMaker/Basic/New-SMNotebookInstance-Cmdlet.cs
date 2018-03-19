@@ -28,28 +28,29 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates an Amazon SageMaker notebook instance. A notebook instance is an ML compute
-    /// instance running on a Jupyter notebook. 
+    /// Creates an Amazon SageMaker notebook instance. A notebook instance is a machine learning
+    /// (ML) compute instance running on a Jupyter notebook. 
     /// 
     ///  
     /// <para>
-    /// In a <code>CreateNotebookInstance</code> request, you specify the type of ML compute
-    /// instance that you want to run. Amazon SageMaker launches the instance, installs common
-    /// libraries that you can use to explore datasets for model training, and attaches an
-    /// ML storage volume to the notebook instance. 
+    /// In a <code>CreateNotebookInstance</code> request, specify the type of ML compute instance
+    /// that you want to run. Amazon SageMaker launches the instance, installs common libraries
+    /// that you can use to explore datasets for model training, and attaches an ML storage
+    /// volume to the notebook instance. 
     /// </para><para>
     /// Amazon SageMaker also provides a set of example notebooks. Each notebook demonstrates
-    /// how to use Amazon SageMaker with a specific an algorithm or with a machine learning
-    /// framework. 
+    /// how to use Amazon SageMaker with a specific algorithm or with a machine learning framework.
+    /// 
     /// </para><para>
     /// After receiving the request, Amazon SageMaker does the following:
     /// </para><ol><li><para>
     /// Creates a network interface in the Amazon SageMaker VPC.
     /// </para></li><li><para>
-    /// (Option) If you specified <code>SubnetId</code>, creates a network interface in your
-    /// own VPC, which is inferred from the subnet ID that you provide in the input. When
-    /// creating this network interface, Amazon SageMaker attaches the security group that
-    /// you specified in the request to the network interface that it creates in your VPC.
+    /// (Option) If you specified <code>SubnetId</code>, Amazon SageMaker creates a network
+    /// interface in your own VPC, which is inferred from the subnet ID that you provide in
+    /// the input. When creating this network interface, Amazon SageMaker attaches the security
+    /// group that you specified in the request to the network interface that it creates in
+    /// your VPC.
     /// </para></li><li><para>
     /// Launches an EC2 instance of the type specified in the request in the Amazon SageMaker
     /// VPC. If you specified <code>SubnetId</code> of your VPC, Amazon SageMaker specifies
@@ -79,6 +80,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMNotebookInstanceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        #region Parameter DirectInternetAccess
+        /// <summary>
+        /// <para>
+        /// <para>Sets whether Amazon SageMaker provides internet access to the notebook instance. If
+        /// you set this to <code>Disabled</code> this notebook instance will be able to access
+        /// resources only in your VPC, and will not be able to connect to Amazon SageMaker training
+        /// and endpoint services unless your configure a NAT Gateway in your VPC.</para><para>For more information, see <a>appendix-notebook-and-internet-access</a>. You can set
+        /// the value of this parameter to <code>Disabled</code> only if you set a value for the
+        /// <code>SubnetId</code> parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SageMaker.DirectInternetAccess")]
+        public Amazon.SageMaker.DirectInternetAccess DirectInternetAccess { get; set; }
+        #endregion
+        
         #region Parameter InstanceType
         /// <summary>
         /// <para>
@@ -99,6 +116,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter LifecycleConfigName
+        /// <summary>
+        /// <para>
+        /// <para>The name of a lifecycle configuration to associate with the notebook instance. For
+        /// information about lifestyle configurations, see <a>notebook-lifecycle-config</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String LifecycleConfigName { get; set; }
         #endregion
         
         #region Parameter NotebookInstanceName
@@ -190,8 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.DirectInternetAccess = this.DirectInternetAccess;
             context.InstanceType = this.InstanceType;
             context.KmsKeyId = this.KmsKeyId;
+            context.LifecycleConfigName = this.LifecycleConfigName;
             context.NotebookInstanceName = this.NotebookInstanceName;
             context.RoleArn = this.RoleArn;
             if (this.SecurityGroupId != null)
@@ -219,6 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.CreateNotebookInstanceRequest();
             
+            if (cmdletContext.DirectInternetAccess != null)
+            {
+                request.DirectInternetAccess = cmdletContext.DirectInternetAccess;
+            }
             if (cmdletContext.InstanceType != null)
             {
                 request.InstanceType = cmdletContext.InstanceType;
@@ -226,6 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.LifecycleConfigName != null)
+            {
+                request.LifecycleConfigName = cmdletContext.LifecycleConfigName;
             }
             if (cmdletContext.NotebookInstanceName != null)
             {
@@ -311,8 +349,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.SageMaker.DirectInternetAccess DirectInternetAccess { get; set; }
             public Amazon.SageMaker.InstanceType InstanceType { get; set; }
             public System.String KmsKeyId { get; set; }
+            public System.String LifecycleConfigName { get; set; }
             public System.String NotebookInstanceName { get; set; }
             public System.String RoleArn { get; set; }
             public List<System.String> SecurityGroupIds { get; set; }

@@ -36,7 +36,13 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// Handshakes that are ACCEPTED, DECLINED, or CANCELED appear in the results of this
     /// API for only 30 days after changing to that state. After that they are deleted and
     /// no longer accessible.
-    /// </para><para>
+    /// </para><note><para>
+    /// Always check the <code>NextToken</code> response parameter for a <code>null</code>
+    /// value when calling a <code>List*</code> operation. These operations can occasionally
+    /// return an empty set of results even when there are more results available. The <code>NextToken</code>
+    /// response parameter value is <code>null</code><i>only</i> when there are no more results
+    /// to display.
+    /// </para></note><para>
     /// This operation can be called from any account in the organization.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>

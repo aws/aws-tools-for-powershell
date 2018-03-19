@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource that you want to tag. </para>
+        /// <para>The Amazon Resource Name (ARN) of the resource that you want to tag.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

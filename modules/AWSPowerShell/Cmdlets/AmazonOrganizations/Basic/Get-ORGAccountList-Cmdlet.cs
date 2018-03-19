@@ -28,11 +28,16 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Lists all the accounts in the organization. To request only the accounts in a root
-    /// or OU, use the <a>ListAccountsForParent</a> operation instead.
+    /// Lists all the accounts in the organization. To request only the accounts in a specified
+    /// root or OU, use the <a>ListAccountsForParent</a> operation instead.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// Always check the <code>NextToken</code> response parameter for a <code>null</code>
+    /// value when calling a <code>List*</code> operation. These operations can occasionally
+    /// return an empty set of results even when there are more results available. The <code>NextToken</code>
+    /// response parameter value is <code>null</code><i>only</i> when there are no more results
+    /// to display.
+    /// </para></note><para>
     /// This operation can be called only from the organization's master account.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>

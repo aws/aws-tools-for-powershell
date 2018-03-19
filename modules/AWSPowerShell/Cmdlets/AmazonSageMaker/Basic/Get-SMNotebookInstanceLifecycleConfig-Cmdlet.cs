@@ -22,79 +22,41 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Organizations;
-using Amazon.Organizations.Model;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ORG
+namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Enables a policy type in a root. After you enable a policy type in a root, you can
-    /// attach policies of that type to the root, any OU, or account in that root. You can
-    /// undo this by using the <a>DisablePolicyType</a> operation.
+    /// Returns a description of a notebook instance lifecycle configuration.
     /// 
     ///  
     /// <para>
-    /// This operation can be called only from the organization's master account.
-    /// </para><para>
-    /// You can enable a policy type in a root only if that policy type is available in the
-    /// organization. Use <a>DescribeOrganization</a> to view the status of available policy
-    /// types in the organization.
-    /// </para><para>
-    /// To view the status of policy type in a root, use <a>ListRoots</a>.
+    /// For information about notebook instance lifestyle configurations, see <a>notebook-lifecycle-config</a>.
     /// </para>
     /// </summary>
-    [Cmdlet("Enable", "ORGPolicyType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Organizations.Model.Root")]
-    [AWSCmdlet("Calls the AWS Organizations EnablePolicyType API operation.", Operation = new[] {"EnablePolicyType"})]
-    [AWSCmdletOutput("Amazon.Organizations.Model.Root",
-        "This cmdlet returns a Root object.",
-        "The service call response (type Amazon.Organizations.Model.EnablePolicyTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SMNotebookInstanceLifecycleConfig")]
+    [OutputType("Amazon.SageMaker.Model.DescribeNotebookInstanceLifecycleConfigResponse")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service DescribeNotebookInstanceLifecycleConfig API operation.", Operation = new[] {"DescribeNotebookInstanceLifecycleConfig"})]
+    [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeNotebookInstanceLifecycleConfigResponse",
+        "This cmdlet returns a Amazon.SageMaker.Model.DescribeNotebookInstanceLifecycleConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class EnableORGPolicyTypeCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
+    public partial class GetSMNotebookInstanceLifecycleConfigCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
-        #region Parameter PolicyType
+        #region Parameter NotebookInstanceLifecycleConfigName
         /// <summary>
         /// <para>
-        /// <para>The policy type that you want to enable.</para>
+        /// <para>The name of the lifecycle configuration to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [AWSConstantClassSource("Amazon.Organizations.PolicyType")]
-        public Amazon.Organizations.PolicyType PolicyType { get; set; }
-        #endregion
-        
-        #region Parameter RootId
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier (ID) of the root in which you want to enable a policy type.
-        /// You can get the ID from the <a>ListRoots</a> operation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string
-        /// requires "r-" followed by from 4 to 32 lower-case letters or digits.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String RootId { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public System.String NotebookInstanceLifecycleConfigName { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RootId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-ORGPolicyType (EnablePolicyType)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -105,8 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.PolicyType = this.PolicyType;
-            context.RootId = this.RootId;
+            context.NotebookInstanceLifecycleConfigName = this.NotebookInstanceLifecycleConfigName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -121,15 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Organizations.Model.EnablePolicyTypeRequest();
+            var request = new Amazon.SageMaker.Model.DescribeNotebookInstanceLifecycleConfigRequest();
             
-            if (cmdletContext.PolicyType != null)
+            if (cmdletContext.NotebookInstanceLifecycleConfigName != null)
             {
-                request.PolicyType = cmdletContext.PolicyType;
-            }
-            if (cmdletContext.RootId != null)
-            {
-                request.RootId = cmdletContext.RootId;
+                request.NotebookInstanceLifecycleConfigName = cmdletContext.NotebookInstanceLifecycleConfigName;
             }
             
             CmdletOutput output;
@@ -140,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Root;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -165,16 +122,16 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private Amazon.Organizations.Model.EnablePolicyTypeResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.EnablePolicyTypeRequest request)
+        private Amazon.SageMaker.Model.DescribeNotebookInstanceLifecycleConfigResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DescribeNotebookInstanceLifecycleConfigRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "EnablePolicyType");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DescribeNotebookInstanceLifecycleConfig");
             try
             {
                 #if DESKTOP
-                return client.EnablePolicyType(request);
+                return client.DescribeNotebookInstanceLifecycleConfig(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.EnablePolicyTypeAsync(request);
+                var task = client.DescribeNotebookInstanceLifecycleConfigAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -195,8 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.Organizations.PolicyType PolicyType { get; set; }
-            public System.String RootId { get; set; }
+            public System.String NotebookInstanceLifecycleConfigName { get; set; }
         }
         
     }

@@ -28,24 +28,23 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Returns a list of the Amazon SageMaker notebook instances in the requester's account
-    /// in an AWS Region.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists notebook instance lifestyle configurations created with the API.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "SMNotebookInstanceList")]
-    [OutputType("Amazon.SageMaker.Model.NotebookInstanceSummary")]
-    [AWSCmdlet("Calls the Amazon SageMaker Service ListNotebookInstances API operation.", Operation = new[] {"ListNotebookInstances"})]
-    [AWSCmdletOutput("Amazon.SageMaker.Model.NotebookInstanceSummary",
-        "This cmdlet returns a collection of NotebookInstanceSummary objects.",
-        "The service call response (type Amazon.SageMaker.Model.ListNotebookInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "SMNotebookInstanceLifecycleConfigList")]
+    [OutputType("Amazon.SageMaker.Model.NotebookInstanceLifecycleConfigSummary")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service ListNotebookInstanceLifecycleConfigs API operation.", Operation = new[] {"ListNotebookInstanceLifecycleConfigs"})]
+    [AWSCmdletOutput("Amazon.SageMaker.Model.NotebookInstanceLifecycleConfigSummary",
+        "This cmdlet returns a collection of NotebookInstanceLifecycleConfigSummary objects.",
+        "The service call response (type Amazon.SageMaker.Model.ListNotebookInstanceLifecycleConfigsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetSMNotebookInstanceListCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    public partial class GetSMNotebookInstanceLifecycleConfigListCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         #region Parameter CreationTimeAfter
         /// <summary>
         /// <para>
-        /// <para>A filter that returns only notebook instances that were created after the specified
+        /// <para>A filter that returns only lifecycle configurations that were created after the specified
         /// time (timestamp).</para>
         /// </para>
         /// </summary>
@@ -56,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CreationTimeBefore
         /// <summary>
         /// <para>
-        /// <para>A filter that returns only notebook instances that were created before the specified
-        /// time (timestamp). </para>
+        /// <para>A filter that returns only lifecycle configurations that were created before the specified
+        /// time (timestamp).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -67,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter LastModifiedTimeAfter
         /// <summary>
         /// <para>
-        /// <para>A filter that returns only notebook instances that were modified after the specified
+        /// <para>A filter that returns only lifecycle configurations that were modified after the specified
         /// time (timestamp).</para>
         /// </para>
         /// </summary>
@@ -78,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter LastModifiedTimeBefore
         /// <summary>
         /// <para>
-        /// <para>A filter that returns only notebook instances that were modified before the specified
-        /// time (timestamp).</para>
+        /// <para>A filter that returns only lifecycle configurations that were modified before the
+        /// specified time (timestamp).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -89,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NameContain
         /// <summary>
         /// <para>
-        /// <para>A string in the notebook instances' name. This filter returns only notebook instances
+        /// <para>A string in the lifecycle configuration name. This filter returns only lifecycle configurations
         /// whose name contains the specified string.</para>
         /// </para>
         /// </summary>
@@ -98,57 +97,32 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String NameContain { get; set; }
         #endregion
         
-        #region Parameter NotebookInstanceLifecycleConfigNameContain
-        /// <summary>
-        /// <para>
-        /// <para>A string in the name of a notebook instances lifecycle configuration associated with
-        /// this notebook instance. This filter returns only notebook instances associated with
-        /// a lifecycle configuration with a name that contains the specified string.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("NotebookInstanceLifecycleConfigNameContains")]
-        public System.String NotebookInstanceLifecycleConfigNameContain { get; set; }
-        #endregion
-        
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The field to sort results by. The default is <code>Name</code>.</para>
+        /// <para>Sorts the list of results. The default is <code>CreationTime</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.SageMaker.NotebookInstanceSortKey")]
-        public Amazon.SageMaker.NotebookInstanceSortKey SortBy { get; set; }
+        [AWSConstantClassSource("Amazon.SageMaker.NotebookInstanceLifecycleConfigSortKey")]
+        public Amazon.SageMaker.NotebookInstanceLifecycleConfigSortKey SortBy { get; set; }
         #endregion
         
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order for results. </para>
+        /// <para>The sort order for results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.SageMaker.NotebookInstanceSortOrder")]
-        public Amazon.SageMaker.NotebookInstanceSortOrder SortOrder { get; set; }
-        #endregion
-        
-        #region Parameter StatusEqual
-        /// <summary>
-        /// <para>
-        /// <para>A filter that returns only notebook instances with the specified status.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("StatusEquals")]
-        [AWSConstantClassSource("Amazon.SageMaker.NotebookInstanceStatus")]
-        public Amazon.SageMaker.NotebookInstanceStatus StatusEqual { get; set; }
+        [AWSConstantClassSource("Amazon.SageMaker.NotebookInstanceLifecycleConfigSortOrder")]
+        public Amazon.SageMaker.NotebookInstanceLifecycleConfigSortOrder SortOrder { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of notebook instances to return.</para>
+        /// <para>The maximum number of lifecycle configurations to return in the response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -162,11 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> If the previous call to the <code>ListNotebookInstances</code> is truncated, the
-        /// response includes a <code>NextToken</code>. You can use this token in your subsequent
-        /// <code>ListNotebookInstances</code> request to fetch the next set of notebook instances.
-        /// </para><note><para> You might specify a filter or a sort order in your request. When response is truncated,
-        /// you must use the same values for the filer and sort order in the next request. </para></note>
+        /// <para>If the result of a <code>ListNotebookInstanceLifecycleConfigs</code> request was truncated,
+        /// the response includes a <code>NextToken</code>. To get the next set of lifecycle configurations,
+        /// use the token in the next request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -201,10 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.MaxResults = this.MaxResult;
             context.NameContains = this.NameContain;
             context.NextToken = this.NextToken;
-            context.NotebookInstanceLifecycleConfigNameContains = this.NotebookInstanceLifecycleConfigNameContain;
             context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
-            context.StatusEquals = this.StatusEqual;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -220,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.SageMaker.Model.ListNotebookInstancesRequest();
+            var request = new Amazon.SageMaker.Model.ListNotebookInstanceLifecycleConfigsRequest();
             if (cmdletContext.CreationTimeAfter != null)
             {
                 request.CreationTimeAfter = cmdletContext.CreationTimeAfter.Value;
@@ -241,10 +211,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.NameContains = cmdletContext.NameContains;
             }
-            if (cmdletContext.NotebookInstanceLifecycleConfigNameContains != null)
-            {
-                request.NotebookInstanceLifecycleConfigNameContains = cmdletContext.NotebookInstanceLifecycleConfigNameContains;
-            }
             if (cmdletContext.SortBy != null)
             {
                 request.SortBy = cmdletContext.SortBy;
@@ -252,10 +218,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.SortOrder != null)
             {
                 request.SortOrder = cmdletContext.SortOrder;
-            }
-            if (cmdletContext.StatusEquals != null)
-            {
-                request.StatusEquals = cmdletContext.StatusEquals;
             }
             
             // Initialize loop variants and commence piping
@@ -312,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.NotebookInstances;
+                        object pipelineOutput = response.NotebookInstanceLifecycleConfigs;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -321,7 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.NotebookInstances.Count;
+                        int _receivedThisCall = response.NotebookInstanceLifecycleConfigs.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -373,16 +335,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region AWS Service Operation Call
         
-        private Amazon.SageMaker.Model.ListNotebookInstancesResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.ListNotebookInstancesRequest request)
+        private Amazon.SageMaker.Model.ListNotebookInstanceLifecycleConfigsResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.ListNotebookInstanceLifecycleConfigsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "ListNotebookInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "ListNotebookInstanceLifecycleConfigs");
             try
             {
                 #if DESKTOP
-                return client.ListNotebookInstances(request);
+                return client.ListNotebookInstanceLifecycleConfigs(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListNotebookInstancesAsync(request);
+                var task = client.ListNotebookInstanceLifecycleConfigsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -410,10 +372,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public int? MaxResults { get; set; }
             public System.String NameContains { get; set; }
             public System.String NextToken { get; set; }
-            public System.String NotebookInstanceLifecycleConfigNameContains { get; set; }
-            public Amazon.SageMaker.NotebookInstanceSortKey SortBy { get; set; }
-            public Amazon.SageMaker.NotebookInstanceSortOrder SortOrder { get; set; }
-            public Amazon.SageMaker.NotebookInstanceStatus StatusEquals { get; set; }
+            public Amazon.SageMaker.NotebookInstanceLifecycleConfigSortKey SortBy { get; set; }
+            public Amazon.SageMaker.NotebookInstanceLifecycleConfigSortOrder SortOrder { get; set; }
         }
         
     }

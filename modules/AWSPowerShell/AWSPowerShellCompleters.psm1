@@ -5815,6 +5815,13 @@ $SM_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.SageMaker.DirectInternetAccess
+        "New-SMNotebookInstance/DirectInternetAccess"
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+        
         # Amazon.SageMaker.EndpointConfigSortKey
         "Get-SMConfigList/SortBy"
         {
@@ -5842,7 +5849,7 @@ $SM_Completers = {
             ($_ -eq "Update-SMNotebookInstance/InstanceType")
         }
         {
-            $v = "ml.m4.xlarge","ml.p2.xlarge","ml.t2.medium"
+            $v = "ml.m4.xlarge","ml.p2.xlarge","ml.p3.2xlarge","ml.t2.medium"
             break
         }
         
@@ -5850,6 +5857,20 @@ $SM_Completers = {
         "Get-SMModelList/SortBy"
         {
             $v = "CreationTime","Name"
+            break
+        }
+        
+        # Amazon.SageMaker.NotebookInstanceLifecycleConfigSortKey
+        "Get-SMNotebookInstanceLifecycleConfigList/SortBy"
+        {
+            $v = "CreationTime","LastModifiedTime","Name"
+            break
+        }
+        
+        # Amazon.SageMaker.NotebookInstanceLifecycleConfigSortOrder
+        "Get-SMNotebookInstanceLifecycleConfigList/SortOrder"
+        {
+            $v = "Ascending","Descending"
             break
         }
         
@@ -5914,9 +5935,10 @@ $SM_Completers = {
 }
 
 $SM_map = @{
+    "DirectInternetAccess"=@("New-SMNotebookInstance")
     "InstanceType"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
-    "SortBy"=@("Get-SMConfigList","Get-SMEndpointList","Get-SMModelList","Get-SMNotebookInstanceList","Get-SMTrainingJobList")
-    "SortOrder"=@("Get-SMConfigList","Get-SMEndpointList","Get-SMModelList","Get-SMNotebookInstanceList","Get-SMTrainingJobList")
+    "SortBy"=@("Get-SMConfigList","Get-SMEndpointList","Get-SMModelList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMTrainingJobList")
+    "SortOrder"=@("Get-SMConfigList","Get-SMEndpointList","Get-SMModelList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMTrainingJobList")
     "StatusEquals"=@("Get-SMEndpointList","Get-SMNotebookInstanceList","Get-SMTrainingJobList")
 }
 

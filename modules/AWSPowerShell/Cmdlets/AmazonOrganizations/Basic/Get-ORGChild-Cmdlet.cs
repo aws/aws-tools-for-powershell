@@ -32,8 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// root. This operation, along with <a>ListParents</a> enables you to traverse the tree
     /// structure that makes up this root.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// Always check the <code>NextToken</code> response parameter for a <code>null</code>
+    /// value when calling a <code>List*</code> operation. These operations can occasionally
+    /// return an empty set of results even when there are more results available. The <code>NextToken</code>
+    /// response parameter value is <code>null</code><i>only</i> when there are no more results
+    /// to display.
+    /// </para></note><para>
     /// This operation can be called only from the organization's master account.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>

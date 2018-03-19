@@ -22,59 +22,42 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Organizations;
-using Amazon.Organizations.Model;
+using Amazon.Pinpoint;
+using Amazon.Pinpoint.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ORG
+namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Disables an organizational control policy type in a root. A policy of a certain type
-    /// can be attached to entities in a root only if that type is enabled in the root. After
-    /// you perform this operation, you no longer can attach policies of the specified type
-    /// to that root or to any OU or account in that root. You can undo this by using the
-    /// <a>EnablePolicyType</a> operation.
-    /// 
-    ///  
-    /// <para>
-    /// This operation can be called only from the organization's master account.
-    /// </para><note><para>
-    /// If you disable a policy type for a root, it still shows as enabled for the organization
-    /// if all features are enabled in that organization. Use <a>ListRoots</a> to see the
-    /// status of policy types for a specified root. Use <a>DescribeOrganization</a> to see
-    /// the status of policy types in the organization.
-    /// </para></note>
+    /// Deletes an endpoint.
     /// </summary>
-    [Cmdlet("Disable", "ORGPolicyType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Organizations.Model.Root")]
-    [AWSCmdlet("Calls the AWS Organizations DisablePolicyType API operation.", Operation = new[] {"DisablePolicyType"})]
-    [AWSCmdletOutput("Amazon.Organizations.Model.Root",
-        "This cmdlet returns a Root object.",
-        "The service call response (type Amazon.Organizations.Model.DisablePolicyTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "PINEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.Pinpoint.Model.EndpointResponse")]
+    [AWSCmdlet("Calls the Amazon Pinpoint DeleteEndpoint API operation.", Operation = new[] {"DeleteEndpoint"})]
+    [AWSCmdletOutput("Amazon.Pinpoint.Model.EndpointResponse",
+        "This cmdlet returns a EndpointResponse object.",
+        "The service call response (type Amazon.Pinpoint.Model.DeleteEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class DisableORGPolicyTypeCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
+    public partial class RemovePINEndpointCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
-        #region Parameter PolicyType
+        #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The policy type that you want to disable in this root.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [AWSConstantClassSource("Amazon.Organizations.PolicyType")]
-        public Amazon.Organizations.PolicyType PolicyType { get; set; }
+        public System.String ApplicationId { get; set; }
         #endregion
         
-        #region Parameter RootId
+        #region Parameter EndpointId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier (ID) of the root in which you want to disable a policy type.
-        /// You can get the ID from the <a>ListRoots</a> operation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string
-        /// requires "r-" followed by from 4 to 32 lower-case letters or digits.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String RootId { get; set; }
+        public System.String EndpointId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -91,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RootId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-ORGPolicyType (DisablePolicyType)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ApplicationId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-PINEndpoint (DeleteEndpoint)"))
             {
                 return;
             }
@@ -106,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.PolicyType = this.PolicyType;
-            context.RootId = this.RootId;
+            context.ApplicationId = this.ApplicationId;
+            context.EndpointId = this.EndpointId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -122,15 +105,15 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Organizations.Model.DisablePolicyTypeRequest();
+            var request = new Amazon.Pinpoint.Model.DeleteEndpointRequest();
             
-            if (cmdletContext.PolicyType != null)
+            if (cmdletContext.ApplicationId != null)
             {
-                request.PolicyType = cmdletContext.PolicyType;
+                request.ApplicationId = cmdletContext.ApplicationId;
             }
-            if (cmdletContext.RootId != null)
+            if (cmdletContext.EndpointId != null)
             {
-                request.RootId = cmdletContext.RootId;
+                request.EndpointId = cmdletContext.EndpointId;
             }
             
             CmdletOutput output;
@@ -141,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Root;
+                object pipelineOutput = response.EndpointResponse;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -166,16 +149,16 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private Amazon.Organizations.Model.DisablePolicyTypeResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.DisablePolicyTypeRequest request)
+        private Amazon.Pinpoint.Model.DeleteEndpointResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.DeleteEndpointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "DisablePolicyType");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "DeleteEndpoint");
             try
             {
                 #if DESKTOP
-                return client.DisablePolicyType(request);
+                return client.DeleteEndpoint(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisablePolicyTypeAsync(request);
+                var task = client.DeleteEndpointAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -196,8 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.Organizations.PolicyType PolicyType { get; set; }
-            public System.String RootId { get; set; }
+            public System.String ApplicationId { get; set; }
+            public System.String EndpointId { get; set; }
         }
         
     }

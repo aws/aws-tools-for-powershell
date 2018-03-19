@@ -157,10 +157,10 @@
       <HintPath>..\..\packages\AWSSDK.Lightsail.3.3.5.3\lib\net35\AWSSDK.Lightsail.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Organizations">
-      <HintPath>..\..\packages\AWSSDK.Organizations.3.3.7.2\lib\net35\AWSSDK.Organizations.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Organizations.3.3.8\lib\net35\AWSSDK.Organizations.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Pinpoint">
-      <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.6.1\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.7\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Pricing">
       <HintPath>..\..\packages\AWSSDK.Pricing.3.3.0.3\lib\net35\AWSSDK.Pricing.dll</HintPath>
@@ -178,7 +178,7 @@
       <HintPath>..\..\packages\AWSSDK.ResourceGroupsTaggingAPI.3.3.1.8\lib\net35\AWSSDK.ResourceGroupsTaggingAPI.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SageMaker">
-      <HintPath>..\..\packages\AWSSDK.SageMaker.3.3.2.2\lib\net35\AWSSDK.SageMaker.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SageMaker.3.3.3\lib\net35\AWSSDK.SageMaker.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SageMakerRuntime">
       <HintPath>..\..\packages\AWSSDK.SageMakerRuntime.3.3.0.2\lib\net35\AWSSDK.SageMakerRuntime.dll</HintPath>
@@ -319,7 +319,7 @@
       <HintPath>..\..\packages\AWSSDK.ElasticFileSystem.3.3.1.5\lib\net35\AWSSDK.ElasticFileSystem.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticBeanstalk">
-      <HintPath>..\..\packages\AWSSDK.ElasticBeanstalk.3.3.6.5\lib\net35\AWSSDK.ElasticBeanstalk.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ElasticBeanstalk.3.3.7\lib\net35\AWSSDK.ElasticBeanstalk.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElastiCache">
       <HintPath>..\..\packages\AWSSDK.ElastiCache.3.3.5.3\lib\net35\AWSSDK.ElastiCache.dll</HintPath>

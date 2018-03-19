@@ -22,31 +22,22 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Organizations;
-using Amazon.Organizations.Model;
+using Amazon.ElasticBeanstalk;
+using Amazon.ElasticBeanstalk.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ORG
+namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Retrieves information about the organization that the user's account belongs to.
-    /// 
-    ///  
-    /// <para>
-    /// This operation can be called from any account in the organization.
-    /// </para><note><para>
-    /// Even if a policy type is shown as available in the organization, it can be disabled
-    /// separately at the root level with <a>DisablePolicyType</a>. Use <a>ListRoots</a> to
-    /// see the status of policy types for a specified root.
-    /// </para></note>
+    
     /// </summary>
-    [Cmdlet("Get", "ORGOrganization")]
-    [OutputType("Amazon.Organizations.Model.Organization")]
-    [AWSCmdlet("Calls the AWS Organizations DescribeOrganization API operation.", Operation = new[] {"DescribeOrganization"})]
-    [AWSCmdletOutput("Amazon.Organizations.Model.Organization",
-        "This cmdlet returns a Organization object.",
-        "The service call response (type Amazon.Organizations.Model.DescribeOrganizationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "EBAccountAttribute")]
+    [OutputType("Amazon.ElasticBeanstalk.Model.ResourceQuotas")]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk DescribeAccountAttributes API operation.", Operation = new[] {"DescribeAccountAttributes"})]
+    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ResourceQuotas",
+        "This cmdlet returns a ResourceQuotas object.",
+        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeAccountAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetORGOrganizationCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
+    public partial class GetEBAccountAttributeCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
         protected override void ProcessRecord()
@@ -76,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Organizations.Model.DescribeOrganizationRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.DescribeAccountAttributesRequest();
             
             
             CmdletOutput output;
@@ -87,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Organization;
+                object pipelineOutput = response.ResourceQuotas;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -112,16 +103,16 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private Amazon.Organizations.Model.DescribeOrganizationResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.DescribeOrganizationRequest request)
+        private Amazon.ElasticBeanstalk.Model.DescribeAccountAttributesResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DescribeAccountAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "DescribeOrganization");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "DescribeAccountAttributes");
             try
             {
                 #if DESKTOP
-                return client.DescribeOrganization(request);
+                return client.DescribeAccountAttributes(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeOrganizationAsync(request);
+                var task = client.DescribeAccountAttributesAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"

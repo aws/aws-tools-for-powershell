@@ -3,6 +3,11 @@
     * Added cmdlets to support the Amazon WorkMail service. Cmdlets for the service have the noun prefix WM and can be listed with the command *Get-AWSCmdletName -Service WM*.
   * Amazon Pinpoint
     * Added cmdlets to support the new service feature enabling endpoint exports from your Amazon Pinpoint projects. The new cmdlets are Get-PINExportJobList (GetExportJobs API), Get-PINSegmentExportJobList (GetSegmentExportJobs API) and New-PINExportJob (CreateExportJob API).
+    * Added cmdlet Remove-PINEndpoint to support the new DeleteEndpoint API.
+  * Amazon SageMaker
+    * Added cmdlets to support the new customizable notebook instance lifecycle configuration APIs. The new cmdlets are Get-SMNotebookInstanceLifecycleConfig (DescribeNotebookInstanceLifecycleConfig API), Get-SMNotebookInstanceLifecycleConfig (ListNotebookInstanceLifecycleConfigs API), New-SMNotebookInstanceLifecycleConfig (CreateNotebookInstanceLifecycleConfig API), Remove-SMNotebookInstanceLifecycleConfig (DeleteNotebookInstanceLifecycleConfig API) and Update-SMNotebookInstanceLifecycleConfig (UpdateNotebookInstanceLifecycleConfig API).
+  * AWS Elastic Beanstalk
+    * Added new cmdlet Get-EBAccountAttribute to support the new DescribeAccountAttributes API. In this release the API will support quotas for resources such as applications, application versions, and environments.
 
 ### 3.3.245.0 (2018-03-02)
   * AWS AppStream

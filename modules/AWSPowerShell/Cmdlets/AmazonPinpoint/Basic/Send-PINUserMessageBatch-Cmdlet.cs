@@ -522,6 +522,20 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public Amazon.Pinpoint.MessageType SMSMessage_MessageType { get; set; }
         #endregion
         
+        #region Parameter SMSMessage_OriginationNumber
+        /// <summary>
+        /// <para>
+        /// The phone number that the SMS message
+        /// originates from. Specify one of the dedicated long codes or short codes that you requested
+        /// from AWS Support and that is assigned to your account. If this attribute is not specified,
+        /// Amazon Pinpoint randomly assigns a long code.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("SendUsersMessageRequest_MessageConfiguration_SMSMessage_OriginationNumber")]
+        public System.String SMSMessage_OriginationNumber { get; set; }
+        #endregion
+        
         #region Parameter APNSMessage_PreferredAuthenticationMethod
         /// <summary>
         /// <para>
@@ -635,7 +649,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter SMSMessage_SenderId
         /// <summary>
         /// <para>
-        /// Sender ID of sent message.
+        /// The sender ID that is shown as the message sender
+        /// on the recipient's device. Support for sender IDs varies by country or region.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -1327,6 +1342,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.SendUsersMessageRequest_MessageConfiguration_GCMMessage_Url = this.GCMMessage_Url;
             context.SendUsersMessageRequest_MessageConfiguration_SMSMessage_Body = this.SMSMessage_Body;
             context.SendUsersMessageRequest_MessageConfiguration_SMSMessage_MessageType = this.SMSMessage_MessageType;
+            context.SendUsersMessageRequest_MessageConfiguration_SMSMessage_OriginationNumber = this.SMSMessage_OriginationNumber;
             context.SendUsersMessageRequest_MessageConfiguration_SMSMessage_SenderId = this.SMSMessage_SenderId;
             if (this.SMSMessage_Substitution != null)
             {
@@ -1463,6 +1479,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_SMSMessage_sMSMessage_MessageType != null)
             {
                 requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_SMSMessage.MessageType = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_SMSMessage_sMSMessage_MessageType;
+                requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_SMSMessageIsNull = false;
+            }
+            System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_SMSMessage_sMSMessage_OriginationNumber = null;
+            if (cmdletContext.SendUsersMessageRequest_MessageConfiguration_SMSMessage_OriginationNumber != null)
+            {
+                requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_SMSMessage_sMSMessage_OriginationNumber = cmdletContext.SendUsersMessageRequest_MessageConfiguration_SMSMessage_OriginationNumber;
+            }
+            if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_SMSMessage_sMSMessage_OriginationNumber != null)
+            {
+                requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_SMSMessage.OriginationNumber = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_SMSMessage_sMSMessage_OriginationNumber;
                 requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_SMSMessageIsNull = false;
             }
             System.String requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_SMSMessage_sMSMessage_SenderId = null;
@@ -2425,6 +2451,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String SendUsersMessageRequest_MessageConfiguration_GCMMessage_Url { get; set; }
             public System.String SendUsersMessageRequest_MessageConfiguration_SMSMessage_Body { get; set; }
             public Amazon.Pinpoint.MessageType SendUsersMessageRequest_MessageConfiguration_SMSMessage_MessageType { get; set; }
+            public System.String SendUsersMessageRequest_MessageConfiguration_SMSMessage_OriginationNumber { get; set; }
             public System.String SendUsersMessageRequest_MessageConfiguration_SMSMessage_SenderId { get; set; }
             public Dictionary<System.String, List<System.String>> SendUsersMessageRequest_MessageConfiguration_SMSMessage_Substitutions { get; set; }
             public Dictionary<System.String, Amazon.Pinpoint.Model.EndpointSendConfiguration> SendUsersMessageRequest_Users { get; set; }
