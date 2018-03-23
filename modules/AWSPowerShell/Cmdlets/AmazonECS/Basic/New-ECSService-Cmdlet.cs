@@ -285,7 +285,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The security groups associated with the task or service. If you do not specify a security
-        /// group, the default security group for the VPC is used.</para>
+        /// group, the default security group for the VPC is used. There is a limit of 5 security
+        /// groups able to be specified per AwsVpcConfiguration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -306,10 +307,24 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String ServiceName { get; set; }
         #endregion
         
+        #region Parameter ServiceRegistry
+        /// <summary>
+        /// <para>
+        /// <para>The details of the service discovery registries you want to assign to this service.
+        /// For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguideservice-discovery.html">Service
+        /// Discovery</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ServiceRegistries")]
+        public Amazon.ECS.Model.ServiceRegistry[] ServiceRegistry { get; set; }
+        #endregion
+        
         #region Parameter AwsvpcConfiguration_Subnet
         /// <summary>
         /// <para>
-        /// <para>The subnets associated with the task or service.</para>
+        /// <para>The subnets associated with the task or service. There is a limit of 10 subnets able
+        /// to be specified per AwsVpcConfiguration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -393,6 +408,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.PlatformVersion = this.PlatformVersion;
             context.Role = this.Role;
             context.ServiceName = this.ServiceName;
+            if (this.ServiceRegistry != null)
+            {
+                context.ServiceRegistries = new List<Amazon.ECS.Model.ServiceRegistry>(this.ServiceRegistry);
+            }
             context.TaskDefinition = this.TaskDefinition;
             
             // allow further manipulation of loaded context prior to processing
@@ -537,6 +556,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.ServiceName = cmdletContext.ServiceName;
             }
+            if (cmdletContext.ServiceRegistries != null)
+            {
+                request.ServiceRegistries = cmdletContext.ServiceRegistries;
+            }
             if (cmdletContext.TaskDefinition != null)
             {
                 request.TaskDefinition = cmdletContext.TaskDefinition;
@@ -621,6 +644,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.String PlatformVersion { get; set; }
             public System.String Role { get; set; }
             public System.String ServiceName { get; set; }
+            public List<Amazon.ECS.Model.ServiceRegistry> ServiceRegistries { get; set; }
             public System.String TaskDefinition { get; set; }
         }
         

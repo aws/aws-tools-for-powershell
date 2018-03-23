@@ -979,6 +979,7 @@ Set-Alias -Name CB-ListProjects -Value Get-CBProjectList
 Set-Alias -Name CB-StartBuild -Value Start-CBBuild
 Set-Alias -Name CB-StopBuild -Value Stop-CBBuild
 Set-Alias -Name CB-UpdateProject -Value Update-CBProject
+Set-Alias -Name CB-UpdateWebhook -Value Update-CBWebhook
 Set-Alias -Name CC-BatchGetRepositories -Value Get-CCRepositoryBatch
 Set-Alias -Name Create-CCBranch -Value New-CCBranch
 Set-Alias -Name CC-CreateBranch -Value New-CCBranch
@@ -1276,6 +1277,7 @@ Set-Alias -Name COMP-DetectKeyPhrases -Value Find-COMPKeyPhrase
 Set-Alias -Name COMP-DetectSentiment -Value Find-COMPSentiment
 Set-Alias -Name COMP-ListTopicsDetectionJobs -Value Get-COMPTopicsDetectionJobList
 Set-Alias -Name COMP-StartTopicsDetectionJob -Value Start-COMPTopicsDetectionJob
+Set-Alias -Name CFG-BatchGetResourceConfig -Value Get-CFGGetResourceConfigBatch
 Set-Alias -Name Delete-CFGConfigRule -Value Remove-CFGConfigRule
 Set-Alias -Name CFG-DeleteConfigRule -Value Remove-CFGConfigRule
 Set-Alias -Name Delete-CFGConfigurationRecorder -Value Remove-CFGConfigurationRecorder
@@ -1328,6 +1330,7 @@ Set-Alias -Name CUR-PutReportDefinition -Value Write-CURReportDefinition
 Set-Alias -Name CE-GetCostAndUsage -Value Get-CECostAndUsage
 Set-Alias -Name CE-GetDimensionValues -Value Get-CEDimensionValue
 Set-Alias -Name CE-GetReservationCoverage -Value Get-CEReservationCoverage
+Set-Alias -Name CE-GetReservationPurchaseRecommendation -Value Get-CEReservationPurchaseRecommendation
 Set-Alias -Name CE-GetReservationUtilization -Value Get-CEReservationUtilization
 Set-Alias -Name CE-GetTags -Value Get-CETag
 Set-Alias -Name DMS-AddTagsToResource -Value Set-DMSResourceTag
@@ -3687,6 +3690,8 @@ Set-Alias -Name EML-ListInputSecurityGroups -Value Get-EMLInputSecurityGroupList
 Set-Alias -Name EML-StartChannel -Value Start-EMLChannel
 Set-Alias -Name EML-StopChannel -Value Stop-EMLChannel
 Set-Alias -Name EML-UpdateChannel -Value Update-EMLChannel
+Set-Alias -Name EML-UpdateInput -Value Update-EMLInput
+Set-Alias -Name EML-UpdateInputSecurityGroup -Value Update-EMLInputSecurityGroup
 Set-Alias -Name Create-EMPChannel -Value New-EMPChannel
 Set-Alias -Name EMP-CreateChannel -Value New-EMPChannel
 Set-Alias -Name Create-EMPOriginEndpoint -Value New-EMPOriginEndpoint

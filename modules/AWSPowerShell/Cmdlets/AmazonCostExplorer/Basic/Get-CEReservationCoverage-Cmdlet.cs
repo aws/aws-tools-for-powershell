@@ -28,9 +28,11 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// Retrieve the reservation coverage for your account. An organization's master account
-    /// has access to the associated member accounts. For any time period, you can filter
-    /// data about reservation usage by the following dimensions. 
+    /// Retrieves the reservation coverage for your account. This allows you to see how much
+    /// of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database
+    /// Service, or Amazon Redshift usage is covered by a reservation. An organization's master
+    /// account can see the coverage of the associated member accounts. For any time period,
+    /// you can filter data about reservation usage by the following dimensions:
     /// 
     ///  <ul><li><para>
     /// AZ
@@ -61,10 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters utilization data by dimensions. You can filter by the following dimensions.</para><ul><li><para>AZ</para></li><li><para>INSTANCE_TYPE</para></li><li><para>LINKED_ACCOUNT</para></li><li><para>PLATFORM</para></li><li><para>REGION</para></li><li><para>TENANCY</para></li></ul><para><code>GetReservationCoverage</code> uses the same <code>Expression</code> object
-        /// as the other operations, but only <code>AND</code> is supported among each dimension.
-        /// You can nest only one level deep. If there are multiple values for a dimension, they
-        /// are OR'd together.</para>
+        /// <para>Filters utilization data by dimensions. You can filter by the following dimensions:</para><ul><li><para>AZ</para></li><li><para>INSTANCE_TYPE</para></li><li><para>LINKED_ACCOUNT</para></li><li><para>PLATFORM</para></li><li><para>REGION</para></li><li><para>TENANCY</para></li></ul><para><code>GetReservationCoverage</code> uses the same <code><a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a></code> object as the other operations, but only <code>AND</code> is supported among
+        /// each dimension. You can nest only one level deep. If there are multiple values for
+        /// a dimension, they are OR'd together.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter GroupBy
         /// <summary>
         /// <para>
-        /// <para>You can group the data by the following attributes. </para><ul><li><para>AZ</para></li><li><para>INSTANCE_TYPE</para></li><li><para>LINKED_ACCOUNT</para></li><li><para>PLATFORM</para></li><li><para>REGION</para></li><li><para>TENANCY</para></li></ul>
+        /// <para>You can group the data by the following attributes:</para><ul><li><para>AZ</para></li><li><para>INSTANCE_TYPE</para></li><li><para>LINKED_ACCOUNT</para></li><li><para>PLATFORM</para></li><li><para>REGION</para></li><li><para>TENANCY</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -99,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>The start and end dates of the period for which you want to retrieve data about reservation
-        /// coverage. You can retrieve data for a maximum of 13 months-the last 12 months and
+        /// coverage. You can retrieve data for a maximum of 13 months: the last 12 months and
         /// the current month. The start date is inclusive, but the end date is exclusive. For
         /// example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is
         /// <code>2017-05-01</code>, then the cost and usage data is retrieved from <code>2017-01-01</code>

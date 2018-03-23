@@ -53,10 +53,23 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public partial class NewCBWebhookCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
+        #region Parameter BranchFilter
+        /// <summary>
+        /// <para>
+        /// <para>A regular expression used to determine which branches in a repository are built when
+        /// a webhook is triggered. If the name of a branch matches the regular expression, then
+        /// it is built. If it doesn't match, then it is not. If branchFilter is empty, then all
+        /// branches are built.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String BranchFilter { get; set; }
+        #endregion
+        
         #region Parameter ProjectName
         /// <summary>
         /// <para>
-        /// <para>The name of the build project.</para>
+        /// <para>The name of the AWS CodeBuild project.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -92,6 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.BranchFilter = this.BranchFilter;
             context.ProjectName = this.ProjectName;
             
             // allow further manipulation of loaded context prior to processing
@@ -109,6 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             // create request
             var request = new Amazon.CodeBuild.Model.CreateWebhookRequest();
             
+            if (cmdletContext.BranchFilter != null)
+            {
+                request.BranchFilter = cmdletContext.BranchFilter;
+            }
             if (cmdletContext.ProjectName != null)
             {
                 request.ProjectName = cmdletContext.ProjectName;
@@ -177,6 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String BranchFilter { get; set; }
             public System.String ProjectName { get; set; }
         }
         

@@ -28,7 +28,13 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    
+    /// Returns attributes related to AWS Elastic Beanstalk that are associated with the calling
+    /// AWS account.
+    /// 
+    ///  
+    /// <para>
+    /// The result currently has one set of attributes—resource quotas.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "EBAccountAttribute")]
     [OutputType("Amazon.ElasticBeanstalk.Model.ResourceQuotas")]

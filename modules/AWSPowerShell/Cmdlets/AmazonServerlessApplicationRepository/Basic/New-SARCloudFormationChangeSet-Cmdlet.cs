@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter SemanticVersion
         /// <summary>
         /// <para>
-        /// Amazon.ServerlessApplicationRepository.Model.CreateCloudFormationChangeSetRequest.SemanticVersion
+        /// <para>The semantic version of the application:</para><para><a href="https://semver.org/">https://semver.org/</a></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

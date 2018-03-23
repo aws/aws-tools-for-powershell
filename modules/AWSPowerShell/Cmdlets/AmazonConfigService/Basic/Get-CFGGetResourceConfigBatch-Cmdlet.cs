@@ -22,63 +22,48 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoT;
-using Amazon.IoT.Model;
+using Amazon.ConfigService;
+using Amazon.ConfigService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOT
+namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Updates the event configurations.
+    /// Returns the current configuration for one or more requested resources. The operation
+    /// also returns a list of resources that are not processed in the current request. If
+    /// there are no unprocessed resources, the operation returns an empty unprocessedResourceKeys
+    /// list. 
+    /// 
+    ///  <note><ul><li><para>
+    /// The API does not return results for deleted resources.
+    /// </para></li><li><para>
+    ///  The API does not return any tags for the requested resources. This information is
+    /// filtered out of the supplementaryConfiguration section of the API response.
+    /// </para></li></ul></note>
     /// </summary>
-    [Cmdlet("Update", "IOTEventConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Amazon.IoT.Model.Configuration, AWSSDK.IoT, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604]]")]
-    [AWSCmdlet("Calls the AWS IoT UpdateEventConfigurations API operation.", Operation = new[] {"UpdateEventConfigurations"})]
-    [AWSCmdletOutput("None or System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Amazon.IoT.Model.Configuration, AWSSDK.IoT, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604]]",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the EventConfiguration parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.IoT.Model.UpdateEventConfigurationsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CFGGetResourceConfigBatch")]
+    [OutputType("Amazon.ConfigService.Model.BatchGetResourceConfigResponse")]
+    [AWSCmdlet("Calls the AWS Config BatchGetResourceConfig API operation.", Operation = new[] {"BatchGetResourceConfig"})]
+    [AWSCmdletOutput("Amazon.ConfigService.Model.BatchGetResourceConfigResponse",
+        "This cmdlet returns a Amazon.ConfigService.Model.BatchGetResourceConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateIOTEventConfigurationCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class GetCFGGetResourceConfigBatchCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter EventConfiguration
+        #region Parameter ResourceKey
         /// <summary>
         /// <para>
-        /// <para>The new event configuration values.</para>
+        /// <para>A list of resource keys to be processed with the current request. Each element in
+        /// the list consists of the resource type and resource ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("EventConfigurations")]
-        public System.Collections.Hashtable EventConfiguration { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the EventConfiguration parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [Alias("ResourceKeys")]
+        public Amazon.ConfigService.Model.ResourceKey[] ResourceKey { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("EventConfiguration", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-IOTEventConfiguration (UpdateEventConfigurations)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -89,13 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.EventConfiguration != null)
+            if (this.ResourceKey != null)
             {
-                context.EventConfigurations = new Dictionary<System.String, Amazon.IoT.Model.Configuration>(StringComparer.Ordinal);
-                foreach (var hashKey in this.EventConfiguration.Keys)
-                {
-                    context.EventConfigurations.Add((String)hashKey, (Configuration)(this.EventConfiguration[hashKey]));
-                }
+                context.ResourceKeys = new List<Amazon.ConfigService.Model.ResourceKey>(this.ResourceKey);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -111,11 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.UpdateEventConfigurationsRequest();
+            var request = new Amazon.ConfigService.Model.BatchGetResourceConfigRequest();
             
-            if (cmdletContext.EventConfigurations != null)
+            if (cmdletContext.ResourceKeys != null)
             {
-                request.EventConfigurations = cmdletContext.EventConfigurations;
+                request.ResourceKeys = cmdletContext.ResourceKeys;
             }
             
             CmdletOutput output;
@@ -126,9 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.EventConfiguration;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -153,16 +132,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private Amazon.IoT.Model.UpdateEventConfigurationsResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.UpdateEventConfigurationsRequest request)
+        private Amazon.ConfigService.Model.BatchGetResourceConfigResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.BatchGetResourceConfigRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "UpdateEventConfigurations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "BatchGetResourceConfig");
             try
             {
                 #if DESKTOP
-                return client.UpdateEventConfigurations(request);
+                return client.BatchGetResourceConfig(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateEventConfigurationsAsync(request);
+                var task = client.BatchGetResourceConfigAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -183,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Dictionary<System.String, Amazon.IoT.Model.Configuration> EventConfigurations { get; set; }
+            public List<Amazon.ConfigService.Model.ResourceKey> ResourceKeys { get; set; }
         }
         
     }

@@ -28,12 +28,12 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// Retrieve cost and usage metrics for your account. You can specify which cost and usage-related
-    /// metric, such as <code>BlendedCosts</code> or <code>UsageQuantity</code>, that you
-    /// want the request to return. You can also filter and group your data by various dimensions,
-    /// such as <code>SERVICE</code> or <code>AZ</code>, in a specific time range. See the
-    /// <code>GetDimensionValues</code> action for a complete list of the valid dimensions.
-    /// Master accounts in an organization have access to all member accounts.
+    /// Retrieves cost and usage metrics for your account. You can specify which cost and
+    /// usage-related metric, such as <code>BlendedCosts</code> or <code>UsageQuantity</code>,
+    /// that you want the request to return. You can also filter and group your data by various
+    /// dimensions, such as <code>SERVICE</code> or <code>AZ</code>, in a specific time range.
+    /// For a complete list of valid dimensions, see the <code><a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a></code> operation. Master accounts in an organization in AWS Organizations have access
+    /// to all member accounts.
     /// </summary>
     [Cmdlet("Get", "CECostAndUsage")]
     [OutputType("Amazon.CostExplorer.Model.GetCostAndUsageResponse")]
@@ -48,9 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>Filters AWS costs by different dimensions. For example, you can specify <code>SERVICE</code>
-        /// and <code>LINKED_ACCOUNT</code> and get the costs associated with that account's usage
-        /// of that service. You can nest <code>Expression</code> objects to define any combination
-        /// of dimension filters. For more information, see <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>.
+        /// and <code>LINKED_ACCOUNT</code> and get the costs that are associated with that account's
+        /// usage of that service. You can nest <code>Expression</code> objects to define any
+        /// combination of dimension filters. For more information, see <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>.
         /// </para>
         /// </para>
         /// </summary>
@@ -75,9 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>You can group AWS costs using up to two different groups, either dimensions, tag keys,
-        /// or both.</para><para>When you group by tag key, you get all tag values, including empty strings.</para><para>Valid values are <code>AZ</code>, <code>INSTANCE_TYPE</code>, <code>LINKED_ACCOUNT</code>,
-        /// <code>OPERATION</code>, <code>PLATFORM</code>, <code>PURCHASE_TYPE</code>, <code>SERVICE</code>,
-        /// <code>TAGS</code>, <code>TENANCY</code>, and <code>USAGE_TYPE</code>.</para>
+        /// or both.</para><para>When you group by tag key, you get all tag values, including empty strings.</para><para>Valid values are <code>AZ</code>, <code>INSTANCE_TYPE</code>, <code>LEGAL_ENTITY_NAME</code>,
+        /// <code>LINKED_ACCOUNT</code>, <code>OPERATION</code>, <code>PLATFORM</code>, <code>PURCHASE_TYPE</code>,
+        /// <code>SERVICE</code>, <code>TAGS</code>, <code>TENANCY</code>, and <code>USAGE_TYPE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// across all of EC2, the results aren't meaningful because EC2 compute hours and data
         /// transfer are measured in different units (for example, hours vs. GB). To get more
         /// meaningful <code>UsageQuantity</code> metrics, filter by <code>UsageType</code> or
-        /// <code>UsageTypeGroups</code>. </para></note>
+        /// <code>UsageTypeGroups</code>. </para></note><para><code>Metrics</code> is required for <code>GetCostAndUsage</code> requests.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

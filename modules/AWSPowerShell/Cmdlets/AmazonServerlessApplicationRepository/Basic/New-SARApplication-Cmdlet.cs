@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter SemanticVersion
         /// <summary>
         /// <para>
-        /// Amazon.ServerlessApplicationRepository.Model.CreateApplicationRequest.SemanticVersion
+        /// <para>The semantic version of the application:</para><para><a href="https://semver.org/">https://semver.org/</a></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter SpdxLicenseId
         /// <summary>
         /// <para>
-        /// Amazon.ServerlessApplicationRepository.Model.CreateApplicationRequest.SpdxLicenseId
+        /// <para>A valid identifier from <a href="https://spdx.org/licenses/">https://spdx.org/licenses/</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -2162,6 +2162,13 @@ $CE_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CostExplorer.AccountScope
+        "Get-CEReservationPurchaseRecommendation/AccountScope"
+        {
+            $v = "PAYER"
+            break
+        }
+        
         # Amazon.CostExplorer.Context
         "Get-CEDimensionValue/Context"
         {
@@ -2187,6 +2194,34 @@ $CE_Completers = {
             break
         }
         
+        # Amazon.CostExplorer.LookbackPeriodInDays
+        "Get-CEReservationPurchaseRecommendation/LookbackPeriodInDays"
+        {
+            $v = "SEVEN_DAYS","SIXTY_DAYS","THIRTY_DAYS"
+            break
+        }
+        
+        # Amazon.CostExplorer.OfferingClass
+        "Get-CEReservationPurchaseRecommendation/ServiceSpecification_EC2Specification_OfferingClass"
+        {
+            $v = "CONVERTIBLE","STANDARD"
+            break
+        }
+        
+        # Amazon.CostExplorer.PaymentOption
+        "Get-CEReservationPurchaseRecommendation/PaymentOption"
+        {
+            $v = "ALL_UPFRONT","NO_UPFRONT","PARTIAL_UPFRONT"
+            break
+        }
+        
+        # Amazon.CostExplorer.TermInYears
+        "Get-CEReservationPurchaseRecommendation/TermInYears"
+        {
+            $v = "ONE_YEAR","THREE_YEARS"
+            break
+        }
+        
     }
     
     $v |
@@ -2195,9 +2230,14 @@ $CE_Completers = {
 }
 
 $CE_map = @{
+    "AccountScope"=@("Get-CEReservationPurchaseRecommendation")
     "Context"=@("Get-CEDimensionValue")
     "Dimension"=@("Get-CEDimensionValue")
     "Granularity"=@("Get-CECostAndUsage","Get-CEReservationCoverage","Get-CEReservationUtilization")
+    "LookbackPeriodInDays"=@("Get-CEReservationPurchaseRecommendation")
+    "PaymentOption"=@("Get-CEReservationPurchaseRecommendation")
+    "ServiceSpecification_EC2Specification_OfferingClass"=@("Get-CEReservationPurchaseRecommendation")
+    "TermInYears"=@("Get-CEReservationPurchaseRecommendation")
 }
 
 _awsArgumentCompleterRegistration $CE_Completers $CE_map

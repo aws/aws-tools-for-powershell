@@ -58,7 +58,7 @@
       <HintPath>..\..\packages\AWSSDK.AlexaForBusiness.3.3.1.2\lib\net35\AWSSDK.AlexaForBusiness.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppStream">
-      <HintPath>..\..\packages\AWSSDK.AppStream.3.3.10.2\lib\net35\AWSSDK.AppStream.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.AppStream.3.3.11\lib\net35\AWSSDK.AppStream.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppSync">
       <HintPath>..\..\packages\AWSSDK.AppSync.3.3.1.2\lib\net35\AWSSDK.AppSync.dll</HintPath>
@@ -91,13 +91,13 @@
       <HintPath>..\..\packages\AWSSDK.CostAndUsageReport.3.3.0.19\lib\net35\AWSSDK.CostAndUsageReport.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CostExplorer">
-      <HintPath>..\..\packages\AWSSDK.CostExplorer.3.3.1.2\lib\net35\AWSSDK.CostExplorer.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CostExplorer.3.3.2\lib\net35\AWSSDK.CostExplorer.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DAX">
       <HintPath>..\..\packages\AWSSDK.DAX.3.3.0.8\lib\net35\AWSSDK.DAX.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Glue">
-      <HintPath>..\..\packages\AWSSDK.Glue.3.3.5.2\lib\net35\AWSSDK.Glue.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Glue.3.3.6\lib\net35\AWSSDK.Glue.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Greengrass">
       <HintPath>..\..\packages\AWSSDK.Greengrass.3.3.2.2\lib\net35\AWSSDK.Greengrass.dll</HintPath>
@@ -127,7 +127,7 @@
       <HintPath>..\..\packages\AWSSDK.MediaConvert.3.3.1.2\lib\net35\AWSSDK.MediaConvert.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaLive">
-      <HintPath>..\..\packages\AWSSDK.MediaLive.3.3.3.1\lib\net35\AWSSDK.MediaLive.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.MediaLive.3.3.4\lib\net35\AWSSDK.MediaLive.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaPackage">
       <HintPath>..\..\packages\AWSSDK.MediaPackage.3.3.0.2\lib\net35\AWSSDK.MediaPackage.dll</HintPath>
@@ -151,7 +151,7 @@
       <HintPath>..\..\packages\AWSSDK.OpsWorksCM.3.3.4.5\lib\net35\AWSSDK.OpsWorksCM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeBuild">
-      <HintPath>..\..\packages\AWSSDK.CodeBuild.3.3.8.2\lib\net35\AWSSDK.CodeBuild.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CodeBuild.3.3.9\lib\net35\AWSSDK.CodeBuild.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lightsail">
       <HintPath>..\..\packages\AWSSDK.Lightsail.3.3.5.3\lib\net35\AWSSDK.Lightsail.dll</HintPath>
@@ -184,7 +184,7 @@
       <HintPath>..\..\packages\AWSSDK.SageMakerRuntime.3.3.0.2\lib\net35\AWSSDK.SageMakerRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ServerlessApplicationRepository">
-      <HintPath>..\..\packages\AWSSDK.ServerlessApplicationRepository.3.3.1.2\lib\net35\AWSSDK.ServerlessApplicationRepository.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ServerlessApplicationRepository.3.3.1.3\lib\net35\AWSSDK.ServerlessApplicationRepository.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleWorkflow">
       <HintPath>..\..\packages\AWSSDK.SimpleWorkflow.3.3.0.26\lib\net35\AWSSDK.SimpleWorkflow.dll</HintPath>
@@ -262,7 +262,7 @@
       <HintPath>..\..\packages\AWSSDK.Redshift.3.3.4.1\lib\net35\AWSSDK.Redshift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RDS">
-      <HintPath>..\..\packages\AWSSDK.RDS.3.3.21.3\lib\net35\AWSSDK.RDS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.RDS.3.3.21.4\lib\net35\AWSSDK.RDS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OpsWorks">
       <HintPath>..\..\packages\AWSSDK.OpsWorks.3.3.3.2\lib\net35\AWSSDK.OpsWorks.dll</HintPath>
@@ -319,13 +319,13 @@
       <HintPath>..\..\packages\AWSSDK.ElasticFileSystem.3.3.1.5\lib\net35\AWSSDK.ElasticFileSystem.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticBeanstalk">
-      <HintPath>..\..\packages\AWSSDK.ElasticBeanstalk.3.3.7\lib\net35\AWSSDK.ElasticBeanstalk.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ElasticBeanstalk.3.3.7.1\lib\net35\AWSSDK.ElasticBeanstalk.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElastiCache">
       <HintPath>..\..\packages\AWSSDK.ElastiCache.3.3.5.3\lib\net35\AWSSDK.ElastiCache.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECS">
-      <HintPath>..\..\packages\AWSSDK.ECS.3.3.11.1\lib\net35\AWSSDK.ECS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ECS.3.3.13\lib\net35\AWSSDK.ECS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECR">
       <HintPath>..\..\packages\AWSSDK.ECR.3.3.3.5\lib\net35\AWSSDK.ECR.dll</HintPath>
@@ -352,10 +352,10 @@
       <HintPath>..\..\packages\AWSSDK.DatabaseMigrationService.3.3.6.2\lib\net35\AWSSDK.DatabaseMigrationService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Core">
-      <HintPath>..\..\packages\AWSSDK.Core.3.3.21.16\lib\net35\AWSSDK.Core.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Core.3.3.21.17\lib\net35\AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConfigService">
-      <HintPath>..\..\packages\AWSSDK.ConfigService.3.3.13.2\lib\net35\AWSSDK.ConfigService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ConfigService.3.3.14\lib\net35\AWSSDK.ConfigService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CognitoIdentityProvider">
       <HintPath>..\..\packages\AWSSDK.CognitoIdentityProvider.3.3.9.2\lib\net35\AWSSDK.CognitoIdentityProvider.dll</HintPath>
@@ -376,7 +376,7 @@
       <HintPath>..\..\packages\AWSSDK.CloudWatchLogs.3.3.4.5\lib\net35\AWSSDK.CloudWatchLogs.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatchEvents">
-      <HintPath>..\..\packages\AWSSDK.CloudWatchEvents.3.3.4.2\lib\net35\AWSSDK.CloudWatchEvents.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudWatchEvents.3.3.5\lib\net35\AWSSDK.CloudWatchEvents.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatch">
       <HintPath>..\..\packages\AWSSDK.CloudWatch.3.3.5.3\lib\net35\AWSSDK.CloudWatch.dll</HintPath>

@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// </para></li><li><para>
     /// Amazon SNS topics
     /// </para></li><li><para>
-    /// Amazon SQS queues
+    /// Amazon SQS queues, including FIFO queues
     /// </para></li><li><para>
     /// The default event bus of another AWS account
     /// </para></li></ul><para>

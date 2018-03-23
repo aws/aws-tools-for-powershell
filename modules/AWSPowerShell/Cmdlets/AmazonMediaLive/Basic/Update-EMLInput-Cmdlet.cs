@@ -22,51 +22,78 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AppStream;
-using Amazon.AppStream.Model;
+using Amazon.MediaLive;
+using Amazon.MediaLive.Model;
 
-namespace Amazon.PowerShell.Cmdlets.APS
+namespace Amazon.PowerShell.Cmdlets.EML
 {
     /// <summary>
-    /// Associates the specified fleet with the specified stack.
+    /// Updates an input.
     /// </summary>
-    [Cmdlet("Register", "APSFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the AWS AppStream AssociateFleet API operation.", Operation = new[] {"AssociateFleet"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StackName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.AppStream.Model.AssociateFleetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "EMLInput", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.MediaLive.Model.Input")]
+    [AWSCmdlet("Calls the AWS Elemental MediaLive UpdateInput API operation.", Operation = new[] {"UpdateInput"})]
+    [AWSCmdletOutput("Amazon.MediaLive.Model.Input",
+        "This cmdlet returns a Input object.",
+        "The service call response (type Amazon.MediaLive.Model.UpdateInputResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RegisterAPSFleetCmdlet : AmazonAppStreamClientCmdlet, IExecutor
+    public partial class UpdateEMLInputCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
-        #region Parameter FleetName
+        #region Parameter Destination
         /// <summary>
         /// <para>
-        /// <para>The name of the fleet. </para>
+        /// Destination settings for PUSH type inputs.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String FleetName { get; set; }
+        [Alias("Destinations")]
+        public Amazon.MediaLive.Model.InputDestinationRequest[] Destination { get; set; }
         #endregion
         
-        #region Parameter StackName
+        #region Parameter InputId
         /// <summary>
         /// <para>
-        /// <para>The name of the stack.</para>
+        /// Unique ID of the input.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String StackName { get; set; }
+        public System.String InputId { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter InputSecurityGroup
         /// <summary>
-        /// Returns the value passed to the StackName parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// A list of security groups referenced
+        /// by IDs to attach to the input.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        [Alias("InputSecurityGroups")]
+        public System.String[] InputSecurityGroup { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// Name of the input.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Source
+        /// <summary>
+        /// <para>
+        /// The source URLs for a PULL-type input. Every PULL
+        /// type input needsexactly two source URLs for redundancy.Only specify sources for PULL
+        /// type Inputs. Leave Destinations empty.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Sources")]
+        public Amazon.MediaLive.Model.InputSourceRequest[] Source { get; set; }
         #endregion
         
         #region Parameter Force
@@ -83,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("StackName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-APSFleet (AssociateFleet)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InputId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-EMLInput (UpdateInput)"))
             {
                 return;
             }
@@ -98,8 +125,20 @@ namespace Amazon.PowerShell.Cmdlets.APS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.FleetName = this.FleetName;
-            context.StackName = this.StackName;
+            if (this.Destination != null)
+            {
+                context.Destinations = new List<Amazon.MediaLive.Model.InputDestinationRequest>(this.Destination);
+            }
+            context.InputId = this.InputId;
+            if (this.InputSecurityGroup != null)
+            {
+                context.InputSecurityGroups = new List<System.String>(this.InputSecurityGroup);
+            }
+            context.Name = this.Name;
+            if (this.Source != null)
+            {
+                context.Sources = new List<Amazon.MediaLive.Model.InputSourceRequest>(this.Source);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -114,15 +153,27 @@ namespace Amazon.PowerShell.Cmdlets.APS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AppStream.Model.AssociateFleetRequest();
+            var request = new Amazon.MediaLive.Model.UpdateInputRequest();
             
-            if (cmdletContext.FleetName != null)
+            if (cmdletContext.Destinations != null)
             {
-                request.FleetName = cmdletContext.FleetName;
+                request.Destinations = cmdletContext.Destinations;
             }
-            if (cmdletContext.StackName != null)
+            if (cmdletContext.InputId != null)
             {
-                request.StackName = cmdletContext.StackName;
+                request.InputId = cmdletContext.InputId;
+            }
+            if (cmdletContext.InputSecurityGroups != null)
+            {
+                request.InputSecurityGroups = cmdletContext.InputSecurityGroups;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Sources != null)
+            {
+                request.Sources = cmdletContext.Sources;
             }
             
             CmdletOutput output;
@@ -133,9 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.StackName;
+                object pipelineOutput = response.Input;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -160,16 +209,16 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #region AWS Service Operation Call
         
-        private Amazon.AppStream.Model.AssociateFleetResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.AssociateFleetRequest request)
+        private Amazon.MediaLive.Model.UpdateInputResponse CallAWSServiceOperation(IAmazonMediaLive client, Amazon.MediaLive.Model.UpdateInputRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "AssociateFleet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaLive", "UpdateInput");
             try
             {
                 #if DESKTOP
-                return client.AssociateFleet(request);
+                return client.UpdateInput(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssociateFleetAsync(request);
+                var task = client.UpdateInputAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -190,8 +239,11 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FleetName { get; set; }
-            public System.String StackName { get; set; }
+            public List<Amazon.MediaLive.Model.InputDestinationRequest> Destinations { get; set; }
+            public System.String InputId { get; set; }
+            public List<System.String> InputSecurityGroups { get; set; }
+            public System.String Name { get; set; }
+            public List<Amazon.MediaLive.Model.InputSourceRequest> Sources { get; set; }
         }
         
     }

@@ -22,42 +22,44 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoT;
-using Amazon.IoT.Model;
+using Amazon.MediaLive;
+using Amazon.MediaLive.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOT
+namespace Amazon.PowerShell.Cmdlets.EML
 {
     /// <summary>
-    /// Updates the event configurations.
+    /// Update an Input Security Group's Whilelists.
     /// </summary>
-    [Cmdlet("Update", "IOTEventConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Amazon.IoT.Model.Configuration, AWSSDK.IoT, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604]]")]
-    [AWSCmdlet("Calls the AWS IoT UpdateEventConfigurations API operation.", Operation = new[] {"UpdateEventConfigurations"})]
-    [AWSCmdletOutput("None or System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Amazon.IoT.Model.Configuration, AWSSDK.IoT, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604]]",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the EventConfiguration parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.IoT.Model.UpdateEventConfigurationsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "EMLInputSecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.MediaLive.Model.InputSecurityGroup")]
+    [AWSCmdlet("Calls the AWS Elemental MediaLive UpdateInputSecurityGroup API operation.", Operation = new[] {"UpdateInputSecurityGroup"})]
+    [AWSCmdletOutput("Amazon.MediaLive.Model.InputSecurityGroup",
+        "This cmdlet returns a InputSecurityGroup object.",
+        "The service call response (type Amazon.MediaLive.Model.UpdateInputSecurityGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateIOTEventConfigurationCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class UpdateEMLInputSecurityGroupCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
-        #region Parameter EventConfiguration
+        #region Parameter InputSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The new event configuration values.</para>
+        /// The id of the Input Security Group
+        /// to update.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("EventConfigurations")]
-        public System.Collections.Hashtable EventConfiguration { get; set; }
+        public System.String InputSecurityGroupId { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter WhitelistRule
         /// <summary>
-        /// Returns the value passed to the EventConfiguration parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// List of IPv4 CIDR addresses to whitelist
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        [Alias("WhitelistRules")]
+        public Amazon.MediaLive.Model.InputWhitelistRuleCidr[] WhitelistRule { get; set; }
         #endregion
         
         #region Parameter Force
@@ -74,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("EventConfiguration", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-IOTEventConfiguration (UpdateEventConfigurations)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InputSecurityGroupId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-EMLInputSecurityGroup (UpdateInputSecurityGroup)"))
             {
                 return;
             }
@@ -89,13 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.EventConfiguration != null)
+            context.InputSecurityGroupId = this.InputSecurityGroupId;
+            if (this.WhitelistRule != null)
             {
-                context.EventConfigurations = new Dictionary<System.String, Amazon.IoT.Model.Configuration>(StringComparer.Ordinal);
-                foreach (var hashKey in this.EventConfiguration.Keys)
-                {
-                    context.EventConfigurations.Add((String)hashKey, (Configuration)(this.EventConfiguration[hashKey]));
-                }
+                context.WhitelistRules = new List<Amazon.MediaLive.Model.InputWhitelistRuleCidr>(this.WhitelistRule);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -111,11 +110,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.UpdateEventConfigurationsRequest();
+            var request = new Amazon.MediaLive.Model.UpdateInputSecurityGroupRequest();
             
-            if (cmdletContext.EventConfigurations != null)
+            if (cmdletContext.InputSecurityGroupId != null)
             {
-                request.EventConfigurations = cmdletContext.EventConfigurations;
+                request.InputSecurityGroupId = cmdletContext.InputSecurityGroupId;
+            }
+            if (cmdletContext.WhitelistRules != null)
+            {
+                request.WhitelistRules = cmdletContext.WhitelistRules;
             }
             
             CmdletOutput output;
@@ -126,9 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.EventConfiguration;
+                object pipelineOutput = response.SecurityGroup;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -153,16 +154,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private Amazon.IoT.Model.UpdateEventConfigurationsResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.UpdateEventConfigurationsRequest request)
+        private Amazon.MediaLive.Model.UpdateInputSecurityGroupResponse CallAWSServiceOperation(IAmazonMediaLive client, Amazon.MediaLive.Model.UpdateInputSecurityGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "UpdateEventConfigurations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaLive", "UpdateInputSecurityGroup");
             try
             {
                 #if DESKTOP
-                return client.UpdateEventConfigurations(request);
+                return client.UpdateInputSecurityGroup(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateEventConfigurationsAsync(request);
+                var task = client.UpdateInputSecurityGroupAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -183,7 +184,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Dictionary<System.String, Amazon.IoT.Model.Configuration> EventConfigurations { get; set; }
+            public System.String InputSecurityGroupId { get; set; }
+            public List<Amazon.MediaLive.Model.InputWhitelistRuleCidr> WhitelistRules { get; set; }
         }
         
     }

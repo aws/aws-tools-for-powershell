@@ -22,42 +22,56 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoT;
-using Amazon.IoT.Model;
+using Amazon.CodeBuild;
+using Amazon.CodeBuild.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOT
+namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// Updates the event configurations.
+    /// Updates the webhook associated with an AWS CodeBuild build project.
     /// </summary>
-    [Cmdlet("Update", "IOTEventConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Amazon.IoT.Model.Configuration, AWSSDK.IoT, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604]]")]
-    [AWSCmdlet("Calls the AWS IoT UpdateEventConfigurations API operation.", Operation = new[] {"UpdateEventConfigurations"})]
-    [AWSCmdletOutput("None or System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Amazon.IoT.Model.Configuration, AWSSDK.IoT, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604]]",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the EventConfiguration parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.IoT.Model.UpdateEventConfigurationsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CBWebhook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CodeBuild.Model.Webhook")]
+    [AWSCmdlet("Calls the AWS CodeBuild UpdateWebhook API operation.", Operation = new[] {"UpdateWebhook"})]
+    [AWSCmdletOutput("Amazon.CodeBuild.Model.Webhook",
+        "This cmdlet returns a Webhook object.",
+        "The service call response (type Amazon.CodeBuild.Model.UpdateWebhookResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateIOTEventConfigurationCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class UpdateCBWebhookCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
-        #region Parameter EventConfiguration
+        #region Parameter BranchFilter
         /// <summary>
         /// <para>
-        /// <para>The new event configuration values.</para>
+        /// <para>A regular expression used to determine which branches in a repository are built when
+        /// a webhook is triggered. If the name of a branch matches the regular expression, then
+        /// it is built. If it doesn't match, then it is not. If branchFilter is empty, then all
+        /// branches are built.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String BranchFilter { get; set; }
+        #endregion
+        
+        #region Parameter ProjectName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the AWS CodeBuild project.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("EventConfigurations")]
-        public System.Collections.Hashtable EventConfiguration { get; set; }
+        public System.String ProjectName { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter RotateSecret
         /// <summary>
-        /// Returns the value passed to the EventConfiguration parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// <para> A boolean value that specifies whether the associated repository's secret token should
+        /// be updated. </para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        public System.Boolean RotateSecret { get; set; }
         #endregion
         
         #region Parameter Force
@@ -74,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("EventConfiguration", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-IOTEventConfiguration (UpdateEventConfigurations)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ProjectName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CBWebhook (UpdateWebhook)"))
             {
                 return;
             }
@@ -89,14 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.EventConfiguration != null)
-            {
-                context.EventConfigurations = new Dictionary<System.String, Amazon.IoT.Model.Configuration>(StringComparer.Ordinal);
-                foreach (var hashKey in this.EventConfiguration.Keys)
-                {
-                    context.EventConfigurations.Add((String)hashKey, (Configuration)(this.EventConfiguration[hashKey]));
-                }
-            }
+            context.BranchFilter = this.BranchFilter;
+            context.ProjectName = this.ProjectName;
+            if (ParameterWasBound("RotateSecret"))
+                context.RotateSecret = this.RotateSecret;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -111,11 +121,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.UpdateEventConfigurationsRequest();
+            var request = new Amazon.CodeBuild.Model.UpdateWebhookRequest();
             
-            if (cmdletContext.EventConfigurations != null)
+            if (cmdletContext.BranchFilter != null)
             {
-                request.EventConfigurations = cmdletContext.EventConfigurations;
+                request.BranchFilter = cmdletContext.BranchFilter;
+            }
+            if (cmdletContext.ProjectName != null)
+            {
+                request.ProjectName = cmdletContext.ProjectName;
+            }
+            if (cmdletContext.RotateSecret != null)
+            {
+                request.RotateSecret = cmdletContext.RotateSecret.Value;
             }
             
             CmdletOutput output;
@@ -126,9 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.EventConfiguration;
+                object pipelineOutput = response.Webhook;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -153,16 +169,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private Amazon.IoT.Model.UpdateEventConfigurationsResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.UpdateEventConfigurationsRequest request)
+        private Amazon.CodeBuild.Model.UpdateWebhookResponse CallAWSServiceOperation(IAmazonCodeBuild client, Amazon.CodeBuild.Model.UpdateWebhookRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "UpdateEventConfigurations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeBuild", "UpdateWebhook");
             try
             {
                 #if DESKTOP
-                return client.UpdateEventConfigurations(request);
+                return client.UpdateWebhook(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateEventConfigurationsAsync(request);
+                var task = client.UpdateWebhookAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -183,7 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Dictionary<System.String, Amazon.IoT.Model.Configuration> EventConfigurations { get; set; }
+            public System.String BranchFilter { get; set; }
+            public System.String ProjectName { get; set; }
+            public System.Boolean? RotateSecret { get; set; }
         }
         
     }

@@ -83,6 +83,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.Model.EncoderSettings EncoderSetting { get; set; }
         #endregion
         
+        #region Parameter InputAttachment
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("InputAttachments")]
+        public Amazon.MediaLive.Model.InputAttachment[] InputAttachment { get; set; }
+        #endregion
+        
         #region Parameter InputSpecification_MaximumBitrate
         /// <summary>
         /// <para>
@@ -162,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
                 context.Destinations = new List<Amazon.MediaLive.Model.OutputDestination>(this.Destination);
             }
             context.EncoderSettings = this.EncoderSetting;
+            if (this.InputAttachment != null)
+            {
+                context.InputAttachments = new List<Amazon.MediaLive.Model.InputAttachment>(this.InputAttachment);
+            }
             context.InputSpecification_Codec = this.InputSpecification_Codec;
             context.InputSpecification_MaximumBitrate = this.InputSpecification_MaximumBitrate;
             context.InputSpecification_Resolution = this.InputSpecification_Resolution;
@@ -194,6 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.EncoderSettings != null)
             {
                 request.EncoderSettings = cmdletContext.EncoderSettings;
+            }
+            if (cmdletContext.InputAttachments != null)
+            {
+                request.InputAttachments = cmdletContext.InputAttachments;
             }
             
              // populate InputSpecification
@@ -309,6 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public System.String ChannelId { get; set; }
             public List<Amazon.MediaLive.Model.OutputDestination> Destinations { get; set; }
             public Amazon.MediaLive.Model.EncoderSettings EncoderSettings { get; set; }
+            public List<Amazon.MediaLive.Model.InputAttachment> InputAttachments { get; set; }
             public Amazon.MediaLive.InputCodec InputSpecification_Codec { get; set; }
             public Amazon.MediaLive.InputMaximumBitrate InputSpecification_MaximumBitrate { get; set; }
             public Amazon.MediaLive.InputResolution InputSpecification_Resolution { get; set; }

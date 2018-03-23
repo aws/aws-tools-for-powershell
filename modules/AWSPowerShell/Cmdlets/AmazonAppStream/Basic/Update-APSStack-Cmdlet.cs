@@ -81,6 +81,17 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String DisplayName { get; set; }
         #endregion
         
+        #region Parameter FeedbackURL
+        /// <summary>
+        /// <para>
+        /// <para>The URL that users are redirected to after they click the Send Feedback link. If no
+        /// URL is specified, no Send Feedback link is displayed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String FeedbackURL { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -94,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter RedirectURL
         /// <summary>
         /// <para>
-        /// <para>The URL the user is redirected to after the streaming session ends.</para>
+        /// <para>The URL that users are redirected to after their streaming session ends.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -149,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 context.DeleteStorageConnectors = this.DeleteStorageConnector;
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
+            context.FeedbackURL = this.FeedbackURL;
             context.Name = this.Name;
             context.RedirectURL = this.RedirectURL;
             if (this.StorageConnector != null)
@@ -186,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.DisplayName != null)
             {
                 request.DisplayName = cmdletContext.DisplayName;
+            }
+            if (cmdletContext.FeedbackURL != null)
+            {
+                request.FeedbackURL = cmdletContext.FeedbackURL;
             }
             if (cmdletContext.Name != null)
             {
@@ -267,6 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.Boolean? DeleteStorageConnectors { get; set; }
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
+            public System.String FeedbackURL { get; set; }
             public System.String Name { get; set; }
             public System.String RedirectURL { get; set; }
             public List<Amazon.AppStream.Model.StorageConnector> StorageConnectors { get; set; }
