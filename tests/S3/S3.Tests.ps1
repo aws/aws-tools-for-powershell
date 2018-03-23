@@ -20,7 +20,7 @@ Describe -Tag "Smoke" "S3" {
             }
         }
 
-        $script:bucketName = "PSTest-" + [DateTime]::Now.ToFileTime()
+        $script:bucketName = "pstest-" + [DateTime]::Now.ToFileTime()
 
         It "Can create a bucket" {
             New-S3Bucket -BucketName $script:bucketName
@@ -38,7 +38,7 @@ Describe -Tag "Smoke" "S3" {
     Context "Writing" {
 
         BeforeAll {
-            $script:bucketName = "PSTest-" + [DateTime]::Now.ToFileTime()
+            $script:bucketName = "pstest-" + [DateTime]::Now.ToFileTime()
             New-S3Bucket -BucketName $script:bucketName
         }
 
@@ -71,7 +71,7 @@ Describe -Tag "Smoke" "S3" {
     Context "Reading" {
      
         BeforeAll {
-            $script:bucketName = "PSTest-" + [DateTime]::Now.ToFileTime()
+            $script:bucketName = "pstest-" + [DateTime]::Now.ToFileTime()
             New-S3Bucket -BucketName $script:bucketName
             
             $void = New-Item -Path temp\bar -Type directory -Force
