@@ -1,4 +1,4 @@
-###
+### 3.3.253.0 (2018-03-26)
   * Amazon WorkMail
     * Added cmdlets to support the Amazon WorkMail service. Cmdlets for the service have the noun prefix WM and can be listed with the command *Get-AWSCmdletName -Service WM*.
   * Amazon Pinpoint
