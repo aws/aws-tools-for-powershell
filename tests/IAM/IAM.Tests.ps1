@@ -49,14 +49,6 @@ Describe -Tag "Smoke" "IAM" {
         It "Can get account summary" {
             $summaryMap = Get-IAMAccountSummary
             $summaryMap | Should Not Be $null
-            $summaryMap.Users | Should BeGreaterThan 0
-            $summaryMap.GroupsQuota | Should BeGreaterThan 0
-            $summaryMap.RolesQuota | Should BeGreaterThan 0
-            $summaryMap.GroupPolicySizeQuota | Should BeGreaterThan 0
-            $summaryMap.ServerCertificates | Should BeGreaterThan 0
-            $summaryMap.ServerCertificatesQuota | Should BeGreaterThan 0
-            $summaryMap.Roles | Should BeGreaterThan 0
-            $summaryMap.InstanceProfiles | Should BeGreaterThan 0
         }
     }
 
