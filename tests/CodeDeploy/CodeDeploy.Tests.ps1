@@ -21,7 +21,7 @@ Describe -Tag "Smoke" "CodeDeploy" {
         }
 
         It "Can read an application" {
-            $appname = Get-CDApplicationList | Select -First 1
+            $appName = Get-CDApplicationList | Select -First 1
             if ($appName) {
                 $app = Get-CDApplication -ApplicationName $appName
                 $app | Should Not Be $null
@@ -40,9 +40,9 @@ Describe -Tag "Smoke" "CodeDeploy" {
         }
 
         It "Can read a configuration" {
-            $configs = Get-CDDeploymentConfigList
-            if ($configs) {
-                $config = Get-CDDeploymentConfig -DeploymentConfigName $configs[0]
+            $configName = Get-CDDeploymentConfigList | Select -First 1
+            if ($configName) {
+                $config = Get-CDDeploymentConfig -DeploymentConfigName $configName
                 $config | Should Not Be $null
             }
         }
