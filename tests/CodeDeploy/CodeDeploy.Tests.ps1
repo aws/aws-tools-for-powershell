@@ -21,9 +21,9 @@ Describe -Tag "Smoke" "CodeDeploy" {
         }
 
         It "Can read an application" {
-            $apps = Get-CDApplicationList
-            if ($apps) {
-                $app = Get-CDApplication -ApplicationName $apps[0]
+            $appname = Get-CDApplicationList | Select -First 1
+            if ($appName) {
+                $app = Get-CDApplication -ApplicationName $appName
                 $app | Should Not Be $null
             }
         }
