@@ -28,14 +28,13 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// Creates a new table from an existing backup. Any number of users can execute up to
-    /// 4 concurrent restores (any type of restore) in a given account. 
+    /// Restores the specified table to the specified point in time within <code>EarliestRestorableDateTime</code>
+    /// and <code>LatestRestorableDateTime</code>. You can restore your table to any point
+    /// in time during the last 35 days with a 1-minute granularity. Any number of users can
+    /// execute up to 4 concurrent restores (any type of restore) in a given account. 
     /// 
     ///  
     /// <para>
-    /// You can call <code>RestoreTableFromBackup</code> at a maximum rate of 10 times per
-    /// second.
-    /// </para><para>
     /// You must manually set up the following on the restored table:
     /// </para><ul><li><para>
     /// Auto scaling policies
@@ -49,36 +48,59 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// Stream settings
     /// </para></li><li><para>
     /// Time to Live (TTL) settings
+    /// </para></li><li><para>
+    /// Point in time recovery settings
     /// </para></li></ul>
     /// </summary>
-    [Cmdlet("Restore", "DDBTableFromBackup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Restore", "DDBTableToPointInTime", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DynamoDBv2.Model.TableDescription")]
-    [AWSCmdlet("Calls the Amazon DynamoDB RestoreTableFromBackup API operation.", Operation = new[] {"RestoreTableFromBackup"})]
+    [AWSCmdlet("Calls the Amazon DynamoDB RestoreTableToPointInTime API operation.", Operation = new[] {"RestoreTableToPointInTime"})]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TableDescription",
         "This cmdlet returns a TableDescription object.",
-        "The service call response (type Amazon.DynamoDBv2.Model.RestoreTableFromBackupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.RestoreTableToPointInTimeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RestoreDDBTableFromBackupCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
+    public partial class RestoreDDBTableToPointInTimeCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
-        #region Parameter BackupArn
+        #region Parameter RestoreDateTime
         /// <summary>
         /// <para>
-        /// <para>The ARN associated with the backup.</para>
+        /// <para>Time in the past to restore the table to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String BackupArn { get; set; }
+        public System.DateTime RestoreDateTime { get; set; }
+        #endregion
+        
+        #region Parameter SourceTableName
+        /// <summary>
+        /// <para>
+        /// <para>Name of the source table that is being restored.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SourceTableName { get; set; }
         #endregion
         
         #region Parameter TargetTableName
         /// <summary>
         /// <para>
-        /// <para>The name of the new table to which the backup must be restored.</para>
+        /// <para>The name of the new table to which it must be restored to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String TargetTableName { get; set; }
+        #endregion
+        
+        #region Parameter UseLatestRestorableTime
+        /// <summary>
+        /// <para>
+        /// <para>Restore the table to the latest possible time. <code>LatestRestorableDateTime</code>
+        /// is typically 5 minutes before the current time. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String TargetTableName { get; set; }
+        public System.Boolean UseLatestRestorableTime { get; set; }
         #endregion
         
         #region Parameter Force
@@ -96,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("TargetTableName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restore-DDBTableFromBackup (RestoreTableFromBackup)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restore-DDBTableToPointInTime (RestoreTableToPointInTime)"))
             {
                 return;
             }
@@ -110,8 +132,12 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.BackupArn = this.BackupArn;
+            if (ParameterWasBound("RestoreDateTime"))
+                context.RestoreDateTime = this.RestoreDateTime;
+            context.SourceTableName = this.SourceTableName;
             context.TargetTableName = this.TargetTableName;
+            if (ParameterWasBound("UseLatestRestorableTime"))
+                context.UseLatestRestorableTime = this.UseLatestRestorableTime;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -126,15 +152,23 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DynamoDBv2.Model.RestoreTableFromBackupRequest();
+            var request = new Amazon.DynamoDBv2.Model.RestoreTableToPointInTimeRequest();
             
-            if (cmdletContext.BackupArn != null)
+            if (cmdletContext.RestoreDateTime != null)
             {
-                request.BackupArn = cmdletContext.BackupArn;
+                request.RestoreDateTime = cmdletContext.RestoreDateTime.Value;
+            }
+            if (cmdletContext.SourceTableName != null)
+            {
+                request.SourceTableName = cmdletContext.SourceTableName;
             }
             if (cmdletContext.TargetTableName != null)
             {
                 request.TargetTableName = cmdletContext.TargetTableName;
+            }
+            if (cmdletContext.UseLatestRestorableTime != null)
+            {
+                request.UseLatestRestorableTime = cmdletContext.UseLatestRestorableTime.Value;
             }
             
             CmdletOutput output;
@@ -170,16 +204,16 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #region AWS Service Operation Call
         
-        private Amazon.DynamoDBv2.Model.RestoreTableFromBackupResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.RestoreTableFromBackupRequest request)
+        private Amazon.DynamoDBv2.Model.RestoreTableToPointInTimeResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.RestoreTableToPointInTimeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "RestoreTableFromBackup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "RestoreTableToPointInTime");
             try
             {
                 #if DESKTOP
-                return client.RestoreTableFromBackup(request);
+                return client.RestoreTableToPointInTime(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RestoreTableFromBackupAsync(request);
+                var task = client.RestoreTableToPointInTimeAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -200,8 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String BackupArn { get; set; }
+            public System.DateTime? RestoreDateTime { get; set; }
+            public System.String SourceTableName { get; set; }
             public System.String TargetTableName { get; set; }
+            public System.Boolean? UseLatestRestorableTime { get; set; }
         }
         
     }

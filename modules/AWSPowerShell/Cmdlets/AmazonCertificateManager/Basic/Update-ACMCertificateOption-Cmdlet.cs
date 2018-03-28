@@ -28,58 +28,41 @@ using Amazon.CertificateManager.Model;
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
-    /// Adds one or more tags to an ACM certificate. Tags are labels that you can use to identify
-    /// and organize your AWS resources. Each tag consists of a <code>key</code> and an optional
-    /// <code>value</code>. You specify the certificate on input by its Amazon Resource Name
-    /// (ARN). You specify the tag by using a key-value pair. 
-    /// 
-    ///  
-    /// <para>
-    /// You can apply a tag to just one certificate if you want to identify a specific characteristic
-    /// of that certificate, or you can apply the same tag to multiple certificates if you
-    /// want to filter for a common relationship among those certificates. Similarly, you
-    /// can apply the same tag to multiple resources if you want to specify a relationship
-    /// among those resources. For example, you can add the same tag to an ACM certificate
-    /// and an Elastic Load Balancing load balancer to indicate that they are both used by
-    /// the same website. For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/tags.html">Tagging
-    /// ACM certificates</a>. 
-    /// </para><para>
-    /// To remove one or more tags, use the <a>RemoveTagsFromCertificate</a> action. To view
-    /// all of the tags that have been applied to the certificate, use the <a>ListTagsForCertificate</a>
-    /// action. 
-    /// </para>
+    /// Updates a certificate. Currently, you can use this function to specify whether to
+    /// opt in to or out of recording your certificate in a certificate transparency log.
+    /// For more information, see <a href="acm/latest/userguide/acm-bestpractices.html#best-practices-transparency">
+    /// Opting Out of Certificate Transparency Logging</a>.
     /// </summary>
-    [Cmdlet("Add", "ACMCertificateTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "ACMCertificateOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the AWS Certificate Manager AddTagsToCertificate API operation.", Operation = new[] {"AddTagsToCertificate"})]
+    [AWSCmdlet("Calls the AWS Certificate Manager UpdateCertificateOptions API operation.", Operation = new[] {"UpdateCertificateOptions"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CertificateArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CertificateManager.Model.AddTagsToCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CertificateManager.Model.UpdateCertificateOptionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddACMCertificateTagCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
+    public partial class UpdateACMCertificateOptionCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {
         
         #region Parameter CertificateArn
         /// <summary>
         /// <para>
-        /// <para>String that contains the ARN of the ACM certificate to which the tag is to be applied.
-        /// This must be of the form:</para><para><code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a>. </para>
+        /// <para>ARN of the requested certificate to update. This must be of the form:</para><para><code>arn:aws:acm:us-east-1:<i>account</i>:certificate/<i>12345678-1234-1234-1234-123456789012</i></code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String CertificateArn { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter Options_CertificateTransparencyLoggingPreference
         /// <summary>
         /// <para>
-        /// <para>The key-value pair that defines the tag. The tag value is optional.</para>
+        /// <para>You can opt out of certificate transparency logging by specifying the <code>DISABLED</code>
+        /// option. Opt in by specifying <code>ENABLED</code>. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        [Alias("Tags")]
-        public Amazon.CertificateManager.Model.Tag[] Tag { get; set; }
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CertificateManager.CertificateTransparencyLoggingPreference")]
+        public Amazon.CertificateManager.CertificateTransparencyLoggingPreference Options_CertificateTransparencyLoggingPreference { get; set; }
         #endregion
         
         #region Parameter PassThru
@@ -106,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CertificateArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-ACMCertificateTag (AddTagsToCertificate)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-ACMCertificateOption (UpdateCertificateOptions)"))
             {
                 return;
             }
@@ -121,10 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             PreExecutionContextLoad(context);
             
             context.CertificateArn = this.CertificateArn;
-            if (this.Tag != null)
-            {
-                context.Tags = new List<Amazon.CertificateManager.Model.Tag>(this.Tag);
-            }
+            context.Options_CertificateTransparencyLoggingPreference = this.Options_CertificateTransparencyLoggingPreference;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -139,15 +119,30 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CertificateManager.Model.AddTagsToCertificateRequest();
+            var request = new Amazon.CertificateManager.Model.UpdateCertificateOptionsRequest();
             
             if (cmdletContext.CertificateArn != null)
             {
                 request.CertificateArn = cmdletContext.CertificateArn;
             }
-            if (cmdletContext.Tags != null)
+            
+             // populate Options
+            bool requestOptionsIsNull = true;
+            request.Options = new Amazon.CertificateManager.Model.CertificateOptions();
+            Amazon.CertificateManager.CertificateTransparencyLoggingPreference requestOptions_options_CertificateTransparencyLoggingPreference = null;
+            if (cmdletContext.Options_CertificateTransparencyLoggingPreference != null)
             {
-                request.Tags = cmdletContext.Tags;
+                requestOptions_options_CertificateTransparencyLoggingPreference = cmdletContext.Options_CertificateTransparencyLoggingPreference;
+            }
+            if (requestOptions_options_CertificateTransparencyLoggingPreference != null)
+            {
+                request.Options.CertificateTransparencyLoggingPreference = requestOptions_options_CertificateTransparencyLoggingPreference;
+                requestOptionsIsNull = false;
+            }
+             // determine if request.Options should be set to null
+            if (requestOptionsIsNull)
+            {
+                request.Options = null;
             }
             
             CmdletOutput output;
@@ -185,16 +180,16 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         #region AWS Service Operation Call
         
-        private Amazon.CertificateManager.Model.AddTagsToCertificateResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.AddTagsToCertificateRequest request)
+        private Amazon.CertificateManager.Model.UpdateCertificateOptionsResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.UpdateCertificateOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Certificate Manager", "AddTagsToCertificate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Certificate Manager", "UpdateCertificateOptions");
             try
             {
                 #if DESKTOP
-                return client.AddTagsToCertificate(request);
+                return client.UpdateCertificateOptions(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AddTagsToCertificateAsync(request);
+                var task = client.UpdateCertificateOptionsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -216,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CertificateArn { get; set; }
-            public List<Amazon.CertificateManager.Model.Tag> Tags { get; set; }
+            public Amazon.CertificateManager.CertificateTransparencyLoggingPreference Options_CertificateTransparencyLoggingPreference { get; set; }
         }
         
     }

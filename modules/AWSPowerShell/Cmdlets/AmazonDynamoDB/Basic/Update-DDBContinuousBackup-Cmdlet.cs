@@ -28,10 +28,11 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// Checks the status of continuous backups and point in time recovery on the specified
-    /// table. Continuous backups are <code>ENABLED</code> on all tables at table creation.
-    /// If point in time recovery is enabled, <code>PointInTimeRecoveryStatus</code> will
-    /// be set to ENABLED.
+    /// <code>UpdateContinuousBackups</code> enables or disables point in time recovery for
+    /// the specified table. A successful <code>UpdateContinuousBackups</code> call returns
+    /// the current <code>ContinuousBackupsDescription</code>. Continuous backups are <code>ENABLED</code>
+    /// on all tables at table creation. If point in time recovery is enabled, <code>PointInTimeRecoveryStatus</code>
+    /// will be set to ENABLED.
     /// 
     ///  
     /// <para>
@@ -41,35 +42,58 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// </para><para><code>LatestRestorableDateTime</code> is typically 5 minutes before the current time.
     /// You can restore your table to any point in time during the last 35 days with a 1-minute
     /// granularity. 
-    /// </para><para>
-    /// You can call <code>DescribeContinuousBackups</code> at a maximum rate of 10 times
-    /// per second.
     /// </para>
     /// </summary>
-    [Cmdlet("Get", "DDBContinuousBackup")]
+    [Cmdlet("Update", "DDBContinuousBackup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DynamoDBv2.Model.ContinuousBackupsDescription")]
-    [AWSCmdlet("Calls the Amazon DynamoDB DescribeContinuousBackups API operation.", Operation = new[] {"DescribeContinuousBackups"})]
+    [AWSCmdlet("Calls the Amazon DynamoDB UpdateContinuousBackups API operation.", Operation = new[] {"UpdateContinuousBackups"})]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.ContinuousBackupsDescription",
         "This cmdlet returns a ContinuousBackupsDescription object.",
-        "The service call response (type Amazon.DynamoDBv2.Model.DescribeContinuousBackupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.UpdateContinuousBackupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetDDBContinuousBackupCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
+    public partial class UpdateDDBContinuousBackupCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
+        
+        #region Parameter PointInTimeRecoverySpecification_PointInTimeRecoveryEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether point in time recovery is enabled (true) or disabled (false) on
+        /// the table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean PointInTimeRecoverySpecification_PointInTimeRecoveryEnabled { get; set; }
+        #endregion
         
         #region Parameter TableName
         /// <summary>
         /// <para>
-        /// <para>Name of the table for which the customer wants to check the continuous backups and
-        /// point in time recovery settings.</para>
+        /// <para>The name of the table.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String TableName { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("TableName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DDBContinuousBackup (UpdateContinuousBackups)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -80,6 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("PointInTimeRecoverySpecification_PointInTimeRecoveryEnabled"))
+                context.PointInTimeRecoverySpecification_PointInTimeRecoveryEnabled = this.PointInTimeRecoverySpecification_PointInTimeRecoveryEnabled;
             context.TableName = this.TableName;
             
             // allow further manipulation of loaded context prior to processing
@@ -95,8 +121,27 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DynamoDBv2.Model.DescribeContinuousBackupsRequest();
+            var request = new Amazon.DynamoDBv2.Model.UpdateContinuousBackupsRequest();
             
+            
+             // populate PointInTimeRecoverySpecification
+            bool requestPointInTimeRecoverySpecificationIsNull = true;
+            request.PointInTimeRecoverySpecification = new Amazon.DynamoDBv2.Model.PointInTimeRecoverySpecification();
+            System.Boolean? requestPointInTimeRecoverySpecification_pointInTimeRecoverySpecification_PointInTimeRecoveryEnabled = null;
+            if (cmdletContext.PointInTimeRecoverySpecification_PointInTimeRecoveryEnabled != null)
+            {
+                requestPointInTimeRecoverySpecification_pointInTimeRecoverySpecification_PointInTimeRecoveryEnabled = cmdletContext.PointInTimeRecoverySpecification_PointInTimeRecoveryEnabled.Value;
+            }
+            if (requestPointInTimeRecoverySpecification_pointInTimeRecoverySpecification_PointInTimeRecoveryEnabled != null)
+            {
+                request.PointInTimeRecoverySpecification.PointInTimeRecoveryEnabled = requestPointInTimeRecoverySpecification_pointInTimeRecoverySpecification_PointInTimeRecoveryEnabled.Value;
+                requestPointInTimeRecoverySpecificationIsNull = false;
+            }
+             // determine if request.PointInTimeRecoverySpecification should be set to null
+            if (requestPointInTimeRecoverySpecificationIsNull)
+            {
+                request.PointInTimeRecoverySpecification = null;
+            }
             if (cmdletContext.TableName != null)
             {
                 request.TableName = cmdletContext.TableName;
@@ -135,16 +180,16 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #region AWS Service Operation Call
         
-        private Amazon.DynamoDBv2.Model.DescribeContinuousBackupsResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.DescribeContinuousBackupsRequest request)
+        private Amazon.DynamoDBv2.Model.UpdateContinuousBackupsResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.UpdateContinuousBackupsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "DescribeContinuousBackups");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "UpdateContinuousBackups");
             try
             {
                 #if DESKTOP
-                return client.DescribeContinuousBackups(request);
+                return client.UpdateContinuousBackups(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeContinuousBackupsAsync(request);
+                var task = client.UpdateContinuousBackupsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -165,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? PointInTimeRecoverySpecification_PointInTimeRecoveryEnabled { get; set; }
             public System.String TableName { get; set; }
         }
         

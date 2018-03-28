@@ -53,6 +53,9 @@
         <ServiceOperation MethodName="ResendValidationEmail" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCertificateOptions" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="CertificateOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
     </ServiceOperations>
     <InputObjectMappingRules />
     <SupportsShouldProcessVerbs />

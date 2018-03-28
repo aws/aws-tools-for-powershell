@@ -334,7 +334,7 @@
       <HintPath>..\..\packages\AWSSDK.EC2.3.3.47.2\lib\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
-      <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.6.2\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.7\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DirectoryService">
       <HintPath>..\..\packages\AWSSDK.DirectoryService.3.3.4.2\lib\net35\AWSSDK.DirectoryService.dll</HintPath>
@@ -400,7 +400,7 @@
       <HintPath>..\..\packages\AWSSDK.CloudFormation.3.3.9.2\lib\net35\AWSSDK.CloudFormation.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CertificateManager">
-      <HintPath>..\..\packages\AWSSDK.CertificateManager.3.3.3.3\lib\net35\AWSSDK.CertificateManager.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CertificateManager.3.3.4\lib\net35\AWSSDK.CertificateManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AWSSupport">
       <HintPath>..\..\packages\AWSSDK.AWSSupport.3.3.0.25\lib\net35\AWSSDK.AWSSupport.dll</HintPath>

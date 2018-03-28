@@ -28,7 +28,7 @@ using Amazon.CertificateManager.Model;
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
-    /// Requests an ACM Certificate for use with other AWS services. To request an ACM Certificate,
+    /// Requests an ACM certificate for use with other AWS services. To request an ACM certificate,
     /// you must specify the fully qualified domain name (FQDN) for your site in the <code>DomainName</code>
     /// parameter. You can also specify additional FQDNs in the <code>SubjectAlternativeNames</code>
     /// parameter if users can reach your site by using other names. 
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate.html">Validate
     /// Domain Ownership</a>. 
     /// </para><para>
-    /// After receiving approval from the domain owner, the ACM Certificate is issued. For
+    /// After receiving approval from the domain owner, the ACM certificate is issued. For
     /// more information, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS
     /// Certificate Manager User Guide</a>. 
     /// </para>
@@ -56,6 +56,18 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     )]
     public partial class NewACMCertificateCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {
+        
+        #region Parameter Options_CertificateTransparencyLoggingPreference
+        /// <summary>
+        /// <para>
+        /// <para>You can opt out of certificate transparency logging by specifying the <code>DISABLED</code>
+        /// option. Opt in by specifying <code>ENABLED</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CertificateManager.CertificateTransparencyLoggingPreference")]
+        public Amazon.CertificateManager.CertificateTransparencyLoggingPreference Options_CertificateTransparencyLoggingPreference { get; set; }
+        #endregion
         
         #region Parameter DomainName
         /// <summary>
@@ -102,10 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <summary>
         /// <para>
         /// <para>Additional FQDNs to be included in the Subject Alternative Name extension of the ACM
-        /// Certificate. For example, add the name www.example.net to a certificate for which
+        /// certificate. For example, add the name www.example.net to a certificate for which
         /// the <code>DomainName</code> field is www.example.com if users can reach your site
         /// by using either name. The maximum number of domain names that you can add to an ACM
-        /// Certificate is 100. However, the initial limit is 10 domain names. If you need more
+        /// certificate is 100. However, the initial limit is 10 domain names. If you need more
         /// than 10 names, you must request a limit increase. For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a>.</para><para> The maximum length of a SAN DNS name is 253 octets. The name is made up of multiple
         /// labels separated by periods. No label can be longer than 63 octets. Consider the following
         /// examples: </para><ul><li><para><code>(63 octets).(63 octets).(63 octets).(61 octets)</code> is legal because the
@@ -166,6 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
                 context.DomainValidationOptions = new List<Amazon.CertificateManager.Model.DomainValidationOption>(this.DomainValidationOption);
             }
             context.IdempotencyToken = this.IdempotencyToken;
+            context.Options_CertificateTransparencyLoggingPreference = this.Options_CertificateTransparencyLoggingPreference;
             if (this.SubjectAlternativeName != null)
             {
                 context.SubjectAlternativeNames = new List<System.String>(this.SubjectAlternativeName);
@@ -198,6 +211,25 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             if (cmdletContext.IdempotencyToken != null)
             {
                 request.IdempotencyToken = cmdletContext.IdempotencyToken;
+            }
+            
+             // populate Options
+            bool requestOptionsIsNull = true;
+            request.Options = new Amazon.CertificateManager.Model.CertificateOptions();
+            Amazon.CertificateManager.CertificateTransparencyLoggingPreference requestOptions_options_CertificateTransparencyLoggingPreference = null;
+            if (cmdletContext.Options_CertificateTransparencyLoggingPreference != null)
+            {
+                requestOptions_options_CertificateTransparencyLoggingPreference = cmdletContext.Options_CertificateTransparencyLoggingPreference;
+            }
+            if (requestOptions_options_CertificateTransparencyLoggingPreference != null)
+            {
+                request.Options.CertificateTransparencyLoggingPreference = requestOptions_options_CertificateTransparencyLoggingPreference;
+                requestOptionsIsNull = false;
+            }
+             // determine if request.Options should be set to null
+            if (requestOptionsIsNull)
+            {
+                request.Options = null;
             }
             if (cmdletContext.SubjectAlternativeNames != null)
             {
@@ -274,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             public System.String DomainName { get; set; }
             public List<Amazon.CertificateManager.Model.DomainValidationOption> DomainValidationOptions { get; set; }
             public System.String IdempotencyToken { get; set; }
+            public Amazon.CertificateManager.CertificateTransparencyLoggingPreference Options_CertificateTransparencyLoggingPreference { get; set; }
             public List<System.String> SubjectAlternativeNames { get; set; }
             public Amazon.CertificateManager.ValidationMethod ValidationMethod { get; set; }
         }

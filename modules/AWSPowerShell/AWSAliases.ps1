@@ -574,6 +574,7 @@ Set-Alias -Name ACM-ListTagsForCertificate -Value Get-ACMCertificateTagList
 Set-Alias -Name ACM-RemoveTagsFromCertificate -Value Remove-ACMCertificateTag
 Set-Alias -Name ACM-RequestCertificate -Value New-ACMCertificate
 Set-Alias -Name ACM-ResendValidationEmail -Value Send-ACMValidationEmail
+Set-Alias -Name ACM-UpdateCertificateOptions -Value Update-ACMCertificateOption
 Set-Alias -Name C9-CreateEnvironmentEC2 -Value New-C9EnvironmentEC2
 Set-Alias -Name C9-CreateEnvironmentMembership -Value New-C9EnvironmentMembership
 Set-Alias -Name C9-DeleteEnvironment -Value Remove-C9Environment
@@ -1700,8 +1701,10 @@ Set-Alias -Name DDB-ListGlobalTables -Value Get-DDBGlobalTablesList
 Set-Alias -Name DDB-ListTables -Value Get-DDBTableList
 Set-Alias -Name DDB-ListTagsOfResource -Value Get-DDBResourceTag
 Set-Alias -Name DDB-RestoreTableFromBackup -Value Restore-DDBTableFromBackup
+Set-Alias -Name DDB-RestoreTableToPointInTime -Value Restore-DDBTableToPointInTime
 Set-Alias -Name DDB-TagResource -Value Add-DDBResourceTag
 Set-Alias -Name DDB-UntagResource -Value Remove-DDBResourceTag
+Set-Alias -Name DDB-UpdateContinuousBackups -Value Update-DDBContinuousBackup
 Set-Alias -Name DDB-UpdateGlobalTable -Value Update-DDBGlobalTable
 Set-Alias -Name DDB-UpdateTable -Value Update-DDBTable
 Set-Alias -Name DDB-UpdateTimeToLive -Value Update-DDBTimeToLive

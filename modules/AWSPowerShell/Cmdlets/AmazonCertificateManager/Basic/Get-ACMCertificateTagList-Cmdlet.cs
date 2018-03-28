@@ -28,8 +28,8 @@ using Amazon.CertificateManager.Model;
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
-    /// Lists the tags that have been applied to the ACM Certificate. Use the certificate's
-    /// Amazon Resource Name (ARN) to specify the certificate. To add a tag to an ACM Certificate,
+    /// Lists the tags that have been applied to the ACM certificate. Use the certificate's
+    /// Amazon Resource Name (ARN) to specify the certificate. To add a tag to an ACM certificate,
     /// use the <a>AddTagsToCertificate</a> action. To delete a tag, use the <a>RemoveTagsFromCertificate</a>
     /// action.
     /// </summary>
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter CertificateArn
         /// <summary>
         /// <para>
-        /// <para>String that contains the ARN of the ACM Certificate for which you want to list the
+        /// <para>String that contains the ARN of the ACM certificate for which you want to list the
         /// tags. This must have the following form:</para><para><code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and AWS Service Namespaces</a>. </para>
         /// </para>

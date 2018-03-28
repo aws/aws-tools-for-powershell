@@ -879,6 +879,16 @@ $ACM_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CertificateManager.CertificateTransparencyLoggingPreference
+        {
+            ($_ -eq "New-ACMCertificate/Options_CertificateTransparencyLoggingPreference") -Or
+            ($_ -eq "Update-ACMCertificateOption/Options_CertificateTransparencyLoggingPreference")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+        
         # Amazon.CertificateManager.ValidationMethod
         "New-ACMCertificate/ValidationMethod"
         {
@@ -894,6 +904,7 @@ $ACM_Completers = {
 }
 
 $ACM_map = @{
+    "Options_CertificateTransparencyLoggingPreference"=@("New-ACMCertificate","Update-ACMCertificateOption")
     "ValidationMethod"=@("New-ACMCertificate")
 }
 

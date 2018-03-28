@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// will not be available for use by AWS services integrated with ACM. 
     /// 
     ///  <note><para>
-    /// You cannot delete an ACM Certificate that is being used by another AWS service. To
+    /// You cannot delete an ACM certificate that is being used by another AWS service. To
     /// delete a certificate that is in use, the certificate association must first be removed.
     /// </para></note>
     /// </summary>
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter CertificateArn
         /// <summary>
         /// <para>
-        /// <para>String that contains the ARN of the ACM Certificate to be deleted. This must be of
+        /// <para>String that contains the ARN of the ACM certificate to be deleted. This must be of
         /// the form:</para><para><code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para>
         /// </para>

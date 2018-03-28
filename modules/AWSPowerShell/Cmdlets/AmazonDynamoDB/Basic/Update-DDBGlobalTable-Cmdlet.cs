@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// <summary>
     /// Adds or removes replicas in the specified global table. The global table must already
     /// exist to be able to use this operation. Any replica to be added must be empty, must
-    /// have the same name as the global table, must have the same key schema, must have DynamoDB
-    /// Streams enabled, and cannot have any local secondary indexes (LSIs).
+    /// have the same name as the global table, must have the same key schema, and must have
+    /// DynamoDB Streams enabled.
     /// 
     ///  <note><para>
     /// Although you can use <code>UpdateGlobalTable</code> to add replicas and remove replicas
