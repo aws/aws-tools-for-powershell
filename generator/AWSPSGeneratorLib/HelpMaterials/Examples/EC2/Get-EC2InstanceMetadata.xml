@@ -72,7 +72,7 @@ PS C:\> Get-EC2InstanceMetadata -Path "/network/interfaces/macs"
   </example>
   <example>
     <code>
-PS C:\> Get-EC2InstanceMetadata -Path "/iam/role"
+PS C:\> Get-EC2InstanceMetadata -Path "/iam/info"
 
 {
   "Code" : "Success",
