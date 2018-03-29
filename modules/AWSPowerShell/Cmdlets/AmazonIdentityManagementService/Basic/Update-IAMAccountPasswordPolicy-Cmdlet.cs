@@ -30,11 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Updates the password policy settings for the AWS account.
     /// 
-    ///  <note><para>
-    /// This action does not support partial updates. No parameters are required, but if you
-    /// do not specify a parameter, that parameter's value reverts to its default value. See
-    /// the <b>Request Parameters</b> section for each parameter's default value.
-    /// </para></note><para>
+    ///  <note><ul><li><para>
+    /// This operation does not support partial updates. No parameters are required, but if
+    /// you do not specify a parameter, that parameter's value reverts to its default value.
+    /// See the <b>Request Parameters</b> section for each parameter's default value. Also
+    /// note that some parameters do not allow the default parameter to be explicitly set.
+    /// Instead, to invoke the default value, do not include that parameter when you invoke
+    /// the operation.
+    /// </para></li></ul></note><para>
     ///  For more information about using a password policy, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing
     /// an IAM Password Policy</a> in the <i>IAM User Guide</i>.
     /// </para>
@@ -54,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para> Allows all IAM users in your account to use the AWS Management Console to change
         /// their own passwords. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html">Letting
-        /// IAM Users Change Their Own Passwords</a> in the <i>IAM User Guide</i>.</para><para>Default value: false</para>
+        /// IAM Users Change Their Own Passwords</a> in the <i>IAM User Guide</i>.</para><para>If you do not specify a value for this parameter, then the operation uses the default
+        /// value of <code>false</code>. The result is that IAM users in the account do not automatically
+        /// have permissions to change their own password.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,7 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter HardExpiry
         /// <summary>
         /// <para>
-        /// <para>Prevents IAM users from setting a new password after their password has expired.</para><para>Default value: false</para>
+        /// <para>Prevents IAM users from setting a new password after their password has expired. The
+        /// IAM user cannot be accessed until an administrator resets the password.</para><para>If you do not specify a value for this parameter, then the operation uses the default
+        /// value of <code>false</code>. The result is that IAM users can change their passwords
+        /// after they expire and continue to sign in as the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter MaxPasswordAge
         /// <summary>
         /// <para>
-        /// <para>The number of days that an IAM user password is valid. The default value of 0 means
-        /// IAM user passwords never expire.</para><para>Default value: 0</para>
+        /// <para>The number of days that an IAM user password is valid.</para><para>If you do not specify a value for this parameter, then the operation uses the default
+        /// value of <code>0</code>. The result is that IAM user passwords never expire.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -85,7 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter MinimumPasswordLength
         /// <summary>
         /// <para>
-        /// <para>The minimum number of characters allowed in an IAM user password.</para><para>Default value: 6</para>
+        /// <para>The minimum number of characters allowed in an IAM user password.</para><para>If you do not specify a value for this parameter, then the operation uses the default
+        /// value of <code>6</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -95,8 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PasswordReusePrevention
         /// <summary>
         /// <para>
-        /// <para>Specifies the number of previous passwords that IAM users are prevented from reusing.
-        /// The default value of 0 means IAM users are not prevented from reusing previous passwords.</para><para>Default value: 0</para>
+        /// <para>Specifies the number of previous passwords that IAM users are prevented from reusing.</para><para>If you do not specify a value for this parameter, then the operation uses the default
+        /// value of <code>0</code>. The result is that IAM users are not prevented from reusing
+        /// previous passwords.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,7 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>Specifies whether IAM user passwords must contain at least one lowercase character
-        /// from the ISO basic Latin alphabet (a to z).</para><para>Default value: false</para>
+        /// from the ISO basic Latin alphabet (a to z).</para><para>If you do not specify a value for this parameter, then the operation uses the default
+        /// value of <code>false</code>. The result is that passwords do not require at least
+        /// one lowercase character.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -119,7 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>Specifies whether IAM user passwords must contain at least one numeric character (0
-        /// to 9).</para><para>Default value: false</para>
+        /// to 9).</para><para>If you do not specify a value for this parameter, then the operation uses the default
+        /// value of <code>false</code>. The result is that passwords do not require at least
+        /// one numeric character.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -131,7 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric
-        /// characters:</para><para>! @ # $ % ^ &amp;amp; * ( ) _ + - = [ ] { } | '</para><para>Default value: false</para>
+        /// characters:</para><para>! @ # $ % ^ &amp;amp; * ( ) _ + - = [ ] { } | '</para><para>If you do not specify a value for this parameter, then the operation uses the default
+        /// value of <code>false</code>. The result is that passwords do not require at least
+        /// one symbol character.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -143,7 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>Specifies whether IAM user passwords must contain at least one uppercase character
-        /// from the ISO basic Latin alphabet (A to Z).</para><para>Default value: false</para>
+        /// from the ISO basic Latin alphabet (A to Z).</para><para>If you do not specify a value for this parameter, then the operation uses the default
+        /// value of <code>false</code>. The result is that passwords do not require at least
+        /// one uppercase character.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

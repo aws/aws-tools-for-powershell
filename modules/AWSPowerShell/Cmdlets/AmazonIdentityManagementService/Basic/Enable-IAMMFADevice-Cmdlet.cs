@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter AuthenticationCode1
         /// <summary>
         /// <para>
-        /// <para>An authentication code emitted by the device. </para><para>The format for this parameter is a string of 6 digits.</para><important><para>Submit your request immediately after generating the authentication codes. If you
+        /// <para>An authentication code emitted by the device. </para><para>The format for this parameter is a string of six digits.</para><important><para>Submit your request immediately after generating the authentication codes. If you
         /// generate the codes and then wait too long to submit the request, the MFA device successfully
         /// associates with the user but the MFA device becomes out of sync. This happens because
         /// time-based one-time passwords (TOTP) expire after a short period of time. If this
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter AuthenticationCode2
         /// <summary>
         /// <para>
-        /// <para>A subsequent authentication code emitted by the device.</para><para>The format for this parameter is a string of 6 digits.</para><important><para>Submit your request immediately after generating the authentication codes. If you
+        /// <para>A subsequent authentication code emitted by the device.</para><para>The format for this parameter is a string of six digits.</para><important><para>Submit your request immediately after generating the authentication codes. If you
         /// generate the codes and then wait too long to submit the request, the MFA device successfully
         /// associates with the user but the MFA device becomes out of sync. This happens because
         /// time-based one-time passwords (TOTP) expire after a short period of time. If this
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The name of the IAM user for whom you want to enable the MFA device.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =,.@-</para>
+        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

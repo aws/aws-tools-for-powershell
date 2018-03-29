@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Removes the specified IAM role from the specified EC2 instance profile.
     /// 
     ///  <important><para>
-    /// Make sure you do not have any Amazon EC2 instances running with the role you are about
-    /// to remove from the instance profile. Removing a role from an instance profile that
-    /// is associated with a running instance might break any applications running on the
-    /// instance.
+    /// Make sure that you do not have any Amazon EC2 instances running with the role you
+    /// are about to remove from the instance profile. Removing a role from an instance profile
+    /// that is associated with a running instance might break any applications running on
+    /// the instance.
     /// </para></important><para>
     ///  For more information about IAM roles, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
     /// with Roles</a>. For more information about instance profiles, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The name of the instance profile to update.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =,.@-</para>
+        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

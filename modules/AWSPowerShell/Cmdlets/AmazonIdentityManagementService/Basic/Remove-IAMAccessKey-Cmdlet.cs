@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  
     /// <para>
     /// If you do not specify a user name, IAM determines the user name implicitly based on
-    /// the AWS access key ID signing the request. Because this action works for access keys
-    /// under the AWS account, you can use this action to manage root credentials even if
-    /// the AWS account has no associated users.
+    /// the AWS access key ID signing the request. Because this operation works for access
+    /// keys under the AWS account, you can use this operation to manage AWS account root
+    /// user credentials even if the AWS account has no associated users.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IAMAccessKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The name of the user whose access key pair you want to delete.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =,.@-</para>
+        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

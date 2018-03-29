@@ -66,11 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The path for the policy.</para><para>For more information about paths, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
-        /// Identifiers</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. If it is not included, it defaults to a slash (/).</para><para>This paramater allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// Identifiers</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. If it is not included, it defaults to a slash (/).</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of either a forward slash (/) by itself or a string
-        /// that must begin and end with forward slashes, containing any ASCII character from
-        /// the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters,
-        /// digits, and upper and lowercased letters.</para>
+        /// that must begin and end with forward slashes. In addition, it can contain any ASCII
+        /// character from the ! (\u0021) through the DEL character (\u007F), including most punctuation
+        /// characters, digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,11 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The JSON policy document that you want to use as the content for the new policy.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
-        /// parameter is a string of characters consisting of any printable ASCII character ranging
-        /// from the space character (\u0020) through end of the ASCII character range as well
-        /// as the printable characters in the Basic Latin and Latin-1 Supplement character set
-        /// (through \u00FF). It also includes the special characters tab (\u0009), line feed
-        /// (\u000A), and carriage return (\u000D).</para>
+        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (\u0020) through the
+        /// end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
+        /// \u00FF)</para></li><li><para>The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -97,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The friendly name of the policy.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =,.@-+</para>
+        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

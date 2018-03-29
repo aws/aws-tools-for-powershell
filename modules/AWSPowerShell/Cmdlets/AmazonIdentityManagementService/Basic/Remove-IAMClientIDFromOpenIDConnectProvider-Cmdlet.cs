@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  
     /// <para>
-    /// This action is idempotent; it does not fail or return an error if you try to remove
+    /// This operation is idempotent; it does not fail or return an error if you try to remove
     /// a client ID that does not exist.
     /// </para>
     /// </summary>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the client
         /// ID from. You can get a list of OIDC provider ARNs by using the <a>ListOpenIDConnectProviders</a>
-        /// action.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// operation.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para><para>
     /// You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
     /// parameters. If there are no inline policies embedded with the specified group, the
-    /// action returns an empty list.
+    /// operation returns an empty list.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "IAMGroupPolicyList")]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The name of the group to list policies for.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =,.@-</para>
+        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

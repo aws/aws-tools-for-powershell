@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// provider as a principal in their trust policies. Any attempt to assume a role that
     /// references a deleted provider fails.
     /// </para><para>
-    /// This action is idempotent; it does not fail or return an error if you call the action
-    /// for a provider that does not exist.
+    /// This operation is idempotent; it does not fail or return an error if you call the
+    /// operation for a provider that does not exist.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IAMOpenIDConnectProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM OpenID Connect provider resource object
         /// to delete. You can get a list of OpenID Connect provider resource ARNs by using the
-        /// <a>ListOpenIDConnectProviders</a> action.</para>
+        /// <a>ListOpenIDConnectProviders</a> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

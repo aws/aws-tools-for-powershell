@@ -35,11 +35,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html">Renaming
     /// Users and Groups</a> in the <i>IAM User Guide</i>.
     /// </para></important><note><para>
-    /// To change an IAM group name the requester must have appropriate permissions on both
-    /// the source object and the target object. For example, to change "Managers" to "MGRs",
-    /// the entity making the request must have permission on both "Managers" and "MGRs",
-    /// or must have permission on all (*). For more information about permissions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html">Permissions
-    /// and Policies</a>. 
+    /// The person making the request (the principal), must have permission to change the
+    /// role group with the old name and the new name. For example, to change the group named
+    /// <code>Managers</code> to <code>MGRs</code>, the principal must have a policy that
+    /// allows them to update both groups. If the principal has permission to update the <code>Managers</code>
+    /// group, but not the <code>MGRs</code> group, then the update fails. For more information
+    /// about permissions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+    /// Management</a>. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "IAMGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -58,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>Name of the IAM group to update. If you're changing the name of the group, this is
         /// the original name.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =,.@-</para>
+        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>New name for the IAM group. Only include this if changing the group's name.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =,.@-</para>
+        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -80,11 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter NewPath
         /// <summary>
         /// <para>
-        /// <para>New path for the IAM group. Only include this if changing the group's path.</para><para>This paramater allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// <para>New path for the IAM group. Only include this if changing the group's path.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of either a forward slash (/) by itself or a string
-        /// that must begin and end with forward slashes, containing any ASCII character from
-        /// the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters,
-        /// digits, and upper and lowercased letters.</para>
+        /// that must begin and end with forward slashes. In addition, it can contain any ASCII
+        /// character from the ! (\u0021) through the DEL character (\u007F), including most punctuation
+        /// characters, digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// an IAM User</a> and <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html">Renaming
     /// an IAM Group</a> in the <i>IAM User Guide</i>.
     /// </para></important><note><para>
-    ///  To change a user name the requester must have appropriate permissions on both the
+    ///  To change a user name, the requester must have appropriate permissions on both the
     /// source object and the target object. For example, to change Bob to Robert, the entity
     /// making the request must have permission on Bob and Robert, or must have permission
     /// on all (*). For more information about permissions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html">Permissions
@@ -57,11 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>New path for the IAM user. Include this parameter only if you're changing the user's
-        /// path.</para><para>This paramater allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// path.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of either a forward slash (/) by itself or a string
-        /// that must begin and end with forward slashes, containing any ASCII character from
-        /// the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters,
-        /// digits, and upper and lowercased letters.</para>
+        /// that must begin and end with forward slashes. In addition, it can contain any ASCII
+        /// character from the ! (\u0021) through the DEL character (\u007F), including most punctuation
+        /// characters, digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>New name for the user. Include this parameter only if you're changing the user's name.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =,.@-</para>
+        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>Name of the user to update. If you're changing the name of the user, this is the original
         /// user name.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =,.@-</para>
+        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

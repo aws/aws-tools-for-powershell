@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Lists the MFA devices for an IAM user. If the request includes a IAM user name, then
-    /// this action lists all the MFA devices associated with the specified user. If you do
-    /// not specify a user name, IAM determines the user name implicitly based on the AWS
+    /// this operation lists all the MFA devices associated with the specified user. If you
+    /// do not specify a user name, IAM determines the user name implicitly based on the AWS
     /// access key ID signing the request for this API.
     /// 
     ///  
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The name of the user whose MFA devices you want to list.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =,.@-</para>
+        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

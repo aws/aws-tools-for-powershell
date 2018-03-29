@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  
     /// <para>
-    /// For more information about working with server certificates, including a list of AWS
-    /// services that can use the server certificates that you manage with IAM, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
-    /// with Server Certificates</a> in the <i>IAM User Guide</i>.
+    /// For more information about working with server certificates, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
+    /// with Server Certificates</a> in the <i>IAM User Guide</i>. This topic also includes
+    /// a list of AWS services that can use the server certificates that you manage with IAM.
     /// </para><important><para>
     ///  If you are using a server certificate with Elastic Load Balancing, deleting the certificate
     /// could have implications for your application. If Elastic Load Balancing doesn't detect
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The name of the server certificate you want to delete.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =,.@-</para>
+        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

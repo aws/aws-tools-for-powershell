@@ -33,12 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  
     /// <para>
     /// Before you can delete a managed policy, you must first detach the policy from all
-    /// users, groups, and roles that it is attached to, and you must delete all of the policy's
-    /// versions. The following steps describe the process for deleting a managed policy:
+    /// users, groups, and roles that it is attached to. In addition you must delete all the
+    /// policy's versions. The following steps describe the process for deleting a managed
+    /// policy:
     /// </para><ul><li><para>
     /// Detach the policy from all users, groups, and roles that the policy is attached to,
     /// using the <a>DetachUserPolicy</a>, <a>DetachGroupPolicy</a>, or <a>DetachRolePolicy</a>
-    /// APIs. To list all the users, groups, and roles that a policy is attached to, use <a>ListEntitiesForPolicy</a>.
+    /// API operations. To list all the users, groups, and roles that a policy is attached
+    /// to, use <a>ListEntitiesForPolicy</a>.
     /// </para></li><li><para>
     /// Delete all versions of the policy using <a>DeletePolicyVersion</a>. To list the policy's
     /// versions, use <a>ListPolicyVersions</a>. You cannot use <a>DeletePolicyVersion</a>

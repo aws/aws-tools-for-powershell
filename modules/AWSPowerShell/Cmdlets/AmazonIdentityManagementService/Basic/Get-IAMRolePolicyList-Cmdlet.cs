@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para><para>
     /// You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
     /// parameters. If there are no inline policies embedded with the specified role, the
-    /// action returns an empty list.
+    /// operation returns an empty list.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "IAMRolePolicyList")]

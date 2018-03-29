@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  
     /// <para>
-    /// The SSH public key uploaded by this action can be used only for authenticating the
-    /// associated IAM user to an AWS CodeCommit repository. For more information about using
-    /// SSH keys to authenticate to an AWS CodeCommit repository, see <a href="http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set
+    /// The SSH public key uploaded by this operation can be used only for authenticating
+    /// the associated IAM user to an AWS CodeCommit repository. For more information about
+    /// using SSH keys to authenticate to an AWS CodeCommit repository, see <a href="http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set
     /// up AWS CodeCommit for SSH Connections</a> in the <i>AWS CodeCommit User Guide</i>.
     /// </para>
     /// </summary>
@@ -52,11 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
-        /// parameter is a string of characters consisting of any printable ASCII character ranging
-        /// from the space character (\u0020) through end of the ASCII character range as well
-        /// as the printable characters in the Basic Latin and Latin-1 Supplement character set
-        /// (through \u00FF). It also includes the special characters tab (\u0009), line feed
-        /// (\u000A), and carriage return (\u000D).</para>
+        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (\u0020) through the
+        /// end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
+        /// \u00FF)</para></li><li><para>The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -68,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The name of the IAM user to associate the SSH public key with.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =,.@-</para>
+        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

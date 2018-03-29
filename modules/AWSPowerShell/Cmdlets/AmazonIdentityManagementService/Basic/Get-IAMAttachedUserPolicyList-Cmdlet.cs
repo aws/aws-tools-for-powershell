@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// parameters. You can use the <code>PathPrefix</code> parameter to limit the list of
     /// policies to only those matching the specified path prefix. If there are no policies
     /// attached to the specified group (or none that match the specified path prefix), the
-    /// action returns an empty list.
+    /// operation returns an empty list.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "IAMAttachedUserPolicyList")]
@@ -59,11 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The path prefix for filtering the results. This parameter is optional. If it is not
-        /// included, it defaults to a slash (/), listing all policies.</para><para>This paramater allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// included, it defaults to a slash (/), listing all policies.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of either a forward slash (/) by itself or a string
-        /// that must begin and end with forward slashes, containing any ASCII character from
-        /// the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters,
-        /// digits, and upper and lowercased letters.</para>
+        /// that must begin and end with forward slashes. In addition, it can contain any ASCII
+        /// character from the ! (\u0021) through the DEL character (\u007F), including most punctuation
+        /// characters, digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The name (friendly name, not ARN) of the user to list attached policies for.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =,.@-</para>
+        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -28,7 +28,13 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Modifies the description of a role.
+    /// Use instead.
+    /// 
+    ///  
+    /// <para>
+    /// Modifies only the description of a role. This operation performs the same function
+    /// as the <code>Description</code> parameter in the <code>UpdateRole</code> operation.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "IAMRoleDescription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.Role")]

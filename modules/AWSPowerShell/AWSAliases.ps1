@@ -3109,6 +3109,7 @@ Set-Alias -Name IAM-UpdateAssumeRolePolicy -Value Update-IAMAssumeRolePolicy
 Set-Alias -Name IAM-UpdateGroup -Value Update-IAMGroup
 Set-Alias -Name IAM-UpdateLoginProfile -Value Update-IAMLoginProfile
 Set-Alias -Name IAM-UpdateOpenIDConnectProviderThumbprint -Value Update-IAMOpenIDConnectProviderThumbprint
+Set-Alias -Name IAM-UpdateRole -Value Update-IAMRole
 Set-Alias -Name IAM-UpdateRoleDescription -Value Update-IAMRoleDescription
 Set-Alias -Name IAM-UpdateSAMLProvider -Value Update-IAMSAMLProvider
 Set-Alias -Name IAM-UpdateServerCertificate -Value Update-IAMServerCertificate

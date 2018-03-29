@@ -33,8 +33,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// of the configuration of IAM permissions (users, groups, roles, and policies) in your
     /// account.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// Policies returned by this API are URL-encoded compliant with <a href="https://tools.ietf.org/html/rfc3986">RFC
+    /// 3986</a>. You can use a URL decoding method to convert the policy back to plain JSON
+    /// text. For example, if you use Java, you can use the <code>decode</code> method of
+    /// the <code>java.net.URLDecoder</code> utility class in the Java SDK. Other languages
+    /// and SDKs provide similar functionality.
+    /// </para></note><para>
     /// You can optionally filter the results using the <code>Filter</code> parameter. You
     /// can paginate the results using the <code>MaxItems</code> and <code>Marker</code> parameters.
     /// </para>

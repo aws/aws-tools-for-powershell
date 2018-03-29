@@ -28,9 +28,9 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Creates a new role for your AWS account. For more information about roles, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
-    /// with Roles</a>. For information about limitations on role names and the number of
-    /// roles you can create, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
+    /// Creates a new role for your AWS account. For more information about roles, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">IAM Roles</a>.
+    /// For information about limitations on role names and the number of roles you can create,
+    /// go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
     /// on IAM Entities</a> in the <i>IAM User Guide</i>.
     /// </summary>
     [Cmdlet("New", "IAMRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -48,11 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The trust relationship policy document that grants an entity permission to assume
         /// the role.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
-        /// parameter is a string of characters consisting of any printable ASCII character ranging
-        /// from the space character (\u0020) through end of the ASCII character range as well
-        /// as the printable characters in the Basic Latin and Latin-1 Supplement character set
-        /// (through \u00FF). It also includes the special characters tab (\u0009), line feed
-        /// (\u000A), and carriage return (\u000D).</para>
+        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (\u0020) through the
+        /// end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
+        /// \u00FF)</para></li><li><para>The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -62,22 +60,42 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A customer-provided description of the role.</para>
+        /// <para>A description of the role.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter MaxSessionDuration
+        /// <summary>
+        /// <para>
+        /// <para>The maximum session duration (in seconds) that you want to set for the specified role.
+        /// If you do not specify a value for this setting, the default maximum of one hour is
+        /// applied. This setting can have a value from 1 hour to 12 hours.</para><para>Anyone who assumes the role from the AWS CLI or API can use the <code>DurationSeconds</code>
+        /// API parameter or the <code>duration-seconds</code> CLI parameter to request a longer
+        /// session. The <code>MaxSessionDuration</code> setting determines the maximum duration
+        /// that can be requested using the <code>DurationSeconds</code> parameter. If users don't
+        /// specify a value for the <code>DurationSeconds</code> parameter, their security credentials
+        /// are valid for one hour by default. This applies when you use the <code>AssumeRole*</code>
+        /// API operations or the <code>assume-role*</code> CLI operations but does not apply
+        /// when you use those operations to create a console URL. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using IAM
+        /// Roles</a> in the <i>IAM User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 MaxSessionDuration { get; set; }
+        #endregion
+        
         #region Parameter Path
         /// <summary>
         /// <para>
         /// <para> The path to the role. For more information about paths, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
-        /// Identifiers</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. If it is not included, it defaults to a slash (/).</para><para>This paramater allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// Identifiers</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. If it is not included, it defaults to a slash (/).</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of either a forward slash (/) by itself or a string
-        /// that must begin and end with forward slashes, containing any ASCII character from
-        /// the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters,
-        /// digits, and upper and lowercased letters.</para>
+        /// that must begin and end with forward slashes. In addition, it can contain any ASCII
+        /// character from the ! (\u0021) through the DEL character (\u007F), including most punctuation
+        /// characters, digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -128,6 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             
             context.AssumeRolePolicyDocument = this.AssumeRolePolicyDocument;
             context.Description = this.Description;
+            if (ParameterWasBound("MaxSessionDuration"))
+                context.MaxSessionDuration = this.MaxSessionDuration;
             context.Path = this.Path;
             context.RoleName = this.RoleName;
             
@@ -153,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.MaxSessionDuration != null)
+            {
+                request.MaxSessionDuration = cmdletContext.MaxSessionDuration.Value;
             }
             if (cmdletContext.Path != null)
             {
@@ -228,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             public System.String AssumeRolePolicyDocument { get; set; }
             public System.String Description { get; set; }
+            public System.Int32? MaxSessionDuration { get; set; }
             public System.String Path { get; set; }
             public System.String RoleName { get; set; }
         }

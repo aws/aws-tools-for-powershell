@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Lists the instance profiles that have the specified path prefix. If there are none,
-    /// the action returns an empty list. For more information about instance profiles, go
-    /// to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
+    /// the operation returns an empty list. For more information about instance profiles,
+    /// go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
     /// Instance Profiles</a>.
     /// 
     ///  
@@ -55,11 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para> The path prefix for filtering the results. For example, the prefix <code>/application_abc/component_xyz/</code>
         /// gets all instance profiles whose path starts with <code>/application_abc/component_xyz/</code>.</para><para>This parameter is optional. If it is not included, it defaults to a slash (/), listing
-        /// all instance profiles. This paramater allows (per its <a href="http://wikipedia.org/wiki/regex">regex
+        /// all instance profiles. This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex
         /// pattern</a>) a string of characters consisting of either a forward slash (/) by itself
-        /// or a string that must begin and end with forward slashes, containing any ASCII character
-        /// from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters,
-        /// digits, and upper and lowercased letters.</para>
+        /// or a string that must begin and end with forward slashes. In addition, it can contain
+        /// any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
+        /// most punctuation characters, digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

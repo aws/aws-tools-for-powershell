@@ -33,17 +33,17 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  
     /// <para>
-    /// The list that you pass with this action completely replaces the existing list of thumbprints.
-    /// (The lists are not merged.)
+    /// The list that you pass with this operation completely replaces the existing list of
+    /// thumbprints. (The lists are not merged.)
     /// </para><para>
     /// Typically, you need to update a thumbprint only when the identity provider's certificate
     /// changes, which occurs rarely. However, if the provider's certificate <i>does</i> change,
     /// any attempt to assume an IAM role that specifies the OIDC provider as a principal
     /// fails until the certificate thumbprint is updated.
     /// </para><note><para>
-    /// Because trust for the OIDC provider is ultimately derived from the provider's certificate
-    /// and is validated by the thumbprint, it is a best practice to limit access to the <code>UpdateOpenIDConnectProviderThumbprint</code>
-    /// action to highly-privileged users.
+    /// Because trust for the OIDC provider is derived from the provider's certificate and
+    /// is validated by the thumbprint, it is best to limit access to the <code>UpdateOpenIDConnectProviderThumbprint</code>
+    /// operation to highly privileged users.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "IAMOpenIDConnectProviderThumbprint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM OIDC provider resource object for which
         /// you want to update the thumbprint. You can get a list of OIDC provider ARNs by using
-        /// the <a>ListOpenIDConnectProviders</a> action.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// the <a>ListOpenIDConnectProviders</a> operation.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>

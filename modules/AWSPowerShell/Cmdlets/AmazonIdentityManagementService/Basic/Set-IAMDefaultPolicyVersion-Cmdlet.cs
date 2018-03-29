@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  
     /// <para>
-    /// This action affects all users, groups, and roles that the policy is attached to. To
-    /// list the users, groups, and roles that the policy is attached to, use the <a>ListEntitiesForPolicy</a>
+    /// This operation affects all users, groups, and roles that the policy is attached to.
+    /// To list the users, groups, and roles that the policy is attached to, use the <a>ListEntitiesForPolicy</a>
     /// API.
     /// </para><para>
     /// For information about managed policies, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed

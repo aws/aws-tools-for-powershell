@@ -28,58 +28,56 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Deletes the specified inline policy that is embedded in the specified IAM user.
-    /// 
-    ///  
-    /// <para>
-    /// A user can also have managed policies attached to it. To detach a managed policy from
-    /// a user, use <a>DetachUserPolicy</a>. For more information about policies, refer to
-    /// <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
-    /// </para>
+    /// Updates the description or maximum session duration setting of a role.
     /// </summary>
-    [Cmdlet("Remove", "IAMUserPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the AWS Identity and Access Management DeleteUserPolicy API operation.", Operation = new[] {"DeleteUserPolicy"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.IdentityManagement.Model.DeleteUserPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "IAMRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Identity and Access Management UpdateRole API operation.", Operation = new[] {"UpdateRole"})]
+    [AWSCmdletOutput("None",
+        "This cmdlet does not generate any output. " +
+        "The service response (type Amazon.IdentityManagement.Model.UpdateRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveIAMUserPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public partial class UpdateIAMRoleCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter PolicyName
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The name identifying the policy document to delete.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
-        /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
+        /// <para>The new description that you want to apply to the specified role.</para>
         /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public System.String PolicyName { get; set; }
-        #endregion
-        
-        #region Parameter UserName
-        /// <summary>
-        /// <para>
-        /// <para>The name (friendly name, not ARN) identifying the user that the policy is embedded
-        /// in.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
-        /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String UserName { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the UserName parameter.
-        /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter MaxSessionDuration
+        /// <summary>
+        /// <para>
+        /// <para>The maximum session duration (in seconds) that you want to set for the specified role.
+        /// If you do not specify a value for this setting, the default maximum of one hour is
+        /// applied. This setting can have a value from 1 hour to 12 hours.</para><para>Anyone who assumes the role from the AWS CLI or API can use the <code>DurationSeconds</code>
+        /// API parameter or the <code>duration-seconds</code> CLI parameter to request a longer
+        /// session. The <code>MaxSessionDuration</code> setting determines the maximum duration
+        /// that can be requested using the <code>DurationSeconds</code> parameter. If users don't
+        /// specify a value for the <code>DurationSeconds</code> parameter, their security credentials
+        /// are valid for one hour by default. This applies when you use the <code>AssumeRole*</code>
+        /// API operations or the <code>assume-role*</code> CLI operations but does not apply
+        /// when you use those operations to create a console URL. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using IAM
+        /// Roles</a> in the <i>IAM User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 MaxSessionDuration { get; set; }
+        #endregion
+        
+        #region Parameter RoleName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the role that you want to modify.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RoleName { get; set; }
         #endregion
         
         #region Parameter Force
@@ -96,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("PolicyName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IAMUserPolicy (DeleteUserPolicy)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RoleName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-IAMRole (UpdateRole)"))
             {
                 return;
             }
@@ -111,8 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.PolicyName = this.PolicyName;
-            context.UserName = this.UserName;
+            context.Description = this.Description;
+            if (ParameterWasBound("MaxSessionDuration"))
+                context.MaxSessionDuration = this.MaxSessionDuration;
+            context.RoleName = this.RoleName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -127,15 +127,19 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IdentityManagement.Model.DeleteUserPolicyRequest();
+            var request = new Amazon.IdentityManagement.Model.UpdateRoleRequest();
             
-            if (cmdletContext.PolicyName != null)
+            if (cmdletContext.Description != null)
             {
-                request.PolicyName = cmdletContext.PolicyName;
+                request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.UserName != null)
+            if (cmdletContext.MaxSessionDuration != null)
             {
-                request.UserName = cmdletContext.UserName;
+                request.MaxSessionDuration = cmdletContext.MaxSessionDuration.Value;
+            }
+            if (cmdletContext.RoleName != null)
+            {
+                request.RoleName = cmdletContext.RoleName;
             }
             
             CmdletOutput output;
@@ -147,8 +151,6 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.UserName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -173,16 +175,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private Amazon.IdentityManagement.Model.DeleteUserPolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeleteUserPolicyRequest request)
+        private Amazon.IdentityManagement.Model.UpdateRoleResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.UpdateRoleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "DeleteUserPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "UpdateRole");
             try
             {
                 #if DESKTOP
-                return client.DeleteUserPolicy(request);
+                return client.UpdateRole(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteUserPolicyAsync(request);
+                var task = client.UpdateRoleAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -203,8 +205,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String PolicyName { get; set; }
-            public System.String UserName { get; set; }
+            public System.String Description { get; set; }
+            public System.Int32? MaxSessionDuration { get; set; }
+            public System.String RoleName { get; set; }
         }
         
     }

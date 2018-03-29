@@ -32,20 +32,21 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  
     /// <para>
-    /// For more information about working with server certificates, including a list of AWS
-    /// services that can use the server certificates that you manage with IAM, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
-    /// with Server Certificates</a> in the <i>IAM User Guide</i>.
+    /// For more information about working with server certificates, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
+    /// with Server Certificates</a> in the <i>IAM User Guide</i>. This topic also includes
+    /// a list of AWS services that can use the server certificates that you manage with IAM.
     /// </para><important><para>
     /// You should understand the implications of changing a server certificate's path or
     /// name. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts">Renaming
     /// a Server Certificate</a> in the <i>IAM User Guide</i>.
     /// </para></important><note><para>
-    /// To change a server certificate name the requester must have appropriate permissions
-    /// on both the source object and the target object. For example, to change the name from
-    /// "ProductionCert" to "ProdCert", the entity making the request must have permission
-    /// on "ProductionCert" and "ProdCert", or must have permission on all (*). For more information
-    /// about permissions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
-    /// Management</a> in the <i>IAM User Guide</i>.
+    /// The person making the request (the principal), must have permission to change the
+    /// server certificate with the old name and the new name. For example, to change the
+    /// certificate named <code>ProductionCert</code> to <code>ProdCert</code>, the principal
+    /// must have a policy that allows them to update both certificates. If the principal
+    /// has permission to update the <code>ProductionCert</code> group, but not the <code>ProdCert</code>
+    /// certificate, then the update fails. For more information about permissions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a>
+    /// in the <i>IAM User Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "IAMServerCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -62,11 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The new path for the server certificate. Include this only if you are updating the
-        /// server certificate's path.</para><para>This paramater allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// server certificate's path.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of either a forward slash (/) by itself or a string
-        /// that must begin and end with forward slashes, containing any ASCII character from
-        /// the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters,
-        /// digits, and upper and lowercased letters.</para>
+        /// that must begin and end with forward slashes. In addition, it can contain any ASCII
+        /// character from the ! (\u0021) through the DEL character (\u007F), including most punctuation
+        /// characters, digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -79,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>The new name for the server certificate. Include this only if you are updating the
         /// server certificate's name. The name of the certificate cannot contain any spaces.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =,.@-</para>
+        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -91,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The name of the server certificate that you want to update.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =,.@-</para>
+        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

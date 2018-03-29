@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Simulate how a set of IAM policies attached to an IAM entity works with a list of
-    /// API actions and AWS resources to determine the policies' effective permissions. The
-    /// entity can be an IAM user, group, or role. If you specify a user, then the simulation
+    /// API operations and AWS resources to determine the policies' effective permissions.
+    /// The entity can be an IAM user, group, or role. If you specify a user, then the simulation
     /// also includes all of the policies that are attached to groups that the user belongs
-    /// to .
+    /// to.
     /// 
     ///  
     /// <para>
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// You can also optionally include one resource-based policy to be evaluated with each
     /// of the resources included in the simulation.
     /// </para><para>
-    /// The simulation does not perform the API actions, it only checks the authorization
-    /// to determine if the simulated policies allow or deny the actions.
+    /// The simulation does not perform the API operations, it only checks the authorization
+    /// to determine if the simulated policies allow or deny the operations.
     /// </para><para><b>Note:</b> This API discloses information about the permissions granted to other
     /// users. If you do not want users to see other user's permissions, then consider allowing
     /// them to use <a>SimulateCustomPolicy</a> instead.
@@ -72,8 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter ActionName
         /// <summary>
         /// <para>
-        /// <para>A list of names of API actions to evaluate in the simulation. Each action is evaluated
-        /// for each resource. Each action must include the service identifier, such as <code>iam:CreateUser</code>.</para>
+        /// <para>A list of names of API operations to evaluate in the simulation. Each operation is
+        /// evaluated for each resource. Each operation must include the service identifier, such
+        /// as <code>iam:CreateUser</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,12 +85,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter CallerArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM user that you want to specify as the simulated caller of the APIs.
-        /// If you do not specify a <code>CallerArn</code>, it defaults to the ARN of the user
-        /// that you specify in <code>PolicySourceArn</code>, if you specified a user. If you
-        /// include both a <code>PolicySourceArn</code> (for example, <code>arn:aws:iam::123456789012:user/David</code>)
+        /// <para>The ARN of the IAM user that you want to specify as the simulated caller of the API
+        /// operations. If you do not specify a <code>CallerArn</code>, it defaults to the ARN
+        /// of the user that you specify in <code>PolicySourceArn</code>, if you specified a user.
+        /// If you include both a <code>PolicySourceArn</code> (for example, <code>arn:aws:iam::123456789012:user/David</code>)
         /// and a <code>CallerArn</code> (for example, <code>arn:aws:iam::123456789012:user/Bob</code>),
-        /// the result is that you simulate calling the APIs as Bob, as if Bob had David's policies.</para><para>You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed
+        /// the result is that you simulate calling the API operations as Bob, as if Bob had David's
+        /// policies.</para><para>You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed
         /// role, federated user, or a service principal.</para><para><code>CallerArn</code> is required if you include a <code>ResourcePolicy</code> and
         /// the <code>PolicySourceArn</code> is not the ARN for an IAM user. This is required
         /// so that the resource-based policy's <code>Principal</code> element has a value to
@@ -120,11 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>An optional list of additional policy documents to include in the simulation. Each
         /// document is specified as a string containing the complete, valid JSON text of an IAM
         /// policy.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
-        /// parameter is a string of characters consisting of any printable ASCII character ranging
-        /// from the space character (\u0020) through end of the ASCII character range as well
-        /// as the printable characters in the Basic Latin and Latin-1 Supplement character set
-        /// (through \u00FF). It also includes the special characters tab (\u0009), line feed
-        /// (\u000A), and carriage return (\u000D).</para>
+        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (\u0020) through the
+        /// end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
+        /// \u00FF)</para></li><li><para>The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -149,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>A list of ARNs of AWS resources to include in the simulation. If this parameter is
-        /// not provided then the value defaults to <code>*</code> (all resources). Each API in
-        /// the <code>ActionNames</code> parameter is evaluated for each resource in this list.
+        /// not provided, then the value defaults to <code>*</code> (all resources). Each API
+        /// in the <code>ActionNames</code> parameter is evaluated for each resource in this list.
         /// The simulation determines the access result (allowed or denied) of each combination
         /// and reports it in the response.</para><para>The simulation does not automatically retrieve policies for the specified resources.
         /// If you want to include a resource policy in the simulation, then you must include
@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter ResourceHandlingOption
         /// <summary>
         /// <para>
-        /// <para>Specifies the type of simulation to run. Different APIs that support resource-based
+        /// <para>Specifies the type of simulation to run. Different API operations that support resource-based
         /// policies require different combinations of resources. By specifying the type of simulation
         /// to run, you enable the policy simulator to enforce the presence of the required resources
         /// to ensure reliable simulation results. If your simulation does not match one of the
@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// as a resource. If the EC2 scenario includes VPC, then you must supply the network-interface
         /// resource. If it includes an IP subnet, then you must specify the subnet resource.
         /// For more information on the EC2 scenario options, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
-        /// Platforms</a> in the <i>AWS EC2 User Guide</i>.</para><ul><li><para><b>EC2-Classic-InstanceStore</b></para><para>instance, image, security-group</para></li><li><para><b>EC2-Classic-EBS</b></para><para>instance, image, security-group, volume</para></li><li><para><b>EC2-VPC-InstanceStore</b></para><para>instance, image, security-group, network-interface</para></li><li><para><b>EC2-VPC-InstanceStore-Subnet</b></para><para>instance, image, security-group, network-interface, subnet</para></li><li><para><b>EC2-VPC-EBS</b></para><para>instance, image, security-group, network-interface, volume</para></li><li><para><b>EC2-VPC-EBS-Subnet</b></para><para>instance, image, security-group, network-interface, subnet, volume</para></li></ul>
+        /// Platforms</a> in the <i>Amazon EC2 User Guide</i>.</para><ul><li><para><b>EC2-Classic-InstanceStore</b></para><para>instance, image, security-group</para></li><li><para><b>EC2-Classic-EBS</b></para><para>instance, image, security-group, volume</para></li><li><para><b>EC2-VPC-InstanceStore</b></para><para>instance, image, security-group, network-interface</para></li><li><para><b>EC2-VPC-InstanceStore-Subnet</b></para><para>instance, image, security-group, network-interface, subnet</para></li><li><para><b>EC2-VPC-EBS</b></para><para>instance, image, security-group, network-interface, volume</para></li><li><para><b>EC2-VPC-EBS-Subnet</b></para><para>instance, image, security-group, network-interface, subnet, volume</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -207,11 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>A resource-based policy to include in the simulation provided as a string. Each resource
         /// in the simulation is treated as if it had this policy attached. You can include only
         /// one resource-based policy in a simulation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
-        /// parameter is a string of characters consisting of any printable ASCII character ranging
-        /// from the space character (\u0020) through end of the ASCII character range as well
-        /// as the printable characters in the Basic Latin and Latin-1 Supplement character set
-        /// (through \u00FF). It also includes the special characters tab (\u0009), line feed
-        /// (\u000A), and carriage return (\u000D).</para>
+        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (\u0020) through the
+        /// end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
+        /// \u00FF)</para></li><li><para>The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

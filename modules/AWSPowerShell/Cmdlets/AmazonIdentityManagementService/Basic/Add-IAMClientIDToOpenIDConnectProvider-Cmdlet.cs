@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  
     /// <para>
-    /// This action is idempotent; it does not fail or return an error if you add an existing
+    /// This operation is idempotent; it does not fail or return an error if you add an existing
     /// client ID to the provider.
     /// </para>
     /// </summary>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider resource
         /// to add the client ID to. You can get a list of OIDC provider ARNs by using the <a>ListOpenIDConnectProviders</a>
-        /// action.</para>
+        /// operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
