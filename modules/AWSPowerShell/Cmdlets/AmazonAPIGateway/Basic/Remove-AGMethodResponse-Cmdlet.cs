@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter HttpMethod
         /// <summary>
         /// <para>
-        /// <para>The HTTP verb of the <a>Method</a> resource.</para>
+        /// <para>[Required] The HTTP verb of the <a>Method</a> resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The <a>Resource</a> identifier for the <a>MethodResponse</a> resource.</para>
+        /// <para>[Required] The <a>Resource</a> identifier for the <a>MethodResponse</a> resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StatusCode
         /// <summary>
         /// <para>
-        /// <para>The status code identifier for the <a>MethodResponse</a> resource.</para>
+        /// <para>[Required] The status code identifier for the <a>MethodResponse</a> resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

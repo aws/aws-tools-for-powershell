@@ -28,7 +28,7 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Retrieves information about a resource definition version, such as which resources
+    /// Retrieves information about a resource definition version, including which resources
     /// are included in the version.
     /// </summary>
     [Cmdlet("Get", "GGResourceDefinitionVersion")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter ResourceDefinitionId
         /// <summary>
         /// <para>
-        /// Resource definition Id.
+        /// The ID of the resource definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter ResourceDefinitionVersionId
         /// <summary>
         /// <para>
-        /// Resource definition version
-        /// Id.
+        /// The ID of the resource definition
+        /// version.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

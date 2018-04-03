@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
     /// Creates a version of a core definition that has already been defined. AWS Greengrass
-    /// Groups must each contain exactly 1 AWS Greengrass Core.
+    /// groups must each contain exactly one AWS Greengrass core.
     /// </summary>
     [Cmdlet("New", "GGCoreDefinitionVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Greengrass.Model.CreateCoreDefinitionVersionResponse")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter AmznClientToken
         /// <summary>
         /// <para>
-        /// The client token used to request idempotent
-        /// operations.
+        /// A client token used to correlate requests
+        /// and responses.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter CoreDefinitionId
         /// <summary>
         /// <para>
-        /// core definition Id
+        /// The ID of the core definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter Core
         /// <summary>
         /// <para>
-        /// Cores in the definition version.
+        /// A list of cores in the core definition version.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

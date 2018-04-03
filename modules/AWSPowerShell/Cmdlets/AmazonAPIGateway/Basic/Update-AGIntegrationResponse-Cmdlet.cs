@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter HttpMethod
         /// <summary>
         /// <para>
-        /// <para>Specifies an update integration response request's HTTP method.</para>
+        /// <para>[Required] Specifies an update integration response request's HTTP method.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>Specifies an update integration response request's resource identifier.</para>
+        /// <para>[Required] Specifies an update integration response request's resource identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StatusCode
         /// <summary>
         /// <para>
-        /// <para>Specifies an update integration response request's status code.</para>
+        /// <para>[Required] Specifies an update integration response request's status code.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

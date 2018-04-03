@@ -40,6 +40,20 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class NewCFNStackSetCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        #region Parameter AdministrationRoleARN
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Number (ARN) of the IAM role to use to create this stack set.
+        /// </para><para>Specify an IAM role only if you are using customized administrator roles to control
+        /// which users or groups can manage specific stack sets within the same administrator
+        /// account. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Define
+        /// Permissions for Multiple Administrators</a> in the <i>AWS CloudFormation User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AdministrationRoleARN { get; set; }
+        #endregion
+        
         #region Parameter Capability
         /// <summary>
         /// <para>
@@ -179,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AdministrationRoleARN = this.AdministrationRoleARN;
             if (this.Capability != null)
             {
                 context.Capabilities = new List<System.String>(this.Capability);
@@ -212,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             // create request
             var request = new Amazon.CloudFormation.Model.CreateStackSetRequest();
             
+            if (cmdletContext.AdministrationRoleARN != null)
+            {
+                request.AdministrationRoleARN = cmdletContext.AdministrationRoleARN;
+            }
             if (cmdletContext.Capabilities != null)
             {
                 request.Capabilities = cmdletContext.Capabilities;
@@ -308,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AdministrationRoleARN { get; set; }
             public List<System.String> Capabilities { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String Description { get; set; }

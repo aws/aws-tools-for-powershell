@@ -42,10 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter BasePath
         /// <summary>
         /// <para>
-        /// <para>The base path name that callers of the API must provide as part of the URL after the
-        /// domain name. This value must be unique for all of the mappings across a single API.
-        /// Leave this blank if you do not want callers to specify any base path name after the
-        /// domain name.</para>
+        /// <para>[Required] The base path name that callers of the API must provide as part of the
+        /// URL after the domain name. This value must be unique for all of the mappings across
+        /// a single API. Leave this blank if you do not want callers to specify any base path
+        /// name after the domain name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The domain name of the <a>BasePathMapping</a> resource to be described.</para>
+        /// <para>[Required] The domain name of the <a>BasePathMapping</a> resource to be described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

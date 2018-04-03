@@ -28,8 +28,7 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Deletes a subscription definition. The subscription definition must not have been
-    /// used in a deployment.
+    /// Deletes a subscription definition.
     /// </summary>
     [Cmdlet("Remove", "GGSubscriptionDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -44,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter SubscriptionDefinitionId
         /// <summary>
         /// <para>
-        /// subscription definition Id
+        /// The ID of the subscription definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

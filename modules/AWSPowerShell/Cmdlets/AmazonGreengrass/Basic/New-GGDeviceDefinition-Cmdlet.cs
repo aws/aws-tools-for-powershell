@@ -28,8 +28,8 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Creates a device definition. You may optinally provide the initial version of the
-    /// device definition or use ``CreateDeviceDefinitionVersion`` at a later time.
+    /// Creates a device definition. You may provide the initial version of the device definition
+    /// now or use ''CreateDeviceDefinitionVersion'' at a later time.
     /// </summary>
     [Cmdlet("New", "GGDeviceDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Greengrass.Model.CreateDeviceDefinitionResponse")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter AmznClientToken
         /// <summary>
         /// <para>
-        /// The client token used to request idempotent
-        /// operations.
+        /// A client token used to correlate requests
+        /// and responses.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter InitialVersion_Device
         /// <summary>
         /// <para>
-        /// Devices in the definition version.
+        /// A list of devices in the definition version.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// name of the device definition
+        /// The name of the device definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

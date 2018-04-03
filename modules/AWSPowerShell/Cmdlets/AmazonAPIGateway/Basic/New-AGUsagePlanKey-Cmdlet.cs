@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of a <a>UsagePlanKey</a> resource for a plan customer.</para>
+        /// <para>[Required] The identifier of a <a>UsagePlanKey</a> resource for a plan customer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter KeyType
         /// <summary>
         /// <para>
-        /// <para>The type of a <a>UsagePlanKey</a> resource for a plan customer.</para>
+        /// <para>[Required] The type of a <a>UsagePlanKey</a> resource for a plan customer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter UsagePlanId
         /// <summary>
         /// <para>
-        /// <para>The Id of the <a>UsagePlan</a> resource representing the usage plan containing the
-        /// to-be-created <a>UsagePlanKey</a> resource representing a plan customer.</para>
+        /// <para>[Required] The Id of the <a>UsagePlan</a> resource representing the usage plan containing
+        /// the to-be-created <a>UsagePlanKey</a> resource representing a plan customer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

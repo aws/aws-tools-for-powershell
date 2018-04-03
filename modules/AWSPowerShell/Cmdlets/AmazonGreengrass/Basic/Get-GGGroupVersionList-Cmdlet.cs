@@ -28,7 +28,7 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// List the versions of a group.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the versions of a group.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "GGGroupVersionList")]
     [OutputType("Amazon.Greengrass.Model.VersionInformation")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// The unique Id of the AWS Greengrass Group
+        /// The ID of the AWS Greengrass group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// Specifies the maximum number of list results
-        /// to be returned in this page
+        /// The maximum number of results to be returned
+        /// per request.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// Specifies the pagination token used when iterating
-        /// through a paginated request
+        /// The token for the next set of results, or ''null''
+        /// if there are no additional results.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

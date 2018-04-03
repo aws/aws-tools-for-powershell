@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -57,8 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of returned results per page. The <a>GatewayResponses</a> collection
-        /// does not support pagination and the limit does not apply here.</para>
+        /// <para>The maximum number of returned results per page. The default value is 25 and the maximum
+        /// value is 500. The <a>GatewayResponses</a> collection does not support pagination and
+        /// the limit does not apply here.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter CoreDefinitionId
         /// <summary>
         /// <para>
-        /// core definition Id
+        /// The ID of the core definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// name of the definition
+        /// The name of the definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

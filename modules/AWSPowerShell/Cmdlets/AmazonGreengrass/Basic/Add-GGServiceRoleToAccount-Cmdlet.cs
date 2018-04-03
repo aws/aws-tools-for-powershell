@@ -28,9 +28,9 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Associates a role which is used by AWS Greengrass. AWS Greengrass uses the role to
-    /// access your Lambda functions and AWS IoT resources. This is necessary for deployments
-    /// to succeed. It needs to have minimum permissions in policy ``AWSGreengrassResourceAccessRolePolicy``
+    /// Associates a role with your account. AWS Greengrass will use the role to access your
+    /// Lambda functions and AWS IoT resources. This is necessary for deployments to succeed.
+    /// The role must have at least minimum permissions in the policy ''AWSGreengrassResourceAccessRolePolicy''.
     /// </summary>
     [Cmdlet("Add", "GGServiceRoleToAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// Role arn you wish to associate with this account.
+        /// The ARN of the service role you wish to associate
+        /// with your account.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

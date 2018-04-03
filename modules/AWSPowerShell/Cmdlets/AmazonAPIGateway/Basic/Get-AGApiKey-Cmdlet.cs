@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ApiKey
         /// <summary>
         /// <para>
-        /// <para>The identifier of the <a>ApiKey</a> resource.</para>
+        /// <para>[Required] The identifier of the <a>ApiKey</a> resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

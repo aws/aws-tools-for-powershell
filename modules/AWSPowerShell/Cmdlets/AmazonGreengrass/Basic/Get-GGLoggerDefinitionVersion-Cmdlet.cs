@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter LoggerDefinitionId
         /// <summary>
         /// <para>
-        /// logger definition Id
+        /// The ID of the logger definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -52,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter LoggerDefinitionVersionId
         /// <summary>
         /// <para>
-        /// logger definition version Id
+        /// The ID of the logger definition
+        /// version.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

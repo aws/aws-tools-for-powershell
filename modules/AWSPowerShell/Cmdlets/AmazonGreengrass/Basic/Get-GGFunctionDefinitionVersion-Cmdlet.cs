@@ -28,8 +28,8 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Retrieves information about a Lambda function definition version, such as which Lambda
-    /// functions are included in the version and their configurations.
+    /// Retrieves information about a Lambda function definition version, including which
+    /// Lambda functions are included in the version and their configurations.
     /// </summary>
     [Cmdlet("Get", "GGFunctionDefinitionVersion")]
     [OutputType("Amazon.Greengrass.Model.GetFunctionDefinitionVersionResponse")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter FunctionDefinitionId
         /// <summary>
         /// <para>
-        /// the unique Id of the lambda definition
+        /// The ID of the Lambda function definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter FunctionDefinitionVersionId
         /// <summary>
         /// <para>
-        /// Function definition version
-        /// Id
+        /// The ID of the function definition
+        /// version.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

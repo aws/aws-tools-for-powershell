@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter SubscriptionDefinitionId
         /// <summary>
         /// <para>
-        /// subscription definition Id
+        /// The ID of the subscription definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter SubscriptionDefinitionVersionId
         /// <summary>
         /// <para>
-        /// subscription definition
-        /// version Id
+        /// The ID of the subscription
+        /// definition version.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -126,14 +126,13 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Location_Type
         /// <summary>
         /// <para>
-        /// <para>The type of API entity to which the documentation content applies. It is a valid and
-        /// required field for API entity types of <code>API</code>, <code>AUTHORIZER</code>,
-        /// <code>MODEL</code>, <code>RESOURCE</code>, <code>METHOD</code>, <code>PATH_PARAMETER</code>,
-        /// <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>, <code>REQUEST_BODY</code>,
-        /// <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>.
-        /// Content inheritance does not apply to any entity of the <code>API</code>, <code>AUTHORIZER</code>,
-        /// <code>METHOD</code>, <code>MODEL</code>, <code>REQUEST_BODY</code>, or <code>RESOURCE</code>
-        /// type.</para>
+        /// <para>[Required] The type of API entity to which the documentation content applies. Valid
+        /// values are <code>API</code>, <code>AUTHORIZER</code>, <code>MODEL</code>, <code>RESOURCE</code>,
+        /// <code>METHOD</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>,
+        /// <code>REQUEST_BODY</code>, <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and
+        /// <code>RESPONSE_BODY</code>. Content inheritance does not apply to any entity of the
+        /// <code>API</code>, <code>AUTHORIZER</code>, <code>METHOD</code>, <code>MODEL</code>,
+        /// <code>REQUEST_BODY</code>, or <code>RESOURCE</code> type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

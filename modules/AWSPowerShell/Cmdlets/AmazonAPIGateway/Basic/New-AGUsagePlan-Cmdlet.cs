@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the usage plan.</para>
+        /// <para>[Required] The name of the usage plan.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The domain name of a <a>BasePathMapping</a> resource.</para>
+        /// <para>[Required] The domain name of a <a>BasePathMapping</a> resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of returned results per page. The value is 25 by default and could
-        /// be between 1 - 500.</para>
+        /// <para>The maximum number of returned results per page. The default value is 25 and the maximum
+        /// value is 500.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

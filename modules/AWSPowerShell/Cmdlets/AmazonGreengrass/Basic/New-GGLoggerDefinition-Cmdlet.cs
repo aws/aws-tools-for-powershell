@@ -28,8 +28,8 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Creates a logger definition. You may optionally provide the initial version of the
-    /// logger definition or use ``CreateLoggerDefinitionVersion`` at a later time.
+    /// Creates a logger definition. You may provide the initial version of the logger definition
+    /// now or use ''CreateLoggerDefinitionVersion'' at a later time.
     /// </summary>
     [Cmdlet("New", "GGLoggerDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Greengrass.Model.CreateLoggerDefinitionResponse")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter AmznClientToken
         /// <summary>
         /// <para>
-        /// The client token used to request idempotent
-        /// operations.
+        /// A client token used to correlate requests
+        /// and responses.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter InitialVersion_Logger
         /// <summary>
         /// <para>
-        /// List of loggers.
+        /// A list of loggers.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// name of the logger definition
+        /// The name of the logger definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

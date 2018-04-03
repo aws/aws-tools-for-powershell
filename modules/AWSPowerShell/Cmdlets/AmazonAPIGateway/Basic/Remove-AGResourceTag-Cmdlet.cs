@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Removes Tags from a given resource.
+    /// Removes a tag from a given resource.
     /// </summary>
     [Cmdlet("Remove", "AGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>[Required] The ARN of a resource that can be tagged. At present, <a>Stage</a> is the
-        /// only taggable resource.</para>
+        /// <para>[Required] The ARN of a resource that can be tagged. The resource ARN must be URL-encoded.
+        /// At present, <a>Stage</a> is the only taggable resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The Tag keys to delete.</para>
+        /// <para>[Required] The Tag keys to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

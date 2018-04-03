@@ -101,9 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>The identity source for which authorization is requested. <ul><li>For a <code>TOKEN</code>
-        /// authorizer, this is required and specifies the request header mapping expression for
-        /// the custom header holding the authorization token submitted by the client. For example,
-        /// if the token header name is <code>Auth</code>, the header mapping expression is <code>method.request.header.Auth</code>.</li><li>For
+        /// or <code>COGNITO_USER_POOLS</code> authorizer, this is required and specifies the
+        /// request header mapping expression for the custom header holding the authorization
+        /// token submitted by the client. For example, if the token header name is <code>Auth</code>,
+        /// the header mapping expression is <code>method.request.header.Auth</code>.</li><li>For
         /// the <code>REQUEST</code> authorizer, this is required when authorization caching is
         /// enabled. The value is a comma-separated string of one or more mapping expressions
         /// of the specified request parameters. For example, if an <code>Auth</code> header,
@@ -115,8 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401
         /// Unauthorized response without calling the Lambda function. The valid value is a string
         /// of comma-separated mapping expressions of the specified request parameters. When the
-        /// authorization caching is not enabled, this property is optional.</li><li>For a <code>COGNITO_USER_POOLS</code>
-        /// authorizer, this property is not used.</li></ul></para>
+        /// authorization caching is not enabled, this property is optional.</li></ul></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -127,11 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers,
-        /// this value is a regular expression. API Gateway will match the incoming token from
-        /// the client against the specified regular expression. It will invoke the authorizer's
-        /// Lambda function there is a match. Otherwise, it will return a 401 Unauthorized response
-        /// without calling the Lambda function. The validation expression does not apply to the
-        /// <code>REQUEST</code> authorizer.</para>
+        /// this value is a regular expression. API Gateway will match the <code>aud</code> field
+        /// of the incoming token from the client against the specified regular expression. It
+        /// will invoke the authorizer's Lambda function when there is a match. Otherwise, it
+        /// will return a 401 Unauthorized response without calling the Lambda function. The validation
+        /// expression does not apply to the <code>REQUEST</code> authorizer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

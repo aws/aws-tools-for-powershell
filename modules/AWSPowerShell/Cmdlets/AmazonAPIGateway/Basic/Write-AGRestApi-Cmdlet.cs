@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Body
         /// <summary>
         /// <para>
-        /// <para>The PUT request body containing external API definitions. Currently, only Swagger
-        /// definition JSON files are supported. The maximum size of the API definition file is
-        /// 2MB.</para>
+        /// <para>[Required] The PUT request body containing external API definitions. Currently, only
+        /// Swagger definition JSON files are supported. The maximum size of the API definition
+        /// file is 2MB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

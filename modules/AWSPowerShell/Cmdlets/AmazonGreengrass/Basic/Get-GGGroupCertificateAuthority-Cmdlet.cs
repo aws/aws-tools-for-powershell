@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter CertificateAuthorityId
         /// <summary>
         /// <para>
-        /// certificate authority Id
+        /// The ID of the certificate authority.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// The unique Id of the AWS Greengrass Group
+        /// The ID of the AWS Greengrass group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,8 +28,10 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Creates an Iot Job that will trigger your Greengrass Cores to update the software
-    /// they are running.
+    /// Creates a software update for a core or group of cores (specified as an IoT thing
+    /// group.) Use this to update the OTA Agent as well as the Greengrass core software.
+    /// It makes use of the IoT Jobs feature which provides additional commands to manage
+    /// a Greengrass core software update job.
     /// </summary>
     [Cmdlet("New", "GGSoftwareUpdateJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Greengrass.Model.CreateSoftwareUpdateJobResponse")]
@@ -43,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter AmznClientToken
         /// <summary>
         /// <para>
-        /// The client token used to request idempotent
-        /// operations.
+        /// A client token used to correlate requests
+        /// and responses.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

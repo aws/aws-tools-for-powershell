@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter SdkType
         /// <summary>
         /// <para>
-        /// <para>The language for the generated SDK. Currently <code>java</code>, <code>javascript</code>,
+        /// <para>[Required] The language for the generated SDK. Currently <code>java</code>, <code>javascript</code>,
         /// <code>android</code>, <code>objectivec</code> (for iOS), <code>swift</code> (for iOS),
         /// and <code>ruby</code> are supported.</para>
         /// </para>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StageName
         /// <summary>
         /// <para>
-        /// <para>The name of the <a>Stage</a> that the SDK will use.</para>
+        /// <para>[Required] The name of the <a>Stage</a> that the SDK will use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

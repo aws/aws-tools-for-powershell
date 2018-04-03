@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter AmznClientToken
         /// <summary>
         /// <para>
-        /// The client token used to request idempotent
-        /// operations.
+        /// A client token used to correlate requests
+        /// and responses.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter CoreDefinitionVersionArn
         /// <summary>
         /// <para>
-        /// Core definition version arn for
-        /// this group.
+        /// The ARN of the core definition
+        /// version for this group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter DeviceDefinitionVersionArn
         /// <summary>
         /// <para>
-        /// Device definition version arn
-        /// for this group.
+        /// The ARN of the device definition
+        /// version for this group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter FunctionDefinitionVersionArn
         /// <summary>
         /// <para>
-        /// Function definition version
-        /// arn for this group.
+        /// The ARN of the function definition
+        /// version for this group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// The unique Id of the AWS Greengrass Group
+        /// The ID of the AWS Greengrass group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter LoggerDefinitionVersionArn
         /// <summary>
         /// <para>
-        /// Logger definition version arn
-        /// for this group.
+        /// The ARN of the logger definition
+        /// version for this group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter ResourceDefinitionVersionArn
         /// <summary>
         /// <para>
-        /// Resource definition version
-        /// arn for this group.
+        /// The resource definition version
+        /// ARN for this group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -118,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter SubscriptionDefinitionVersionArn
         /// <summary>
         /// <para>
-        /// Subscription definition
-        /// version arn for this group.
+        /// The ARN of the subscription
+        /// definition version for this group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Adds or updates Tags on a gievn resource.
+    /// Adds or updates a tag on a given resource.
     /// </summary>
     [Cmdlet("Add", "AGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>[Required] The ARN of a resource that can be tagged. At present, <a>Stage</a> is the
-        /// only taggable resource.</para>
+        /// <para>[Required] The ARN of a resource that can be tagged. The resource ARN must be URL-encoded.
+        /// At present, <a>Stage</a> is the only taggable resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,9 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>[Required] Key/Value map of strings. Valid character set is [a-zA-Z+-=._:/]. Tag key
-        /// can be up to 128 characters and must not start with "aws:". Tag value can be up to
-        /// 256 characters.</para>
+        /// <para>[Required] The key-value map of strings. The valid character set is [a-zA-Z+-=._:/].
+        /// The tag key can be up to 128 characters and must not start with <code>aws:</code>.
+        /// The tag value can be up to 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

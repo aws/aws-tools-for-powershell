@@ -142,6 +142,16 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.String ElasticsearchVersion { get; set; }
         #endregion
         
+        #region Parameter CognitoOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the option to enable Cognito for Kibana authentication.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean CognitoOptions_Enabled { get; set; }
+        #endregion
+        
         #region Parameter EncryptionAtRestOption
         /// <summary>
         /// <para>
@@ -151,6 +161,16 @@ namespace Amazon.PowerShell.Cmdlets.ES
         [System.Management.Automation.Parameter]
         [Alias("EncryptionAtRestOptions")]
         public Amazon.Elasticsearch.Model.EncryptionAtRestOptions EncryptionAtRestOption { get; set; }
+        #endregion
+        
+        #region Parameter CognitoOptions_IdentityPoolId
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the Cognito identity pool ID for Kibana authentication.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CognitoOptions_IdentityPoolId { get; set; }
         #endregion
         
         #region Parameter ElasticsearchClusterConfig_InstanceCount
@@ -196,6 +216,17 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.Collections.Hashtable LogPublishingOption { get; set; }
         #endregion
         
+        #region Parameter CognitoOptions_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito
+        /// resources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CognitoOptions_RoleArn { get; set; }
+        #endregion
+        
         #region Parameter VPCOptions_SecurityGroupId
         /// <summary>
         /// <para>
@@ -216,6 +247,16 @@ namespace Amazon.PowerShell.Cmdlets.ES
         [System.Management.Automation.Parameter]
         [Alias("VPCOptions_SubnetIds")]
         public System.String[] VPCOptions_SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter CognitoOptions_UserPoolId
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the Cognito user pool ID for Kibana authentication.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CognitoOptions_UserPoolId { get; set; }
         #endregion
         
         #region Parameter EBSOptions_VolumeSize
@@ -287,6 +328,11 @@ namespace Amazon.PowerShell.Cmdlets.ES
                     context.AdvancedOptions.Add((String)hashKey, (String)(this.AdvancedOption[hashKey]));
                 }
             }
+            if (ParameterWasBound("CognitoOptions_Enabled"))
+                context.CognitoOptions_Enabled = this.CognitoOptions_Enabled;
+            context.CognitoOptions_IdentityPoolId = this.CognitoOptions_IdentityPoolId;
+            context.CognitoOptions_RoleArn = this.CognitoOptions_RoleArn;
+            context.CognitoOptions_UserPoolId = this.CognitoOptions_UserPoolId;
             context.DomainName = this.DomainName;
             if (ParameterWasBound("EBSOptions_EBSEnabled"))
                 context.EBSOptions_EBSEnabled = this.EBSOptions_EBSEnabled;
@@ -348,6 +394,55 @@ namespace Amazon.PowerShell.Cmdlets.ES
             if (cmdletContext.AdvancedOptions != null)
             {
                 request.AdvancedOptions = cmdletContext.AdvancedOptions;
+            }
+            
+             // populate CognitoOptions
+            bool requestCognitoOptionsIsNull = true;
+            request.CognitoOptions = new Amazon.Elasticsearch.Model.CognitoOptions();
+            System.Boolean? requestCognitoOptions_cognitoOptions_Enabled = null;
+            if (cmdletContext.CognitoOptions_Enabled != null)
+            {
+                requestCognitoOptions_cognitoOptions_Enabled = cmdletContext.CognitoOptions_Enabled.Value;
+            }
+            if (requestCognitoOptions_cognitoOptions_Enabled != null)
+            {
+                request.CognitoOptions.Enabled = requestCognitoOptions_cognitoOptions_Enabled.Value;
+                requestCognitoOptionsIsNull = false;
+            }
+            System.String requestCognitoOptions_cognitoOptions_IdentityPoolId = null;
+            if (cmdletContext.CognitoOptions_IdentityPoolId != null)
+            {
+                requestCognitoOptions_cognitoOptions_IdentityPoolId = cmdletContext.CognitoOptions_IdentityPoolId;
+            }
+            if (requestCognitoOptions_cognitoOptions_IdentityPoolId != null)
+            {
+                request.CognitoOptions.IdentityPoolId = requestCognitoOptions_cognitoOptions_IdentityPoolId;
+                requestCognitoOptionsIsNull = false;
+            }
+            System.String requestCognitoOptions_cognitoOptions_RoleArn = null;
+            if (cmdletContext.CognitoOptions_RoleArn != null)
+            {
+                requestCognitoOptions_cognitoOptions_RoleArn = cmdletContext.CognitoOptions_RoleArn;
+            }
+            if (requestCognitoOptions_cognitoOptions_RoleArn != null)
+            {
+                request.CognitoOptions.RoleArn = requestCognitoOptions_cognitoOptions_RoleArn;
+                requestCognitoOptionsIsNull = false;
+            }
+            System.String requestCognitoOptions_cognitoOptions_UserPoolId = null;
+            if (cmdletContext.CognitoOptions_UserPoolId != null)
+            {
+                requestCognitoOptions_cognitoOptions_UserPoolId = cmdletContext.CognitoOptions_UserPoolId;
+            }
+            if (requestCognitoOptions_cognitoOptions_UserPoolId != null)
+            {
+                request.CognitoOptions.UserPoolId = requestCognitoOptions_cognitoOptions_UserPoolId;
+                requestCognitoOptionsIsNull = false;
+            }
+             // determine if request.CognitoOptions should be set to null
+            if (requestCognitoOptionsIsNull)
+            {
+                request.CognitoOptions = null;
             }
             if (cmdletContext.DomainName != null)
             {
@@ -597,6 +692,10 @@ namespace Amazon.PowerShell.Cmdlets.ES
         {
             public System.String AccessPolicies { get; set; }
             public Dictionary<System.String, System.String> AdvancedOptions { get; set; }
+            public System.Boolean? CognitoOptions_Enabled { get; set; }
+            public System.String CognitoOptions_IdentityPoolId { get; set; }
+            public System.String CognitoOptions_RoleArn { get; set; }
+            public System.String CognitoOptions_UserPoolId { get; set; }
             public System.String DomainName { get; set; }
             public System.Boolean? EBSOptions_EBSEnabled { get; set; }
             public System.Int32? EBSOptions_Iops { get; set; }

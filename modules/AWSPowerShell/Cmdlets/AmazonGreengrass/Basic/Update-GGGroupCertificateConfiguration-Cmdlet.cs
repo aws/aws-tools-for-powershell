@@ -28,7 +28,7 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Updates the Cert expiry time for a group.
+    /// Updates the Certificate expiry time for a group.
     /// </summary>
     [Cmdlet("Update", "GGGroupCertificateConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Greengrass.Model.UpdateGroupCertificateConfigurationResponse")]
@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter CertificateExpiryInMillisecond
         /// <summary>
         /// <para>
-        /// Amount of time when the
-        /// certificate expires in milliseconds.
+        /// The amount of time remaining
+        /// before the certificate expires, in milliseconds.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// The unique Id of the AWS Greengrass Group
+        /// The ID of the AWS Greengrass group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

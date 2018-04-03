@@ -43,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Body
         /// <summary>
         /// <para>
-        /// <para>The POST request body containing external API definitions. Currently, only Swagger
-        /// definition JSON files are supported. The maximum size of the API definition file is
-        /// 2MB.</para>
+        /// <para>[Required] The POST request body containing external API definitions. Currently, only
+        /// Swagger definition JSON files are supported. The maximum size of the API definition
+        /// file is 2MB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ContentType
         /// <summary>
         /// <para>
-        /// <para>The content-type for the model.</para>
+        /// <para>[Required] The content-type for the model.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the model. Must be alphanumeric.</para>
+        /// <para>[Required] The name of the model. Must be alphanumeric.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>The <a>RestApi</a> identifier under which the <a>Model</a> will be created.</para>
+        /// <para>[Required] The <a>RestApi</a> identifier under which the <a>Model</a> will be created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>The schema for the model. For <code>application/json</code> models, this should be
-        /// <a href="http://json-schema.org/documentation.html" target="_blank">JSON-schema draft
-        /// v4</a> model.</para>
+        /// <a href="https://tools.ietf.org/html/draft-zyp-json-schema-04" target="_blank">JSON
+        /// schema draft 4</a> model.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

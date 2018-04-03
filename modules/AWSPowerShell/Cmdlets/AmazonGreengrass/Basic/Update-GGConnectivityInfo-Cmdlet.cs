@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter ConnectivityInfo
         /// <summary>
         /// <para>
-        /// Connectivity info list
+        /// A list of connectivity info.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter ThingName
         /// <summary>
         /// <para>
-        /// Thing Name
+        /// The thing name.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

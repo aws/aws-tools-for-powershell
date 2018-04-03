@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// The unique Id of the AWS Greengrass Group
+        /// The ID of the AWS Greengrass group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter GroupVersionId
         /// <summary>
         /// <para>
-        /// Group version Id
+        /// The ID of the group version.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

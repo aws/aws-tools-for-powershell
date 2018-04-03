@@ -28,9 +28,9 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Associates a role with a group. The role will be used by the AWS Greengrass core in
-    /// order to access AWS cloud services. The role's permissions will allow Greengrass core
-    /// Lambda functions to perform actions against the cloud.
+    /// Associates a role with a group. Your AWS Greengrass core will use the role to access
+    /// AWS cloud services. The role's permissions should allow Greengrass core Lambda functions
+    /// to perform actions against the cloud.
     /// </summary>
     [Cmdlet("Add", "GGRoleToGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// The unique Id of the AWS Greengrass Group
+        /// The ID of the AWS Greengrass group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// Role arn you wish to associate with this group.
+        /// The ARN of the role you wish to associate with
+        /// this group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

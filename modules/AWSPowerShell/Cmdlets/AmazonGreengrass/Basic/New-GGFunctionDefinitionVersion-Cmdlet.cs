@@ -28,7 +28,7 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Create a version of a Lambda function definition that has already been defined.
+    /// Creates a version of a Lambda function definition that has already been defined.
     /// </summary>
     [Cmdlet("New", "GGFunctionDefinitionVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Greengrass.Model.CreateFunctionDefinitionVersionResponse")]
@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter AmznClientToken
         /// <summary>
         /// <para>
-        /// The client token used to request idempotent
-        /// operations.
+        /// A client token used to correlate requests
+        /// and responses.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter FunctionDefinitionId
         /// <summary>
         /// <para>
-        /// the unique Id of the lambda definition
+        /// The ID of the Lambda function definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter Function
         /// <summary>
         /// <para>
-        /// Lambda functions in this function definition
-        /// version.
+        /// A list of Lambda functions in this function
+        /// definition version.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

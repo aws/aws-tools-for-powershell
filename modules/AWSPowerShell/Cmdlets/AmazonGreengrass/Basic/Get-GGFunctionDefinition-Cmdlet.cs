@@ -28,7 +28,7 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Retrieves information about a Lambda function definition, such as its creation time
+    /// Retrieves information about a Lambda function definition, including its creation time
     /// and latest version.
     /// </summary>
     [Cmdlet("Get", "GGFunctionDefinition")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter FunctionDefinitionId
         /// <summary>
         /// <para>
-        /// the unique Id of the lambda definition
+        /// The ID of the Lambda function definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

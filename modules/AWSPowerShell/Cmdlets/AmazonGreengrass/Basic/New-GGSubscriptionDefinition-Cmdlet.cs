@@ -28,9 +28,8 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Creates a subscription definition. You may optionally provide the initial version
-    /// of the subscription definition or use ``CreateSubscriptionDefinitionVersion`` at a
-    /// later time.
+    /// Creates a subscription definition. You may provide the initial version of the subscription
+    /// definition now or use ''CreateSubscriptionDefinitionVersion'' at a later time.
     /// </summary>
     [Cmdlet("New", "GGSubscriptionDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Greengrass.Model.CreateSubscriptionDefinitionResponse")]
@@ -44,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter AmznClientToken
         /// <summary>
         /// <para>
-        /// The client token used to request idempotent
-        /// operations.
+        /// A client token used to correlate requests
+        /// and responses.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -55,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// name of the subscription definition
+        /// The name of the subscription definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -65,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter InitialVersion_Subscription
         /// <summary>
         /// <para>
-        /// Subscriptions in the version.
+        /// A list of subscriptions.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The name of the <a>DomainName</a> resource to be changed.</para>
+        /// <para>[Required] The name of the <a>DomainName</a> resource to be changed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

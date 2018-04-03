@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     /// <summary>
     /// Creates a resource definition which contains a list of resources to be used in a group.
     /// You can create an initial version of the definition by providing a list of resources
-    /// now, or use ``CreateResourceDefinitionVersion`` later.
+    /// now, or use ''CreateResourceDefinitionVersion'' later.
     /// </summary>
     [Cmdlet("New", "GGResourceDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Greengrass.Model.CreateResourceDefinitionResponse")]
@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter AmznClientToken
         /// <summary>
         /// <para>
-        /// The client token used to request idempotent
-        /// operations.
+        /// A client token used to correlate requests
+        /// and responses.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// Name of the resource definition
+        /// The name of the resource definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter InitialVersion_Resource
         /// <summary>
         /// <para>
-        /// List of resources.
+        /// A list of resources.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

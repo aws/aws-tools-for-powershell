@@ -219,6 +219,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.Boolean Logging_Enabled { get; set; }
         #endregion
         
+        #region Parameter DefaultCacheBehavior_FieldLevelEncryptionId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_FieldLevelEncryptionId")]
+        public System.String DefaultCacheBehavior_FieldLevelEncryptionId { get; set; }
+        #endregion
+        
         #region Parameter Cookies_Forward
         /// <summary>
         /// <para>
@@ -909,6 +920,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 context.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_Compress = this.DefaultCacheBehavior_Compress;
             if (ParameterWasBound("DefaultCacheBehavior_DefaultTTL"))
                 context.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_DefaultTTL = this.DefaultCacheBehavior_DefaultTTL;
+            context.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_FieldLevelEncryptionId = this.DefaultCacheBehavior_FieldLevelEncryptionId;
             context.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward = this.Cookies_Forward;
             if (this.WhitelistedNames_Item != null)
             {
@@ -1486,6 +1498,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.DefaultTTL = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_DefaultTTL.Value;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
             }
+            System.String requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_FieldLevelEncryptionId = null;
+            if (cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_FieldLevelEncryptionId != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_FieldLevelEncryptionId = cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_FieldLevelEncryptionId;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_FieldLevelEncryptionId != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.FieldLevelEncryptionId = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_FieldLevelEncryptionId;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
+            }
             System.Int64? requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MaxTTL = null;
             if (cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_MaxTTL != null)
             {
@@ -1944,6 +1966,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.Int32? DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_AllowedMethods_Quantity { get; set; }
             public System.Boolean? DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_Compress { get; set; }
             public System.Int64? DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_DefaultTTL { get; set; }
+            public System.String DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_FieldLevelEncryptionId { get; set; }
             public Amazon.CloudFront.ItemSelection DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward { get; set; }
             public List<System.String> DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Items { get; set; }
             public System.Int32? DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Quantity { get; set; }

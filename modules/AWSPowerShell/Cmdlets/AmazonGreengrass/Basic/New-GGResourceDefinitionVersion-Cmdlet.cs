@@ -28,7 +28,7 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Create a version of a resource definition that has already been defined.
+    /// Creates a version of a resource definition that has already been defined.
     /// </summary>
     [Cmdlet("New", "GGResourceDefinitionVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Greengrass.Model.CreateResourceDefinitionVersionResponse")]
@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter AmznClientToken
         /// <summary>
         /// <para>
-        /// The client token used to request idempotent
-        /// operations.
+        /// A client token used to correlate requests
+        /// and responses.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter ResourceDefinitionId
         /// <summary>
         /// <para>
-        /// Resource definition Id.
+        /// The ID of the resource definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// List of resources.
+        /// A list of resources.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

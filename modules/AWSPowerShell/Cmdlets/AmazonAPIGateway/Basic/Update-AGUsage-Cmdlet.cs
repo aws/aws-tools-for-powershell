@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the API key associated with the usage plan in which a temporary
-        /// extension is granted to the remaining quota.</para>
+        /// <para>[Required] The identifier of the API key associated with the usage plan in which a
+        /// temporary extension is granted to the remaining quota.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter UsagePlanId
         /// <summary>
         /// <para>
-        /// <para>The Id of the usage plan associated with the usage data.</para>
+        /// <para>[Required] The Id of the usage plan associated with the usage data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

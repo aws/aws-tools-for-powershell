@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter UsagePlanId
         /// <summary>
         /// <para>
-        /// <para>The Id of the <a>UsagePlan</a> resource representing the usage plan containing the
-        /// to-be-retrieved <a>UsagePlanKey</a> resource representing a plan customer.</para>
+        /// <para>[Required] The Id of the <a>UsagePlan</a> resource representing the usage plan containing
+        /// the to-be-retrieved <a>UsagePlanKey</a> resource representing a plan customer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -66,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of returned results per page.</para>
+        /// <para>The maximum number of returned results per page. The default value is 25 and the maximum
+        /// value is 500.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

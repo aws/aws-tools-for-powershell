@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter AmznClientToken
         /// <summary>
         /// <para>
-        /// The client token used to request idempotent
-        /// operations.
+        /// A client token used to correlate requests
+        /// and responses.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter LoggerDefinitionId
         /// <summary>
         /// <para>
-        /// logger definition Id
+        /// The ID of the logger definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter Logger
         /// <summary>
         /// <para>
-        /// List of loggers.
+        /// A list of loggers.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

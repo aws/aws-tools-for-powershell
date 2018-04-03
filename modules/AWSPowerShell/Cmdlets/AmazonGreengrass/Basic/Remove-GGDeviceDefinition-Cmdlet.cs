@@ -28,7 +28,7 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Deletes a device definition. The device definition must not have been used in a deployment.
+    /// Deletes a device definition.
     /// </summary>
     [Cmdlet("Remove", "GGDeviceDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter DeviceDefinitionId
         /// <summary>
         /// <para>
-        /// device definition Id
+        /// The ID of the device definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

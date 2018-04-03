@@ -1,3 +1,23 @@
+### 3.3.259.0 (2018-04-03)
+  * AWS Certificate Manager
+    * Updated the New-ACMCertificate and added new cmdlet Update-ACMCertificateOption (UpdateCertificateOption API) to support disabling Certificate Transparency logging on a per-certificate basis.
+  * Amazon DynamoDB
+    * Added cmdlets restore-DDBTableToPointInTime (RestoreTableToPointInTime API) and Update-DDBContinuousBackup (UpdateContinuousBackups API) t o support Point-in-time recovery (PITR) continuous backups of your DynamoDB table data. With PITR, you do not have to worry about creating, maintaining, or scheduling backups. You enable PITR on your table and your backup is available for restore at any point in time from the moment you enable it, up to a maximum of the 35 preceding days. PITR provides continuous backups until you explicitly disable it.
+  * AWS Identity and Access Management
+    * Updated the New-IAMRole cmdlet with parameter -MaxSessionDuration, and added cmdlet Update-IAMRole (UpdateRole API) to support the new longer role sessions.
+  * AWS Cloudwatch Logs
+    * Fixed bad links to the service API references in the help details for the service's cmdlets.
+  * Amazon Inspector
+    * Fixed bad links to the service API references in the help details for the service's cmdlets.
+  * Alexa for Business
+    * Added cmdlets to support new operations related to creating and managing address books of contacts for use in A4B managed shared devices.
+  * AWS CloudFormation
+    * Updated cmdlets to support use of a customized AdministrationRole to create security boundaries between different users.
+  * Amazon CloudFront
+    * Added cmdlets to support Field-Level Encryption to further enhance the security of sensitive data, such as credit card numbers or personally identifiable information (PII) like social security numbers. CloudFront's field-level encryption further encrypts sensitive data in an HTTPS form using field-specific encryption keys (which you supply) before a POST request is forwarded to your origin. This ensures that sensitive data can only be decrypted and viewed by certain components or services in your application stack. Field-level encryption is easy to setup. Simply configure the fields that have to be further encrypted by CloudFront using the public keys you specify and you can reduce attack surface for your sensitive data.
+  * Amazon Elasticsearch
+    * Updated cmdlets to support Amazon Cognito authentication support to Kibana.
+    
 ### 3.3.253.0 (2018-03-26)
   * Amazon WorkMail
     * Added cmdlets to support the Amazon WorkMail service. Cmdlets for the service have the noun prefix WM and can be listed with the command *Get-AWSCmdletName -Service WM*.

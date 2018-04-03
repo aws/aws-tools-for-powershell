@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter BasePath
         /// <summary>
         /// <para>
-        /// <para>The base path name of the <a>BasePathMapping</a> resource to delete.</para>
+        /// <para>[Required] The base path name of the <a>BasePathMapping</a> resource to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The domain name of the <a>BasePathMapping</a> resource to delete.</para>
+        /// <para>[Required] The domain name of the <a>BasePathMapping</a> resource to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

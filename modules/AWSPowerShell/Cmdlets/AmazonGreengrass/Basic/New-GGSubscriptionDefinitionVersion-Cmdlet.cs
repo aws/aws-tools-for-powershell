@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter AmznClientToken
         /// <summary>
         /// <para>
-        /// The client token used to request idempotent
-        /// operations.
+        /// A client token used to correlate requests
+        /// and responses.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter SubscriptionDefinitionId
         /// <summary>
         /// <para>
-        /// subscription definition Id
+        /// The ID of the subscription definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter Subscription
         /// <summary>
         /// <para>
-        /// Subscriptions in the version.
+        /// A list of subscriptions.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

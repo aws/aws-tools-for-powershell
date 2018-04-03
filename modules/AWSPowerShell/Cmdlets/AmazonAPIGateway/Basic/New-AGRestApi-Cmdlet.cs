@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ApiKeySource
         /// <summary>
         /// <para>
-        /// <para>The source of the API key for metring requests according to a usage plan. Valid values
-        /// are <ul><li><code>HEADER</code> to read the API key from the <code>X-API-Key</code>
+        /// <para>The source of the API key for metering requests according to a usage plan. Valid values
+        /// are: <ul><li><code>HEADER</code> to read the API key from the <code>X-API-Key</code>
         /// header of a request. </li><li><code>AUTHORIZER</code> to read the API key from the
         /// <code>UsageIdentifierKey</code> from a custom authorizer.</li></ul></para>
         /// </para>
@@ -88,10 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter MinimumCompressionSize
         /// <summary>
         /// <para>
-        /// <para>A nullable integer used to enable (non-negative between 0 and 10485760 (10M) bytes,
-        /// inclusive) or disable (null) compression on an API. When compression is enabled, compression
-        /// or decompression are not applied on the payload if the payload size is smaller than
-        /// this value. Setting it to zero allows compression for any payload size.</para>
+        /// <para>A nullable integer that is used to enable compression (with non-negative between 0
+        /// and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on
+        /// an API. When compression is enabled, compression or decompression is not applied on
+        /// the payload if the payload size is smaller than this value. Setting it to zero allows
+        /// compression for any payload size.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -101,11 +102,22 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the <a>RestApi</a>.</para>
+        /// <para>[Required] The name of the <a>RestApi</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Policy
+        /// <summary>
+        /// <para>
+        /// A stringified JSON policy document that applies
+        /// to this RestApi regardless of the caller and <a>Method</a> configuration.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Policy { get; set; }
         #endregion
         
         #region Parameter EndpointConfiguration_Type
@@ -174,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (ParameterWasBound("MinimumCompressionSize"))
                 context.MinimumCompressionSize = this.MinimumCompressionSize;
             context.Name = this.Name;
+            context.Policy = this.Policy;
             context.Version = this.Version;
             
             // allow further manipulation of loaded context prior to processing
@@ -233,6 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Policy != null)
+            {
+                request.Policy = cmdletContext.Policy;
             }
             if (cmdletContext.Version != null)
             {
@@ -309,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public List<System.String> EndpointConfiguration_Types { get; set; }
             public System.Int32? MinimumCompressionSize { get; set; }
             public System.String Name { get; set; }
+            public System.String Policy { get; set; }
             public System.String Version { get; set; }
         }
         

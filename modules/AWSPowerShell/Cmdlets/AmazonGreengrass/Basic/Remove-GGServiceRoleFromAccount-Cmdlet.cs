@@ -28,7 +28,7 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Disassociates the service role from the account. Without a service role, deployments
+    /// Disassociates the service role from your account. Without a service role, deployments
     /// will not work.
     /// </summary>
     [Cmdlet("Remove", "GGServiceRoleFromAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

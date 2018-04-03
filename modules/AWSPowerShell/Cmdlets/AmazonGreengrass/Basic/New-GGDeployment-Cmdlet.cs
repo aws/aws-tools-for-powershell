@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter AmznClientToken
         /// <summary>
         /// <para>
-        /// The client token used to request idempotent
-        /// operations.
+        /// A client token used to correlate requests
+        /// and responses.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter DeploymentId
         /// <summary>
         /// <para>
-        /// Id of the deployment if you wish to redeploy
+        /// The ID of the deployment if you wish to redeploy
         /// a previous deployment.
         /// </para>
         /// </summary>
@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter DeploymentType
         /// <summary>
         /// <para>
-        /// Type of deployment. When used in CreateDeployment,
-        /// only NewDeployment and Redeployment are valid.
+        /// The type of deployment. When used in ''CreateDeployment'',
+        /// only ''NewDeployment'' and ''Redeployment'' are valid.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// The unique Id of the AWS Greengrass Group
+        /// The ID of the AWS Greengrass group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter GroupVersionId
         /// <summary>
         /// <para>
-        /// Group Version you wish to deploy.
+        /// The ID of the group version to be deployed.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

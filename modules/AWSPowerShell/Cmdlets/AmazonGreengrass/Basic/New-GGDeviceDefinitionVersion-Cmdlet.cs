@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter AmznClientToken
         /// <summary>
         /// <para>
-        /// The client token used to request idempotent
-        /// operations.
+        /// A client token used to correlate requests
+        /// and responses.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter DeviceDefinitionId
         /// <summary>
         /// <para>
-        /// device definition Id
+        /// The ID of the device definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter Device
         /// <summary>
         /// <para>
-        /// Devices in the definition version.
+        /// A list of devices in the definition version.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

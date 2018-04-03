@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ModelName
         /// <summary>
         /// <para>
-        /// <para>The name of the model as an identifier.</para>
+        /// <para>[Required] The name of the model as an identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>The <a>RestApi</a> identifier under which the <a>Model</a> exists.</para>
+        /// <para>[Required] The <a>RestApi</a> identifier under which the <a>Model</a> exists.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

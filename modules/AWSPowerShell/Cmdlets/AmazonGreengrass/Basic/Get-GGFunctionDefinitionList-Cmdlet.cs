@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// Specifies the maximum number of list results
-        /// to be returned in this page
+        /// The maximum number of results to be returned
+        /// per request.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// Specifies the pagination token used when iterating
-        /// through a paginated request
+        /// The token for the next set of results, or ''null''
+        /// if there are no additional results.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

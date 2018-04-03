@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the queried <a>SdkType</a> instance.</para>
+        /// <para>[Required] The identifier of the queried <a>SdkType</a> instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ExportType
         /// <summary>
         /// <para>
-        /// <para>The type of export. Currently only 'swagger' is supported.</para>
+        /// <para>[Required] The type of export. Currently only 'swagger' is supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>The string identifier of the associated <a>RestApi</a>.</para>
+        /// <para>[Required] The string identifier of the associated <a>RestApi</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StageName
         /// <summary>
         /// <para>
-        /// <para>The name of the <a>Stage</a> that will be exported.</para>
+        /// <para>[Required] The name of the <a>Stage</a> that will be exported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Retrieves the service role that is attached to the account.
+    /// Retrieves the service role that is attached to your account.
     /// </summary>
     [Cmdlet("Get", "GGServiceRoleForAccount")]
     [OutputType("Amazon.Greengrass.Model.GetServiceRoleForAccountResponse")]

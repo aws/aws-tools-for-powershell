@@ -28,8 +28,7 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Deletes a Lambda function definition. The Lambda function definition must not have
-    /// been used in a deployment.
+    /// Deletes a Lambda function definition.
     /// </summary>
     [Cmdlet("Remove", "GGFunctionDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -44,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter FunctionDefinitionId
         /// <summary>
         /// <para>
-        /// the unique Id of the lambda definition
+        /// The ID of the Lambda function definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

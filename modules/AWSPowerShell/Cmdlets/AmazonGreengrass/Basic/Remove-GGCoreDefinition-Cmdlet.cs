@@ -28,7 +28,7 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Deletes a core definition. The core definition must not have been used in a deployment.
+    /// Deletes a core definition.
     /// </summary>
     [Cmdlet("Remove", "GGCoreDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter CoreDefinitionId
         /// <summary>
         /// <para>
-        /// core definition Id
+        /// The ID of the core definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

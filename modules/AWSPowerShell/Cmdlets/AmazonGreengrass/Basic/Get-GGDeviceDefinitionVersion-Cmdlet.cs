@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter DeviceDefinitionId
         /// <summary>
         /// <para>
-        /// device definition Id
+        /// The ID of the device definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -52,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter DeviceDefinitionVersionId
         /// <summary>
         /// <para>
-        /// device definition version Id
+        /// The ID of the device definition
+        /// version.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

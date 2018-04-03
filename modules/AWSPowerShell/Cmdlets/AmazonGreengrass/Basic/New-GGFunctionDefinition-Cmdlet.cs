@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     /// Creates a Lambda function definition which contains a list of Lambda functions and
     /// their configurations to be used in a group. You can create an initial version of the
     /// definition by providing a list of Lambda functions and their configurations now, or
-    /// use ``CreateFunctionDefinitionVersion`` later.
+    /// use ''CreateFunctionDefinitionVersion'' later.
     /// </summary>
     [Cmdlet("New", "GGFunctionDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Greengrass.Model.CreateFunctionDefinitionResponse")]
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter AmznClientToken
         /// <summary>
         /// <para>
-        /// The client token used to request idempotent
-        /// operations.
+        /// A client token used to correlate requests
+        /// and responses.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter InitialVersion_Function
         /// <summary>
         /// <para>
-        /// Lambda functions in this function definition
-        /// version.
+        /// A list of Lambda functions in this function
+        /// definition version.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// name of the function definition
+        /// The name of the function definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

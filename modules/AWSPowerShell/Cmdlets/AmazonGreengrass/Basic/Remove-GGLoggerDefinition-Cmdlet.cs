@@ -28,7 +28,7 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Deletes a logger definition. The logger definition must not have been used in a deployment.
+    /// Deletes a logger definition.
     /// </summary>
     [Cmdlet("Remove", "GGLoggerDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter LoggerDefinitionId
         /// <summary>
         /// <para>
-        /// logger definition Id
+        /// The ID of the logger definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

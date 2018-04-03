@@ -28,8 +28,8 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Retrieves information about a resource definition, such as its creation time and latest
-    /// version.
+    /// Retrieves information about a resource definition, including its creation time and
+    /// latest version.
     /// </summary>
     [Cmdlet("Get", "GGResourceDefinition")]
     [OutputType("Amazon.Greengrass.Model.GetResourceDefinitionResponse")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter ResourceDefinitionId
         /// <summary>
         /// <para>
-        /// Resource definition Id.
+        /// The ID of the resource definition.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
