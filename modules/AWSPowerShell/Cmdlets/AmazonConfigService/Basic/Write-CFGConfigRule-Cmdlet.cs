@@ -33,12 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// 
     ///  
     /// <para>
-    /// You can use this action for custom Config rules and AWS managed Config rules. A custom
-    /// Config rule is a rule that you develop and maintain. An AWS managed Config rule is
-    /// a customizable, predefined rule that AWS Config provides.
+    /// You can use this action for custom AWS Config rules and AWS managed Config rules.
+    /// A custom AWS Config rule is a rule that you develop and maintain. An AWS managed Config
+    /// rule is a customizable, predefined rule that AWS Config provides.
     /// </para><para>
-    /// If you are adding a new custom Config rule, you must first create the AWS Lambda function
-    /// that the rule invokes to evaluate your resources. When you use the <code>PutConfigRule</code>
+    /// If you are adding a new custom AWS Config rule, you must first create the AWS Lambda
+    /// function that the rule invokes to evaluate your resources. When you use the <code>PutConfigRule</code>
     /// action to add the rule to AWS Config, you must specify the Amazon Resource Name (ARN)
     /// that AWS Lambda assigns to the function. Specify the ARN for the <code>SourceIdentifier</code>
     /// key. This key is part of the <code>Source</code> object, which is part of the <code>ConfigRule</code>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </para><para>
     /// The maximum number of rules that AWS Config supports is 50.
     /// </para><para>
-    /// For more information about requesting a rule limit increase, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config">AWS
+    /// For information about requesting a rule limit increase, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config">AWS
     /// Config Limits</a> in the <i>AWS General Reference Guide</i>.
     /// </para><para>
     /// For more information about developing and using AWS Config rules, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html">Evaluating
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Scope_ComplianceResourceId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the only AWS resource that you want to trigger an evaluation for the rule.
+        /// <para>The ID of the only AWS resource that you want to trigger an evaluation for the rule.
         /// If you specify a resource ID, you must specify one resource type for <code>ComplianceResourceTypes</code>.</para>
         /// </para>
         /// </summary>
@@ -136,11 +136,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>Indicates whether the AWS Config rule is active or is currently being deleted by AWS
-        /// Config. It can also indicate the evaluation status for the Config rule.</para><para>AWS Config sets the state of the rule to <code>EVALUATING</code> temporarily after
+        /// Config. It can also indicate the evaluation status for the AWS Config rule.</para><para>AWS Config sets the state of the rule to <code>EVALUATING</code> temporarily after
         /// you use the <code>StartConfigRulesEvaluation</code> request to evaluate your resources
-        /// against the Config rule.</para><para>AWS Config sets the state of the rule to <code>DELETING_RESULTS</code> temporarily
+        /// against the AWS Config rule.</para><para>AWS Config sets the state of the rule to <code>DELETING_RESULTS</code> temporarily
         /// after you use the <code>DeleteEvaluationResults</code> request to delete the current
-        /// evaluation results for the Config rule.</para><para>AWS Config sets the state of a rule to <code>DELETING</code> temporarily after you
+        /// evaluation results for the AWS Config rule.</para><para>AWS Config temporarily sets the state of a rule to <code>DELETING</code> after you
         /// use the <code>DeleteConfigRule</code> request to delete the rule. After AWS Config
         /// deletes the rule, the rule and all of its evaluations are erased and are no longer
         /// available.</para>
@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRule_InputParameter
         /// <summary>
         /// <para>
-        /// <para>A string in JSON format that is passed to the AWS Config rule Lambda function.</para>
+        /// <para>A string, in JSON format, that is passed to the AWS Config rule Lambda function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

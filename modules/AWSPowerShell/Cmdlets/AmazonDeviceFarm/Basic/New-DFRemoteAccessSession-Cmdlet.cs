@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Configuration_BillingMethod
         /// <summary>
         /// <para>
-        /// <para>Returns the billing method for purposes of configuring a remote access session.</para>
+        /// <para>The billing method for the remote access session.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,6 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DeviceArn { get; set; }
+        #endregion
+        
+        #region Parameter InstanceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the device instance for which you want to create
+        /// a remote access session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String InstanceArn { get; set; }
         #endregion
         
         #region Parameter InteractionMode
@@ -141,6 +152,19 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.Boolean RemoteRecordEnabled { get; set; }
         #endregion
         
+        #region Parameter SkipAppResign
+        /// <summary>
+        /// <para>
+        /// <para>When set to <code>true</code>, for private devices, Device Farm will not sign your
+        /// app again. For public devices, Device Farm always signs your apps again and this parameter
+        /// has no effect.</para><para>For more information about how Device Farm re-signs your app(s), see <a href="https://aws.amazon.com/device-farm/faq/">Do
+        /// you modify my app?</a> in the <i>AWS Device Farm FAQs</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean SkipAppResign { get; set; }
+        #endregion
+        
         #region Parameter SshPublicKey
         /// <summary>
         /// <para>
@@ -185,6 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             context.ClientId = this.ClientId;
             context.Configuration_BillingMethod = this.Configuration_BillingMethod;
             context.DeviceArn = this.DeviceArn;
+            context.InstanceArn = this.InstanceArn;
             context.InteractionMode = this.InteractionMode;
             context.Name = this.Name;
             context.ProjectArn = this.ProjectArn;
@@ -193,6 +218,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
             context.RemoteRecordAppArn = this.RemoteRecordAppArn;
             if (ParameterWasBound("RemoteRecordEnabled"))
                 context.RemoteRecordEnabled = this.RemoteRecordEnabled;
+            if (ParameterWasBound("SkipAppResign"))
+                context.SkipAppResign = this.SkipAppResign;
             context.SshPublicKey = this.SshPublicKey;
             
             // allow further manipulation of loaded context prior to processing
@@ -237,6 +264,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
             {
                 request.DeviceArn = cmdletContext.DeviceArn;
             }
+            if (cmdletContext.InstanceArn != null)
+            {
+                request.InstanceArn = cmdletContext.InstanceArn;
+            }
             if (cmdletContext.InteractionMode != null)
             {
                 request.InteractionMode = cmdletContext.InteractionMode;
@@ -260,6 +291,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (cmdletContext.RemoteRecordEnabled != null)
             {
                 request.RemoteRecordEnabled = cmdletContext.RemoteRecordEnabled.Value;
+            }
+            if (cmdletContext.SkipAppResign != null)
+            {
+                request.SkipAppResign = cmdletContext.SkipAppResign.Value;
             }
             if (cmdletContext.SshPublicKey != null)
             {
@@ -332,12 +367,14 @@ namespace Amazon.PowerShell.Cmdlets.DF
             public System.String ClientId { get; set; }
             public Amazon.DeviceFarm.BillingMethod Configuration_BillingMethod { get; set; }
             public System.String DeviceArn { get; set; }
+            public System.String InstanceArn { get; set; }
             public Amazon.DeviceFarm.InteractionMode InteractionMode { get; set; }
             public System.String Name { get; set; }
             public System.String ProjectArn { get; set; }
             public System.Boolean? RemoteDebugEnabled { get; set; }
             public System.String RemoteRecordAppArn { get; set; }
             public System.Boolean? RemoteRecordEnabled { get; set; }
+            public System.Boolean? SkipAppResign { get; set; }
             public System.String SshPublicKey { get; set; }
         }
         

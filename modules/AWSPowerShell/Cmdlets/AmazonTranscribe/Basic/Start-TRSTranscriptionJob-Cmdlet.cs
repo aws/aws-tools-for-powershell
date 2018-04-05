@@ -51,11 +51,27 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public Amazon.TranscribeService.LanguageCode LanguageCode { get; set; }
         #endregion
         
+        #region Parameter Settings_MaxSpeakerLabel
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of speakers to identify in the input audio. If there are more speakers
+        /// in the audio than this number, multiple speakers will be identified as a single speaker.
+        /// If you specify the <code>MaxSpeakerLabels</code> field, you must set the <code>ShowSpeakerLabels</code>
+        /// field to true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Settings_MaxSpeakerLabels")]
+        public System.Int32 Settings_MaxSpeakerLabel { get; set; }
+        #endregion
+        
         #region Parameter Media_MediaFileUri
         /// <summary>
         /// <para>
-        /// <para>The S3 location of the input media file. The general form is:</para><para><code> https://&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;
-        /// </code></para><para>For example:</para><para><code>https://s3-us-west-2.amazonaws.com/examplebucket/example.mp4</code></para><para><code>https://s3-us-west-2.amazonaws.com/examplebucket/mediadocs/example.mp4</code></para>
+        /// <para>The S3 location of the input media file. The URI must be in the same region as the
+        /// API endpoint that you are calling. The general form is:</para><para><code> https://&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;
+        /// </code></para><para>For example:</para><para><code>https://s3-us-east-1.amazonaws.com/examplebucket/example.mp4</code></para><para><code>https://s3-us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4</code></para><para>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
+        /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,6 +99,20 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.Int32 MediaSampleRateHertz { get; set; }
         #endregion
         
+        #region Parameter Settings_ShowSpeakerLabel
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether the transcription job should use speaker recognition to identify
+        /// different speakers in the input audio. If you set the <code>ShowSpeakerLabels</code>
+        /// field to true, you must also set the maximum number of speaker labels <code>MaxSpeakerLabels</code>
+        /// field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Settings_ShowSpeakerLabels")]
+        public System.Boolean Settings_ShowSpeakerLabel { get; set; }
+        #endregion
+        
         #region Parameter TranscriptionJobName
         /// <summary>
         /// <para>
@@ -91,6 +121,16 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String TranscriptionJobName { get; set; }
+        #endregion
+        
+        #region Parameter Settings_VocabularyName
+        /// <summary>
+        /// <para>
+        /// <para>The name of a vocabulary to use when processing the transcription job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Settings_VocabularyName { get; set; }
         #endregion
         
         #region Parameter Force
@@ -127,6 +167,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             context.MediaFormat = this.MediaFormat;
             if (ParameterWasBound("MediaSampleRateHertz"))
                 context.MediaSampleRateHertz = this.MediaSampleRateHertz;
+            if (ParameterWasBound("Settings_MaxSpeakerLabel"))
+                context.Settings_MaxSpeakerLabels = this.Settings_MaxSpeakerLabel;
+            if (ParameterWasBound("Settings_ShowSpeakerLabel"))
+                context.Settings_ShowSpeakerLabels = this.Settings_ShowSpeakerLabel;
+            context.Settings_VocabularyName = this.Settings_VocabularyName;
             context.TranscriptionJobName = this.TranscriptionJobName;
             
             // allow further manipulation of loaded context prior to processing
@@ -174,6 +219,45 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (cmdletContext.MediaSampleRateHertz != null)
             {
                 request.MediaSampleRateHertz = cmdletContext.MediaSampleRateHertz.Value;
+            }
+            
+             // populate Settings
+            bool requestSettingsIsNull = true;
+            request.Settings = new Amazon.TranscribeService.Model.Settings();
+            System.Int32? requestSettings_settings_MaxSpeakerLabel = null;
+            if (cmdletContext.Settings_MaxSpeakerLabels != null)
+            {
+                requestSettings_settings_MaxSpeakerLabel = cmdletContext.Settings_MaxSpeakerLabels.Value;
+            }
+            if (requestSettings_settings_MaxSpeakerLabel != null)
+            {
+                request.Settings.MaxSpeakerLabels = requestSettings_settings_MaxSpeakerLabel.Value;
+                requestSettingsIsNull = false;
+            }
+            System.Boolean? requestSettings_settings_ShowSpeakerLabel = null;
+            if (cmdletContext.Settings_ShowSpeakerLabels != null)
+            {
+                requestSettings_settings_ShowSpeakerLabel = cmdletContext.Settings_ShowSpeakerLabels.Value;
+            }
+            if (requestSettings_settings_ShowSpeakerLabel != null)
+            {
+                request.Settings.ShowSpeakerLabels = requestSettings_settings_ShowSpeakerLabel.Value;
+                requestSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_VocabularyName = null;
+            if (cmdletContext.Settings_VocabularyName != null)
+            {
+                requestSettings_settings_VocabularyName = cmdletContext.Settings_VocabularyName;
+            }
+            if (requestSettings_settings_VocabularyName != null)
+            {
+                request.Settings.VocabularyName = requestSettings_settings_VocabularyName;
+                requestSettingsIsNull = false;
+            }
+             // determine if request.Settings should be set to null
+            if (requestSettingsIsNull)
+            {
+                request.Settings = null;
             }
             if (cmdletContext.TranscriptionJobName != null)
             {
@@ -247,6 +331,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public System.String Media_MediaFileUri { get; set; }
             public Amazon.TranscribeService.MediaFormat MediaFormat { get; set; }
             public System.Int32? MediaSampleRateHertz { get; set; }
+            public System.Int32? Settings_MaxSpeakerLabels { get; set; }
+            public System.Boolean? Settings_ShowSpeakerLabels { get; set; }
+            public System.String Settings_VocabularyName { get; set; }
             public System.String TranscriptionJobName { get; set; }
         }
         

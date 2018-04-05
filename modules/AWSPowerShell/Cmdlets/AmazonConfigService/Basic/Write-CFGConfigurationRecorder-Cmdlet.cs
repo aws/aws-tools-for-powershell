@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// 
     ///  
     /// <para>
-    /// You can use this action to change the role <code>roleARN</code> and/or the <code>recordingGroup</code>
+    /// You can use this action to change the role <code>roleARN</code> or the <code>recordingGroup</code>
     /// of an existing recorder. To change the role, call the action on the existing configuration
     /// recorder and specify a role.
     /// </para><note><para>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>
         /// <para>Specifies whether AWS Config records configuration changes for every supported type
         /// of regional resource.</para><para>If you set this option to <code>true</code>, when AWS Config adds support for a new
-        /// type of regional resource, it automatically starts recording resources of that type.</para><para>If you set this option to <code>true</code>, you cannot enumerate a list of <code>resourceTypes</code>.</para>
+        /// type of regional resource, it starts recording resources of that type automatically.</para><para>If you set this option to <code>true</code>, you cannot enumerate a list of <code>resourceTypes</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>Specifies whether AWS Config includes all supported types of global resources (for
         /// example, IAM resources) with the resources that it records.</para><para>Before you can set this option to <code>true</code>, you must set the <code>allSupported</code>
         /// option to <code>true</code>.</para><para>If you set this option to <code>true</code>, when AWS Config adds support for a new
-        /// type of global resource, it automatically starts recording resources of that type.</para><para>The configuration details for any global resource are the same in all regions. To
+        /// type of global resource, it starts recording resources of that type automatically.</para><para>The configuration details for any global resource are the same in all regions. To
         /// prevent duplicate configuration items, you should consider customizing AWS Config
         /// in only one region to record global resources.</para>
         /// </para>

@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>An encrypted token that associates an evaluation with an AWS Config rule. Identifies
-        /// the rule and the event that triggered the evaluation</para>
+        /// the rule and the event that triggered the evaluation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

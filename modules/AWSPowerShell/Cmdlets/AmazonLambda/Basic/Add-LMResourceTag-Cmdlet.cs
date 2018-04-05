@@ -30,7 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// <summary>
     /// Creates a list of tags (key-value pairs) on the Lambda function. Requires the Lambda
     /// function ARN (Amazon Resource Name). If a key is specified without a value, Lambda
-    /// creates a tag with the specified key and a value of null.
+    /// creates a tag with the specified key and a value of null. For more information, see
+    /// <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda
+    /// Functions</a> in the <b>AWS Lambda Developer Guide</b>.
     /// </summary>
     [Cmdlet("Add", "LMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -45,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The ARN (Amazon Resource Name) of the Lambda function.</para>
+        /// <para>The ARN (Amazon Resource Name) of the Lambda function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a>
+        /// in the <b>AWS Lambda Developer Guide</b>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -55,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The list of tags (key-value pairs) you are assigning to the Lambda function.</para>
+        /// <para>The list of tags (key-value pairs) you are assigning to the Lambda function. For more
+        /// information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging
+        /// Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

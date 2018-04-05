@@ -51,6 +51,7 @@ RequiredModules = @()
 # who want to work with generic types when the type parameter is in an 
 # external SDK assembly.
 RequiredAssemblies = @(
+  "AWSSDK.ACMPCA.dll",
   "AWSSDK.AlexaForBusiness.dll",
   "AWSSDK.APIGateway.dll",
   "AWSSDK.ApplicationAutoScaling.dll",
@@ -108,6 +109,7 @@ RequiredAssemblies = @(
   "AWSSDK.ElasticMapReduce.dll",
   "AWSSDK.Elasticsearch.dll",
   "AWSSDK.ElasticTranscoder.dll",
+  "AWSSDK.FMS.dll",
   "AWSSDK.GameLift.dll",
   "AWSSDK.Glue.dll",
   "AWSSDK.Greengrass.dll",
@@ -153,6 +155,7 @@ RequiredAssemblies = @(
   "AWSSDK.S3.dll",
   "AWSSDK.SageMaker.dll",
   "AWSSDK.SageMakerRuntime.dll",
+  "AWSSDK.SecretsManager.dll",
   "AWSSDK.SecurityToken.dll",
   "AWSSDK.ServerlessApplicationRepository.dll",
   "AWSSDK.ServerMigrationService.dll",

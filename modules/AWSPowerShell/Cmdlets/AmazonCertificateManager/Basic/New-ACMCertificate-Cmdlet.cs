@@ -36,15 +36,15 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     ///  
     /// <para>
     /// Each domain name that you specify must be validated to verify that you own or control
-    /// the domain. You can use <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">DNS
-    /// validation</a> or <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">email
+    /// the domain. You can use <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.comacm/latest/userguide/gs-acm-validate-dns.html">DNS
+    /// validation</a> or <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.comacm/latest/userguide/gs-acm-validate-email.html">email
     /// validation</a>. We recommend that you use DNS validation. 
     /// </para><para>
     /// If you choose email validation, email is sent to the domain owner to request approval
     /// to issue the certificate. Email is sent to three registered contact addresses in the
     /// WHOIS database and to five common system administration addresses formed from the
     /// <code>DomainName</code> you enter or the optional <code>ValidationDomain</code> parameter.
-    /// For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">Validate
+    /// For more information, see <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.comacm/latest/userguide/gs-acm-validate-email.html">Validate
     /// with Email</a>. 
     /// </para><para>
     /// After receiving approval from the domain owner, the ACM certificate is issued.
@@ -59,6 +59,20 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     )]
     public partial class NewACMCertificateCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {
+        
+        #region Parameter CertificateAuthorityArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the private certificate authority (CA) that will
+        /// be used to issue the certificate. For more information about private CAs, see the
+        /// <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.comacm-pca/latest/userguide/PcaWelcome.html">AWS
+        /// Certificate Manager Private Certificate Authority (PCA)</a> user guide. The ARN must
+        /// have the following form: </para><para><code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CertificateAuthorityArn { get; set; }
+        #endregion
         
         #region Parameter Options_CertificateTransparencyLoggingPreference
         /// <summary>
@@ -121,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// the <code>DomainName</code> field is www.example.com if users can reach your site
         /// by using either name. The maximum number of domain names that you can add to an ACM
         /// certificate is 100. However, the initial limit is 10 domain names. If you need more
-        /// than 10 names, you must request a limit increase. For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a>.</para><para> The maximum length of a SAN DNS name is 253 octets. The name is made up of multiple
+        /// than 10 names, you must request a limit increase. For more information, see <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.comacm/latest/userguide/acm-limits.html">Limits</a>.</para><para> The maximum length of a SAN DNS name is 253 octets. The name is made up of multiple
         /// labels separated by periods. No label can be longer than 63 octets. Consider the following
         /// examples: </para><ul><li><para><code>(63 octets).(63 octets).(63 octets).(61 octets)</code> is legal because the
         /// total length is 253 octets (63+1+63+1+63+1+61) and no label exceeds 63 octets.</para></li><li><para><code>(64 octets).(63 octets).(63 octets).(61 octets)</code> is not legal because
@@ -138,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter ValidationMethod
         /// <summary>
         /// <para>
-        /// <para>The method you want to use to validate that you own or control domain. You can <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">validate
-        /// with DNS</a> or <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">validate
+        /// <para>The method you want to use to validate that you own or control domain. You can <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.comacm/latest/userguide/gs-acm-validate-dns.html">validate
+        /// with DNS</a> or <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.comacm/latest/userguide/gs-acm-validate-email.html">validate
         /// with email</a>. We recommend that you use DNS validation. </para>
         /// </para>
         /// </summary>
@@ -177,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.CertificateAuthorityArn = this.CertificateAuthorityArn;
             context.DomainName = this.DomainName;
             if (this.DomainValidationOption != null)
             {
@@ -205,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             // create request
             var request = new Amazon.CertificateManager.Model.RequestCertificateRequest();
             
+            if (cmdletContext.CertificateAuthorityArn != null)
+            {
+                request.CertificateAuthorityArn = cmdletContext.CertificateAuthorityArn;
+            }
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
@@ -308,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CertificateAuthorityArn { get; set; }
             public System.String DomainName { get; set; }
             public List<Amazon.CertificateManager.Model.DomainValidationOption> DomainValidationOptions { get; set; }
             public System.String IdempotencyToken { get; set; }

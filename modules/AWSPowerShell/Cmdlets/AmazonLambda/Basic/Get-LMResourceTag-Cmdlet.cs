@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
     /// Returns a list of tags assigned to a function when supplied the function ARN (Amazon
-    /// Resource Name).
+    /// Resource Name). For more information on Tagging, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging
+    /// Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>.
     /// </summary>
     [Cmdlet("Get", "LMResourceTag")]
     [OutputType("System.String")]
@@ -44,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The ARN (Amazon Resource Name) of the function.</para>
+        /// <para>The ARN (Amazon Resource Name) of the function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging
+        /// Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

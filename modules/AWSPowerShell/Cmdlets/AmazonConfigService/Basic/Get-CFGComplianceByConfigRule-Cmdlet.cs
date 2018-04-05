@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// 
     ///  
     /// <para>
-    /// A rule is compliant if all of the evaluated resources comply with it, and it is noncompliant
+    /// A rule is compliant if all of the evaluated resources comply with it. It is noncompliant
     /// if any of these resources do not comply.
     /// </para><para>
     /// If AWS Config has no current evaluation results for the rule, it returns <code>INSUFFICIENT_DATA</code>.
@@ -44,10 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// and <code>LastFailedInvocationTime</code>.
     /// </para></li><li><para>
     /// The rule's AWS Lambda function is failing to send evaluation results to AWS Config.
-    /// Verify that the role that you assigned to your configuration recorder includes the
-    /// <code>config:PutEvaluations</code> permission. If the rule is a custom rule, verify
-    /// that the AWS Lambda execution role includes the <code>config:PutEvaluations</code>
-    /// permission.
+    /// Verify that the role you assigned to your configuration recorder includes the <code>config:PutEvaluations</code>
+    /// permission. If the rule is a custom rule, verify that the AWS Lambda execution role
+    /// includes the <code>config:PutEvaluations</code> permission.
     /// </para></li><li><para>
     /// The rule's AWS Lambda function has returned <code>NOT_APPLICABLE</code> for all evaluation
     /// results. This can occur if the resources were deleted or removed from the rule's scope.
@@ -89,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>NextToken</code> string returned on a previous page that you use to get
+        /// <para>The <code>nextToken</code> string returned on a previous page that you use to get
         /// the next page of results in a paginated response.</para>
         /// </para>
         /// </summary>

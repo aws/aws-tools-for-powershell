@@ -54,6 +54,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\thirdparty\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ACMPCA">
+      <HintPath>..\..\packages\AWSSDK.ACMPCA.3.3.0\lib\net35\AWSSDK.ACMPCA.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.AlexaForBusiness">
       <HintPath>..\..\packages\AWSSDK.AlexaForBusiness.3.3.2\lib\net35\AWSSDK.AlexaForBusiness.dll</HintPath>
     </Reference>
@@ -95,6 +98,9 @@
     </Reference>
     <Reference Include="AWSSDK.DAX">
       <HintPath>..\..\packages\AWSSDK.DAX.3.3.0.9\lib\net35\AWSSDK.DAX.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.FMS">
+      <HintPath>..\..\packages\AWSSDK.FMS.3.3.0\lib\net35\AWSSDK.FMS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Glue">
       <HintPath>..\..\packages\AWSSDK.Glue.3.3.6.1\lib\net35\AWSSDK.Glue.dll</HintPath>
@@ -178,10 +184,13 @@
       <HintPath>..\..\packages\AWSSDK.ResourceGroupsTaggingAPI.3.3.1.9\lib\net35\AWSSDK.ResourceGroupsTaggingAPI.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SageMaker">
-      <HintPath>..\..\packages\AWSSDK.SageMaker.3.3.3.1\lib\net35\AWSSDK.SageMaker.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SageMaker.3.3.4\lib\net35\AWSSDK.SageMaker.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SageMakerRuntime">
       <HintPath>..\..\packages\AWSSDK.SageMakerRuntime.3.3.0.3\lib\net35\AWSSDK.SageMakerRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SecretsManager">
+      <HintPath>..\..\packages\AWSSDK.SecretsManager.3.3.0\lib\net35\AWSSDK.SecretsManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ServerlessApplicationRepository">
       <HintPath>..\..\packages\AWSSDK.ServerlessApplicationRepository.3.3.1.4\lib\net35\AWSSDK.ServerlessApplicationRepository.dll</HintPath>
@@ -190,10 +199,10 @@
       <HintPath>..\..\packages\AWSSDK.SimpleWorkflow.3.3.0.27\lib\net35\AWSSDK.SimpleWorkflow.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.TranscribeService">
-      <HintPath>..\..\packages\AWSSDK.TranscribeService.3.3.0.3\lib\net35\AWSSDK.TranscribeService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.TranscribeService.3.3.1\lib\net35\AWSSDK.TranscribeService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Translate">
-      <HintPath>..\..\packages\AWSSDK.Translate.3.3.0.3\lib\net35\AWSSDK.Translate.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Translate.3.3.1\lib\net35\AWSSDK.Translate.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WAFRegional">
       <HintPath>..\..\packages\AWSSDK.WAFRegional.3.3.4.3\lib\net35\AWSSDK.WAFRegional.dll</HintPath>
@@ -250,7 +259,7 @@
       <HintPath>..\..\packages\AWSSDK.SecurityToken.3.3.4.1\lib\net35\AWSSDK.SecurityToken.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.S3">
-      <HintPath>..\..\packages\AWSSDK.S3.3.3.17.3\lib\net35\AWSSDK.S3.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.S3.3.3.18\lib\net35\AWSSDK.S3.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53Domains">
       <HintPath>..\..\packages\AWSSDK.Route53Domains.3.3.1.6\lib\net35\AWSSDK.Route53Domains.dll</HintPath>
@@ -271,7 +280,7 @@
       <HintPath>..\..\packages\AWSSDK.MachineLearning.3.3.0.26\lib\net35\AWSSDK.MachineLearning.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lambda">
-      <HintPath>..\..\packages\AWSSDK.Lambda.3.3.12.3\lib\net35\AWSSDK.Lambda.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Lambda.3.3.13\lib\net35\AWSSDK.Lambda.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KinesisFirehose">
       <HintPath>..\..\packages\AWSSDK.KinesisFirehose.3.3.3.3\lib\net35\AWSSDK.KinesisFirehose.dll</HintPath>
@@ -343,7 +352,7 @@
       <HintPath>..\..\packages\AWSSDK.DirectConnect.3.3.5.4\lib\net35\AWSSDK.DirectConnect.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DeviceFarm">
-      <HintPath>..\..\packages\AWSSDK.DeviceFarm.3.3.4.3\lib\net35\AWSSDK.DeviceFarm.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.DeviceFarm.3.3.5\lib\net35\AWSSDK.DeviceFarm.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DataPipeline">
       <HintPath>..\..\packages\AWSSDK.DataPipeline.3.3.0.26\lib\net35\AWSSDK.DataPipeline.dll</HintPath>
@@ -355,7 +364,7 @@
       <HintPath>..\..\packages\AWSSDK.Core.3.3.21.20\lib\net35\AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConfigService">
-      <HintPath>..\..\packages\AWSSDK.ConfigService.3.3.14.1\lib\net35\AWSSDK.ConfigService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ConfigService.3.3.15\lib\net35\AWSSDK.ConfigService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CognitoIdentityProvider">
       <HintPath>..\..\packages\AWSSDK.CognitoIdentityProvider.3.3.9.3\lib\net35\AWSSDK.CognitoIdentityProvider.dll</HintPath>
@@ -379,7 +388,7 @@
       <HintPath>..\..\packages\AWSSDK.CloudWatchEvents.3.3.5.1\lib\net35\AWSSDK.CloudWatchEvents.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatch">
-      <HintPath>..\..\packages\AWSSDK.CloudWatch.3.3.5.4\lib\net35\AWSSDK.CloudWatch.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudWatch.3.3.6\lib\net35\AWSSDK.CloudWatch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudTrail">
       <HintPath>..\..\packages\AWSSDK.CloudTrail.3.3.1.25\lib\net35\AWSSDK.CloudTrail.dll</HintPath>
@@ -400,7 +409,7 @@
       <HintPath>..\..\packages\AWSSDK.CloudFormation.3.3.10\lib\net35\AWSSDK.CloudFormation.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CertificateManager">
-      <HintPath>..\..\packages\AWSSDK.CertificateManager.3.3.4.2\lib\net35\AWSSDK.CertificateManager.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CertificateManager.3.3.5\lib\net35\AWSSDK.CertificateManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AWSSupport">
       <HintPath>..\..\packages\AWSSDK.AWSSupport.3.3.0.26\lib\net35\AWSSDK.AWSSupport.dll</HintPath>

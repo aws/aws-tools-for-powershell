@@ -29,15 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Schedules delivery of a configuration snapshot to the Amazon S3 bucket in the specified
-    /// delivery channel. After the delivery has started, AWS Config sends following notifications
+    /// delivery channel. After the delivery has started, AWS Config sends the following notifications
     /// using an Amazon SNS topic that you have specified.
     /// 
     ///  <ul><li><para>
-    /// Notification of starting the delivery.
+    /// Notification of the start of the delivery.
     /// </para></li><li><para>
-    /// Notification of delivery completed, if the delivery was successfully completed.
+    /// Notification of the completion of the delivery, if the delivery was successfully completed.
     /// </para></li><li><para>
-    /// Notification of delivery failure, if the delivery failed to complete.
+    /// Notification of delivery failure, if the delivery failed.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Submit", "CFGConfigSnapshotDelivery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

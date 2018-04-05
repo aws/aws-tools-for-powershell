@@ -204,8 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The unit for a given metric. Metrics may be reported in multiple units. Not supplying
-        /// a unit results in all units being returned. If the metric only ever reports one unit,
-        /// specifying a unit has no effect.</para>
+        /// a unit results in all units being returned. If you specify only a unit that the metric
+        /// does not report, the results of the call are null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

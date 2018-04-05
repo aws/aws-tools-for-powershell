@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
     /// Returns information about a transcription job. To see the status of the job, check
-    /// the <code>Status</code> field. If the status is <code>COMPLETE</code>, the job is
-    /// finished and you can find the results at the location specified in the <code>TranscriptionFileUri</code>
-    /// field.
+    /// the <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>,
+    /// the job is finished and you can find the results at the location specified in the
+    /// <code>TranscriptionFileUri</code> field.
     /// </summary>
     [Cmdlet("Get", "TRSTranscriptionJob")]
     [OutputType("Amazon.TranscribeService.Model.TranscriptionJob")]

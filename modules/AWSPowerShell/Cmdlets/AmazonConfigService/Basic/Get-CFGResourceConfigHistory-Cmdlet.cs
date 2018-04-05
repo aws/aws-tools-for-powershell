@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ChronologicalOrder
         /// <summary>
         /// <para>
-        /// <para>The chronological order for configuration items listed. By default the results are
+        /// <para>The chronological order for configuration items listed. By default, the results are
         /// listed in reverse chronological order.</para>
         /// </para>
         /// </summary>
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The time stamp that indicates an earlier time. If not specified, the action returns
-        /// paginated results that contain configuration items that start from when the first
-        /// configuration item was recorded.</para>
+        /// paginated results that contain configuration items that start when the first configuration
+        /// item was recorded.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum number of configuration items returned on each page. The default is 10.
-        /// You cannot specify a limit greater than 100. If you specify 0, AWS Config uses the
+        /// You cannot specify a number greater than 100. If you specify 0, AWS Config uses the
         /// default.</para>
         /// </para>
         /// </summary>

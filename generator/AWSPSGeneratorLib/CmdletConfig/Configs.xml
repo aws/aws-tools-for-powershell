@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <ConfigModelCollection>
   <Configs>
+    <Path>ACMPCA.xml</Path>
     <Path>AlexaForBusiness.xml</Path>
     <Path>APIGateway.xml</Path>
     <Path>ApplicationDiscovery.xml</Path>
@@ -53,6 +54,7 @@
     <Path>EMR.xml</Path>
     <Path>ES.xml</Path>
     <Path>ETS.xml</Path>
+    <Path>FMS.xml</Path>
     <Path>Glue.xml</Path>
     <Path>GML.xml</Path>
     <Path>Greengrass.xml</Path>
@@ -103,6 +105,7 @@
     <Path>S3.xml</Path>
     <Path>SageMaker.xml</Path>
     <Path>SageMakerRuntime.xml</Path>
+    <Path>SecretsManager.xml</Path>
     <Path>Shield.xml</Path>
     <Path>ServerlessApplicationRepository.xml</Path>
     <Path>ServiceCatalog.xml</Path>

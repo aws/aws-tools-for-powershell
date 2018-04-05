@@ -44,7 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     /// Portuguese (pt)
     /// </para></li><li><para>
     /// Spanish (es)
-    /// </para></li></ul>
+    /// </para></li></ul><para>
+    /// To have Amazon Translate determine the source language of your text, you can specify
+    /// <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>,
+    /// Amazon Translate will call Amazon Comprehend to determine the source language.
+    /// </para>
     /// </summary>
     [Cmdlet("ConvertTo", "TRNTargetLanguage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -71,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// <summary>
         /// <para>
         /// <para>One of the supported language codes for the source text. If the <code>TargetLanguageCode</code>
-        /// is not "en", the <code>SourceLanguageCode</code> must be "en".</para>
+        /// is not "en", the <code>SourceLanguageCode</code> must be "en".</para><para>To have Amazon Translate determine the source language of your text, you can specify
+        /// <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>,
+        /// Amazon Translate will call Amazon Comprehend to determine the source language.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

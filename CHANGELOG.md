@@ -1,6 +1,15 @@
-### 3.3.259.0 (2018-04-03)
+### 3.3.261.0 (2018-04-05)
+  * AWS Secrets Manager
+    * Added cmdlets to support the new AWS Secrets Manager service that enables you to store, manage, and retrieve, secrets. Cmdlets for the service have the noun prefix SEC and can be listed with the command *Get-AWSCmdletName -Service SEC*.
+  * AWS Certificate Manager Private Certificate Authority
+    * Added cmdlets to support the new AWS Certificate Manager (ACM) Private Certificate Authority (CA), a managed private CA service that helps you easily and securely manage the lifecycle of your private certificates. ACM Private CA provides you a highly-available private CA service without the upfront investment and ongoing maintenance costs of operating your own private CA. ACM Private CA extends ACM's certificate management capabilities to private certificates, enabling you to manage public and private certificates centrally. Cmdlets for the service have the noun prefix PCA and can be listed with the command *Get-AWSCmdletName -Service PCA*.
+  * Firewall Management Service
+    * Added cmdlets to support the Firewall Management Service, a new AWS service that makes it easy for customers to centrally configure WAF rules across all their resources (ALBs and CloudFront distributions) and across accounts. Cmdlets for the service have the noun prefix FMS and can be listed with the command *Get-AWSCmdletName -Service FMS*.
   * AWS Certificate Manager
     * Updated the New-ACMCertificate and added new cmdlet Update-ACMCertificateOption (UpdateCertificateOption API) to support disabling Certificate Transparency logging on a per-certificate basis.
+    * Added support for new service features for requesting and exporting private certificates. This API enables you to collect batch amounts of metric data and optionally perform math expressions on the data. With one GetMetricData call you can retrieve as many as 100 different metrics and a total of 100,800 data points.
+  * Amazon CloudWatch
+    * Added cmdlet Get-CWMetricData to support the new GetMetricData API.
   * Amazon DynamoDB
     * Added cmdlets restore-DDBTableToPointInTime (RestoreTableToPointInTime API) and Update-DDBContinuousBackup (UpdateContinuousBackups API) t o support Point-in-time recovery (PITR) continuous backups of your DynamoDB table data. With PITR, you do not have to worry about creating, maintaining, or scheduling backups. You enable PITR on your table and your backup is available for restore at any point in time from the moment you enable it, up to a maximum of the 35 preceding days. PITR provides continuous backups until you explicitly disable it.
   * AWS Identity and Access Management
@@ -17,7 +26,11 @@
     * Added cmdlets to support Field-Level Encryption to further enhance the security of sensitive data, such as credit card numbers or personally identifiable information (PII) like social security numbers. CloudFront's field-level encryption further encrypts sensitive data in an HTTPS form using field-specific encryption keys (which you supply) before a POST request is forwarded to your origin. This ensures that sensitive data can only be decrypted and viewed by certain components or services in your application stack. Field-level encryption is easy to setup. Simply configure the fields that have to be further encrypted by CloudFront using the public keys you specify and you can reduce attack surface for your sensitive data.
   * Amazon Elasticsearch
     * Updated cmdlets to support Amazon Cognito authentication support to Kibana.
-    
+  * AWS Config Service
+    * Added support for multi-account multi-region data aggregation features. Customers can create an aggregator (a new resource type) in AWS Config that collects AWS Config data from multiple source accounts and regions into an aggregator account. Customers can aggregate data from individual account(s) or an organization and multiple regions. In this release, AWS Config adds several API's for multi-account multi-region data aggregation.
+  * AWS Device Farm
+    * Added support for Private Device Management feature. Customers can now manage their private devices efficiently - view their status, set labels and apply profiles on them. Customers can also schedule automated tests and remote access sessions on individual instances in their private device fleet.
+
 ### 3.3.253.0 (2018-03-26)
   * Amazon WorkMail
     * Added cmdlets to support the Amazon WorkMail service. Cmdlets for the service have the noun prefix WM and can be listed with the command *Get-AWSCmdletName -Service WM*.

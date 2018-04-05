@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>Specify one or more resource types to get the number of resources that are compliant
-        /// and the number that are noncompliant for each resource type.</para><para>For this request, you can specify an AWS resource type such as <code>AWS::EC2::Instance</code>,
-        /// and you can specify that the resource type is an AWS account by specifying <code>AWS::::Account</code>.</para>
+        /// and the number that are noncompliant for each resource type.</para><para>For this request, you can specify an AWS resource type such as <code>AWS::EC2::Instance</code>.
+        /// You can specify that the resource type is an AWS account by specifying <code>AWS::::Account</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

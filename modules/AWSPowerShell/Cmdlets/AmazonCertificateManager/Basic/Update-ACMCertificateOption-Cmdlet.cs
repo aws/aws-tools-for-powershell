@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// <summary>
     /// Updates a certificate. Currently, you can use this function to specify whether to
     /// opt in to or out of recording your certificate in a certificate transparency log.
-    /// For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency">
+    /// For more information, see <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.comacm/latest/userguide/acm-bestpractices.html#best-practices-transparency">
     /// Opting Out of Certificate Transparency Logging</a>.
     /// </summary>
     [Cmdlet("Update", "ACMCertificateOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -41,10 +41,23 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     public partial class GetTRSTranscriptionJobListCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter JobNameContain
+        /// <summary>
+        /// <para>
+        /// <para>When specified, the jobs returned in the list are limited to jobs whose name contains
+        /// the specified string.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("JobNameContains")]
+        public System.String JobNameContain { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of jobs to return in the response.</para>
+        /// <para>The maximum number of jobs to return in the response. If there are fewer results in
+        /// the list, this response contains only the actual results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -75,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>When specified, returns only transcription jobs with the specified status.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.TranscribeService.TranscriptionJobStatus")]
         public Amazon.TranscribeService.TranscriptionJobStatus Status { get; set; }
         #endregion
@@ -93,6 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.JobNameContains = this.JobNameContain;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -113,6 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             
             // create request and set iteration invariants
             var request = new Amazon.TranscribeService.Model.ListTranscriptionJobsRequest();
+            if (cmdletContext.JobNameContains != null)
+            {
+                request.JobNameContains = cmdletContext.JobNameContains;
+            }
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
@@ -264,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String JobNameContains { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.TranscribeService.TranscriptionJobStatus Status { get; set; }

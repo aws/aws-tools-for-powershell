@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// 
     ///  
     /// <para>
-    /// For information about the push model, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS
-    /// Lambda: How it Works</a>. 
+    /// For information about the push model, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">Lambda
+    /// Functions</a>. 
     /// </para><para>
     /// If you are using versioning, the permissions you add are specific to the Lambda function
     /// version or alias you specify in the <code>AddPermission</code> request via the <code>Qualifier</code>

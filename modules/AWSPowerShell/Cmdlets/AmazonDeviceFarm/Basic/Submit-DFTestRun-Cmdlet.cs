@@ -287,6 +287,19 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.String ProjectArn { get; set; }
         #endregion
         
+        #region Parameter ExecutionConfiguration_SkipAppResign
+        /// <summary>
+        /// <para>
+        /// <para>When set to <code>true</code>, for private devices, Device Farm will not sign your
+        /// app again. For public devices, Device Farm always signs your apps again and this parameter
+        /// has no effect.</para><para>For more information about how Device Farm re-signs your app(s), see <a href="https://aws.amazon.com/device-farm/faq/">Do
+        /// you modify my app?</a> in the <i>AWS Device Farm FAQs</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean ExecutionConfiguration_SkipAppResign { get; set; }
+        #endregion
+        
         #region Parameter Test_TestPackageArn
         /// <summary>
         /// <para>
@@ -389,6 +402,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 context.ExecutionConfiguration_AppPackagesCleanup = this.ExecutionConfiguration_AppPackagesCleanup;
             if (ParameterWasBound("ExecutionConfiguration_JobTimeoutMinute"))
                 context.ExecutionConfiguration_JobTimeoutMinutes = this.ExecutionConfiguration_JobTimeoutMinute;
+            if (ParameterWasBound("ExecutionConfiguration_SkipAppResign"))
+                context.ExecutionConfiguration_SkipAppResign = this.ExecutionConfiguration_SkipAppResign;
             context.Name = this.Name;
             context.ProjectArn = this.ProjectArn;
             context.Test_Filter = this.Test_Filter;
@@ -654,6 +669,16 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 request.ExecutionConfiguration.JobTimeoutMinutes = requestExecutionConfiguration_executionConfiguration_JobTimeoutMinute.Value;
                 requestExecutionConfigurationIsNull = false;
             }
+            System.Boolean? requestExecutionConfiguration_executionConfiguration_SkipAppResign = null;
+            if (cmdletContext.ExecutionConfiguration_SkipAppResign != null)
+            {
+                requestExecutionConfiguration_executionConfiguration_SkipAppResign = cmdletContext.ExecutionConfiguration_SkipAppResign.Value;
+            }
+            if (requestExecutionConfiguration_executionConfiguration_SkipAppResign != null)
+            {
+                request.ExecutionConfiguration.SkipAppResign = requestExecutionConfiguration_executionConfiguration_SkipAppResign.Value;
+                requestExecutionConfigurationIsNull = false;
+            }
              // determine if request.ExecutionConfiguration should be set to null
             if (requestExecutionConfigurationIsNull)
             {
@@ -799,6 +824,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             public System.Boolean? ExecutionConfiguration_AccountsCleanup { get; set; }
             public System.Boolean? ExecutionConfiguration_AppPackagesCleanup { get; set; }
             public System.Int32? ExecutionConfiguration_JobTimeoutMinutes { get; set; }
+            public System.Boolean? ExecutionConfiguration_SkipAppResign { get; set; }
             public System.String Name { get; set; }
             public System.String ProjectArn { get; set; }
             public System.String Test_Filter { get; set; }

@@ -152,6 +152,65 @@ $AWS_EC2ImageAttributeCompleter = {
 _awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 
 # begin auto-generated service completers
+# Argument completions for service AWS Certificate Manager Private Certificate Authority
+$PCA_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ACMPCA.AuditReportResponseFormat
+        "New-PCACertificateAuthorityAuditReport/AuditReportResponseFormat"
+        {
+            $v = "CSV","JSON"
+            break
+        }
+        
+        # Amazon.ACMPCA.CertificateAuthorityStatus
+        "Update-PCACertificateAuthority/Status"
+        {
+            $v = "ACTIVE","CREATING","DISABLED","EXPIRED","FAILED","PENDING_CERTIFICATE"
+            break
+        }
+        
+        # Amazon.ACMPCA.CertificateAuthorityType
+        "New-PCACertificateAuthority/CertificateAuthorityType"
+        {
+            $v = "SUBORDINATE"
+            break
+        }
+        
+        # Amazon.ACMPCA.RevocationReason
+        "Revoke-PCACertificate/RevocationReason"
+        {
+            $v = "AFFILIATION_CHANGED","A_A_COMPROMISE","CERTIFICATE_AUTHORITY_COMPROMISE","CESSATION_OF_OPERATION","KEY_COMPROMISE","PRIVILEGE_WITHDRAWN","SUPERSEDED","UNSPECIFIED"
+            break
+        }
+        
+        # Amazon.ACMPCA.SigningAlgorithm
+        "New-PCACertificate/SigningAlgorithm"
+        {
+            $v = "SHA256WITHECDSA","SHA256WITHRSA","SHA384WITHECDSA","SHA384WITHRSA","SHA512WITHECDSA","SHA512WITHRSA"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PCA_map = @{
+    "AuditReportResponseFormat"=@("New-PCACertificateAuthorityAuditReport")
+    "CertificateAuthorityType"=@("New-PCACertificateAuthority")
+    "RevocationReason"=@("Revoke-PCACertificate")
+    "SigningAlgorithm"=@("New-PCACertificate")
+    "Status"=@("Update-PCACertificateAuthority")
+}
+
+_awsArgumentCompleterRegistration $PCA_Completers $PCA_map
+
+
 # Argument completions for service Alexa For Business
 $ALXB_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -1294,6 +1353,13 @@ $CW_Completers = {
             break
         }
         
+        # Amazon.CloudWatch.ScanBy
+        "Get-CWMetricData/ScanBy"
+        {
+            $v = "TimestampAscending","TimestampDescending"
+            break
+        }
+        
         # Amazon.CloudWatch.StandardUnit
         {
             ($_ -eq "Get-CWAlarmForMetric/Unit") -Or
@@ -1335,6 +1401,7 @@ $CW_Completers = {
 $CW_map = @{
     "ComparisonOperator"=@("Write-CWMetricAlarm")
     "HistoryItemType"=@("Get-CWAlarmHistory")
+    "ScanBy"=@("Get-CWMetricData")
     "StateValue"=@("Get-CWAlarm","Set-CWAlarmState")
     "Statistic"=@("Get-CWAlarmForMetric","Write-CWMetricAlarm")
     "Unit"=@("Get-CWAlarmForMetric","Get-CWMetricStatistic","Write-CWMetricAlarm")
@@ -2063,6 +2130,23 @@ $CFG_Completers = {
             break
         }
         
+        # Amazon.ConfigService.ComplianceType
+        {
+            ($_ -eq "Get-CFGAggregateComplianceDetailsByConfigRule/ComplianceType") -Or
+            ($_ -eq "Get-CFGAggregateComplianceByConfigRuleList/Filters_ComplianceType")
+        }
+        {
+            $v = "COMPLIANT","INSUFFICIENT_DATA","NON_COMPLIANT","NOT_APPLICABLE"
+            break
+        }
+        
+        # Amazon.ConfigService.ConfigRuleComplianceSummaryGroupKey
+        "Get-CFGAggregateConfigRuleComplianceSummary/GroupByKey"
+        {
+            $v = "ACCOUNT_ID","AWS_REGION"
+            break
+        }
+        
         # Amazon.ConfigService.ConfigRuleState
         "Write-CFGConfigRule/ConfigRule_ConfigRuleState"
         {
@@ -2106,10 +2190,13 @@ $CFG_Completers = {
 
 $CFG_map = @{
     "ChronologicalOrder"=@("Get-CFGResourceConfigHistory")
+    "ComplianceType"=@("Get-CFGAggregateComplianceDetailsByConfigRule")
     "ConfigRule_ConfigRuleState"=@("Write-CFGConfigRule")
     "ConfigRule_MaximumExecutionFrequency"=@("Write-CFGConfigRule")
     "ConfigRule_Source_Owner"=@("Write-CFGConfigRule")
     "DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency"=@("Write-CFGDeliveryChannel")
+    "Filters_ComplianceType"=@("Get-CFGAggregateComplianceByConfigRuleList")
+    "GroupByKey"=@("Get-CFGAggregateConfigRuleComplianceSummary")
     "ResourceType"=@("Get-CFGDiscoveredResource","Get-CFGResourceConfigHistory")
 }
 
@@ -4413,7 +4500,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnetcore1.0","dotnetcore2.0","go1.x","java8","nodejs","nodejs4.3","nodejs4.3-edge","nodejs6.10","python2.7","python3.6"
+            $v = "dotnetcore1.0","dotnetcore2.0","go1.x","java8","nodejs","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","python2.7","python3.6"
             break
         }
         
@@ -5784,7 +5871,7 @@ $S3_Completers = {
         # Amazon.S3.S3StorageClass
         "Restore-S3Object/OutputLocation_S3_StorageClass"
         {
-            $v = "GLACIER","REDUCED_REDUNDANCY","STANDARD","STANDARD_IA"
+            $v = "GLACIER","ONEZONE_IA","REDUCED_REDUNDANCY","STANDARD","STANDARD_IA"
             break
         }
         
@@ -5900,7 +5987,7 @@ $SM_Completers = {
             ($_ -eq "Update-SMNotebookInstance/InstanceType")
         }
         {
-            $v = "ml.m4.xlarge","ml.p2.xlarge","ml.p3.2xlarge","ml.t2.medium"
+            $v = "ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.t2.2xlarge","ml.t2.large","ml.t2.medium","ml.t2.xlarge"
             break
         }
         
@@ -6492,7 +6579,11 @@ $TRS_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.TranscribeService.LanguageCode
-        "Start-TRSTranscriptionJob/LanguageCode"
+        {
+            ($_ -eq "New-TRSVocabulary/LanguageCode") -Or
+            ($_ -eq "Start-TRSTranscriptionJob/LanguageCode") -Or
+            ($_ -eq "Update-TRSVocabulary/LanguageCode")
+        }
         {
             $v = "en-US","es-US"
             break
@@ -6512,6 +6603,13 @@ $TRS_Completers = {
             break
         }
         
+        # Amazon.TranscribeService.VocabularyState
+        "Get-TRSVocabularyList/StateEquals"
+        {
+            $v = "FAILED","PENDING","READY"
+            break
+        }
+        
     }
     
     $v |
@@ -6520,8 +6618,9 @@ $TRS_Completers = {
 }
 
 $TRS_map = @{
-    "LanguageCode"=@("Start-TRSTranscriptionJob")
+    "LanguageCode"=@("New-TRSVocabulary","Start-TRSTranscriptionJob","Update-TRSVocabulary")
     "MediaFormat"=@("Start-TRSTranscriptionJob")
+    "StateEquals"=@("Get-TRSVocabularyList")
     "Status"=@("Get-TRSTranscriptionJobList")
 }
 

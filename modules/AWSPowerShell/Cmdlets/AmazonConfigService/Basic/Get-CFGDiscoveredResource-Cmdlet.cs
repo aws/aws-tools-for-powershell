@@ -35,7 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// to include only resources that have specific resource IDs or a resource name.
     /// 
     ///  <note><para>
-    /// You can specify either resource IDs or a resource name but not both in the same request.
+    /// You can specify either resource IDs or a resource name, but not both, in the same
+    /// request.
     /// </para></note><para>
     /// The response is paginated. By default, AWS Config lists 100 resource identifiers on
     /// each page. You can customize this number with the <code>limit</code> parameter. The
@@ -106,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum number of resource identifiers returned on each page. The default is 100.
-        /// You cannot specify a limit greater than 100. If you specify 0, AWS Config uses the
+        /// You cannot specify a number greater than 100. If you specify 0, AWS Config uses the
         /// default.</para>
         /// </para>
         /// </summary>

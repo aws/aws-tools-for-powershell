@@ -29,15 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
     /// Imports a certificate into AWS Certificate Manager (ACM) to use with services that
-    /// are integrated with ACM. Note that <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-services.html">integrated
+    /// are integrated with ACM. Note that <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.comacm/latest/userguide/acm-services.html">integrated
     /// services</a> allow only certificate types and keys they support to be associated with
     /// their resources. Further, their support differs depending on whether the certificate
     /// is imported into IAM or into ACM. For more information, see the documentation for
-    /// each service. For more information about importing certificates into ACM, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing
+    /// each service. For more information about importing certificates into ACM, see <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.comacm/latest/userguide/import-certificate.html">Importing
     /// Certificates</a> in the <i>AWS Certificate Manager User Guide</i>. 
     /// 
     ///  <note><para>
-    /// ACM does not provide <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed
+    /// ACM does not provide <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.comacm/latest/userguide/acm-renewal.html">managed
     /// renewal</a> for certificates that you import.
     /// </para></note><para>
     /// Note the following guidelines when importing third party certificates:
