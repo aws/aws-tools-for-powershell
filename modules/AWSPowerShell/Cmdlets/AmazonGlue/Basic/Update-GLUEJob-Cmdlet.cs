@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter JobUpdate
         /// <summary>
         /// <para>
-        /// <para>Specifies the values with which to update the job.</para>
+        /// <para>Specifies the values with which to update the job definition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

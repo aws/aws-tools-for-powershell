@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter SubscriptionName
         /// <summary>
         /// <para>
-        /// <para>The name of the DMS event notification subscription. </para><para>Constraints: The name must be less than 255 characters. </para>
+        /// <para>The name of the AWS DMS event notification subscription. </para><para>Constraints: The name must be less than 255 characters. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -45,14 +45,39 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class StartDMSReplicationTaskCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter CdcStartPosition
+        /// <summary>
+        /// <para>
+        /// <para>Indicates when you want a change data capture (CDC) operation to start. Use either
+        /// CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start.
+        /// Specifying both values results in an error.</para><para> The value can be in date, checkpoint, or LSN/SCN format.</para><para>Date Example: --cdc-start-position “2018-03-08T12:12:12”</para><para>Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"</para><para>LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CdcStartPosition { get; set; }
+        #endregion
+        
         #region Parameter CdcStartTime
         /// <summary>
         /// <para>
-        /// <para>The start time for the Change Data Capture (CDC) operation.</para>
+        /// <para>Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime
+        /// or CdcStartPosition to specify when you want a CDC operation to start. Specifying
+        /// both values results in an error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime CdcStartTime { get; set; }
+        #endregion
+        
+        #region Parameter CdcStopPosition
+        /// <summary>
+        /// <para>
+        /// <para>Indicates when you want a change data capture (CDC) operation to stop. The value can
+        /// be either server time or commit time.</para><para>Server time example: --cdc-stop-position “server_time:3018-02-09T12:12:12”</para><para>Commit time example: --cdc-stop-position “commit_time: 3018-02-09T12:12:12 “</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CdcStopPosition { get; set; }
         #endregion
         
         #region Parameter ReplicationTaskArn
@@ -105,8 +130,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.CdcStartPosition = this.CdcStartPosition;
             if (ParameterWasBound("CdcStartTime"))
                 context.CdcStartTime = this.CdcStartTime;
+            context.CdcStopPosition = this.CdcStopPosition;
             context.ReplicationTaskArn = this.ReplicationTaskArn;
             context.StartReplicationTaskType = this.StartReplicationTaskType;
             
@@ -125,9 +152,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             // create request
             var request = new Amazon.DatabaseMigrationService.Model.StartReplicationTaskRequest();
             
+            if (cmdletContext.CdcStartPosition != null)
+            {
+                request.CdcStartPosition = cmdletContext.CdcStartPosition;
+            }
             if (cmdletContext.CdcStartTime != null)
             {
                 request.CdcStartTime = cmdletContext.CdcStartTime.Value;
+            }
+            if (cmdletContext.CdcStopPosition != null)
+            {
+                request.CdcStopPosition = cmdletContext.CdcStopPosition;
             }
             if (cmdletContext.ReplicationTaskArn != null)
             {
@@ -201,7 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CdcStartPosition { get; set; }
             public System.DateTime? CdcStartTime { get; set; }
+            public System.String CdcStopPosition { get; set; }
             public System.String ReplicationTaskArn { get; set; }
             public Amazon.DatabaseMigrationService.StartReplicationTaskTypeValue StartReplicationTaskType { get; set; }
         }

@@ -28,8 +28,9 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Lists schema major versions for a published schema. If <code>SchemaArn</code> is provided,
-    /// lists the minor version.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the major version families of each published schema. If a major version ARN
+    /// is provided as <code>SchemaArn</code>, the minor version revisions in that family
+    /// are listed instead.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CDIRPublishedSchemaArn")]
     [OutputType("System.String")]

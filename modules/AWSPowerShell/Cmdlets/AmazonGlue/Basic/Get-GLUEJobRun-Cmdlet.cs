@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter JobName
         /// <summary>
         /// <para>
-        /// <para>Name of the job being run.</para>
+        /// <para>Name of the job definition being run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

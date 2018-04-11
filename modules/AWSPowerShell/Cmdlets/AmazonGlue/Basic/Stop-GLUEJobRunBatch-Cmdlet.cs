@@ -28,7 +28,7 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Stops one or more job runs for a specified Job.
+    /// Stops one or more job runs for a specified job definition.
     /// </summary>
     [Cmdlet("Stop", "GLUEJobRunBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Glue.Model.BatchStopJobRunResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter JobName
         /// <summary>
         /// <para>
-        /// <para>The name of the Job in question.</para>
+        /// <para>The name of the job definition for which to stop job runs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter JobRunId
         /// <summary>
         /// <para>
-        /// <para>A list of the JobRunIds that should be stopped for that Job.</para>
+        /// <para>A list of the JobRunIds that should be stopped for that job definition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

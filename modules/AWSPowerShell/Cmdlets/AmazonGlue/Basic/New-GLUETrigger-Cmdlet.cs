@@ -93,6 +93,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String Schedule { get; set; }
         #endregion
         
+        #region Parameter StartOnCreation
+        /// <summary>
+        /// <para>
+        /// <para>Set to true to start SCHEDULED and CONDITIONAL triggers when created. True not supported
+        /// for ON_DEMAND triggers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean StartOnCreation { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -141,6 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.Name = this.Name;
             context.Predicate = this.Predicate;
             context.Schedule = this.Schedule;
+            if (ParameterWasBound("StartOnCreation"))
+                context.StartOnCreation = this.StartOnCreation;
             context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
@@ -177,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Schedule != null)
             {
                 request.Schedule = cmdletContext.Schedule;
+            }
+            if (cmdletContext.StartOnCreation != null)
+            {
+                request.StartOnCreation = cmdletContext.StartOnCreation.Value;
             }
             if (cmdletContext.Type != null)
             {
@@ -251,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String Name { get; set; }
             public Amazon.Glue.Model.Predicate Predicate { get; set; }
             public System.String Schedule { get; set; }
+            public System.Boolean? StartOnCreation { get; set; }
             public Amazon.Glue.TriggerType Type { get; set; }
         }
         

@@ -22,29 +22,49 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Glue;
-using Amazon.Glue.Model;
+using Amazon.WorkMail;
+using Amazon.WorkMail.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GLUE
+namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Retrieves all current job definitions.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the mailbox permissions associated with a mailbox.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "GLUEJobList")]
-    [OutputType("Amazon.Glue.Model.Job")]
-    [AWSCmdlet("Calls the AWS Glue GetJobs API operation.", Operation = new[] {"GetJobs"})]
-    [AWSCmdletOutput("Amazon.Glue.Model.Job",
-        "This cmdlet returns a collection of Job objects.",
-        "The service call response (type Amazon.Glue.Model.GetJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "WMMailboxPermissionList")]
+    [OutputType("Amazon.WorkMail.Model.Permission")]
+    [AWSCmdlet("Calls the Amazon WorkMail ListMailboxPermissions API operation.", Operation = new[] {"ListMailboxPermissions"})]
+    [AWSCmdletOutput("Amazon.WorkMail.Model.Permission",
+        "This cmdlet returns a collection of Permission objects.",
+        "The service call response (type Amazon.WorkMail.Model.ListMailboxPermissionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetGLUEJobListCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class GetWMMailboxPermissionListCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
+        
+        #region Parameter EntityId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the entity (user or group) for which to list mailbox permissions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String EntityId { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the organization under which the entity (user or group) exists.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String OrganizationId { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum size of the response.</para>
+        /// <para>The maximum number of results to return in a single call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -58,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A continuation token, if this is a continuation call.</para>
+        /// <para>The token to use to retrieve the next page of results. The first call does not contain
+        /// any tokens.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -81,9 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.EntityId = this.EntityId;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.OrganizationId = this.OrganizationId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -99,18 +122,33 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.Glue.Model.GetJobsRequest();
+            var request = new Amazon.WorkMail.Model.ListMailboxPermissionsRequest();
+            if (cmdletContext.EntityId != null)
+            {
+                request.EntityId = cmdletContext.EntityId;
+            }
+            if (cmdletContext.OrganizationId != null)
+            {
+                request.OrganizationId = cmdletContext.OrganizationId;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
+            int? _pageSize = 100;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
                 _nextMarker = cmdletContext.NextToken;
             }
             if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
             {
+                // The service has a maximum page size of 100. If the user has
+                // asked for more items than page max, and there is no page size
+                // configured, we rely on the service ignoring the set maximum
+                // and giving us 100 items back. If a page size is set, that will
+                // be used to configure the pagination.
+                // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
             bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
@@ -126,6 +164,20 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                         request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
                     
+                    if (AutoIterationHelpers.HasValue(_pageSize))
+                    {
+                        int correctPageSize;
+                        if (AutoIterationHelpers.IsSet(request.MaxResults))
+                        {
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
+                        }
+                        else
+                        {
+                            correctPageSize = _pageSize.Value;
+                        }
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
+                    }
+                    
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
                     
@@ -134,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Jobs;
+                        object pipelineOutput = response.Permissions;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -143,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Jobs.Count;
+                        int _receivedThisCall = response.Permissions.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -163,6 +215,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                     }
                     
                     ProcessOutput(output);
+                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
+                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
+                    // what's left to match the user's request.
+                    
+                    var _remainingItems = _emitLimit - _retrievedSoFar;
+                    if (_remainingItems < _pageSize)
+                    {
+                        _emitLimit = _remainingItems;
+                    }
                 } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
                 
             }
@@ -186,16 +247,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.GetJobsResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.GetJobsRequest request)
+        private Amazon.WorkMail.Model.ListMailboxPermissionsResponse CallAWSServiceOperation(IAmazonWorkMail client, Amazon.WorkMail.Model.ListMailboxPermissionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "GetJobs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkMail", "ListMailboxPermissions");
             try
             {
                 #if DESKTOP
-                return client.GetJobs(request);
+                return client.ListMailboxPermissions(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetJobsAsync(request);
+                var task = client.ListMailboxPermissionsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -216,8 +277,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String EntityId { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
+            public System.String OrganizationId { get; set; }
         }
         
     }

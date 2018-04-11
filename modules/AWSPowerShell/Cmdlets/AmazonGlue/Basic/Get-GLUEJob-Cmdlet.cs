@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter JobName
         /// <summary>
         /// <para>
-        /// <para>The name of the job to retrieve.</para>
+        /// <para>The name of the job definition to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

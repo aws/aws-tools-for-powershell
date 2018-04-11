@@ -211,18 +211,28 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The type of engine for the endpoint. Valid values, depending on the EndPointType,
-        /// include mysql, oracle, postgres, mariadb, aurora, redshift, S3, sybase, dynamodb,
-        /// mongodb, and sqlserver.</para>
+        /// include mysql, oracle, postgres, mariadb, aurora, aurora-postgresql, redshift, s3,
+        /// db2, azuredb, sybase, sybase, dynamodb, mongodb, and sqlserver.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EngineName { get; set; }
         #endregion
         
+        #region Parameter ExternalTableDefinition
+        /// <summary>
+        /// <para>
+        /// <para>The external table definition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ExternalTableDefinition { get; set; }
+        #endregion
+        
         #region Parameter S3Settings_ExternalTableDefinition
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The external table definition. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -250,6 +260,19 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MongoDbSettings_ExtractDocId { get; set; }
+        #endregion
+        
+        #region Parameter MongoDbSettings_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para> The KMS key identifier that will be used to encrypt the connection parameters. If
+        /// you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your
+        /// default encryption key. AWS KMS creates the default encryption key for your AWS account.
+        /// Your AWS account has a different default encryption key for each AWS region. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MongoDbSettings_KmsKeyId { get; set; }
         #endregion
         
         #region Parameter MongoDbSettings_NestingLevel
@@ -345,6 +368,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String S3Settings_ServiceAccessRoleArn { get; set; }
         #endregion
         
+        #region Parameter ServiceAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) for the service access role you want to use to modify
+        /// the endpoint. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ServiceAccessRoleArn { get; set; }
+        #endregion
+        
         #region Parameter SslMode
         /// <summary>
         /// <para>
@@ -412,6 +446,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.EndpointIdentifier = this.EndpointIdentifier;
             context.EndpointType = this.EndpointType;
             context.EngineName = this.EngineName;
+            context.ExternalTableDefinition = this.ExternalTableDefinition;
             context.ExtraConnectionAttributes = this.ExtraConnectionAttribute;
             context.MongoDbSettings_AuthMechanism = this.MongoDbSettings_AuthMechanism;
             context.MongoDbSettings_AuthSource = this.MongoDbSettings_AuthSource;
@@ -419,6 +454,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.MongoDbSettings_DatabaseName = this.MongoDbSettings_DatabaseName;
             context.MongoDbSettings_DocsToInvestigate = this.MongoDbSettings_DocsToInvestigate;
             context.MongoDbSettings_ExtractDocId = this.MongoDbSettings_ExtractDocId;
+            context.MongoDbSettings_KmsKeyId = this.MongoDbSettings_KmsKeyId;
             context.MongoDbSettings_NestingLevel = this.MongoDbSettings_NestingLevel;
             context.MongoDbSettings_Password = this.MongoDbSettings_Password;
             if (ParameterWasBound("MongoDbSettings_Port"))
@@ -436,6 +472,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.S3Settings_ExternalTableDefinition = this.S3Settings_ExternalTableDefinition;
             context.S3Settings_ServiceAccessRoleArn = this.S3Settings_ServiceAccessRoleArn;
             context.ServerName = this.ServerName;
+            context.ServiceAccessRoleArn = this.ServiceAccessRoleArn;
             context.SslMode = this.SslMode;
             context.Username = this.Username;
             
@@ -496,6 +533,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.EngineName != null)
             {
                 request.EngineName = cmdletContext.EngineName;
+            }
+            if (cmdletContext.ExternalTableDefinition != null)
+            {
+                request.ExternalTableDefinition = cmdletContext.ExternalTableDefinition;
             }
             if (cmdletContext.ExtraConnectionAttributes != null)
             {
@@ -563,6 +604,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestMongoDbSettings_mongoDbSettings_ExtractDocId != null)
             {
                 request.MongoDbSettings.ExtractDocId = requestMongoDbSettings_mongoDbSettings_ExtractDocId;
+                requestMongoDbSettingsIsNull = false;
+            }
+            System.String requestMongoDbSettings_mongoDbSettings_KmsKeyId = null;
+            if (cmdletContext.MongoDbSettings_KmsKeyId != null)
+            {
+                requestMongoDbSettings_mongoDbSettings_KmsKeyId = cmdletContext.MongoDbSettings_KmsKeyId;
+            }
+            if (requestMongoDbSettings_mongoDbSettings_KmsKeyId != null)
+            {
+                request.MongoDbSettings.KmsKeyId = requestMongoDbSettings_mongoDbSettings_KmsKeyId;
                 requestMongoDbSettingsIsNull = false;
             }
             Amazon.DatabaseMigrationService.NestingLevelValue requestMongoDbSettings_mongoDbSettings_NestingLevel = null;
@@ -711,6 +762,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             {
                 request.ServerName = cmdletContext.ServerName;
             }
+            if (cmdletContext.ServiceAccessRoleArn != null)
+            {
+                request.ServiceAccessRoleArn = cmdletContext.ServiceAccessRoleArn;
+            }
             if (cmdletContext.SslMode != null)
             {
                 request.SslMode = cmdletContext.SslMode;
@@ -790,6 +845,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String EndpointIdentifier { get; set; }
             public Amazon.DatabaseMigrationService.ReplicationEndpointTypeValue EndpointType { get; set; }
             public System.String EngineName { get; set; }
+            public System.String ExternalTableDefinition { get; set; }
             public System.String ExtraConnectionAttributes { get; set; }
             public Amazon.DatabaseMigrationService.AuthMechanismValue MongoDbSettings_AuthMechanism { get; set; }
             public System.String MongoDbSettings_AuthSource { get; set; }
@@ -797,6 +853,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String MongoDbSettings_DatabaseName { get; set; }
             public System.String MongoDbSettings_DocsToInvestigate { get; set; }
             public System.String MongoDbSettings_ExtractDocId { get; set; }
+            public System.String MongoDbSettings_KmsKeyId { get; set; }
             public Amazon.DatabaseMigrationService.NestingLevelValue MongoDbSettings_NestingLevel { get; set; }
             public System.String MongoDbSettings_Password { get; set; }
             public System.Int32? MongoDbSettings_Port { get; set; }
@@ -812,6 +869,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String S3Settings_ExternalTableDefinition { get; set; }
             public System.String S3Settings_ServiceAccessRoleArn { get; set; }
             public System.String ServerName { get; set; }
+            public System.String ServiceAccessRoleArn { get; set; }
             public Amazon.DatabaseMigrationService.DmsSslModeValue SslMode { get; set; }
             public System.String Username { get; set; }
         }

@@ -12,7 +12,9 @@
     "serviceConfigClass": "AmazonBatchConfig",
     "serviceNamespace": "Amazon.Batch"
   },
-  "nonFlattenedTypeNames": [],
+  "nonFlattenedTypeNames": [
+    "Amazon.Batch.Model.JobTimeout"
+  ],
   "nounMaps": {},
   "outputMetadataMembers": [],
   "paginationDefaults": {

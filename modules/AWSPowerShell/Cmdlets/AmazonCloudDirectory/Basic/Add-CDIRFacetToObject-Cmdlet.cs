@@ -28,7 +28,8 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Adds a new <a>Facet</a> to an object.
+    /// Adds a new <a>Facet</a> to an object. An object can have more than one facet applied
+    /// on it.
     /// </summary>
     [Cmdlet("Add", "CDIRFacetToObject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

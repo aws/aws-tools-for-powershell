@@ -28,7 +28,8 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Deletes a specified job. If the job is not found, no exception is thrown.
+    /// Deletes a specified job definition. If the job definition is not found, no exception
+    /// is thrown.
     /// </summary>
     [Cmdlet("Remove", "GLUEJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter JobName
         /// <summary>
         /// <para>
-        /// <para>The name of the job to delete.</para>
+        /// <para>The name of the job definition to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

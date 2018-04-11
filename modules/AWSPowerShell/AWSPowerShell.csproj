@@ -73,13 +73,13 @@
       <HintPath>..\..\packages\AWSSDK.AWSHealth.3.3.0.24\lib\net35\AWSSDK.AWSHealth.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Batch">
-      <HintPath>..\..\packages\AWSSDK.Batch.3.3.4.3\lib\net35\AWSSDK.Batch.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Batch.3.3.5\lib\net35\AWSSDK.Batch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Cloud9">
       <HintPath>..\..\packages\AWSSDK.Cloud9.3.3.0.4\lib\net35\AWSSDK.Cloud9.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudDirectory">
-      <HintPath>..\..\packages\AWSSDK.CloudDirectory.3.3.6.3\lib\net35\AWSSDK.CloudDirectory.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudDirectory.3.3.7\lib\net35\AWSSDK.CloudDirectory.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudHSMV2">
       <HintPath>..\..\packages\AWSSDK.CloudHSMV2.3.3.1.2\lib\net35\AWSSDK.CloudHSMV2.dll</HintPath>
@@ -103,7 +103,7 @@
       <HintPath>..\..\packages\AWSSDK.FMS.3.3.0\lib\net35\AWSSDK.FMS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Glue">
-      <HintPath>..\..\packages\AWSSDK.Glue.3.3.6.1\lib\net35\AWSSDK.Glue.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Glue.3.3.7\lib\net35\AWSSDK.Glue.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Greengrass">
       <HintPath>..\..\packages\AWSSDK.Greengrass.3.3.3\lib\net35\AWSSDK.Greengrass.dll</HintPath>
@@ -136,7 +136,7 @@
       <HintPath>..\..\packages\AWSSDK.MediaLive.3.3.4.1\lib\net35\AWSSDK.MediaLive.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaPackage">
-      <HintPath>..\..\packages\AWSSDK.MediaPackage.3.3.0.3\lib\net35\AWSSDK.MediaPackage.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.MediaPackage.3.3.1\lib\net35\AWSSDK.MediaPackage.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaStore">
       <HintPath>..\..\packages\AWSSDK.MediaStore.3.3.1.3\lib\net35\AWSSDK.MediaStore.dll</HintPath>
@@ -211,7 +211,7 @@
       <HintPath>..\..\packages\AWSSDK.WorkDocs.3.3.4.3\lib\net35\AWSSDK.WorkDocs.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WorkMail">
-      <HintPath>..\..\packages\AWSSDK.WorkMail.3.3.0.3\lib\net35\AWSSDK.WorkMail.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.WorkMail.3.3.1\lib\net35\AWSSDK.WorkMail.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.XRay">
       <HintPath>..\..\packages\AWSSDK.XRay.3.3.1.9\lib\net35\AWSSDK.XRay.dll</HintPath>
@@ -244,7 +244,7 @@
       <HintPath>..\..\packages\AWSSDK.Snowball.3.3.2.13\lib\net35\AWSSDK.Snowball.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleSystemsManagement">
-      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.18\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.19\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleNotificationService">
       <HintPath>..\..\packages\AWSSDK.SimpleNotificationService.3.3.0.27\lib\net35\AWSSDK.SimpleNotificationService.dll</HintPath>
@@ -358,7 +358,7 @@
       <HintPath>..\..\packages\AWSSDK.DataPipeline.3.3.0.26\lib\net35\AWSSDK.DataPipeline.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DatabaseMigrationService">
-      <HintPath>..\..\packages\AWSSDK.DatabaseMigrationService.3.3.6.3\lib\net35\AWSSDK.DatabaseMigrationService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.DatabaseMigrationService.3.3.7\lib\net35\AWSSDK.DatabaseMigrationService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Core">
       <HintPath>..\..\packages\AWSSDK.Core.3.3.21.20\lib\net35\AWSSDK.Core.dll</HintPath>

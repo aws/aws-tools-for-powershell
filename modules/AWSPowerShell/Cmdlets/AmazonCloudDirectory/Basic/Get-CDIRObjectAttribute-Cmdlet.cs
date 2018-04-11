@@ -28,24 +28,33 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Lists all attributes that are associated with an object.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieves attributes within a facet that are associated with an object.
     /// </summary>
     [Cmdlet("Get", "CDIRObjectAttribute")]
     [OutputType("Amazon.CloudDirectory.Model.AttributeKeyAndValue")]
-    [AWSCmdlet("Calls the AWS Cloud Directory ListObjectAttributes API operation.", Operation = new[] {"ListObjectAttributes"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory GetObjectAttributes API operation.", Operation = new[] {"GetObjectAttributes"})]
     [AWSCmdletOutput("Amazon.CloudDirectory.Model.AttributeKeyAndValue",
         "This cmdlet returns a collection of AttributeKeyAndValue objects.",
-        "The service call response (type Amazon.CloudDirectory.Model.ListObjectAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
+        "The service call response (type Amazon.CloudDirectory.Model.GetObjectAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetCDIRObjectAttributeCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {
         
+        #region Parameter AttributeName
+        /// <summary>
+        /// <para>
+        /// <para>List of attribute names whose values will be retrieved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AttributeNames")]
+        public System.String[] AttributeName { get; set; }
+        #endregion
+        
         #region Parameter ConsistencyLevel
         /// <summary>
         /// <para>
-        /// <para>Represents the manner and timing in which the successful write or update of an object
-        /// is reflected in a subsequent read operation of that same object.</para>
+        /// <para>The consistency level at which to retrieve the attributes on an object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -57,24 +66,24 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where
-        /// the object resides. For more information, see <a>arns</a>.</para>
+        /// the object resides.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public System.String DirectoryArn { get; set; }
         #endregion
         
-        #region Parameter FacetFilter_FacetName
+        #region Parameter SchemaFacet_FacetName
         /// <summary>
         /// <para>
         /// <para>The name of the facet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String FacetFilter_FacetName { get; set; }
+        public System.String SchemaFacet_FacetName { get; set; }
         #endregion
         
-        #region Parameter FacetFilter_SchemaArn
+        #region Parameter SchemaFacet_SchemaArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the schema that contains the facet with no minor component. See <a>arns</a>
@@ -83,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String FacetFilter_SchemaArn { get; set; }
+        public System.String SchemaFacet_SchemaArn { get; set; }
         #endregion
         
         #region Parameter ObjectReference_Selector
@@ -99,33 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// ever share the same object identifier</para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ObjectReference_Selector { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of items to be retrieved in a single call. This is an approximate
-        /// number.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MaxResults")]
-        public System.Int32 MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>The pagination token.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String NextToken { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -141,14 +125,15 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.AttributeName != null)
+            {
+                context.AttributeNames = new List<System.String>(this.AttributeName);
+            }
             context.ConsistencyLevel = this.ConsistencyLevel;
             context.DirectoryArn = this.DirectoryArn;
-            context.FacetFilter_FacetName = this.FacetFilter_FacetName;
-            context.FacetFilter_SchemaArn = this.FacetFilter_SchemaArn;
-            if (ParameterWasBound("MaxResult"))
-                context.MaxResults = this.MaxResult;
-            context.NextToken = this.NextToken;
             context.ObjectReference_Selector = this.ObjectReference_Selector;
+            context.SchemaFacet_FacetName = this.SchemaFacet_FacetName;
+            context.SchemaFacet_SchemaArn = this.SchemaFacet_SchemaArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,10 +147,13 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.CloudDirectory.Model.GetObjectAttributesRequest();
             
-            // create request and set iteration invariants
-            var request = new Amazon.CloudDirectory.Model.ListObjectAttributesRequest();
-            
+            if (cmdletContext.AttributeNames != null)
+            {
+                request.AttributeNames = cmdletContext.AttributeNames;
+            }
             if (cmdletContext.ConsistencyLevel != null)
             {
                 request.ConsistencyLevel = cmdletContext.ConsistencyLevel;
@@ -173,39 +161,6 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             if (cmdletContext.DirectoryArn != null)
             {
                 request.DirectoryArn = cmdletContext.DirectoryArn;
-            }
-            
-             // populate FacetFilter
-            bool requestFacetFilterIsNull = true;
-            request.FacetFilter = new Amazon.CloudDirectory.Model.SchemaFacet();
-            System.String requestFacetFilter_facetFilter_FacetName = null;
-            if (cmdletContext.FacetFilter_FacetName != null)
-            {
-                requestFacetFilter_facetFilter_FacetName = cmdletContext.FacetFilter_FacetName;
-            }
-            if (requestFacetFilter_facetFilter_FacetName != null)
-            {
-                request.FacetFilter.FacetName = requestFacetFilter_facetFilter_FacetName;
-                requestFacetFilterIsNull = false;
-            }
-            System.String requestFacetFilter_facetFilter_SchemaArn = null;
-            if (cmdletContext.FacetFilter_SchemaArn != null)
-            {
-                requestFacetFilter_facetFilter_SchemaArn = cmdletContext.FacetFilter_SchemaArn;
-            }
-            if (requestFacetFilter_facetFilter_SchemaArn != null)
-            {
-                request.FacetFilter.SchemaArn = requestFacetFilter_facetFilter_SchemaArn;
-                requestFacetFilterIsNull = false;
-            }
-             // determine if request.FacetFilter should be set to null
-            if (requestFacetFilterIsNull)
-            {
-                request.FacetFilter = null;
-            }
-            if (cmdletContext.MaxResults != null)
-            {
-                request.MaxResults = cmdletContext.MaxResults.Value;
             }
             
              // populate ObjectReference
@@ -227,65 +182,57 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
                 request.ObjectReference = null;
             }
             
-            // Initialize loop variant and commence piping
-            System.String _nextMarker = null;
-            bool _userControllingPaging = false;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+             // populate SchemaFacet
+            bool requestSchemaFacetIsNull = true;
+            request.SchemaFacet = new Amazon.CloudDirectory.Model.SchemaFacet();
+            System.String requestSchemaFacet_schemaFacet_FacetName = null;
+            if (cmdletContext.SchemaFacet_FacetName != null)
             {
-                _nextMarker = cmdletContext.NextToken;
-                _userControllingPaging = true;
+                requestSchemaFacet_schemaFacet_FacetName = cmdletContext.SchemaFacet_FacetName;
+            }
+            if (requestSchemaFacet_schemaFacet_FacetName != null)
+            {
+                request.SchemaFacet.FacetName = requestSchemaFacet_schemaFacet_FacetName;
+                requestSchemaFacetIsNull = false;
+            }
+            System.String requestSchemaFacet_schemaFacet_SchemaArn = null;
+            if (cmdletContext.SchemaFacet_SchemaArn != null)
+            {
+                requestSchemaFacet_schemaFacet_SchemaArn = cmdletContext.SchemaFacet_SchemaArn;
+            }
+            if (requestSchemaFacet_schemaFacet_SchemaArn != null)
+            {
+                request.SchemaFacet.SchemaArn = requestSchemaFacet_schemaFacet_SchemaArn;
+                requestSchemaFacetIsNull = false;
+            }
+             // determine if request.SchemaFacet should be set to null
+            if (requestSchemaFacetIsNull)
+            {
+                request.SchemaFacet = null;
             }
             
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                do
+                var response = CallAWSServiceOperation(client, request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.Attributes;
+                output = new CmdletOutput
                 {
-                    request.NextToken = _nextMarker;
-                    
-                    var client = Client ?? CreateClient(context.Credentials, context.Region);
-                    CmdletOutput output;
-                    
-                    try
-                    {
-                        
-                        var response = CallAWSServiceOperation(client, request);
-                        
-                        Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Attributes;
-                        notes = new Dictionary<string, object>();
-                        notes["NextToken"] = response.NextToken;
-                        output = new CmdletOutput
-                        {
-                            PipelineOutput = pipelineOutput,
-                            ServiceResponse = response,
-                            Notes = notes
-                        };
-                        if (_userControllingPaging)
-                        {
-                            int _receivedThisCall = response.Attributes.Count;
-                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
-                        }
-                        
-                        _nextMarker = response.NextToken;
-                    }
-                    catch (Exception e)
-                    {
-                        output = new CmdletOutput { ErrorResponse = e };
-                    }
-                    
-                    ProcessOutput(output);
-                    
-                } while (AutoIterationHelpers.HasValue(_nextMarker));
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
             }
-            finally
+            catch (Exception e)
             {
-                if (_userControllingPaging)
-                {
-                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
-                }
+                output = new CmdletOutput { ErrorResponse = e };
             }
             
-            return null;
+            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -297,16 +244,16 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudDirectory.Model.ListObjectAttributesResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.ListObjectAttributesRequest request)
+        private Amazon.CloudDirectory.Model.GetObjectAttributesResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.GetObjectAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "ListObjectAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "GetObjectAttributes");
             try
             {
                 #if DESKTOP
-                return client.ListObjectAttributes(request);
+                return client.GetObjectAttributes(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListObjectAttributesAsync(request);
+                var task = client.GetObjectAttributesAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -327,13 +274,12 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AttributeNames { get; set; }
             public Amazon.CloudDirectory.ConsistencyLevel ConsistencyLevel { get; set; }
             public System.String DirectoryArn { get; set; }
-            public System.String FacetFilter_FacetName { get; set; }
-            public System.String FacetFilter_SchemaArn { get; set; }
-            public System.Int32? MaxResults { get; set; }
-            public System.String NextToken { get; set; }
             public System.String ObjectReference_Selector { get; set; }
+            public System.String SchemaFacet_FacetName { get; set; }
+            public System.String SchemaFacet_SchemaArn { get; set; }
         }
         
     }

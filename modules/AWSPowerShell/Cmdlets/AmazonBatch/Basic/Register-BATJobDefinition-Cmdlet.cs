@@ -136,7 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// to <code>Memory</code> in the <a href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/">Docker
         /// Remote API</a> and the <code>--memory</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>. You must specify at least 4 MiB of memory for a job.</para>
+        /// run</a>. You must specify at least 4 MiB of memory for a job.</para><note><para>If you are trying to maximize your resource utilization by providing your jobs as
+        /// much memory as possible for a particular instance type, see <a href="http://docs.aws.amazon.com/batch/latest/userguide/memory-management.html">Memory
+        /// Management</a> in the <i>AWS Batch User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -197,6 +199,21 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean ContainerProperties_ReadonlyRootFilesystem { get; set; }
+        #endregion
+        
+        #region Parameter Timeout
+        /// <summary>
+        /// <para>
+        /// <para>The timeout configuration for jobs that are submitted with this job definition, after
+        /// which AWS Batch terminates your jobs if they have not finished. If a job is terminated
+        /// due to a timeout, it is not retried. The minimum value for the timeout is 60 seconds.
+        /// Any timeout configuration that is specified during a <a>SubmitJob</a> operation overrides
+        /// the timeout configuration defined here. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
+        /// Timeouts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.Batch.Model.JobTimeout Timeout { get; set; }
         #endregion
         
         #region Parameter Type
@@ -337,6 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             }
             if (ParameterWasBound("RetryStrategy_Attempt"))
                 context.RetryStrategy_Attempts = this.RetryStrategy_Attempt;
+            context.Timeout = this.Timeout;
             context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
@@ -510,6 +528,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 request.RetryStrategy = null;
             }
+            if (cmdletContext.Timeout != null)
+            {
+                request.Timeout = cmdletContext.Timeout;
+            }
             if (cmdletContext.Type != null)
             {
                 request.Type = cmdletContext.Type;
@@ -593,6 +615,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.String JobDefinitionName { get; set; }
             public Dictionary<System.String, System.String> Parameters { get; set; }
             public System.Int32? RetryStrategy_Attempts { get; set; }
+            public Amazon.Batch.Model.JobTimeout Timeout { get; set; }
             public Amazon.Batch.JobDefinitionType Type { get; set; }
         }
         

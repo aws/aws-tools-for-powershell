@@ -655,6 +655,7 @@ Set-Alias -Name CDIR-EnableDirectory -Value Enable-CDIRDirectory
 Set-Alias -Name CDIR-GetAppliedSchemaVersion -Value Get-CDIRAppliedSchemaVersion
 Set-Alias -Name CDIR-GetDirectory -Value Get-CDIRDirectoryMetadata
 Set-Alias -Name CDIR-GetFacet -Value Get-CDIRFacet
+Set-Alias -Name CDIR-GetObjectAttributes -Value Get-CDIRObjectAttribute
 Set-Alias -Name CDIR-GetObjectInformation -Value Get-CDIRObjectInformation
 Set-Alias -Name CDIR-GetSchemaAsJson -Value Get-CDIRSchemaAsJson
 Set-Alias -Name CDIR-GetTypedLinkFacetInformation -Value Get-CDIRTypedLinkFacetInformation
@@ -674,8 +675,8 @@ Set-Alias -Name List-CDIRIncomingTypedLink -Value Get-CDIRIncomingTypedLink
 Set-Alias -Name CDIR-ListIncomingTypedLinks -Value Get-CDIRIncomingTypedLink
 Set-Alias -Name List-CDIRIndex -Value Get-CDIRIndex
 Set-Alias -Name CDIR-ListIndex -Value Get-CDIRIndex
-Set-Alias -Name List-CDIRObjectAttribute -Value Get-CDIRObjectAttribute
-Set-Alias -Name CDIR-ListObjectAttributes -Value Get-CDIRObjectAttribute
+Set-Alias -Name List-CDIRObjectAttributeList -Value Get-CDIRObjectAttributeList
+Set-Alias -Name CDIR-ListObjectAttributes -Value Get-CDIRObjectAttributeList
 Set-Alias -Name List-CDIRObjectChild -Value Get-CDIRObjectChild
 Set-Alias -Name CDIR-ListObjectChildren -Value Get-CDIRObjectChild
 Set-Alias -Name List-CDIRObjectParentPath -Value Get-CDIRObjectParentPath
@@ -5741,6 +5742,7 @@ Set-Alias -Name WM-CreateResource -Value New-WMResource
 Set-Alias -Name WM-CreateUser -Value New-WMUser
 Set-Alias -Name WM-DeleteAlias -Value Remove-WMAlias
 Set-Alias -Name WM-DeleteGroup -Value Remove-WMGroup
+Set-Alias -Name WM-DeleteMailboxPermissions -Value Remove-WMMailboxPermission
 Set-Alias -Name WM-DeleteResource -Value Remove-WMResource
 Set-Alias -Name WM-DeleteUser -Value Remove-WMUser
 Set-Alias -Name WM-DeregisterFromWorkMail -Value Remove-WMFromWorkMail
@@ -5753,10 +5755,12 @@ Set-Alias -Name WM-DisassociateMemberFromGroup -Value Remove-WMMemberFromGroup
 Set-Alias -Name WM-ListAliases -Value Get-WMAliasList
 Set-Alias -Name WM-ListGroupMembers -Value Get-WMMemberList
 Set-Alias -Name WM-ListGroups -Value Get-WMGroupList
+Set-Alias -Name WM-ListMailboxPermissions -Value Get-WMMailboxPermissionList
 Set-Alias -Name WM-ListOrganizations -Value Get-WMOrganizationList
 Set-Alias -Name WM-ListResourceDelegates -Value Get-WMDelegateList
 Set-Alias -Name WM-ListResources -Value Get-WMResourceList
 Set-Alias -Name WM-ListUsers -Value Get-WMUserList
+Set-Alias -Name WM-PutMailboxPermissions -Value Write-WMMailboxPermission
 Set-Alias -Name WM-RegisterToWorkMail -Value Register-WMToWorkMail
 Set-Alias -Name WM-ResetPassword -Value Reset-WMPassword
 Set-Alias -Name WM-UpdatePrimaryEmailAddress -Value Update-WMPrimaryEmailAddress

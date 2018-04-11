@@ -22,52 +22,74 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DatabaseMigrationService;
-using Amazon.DatabaseMigrationService.Model;
+using Amazon.WorkMail;
+using Amazon.WorkMail.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DMS
+namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Adds metadata tags to an AWS DMS resource, including replication instance, endpoint,
-    /// security group, and migration task. These tags can also be used with cost allocation
-    /// reporting to track cost associated with DMS resources, or used in a Condition statement
-    /// in an IAM policy for DMS.
+    /// Sets permissions for a user or group. This replaces any pre-existing permissions set
+    /// for the entity.
     /// </summary>
-    [Cmdlet("Set", "DMSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Write", "WMMailboxPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the AWS Database Migration Service AddTagsToResource API operation.", Operation = new[] {"AddTagsToResource"})]
+    [AWSCmdlet("Calls the Amazon WorkMail PutMailboxPermissions API operation.", Operation = new[] {"PutMailboxPermissions"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.DatabaseMigrationService.Model.AddTagsToResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the EntityId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.WorkMail.Model.PutMailboxPermissionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class SetDMSResourceTagCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
+    public partial class WriteWMMailboxPermissionCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceArn
+        #region Parameter EntityId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS DMS resource the tag is to be added to.
-        /// AWS DMS resources include a replication instance, endpoint, and a replication task.</para>
+        /// <para>The identifier of the entity (user or group) for which to update mailbox permissions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ResourceArn { get; set; }
+        public System.String EntityId { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter GranteeId
         /// <summary>
         /// <para>
-        /// <para>The tag to be assigned to the DMS resource.</para>
+        /// <para>The identifier of the entity (user or group) to which to grant the permissions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("Tags")]
-        public Amazon.DatabaseMigrationService.Model.Tag[] Tag { get; set; }
+        public System.String GranteeId { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the organization under which the entity (user or group) exists.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String OrganizationId { get; set; }
+        #endregion
+        
+        #region Parameter PermissionValue
+        /// <summary>
+        /// <para>
+        /// <para>The permissions granted to the grantee. SEND_AS allows the grantee to send email as
+        /// the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF
+        /// allows the grantee to send email on behalf of the owner of the mailbox (the grantee
+        /// is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee
+        /// full access to the mailbox, irrespective of other folder-level permissions set on
+        /// the mailbox.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("PermissionValues")]
+        public System.String[] PermissionValue { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the ResourceArn parameter.
+        /// Returns the value passed to the EntityId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-DMSResourceTag (AddTagsToResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("EntityId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-WMMailboxPermission (PutMailboxPermissions)"))
             {
                 return;
             }
@@ -103,10 +125,12 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ResourceArn = this.ResourceArn;
-            if (this.Tag != null)
+            context.EntityId = this.EntityId;
+            context.GranteeId = this.GranteeId;
+            context.OrganizationId = this.OrganizationId;
+            if (this.PermissionValue != null)
             {
-                context.Tags = new List<Amazon.DatabaseMigrationService.Model.Tag>(this.Tag);
+                context.PermissionValues = new List<System.String>(this.PermissionValue);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -122,15 +146,23 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DatabaseMigrationService.Model.AddTagsToResourceRequest();
+            var request = new Amazon.WorkMail.Model.PutMailboxPermissionsRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.EntityId != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.EntityId = cmdletContext.EntityId;
             }
-            if (cmdletContext.Tags != null)
+            if (cmdletContext.GranteeId != null)
             {
-                request.Tags = cmdletContext.Tags;
+                request.GranteeId = cmdletContext.GranteeId;
+            }
+            if (cmdletContext.OrganizationId != null)
+            {
+                request.OrganizationId = cmdletContext.OrganizationId;
+            }
+            if (cmdletContext.PermissionValues != null)
+            {
+                request.PermissionValues = cmdletContext.PermissionValues;
             }
             
             CmdletOutput output;
@@ -143,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.ResourceArn;
+                    pipelineOutput = this.EntityId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -168,16 +200,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #region AWS Service Operation Call
         
-        private Amazon.DatabaseMigrationService.Model.AddTagsToResourceResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.AddTagsToResourceRequest request)
+        private Amazon.WorkMail.Model.PutMailboxPermissionsResponse CallAWSServiceOperation(IAmazonWorkMail client, Amazon.WorkMail.Model.PutMailboxPermissionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Database Migration Service", "AddTagsToResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkMail", "PutMailboxPermissions");
             try
             {
                 #if DESKTOP
-                return client.AddTagsToResource(request);
+                return client.PutMailboxPermissions(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AddTagsToResourceAsync(request);
+                var task = client.PutMailboxPermissionsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -198,8 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public List<Amazon.DatabaseMigrationService.Model.Tag> Tags { get; set; }
+            public System.String EntityId { get; set; }
+            public System.String GranteeId { get; set; }
+            public System.String OrganizationId { get; set; }
+            public List<System.String> PermissionValues { get; set; }
         }
         
     }

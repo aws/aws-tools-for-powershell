@@ -28,7 +28,7 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Runs a job.
+    /// Starts a job run using a job definition.
     /// </summary>
     [Cmdlet("Start", "GLUEJobRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -58,10 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The job arguments specifically for this run. They override the equivalent default
-        /// arguments set for the job itself.</para><para>You can specify arguments here that your own job-execution script consumes, as well
+        /// arguments set for in the job definition itself.</para><para>You can specify arguments here that your own job-execution script consumes, as well
         /// as arguments that AWS Glue itself consumes.</para><para>For information about how to specify and consume your own Job arguments, see the <a href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
         /// AWS Glue APIs in Python</a> topic in the developer guide.</para><para>For information about the key-value pairs that AWS Glue consumes to set up your job,
-        /// see the <a href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html">Special
+        /// see the <a href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
         /// Parameters Used by AWS Glue</a> topic in the developer guide.</para>
         /// </para>
         /// </summary>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter JobName
         /// <summary>
         /// <para>
-        /// <para>The name of the job to start.</para>
+        /// <para>The name of the job definition to use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -88,6 +88,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String JobRunId { get; set; }
+        #endregion
+        
+        #region Parameter Timeout
+        /// <summary>
+        /// <para>
+        /// <para>The job run timeout in minutes. It overrides the timeout value of the job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 Timeout { get; set; }
         #endregion
         
         #region Parameter Force
@@ -131,6 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             context.JobName = this.JobName;
             context.JobRunId = this.JobRunId;
+            if (ParameterWasBound("Timeout"))
+                context.Timeout = this.Timeout;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.JobRunId != null)
             {
                 request.JobRunId = cmdletContext.JobRunId;
+            }
+            if (cmdletContext.Timeout != null)
+            {
+                request.Timeout = cmdletContext.Timeout.Value;
             }
             
             CmdletOutput output;
@@ -231,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public Dictionary<System.String, System.String> Arguments { get; set; }
             public System.String JobName { get; set; }
             public System.String JobRunId { get; set; }
+            public System.Int32? Timeout { get; set; }
         }
         
     }

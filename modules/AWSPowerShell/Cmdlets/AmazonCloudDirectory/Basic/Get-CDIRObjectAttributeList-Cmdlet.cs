@@ -28,23 +28,24 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Lists objects attached to the specified index.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists all attributes that are associated with an object.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "CDIRIndex")]
-    [OutputType("Amazon.CloudDirectory.Model.IndexAttachment")]
-    [AWSCmdlet("Calls the AWS Cloud Directory ListIndex API operation.", Operation = new[] {"ListIndex"})]
-    [AWSCmdletOutput("Amazon.CloudDirectory.Model.IndexAttachment",
-        "This cmdlet returns a collection of IndexAttachment objects.",
-        "The service call response (type Amazon.CloudDirectory.Model.ListIndexResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "CDIRObjectAttributeList")]
+    [OutputType("Amazon.CloudDirectory.Model.AttributeKeyAndValue")]
+    [AWSCmdlet("Calls the AWS Cloud Directory ListObjectAttributes API operation.", Operation = new[] {"ListObjectAttributes"})]
+    [AWSCmdletOutput("Amazon.CloudDirectory.Model.AttributeKeyAndValue",
+        "This cmdlet returns a collection of AttributeKeyAndValue objects.",
+        "The service call response (type Amazon.CloudDirectory.Model.ListObjectAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetCDIRIndexCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
+    public partial class GetCDIRObjectAttributeListCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {
         
         #region Parameter ConsistencyLevel
         /// <summary>
         /// <para>
-        /// <para>The consistency level to execute the request at.</para>
+        /// <para>Represents the manner and timing in which the successful write or update of an object
+        /// is reflected in a subsequent read operation of that same object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -55,25 +56,37 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter DirectoryArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the directory that the index exists in.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String DirectoryArn { get; set; }
-        #endregion
-        
-        #region Parameter RangesOnIndexedValue
-        /// <summary>
-        /// <para>
-        /// <para>Specifies the ranges of indexed values that you want to query.</para>
+        /// <para>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where
+        /// the object resides. For more information, see <a>arns</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("RangesOnIndexedValues")]
-        public Amazon.CloudDirectory.Model.ObjectAttributeRange[] RangesOnIndexedValue { get; set; }
+        public System.String DirectoryArn { get; set; }
         #endregion
         
-        #region Parameter IndexReference_Selector
+        #region Parameter FacetFilter_FacetName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the facet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String FacetFilter_FacetName { get; set; }
+        #endregion
+        
+        #region Parameter FacetFilter_SchemaArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the schema that contains the facet with no minor component. See <a>arns</a>
+        /// and <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/inplaceschemaupgrade.html">In-Place
+        /// Schema Upgrade</a> for a description of when to provide minor versions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String FacetFilter_SchemaArn { get; set; }
+        #endregion
+        
+        #region Parameter ObjectReference_Selector
         /// <summary>
         /// <para>
         /// <para>A path selector supports easy selection of an object by the parent/child links leading
@@ -86,16 +99,15 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// ever share the same object identifier</para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String IndexReference_Selector { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ObjectReference_Selector { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of objects in a single page to retrieve from the index during a
-        /// request. For more information, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/limits.html#limits_cd">AWS
-        /// Directory Service Limits</a>.</para>
+        /// <para>The maximum number of items to be retrieved in a single call. This is an approximate
+        /// number.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -131,14 +143,12 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             
             context.ConsistencyLevel = this.ConsistencyLevel;
             context.DirectoryArn = this.DirectoryArn;
-            context.IndexReference_Selector = this.IndexReference_Selector;
+            context.FacetFilter_FacetName = this.FacetFilter_FacetName;
+            context.FacetFilter_SchemaArn = this.FacetFilter_SchemaArn;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
-            if (this.RangesOnIndexedValue != null)
-            {
-                context.RangesOnIndexedValues = new List<Amazon.CloudDirectory.Model.ObjectAttributeRange>(this.RangesOnIndexedValue);
-            }
+            context.ObjectReference_Selector = this.ObjectReference_Selector;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -154,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.CloudDirectory.Model.ListIndexRequest();
+            var request = new Amazon.CloudDirectory.Model.ListObjectAttributesRequest();
             
             if (cmdletContext.ConsistencyLevel != null)
             {
@@ -165,31 +175,56 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
                 request.DirectoryArn = cmdletContext.DirectoryArn;
             }
             
-             // populate IndexReference
-            bool requestIndexReferenceIsNull = true;
-            request.IndexReference = new Amazon.CloudDirectory.Model.ObjectReference();
-            System.String requestIndexReference_indexReference_Selector = null;
-            if (cmdletContext.IndexReference_Selector != null)
+             // populate FacetFilter
+            bool requestFacetFilterIsNull = true;
+            request.FacetFilter = new Amazon.CloudDirectory.Model.SchemaFacet();
+            System.String requestFacetFilter_facetFilter_FacetName = null;
+            if (cmdletContext.FacetFilter_FacetName != null)
             {
-                requestIndexReference_indexReference_Selector = cmdletContext.IndexReference_Selector;
+                requestFacetFilter_facetFilter_FacetName = cmdletContext.FacetFilter_FacetName;
             }
-            if (requestIndexReference_indexReference_Selector != null)
+            if (requestFacetFilter_facetFilter_FacetName != null)
             {
-                request.IndexReference.Selector = requestIndexReference_indexReference_Selector;
-                requestIndexReferenceIsNull = false;
+                request.FacetFilter.FacetName = requestFacetFilter_facetFilter_FacetName;
+                requestFacetFilterIsNull = false;
             }
-             // determine if request.IndexReference should be set to null
-            if (requestIndexReferenceIsNull)
+            System.String requestFacetFilter_facetFilter_SchemaArn = null;
+            if (cmdletContext.FacetFilter_SchemaArn != null)
             {
-                request.IndexReference = null;
+                requestFacetFilter_facetFilter_SchemaArn = cmdletContext.FacetFilter_SchemaArn;
+            }
+            if (requestFacetFilter_facetFilter_SchemaArn != null)
+            {
+                request.FacetFilter.SchemaArn = requestFacetFilter_facetFilter_SchemaArn;
+                requestFacetFilterIsNull = false;
+            }
+             // determine if request.FacetFilter should be set to null
+            if (requestFacetFilterIsNull)
+            {
+                request.FacetFilter = null;
             }
             if (cmdletContext.MaxResults != null)
             {
                 request.MaxResults = cmdletContext.MaxResults.Value;
             }
-            if (cmdletContext.RangesOnIndexedValues != null)
+            
+             // populate ObjectReference
+            bool requestObjectReferenceIsNull = true;
+            request.ObjectReference = new Amazon.CloudDirectory.Model.ObjectReference();
+            System.String requestObjectReference_objectReference_Selector = null;
+            if (cmdletContext.ObjectReference_Selector != null)
             {
-                request.RangesOnIndexedValues = cmdletContext.RangesOnIndexedValues;
+                requestObjectReference_objectReference_Selector = cmdletContext.ObjectReference_Selector;
+            }
+            if (requestObjectReference_objectReference_Selector != null)
+            {
+                request.ObjectReference.Selector = requestObjectReference_objectReference_Selector;
+                requestObjectReferenceIsNull = false;
+            }
+             // determine if request.ObjectReference should be set to null
+            if (requestObjectReferenceIsNull)
+            {
+                request.ObjectReference = null;
             }
             
             // Initialize loop variant and commence piping
@@ -216,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
                         var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.IndexAttachments;
+                        object pipelineOutput = response.Attributes;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -227,7 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
                         };
                         if (_userControllingPaging)
                         {
-                            int _receivedThisCall = response.IndexAttachments.Count;
+                            int _receivedThisCall = response.Attributes.Count;
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
                         }
                         
@@ -262,16 +297,16 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudDirectory.Model.ListIndexResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.ListIndexRequest request)
+        private Amazon.CloudDirectory.Model.ListObjectAttributesResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.ListObjectAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "ListIndex");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "ListObjectAttributes");
             try
             {
                 #if DESKTOP
-                return client.ListIndex(request);
+                return client.ListObjectAttributes(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListIndexAsync(request);
+                var task = client.ListObjectAttributesAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -294,10 +329,11 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         {
             public Amazon.CloudDirectory.ConsistencyLevel ConsistencyLevel { get; set; }
             public System.String DirectoryArn { get; set; }
-            public System.String IndexReference_Selector { get; set; }
+            public System.String FacetFilter_FacetName { get; set; }
+            public System.String FacetFilter_SchemaArn { get; set; }
             public System.Int32? MaxResults { get; set; }
             public System.String NextToken { get; set; }
-            public List<Amazon.CloudDirectory.Model.ObjectAttributeRange> RangesOnIndexedValues { get; set; }
+            public System.String ObjectReference_Selector { get; set; }
         }
         
     }

@@ -28,7 +28,7 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Creates a new job.
+    /// Creates a new job definition.
     /// </summary>
     [Cmdlet("New", "GLUEJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <para>The default arguments for this job.</para><para>You can specify arguments here that your own job-execution script consumes, as well
         /// as arguments that AWS Glue itself consumes.</para><para>For information about how to specify and consume your own Job arguments, see the <a href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
         /// AWS Glue APIs in Python</a> topic in the developer guide.</para><para>For information about the key-value pairs that AWS Glue consumes to set up your job,
-        /// see the <a href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html">Special
+        /// see the <a href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
         /// Parameters Used by AWS Glue</a> topic in the developer guide.</para>
         /// </para>
         /// </summary>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Description of the job.</para>
+        /// <para>Description of the job being defined.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter ExecutionProperty_MaxConcurrentRun
         /// <summary>
         /// <para>
-        /// <para>The maximum number of concurrent runs allowed for a job. The default is 1. An error
+        /// <para>The maximum number of concurrent runs allowed for the job. The default is 1. An error
         /// is returned when this threshold is reached. The maximum value you can specify is controlled
         /// by a service limit.</para>
         /// </para>
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name you assign to this job. It must be unique in your account.</para>
+        /// <para>The name you assign to this job definition. It must be unique in your account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -147,11 +147,21 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Role
         /// <summary>
         /// <para>
-        /// <para>The name of the IAM role associated with this job.</para>
+        /// <para>The name or ARN of the IAM role associated with this job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Role { get; set; }
+        #endregion
+        
+        #region Parameter Timeout
+        /// <summary>
+        /// <para>
+        /// <para>The job timeout in minutes. The default is 2880 minutes (48 hours).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 Timeout { get; set; }
         #endregion
         
         #region Parameter Force
@@ -206,6 +216,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.MaxRetries = this.MaxRetry;
             context.Name = this.Name;
             context.Role = this.Role;
+            if (ParameterWasBound("Timeout"))
+                context.Timeout = this.Timeout;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -292,6 +304,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             {
                 request.Role = cmdletContext.Role;
             }
+            if (cmdletContext.Timeout != null)
+            {
+                request.Timeout = cmdletContext.Timeout.Value;
+            }
             
             CmdletOutput output;
             
@@ -366,6 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Int32? MaxRetries { get; set; }
             public System.String Name { get; set; }
             public System.String Role { get; set; }
+            public System.Int32? Timeout { get; set; }
         }
         
     }

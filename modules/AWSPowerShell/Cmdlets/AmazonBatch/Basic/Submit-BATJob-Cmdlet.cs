@@ -161,6 +161,22 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.Int32 ArrayProperties_Size { get; set; }
         #endregion
         
+        #region Parameter Timeout
+        /// <summary>
+        /// <para>
+        /// <para>The timeout configuration for this <a>SubmitJob</a> operation. You can specify a timeout
+        /// duration after which AWS Batch terminates your jobs if they have not finished. If
+        /// a job is terminated due to a timeout, it is not retried. The minimum value for the
+        /// timeout is 60 seconds. This configuration overrides any timeout configuration specified
+        /// in the job definition. For array jobs, child jobs have the same timeout configuration
+        /// as the parent job. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
+        /// Timeouts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.Batch.Model.JobTimeout Timeout { get; set; }
+        #endregion
+        
         #region Parameter ContainerOverrides_Vcpu
         /// <summary>
         /// <para>
@@ -233,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             }
             if (ParameterWasBound("RetryStrategy_Attempt"))
                 context.RetryStrategy_Attempts = this.RetryStrategy_Attempt;
+            context.Timeout = this.Timeout;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -356,6 +373,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 request.RetryStrategy = null;
             }
+            if (cmdletContext.Timeout != null)
+            {
+                request.Timeout = cmdletContext.Timeout;
+            }
             
             CmdletOutput output;
             
@@ -431,6 +452,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.String JobQueue { get; set; }
             public Dictionary<System.String, System.String> Parameters { get; set; }
             public System.Int32? RetryStrategy_Attempts { get; set; }
+            public Amazon.Batch.Model.JobTimeout Timeout { get; set; }
         }
         
     }

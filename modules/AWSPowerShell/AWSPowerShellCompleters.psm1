@@ -1011,6 +1011,7 @@ $CDIR_Completers = {
             ($_ -eq "Get-CDIRIncomingTypedLink/ConsistencyLevel") -Or
             ($_ -eq "Get-CDIRIndex/ConsistencyLevel") -Or
             ($_ -eq "Get-CDIRObjectAttribute/ConsistencyLevel") -Or
+            ($_ -eq "Get-CDIRObjectAttributeList/ConsistencyLevel") -Or
             ($_ -eq "Get-CDIRObjectChild/ConsistencyLevel") -Or
             ($_ -eq "Get-CDIRObjectIndex/ConsistencyLevel") -Or
             ($_ -eq "Get-CDIRObjectInformation/ConsistencyLevel") -Or
@@ -1050,7 +1051,7 @@ $CDIR_Completers = {
 }
 
 $CDIR_map = @{
-    "ConsistencyLevel"=@("Get-CDIRIncomingTypedLink","Get-CDIRIndex","Get-CDIRObjectAttribute","Get-CDIRObjectChild","Get-CDIRObjectIndex","Get-CDIRObjectInformation","Get-CDIRObjectParent","Get-CDIRObjectPolicy","Get-CDIROutgoingTypedLink","Get-CDIRPolicyAttachment","Read-CDIRDirectoryBatch")
+    "ConsistencyLevel"=@("Get-CDIRIncomingTypedLink","Get-CDIRIndex","Get-CDIRObjectAttribute","Get-CDIRObjectAttributeList","Get-CDIRObjectChild","Get-CDIRObjectIndex","Get-CDIRObjectInformation","Get-CDIRObjectParent","Get-CDIRObjectPolicy","Get-CDIROutgoingTypedLink","Get-CDIRPolicyAttachment","Read-CDIRDirectoryBatch")
     "ObjectType"=@("New-CDIRFacet","Update-CDIRFacet")
     "State"=@("Get-CDIRDirectory")
 }
@@ -4853,6 +4854,36 @@ $EML_map = @{
 }
 
 _awsArgumentCompleterRegistration $EML_Completers $EML_map
+
+
+# Argument completions for service AWS Elemental MediaPackage
+$EMP_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MediaPackage.StreamOrder
+        {
+            ($_ -eq "New-EMPOriginEndpoint/CmafPackage_StreamSelection_StreamOrder") -Or
+            ($_ -eq "Update-EMPOriginEndpoint/CmafPackage_StreamSelection_StreamOrder")
+        }
+        {
+            $v = "ORIGINAL","VIDEO_BITRATE_ASCENDING","VIDEO_BITRATE_DESCENDING"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EMP_map = @{
+    "CmafPackage_StreamSelection_StreamOrder"=@("New-EMPOriginEndpoint","Update-EMPOriginEndpoint")
+}
+
+_awsArgumentCompleterRegistration $EMP_Completers $EMP_map
 
 
 # Argument completions for service AWS Elemental MediaStore Data Plane
