@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// <para>List of attribute names whose values will be retrieved.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("AttributeNames")]
         public System.String[] AttributeName { get; set; }
         #endregion
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// ever share the same object identifier</para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public System.String ObjectReference_Selector { get; set; }
         #endregion
         
