@@ -1,4 +1,4 @@
-### 3.3.264.0 (2018-04-23)
+### 3.3.266.0 (2018-04-20)
   * AWS Secrets Manager
     * Added cmdlets to support the new AWS Secrets Manager service that enables you to store, manage, and retrieve, secrets. Cmdlets for the service have the noun prefix SEC and can be listed with the command *Get-AWSCmdletName -Service SEC*.
   * AWS Certificate Manager Private Certificate Authority
@@ -30,6 +30,7 @@
     * Added support for multi-account multi-region data aggregation features. Customers can create an aggregator (a new resource type) in AWS Config that collects AWS Config data from multiple source accounts and regions into an aggregator account. Customers can aggregate data from individual account(s) or an organization and multiple regions. In this release, AWS Config adds several API's for multi-account multi-region data aggregation.
   * AWS Device Farm
     * Added support for Private Device Management feature. Customers can now manage their private devices efficiently - view their status, set labels and apply profiles on them. Customers can also schedule automated tests and remote access sessions on individual instances in their private device fleet.
+    * Added cmdlets to support new service features for VPC endpoints.
   * Amazon WorkMail
     * Added cmdlets to support granting users and groups with "Full Access", "Send As" and "Send on Behalf" permissions on a given mailbox.
   * AWS Glue
@@ -38,6 +39,8 @@
     * Added cmdlets to support new APIs to fetch attributes within a facet on an object or multiple facets or objects.
   * AWS Batch
     * Added support for specifying timeout when submitting jobs or registering job definitions.
+  * AWS Systems Manager
+    * Added cmdlets Get-SSMInventoryDeletionList (DescribeInventoryDeletions API) and Remove-SSMInventory (DeleteInventory API).
 
 ### 3.3.253.0 (2018-03-26)
   * Amazon WorkMail
