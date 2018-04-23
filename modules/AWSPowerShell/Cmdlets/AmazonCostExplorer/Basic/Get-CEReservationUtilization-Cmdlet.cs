@@ -28,10 +28,10 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// You can retrieve the reservation utilization for your account. Master accounts in
-    /// an organization in AWS Organizations have access to their associated member accounts.
-    /// You can filter data by dimensions in a time period. You can use <code>GetDimensionValues</code>
-    /// to determine the possible dimension values. Currently, you can group only by <code>SUBSCRIPTION_ID</code>.
+    /// Retrieves the reservation utilization for your account. Master accounts in an organization
+    /// have access to member accounts. You can filter data by dimensions in a time period.
+    /// You can use <code>GetDimensionValues</code> to determine the possible dimension values.
+    /// Currently, you can group only by <code>SUBSCRIPTION_ID</code>.
     /// </summary>
     [Cmdlet("Get", "CEReservationUtilization")]
     [OutputType("Amazon.CostExplorer.Model.GetReservationUtilizationResponse")]
@@ -45,9 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters utilization data by using different dimensions. <code>GetReservationUtilization</code>
-        /// uses the same <code><a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a></code> object as the other operations, but only <code>AND</code> is supported among
-        /// each dimension, and nesting is supported to only one level deep. If there are multiple
+        /// <para>Filters utilization data by dimensions. You can filter by the following dimensions:</para><ul><li><para>AZ</para></li><li><para>CACHE_ENGINE</para></li><li><para>DATABASE_ENGINE</para></li><li><para>DEPLOYMENT_OPTION</para></li><li><para>INSTANCE_TYPE</para></li><li><para>LINKED_ACCOUNT</para></li><li><para>OPERATING_SYSTEM</para></li><li><para>PLATFORM</para></li><li><para>REGION</para></li><li><para>SERVICE</para></li><li><para>SCOPE</para></li><li><para>TENANCY</para></li></ul><para><code>GetReservationUtilization</code> uses the same <code><a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a></code> object as the other operations, but only <code>AND</code> is supported among
+        /// each dimension, and nesting is supported up to only one level deep. If there are multiple
         /// values for a dimension, they are OR'd together.</para>
         /// </para>
         /// </summary>
@@ -59,9 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code>
-        /// isn't set, the response object doesn't include the <code>Granularity</code>, either
-        /// <code>MONTHLY</code> or <code>DAILY</code>. If both <code>GroupBy</code> and <code>Granularity</code>
-        /// aren't set, <code>GetReservationUtilization</code> defaults to <code>DAILY</code>.</para>
+        /// isn't set, the response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code>
+        /// or <code>DAILY</code>. If both <code>GroupBy</code> and <code>Granularity</code> aren't
+        /// set, <code>GetReservationUtilization</code> defaults to <code>DAILY</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter TimePeriod
         /// <summary>
         /// <para>
-        /// <para>Sets the start and end dates for retrieving reserve instance (RI) utilization. The
+        /// <para>Sets the start and end dates for retrieving Reserved Instance (RI) utilization. The
         /// start date is inclusive, but the end date is exclusive. For example, if <code>start</code>
         /// is <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the
         /// cost and usage data is retrieved from <code>2017-01-01</code> up to and including

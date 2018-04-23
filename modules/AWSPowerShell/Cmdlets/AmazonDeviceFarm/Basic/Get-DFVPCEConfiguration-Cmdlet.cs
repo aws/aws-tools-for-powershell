@@ -22,67 +22,33 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CostExplorer;
-using Amazon.CostExplorer.Model;
+using Amazon.DeviceFarm;
+using Amazon.DeviceFarm.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CE
+namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Queries for available tag keys and tag values for a specified period. You can search
-    /// the tag values for an arbitrary string.
+    /// Returns information about the configuration settings for your Amazon Virtual Private
+    /// Cloud (VPC) endpoint.
     /// </summary>
-    [Cmdlet("Get", "CETag")]
-    [OutputType("Amazon.CostExplorer.Model.GetTagsResponse")]
-    [AWSCmdlet("Calls the AWS Cost Explorer GetTags API operation.", Operation = new[] {"GetTags"})]
-    [AWSCmdletOutput("Amazon.CostExplorer.Model.GetTagsResponse",
-        "This cmdlet returns a Amazon.CostExplorer.Model.GetTagsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DFVPCEConfiguration")]
+    [OutputType("Amazon.DeviceFarm.Model.VPCEConfiguration")]
+    [AWSCmdlet("Calls the AWS Device Farm GetVPCEConfiguration API operation.", Operation = new[] {"GetVPCEConfiguration"})]
+    [AWSCmdletOutput("Amazon.DeviceFarm.Model.VPCEConfiguration",
+        "This cmdlet returns a VPCEConfiguration object.",
+        "The service call response (type Amazon.DeviceFarm.Model.GetVPCEConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCETagCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
+    public partial class GetDFVPCEConfigurationCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
-        #region Parameter SearchString
+        #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The value that you want to search for.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String SearchString { get; set; }
-        #endregion
-        
-        #region Parameter TagKey
-        /// <summary>
-        /// <para>
-        /// <para>The key of the tag that you want to return values for.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String TagKey { get; set; }
-        #endregion
-        
-        #region Parameter TimePeriod
-        /// <summary>
-        /// <para>
-        /// <para>The start and end dates for retrieving the dimension values. The start date is inclusive,
-        /// but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code>
-        /// and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is retrieved
-        /// from <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including
-        /// <code>2017-05-01</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public Amazon.CostExplorer.Model.DateInterval TimePeriod { get; set; }
-        #endregion
-        
-        #region Parameter NextPageToken
-        /// <summary>
-        /// <para>
-        /// <para>The token to retrieve the next set of results. AWS provides the token when the response
-        /// from a previous call has more results than the maximum page size.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String NextPageToken { get; set; }
+        public System.String Arn { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -98,10 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.NextPageToken = this.NextPageToken;
-            context.SearchString = this.SearchString;
-            context.TagKey = this.TagKey;
-            context.TimePeriod = this.TimePeriod;
+            context.Arn = this.Arn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -116,23 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CostExplorer.Model.GetTagsRequest();
+            var request = new Amazon.DeviceFarm.Model.GetVPCEConfigurationRequest();
             
-            if (cmdletContext.NextPageToken != null)
+            if (cmdletContext.Arn != null)
             {
-                request.NextPageToken = cmdletContext.NextPageToken;
-            }
-            if (cmdletContext.SearchString != null)
-            {
-                request.SearchString = cmdletContext.SearchString;
-            }
-            if (cmdletContext.TagKey != null)
-            {
-                request.TagKey = cmdletContext.TagKey;
-            }
-            if (cmdletContext.TimePeriod != null)
-            {
-                request.TimePeriod = cmdletContext.TimePeriod;
+                request.Arn = cmdletContext.Arn;
             }
             
             CmdletOutput output;
@@ -143,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.VpceConfiguration;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -168,16 +119,16 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         #region AWS Service Operation Call
         
-        private Amazon.CostExplorer.Model.GetTagsResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.GetTagsRequest request)
+        private Amazon.DeviceFarm.Model.GetVPCEConfigurationResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.GetVPCEConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "GetTags");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "GetVPCEConfiguration");
             try
             {
                 #if DESKTOP
-                return client.GetTags(request);
+                return client.GetVPCEConfiguration(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetTagsAsync(request);
+                var task = client.GetVPCEConfigurationAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -198,10 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String NextPageToken { get; set; }
-            public System.String SearchString { get; set; }
-            public System.String TagKey { get; set; }
-            public Amazon.CostExplorer.Model.DateInterval TimePeriod { get; set; }
+            public System.String Arn { get; set; }
         }
         
     }

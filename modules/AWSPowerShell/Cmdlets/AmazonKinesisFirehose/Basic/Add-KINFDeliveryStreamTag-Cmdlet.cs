@@ -22,44 +22,66 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleSystemsManagement;
-using Amazon.SimpleSystemsManagement.Model;
+using Amazon.KinesisFirehose;
+using Amazon.KinesisFirehose.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SSM
+namespace Amazon.PowerShell.Cmdlets.KINF
 {
     /// <summary>
-    /// Bulk update custom inventory items on one more instance. The request adds an inventory
-    /// item, if it doesn't already exist, or updates an inventory item, if it does exist.
+    /// Adds or updates tags for the specified delivery stream. A tag is a key-value pair
+    /// (the value is optional) that you can define and assign to AWS resources. If you specify
+    /// a tag that already exists, the tag value is replaced with the value that you specify
+    /// in the request. Tags are metadata. For example, you can add friendly names and descriptions
+    /// or other types of information that can help you distinguish the delivery stream. For
+    /// more information about tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
+    /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
+    /// 
+    /// 
+    ///  
+    /// <para>
+    ///  Each delivery stream can have up to 50 tags. 
+    /// </para><para>
+    ///  This operation has a limit of five transactions per second per account. 
+    /// </para>
     /// </summary>
-    [Cmdlet("Write", "SSMInventory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Systems Manager PutInventory API operation.", Operation = new[] {"PutInventory"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.PutInventoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Add", "KINFDeliveryStreamTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Calls the Amazon Kinesis Firehose TagDeliveryStream API operation.", Operation = new[] {"TagDeliveryStream"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DeliveryStreamName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.KinesisFirehose.Model.TagDeliveryStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class WriteSSMInventoryCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class AddKINFDeliveryStreamTagCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
         
-        #region Parameter InstanceId
+        #region Parameter DeliveryStreamName
         /// <summary>
         /// <para>
-        /// <para>One or more instance IDs where you want to add or update inventory items.</para>
+        /// <para>The name of the delivery stream to which you want to add the tags.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String InstanceId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String DeliveryStreamName { get; set; }
         #endregion
         
-        #region Parameter Item
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The inventory items that you want to add or update on instances.</para>
+        /// <para>A set of key-value pairs to use to create the tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("Items")]
-        public Amazon.SimpleSystemsManagement.Model.InventoryItem[] Item { get; set; }
+        [Alias("Tags")]
+        public Amazon.KinesisFirehose.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the DeliveryStreamName parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -76,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InstanceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-SSMInventory (PutInventory)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DeliveryStreamName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-KINFDeliveryStreamTag (TagDeliveryStream)"))
             {
                 return;
             }
@@ -91,10 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.InstanceId = this.InstanceId;
-            if (this.Item != null)
+            context.DeliveryStreamName = this.DeliveryStreamName;
+            if (this.Tag != null)
             {
-                context.Items = new List<Amazon.SimpleSystemsManagement.Model.InventoryItem>(this.Item);
+                context.Tags = new List<Amazon.KinesisFirehose.Model.Tag>(this.Tag);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -110,15 +132,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.PutInventoryRequest();
+            var request = new Amazon.KinesisFirehose.Model.TagDeliveryStreamRequest();
             
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.DeliveryStreamName != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.DeliveryStreamName = cmdletContext.DeliveryStreamName;
             }
-            if (cmdletContext.Items != null)
+            if (cmdletContext.Tags != null)
             {
-                request.Items = cmdletContext.Items;
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -129,7 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Message;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.DeliveryStreamName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -154,16 +178,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleSystemsManagement.Model.PutInventoryResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.PutInventoryRequest request)
+        private Amazon.KinesisFirehose.Model.TagDeliveryStreamResponse CallAWSServiceOperation(IAmazonKinesisFirehose client, Amazon.KinesisFirehose.Model.TagDeliveryStreamRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "PutInventory");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Firehose", "TagDeliveryStream");
             try
             {
                 #if DESKTOP
-                return client.PutInventory(request);
+                return client.TagDeliveryStream(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutInventoryAsync(request);
+                var task = client.TagDeliveryStreamAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -184,8 +208,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String InstanceId { get; set; }
-            public List<Amazon.SimpleSystemsManagement.Model.InventoryItem> Items { get; set; }
+            public System.String DeliveryStreamName { get; set; }
+            public List<Amazon.KinesisFirehose.Model.Tag> Tags { get; set; }
         }
         
     }

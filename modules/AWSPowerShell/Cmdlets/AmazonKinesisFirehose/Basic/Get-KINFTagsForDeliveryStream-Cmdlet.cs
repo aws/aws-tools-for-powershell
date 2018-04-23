@@ -22,67 +22,56 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CostExplorer;
-using Amazon.CostExplorer.Model;
+using Amazon.KinesisFirehose;
+using Amazon.KinesisFirehose.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CE
+namespace Amazon.PowerShell.Cmdlets.KINF
 {
     /// <summary>
-    /// Queries for available tag keys and tag values for a specified period. You can search
-    /// the tag values for an arbitrary string.
+    /// Lists the tags for the specified delivery stream. This operation has a limit of five
+    /// transactions per second per account.
     /// </summary>
-    [Cmdlet("Get", "CETag")]
-    [OutputType("Amazon.CostExplorer.Model.GetTagsResponse")]
-    [AWSCmdlet("Calls the AWS Cost Explorer GetTags API operation.", Operation = new[] {"GetTags"})]
-    [AWSCmdletOutput("Amazon.CostExplorer.Model.GetTagsResponse",
-        "This cmdlet returns a Amazon.CostExplorer.Model.GetTagsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "KINFTagsForDeliveryStream")]
+    [OutputType("Amazon.KinesisFirehose.Model.ListTagsForDeliveryStreamResponse")]
+    [AWSCmdlet("Calls the Amazon Kinesis Firehose ListTagsForDeliveryStream API operation.", Operation = new[] {"ListTagsForDeliveryStream"})]
+    [AWSCmdletOutput("Amazon.KinesisFirehose.Model.ListTagsForDeliveryStreamResponse",
+        "This cmdlet returns a Amazon.KinesisFirehose.Model.ListTagsForDeliveryStreamResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCETagCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
+    public partial class GetKINFTagsForDeliveryStreamCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
         
-        #region Parameter SearchString
+        #region Parameter DeliveryStreamName
         /// <summary>
         /// <para>
-        /// <para>The value that you want to search for.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String SearchString { get; set; }
-        #endregion
-        
-        #region Parameter TagKey
-        /// <summary>
-        /// <para>
-        /// <para>The key of the tag that you want to return values for.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String TagKey { get; set; }
-        #endregion
-        
-        #region Parameter TimePeriod
-        /// <summary>
-        /// <para>
-        /// <para>The start and end dates for retrieving the dimension values. The start date is inclusive,
-        /// but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code>
-        /// and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is retrieved
-        /// from <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including
-        /// <code>2017-05-01</code>.</para>
+        /// <para>The name of the delivery stream whose tags you want to list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public Amazon.CostExplorer.Model.DateInterval TimePeriod { get; set; }
+        public System.String DeliveryStreamName { get; set; }
         #endregion
         
-        #region Parameter NextPageToken
+        #region Parameter ExclusiveStartTagKey
         /// <summary>
         /// <para>
-        /// <para>The token to retrieve the next set of results. AWS provides the token when the response
-        /// from a previous call has more results than the maximum page size.</para>
+        /// <para>The key to use as the starting point for the list of tags. If you set this parameter,
+        /// <code>ListTagsForDeliveryStream</code> gets all tags that occur after <code>ExclusiveStartTagKey</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String NextPageToken { get; set; }
+        public System.String ExclusiveStartTagKey { get; set; }
+        #endregion
+        
+        #region Parameter Limit
+        /// <summary>
+        /// <para>
+        /// <para>The number of tags to return. If this number is less than the total number of tags
+        /// associated with the delivery stream, <code>HasMoreTags</code> is set to <code>true</code>
+        /// in the response. To list additional tags, set <code>ExclusiveStartTagKey</code> to
+        /// the last key in the response. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 Limit { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -98,10 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.NextPageToken = this.NextPageToken;
-            context.SearchString = this.SearchString;
-            context.TagKey = this.TagKey;
-            context.TimePeriod = this.TimePeriod;
+            context.DeliveryStreamName = this.DeliveryStreamName;
+            context.ExclusiveStartTagKey = this.ExclusiveStartTagKey;
+            if (ParameterWasBound("Limit"))
+                context.Limit = this.Limit;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -116,23 +105,19 @@ namespace Amazon.PowerShell.Cmdlets.CE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CostExplorer.Model.GetTagsRequest();
+            var request = new Amazon.KinesisFirehose.Model.ListTagsForDeliveryStreamRequest();
             
-            if (cmdletContext.NextPageToken != null)
+            if (cmdletContext.DeliveryStreamName != null)
             {
-                request.NextPageToken = cmdletContext.NextPageToken;
+                request.DeliveryStreamName = cmdletContext.DeliveryStreamName;
             }
-            if (cmdletContext.SearchString != null)
+            if (cmdletContext.ExclusiveStartTagKey != null)
             {
-                request.SearchString = cmdletContext.SearchString;
+                request.ExclusiveStartTagKey = cmdletContext.ExclusiveStartTagKey;
             }
-            if (cmdletContext.TagKey != null)
+            if (cmdletContext.Limit != null)
             {
-                request.TagKey = cmdletContext.TagKey;
-            }
-            if (cmdletContext.TimePeriod != null)
-            {
-                request.TimePeriod = cmdletContext.TimePeriod;
+                request.Limit = cmdletContext.Limit.Value;
             }
             
             CmdletOutput output;
@@ -168,16 +153,16 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         #region AWS Service Operation Call
         
-        private Amazon.CostExplorer.Model.GetTagsResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.GetTagsRequest request)
+        private Amazon.KinesisFirehose.Model.ListTagsForDeliveryStreamResponse CallAWSServiceOperation(IAmazonKinesisFirehose client, Amazon.KinesisFirehose.Model.ListTagsForDeliveryStreamRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "GetTags");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Firehose", "ListTagsForDeliveryStream");
             try
             {
                 #if DESKTOP
-                return client.GetTags(request);
+                return client.ListTagsForDeliveryStream(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetTagsAsync(request);
+                var task = client.ListTagsForDeliveryStreamAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -198,10 +183,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String NextPageToken { get; set; }
-            public System.String SearchString { get; set; }
-            public System.String TagKey { get; set; }
-            public Amazon.CostExplorer.Model.DateInterval TimePeriod { get; set; }
+            public System.String DeliveryStreamName { get; set; }
+            public System.String ExclusiveStartTagKey { get; set; }
+            public System.Int32? Limit { get; set; }
         }
         
     }

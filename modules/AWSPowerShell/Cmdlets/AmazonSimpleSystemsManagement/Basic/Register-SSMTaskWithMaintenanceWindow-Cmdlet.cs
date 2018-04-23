@@ -237,7 +237,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Automation_Parameter
         /// <summary>
         /// <para>
-        /// <para>The parameters for the AUTOMATION task.</para>
+        /// <para>The parameters for the AUTOMATION task.</para><para>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a>
+        /// and <a>UpdateMaintenanceWindowTask</a>.</para><note><para><code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain
+        /// logs, instead use the <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code>
+        /// options in the <code>TaskInvocationParameters</code> structure. For information about
+        /// how Systems Manager handles these options for the supported Maintenance Window task
+        /// types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</para><para><code>TaskParameters</code> has been deprecated. To specify parameters to pass to
+        /// a task when it runs, instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code>
+        /// structure. For information about how Systems Manager handles these options for the
+        /// supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</para><para>For AUTOMATION task types, Systems Manager ignores any values specified for these
+        /// parameters.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -369,7 +378,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter TaskParameter
         /// <summary>
         /// <para>
-        /// <para>The parameters that should be passed to the task when it is executed.</para>
+        /// <para>The parameters that should be passed to the task when it is executed.</para><note><para><code>TaskParameters</code> has been deprecated. To specify parameters to pass to
+        /// a task when it runs, instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code>
+        /// structure. For information about how Systems Manager handles these options for the
+        /// supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

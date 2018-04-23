@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ParameterFilter
         /// <summary>
         /// <para>
-        /// <para>Filters to limit the request results.</para>
+        /// <para>Filters to limit the request results.</para><note><para>You can't filter using the parameter name.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -81,7 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Recursive
         /// <summary>
         /// <para>
-        /// <para>Retrieve all parameters within a hierarchy.</para>
+        /// <para>Retrieve all parameters within a hierarchy.</para><important><para>If a user has access to a path, then the user can access all levels of that path.
+        /// For example, if a user has permission to access path /a, then the user can also access
+        /// /a/b. Even if a user has explicitly been denied access in IAM for parameter /a, they
+        /// can still call the GetParametersByPath API action recursively and view /a/b.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -103,6 +103,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean EnableIAMDatabaseAuthentication { get; set; }
         #endregion
         
+        #region Parameter EngineVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version number of the database engine to which you want to upgrade. Changing this
+        /// parameter results in an outage. The change is applied during the next maintenance
+        /// window unless the ApplyImmediately parameter is set to true.</para><para>For a list of valid engine versions, see <a>CreateDBInstance</a>, or call <a>DescribeDBEngineVersions</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EngineVersion { get; set; }
+        #endregion
+        
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
@@ -227,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
                 context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
+            context.EngineVersion = this.EngineVersion;
             context.MasterUserPassword = this.MasterUserPassword;
             context.NewDBClusterIdentifier = this.NewDBClusterIdentifier;
             context.OptionGroupName = this.OptionGroupName;
@@ -273,6 +286,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.EnableIAMDatabaseAuthentication != null)
             {
                 request.EnableIAMDatabaseAuthentication = cmdletContext.EnableIAMDatabaseAuthentication.Value;
+            }
+            if (cmdletContext.EngineVersion != null)
+            {
+                request.EngineVersion = cmdletContext.EngineVersion;
             }
             if (cmdletContext.MasterUserPassword != null)
             {
@@ -371,6 +388,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
+            public System.String EngineVersion { get; set; }
             public System.String MasterUserPassword { get; set; }
             public System.String NewDBClusterIdentifier { get; set; }
             public System.String OptionGroupName { get; set; }

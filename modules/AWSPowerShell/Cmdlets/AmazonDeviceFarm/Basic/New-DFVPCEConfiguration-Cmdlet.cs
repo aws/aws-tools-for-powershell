@@ -22,72 +22,86 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CostExplorer;
-using Amazon.CostExplorer.Model;
+using Amazon.DeviceFarm;
+using Amazon.DeviceFarm.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CE
+namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Queries for available tag keys and tag values for a specified period. You can search
-    /// the tag values for an arbitrary string.
+    /// Creates a configuration record in Device Farm for your Amazon Virtual Private Cloud
+    /// (VPC) endpoint.
     /// </summary>
-    [Cmdlet("Get", "CETag")]
-    [OutputType("Amazon.CostExplorer.Model.GetTagsResponse")]
-    [AWSCmdlet("Calls the AWS Cost Explorer GetTags API operation.", Operation = new[] {"GetTags"})]
-    [AWSCmdletOutput("Amazon.CostExplorer.Model.GetTagsResponse",
-        "This cmdlet returns a Amazon.CostExplorer.Model.GetTagsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "DFVPCEConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DeviceFarm.Model.VPCEConfiguration")]
+    [AWSCmdlet("Calls the AWS Device Farm CreateVPCEConfiguration API operation.", Operation = new[] {"CreateVPCEConfiguration"})]
+    [AWSCmdletOutput("Amazon.DeviceFarm.Model.VPCEConfiguration",
+        "This cmdlet returns a VPCEConfiguration object.",
+        "The service call response (type Amazon.DeviceFarm.Model.CreateVPCEConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCETagCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
+    public partial class NewDFVPCEConfigurationCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
-        #region Parameter SearchString
+        #region Parameter ServiceDnsName
         /// <summary>
         /// <para>
-        /// <para>The value that you want to search for.</para>
+        /// <para>The DNS name of the service running in your VPC that you want Device Farm to test.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String SearchString { get; set; }
+        public System.String ServiceDnsName { get; set; }
         #endregion
         
-        #region Parameter TagKey
+        #region Parameter VpceConfigurationDescription
         /// <summary>
         /// <para>
-        /// <para>The key of the tag that you want to return values for.</para>
+        /// <para>An optional description, providing more details about your VPC endpoint configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String TagKey { get; set; }
+        public System.String VpceConfigurationDescription { get; set; }
         #endregion
         
-        #region Parameter TimePeriod
+        #region Parameter VpceConfigurationName
         /// <summary>
         /// <para>
-        /// <para>The start and end dates for retrieving the dimension values. The start date is inclusive,
-        /// but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code>
-        /// and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is retrieved
-        /// from <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including
-        /// <code>2017-05-01</code>.</para>
+        /// <para>The friendly name you give to your VPC endpoint configuration, to manage your configurations
+        /// more easily.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public Amazon.CostExplorer.Model.DateInterval TimePeriod { get; set; }
+        public System.String VpceConfigurationName { get; set; }
         #endregion
         
-        #region Parameter NextPageToken
+        #region Parameter VpceServiceName
         /// <summary>
         /// <para>
-        /// <para>The token to retrieve the next set of results. AWS provides the token when the response
-        /// from a previous call has more results than the maximum page size.</para>
+        /// <para>The name of the VPC endpoint service running inside your AWS account that you want
+        /// Device Farm to test.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String NextPageToken { get; set; }
+        public System.String VpceServiceName { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("VpceConfigurationName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DFVPCEConfiguration (CreateVPCEConfiguration)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -98,10 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.NextPageToken = this.NextPageToken;
-            context.SearchString = this.SearchString;
-            context.TagKey = this.TagKey;
-            context.TimePeriod = this.TimePeriod;
+            context.ServiceDnsName = this.ServiceDnsName;
+            context.VpceConfigurationDescription = this.VpceConfigurationDescription;
+            context.VpceConfigurationName = this.VpceConfigurationName;
+            context.VpceServiceName = this.VpceServiceName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -116,23 +130,23 @@ namespace Amazon.PowerShell.Cmdlets.CE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CostExplorer.Model.GetTagsRequest();
+            var request = new Amazon.DeviceFarm.Model.CreateVPCEConfigurationRequest();
             
-            if (cmdletContext.NextPageToken != null)
+            if (cmdletContext.ServiceDnsName != null)
             {
-                request.NextPageToken = cmdletContext.NextPageToken;
+                request.ServiceDnsName = cmdletContext.ServiceDnsName;
             }
-            if (cmdletContext.SearchString != null)
+            if (cmdletContext.VpceConfigurationDescription != null)
             {
-                request.SearchString = cmdletContext.SearchString;
+                request.VpceConfigurationDescription = cmdletContext.VpceConfigurationDescription;
             }
-            if (cmdletContext.TagKey != null)
+            if (cmdletContext.VpceConfigurationName != null)
             {
-                request.TagKey = cmdletContext.TagKey;
+                request.VpceConfigurationName = cmdletContext.VpceConfigurationName;
             }
-            if (cmdletContext.TimePeriod != null)
+            if (cmdletContext.VpceServiceName != null)
             {
-                request.TimePeriod = cmdletContext.TimePeriod;
+                request.VpceServiceName = cmdletContext.VpceServiceName;
             }
             
             CmdletOutput output;
@@ -143,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.VpceConfiguration;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -168,16 +182,16 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         #region AWS Service Operation Call
         
-        private Amazon.CostExplorer.Model.GetTagsResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.GetTagsRequest request)
+        private Amazon.DeviceFarm.Model.CreateVPCEConfigurationResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.CreateVPCEConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "GetTags");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "CreateVPCEConfiguration");
             try
             {
                 #if DESKTOP
-                return client.GetTags(request);
+                return client.CreateVPCEConfiguration(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetTagsAsync(request);
+                var task = client.CreateVPCEConfigurationAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -198,10 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String NextPageToken { get; set; }
-            public System.String SearchString { get; set; }
-            public System.String TagKey { get; set; }
-            public Amazon.CostExplorer.Model.DateInterval TimePeriod { get; set; }
+            public System.String ServiceDnsName { get; set; }
+            public System.String VpceConfigurationDescription { get; set; }
+            public System.String VpceConfigurationName { get; set; }
+            public System.String VpceServiceName { get; set; }
         }
         
     }

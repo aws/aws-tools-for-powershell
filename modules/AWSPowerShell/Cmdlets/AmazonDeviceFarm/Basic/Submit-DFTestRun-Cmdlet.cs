@@ -322,6 +322,17 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public Amazon.DeviceFarm.TestType Test_Type { get; set; }
         #endregion
         
+        #region Parameter Configuration_VpceConfigurationArn
+        /// <summary>
+        /// <para>
+        /// <para>An array of Amazon Resource Names (ARNs) for your VPC endpoint configurations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Configuration_VpceConfigurationArns")]
+        public System.String[] Configuration_VpceConfigurationArn { get; set; }
+        #endregion
+        
         #region Parameter Radios_Wifi
         /// <summary>
         /// <para>
@@ -395,6 +406,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 context.Configuration_Radios_Nfc = this.Radios_Nfc;
             if (ParameterWasBound("Radios_Wifi"))
                 context.Configuration_Radios_Wifi = this.Radios_Wifi;
+            if (this.Configuration_VpceConfigurationArn != null)
+            {
+                context.Configuration_VpceConfigurationArns = new List<System.String>(this.Configuration_VpceConfigurationArn);
+            }
             context.DevicePoolArn = this.DevicePoolArn;
             if (ParameterWasBound("ExecutionConfiguration_AccountsCleanup"))
                 context.ExecutionConfiguration_AccountsCleanup = this.ExecutionConfiguration_AccountsCleanup;
@@ -489,6 +504,16 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (requestConfiguration_configuration_NetworkProfileArn != null)
             {
                 request.Configuration.NetworkProfileArn = requestConfiguration_configuration_NetworkProfileArn;
+                requestConfigurationIsNull = false;
+            }
+            List<System.String> requestConfiguration_configuration_VpceConfigurationArn = null;
+            if (cmdletContext.Configuration_VpceConfigurationArns != null)
+            {
+                requestConfiguration_configuration_VpceConfigurationArn = cmdletContext.Configuration_VpceConfigurationArns;
+            }
+            if (requestConfiguration_configuration_VpceConfigurationArn != null)
+            {
+                request.Configuration.VpceConfigurationArns = requestConfiguration_configuration_VpceConfigurationArn;
                 requestConfigurationIsNull = false;
             }
             Amazon.DeviceFarm.Model.Location requestConfiguration_configuration_Location = null;
@@ -820,6 +845,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             public System.Boolean? Configuration_Radios_Gps { get; set; }
             public System.Boolean? Configuration_Radios_Nfc { get; set; }
             public System.Boolean? Configuration_Radios_Wifi { get; set; }
+            public List<System.String> Configuration_VpceConfigurationArns { get; set; }
             public System.String DevicePoolArn { get; set; }
             public System.Boolean? ExecutionConfiguration_AccountsCleanup { get; set; }
             public System.Boolean? ExecutionConfiguration_AppPackagesCleanup { get; set; }

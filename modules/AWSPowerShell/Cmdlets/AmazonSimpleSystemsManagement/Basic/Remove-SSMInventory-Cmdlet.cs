@@ -28,73 +28,68 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Registers your on-premises server or virtual machine with Amazon EC2 so that you can
-    /// manage these resources using Run Command. An on-premises server or virtual machine
-    /// that has been registered with EC2 is called a managed instance. For more information
-    /// about activations, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html">Setting
-    /// Up Systems Manager in Hybrid Environments</a>.
+    /// Delete a custom inventory type, or the data associated with a custom Inventory type.
+    /// Deleting a custom inventory type is also referred to as deleting a custom inventory
+    /// schema.
     /// </summary>
-    [Cmdlet("New", "SSMActivation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.CreateActivationResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager CreateActivation API operation.", Operation = new[] {"CreateActivation"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.CreateActivationResponse",
-        "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.CreateActivationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "SSMInventory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.DeleteInventoryResponse")]
+    [AWSCmdlet("Calls the AWS Systems Manager DeleteInventory API operation.", Operation = new[] {"DeleteInventory"})]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DeleteInventoryResponse",
+        "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.DeleteInventoryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewSSMActivationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class RemoveSSMInventoryCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        #region Parameter DefaultInstanceName
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The name of the registered, managed instance as it will appear in the Amazon EC2 console
-        /// or when you use the AWS command line tools to list EC2 resources.</para><important><para>Do not enter personally identifiable information in this field.</para></important>
+        /// <para>User-provided idempotency token.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String DefaultInstanceName { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
-        #region Parameter Description
+        #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>A userdefined description of the resource that you want to register with Amazon EC2.
-        /// </para><important><para>Do not enter personally identifiable information in this field.</para></important>
+        /// <para>Use this option to view a summary of the deletion request without deleting any data
+        /// or the data type. This option is useful when you only want to understand what will
+        /// be deleted. Once you validate that the data to be deleted is what you intend to delete,
+        /// you can run the same command without specifying the <code>DryRun</code> option.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Description { get; set; }
+        public System.Boolean DryRun { get; set; }
         #endregion
         
-        #region Parameter ExpirationDate
+        #region Parameter SchemaDeleteOption
         /// <summary>
         /// <para>
-        /// <para>The date by which this activation request should expire. The default value is 24 hours.</para>
+        /// <para>Use the <code>SchemaDeleteOption</code> to delete a custom inventory type (schema).
+        /// If you don't choose this option, the system only deletes existing inventory data associated
+        /// with the custom inventory type. Choose one of the following options:</para><para>DisableSchema: If you choose this option, the system ignores all inventory data for
+        /// the specified version, and any earlier versions. To enable this schema again, you
+        /// must call the <code>PutInventory</code> action for a version greater than the disbled
+        /// version.</para><para>DeleteSchema: This option deletes the specified custom type from the Inventory service.
+        /// You can recreate the schema later, if you want.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime ExpirationDate { get; set; }
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.InventorySchemaDeleteOption")]
+        public Amazon.SimpleSystemsManagement.InventorySchemaDeleteOption SchemaDeleteOption { get; set; }
         #endregion
         
-        #region Parameter IamRole
+        #region Parameter TypeName
         /// <summary>
         /// <para>
-        /// <para>The Amazon Identity and Access Management (IAM) role that you want to assign to the
-        /// managed instance. </para>
+        /// <para>The name of the custom inventory type for which you want to delete either all previously
+        /// collected data, or the inventory type itself. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String IamRole { get; set; }
-        #endregion
-        
-        #region Parameter RegistrationLimit
-        /// <summary>
-        /// <para>
-        /// <para>Specify the maximum number of managed instances you want to register. The default
-        /// value is 1 instance.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Int32 RegistrationLimit { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TypeName { get; set; }
         #endregion
         
         #region Parameter Force
@@ -111,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DefaultInstanceName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SSMActivation (CreateActivation)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("TypeName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SSMInventory (DeleteInventory)"))
             {
                 return;
             }
@@ -126,13 +121,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.DefaultInstanceName = this.DefaultInstanceName;
-            context.Description = this.Description;
-            if (ParameterWasBound("ExpirationDate"))
-                context.ExpirationDate = this.ExpirationDate;
-            context.IamRole = this.IamRole;
-            if (ParameterWasBound("RegistrationLimit"))
-                context.RegistrationLimit = this.RegistrationLimit;
+            context.ClientToken = this.ClientToken;
+            if (ParameterWasBound("DryRun"))
+                context.DryRun = this.DryRun;
+            context.SchemaDeleteOption = this.SchemaDeleteOption;
+            context.TypeName = this.TypeName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,27 +140,23 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.CreateActivationRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.DeleteInventoryRequest();
             
-            if (cmdletContext.DefaultInstanceName != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.DefaultInstanceName = cmdletContext.DefaultInstanceName;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.Description != null)
+            if (cmdletContext.DryRun != null)
             {
-                request.Description = cmdletContext.Description;
+                request.DryRun = cmdletContext.DryRun.Value;
             }
-            if (cmdletContext.ExpirationDate != null)
+            if (cmdletContext.SchemaDeleteOption != null)
             {
-                request.ExpirationDate = cmdletContext.ExpirationDate.Value;
+                request.SchemaDeleteOption = cmdletContext.SchemaDeleteOption;
             }
-            if (cmdletContext.IamRole != null)
+            if (cmdletContext.TypeName != null)
             {
-                request.IamRole = cmdletContext.IamRole;
-            }
-            if (cmdletContext.RegistrationLimit != null)
-            {
-                request.RegistrationLimit = cmdletContext.RegistrationLimit.Value;
+                request.TypeName = cmdletContext.TypeName;
             }
             
             CmdletOutput output;
@@ -203,16 +192,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleSystemsManagement.Model.CreateActivationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.CreateActivationRequest request)
+        private Amazon.SimpleSystemsManagement.Model.DeleteInventoryResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeleteInventoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "CreateActivation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeleteInventory");
             try
             {
                 #if DESKTOP
-                return client.CreateActivation(request);
+                return client.DeleteInventory(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateActivationAsync(request);
+                var task = client.DeleteInventoryAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -233,11 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DefaultInstanceName { get; set; }
-            public System.String Description { get; set; }
-            public System.DateTime? ExpirationDate { get; set; }
-            public System.String IamRole { get; set; }
-            public System.Int32? RegistrationLimit { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.Boolean? DryRun { get; set; }
+            public Amazon.SimpleSystemsManagement.InventorySchemaDeleteOption SchemaDeleteOption { get; set; }
+            public System.String TypeName { get; set; }
         }
         
     }

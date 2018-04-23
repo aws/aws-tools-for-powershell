@@ -1547,6 +1547,7 @@ Set-Alias -Name Create-DFRemoteAccessSession -Value New-DFRemoteAccessSession
 Set-Alias -Name DF-CreateRemoteAccessSession -Value New-DFRemoteAccessSession
 Set-Alias -Name Create-DFUpload -Value New-DFUpload
 Set-Alias -Name DF-CreateUpload -Value New-DFUpload
+Set-Alias -Name DF-CreateVPCEConfiguration -Value New-DFVPCEConfiguration
 Set-Alias -Name Delete-DFDevicePool -Value Remove-DFDevicePool
 Set-Alias -Name DF-DeleteDevicePool -Value Remove-DFDevicePool
 Set-Alias -Name DF-DeleteInstanceProfile -Value Remove-DFInstanceProfile
@@ -1560,6 +1561,7 @@ Set-Alias -Name Delete-DFRun -Value Remove-DFRun
 Set-Alias -Name DF-DeleteRun -Value Remove-DFRun
 Set-Alias -Name Delete-DFUpload -Value Remove-DFUpload
 Set-Alias -Name DF-DeleteUpload -Value Remove-DFUpload
+Set-Alias -Name DF-DeleteVPCEConfiguration -Value Remove-DFVPCEConfiguration
 Set-Alias -Name DF-GetAccountSettings -Value Get-DFAccountSettingList
 Set-Alias -Name DF-GetDevice -Value Get-DFDevice
 Set-Alias -Name DF-GetDeviceInstance -Value Get-DFDeviceInstance
@@ -1575,6 +1577,7 @@ Set-Alias -Name DF-GetRun -Value Get-DFRun
 Set-Alias -Name DF-GetSuite -Value Get-DFSuite
 Set-Alias -Name DF-GetTest -Value Get-DFTest
 Set-Alias -Name DF-GetUpload -Value Get-DFUpload
+Set-Alias -Name DF-GetVPCEConfiguration -Value Get-DFVPCEConfiguration
 Set-Alias -Name DF-InstallToRemoteAccessSession -Value Install-DFToRemoteAccessSession
 Set-Alias -Name List-DFArtifactList -Value Get-DFArtifactList
 Set-Alias -Name DF-ListArtifacts -Value Get-DFArtifactList
@@ -1610,6 +1613,7 @@ Set-Alias -Name List-DFUniqueProblemList -Value Get-DFUniqueProblemList
 Set-Alias -Name DF-ListUniqueProblems -Value Get-DFUniqueProblemList
 Set-Alias -Name List-DFUploadList -Value Get-DFUploadList
 Set-Alias -Name DF-ListUploads -Value Get-DFUploadList
+Set-Alias -Name DF-ListVPCEConfigurations -Value Get-DFVPCEConfigurationList
 Set-Alias -Name DF-PurchaseOffering -Value New-DFOfferingPurchase
 Set-Alias -Name DF-RenewOffering -Value New-DFOfferingRenewal
 Set-Alias -Name DF-ScheduleRun -Value Submit-DFTestRun
@@ -1620,6 +1624,7 @@ Set-Alias -Name DF-UpdateDevicePool -Value Update-DFDevicePool
 Set-Alias -Name DF-UpdateInstanceProfile -Value Update-DFInstanceProfile
 Set-Alias -Name DF-UpdateNetworkProfile -Value Update-DFNetworkProfile
 Set-Alias -Name DF-UpdateProject -Value Update-DFProject
+Set-Alias -Name DF-UpdateVPCEConfiguration -Value Update-DFVPCEConfiguration
 Set-Alias -Name DC-AllocateConnectionOnInterconnect -Value Enable-DCConnectionOnInterconnect
 Set-Alias -Name Allocate-DCHostedConnection -Value New-DCHostedConnection
 Set-Alias -Name DC-AllocateHostedConnection -Value New-DCHostedConnection
@@ -3475,8 +3480,11 @@ Set-Alias -Name KINF-DeleteDeliveryStream -Value Remove-KINFDeliveryStream
 Set-Alias -Name Describe-KINFDeliveryStream -Value Get-KINFDeliveryStream
 Set-Alias -Name KINF-DescribeDeliveryStream -Value Get-KINFDeliveryStream
 Set-Alias -Name KINF-ListDeliveryStreams -Value Get-KINFDeliveryStreamList
+Set-Alias -Name KINF-ListTagsForDeliveryStream -Value Get-KINFTagsForDeliveryStream
 Set-Alias -Name Put-KINFRecordBatch -Value Write-KINFRecordBatch
 Set-Alias -Name KINF-PutRecordBatch -Value Write-KINFRecordBatch
+Set-Alias -Name KINF-TagDeliveryStream -Value Add-KINFDeliveryStreamTag
+Set-Alias -Name KINF-UntagDeliveryStream -Value Remove-KINFDeliveryStreamTag
 Set-Alias -Name KINF-UpdateDestination -Value Update-KINFDestination
 Set-Alias -Name KV-CreateStream -Value New-KVStream
 Set-Alias -Name KV-DeleteStream -Value Remove-KVStream
@@ -5195,6 +5203,7 @@ Set-Alias -Name Delete-SSMAssociation -Value Remove-SSMAssociation
 Set-Alias -Name SSM-DeleteAssociation -Value Remove-SSMAssociation
 Set-Alias -Name Delete-SSMDocument -Value Remove-SSMDocument
 Set-Alias -Name SSM-DeleteDocument -Value Remove-SSMDocument
+Set-Alias -Name SSM-DeleteInventory -Value Remove-SSMInventory
 Set-Alias -Name Delete-SSMMaintenanceWindow -Value Remove-SSMMaintenanceWindow
 Set-Alias -Name SSM-DeleteMaintenanceWindow -Value Remove-SSMMaintenanceWindow
 Set-Alias -Name Delete-SSMParameter -Value Remove-SSMParameter
@@ -5239,6 +5248,7 @@ Set-Alias -Name Describe-SSMInstancePatchState -Value Get-SSMInstancePatchState
 Set-Alias -Name SSM-DescribeInstancePatchStates -Value Get-SSMInstancePatchState
 Set-Alias -Name Describe-SSMInstancePatchStatesForPatchGroup -Value Get-SSMInstancePatchStatesForPatchGroup
 Set-Alias -Name SSM-DescribeInstancePatchStatesForPatchGroup -Value Get-SSMInstancePatchStatesForPatchGroup
+Set-Alias -Name SSM-DescribeInventoryDeletions -Value Get-SSMInventoryDeletionList
 Set-Alias -Name Describe-SSMMaintenanceWindowExecutionList -Value Get-SSMMaintenanceWindowExecutionList
 Set-Alias -Name SSM-DescribeMaintenanceWindowExecutions -Value Get-SSMMaintenanceWindowExecutionList
 Set-Alias -Name Describe-SSMMaintenanceWindowExecutionTaskInvocationList -Value Get-SSMMaintenanceWindowExecutionTaskInvocationList

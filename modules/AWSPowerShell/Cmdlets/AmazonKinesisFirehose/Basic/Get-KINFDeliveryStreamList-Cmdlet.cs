@@ -33,11 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     ///  
     /// <para>
     /// The number of delivery streams might be too large to return using a single call to
-    /// <a>ListDeliveryStreams</a>. You can limit the number of delivery streams returned,
+    /// <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned,
     /// using the <b>Limit</b> parameter. To determine whether there are more delivery streams
-    /// to list, check the value of <b>HasMoreDeliveryStreams</b> in the output. If there
-    /// are more delivery streams to list, you can request them by specifying the name of
-    /// the last delivery stream returned in the call in the <b>ExclusiveStartDeliveryStreamName</b>
+    /// to list, check the value of <code>HasMoreDeliveryStreams</code> in the output. If
+    /// there are more delivery streams to list, you can request them by specifying the name
+    /// of the last delivery stream returned in the call in the <code>ExclusiveStartDeliveryStreamName</code>
     /// parameter of a subsequent call.
     /// </para>
     /// </summary>
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DeliveryStreamType
         /// <summary>
         /// <para>
-        /// <para>The delivery stream type. This can be one of the following values:</para><ul><li><para><code>DirectPut</code>: Provider applications access the delivery stream directly.</para></li><li><para><code>KinesisStreamAsSource</code>: The delivery stream uses a Kinesis stream as
-        /// a source.</para></li></ul><para>This parameter is optional. If this parameter is omitted, delivery streams of all
+        /// <para>The delivery stream type. This can be one of the following values:</para><ul><li><para><code>DirectPut</code>: Provider applications access the delivery stream directly.</para></li><li><para><code>KinesisStreamAsSource</code>: The delivery stream uses a Kinesis data stream
+        /// as a source.</para></li></ul><para>This parameter is optional. If this parameter is omitted, delivery streams of all
         /// types are returned.</para>
         /// </para>
         /// </summary>

@@ -28,8 +28,8 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Creates a new secret. A secret in AWS Secrets Manager consists of both the protected
-    /// secret data and the important information needed to manage the secret.
+    /// Creates a new secret. A secret in Secrets Manager consists of both the protected secret
+    /// data and the important information needed to manage the secret.
     /// 
     ///  
     /// <para>
@@ -46,16 +46,16 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// <code>SecretString</code> or <code>SecretBinary</code> then Secrets Manager also creates
     /// an initial secret version and, if you don't supply a staging label, automatically
     /// maps the new version's ID to the staging label <code>AWSCURRENT</code>.
-    /// </para><important><ul><li><para>
+    /// </para><note><ul><li><para>
     /// If you call an operation that needs to encrypt or decrypt the <code>SecretString</code>
     /// and <code>SecretBinary</code> for a secret in the same account as the calling user
-    /// and that secret doesn't specify a KMS encryption key, AWS Secrets Manager uses the
-    /// account's default AWS managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>.
-    /// If this key doesn't already exist in your account then AWS Secrets Manager creates
-    /// it for you automatically. All users in the same AWS account automatically have access
-    /// to use the default CMK. Note that if an AWS Secrets Manager API call results in AWS
-    /// having to create the account's AWS-managed CMK, it can result in a one-time significant
-    /// delay in returning the result.
+    /// and that secret doesn't specify a KMS encryption key, Secrets Manager uses the account's
+    /// default AWS managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>.
+    /// If this key doesn't already exist in your account then Secrets Manager creates it
+    /// for you automatically. All users in the same AWS account automatically have access
+    /// to use the default CMK. Note that if an Secrets Manager API call results in AWS having
+    /// to create the account's AWS-managed CMK, it can result in a one-time significant delay
+    /// in returning the result.
     /// </para></li><li><para>
     /// If the secret is in a different AWS account from the credentials calling an API that
     /// requires encryption or decryption of the secret value then you must create and use
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// you call an API that must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code>
     /// using credentials from a different account then the KMS key policy must grant cross-account
     /// access to that other account's user or role.
-    /// </para></li></ul></important><para><b>Minimum permissions</b></para><para>
+    /// </para></li></ul></note><para></para><para><b>Minimum permissions</b></para><para>
     /// To run this command, you must have the following permissions:
     /// </para><ul><li><para>
     /// secretsmanager:CreateSecret
@@ -110,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// a unique identifier for the new version. </para><note><para>If you use the AWS CLI or one of the AWS SDK to call this operation, then you can
         /// leave this parameter empty. The CLI or SDK generates a random UUID for you and includes
         /// as the value for this parameter in the request. If you don't use the SDK and instead
-        /// generate a raw HTTP request to the AWS Secrets Manager service endpoint, then you
-        /// must generate a <code>ClientRequestToken</code> yourself for the new version and include
+        /// generate a raw HTTP request to the Secrets Manager service endpoint, then you must
+        /// generate a <code>ClientRequestToken</code> yourself for the new version and include
         /// that value in the request.</para></note><para>This value helps ensure idempotency. Secrets Manager uses this value to prevent the
         /// accidental creation of duplicate versions if there are failures and retries during
         /// a rotation. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a>
@@ -145,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// be used to encrypt the <code>SecretString</code> and <code>SecretBinary</code> values
         /// in the versions stored in this secret.</para><para>If you don't specify this value, then Secrets Manager defaults to using the AWS account's
         /// default CMK (the one named <code>aws/secretsmanager</code>). If a KMS CMK with that
-        /// name doesn't yet exist, then AWS Secrets Manager creates it for you automatically
-        /// the first time it needs to encrypt a version's <code>SecretString</code> or <code>SecretBinary</code>
+        /// name doesn't yet exist, then Secrets Manager creates it for you automatically the
+        /// first time it needs to encrypt a version's <code>SecretString</code> or <code>SecretBinary</code>
         /// fields.</para><important><para>You can use the account's default CMK to encrypt and decrypt only if you call this
         /// operation using credentials from the same account that owns the secret. If the secret
         /// is in a different account, then you must create a custom CMK and specify the ARN in
@@ -160,9 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Specifies the friendly name of the new secret. The secret name can consist of uppercase
-        /// letters, lowercase letters, digits, and any of the following characters: /_+=.@-    Spaces
-        /// are not permitted.</para>
+        /// <para>Specifies the friendly name of the new secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -211,8 +209,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <para>
         /// <para>(Optional) Specifies a list of user-defined tags that are attached to the secret.
         /// Each tag is a "Key" and "Value" pair of strings. This operation only appends tags
-        /// to the existing list of tags. To remove tags, you must use <a>UntagResource</a>.</para><important><ul><li><para>AWS Secrets Manager tag key names are case sensitive. A tag with the key "ABC" is
-        /// a different tag from one with key "abc".</para></li><li><para>If you check tags in IAM policy <code>Condition</code> elements as part of your security
+        /// to the existing list of tags. To remove tags, you must use <a>UntagResource</a>.</para><important><ul><li><para>Secrets Manager tag key names are case sensitive. A tag with the key "ABC" is a different
+        /// tag from one with key "abc".</para></li><li><para>If you check tags in IAM policy <code>Condition</code> elements as part of your security
         /// strategy, then adding or removing a tag can change permissions. If the successful
         /// completion of this operation would result in you losing your permissions for this
         /// secret, then this operation is blocked and returns an <code>Access Denied</code> error.</para></li></ul></important><para>This parameter requires a JSON text string argument. For information on how to format

@@ -22,70 +22,42 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SecretsManager;
-using Amazon.SecretsManager.Model;
+using Amazon.DeviceFarm;
+using Amazon.DeviceFarm.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SEC
+namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Lists all of the secrets that are stored by Secrets Manager in the AWS account. To
-    /// list the versions currently stored for a specific secret, use <a>ListSecretVersionIds</a>.
-    /// The encrypted fields <code>SecretString</code> and <code>SecretBinary</code> are not
-    /// included in the output. To get that information, call the <a>GetSecretValue</a> operation.
-    /// 
-    ///  <note><para>
-    /// Always check the <code>NextToken</code> response parameter when calling any of the
-    /// <code>List*</code> operations. These operations can occasionally return an empty or
-    /// shorter than expected list of results even when there are more results available.
-    /// When this happens, the <code>NextToken</code> response parameter contains a value
-    /// to pass to the next call to the same API to request the next part of the list.
-    /// </para></note><para><b>Minimum permissions</b></para><para>
-    /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para>
-    /// secretsmanager:ListSecrets
-    /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
-    /// To list the versions attached to a secret, use <a>ListSecretVersionIds</a>.
-    /// </para></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns information about all Amazon Virtual Private Cloud (VPC) endpoint configurations
+    /// in the AWS account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "SECSecretList")]
-    [OutputType("Amazon.SecretsManager.Model.SecretListEntry")]
-    [AWSCmdlet("Calls the AWS Secrets Manager ListSecrets API operation.", Operation = new[] {"ListSecrets"})]
-    [AWSCmdletOutput("Amazon.SecretsManager.Model.SecretListEntry",
-        "This cmdlet returns a collection of SecretListEntry objects.",
-        "The service call response (type Amazon.SecretsManager.Model.ListSecretsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "DFVPCEConfigurationList")]
+    [OutputType("Amazon.DeviceFarm.Model.VPCEConfiguration")]
+    [AWSCmdlet("Calls the AWS Device Farm ListVPCEConfigurations API operation.", Operation = new[] {"ListVPCEConfigurations"})]
+    [AWSCmdletOutput("Amazon.DeviceFarm.Model.VPCEConfiguration",
+        "This cmdlet returns a collection of VPCEConfiguration objects.",
+        "The service call response (type Amazon.DeviceFarm.Model.ListVPCEConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetSECSecretListCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
+    public partial class GetDFVPCEConfigurationListCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>(Optional) Limits the number of results that you want to include in the response.
-        /// If you don't include this parameter, it defaults to a value that's specific to the
-        /// operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-        /// response element is present and has a value (isn't null). Include that value as the
-        /// <code>NextToken</code> request parameter in the next call to the operation to get
-        /// the next part of the results. Note that Secrets Manager might return fewer results
-        /// than the maximum even when there are more results available. You should check <code>NextToken</code>
-        /// after every operation to ensure that you receive all of the results.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <para>An integer specifying the maximum number of items you want to return in the API response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems","MaxResults")]
-        public int MaxResult { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32 MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
-        /// response in a previous request that indicates that there's more output available.
-        /// In a subsequent call, set it to the value of the previous call's <code>NextToken</code>
-        /// response to indicate where the output should continue from.</para>
+        /// <para>An identifier that was returned from the previous call to this operation, which can
+        /// be used to return the next set of items in the list.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -126,32 +98,27 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.SecretsManager.Model.ListSecretsRequest();
+            var request = new Amazon.DeviceFarm.Model.ListVPCEConfigurationsRequest();
             
-            // Initialize loop variants and commence piping
+            if (cmdletContext.MaxResults != null)
+            {
+                request.MaxResults = cmdletContext.MaxResults.Value;
+            }
+            
+            // Initialize loop variant and commence piping
             System.String _nextMarker = null;
-            int? _emitLimit = null;
-            int _retrievedSoFar = 0;
+            bool _userControllingPaging = false;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
                 _nextMarker = cmdletContext.NextToken;
+                _userControllingPaging = true;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
-            {
-                _emitLimit = cmdletContext.MaxResults;
-            }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
-            bool _continueIteration = true;
             
             try
             {
                 do
                 {
                     request.NextToken = _nextMarker;
-                    if (AutoIterationHelpers.HasValue(_emitLimit))
-                    {
-                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
-                    }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
@@ -160,8 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                     {
                         
                         var response = CallAWSServiceOperation(client, request);
+                        
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.SecretList;
+                        object pipelineOutput = response.VpceConfigurations;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -170,19 +138,13 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.SecretList.Count;
                         if (_userControllingPaging)
                         {
+                            int _receivedThisCall = response.VpceConfigurations.Count;
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
                         }
                         
                         _nextMarker = response.NextToken;
-                        
-                        _retrievedSoFar += _receivedThisCall;
-                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
-                        {
-                            _continueIteration = false;
-                        }
                     }
                     catch (Exception e)
                     {
@@ -190,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                     }
                     
                     ProcessOutput(output);
-                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
-                
+                    
+                } while (AutoIterationHelpers.HasValue(_nextMarker));
             }
             finally
             {
@@ -213,16 +175,16 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         
         #region AWS Service Operation Call
         
-        private Amazon.SecretsManager.Model.ListSecretsResponse CallAWSServiceOperation(IAmazonSecretsManager client, Amazon.SecretsManager.Model.ListSecretsRequest request)
+        private Amazon.DeviceFarm.Model.ListVPCEConfigurationsResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.ListVPCEConfigurationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Secrets Manager", "ListSecrets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "ListVPCEConfigurations");
             try
             {
                 #if DESKTOP
-                return client.ListSecrets(request);
+                return client.ListVPCEConfigurations(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListSecretsAsync(request);
+                var task = client.ListVPCEConfigurationsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -243,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public int? MaxResults { get; set; }
+            public System.Int32? MaxResults { get; set; }
             public System.String NextToken { get; set; }
         }
         

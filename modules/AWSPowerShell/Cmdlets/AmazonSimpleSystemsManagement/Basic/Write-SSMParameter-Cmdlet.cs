@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Information about the parameter that you want to add to the system.</para>
+        /// <para>Information about the parameter that you want to add to the system.</para><important><para>Do not enter personally identifiable information in this field.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

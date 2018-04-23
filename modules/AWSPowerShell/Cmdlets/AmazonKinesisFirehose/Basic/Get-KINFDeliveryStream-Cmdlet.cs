@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
 {
     /// <summary>
     /// Describes the specified delivery stream and gets the status. For example, after your
-    /// delivery stream is created, call <a>DescribeDeliveryStream</a> to see if the delivery
-    /// stream is <code>ACTIVE</code> and therefore ready for data to be sent to it.
+    /// delivery stream is created, call <code>DescribeDeliveryStream</code> to see whether
+    /// the delivery stream is <code>ACTIVE</code> and therefore ready for data to be sent
+    /// to it.
     /// </summary>
     [Cmdlet("Get", "KINFDeliveryStream")]
     [OutputType("Amazon.KinesisFirehose.Model.DeliveryStreamDescription")]
@@ -56,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The ID of the destination to start returning the destination information. Currently,
-        /// Kinesis Firehose supports one destination per delivery stream.</para>
+        /// Kinesis Data Firehose supports one destination per delivery stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

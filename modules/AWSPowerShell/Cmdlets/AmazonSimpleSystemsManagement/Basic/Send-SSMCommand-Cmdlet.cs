@@ -235,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>If this time is reached and the command has not already started executing, it will
-        /// not execute.</para>
+        /// not run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

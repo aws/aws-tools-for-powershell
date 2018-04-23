@@ -31,23 +31,22 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// Modifies a task assigned to a Maintenance Window. You can't change the task type,
     /// but you can change the following values:
     /// 
-    ///  
-    /// <para>
-    /// Task ARN. For example, you can change a RUN_COMMAND task from AWS-RunPowerShellScript
+    ///  <ul><li><para>
+    /// TaskARN. For example, you can change a RUN_COMMAND task from AWS-RunPowerShellScript
     /// to AWS-RunShellScript.
-    /// </para><para>
-    /// Service role ARN.
-    /// </para><para>
-    /// Task parameters.
-    /// </para><para>
-    /// Task priority.
-    /// </para><para>
-    /// Task MaxConcurrency and MaxErrors.
-    /// </para><para>
-    /// Log location.
-    /// </para><para>
+    /// </para></li><li><para>
+    /// ServiceRoleArn
+    /// </para></li><li><para>
+    /// TaskInvocationParameters
+    /// </para></li><li><para>
+    /// Priority
+    /// </para></li><li><para>
+    /// MaxConcurrency
+    /// </para></li><li><para>
+    /// MaxErrors
+    /// </para></li></ul><para>
     /// If a parameter is null, then the corresponding field is not modified. Also, if you
-    /// set Replace to true, then all fields required by the RegisterTaskWithMaintenanceWindow
+    /// set Replace to true, then all fields required by the <a>RegisterTaskWithMaintenanceWindow</a>
     /// action are required for this request. Optional fields that aren't specified are set
     /// to null.
     /// </para>
@@ -250,7 +249,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Automation_Parameter
         /// <summary>
         /// <para>
-        /// <para>The parameters for the AUTOMATION task.</para>
+        /// <para>The parameters for the AUTOMATION task.</para><para>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a>
+        /// and <a>UpdateMaintenanceWindowTask</a>.</para><note><para><code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain
+        /// logs, instead use the <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code>
+        /// options in the <code>TaskInvocationParameters</code> structure. For information about
+        /// how Systems Manager handles these options for the supported Maintenance Window task
+        /// types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</para><para><code>TaskParameters</code> has been deprecated. To specify parameters to pass to
+        /// a task when it runs, instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code>
+        /// structure. For information about how Systems Manager handles these options for the
+        /// supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</para><para>For AUTOMATION task types, Systems Manager ignores any values specified for these
+        /// parameters.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -394,7 +402,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter TaskParameter
         /// <summary>
         /// <para>
-        /// <para>The parameters to modify. The map has the following format:</para><para>Key: string, between 1 and 255 characters</para><para>Value: an array of strings, each string is between 1 and 255 characters</para>
+        /// <para>The parameters to modify.</para><note><para><code>TaskParameters</code> has been deprecated. To specify parameters to pass to
+        /// a task when it runs, instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code>
+        /// structure. For information about how Systems Manager handles these options for the
+        /// supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</para></note><para>The map has the following format:</para><para>Key: string, between 1 and 255 characters</para><para>Value: an array of strings, each string is between 1 and 255 characters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

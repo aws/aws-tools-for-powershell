@@ -51,12 +51,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>instance-type</code> - The instance type size that the Dedicated Host is configured
-        /// to support.</para></li><li><para><code>auto-placement</code> - Whether auto-placement is enabled or disabled (<code>on</code>
-        /// | <code>off</code>).</para></li><li><para><code>host-reservation-id</code> - The ID of the reservation assigned to this host.</para></li><li><para><code>client-token</code> - The idempotency token you provided when you launched
-        /// the instance</para></li><li><para><code>state</code>- The allocation state of the Dedicated Host (<code>available</code>
+        /// <para>One or more filters.</para><ul><li><para><code>auto-placement</code> - Whether auto-placement is enabled or disabled (<code>on</code>
+        /// | <code>off</code>).</para></li><li><para><code>availability-zone</code> - The Availability Zone of the host.</para></li><li><para><code>client-token</code> - The idempotency token you provided when you allocated
+        /// the host.</para></li><li><para><code>host-reservation-id</code> - The ID of the reservation assigned to this host.</para></li><li><para><code>instance-type</code> - The instance type size that the Dedicated Host is configured
+        /// to support.</para></li><li><para><code>state</code> - The allocation state of the Dedicated Host (<code>available</code>
         /// | <code>under-assessment</code> | <code>permanent-failure</code> | <code>released</code>
-        /// | <code>released-permanent-failure</code>).</para></li><li><para><code>availability-zone</code> - The Availability Zone of the host.</para></li></ul>
+        /// | <code>released-permanent-failure</code>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

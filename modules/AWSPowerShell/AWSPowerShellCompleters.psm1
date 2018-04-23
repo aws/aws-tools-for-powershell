@@ -2523,6 +2523,7 @@ $DF_Completers = {
         
         # Amazon.DeviceFarm.BillingMethod
         {
+            ($_ -eq "Get-DFDevicePoolCompatibility/Configuration_BillingMethod") -Or
             ($_ -eq "New-DFRemoteAccessSession/Configuration_BillingMethod") -Or
             ($_ -eq "Submit-DFTestRun/Configuration_BillingMethod")
         }
@@ -2582,7 +2583,7 @@ $DF_Completers = {
 }
 
 $DF_map = @{
-    "Configuration_BillingMethod"=@("New-DFRemoteAccessSession","Submit-DFTestRun")
+    "Configuration_BillingMethod"=@("Get-DFDevicePoolCompatibility","New-DFRemoteAccessSession","Submit-DFTestRun")
     "InteractionMode"=@("New-DFRemoteAccessSession")
     "Test_Type"=@("Get-DFDevicePoolCompatibility","Submit-DFTestRun")
     "TestType"=@("Get-DFDevicePoolCompatibility")
@@ -6459,6 +6460,13 @@ $SSM_Completers = {
             break
         }
         
+        # Amazon.SimpleSystemsManagement.InventorySchemaDeleteOption
+        "Remove-SSMInventory/SchemaDeleteOption"
+        {
+            $v = "DeleteSchema","DisableSchema"
+            break
+        }
+        
         # Amazon.SimpleSystemsManagement.MaintenanceWindowResourceType
         "Register-SSMTargetWithMaintenanceWindow/ResourceType"
         {
@@ -6563,6 +6571,7 @@ $SSM_map = @{
     "PermissionType"=@("Edit-SSMDocumentPermission","Get-SSMDocumentPermission")
     "ResourceType"=@("Add-SSMResourceTag","Get-SSMResourceTag","Register-SSMTargetWithMaintenanceWindow","Remove-SSMResourceTag")
     "S3Destination_SyncFormat"=@("New-SSMResourceDataSync")
+    "SchemaDeleteOption"=@("Remove-SSMInventory")
     "SignalType"=@("Send-SSMAutomationSignal")
     "TaskInvocationParameters_RunCommand_DocumentHashType"=@("Register-SSMTaskWithMaintenanceWindow","Update-SSMMaintenanceWindowTask")
     "TaskInvocationParameters_RunCommand_NotificationConfig_NotificationType"=@("Register-SSMTaskWithMaintenanceWindow","Update-SSMMaintenanceWindowTask")

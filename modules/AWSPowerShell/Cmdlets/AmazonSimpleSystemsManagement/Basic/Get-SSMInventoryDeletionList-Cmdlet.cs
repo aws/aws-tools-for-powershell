@@ -22,53 +22,41 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SecretsManager;
-using Amazon.SecretsManager.Model;
+using Amazon.SimpleSystemsManagement;
+using Amazon.SimpleSystemsManagement.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SEC
+namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Lists all of the secrets that are stored by Secrets Manager in the AWS account. To
-    /// list the versions currently stored for a specific secret, use <a>ListSecretVersionIds</a>.
-    /// The encrypted fields <code>SecretString</code> and <code>SecretBinary</code> are not
-    /// included in the output. To get that information, call the <a>GetSecretValue</a> operation.
-    /// 
-    ///  <note><para>
-    /// Always check the <code>NextToken</code> response parameter when calling any of the
-    /// <code>List*</code> operations. These operations can occasionally return an empty or
-    /// shorter than expected list of results even when there are more results available.
-    /// When this happens, the <code>NextToken</code> response parameter contains a value
-    /// to pass to the next call to the same API to request the next part of the list.
-    /// </para></note><para><b>Minimum permissions</b></para><para>
-    /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para>
-    /// secretsmanager:ListSecrets
-    /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
-    /// To list the versions attached to a secret, use <a>ListSecretVersionIds</a>.
-    /// </para></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes a specific delete inventory operation.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "SECSecretList")]
-    [OutputType("Amazon.SecretsManager.Model.SecretListEntry")]
-    [AWSCmdlet("Calls the AWS Secrets Manager ListSecrets API operation.", Operation = new[] {"ListSecrets"})]
-    [AWSCmdletOutput("Amazon.SecretsManager.Model.SecretListEntry",
-        "This cmdlet returns a collection of SecretListEntry objects.",
-        "The service call response (type Amazon.SecretsManager.Model.ListSecretsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "SSMInventoryDeletionList")]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.InventoryDeletionStatusItem")]
+    [AWSCmdlet("Calls the AWS Systems Manager DescribeInventoryDeletions API operation.", Operation = new[] {"DescribeInventoryDeletions"})]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.InventoryDeletionStatusItem",
+        "This cmdlet returns a collection of InventoryDeletionStatusItem objects.",
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeInventoryDeletionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetSECSecretListCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
+    public partial class GetSSMInventoryDeletionListCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeletionId
+        /// <summary>
+        /// <para>
+        /// <para>Specify the delete inventory ID for which you want information. This ID was returned
+        /// by the <code>DeleteInventory</code> action.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String DeletionId { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>(Optional) Limits the number of results that you want to include in the response.
-        /// If you don't include this parameter, it defaults to a value that's specific to the
-        /// operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-        /// response element is present and has a value (isn't null). Include that value as the
-        /// <code>NextToken</code> request parameter in the next call to the operation to get
-        /// the next part of the results. Note that Secrets Manager might return fewer results
-        /// than the maximum even when there are more results available. You should check <code>NextToken</code>
-        /// after every operation to ensure that you receive all of the results.</para>
+        /// <para>The maximum number of items to return for this call. The call also returns a token
+        /// that you can specify in a subsequent call to get the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -82,10 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
-        /// response in a previous request that indicates that there's more output available.
-        /// In a subsequent call, set it to the value of the previous call's <code>NextToken</code>
-        /// response to indicate where the output should continue from.</para>
+        /// <para>A token to start the list. Use this token to get the next set of results. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -108,6 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.DeletionId = this.DeletionId;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -126,18 +112,29 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.SecretsManager.Model.ListSecretsRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.DescribeInventoryDeletionsRequest();
+            if (cmdletContext.DeletionId != null)
+            {
+                request.DeletionId = cmdletContext.DeletionId;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
+            int? _pageSize = 50;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
                 _nextMarker = cmdletContext.NextToken;
             }
             if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
             {
+                // The service has a maximum page size of 50. If the user has
+                // asked for more items than page max, and there is no page size
+                // configured, we rely on the service ignoring the set maximum
+                // and giving us 50 items back. If a page size is set, that will
+                // be used to configure the pagination.
+                // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
             bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
@@ -153,6 +150,20 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                         request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
                     
+                    if (AutoIterationHelpers.HasValue(_pageSize))
+                    {
+                        int correctPageSize;
+                        if (AutoIterationHelpers.IsSet(request.MaxResults))
+                        {
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
+                        }
+                        else
+                        {
+                            correctPageSize = _pageSize.Value;
+                        }
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
+                    }
+                    
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
                     
@@ -161,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.SecretList;
+                        object pipelineOutput = response.InventoryDeletions;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -170,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.SecretList.Count;
+                        int _receivedThisCall = response.InventoryDeletions.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -190,6 +201,15 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                     }
                     
                     ProcessOutput(output);
+                    // The service has a maximum page size of 50 and the user has set a retrieval limit.
+                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
+                    // what's left to match the user's request.
+                    
+                    var _remainingItems = _emitLimit - _retrievedSoFar;
+                    if (_remainingItems < _pageSize)
+                    {
+                        _emitLimit = _remainingItems;
+                    }
                 } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
                 
             }
@@ -213,16 +233,16 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         
         #region AWS Service Operation Call
         
-        private Amazon.SecretsManager.Model.ListSecretsResponse CallAWSServiceOperation(IAmazonSecretsManager client, Amazon.SecretsManager.Model.ListSecretsRequest request)
+        private Amazon.SimpleSystemsManagement.Model.DescribeInventoryDeletionsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeInventoryDeletionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Secrets Manager", "ListSecrets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DescribeInventoryDeletions");
             try
             {
                 #if DESKTOP
-                return client.ListSecrets(request);
+                return client.DescribeInventoryDeletions(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListSecretsAsync(request);
+                var task = client.DescribeInventoryDeletionsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -243,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DeletionId { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
         }

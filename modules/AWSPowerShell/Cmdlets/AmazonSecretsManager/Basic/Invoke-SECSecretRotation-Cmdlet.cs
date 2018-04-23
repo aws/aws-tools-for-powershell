@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// to match. After testing the new credentials, the function marks the new secret with
     /// the staging label <code>AWSCURRENT</code> so that your clients all immediately begin
     /// to use the new version. For more information about rotating secrets and how to configure
-    /// a Lambda function to rotate the secrets for your protected service, see <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/;asm-service-name;/latest/userguide/rotating-secrets.html">Rotating
+    /// a Lambda function to rotate the secrets for your protected service, see <a href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotating
     /// Secrets in AWS Secrets Manager</a> in the <i>AWS Secrets Manager User Guide</i>.
     /// </para><para>
     /// The rotation function must end with the versions of the secret in one of two states:
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// ensure idempotency. </para><para>If you use the AWS CLI or one of the AWS SDK to call this operation, then you can
         /// leave this parameter empty. The CLI or SDK generates a random UUID for you and includes
         /// that in the request for this parameter. If you don't use the SDK and instead generate
-        /// a raw HTTP request to the AWS Secrets Manager service endpoint, then you must generate
+        /// a raw HTTP request to the Secrets Manager service endpoint, then you must generate
         /// a <code>ClientRequestToken</code> yourself for new versions and include that value
         /// in the request.</para><para>You only need to specify your own value if you are implementing your own retry logic
         /// and want to ensure that a given secret is not created twice. We recommend that you

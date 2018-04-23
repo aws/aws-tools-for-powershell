@@ -29,23 +29,23 @@ namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
     /// Deletes an entire secret and all of its versions. You can optionally include a recovery
-    /// window during which you can restore the secret. If you don't provide a recovery window
+    /// window during which you can restore the secret. If you don't specify a recovery window
     /// value, the operation defaults to 30 days. Secrets Manager attaches a <code>DeletionDate</code>
     /// stamp to the secret that specifies the end of the recovery window. At the end of the
     /// recovery window, Secrets Manager deletes the secret permanently.
     /// 
     ///  
     /// <para>
-    /// At any time before recovery period ends, you can use <a>RestoreSecret</a> to remove
+    /// At any time before recovery window ends, you can use <a>RestoreSecret</a> to remove
     /// the <code>DeletionDate</code> and cancel the deletion of the secret.
     /// </para><para>
     /// You cannot access the encrypted secret information in any secret that is scheduled
-    /// for deletion. If you need to access that information, you can cancel the deletion
+    /// for deletion. If you need to access that information, you must cancel the deletion
     /// with <a>RestoreSecret</a> and then retrieve the information.
     /// </para><note><ul><li><para>
     /// There is no explicit operation to delete a version of a secret. Instead, remove all
     /// staging labels from the <code>VersionStage</code> field of a version. That marks the
-    /// version as deprecated and allows AWS Secrets Manager to delete it as needed. Versions
+    /// version as deprecated and allows Secrets Manager to delete it as needed. Versions
     /// that do not have any staging labels do not show up in <a>ListSecretVersionIds</a>
     /// unless you specify <code>IncludeDeprecated</code>.
     /// </para></li><li><para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
     /// To create a secret, use <a>CreateSecret</a>.
     /// </para></li><li><para>
-    /// To cancel deletion of a version of a secret before the recovery period has expired,
+    /// To cancel deletion of a version of a secret before the recovery window has expired,
     /// use <a>RestoreSecret</a>.
     /// </para></li></ul>
     /// </summary>
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter RecoveryWindowInDay
         /// <summary>
         /// <para>
-        /// <para>(Optional) Specifies the number of days that AWS Secrets Manager waits before it can
-        /// delete the secret.</para><para>This value can range from 7 to 30 days. The default value is 30.</para>
+        /// <para>(Optional) Specifies the number of days that Secrets Manager waits before it can delete
+        /// the secret.</para><para>This value can range from 7 to 30 days. The default value is 30.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

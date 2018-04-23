@@ -32,7 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// attribute at a time.
     /// 
     ///  
-    /// <para>
+    /// <para><b>Note: </b>Using this action to change the security groups associated with an elastic
+    /// network interface (ENI) attached to an instance in a VPC can result in an error if
+    /// the instance has more than one ENI. To change the security groups associated with
+    /// an ENI attached to an instance that has multiple ENIs, we recommend that you use the
+    /// <a>ModifyNetworkInterfaceAttribute</a> action.
+    /// </para><para>
     /// To modify some attributes, the instance must be stopped. For more information, see
     /// <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modifying
     /// Attributes of a Stopped Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.

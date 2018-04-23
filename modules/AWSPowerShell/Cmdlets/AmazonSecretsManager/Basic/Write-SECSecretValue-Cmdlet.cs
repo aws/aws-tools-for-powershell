@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// <code>SecretString</code> value or a new <code>SecretBinary</code> value.
     /// 
     ///  <note><para>
-    /// The AWS Secrets Manager console uses only the <code>SecretString</code> field. To
-    /// add binary data to a secret with the <code>SecretBinary</code> field you must use
-    /// the AWS CLI or one of the AWS SDKs.
+    /// The Secrets Manager console uses only the <code>SecretString</code> field. To add
+    /// binary data to a secret with the <code>SecretBinary</code> field you must use the
+    /// AWS CLI or one of the AWS SDKs.
     /// </para></note><ul><li><para>
     /// If this operation creates the first version for the secret then Secrets Manager automatically
     /// attaches the staging label <code>AWSCURRENT</code> to the new version.
@@ -54,16 +54,16 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// (because you included it in the <code>StagingLabels</code> parameter) then Secrets
     /// Manager also automatically moves the staging label <code>AWSPREVIOUS</code> to the
     /// version that <code>AWSCURRENT</code> was removed from.
-    /// </para></li></ul><important><ul><li><para>
+    /// </para></li></ul><note><ul><li><para>
     /// If you call an operation that needs to encrypt or decrypt the <code>SecretString</code>
     /// and <code>SecretBinary</code> for a secret in the same account as the calling user
-    /// and that secret doesn't specify a KMS encryption key, AWS Secrets Manager uses the
-    /// account's default AWS managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>.
-    /// If this key doesn't already exist in your account then AWS Secrets Manager creates
-    /// it for you automatically. All users in the same AWS account automatically have access
-    /// to use the default CMK. Note that if an AWS Secrets Manager API call results in AWS
-    /// having to create the account's AWS-managed CMK, it can result in a one-time significant
-    /// delay in returning the result.
+    /// and that secret doesn't specify a KMS encryption key, Secrets Manager uses the account's
+    /// default AWS managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>.
+    /// If this key doesn't already exist in your account then Secrets Manager creates it
+    /// for you automatically. All users in the same AWS account automatically have access
+    /// to use the default CMK. Note that if an Secrets Manager API call results in AWS having
+    /// to create the account's AWS-managed CMK, it can result in a one-time significant delay
+    /// in returning the result.
     /// </para></li><li><para>
     /// If the secret is in a different AWS account from the credentials calling an API that
     /// requires encryption or decryption of the secret value then you must create and use
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// you call an API that must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code>
     /// using credentials from a different account then the KMS key policy must grant cross-account
     /// access to that other account's user or role.
-    /// </para></li></ul></important><para><b>Minimum permissions</b></para><para>
+    /// </para></li></ul></note><para><b>Minimum permissions</b></para><para>
     /// To run this command, you must have the following permissions:
     /// </para><ul><li><para>
     /// secretsmanager:PutSecretValue
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <para>(Optional) Specifies a unique identifier for the new version of the secret. </para><note><para>If you use the AWS CLI or one of the AWS SDK to call this operation, then you can
         /// leave this parameter empty. The CLI or SDK generates a random UUID for you and includes
         /// that in the request. If you don't use the SDK and instead generate a raw HTTP request
-        /// to the AWS Secrets Manager service endpoint, then you must generate a <code>ClientRequestToken</code>
+        /// to the Secrets Manager service endpoint, then you must generate a <code>ClientRequestToken</code>
         /// yourself for new versions and include that value in the request. </para></note><para>This value helps ensure idempotency. Secrets Manager uses this value to prevent the
         /// accidental creation of duplicate versions if there are failures and retries during
         /// the Lambda rotation function's processing. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a>
@@ -145,8 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <para>
         /// <para>Specifies the secret to which you want to add a new version. You can specify either
         /// the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must
-        /// already exist.</para><para>The secret name can consist of uppercase letters, lowercase letters, digits, and any
-        /// of the following characters: /_+=.@-    Spaces are not permitted.</para>
+        /// already exist.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -179,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// process by the Lambda rotation function.</para><para>A staging label must be unique to a single version of the secret. If you specify a
         /// staging label that's already associated with a different version of the same secret
         /// then that staging label is automatically removed from the other version and attached
-        /// to this version.</para><para>If you do not specify a value for <code>VersionStages</code> then AWS Secrets Manager
+        /// to this version.</para><para>If you do not specify a value for <code>VersionStages</code> then Secrets Manager
         /// automatically moves the staging label <code>AWSCURRENT</code> to this new version.</para>
         /// </para>
         /// </summary>
