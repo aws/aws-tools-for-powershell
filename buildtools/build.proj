@@ -239,6 +239,7 @@
 		<Message Text="Building manifest patch util for desktop module"/>
 		<Exec Command="$(devenv2013) /Rebuild $(Configuration) $(RootPath)\buildtools\Tools\DesktopManifestPatcher\DesktopManifestPatcher.sln"/>
         
+        <!-- TEMP DISABLE WHILE WE RESOLVE > 4000 CMDLETS LIMIT ISSUE
         <Message Text="Patching desktop manifest to declare exported cmdlets" />
         <Exec Command="$(RootPath)\buildtools\Tools\DesktopManifestPatcher\DesktopManifestPatcher\bin\$(Configuration)\DesktopManifestPatcher.exe $(DesktopDeploymentArtifacts)" />
     
@@ -252,6 +253,7 @@
         <Exec Command="dotnet run $(NetCoreDeploymentArtifacts)"
               WorkingDirectory="$(RootPath)\buildtools\Tools\NetCoreManifestPatcher\src\NetCoreManifestPatcher" 
               />
+        -->
     </Target>
     
 	<Target Name="update-version" DependsOnTargets="build-tools" Condition="$(UpdateVersions)">	
