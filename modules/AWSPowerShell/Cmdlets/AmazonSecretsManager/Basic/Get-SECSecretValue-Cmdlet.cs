@@ -28,8 +28,8 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Retrieves the contents of the encrypted fields <code>SecretString</code> and <code>SecretBinary</code>
-    /// from the specified version of a secret.
+    /// Retrieves the contents of the encrypted fields <code>SecretString</code> or <code>SecretBinary</code>
+    /// from the specified version of a secret, whichever contains content.
     /// 
     ///  
     /// <para><b>Minimum permissions</b></para><para>

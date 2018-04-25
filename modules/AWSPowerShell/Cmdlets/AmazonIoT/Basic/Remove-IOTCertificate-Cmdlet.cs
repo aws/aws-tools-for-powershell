@@ -51,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter CertificateId
         /// <summary>
         /// <para>
-        /// <para>The ID of the certificate.</para>
+        /// <para>The ID of the certificate. (The last part of the certificate ARN contains the certificate
+        /// ID.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

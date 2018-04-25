@@ -42,7 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>The parameters for provisioning a thing.</para>
+        /// <para>The parameters for provisioning a thing. See <a href="http://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html">Programmatic
+        /// Provisioning</a> for more information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter TemplateBody
         /// <summary>
         /// <para>
-        /// <para>The provisioning template. </para>
+        /// <para>The provisioning template. See <a href="http://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html">Programmatic
+        /// Provisioning</a> for more information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

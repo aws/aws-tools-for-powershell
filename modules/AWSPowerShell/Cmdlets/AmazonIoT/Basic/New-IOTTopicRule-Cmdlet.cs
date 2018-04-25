@@ -98,6 +98,28 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public Amazon.IoT.CannedAccessControlList S3_CannedAcl { get; set; }
         #endregion
         
+        #region Parameter IotAnalytics_ChannelArn
+        /// <summary>
+        /// <para>
+        /// <para>(deprecated) The ARN of the IoT Analytics channel to which message data will be sent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TopicRulePayload_ErrorAction_IotAnalytics_ChannelArn")]
+        public System.String IotAnalytics_ChannelArn { get; set; }
+        #endregion
+        
+        #region Parameter IotAnalytics_ChannelName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the IoT Analytics channel to which message data will be sent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TopicRulePayload_ErrorAction_IotAnalytics_ChannelName")]
+        public System.String IotAnalytics_ChannelName { get; set; }
+        #endregion
+        
         #region Parameter Firehose_DeliveryStreamName
         /// <summary>
         /// <para>
@@ -427,6 +449,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Firehose_RoleArn { get; set; }
         #endregion
         
+        #region Parameter IotAnalytics_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the role which has a policy that grants IoT permission to send message
+        /// data via IoT Analytics (iotanalytics:BatchPutMessage).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TopicRulePayload_ErrorAction_IotAnalytics_RoleArn")]
+        public System.String IotAnalytics_RoleArn { get; set; }
+        #endregion
+        
         #region Parameter Kinesis_RoleArn
         /// <summary>
         /// <para>
@@ -716,6 +750,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.TopicRulePayload_ErrorAction_Firehose_DeliveryStreamName = this.Firehose_DeliveryStreamName;
             context.TopicRulePayload_ErrorAction_Firehose_RoleArn = this.Firehose_RoleArn;
             context.TopicRulePayload_ErrorAction_Firehose_Separator = this.Firehose_Separator;
+            context.TopicRulePayload_ErrorAction_IotAnalytics_ChannelArn = this.IotAnalytics_ChannelArn;
+            context.TopicRulePayload_ErrorAction_IotAnalytics_ChannelName = this.IotAnalytics_ChannelName;
+            context.TopicRulePayload_ErrorAction_IotAnalytics_RoleArn = this.IotAnalytics_RoleArn;
             context.TopicRulePayload_ErrorAction_Kinesis_PartitionKey = this.Kinesis_PartitionKey;
             context.TopicRulePayload_ErrorAction_Kinesis_RoleArn = this.Kinesis_RoleArn;
             context.TopicRulePayload_ErrorAction_Kinesis_StreamName = this.Kinesis_StreamName;
@@ -1005,6 +1042,51 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose != null)
             {
                 requestTopicRulePayload_topicRulePayload_ErrorAction.Firehose = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Firehose;
+                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
+            }
+            Amazon.IoT.Model.IotAnalyticsAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics = null;
+            
+             // populate IotAnalytics
+            bool requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalyticsIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics = new Amazon.IoT.Model.IotAnalyticsAction();
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelArn = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_IotAnalytics_ChannelArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelArn = cmdletContext.TopicRulePayload_ErrorAction_IotAnalytics_ChannelArn;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics.ChannelArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelArn;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalyticsIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelName = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_IotAnalytics_ChannelName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelName = cmdletContext.TopicRulePayload_ErrorAction_IotAnalytics_ChannelName;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics.ChannelName = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_ChannelName;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalyticsIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_RoleArn = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_IotAnalytics_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_RoleArn = cmdletContext.TopicRulePayload_ErrorAction_IotAnalytics_RoleArn;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics.RoleArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics_iotAnalytics_RoleArn;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalyticsIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalyticsIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction.IotAnalytics = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics;
                 requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
             }
             Amazon.IoT.Model.KinesisAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kinesis = null;
@@ -1620,6 +1702,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String TopicRulePayload_ErrorAction_Firehose_DeliveryStreamName { get; set; }
             public System.String TopicRulePayload_ErrorAction_Firehose_RoleArn { get; set; }
             public System.String TopicRulePayload_ErrorAction_Firehose_Separator { get; set; }
+            public System.String TopicRulePayload_ErrorAction_IotAnalytics_ChannelArn { get; set; }
+            public System.String TopicRulePayload_ErrorAction_IotAnalytics_ChannelName { get; set; }
+            public System.String TopicRulePayload_ErrorAction_IotAnalytics_RoleArn { get; set; }
             public System.String TopicRulePayload_ErrorAction_Kinesis_PartitionKey { get; set; }
             public System.String TopicRulePayload_ErrorAction_Kinesis_RoleArn { get; set; }
             public System.String TopicRulePayload_ErrorAction_Kinesis_StreamName { get; set; }

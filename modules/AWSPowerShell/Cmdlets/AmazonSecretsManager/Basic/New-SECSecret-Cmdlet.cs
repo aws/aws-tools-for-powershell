@@ -41,14 +41,14 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// Versions without a staging label are considered deprecated and are not included in
     /// the list.
     /// </para><para>
-    /// You provide the secret data to be encrypted by putting text in the <code>SecretString</code>
-    /// parameter or binary data in the <code>SecretBinary</code> parameter. If you include
-    /// <code>SecretString</code> or <code>SecretBinary</code> then Secrets Manager also creates
-    /// an initial secret version and, if you don't supply a staging label, automatically
-    /// maps the new version's ID to the staging label <code>AWSCURRENT</code>.
+    /// You provide the secret data to be encrypted by putting text in either the <code>SecretString</code>
+    /// parameter or binary data in the <code>SecretBinary</code> parameter, but not both.
+    /// If you include <code>SecretString</code> or <code>SecretBinary</code> then Secrets
+    /// Manager also creates an initial secret version and, if you don't supply a staging
+    /// label, automatically maps the new version's ID to the staging label <code>AWSCURRENT</code>.
     /// </para><note><ul><li><para>
     /// If you call an operation that needs to encrypt or decrypt the <code>SecretString</code>
-    /// and <code>SecretBinary</code> for a secret in the same account as the calling user
+    /// or <code>SecretBinary</code> for a secret in the same account as the calling user
     /// and that secret doesn't specify a KMS encryption key, Secrets Manager uses the account's
     /// default AWS managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>.
     /// If this key doesn't already exist in your account then Secrets Manager creates it
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>(Optional) Specifies the ARN or alias of the AWS KMS customer master key (CMK) to
-        /// be used to encrypt the <code>SecretString</code> and <code>SecretBinary</code> values
+        /// be used to encrypt the <code>SecretString</code> or <code>SecretBinary</code> values
         /// in the versions stored in this secret.</para><para>If you don't specify this value, then Secrets Manager defaults to using the AWS account's
         /// default CMK (the one named <code>aws/secretsmanager</code>). If a KMS CMK with that
         /// name doesn't yet exist, then Secrets Manager creates it for you automatically the
@@ -173,9 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <para>(Optional) Specifies binary data that you want to encrypt and store in the new version
         /// of the secret. To use this parameter in the command-line tools, we recommend that
         /// you store your binary data in a file and then use the appropriate technique for your
-        /// tool to pass the contents of the file as a parameter.</para><para>Either <code>SecretString</code>, <code>SecretBinary</code>, or both must have a value.
-        /// They cannot both be empty.</para><para>This <code>SecretBinary</code> value is stored separately from the <code>SecretString</code>,
-        /// but the two parameters jointly share a maximum size limit.</para><para>This parameter is not available using the Secrets Manager console. It can be accessed
+        /// tool to pass the contents of the file as a parameter.</para><para>Either <code>SecretString</code> or <code>SecretBinary</code> must have a value, but
+        /// not both. They cannot both be empty.</para><para>This parameter is not available using the Secrets Manager console. It can be accessed
         /// only by using the AWS CLI or one of the AWS SDKs.</para>
         /// </para>
         /// </summary>
@@ -187,9 +186,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>(Optional) Specifies text data that you want to encrypt and store in this new version
-        /// of the secret.</para><para>Either <code>SecretString</code>, <code>SecretBinary</code>, or both must have a value.
-        /// They cannot both be empty.</para><para>This string value is stored separately from the <code>SecretBinary</code>, but the
-        /// two parameters jointly share a maximum size limit.</para><para>If you create a secret by using the Secrets Manager console then Secrets Manager puts
+        /// of the secret.</para><para>Either <code>SecretString</code> or <code>SecretBinary</code> must have a value, but
+        /// not both. They cannot both be empty.</para><para>If you create a secret by using the Secrets Manager console then Secrets Manager puts
         /// the protected secret text in only the <code>SecretString</code> parameter. The Secrets
         /// Manager console stores the information as a JSON structure of key/value pairs that
         /// the Lambda rotation function knows how to parse.</para><para>For storing multiple values, we recommend that you use a JSON text string argument

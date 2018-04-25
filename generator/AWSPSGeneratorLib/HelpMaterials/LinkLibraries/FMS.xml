@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<links>
+  <set target="*">
+	<link name="Developer Guide">http://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html</link>
+	<link name="Service API Reference">https://docs.aws.amazon.com/fms/2018-01-01/APIReference/</link>
+  </set>
+</links>
