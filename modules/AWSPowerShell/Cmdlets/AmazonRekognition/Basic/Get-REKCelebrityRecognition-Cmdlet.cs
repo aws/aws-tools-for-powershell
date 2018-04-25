@@ -45,7 +45,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// they are detected in an array (<code>Celebrities</code>) of objects. Each <code>CelebrityRecognition</code>
     /// contains information about the celebrity in a object and the time, <code>Timestamp</code>,
     /// the celebrity was detected. 
-    /// </para><para>
+    /// </para><note><para><code>GetCelebrityRecognition</code> only returns the default facial attributes (<code>BoundingBox</code>,
+    /// <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and <code>Quality</code>).
+    /// The other facial attributes listed in the <code>Face</code> object of the following
+    /// response syntax are not returned. For more information, see . 
+    /// </para></note><para>
     /// By default, the <code>Celebrities</code> array is sorted by time (milliseconds from
     /// the start of the video). You can also sort the array by celebrity by specifying the
     /// value <code>ID</code> in the <code>SortBy</code> input parameter.
@@ -100,8 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of celebrities you want Rekognition Video to return in the response.
-        /// The default is 1000.</para>
+        /// <para>Maximum number of results to return per paginated call. The largest value you can
+        /// specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results
+        /// is returned. The default value is 1000.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

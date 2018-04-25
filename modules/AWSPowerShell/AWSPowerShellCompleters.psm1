@@ -6950,4 +6950,31 @@ $WM_map = @{
 
 _awsArgumentCompleterRegistration $WM_Completers $WM_map
 
+
+# Argument completions for service AWS X-Ray
+$XR_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.XRay.EncryptionType
+        "Write-XREncryptionConfig/Type"
+        {
+            $v = "KMS","NONE"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$XR_map = @{
+    "Type"=@("Write-XREncryptionConfig")
+}
+
+_awsArgumentCompleterRegistration $XR_Completers $XR_map
+
 # end auto-generated service completers

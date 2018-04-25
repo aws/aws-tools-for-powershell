@@ -34,7 +34,7 @@
 		"AWSSDK.CloudWatchLogs": "3.3.4.8",
 		"AWSSDK.CodeBuild": "3.3.9.3",
 		"AWSSDK.CodeCommit": "3.3.4.5",
-		"AWSSDK.CodeDeploy": "3.3.9.5",
+		"AWSSDK.CodeDeploy": "3.3.10",
 		"AWSSDK.CodePipeline": "3.3.3.2",
 		"AWSSDK.CodeStar": "3.3.1.8",
 		"AWSSDK.CognitoIdentity": "3.3.2.22",
@@ -100,7 +100,7 @@
 		"AWSSDK.Pricing": "3.3.0.6",
 		"AWSSDK.RDS": "3.3.22.2",
 		"AWSSDK.Redshift": "3.3.4.4",
-		"AWSSDK.Rekognition": "3.3.8.5",
+		"AWSSDK.Rekognition": "3.3.8.6",
 		"AWSSDK.ResourceGroups": "3.3.0.5",
 		"AWSSDK.ResourceGroupsTaggingAPI": "3.3.1.11",
 		"AWSSDK.Route53": "3.3.15.5",
@@ -129,7 +129,7 @@
 		"AWSSDK.WorkDocs": "3.3.4.5",
 		"AWSSDK.WorkMail": "3.3.1.2",
 		"AWSSDK.WorkSpaces": "3.3.1.5",
-		"AWSSDK.XRay": "3.3.1.11"
+		"AWSSDK.XRay": "3.3.2"
  	},
 	"buildOptions": {
 		"outputName": "AWSPowerShell.NetCore",

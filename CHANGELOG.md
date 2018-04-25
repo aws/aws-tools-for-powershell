@@ -1,4 +1,4 @@
-### 3.3.269.0 (2018-04-25)
+### 3.3.270.0 (2018-04-25)
   * The CmdletsToExport property in the module manifest has been temporarily set to '*-*' instead of the individual cmdlet names to work around a limitation publishing modules that contain over 4000 cmdlets to the PowerShell Gallery. The net effect of this change is to disable tab completion for cmdlet names unless the module is explicitly imported. We are investigating approaches to work around or fix this issue and will re-instate the list of cmdlets as soon as possible.
   * AWS Secrets Manager
     * Added cmdlets to support the new AWS Secrets Manager service that enables you to store, manage, and retrieve, secrets. Cmdlets for the service have the noun prefix SEC and can be listed with the command *Get-AWSCmdletName -Service SEC*.
@@ -42,6 +42,8 @@
     * Added support for specifying timeout when submitting jobs or registering job definitions.
   * AWS Systems Manager
     * Added cmdlets Get-SSMInventoryDeletionList (DescribeInventoryDeletions API) and Remove-SSMInventory (DeleteInventory API).
+  * AWS X-Ray
+    * Added cmdlets Get-XREncryptionConfig (GetEncryptionConfig API) and Write-XREncryptionConfig (PutEncryptionConfig API) to support managing data encryption settings. Use Write-XREncryptionConfig to configure X-Ray to use an AWS Key Management Service customer master key to encrypt trace data at rest.
 
 ### 3.3.253.0 (2018-03-26)
   * Amazon WorkMail

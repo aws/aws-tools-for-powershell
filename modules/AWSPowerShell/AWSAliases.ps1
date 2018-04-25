@@ -5776,9 +5776,11 @@ Set-Alias -Name WM-ResetPassword -Value Reset-WMPassword
 Set-Alias -Name WM-UpdatePrimaryEmailAddress -Value Update-WMPrimaryEmailAddress
 Set-Alias -Name WM-UpdateResource -Value Update-WMResource
 Set-Alias -Name XR-BatchGetTraces -Value Get-XRTraceBatch
+Set-Alias -Name XR-GetEncryptionConfig -Value Get-XREncryptionConfig
 Set-Alias -Name XR-GetServiceGraph -Value Get-XRServiceGraph
 Set-Alias -Name XR-GetTraceGraph -Value Get-XRTraceGraph
 Set-Alias -Name XR-GetTraceSummaries -Value Get-XRTraceSummary
+Set-Alias -Name XR-PutEncryptionConfig -Value Write-XREncryptionConfig
 Set-Alias -Name Put-XRTelemetryRecord -Value Write-XRTelemetryRecord
 Set-Alias -Name XR-PutTelemetryRecords -Value Write-XRTelemetryRecord
 Set-Alias -Name Put-XRTraceSegment -Value Write-XRTraceSegment

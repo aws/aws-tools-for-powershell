@@ -98,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of content moderation labels to return. The default is 1000.</para>
+        /// <para>Maximum number of results to return per paginated call. The largest value you can
+        /// specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results
+        /// is returned. The default value is 1000.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

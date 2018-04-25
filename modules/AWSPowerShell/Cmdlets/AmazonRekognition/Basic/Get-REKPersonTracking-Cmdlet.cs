@@ -42,7 +42,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// the job identifier (<code>JobId</code>) from the initial call to <code>StartPersonTracking</code>.
     /// </para><para><code>GetPersonTracking</code> returns an array, <code>Persons</code>, of tracked
     /// persons and the time(s) they were tracked in the video. 
-    /// </para><para>
+    /// </para><note><para><code>GetPersonTracking</code> only returns the default facial attributes (<code>BoundingBox</code>,
+    /// <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and <code>Quality</code>).
+    /// The other facial attributes listed in the <code>Face</code> object of the following
+    /// response syntax are not returned. For more information, see . 
+    /// </para></note><para>
     /// By default, the array is sorted by the time(s) a person is tracked in the video. You
     /// can sort by tracked persons by specifying <code>INDEX</code> for the <code>SortBy</code>
     /// input parameter.
@@ -92,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of tracked persons to return. The default is 1000. </para>
+        /// <para>Maximum number of results to return per paginated call. The largest value you can
+        /// specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results
+        /// is returned. The default value is 1000.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

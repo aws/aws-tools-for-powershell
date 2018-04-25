@@ -45,8 +45,13 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para><para>
     /// The search results are retured in an array, <code>Persons</code>, of objects. Each<code>PersonMatch</code>
     /// element contains details about the matching faces in the input collection, person
-    /// information for the matched person, and the time the person was matched in the video.
-    /// </para><para>
+    /// information (facial attributes, bounding boxes, and person identifer) for the matched
+    /// person, and the time the person was matched in the video.
+    /// </para><note><para><code>GetFaceSearch</code> only returns the default facial attributes (<code>BoundingBox</code>,
+    /// <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and <code>Quality</code>).
+    /// The other facial attributes listed in the <code>Face</code> object of the following
+    /// response syntax are not returned. For more information, see . 
+    /// </para></note><para>
     /// By default, the <code>Persons</code> array is sorted by the time, in milliseconds
     /// from the start of the video, persons are matched. You can also sort by persons by
     /// specifying <code>INDEX</code> for the <code>SORTBY</code> input parameter.
@@ -88,8 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of search results you want Rekognition Video to return in the response.
-        /// The default is 1000.</para>
+        /// <para>Maximum number of results to return per paginated call. The largest value you can
+        /// specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results
+        /// is returned. The default value is 1000.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -72,9 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para>
         /// <para>Information about when to reroute traffic from an original environment to a replacement
         /// environment in a blue/green deployment.</para><ul><li><para>CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after
-        /// the new application revision is installed on the instances in the replacement environment.</para></li><li><para>STOP_DEPLOYMENT: Do not register new instances with load balancer unless traffic is
-        /// rerouted manually. If traffic is not rerouted manually before the end of the specified
-        /// wait period, the deployment status is changed to Stopped.</para></li></ul>
+        /// the new application revision is installed on the instances in the replacement environment.</para></li><li><para>STOP_DEPLOYMENT: Do not register new instances with a load balancer unless traffic
+        /// rerouting is started using <a>ContinueDeployment</a>. If traffic rerouting is not
+        /// started before the end of the specified wait period, the deployment status is changed
+        /// to Stopped.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
