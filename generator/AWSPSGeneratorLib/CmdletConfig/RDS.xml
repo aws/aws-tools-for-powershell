@@ -87,7 +87,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="BacktrackDBCluster" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Reset" Noun="DBCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
+            <Params>
+                <Param Name="Force" NewName="EnforceReset" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" AutoConvert="None" />
+            </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="CopyDBClusterParameterGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SourceDBClusterParameterGroupIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
