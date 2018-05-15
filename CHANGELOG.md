@@ -1,3 +1,47 @@
+### 3.3.280.0 (2018-05-15)
+  * Alexa for Business
+    * Added operations for creating and managing address books of phone contacts for use in A4B managed shared devices.
+    * Added Get-ALXBDeviceEventList to paginated list of device events (such as ConnectionStatus).
+    * Added ConnectionStatus param to Find-ALXBDevice and Start-ALXBDeviceSync.
+    * Added new Device status "DEREGISTERED". This release also adds DEVICE_STATUS as the new DeviceEventType.
+  * AWS Certificate Manager
+    * Updated documentation notes to
+      * Replace incorrect userguide links in Add-ACMCertificateTag, Import-ACMCertificate, New-ACMCertificate, Send-ACMValidationEmail and Update-ACMCertificateOption with the correct links.
+      * Added comments in Export-ACMCertificate detailing the issuer of a private certificate as the Private Certificate Authority (CA). 
+  * AWS CodeBuild
+    * Added support for more override fields such as CertificateOverride, EnvironmentTypeOverride for Start-CBBuild
+    * Added support for idempotency token field (IdempotencyToken) for Start-CBBuild
+  * AWS CodePipeline
+    * Added new cmdlets to support webhooks in AWS CodePipeline. A webhook is an HTTP notification that detects events in another tool, such as a GitHub repository, and connects those external events to a pipeline. AWS CodePipeline creates a webhook when you use the console to create or edit your GitHub pipeline and deletes your webhook when you delete your pipeline.
+  * Amazon DynamoDB
+    * Adds two new cmdlets Get-DDBGlobalTableSetting and Update-DDBGlobalTableSetting to get region specific settings for a global table and update settings for a global table respectively. This update introduces new constraints in the New-DDBGlobalTable and Update-DDBGlobalTable. Tables must have the same write capacity units. If Global Secondary Indexes exist then they must have the same write capacity units and key schema.
+  * Amazon EC2
+    * Added EC2 Fleet cmdlets. Amazon EC2 Fleet is a new feature that simplifies the provisioning of Amazon EC2 capacity across different EC2 instance types, Availability Zones, and the On-Demand, Reserved Instance, and Spot Instance purchase models. With a single call, you can now provision capacity to achieve desired scale, performance, and cost.
+  * Amazon Elasticsearch
+    * Added Get-ESReservedElasticsearchInstanceList, Get-ESReservedElasticsearchInstanceOfferingList and New-ESReservedElasticsearchInstanceOffering to support Reserved Instances on AWS Elasticsearch.
+  * Amazon GameLift
+    * AutoScaling Target Tracking scaling simplification along with Start-GMLFleetActions and Stop-GMLFleetActions to suspend and resume automatic scaling at will.
+  * Amazon Guard Duty
+    * Added new cmdlets for Amazon GuardDuty for creating and managing filters. For each filter, you can specify a criteria and an action. The action you specify is applied to findings that match the specified criteria.
+  * Amazon Kinesis Firehose
+    * With this release, Amazon Kinesis Data Firehose can convert the format of your input data from JSON to Apache Parquet or Apache ORC before storing the data in Amazon S3. Parquet and ORC are columnar data formats that save space and enable faster queries compared to row-oriented formats like JSON.
+  * AWS Organizations
+    * Documentation updates for organizations
+  * Amazon Relational Database Service
+    * Changes to support the Aurora MySQL Backtrack feature. Cmdlets added are Reset-RDSDBCluster and Get-RDSDBClusterBacktrackList
+    * Correction to the documentation about copying unencrypted snapshots.
+  * Amazon Route53 Domains
+    * This release adds a SubmittedSince attribute to Get-R53DOperationList, so you can list operations that were submitted after a specified date and time.
+  * Amazon SageMaker
+    * SageMaker has added support for VPC configuration for both Endpoints and Training Jobs. This allows you to connect from the instances running the Endpoint or Training Job to your VPC and any resources reachable in the VPC rather than being restricted to resources that were internet accessible.
+  * AWS Secrets Manager
+    * Documentation updates for Secret Manager
+  * Amazon Simple Systems Management
+    * Added support for new parameter, DocumentVersion, for Send-SSMCommand. Users can now specify version of SSM document to be executed on the target(s).
+  * Amazon WorkSpaces
+    * Added new IP Access Control cmdlets. You can now create/delete IP Access Control Groups, add/delete/update rules for IP Access Control Groups, Associate/Disassociate IP Access Control Groups to/from a WorkSpaces Directory, and Describe IP Based Access Control Groups.
+    * Added cmdlet Edit-WKSWorkspaceStateto change the state of a Workspace, and the ADMIN_MAINTENANCE WorkSpace state.
+
 ### 3.3.270.0 (2018-04-25)
   * The CmdletsToExport property in the module manifest has been temporarily set to '*-*' instead of the individual cmdlet names to work around a limitation publishing modules that contain over 4000 cmdlets to the PowerShell Gallery. The net effect of this change is to disable tab completion for cmdlet names unless the module is explicitly imported. We are investigating approaches to work around or fix this issue and will re-instate the list of cmdlets as soon as possible.
   * AWS Secrets Manager
