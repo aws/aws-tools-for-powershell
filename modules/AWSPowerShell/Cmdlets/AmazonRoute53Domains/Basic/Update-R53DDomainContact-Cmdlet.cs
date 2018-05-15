@@ -28,9 +28,8 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// This operation updates the contact information for a particular domain. Information
-    /// for at least one contact (registrant, administrator, or technical) must be supplied
-    /// for update.
+    /// This operation updates the contact information for a particular domain. You must specify
+    /// information for at least one contact: registrant, administrator, or technical.
     /// 
     ///  
     /// <para>

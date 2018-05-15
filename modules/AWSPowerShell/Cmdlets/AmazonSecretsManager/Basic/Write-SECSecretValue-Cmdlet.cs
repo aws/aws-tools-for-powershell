@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// <summary>
     /// Stores a new encrypted secret value in the specified secret. To do this, the operation
     /// creates a new version and attaches it to the secret. The version can contain a new
-    /// <code>SecretString</code> value or a new <code>SecretBinary</code> value.
+    /// <code>SecretString</code> value or a new <code>SecretBinary</code> value. You can
+    /// also specify the staging labels that are initially attached to the new version.
     /// 
     ///  <note><para>
     /// The Secrets Manager console uses only the <code>SecretString</code> field. To add
@@ -41,19 +42,19 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// attaches the staging label <code>AWSCURRENT</code> to the new version.
     /// </para></li><li><para>
     /// If another version of this secret already exists, then this operation does not automatically
-    /// move any staging labels other than those that you specify in the <code>VersionStages</code>
+    /// move any staging labels other than those that you explicitly specify in the <code>VersionStages</code>
     /// parameter.
+    /// </para></li><li><para>
+    /// If this operation moves the staging label <code>AWSCURRENT</code> from another version
+    /// to this version (because you included it in the <code>StagingLabels</code> parameter)
+    /// then Secrets Manager also automatically moves the staging label <code>AWSPREVIOUS</code>
+    /// to the version that <code>AWSCURRENT</code> was removed from.
     /// </para></li><li><para>
     /// This operation is idempotent. If a version with a <code>SecretVersionId</code> with
     /// the same value as the <code>ClientRequestToken</code> parameter already exists and
     /// you specify the same secret data, the operation succeeds but does nothing. However,
     /// if the secret data is different, then the operation fails because you cannot modify
     /// an existing version; you can only create new ones.
-    /// </para></li><li><para>
-    /// If this operation moves the staging label <code>AWSCURRENT</code> to this version
-    /// (because you included it in the <code>StagingLabels</code> parameter) then Secrets
-    /// Manager also automatically moves the staging label <code>AWSPREVIOUS</code> to the
-    /// version that <code>AWSCURRENT</code> was removed from.
     /// </para></li></ul><note><ul><li><para>
     /// If you call an operation that needs to encrypt or decrypt the <code>SecretString</code>
     /// or <code>SecretBinary</code> for a secret in the same account as the calling user
@@ -72,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// the secret or when you update it by including it in the <code>KMSKeyId</code>. If
     /// you call an API that must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code>
     /// using credentials from a different account then the KMS key policy must grant cross-account
-    /// access to that other account's user or role.
+    /// access to that other account's user or role for both the kms:GenerateDataKey and kms:Decrypt
+    /// operations.
     /// </para></li></ul></note><para><b>Minimum permissions</b></para><para>
     /// To run this command, you must have the following permissions:
     /// </para><ul><li><para>

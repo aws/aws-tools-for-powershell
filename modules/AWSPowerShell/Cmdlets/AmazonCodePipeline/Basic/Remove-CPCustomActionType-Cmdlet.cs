@@ -32,8 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// the action is marked for deletion. Only used for custom actions.
     /// 
     ///  <important><para>
-    /// You cannot recreate a custom action after it has been deleted unless you increase
-    /// the version number of the action.
+    /// To re-create a custom action after it has been deleted you must use a string in the
+    /// version field that has never been used before. This string can be an incremented version
+    /// number, for example. To restore a deleted custom action, use a JSON file that is identical
+    /// to the deleted action, including the original string in the version field.
     /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "CPCustomActionType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

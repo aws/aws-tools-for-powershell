@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The identifiers of the WorkSpaces.</para>
+        /// <para>The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Resets a device and its account to the known default settings by clearing all information
+    /// Resets a device and its account to the known default settings, by clearing all information
     /// and settings set by previous users.
     /// </summary>
     [Cmdlet("Start", "ALXBDeviceSync", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

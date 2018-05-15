@@ -51,6 +51,72 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public Amazon.AppSync.AuthenticationType AuthenticationType { get; set; }
         #endregion
         
+        #region Parameter OpenIDConnectConfig_AuthTTL
+        /// <summary>
+        /// <para>
+        /// <para>The number of milliseconds a token is valid after being authenticated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int64 OpenIDConnectConfig_AuthTTL { get; set; }
+        #endregion
+        
+        #region Parameter OpenIDConnectConfig_ClientId
+        /// <summary>
+        /// <para>
+        /// <para>The client identifier of the Relying party at the OpenID Provider. This identifier
+        /// is typically obtained when the Relying party is registered with the OpenID Provider.
+        /// You can specify a regular expression so the AWS AppSync can validate against multiple
+        /// client identifiers at a time</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String OpenIDConnectConfig_ClientId { get; set; }
+        #endregion
+        
+        #region Parameter LogConfig_CloudWatchLogsRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The service role that AWS AppSync will assume to publish to Amazon CloudWatch logs
+        /// in your account. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String LogConfig_CloudWatchLogsRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter LogConfig_FieldLogLevel
+        /// <summary>
+        /// <para>
+        /// <para>The field logging level. Values can be NONE, ERROR, ALL. </para><ul><li><para><b>NONE</b>: No field-level logs are captured.</para></li><li><para><b>ERROR</b>: Logs the following information only for the fields that are in error:</para><ul><li><para>The error section in the server response.</para></li><li><para>Field-level errors.</para></li><li><para>The generated request/response functions that got resolved for error fields.</para></li></ul></li><li><para><b>ALL</b>: The following information is logged for all fields in the query:</para><ul><li><para>Field-level tracing information.</para></li><li><para>The generated request/response functions that got resolved for each field.</para></li></ul></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.AppSync.FieldLogLevel")]
+        public Amazon.AppSync.FieldLogLevel LogConfig_FieldLogLevel { get; set; }
+        #endregion
+        
+        #region Parameter OpenIDConnectConfig_IatTTL
+        /// <summary>
+        /// <para>
+        /// <para>The number of milliseconds a token is valid after being issued to a user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int64 OpenIDConnectConfig_IatTTL { get; set; }
+        #endregion
+        
+        #region Parameter OpenIDConnectConfig_Issuer
+        /// <summary>
+        /// <para>
+        /// <para>The issuer for the open id connect configuration. The issuer returned by discovery
+        /// MUST exactly match the value of iss in the ID Token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String OpenIDConnectConfig_Issuer { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -101,7 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             PreExecutionContextLoad(context);
             
             context.AuthenticationType = this.AuthenticationType;
+            context.LogConfig_CloudWatchLogsRoleArn = this.LogConfig_CloudWatchLogsRoleArn;
+            context.LogConfig_FieldLogLevel = this.LogConfig_FieldLogLevel;
             context.Name = this.Name;
+            if (ParameterWasBound("OpenIDConnectConfig_AuthTTL"))
+                context.OpenIDConnectConfig_AuthTTL = this.OpenIDConnectConfig_AuthTTL;
+            context.OpenIDConnectConfig_ClientId = this.OpenIDConnectConfig_ClientId;
+            if (ParameterWasBound("OpenIDConnectConfig_IatTTL"))
+                context.OpenIDConnectConfig_IatTTL = this.OpenIDConnectConfig_IatTTL;
+            context.OpenIDConnectConfig_Issuer = this.OpenIDConnectConfig_Issuer;
             context.UserPoolConfig = this.UserPoolConfig;
             
             // allow further manipulation of loaded context prior to processing
@@ -123,9 +197,87 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             {
                 request.AuthenticationType = cmdletContext.AuthenticationType;
             }
+            
+             // populate LogConfig
+            bool requestLogConfigIsNull = true;
+            request.LogConfig = new Amazon.AppSync.Model.LogConfig();
+            System.String requestLogConfig_logConfig_CloudWatchLogsRoleArn = null;
+            if (cmdletContext.LogConfig_CloudWatchLogsRoleArn != null)
+            {
+                requestLogConfig_logConfig_CloudWatchLogsRoleArn = cmdletContext.LogConfig_CloudWatchLogsRoleArn;
+            }
+            if (requestLogConfig_logConfig_CloudWatchLogsRoleArn != null)
+            {
+                request.LogConfig.CloudWatchLogsRoleArn = requestLogConfig_logConfig_CloudWatchLogsRoleArn;
+                requestLogConfigIsNull = false;
+            }
+            Amazon.AppSync.FieldLogLevel requestLogConfig_logConfig_FieldLogLevel = null;
+            if (cmdletContext.LogConfig_FieldLogLevel != null)
+            {
+                requestLogConfig_logConfig_FieldLogLevel = cmdletContext.LogConfig_FieldLogLevel;
+            }
+            if (requestLogConfig_logConfig_FieldLogLevel != null)
+            {
+                request.LogConfig.FieldLogLevel = requestLogConfig_logConfig_FieldLogLevel;
+                requestLogConfigIsNull = false;
+            }
+             // determine if request.LogConfig should be set to null
+            if (requestLogConfigIsNull)
+            {
+                request.LogConfig = null;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate OpenIDConnectConfig
+            bool requestOpenIDConnectConfigIsNull = true;
+            request.OpenIDConnectConfig = new Amazon.AppSync.Model.OpenIDConnectConfig();
+            System.Int64? requestOpenIDConnectConfig_openIDConnectConfig_AuthTTL = null;
+            if (cmdletContext.OpenIDConnectConfig_AuthTTL != null)
+            {
+                requestOpenIDConnectConfig_openIDConnectConfig_AuthTTL = cmdletContext.OpenIDConnectConfig_AuthTTL.Value;
+            }
+            if (requestOpenIDConnectConfig_openIDConnectConfig_AuthTTL != null)
+            {
+                request.OpenIDConnectConfig.AuthTTL = requestOpenIDConnectConfig_openIDConnectConfig_AuthTTL.Value;
+                requestOpenIDConnectConfigIsNull = false;
+            }
+            System.String requestOpenIDConnectConfig_openIDConnectConfig_ClientId = null;
+            if (cmdletContext.OpenIDConnectConfig_ClientId != null)
+            {
+                requestOpenIDConnectConfig_openIDConnectConfig_ClientId = cmdletContext.OpenIDConnectConfig_ClientId;
+            }
+            if (requestOpenIDConnectConfig_openIDConnectConfig_ClientId != null)
+            {
+                request.OpenIDConnectConfig.ClientId = requestOpenIDConnectConfig_openIDConnectConfig_ClientId;
+                requestOpenIDConnectConfigIsNull = false;
+            }
+            System.Int64? requestOpenIDConnectConfig_openIDConnectConfig_IatTTL = null;
+            if (cmdletContext.OpenIDConnectConfig_IatTTL != null)
+            {
+                requestOpenIDConnectConfig_openIDConnectConfig_IatTTL = cmdletContext.OpenIDConnectConfig_IatTTL.Value;
+            }
+            if (requestOpenIDConnectConfig_openIDConnectConfig_IatTTL != null)
+            {
+                request.OpenIDConnectConfig.IatTTL = requestOpenIDConnectConfig_openIDConnectConfig_IatTTL.Value;
+                requestOpenIDConnectConfigIsNull = false;
+            }
+            System.String requestOpenIDConnectConfig_openIDConnectConfig_Issuer = null;
+            if (cmdletContext.OpenIDConnectConfig_Issuer != null)
+            {
+                requestOpenIDConnectConfig_openIDConnectConfig_Issuer = cmdletContext.OpenIDConnectConfig_Issuer;
+            }
+            if (requestOpenIDConnectConfig_openIDConnectConfig_Issuer != null)
+            {
+                request.OpenIDConnectConfig.Issuer = requestOpenIDConnectConfig_openIDConnectConfig_Issuer;
+                requestOpenIDConnectConfigIsNull = false;
+            }
+             // determine if request.OpenIDConnectConfig should be set to null
+            if (requestOpenIDConnectConfigIsNull)
+            {
+                request.OpenIDConnectConfig = null;
             }
             if (cmdletContext.UserPoolConfig != null)
             {
@@ -196,7 +348,13 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.AppSync.AuthenticationType AuthenticationType { get; set; }
+            public System.String LogConfig_CloudWatchLogsRoleArn { get; set; }
+            public Amazon.AppSync.FieldLogLevel LogConfig_FieldLogLevel { get; set; }
             public System.String Name { get; set; }
+            public System.Int64? OpenIDConnectConfig_AuthTTL { get; set; }
+            public System.String OpenIDConnectConfig_ClientId { get; set; }
+            public System.Int64? OpenIDConnectConfig_IatTTL { get; set; }
+            public System.String OpenIDConnectConfig_Issuer { get; set; }
             public Amazon.AppSync.Model.UserPoolConfig UserPoolConfig { get; set; }
         }
         

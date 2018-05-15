@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs.
     /// You can create one data feed per AWS account. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
-    /// Instance Data Feed</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// Instance Data Feed</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
     /// </summary>
     [Cmdlet("New", "EC2SpotDatafeedSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.SpotDatafeedSubscription")]

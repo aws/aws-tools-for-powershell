@@ -38,10 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// </para><para>
     /// To check the state of a delivery stream, use <a>DescribeDeliveryStream</a>.
     /// </para><para>
-    /// While the delivery stream is <code>DELETING</code> state, the service may continue
-    /// to accept the records, but the service doesn't make any guarantees with respect to
-    /// delivering the data. Therefore, as a best practice, you should first stop any applications
-    /// that are sending records before deleting a delivery stream.
+    /// While the delivery stream is <code>DELETING</code> state, the service might continue
+    /// to accept the records, but it doesn't make any guarantees with respect to delivering
+    /// the data. Therefore, as a best practice, you should first stop any applications that
+    /// are sending records before deleting a delivery stream.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "KINFDeliveryStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -51,6 +51,40 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String BuildspecOverride { get; set; }
         #endregion
         
+        #region Parameter CertificateOverride
+        /// <summary>
+        /// <para>
+        /// <para>The name of a certificate for this build that overrides the one specified in the build
+        /// project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CertificateOverride { get; set; }
+        #endregion
+        
+        #region Parameter ComputeTypeOverride
+        /// <summary>
+        /// <para>
+        /// <para>The name of a compute type for this build that overrides the one specified in the
+        /// build project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeBuild.ComputeType")]
+        public Amazon.CodeBuild.ComputeType ComputeTypeOverride { get; set; }
+        #endregion
+        
+        #region Parameter EnvironmentTypeOverride
+        /// <summary>
+        /// <para>
+        /// <para>A container type for this build that overrides the one specified in the build project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeBuild.EnvironmentType")]
+        public Amazon.CodeBuild.EnvironmentType EnvironmentTypeOverride { get; set; }
+        #endregion
+        
         #region Parameter EnvironmentVariablesOverride
         /// <summary>
         /// <para>
@@ -73,6 +107,43 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.Int32 GitCloneDepthOverride { get; set; }
         #endregion
         
+        #region Parameter IdempotencyToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case sensitive identifier you provide to ensure the idempotency of the StartBuild
+        /// request. The token is included in the StartBuild request and is valid for 12 hours.
+        /// If you repeat the StartBuild request with the same token, but change a parameter,
+        /// AWS CodeBuild returns a parameter mismatch error. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String IdempotencyToken { get; set; }
+        #endregion
+        
+        #region Parameter ImageOverride
+        /// <summary>
+        /// <para>
+        /// <para>The name of an image for this build that overrides the one specified in the build
+        /// project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ImageOverride { get; set; }
+        #endregion
+        
+        #region Parameter InsecureSslOverride
+        /// <summary>
+        /// <para>
+        /// <para>Enable this flag to override the insecure SSL setting that is specified in the build
+        /// project. The insecure SSL setting determines whether to ignore SSL warnings while
+        /// connecting to the project source code. This override applies only if the build's source
+        /// is GitHub Enterprise.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean InsecureSslOverride { get; set; }
+        #endregion
+        
         #region Parameter ArtifactsOverride_Location
         /// <summary>
         /// <para>
@@ -86,6 +157,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String ArtifactsOverride_Location { get; set; }
         #endregion
         
+        #region Parameter CacheOverride_Location
+        /// <summary>
+        /// <para>
+        /// <para>Information about the cache location, as follows: </para><ul><li><para><code>NO_CACHE</code>: This value will be ignored.</para></li><li><para><code>S3</code>: This is the S3 bucket name/prefix.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CacheOverride_Location { get; set; }
+        #endregion
+        
         #region Parameter ArtifactsOverride_Name
         /// <summary>
         /// <para>
@@ -94,9 +175,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// ignore this value if specified. This is because AWS CodePipeline manages its build
         /// output names instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, then this value will be
         /// ignored if specified, because no build output will be produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, this is the name of the output artifact
-        /// object.</para></li></ul><para>For example, if <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
+        /// object. If you set the name to be a forward slash ("/"), then the artifact is stored
+        /// in the root of the output bucket.</para></li></ul><para>For example:</para><ul><li><para> If <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
         /// is set to <code>BUILD_ID</code>, and <code>name</code> is set to <code>MyArtifact.zip</code>,
-        /// then the output artifact would be stored in <code>MyArtifacts/<i>build-ID</i>/MyArtifact.zip</code>.</para>
+        /// then the output artifact would be stored in <code>MyArtifacts/<i>build-ID</i>/MyArtifact.zip</code>.
+        /// </para></li><li><para> If <code>path</code> is empty, <code>namespaceType</code> is set to <code>NONE</code>,
+        /// and <code>name</code> is set to "<code>/</code>", then the output artifact would be
+        /// stored in the root of the output bucket. </para></li><li><para> If <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
+        /// is set to <code>BUILD_ID</code>, and <code>name</code> is set to "<code>/</code>",
+        /// then the output artifact would be stored in <code>MyArtifacts/<i>build-ID</i></code>.
+        /// </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -154,6 +242,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String ArtifactsOverride_Path { get; set; }
         #endregion
         
+        #region Parameter PrivilegedModeOverride
+        /// <summary>
+        /// <para>
+        /// <para>Enable this flag to override privileged mode in the build project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean PrivilegedModeOverride { get; set; }
+        #endregion
+        
         #region Parameter ProjectName
         /// <summary>
         /// <para>
@@ -162,6 +260,50 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ProjectName { get; set; }
+        #endregion
+        
+        #region Parameter SourceAuthOverride_Resource
+        /// <summary>
+        /// <para>
+        /// <para>The resource value that applies to the specified authorization type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SourceAuthOverride_Resource { get; set; }
+        #endregion
+        
+        #region Parameter ServiceRoleOverride
+        /// <summary>
+        /// <para>
+        /// <para>The name of a service role for this build that overrides the one specified in the
+        /// build project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ServiceRoleOverride { get; set; }
+        #endregion
+        
+        #region Parameter SourceLocationOverride
+        /// <summary>
+        /// <para>
+        /// <para>A location that overrides for this build the source location for the one defined in
+        /// the build project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SourceLocationOverride { get; set; }
+        #endregion
+        
+        #region Parameter SourceTypeOverride
+        /// <summary>
+        /// <para>
+        /// <para>A source input type for this build that overrides the source input defined in the
+        /// build project</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeBuild.SourceType")]
+        public Amazon.CodeBuild.SourceType SourceTypeOverride { get; set; }
         #endregion
         
         #region Parameter SourceVersion
@@ -207,6 +349,29 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public Amazon.CodeBuild.ArtifactsType ArtifactsOverride_Type { get; set; }
         #endregion
         
+        #region Parameter CacheOverride_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of cache used by the build project. Valid values include:</para><ul><li><para><code>NO_CACHE</code>: The build project will not use any cache.</para></li><li><para><code>S3</code>: The build project will read and write from/to S3.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeBuild.CacheType")]
+        public Amazon.CodeBuild.CacheType CacheOverride_Type { get; set; }
+        #endregion
+        
+        #region Parameter SourceAuthOverride_Type
+        /// <summary>
+        /// <para>
+        /// <para>The authorization type to use. The only valid value is <code>OAUTH</code>, which represents
+        /// the OAuth authorization type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeBuild.SourceAuthType")]
+        public Amazon.CodeBuild.SourceAuthType SourceAuthOverride_Type { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -243,13 +408,29 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.ArtifactsOverride_Path = this.ArtifactsOverride_Path;
             context.ArtifactsOverride_Type = this.ArtifactsOverride_Type;
             context.BuildspecOverride = this.BuildspecOverride;
+            context.CacheOverride_Location = this.CacheOverride_Location;
+            context.CacheOverride_Type = this.CacheOverride_Type;
+            context.CertificateOverride = this.CertificateOverride;
+            context.ComputeTypeOverride = this.ComputeTypeOverride;
+            context.EnvironmentTypeOverride = this.EnvironmentTypeOverride;
             if (this.EnvironmentVariablesOverride != null)
             {
                 context.EnvironmentVariablesOverride = new List<Amazon.CodeBuild.Model.EnvironmentVariable>(this.EnvironmentVariablesOverride);
             }
             if (ParameterWasBound("GitCloneDepthOverride"))
                 context.GitCloneDepthOverride = this.GitCloneDepthOverride;
+            context.IdempotencyToken = this.IdempotencyToken;
+            context.ImageOverride = this.ImageOverride;
+            if (ParameterWasBound("InsecureSslOverride"))
+                context.InsecureSslOverride = this.InsecureSslOverride;
+            if (ParameterWasBound("PrivilegedModeOverride"))
+                context.PrivilegedModeOverride = this.PrivilegedModeOverride;
             context.ProjectName = this.ProjectName;
+            context.ServiceRoleOverride = this.ServiceRoleOverride;
+            context.SourceAuthOverride_Resource = this.SourceAuthOverride_Resource;
+            context.SourceAuthOverride_Type = this.SourceAuthOverride_Type;
+            context.SourceLocationOverride = this.SourceLocationOverride;
+            context.SourceTypeOverride = this.SourceTypeOverride;
             context.SourceVersion = this.SourceVersion;
             if (ParameterWasBound("TimeoutInMinutesOverride"))
                 context.TimeoutInMinutesOverride = this.TimeoutInMinutesOverride;
@@ -342,6 +523,47 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 request.BuildspecOverride = cmdletContext.BuildspecOverride;
             }
+            
+             // populate CacheOverride
+            bool requestCacheOverrideIsNull = true;
+            request.CacheOverride = new Amazon.CodeBuild.Model.ProjectCache();
+            System.String requestCacheOverride_cacheOverride_Location = null;
+            if (cmdletContext.CacheOverride_Location != null)
+            {
+                requestCacheOverride_cacheOverride_Location = cmdletContext.CacheOverride_Location;
+            }
+            if (requestCacheOverride_cacheOverride_Location != null)
+            {
+                request.CacheOverride.Location = requestCacheOverride_cacheOverride_Location;
+                requestCacheOverrideIsNull = false;
+            }
+            Amazon.CodeBuild.CacheType requestCacheOverride_cacheOverride_Type = null;
+            if (cmdletContext.CacheOverride_Type != null)
+            {
+                requestCacheOverride_cacheOverride_Type = cmdletContext.CacheOverride_Type;
+            }
+            if (requestCacheOverride_cacheOverride_Type != null)
+            {
+                request.CacheOverride.Type = requestCacheOverride_cacheOverride_Type;
+                requestCacheOverrideIsNull = false;
+            }
+             // determine if request.CacheOverride should be set to null
+            if (requestCacheOverrideIsNull)
+            {
+                request.CacheOverride = null;
+            }
+            if (cmdletContext.CertificateOverride != null)
+            {
+                request.CertificateOverride = cmdletContext.CertificateOverride;
+            }
+            if (cmdletContext.ComputeTypeOverride != null)
+            {
+                request.ComputeTypeOverride = cmdletContext.ComputeTypeOverride;
+            }
+            if (cmdletContext.EnvironmentTypeOverride != null)
+            {
+                request.EnvironmentTypeOverride = cmdletContext.EnvironmentTypeOverride;
+            }
             if (cmdletContext.EnvironmentVariablesOverride != null)
             {
                 request.EnvironmentVariablesOverride = cmdletContext.EnvironmentVariablesOverride;
@@ -350,9 +572,66 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 request.GitCloneDepthOverride = cmdletContext.GitCloneDepthOverride.Value;
             }
+            if (cmdletContext.IdempotencyToken != null)
+            {
+                request.IdempotencyToken = cmdletContext.IdempotencyToken;
+            }
+            if (cmdletContext.ImageOverride != null)
+            {
+                request.ImageOverride = cmdletContext.ImageOverride;
+            }
+            if (cmdletContext.InsecureSslOverride != null)
+            {
+                request.InsecureSslOverride = cmdletContext.InsecureSslOverride.Value;
+            }
+            if (cmdletContext.PrivilegedModeOverride != null)
+            {
+                request.PrivilegedModeOverride = cmdletContext.PrivilegedModeOverride.Value;
+            }
             if (cmdletContext.ProjectName != null)
             {
                 request.ProjectName = cmdletContext.ProjectName;
+            }
+            if (cmdletContext.ServiceRoleOverride != null)
+            {
+                request.ServiceRoleOverride = cmdletContext.ServiceRoleOverride;
+            }
+            
+             // populate SourceAuthOverride
+            bool requestSourceAuthOverrideIsNull = true;
+            request.SourceAuthOverride = new Amazon.CodeBuild.Model.SourceAuth();
+            System.String requestSourceAuthOverride_sourceAuthOverride_Resource = null;
+            if (cmdletContext.SourceAuthOverride_Resource != null)
+            {
+                requestSourceAuthOverride_sourceAuthOverride_Resource = cmdletContext.SourceAuthOverride_Resource;
+            }
+            if (requestSourceAuthOverride_sourceAuthOverride_Resource != null)
+            {
+                request.SourceAuthOverride.Resource = requestSourceAuthOverride_sourceAuthOverride_Resource;
+                requestSourceAuthOverrideIsNull = false;
+            }
+            Amazon.CodeBuild.SourceAuthType requestSourceAuthOverride_sourceAuthOverride_Type = null;
+            if (cmdletContext.SourceAuthOverride_Type != null)
+            {
+                requestSourceAuthOverride_sourceAuthOverride_Type = cmdletContext.SourceAuthOverride_Type;
+            }
+            if (requestSourceAuthOverride_sourceAuthOverride_Type != null)
+            {
+                request.SourceAuthOverride.Type = requestSourceAuthOverride_sourceAuthOverride_Type;
+                requestSourceAuthOverrideIsNull = false;
+            }
+             // determine if request.SourceAuthOverride should be set to null
+            if (requestSourceAuthOverrideIsNull)
+            {
+                request.SourceAuthOverride = null;
+            }
+            if (cmdletContext.SourceLocationOverride != null)
+            {
+                request.SourceLocationOverride = cmdletContext.SourceLocationOverride;
+            }
+            if (cmdletContext.SourceTypeOverride != null)
+            {
+                request.SourceTypeOverride = cmdletContext.SourceTypeOverride;
             }
             if (cmdletContext.SourceVersion != null)
             {
@@ -433,9 +712,23 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String ArtifactsOverride_Path { get; set; }
             public Amazon.CodeBuild.ArtifactsType ArtifactsOverride_Type { get; set; }
             public System.String BuildspecOverride { get; set; }
+            public System.String CacheOverride_Location { get; set; }
+            public Amazon.CodeBuild.CacheType CacheOverride_Type { get; set; }
+            public System.String CertificateOverride { get; set; }
+            public Amazon.CodeBuild.ComputeType ComputeTypeOverride { get; set; }
+            public Amazon.CodeBuild.EnvironmentType EnvironmentTypeOverride { get; set; }
             public List<Amazon.CodeBuild.Model.EnvironmentVariable> EnvironmentVariablesOverride { get; set; }
             public System.Int32? GitCloneDepthOverride { get; set; }
+            public System.String IdempotencyToken { get; set; }
+            public System.String ImageOverride { get; set; }
+            public System.Boolean? InsecureSslOverride { get; set; }
+            public System.Boolean? PrivilegedModeOverride { get; set; }
             public System.String ProjectName { get; set; }
+            public System.String ServiceRoleOverride { get; set; }
+            public System.String SourceAuthOverride_Resource { get; set; }
+            public Amazon.CodeBuild.SourceAuthType SourceAuthOverride_Type { get; set; }
+            public System.String SourceLocationOverride { get; set; }
+            public Amazon.CodeBuild.SourceType SourceTypeOverride { get; set; }
             public System.String SourceVersion { get; set; }
             public System.Int32? TimeoutInMinutesOverride { get; set; }
         }

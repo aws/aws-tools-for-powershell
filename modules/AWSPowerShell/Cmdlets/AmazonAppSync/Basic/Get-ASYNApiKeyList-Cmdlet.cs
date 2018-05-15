@@ -28,7 +28,14 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Lists the API keys for a given API.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the API keys for a given API.
+    /// 
+    ///  <note><para>
+    /// API keys are deleted automatically sometime after they expire. However, they may still
+    /// be included in the response until they have actually been deleted. You can safely
+    /// call <code>DeleteApiKey</code> to manually delete a key before it's automatically
+    /// deleted.
+    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ASYNApiKeyList")]
     [OutputType("Amazon.AppSync.Model.ApiKey")]

@@ -32,6 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
+    /// The Spot Fleet request specifies the total target capacity and the On-Demand target
+    /// capacity. Amazon EC2 calculates the difference between the total capacity and On-Demand
+    /// capacity, and launches the difference as Spot capacity.
+    /// </para><para>
     /// You can submit a single request that includes multiple launch specifications that
     /// vary by instance type, AMI, Availability Zone, or subnet.
     /// </para><para>
@@ -45,10 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// availability of your fleet.
     /// </para><para>
     /// You can specify tags for the Spot Instances. You cannot tag other resource types in
-    /// a Spot Fleet request; only the <code>instance</code> resource type is supported.
+    /// a Spot Fleet request because only the <code>instance</code> resource type is supported.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot
-    /// Fleet Requests</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// Fleet Requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Request", "EC2SpotFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -87,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestConfig_ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier you provide to ensure idempotency of your listings.
-        /// This helps avoid duplicate listings. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// your listings. This helps to avoid duplicate listings. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// Idempotency</a>.</para>
         /// </para>
         /// </summary>
@@ -163,6 +167,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.LaunchTemplateConfig[] SpotFleetRequestConfig_LaunchTemplateConfig { get; set; }
         #endregion
         
+        #region Parameter SpotFleetRequestConfig_OnDemandFulfilledCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The number of On-Demand units fulfilled by this request compared to the set target
+        /// On-Demand capacity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Double SpotFleetRequestConfig_OnDemandFulfilledCapacity { get; set; }
+        #endregion
+        
+        #region Parameter SpotFleetRequestConfig_OnDemandTargetCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The number of On-Demand units to request. You can choose to set the target capacity
+        /// in terms of instances or a performance characteristic that is important to your application
+        /// workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>,
+        /// you can specify a target capacity of 0 and add capacity later.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 SpotFleetRequestConfig_OnDemandTargetCapacity { get; set; }
+        #endregion
+        
         #region Parameter SpotFleetRequestConfig_ReplaceUnhealthyInstance
         /// <summary>
         /// <para>
@@ -223,13 +251,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestConfig_Type
         /// <summary>
         /// <para>
-        /// <para>The type of request. Indicates whether the fleet will only <code>request</code> the
-        /// target capacity or also attempt to <code>maintain</code> it. When you <code>request</code>
-        /// a certain target capacity, the fleet will only place the required requests. It will
-        /// not attempt to replenish Spot Instances if capacity is diminished, nor will it submit
-        /// requests in alternative Spot pools if capacity is not available. When you want to
-        /// <code>maintain</code> a certain target capacity, fleet will place the required requests
-        /// to meet this target capacity. It will also automatically replenish any interrupted
+        /// <para>The type of request. Indicates whether the Spot Fleet only requests the target capacity
+        /// or also attempts to maintain it. When this value is <code>request</code>, the Spot
+        /// Fleet only places the required requests. It does not attempt to replenish Spot Instances
+        /// if capacity is diminished, nor does it submit requests in alternative Spot pools if
+        /// capacity is not available. To maintain a certain target capacity, the Spot Fleet places
+        /// the required requests to meet capacity and automatically replenishes any interrupted
         /// instances. Default: <code>maintain</code>.</para>
         /// </para>
         /// </summary>
@@ -313,6 +340,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.SpotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig_TargetGroups = new List<Amazon.EC2.Model.TargetGroup>(this.TargetGroupsConfig_TargetGroup);
             }
+            if (ParameterWasBound("SpotFleetRequestConfig_OnDemandFulfilledCapacity"))
+                context.SpotFleetRequestConfig_OnDemandFulfilledCapacity = this.SpotFleetRequestConfig_OnDemandFulfilledCapacity;
+            if (ParameterWasBound("SpotFleetRequestConfig_OnDemandTargetCapacity"))
+                context.SpotFleetRequestConfig_OnDemandTargetCapacity = this.SpotFleetRequestConfig_OnDemandTargetCapacity;
             if (ParameterWasBound("SpotFleetRequestConfig_ReplaceUnhealthyInstance"))
                 context.SpotFleetRequestConfig_ReplaceUnhealthyInstances = this.SpotFleetRequestConfig_ReplaceUnhealthyInstance;
             context.SpotFleetRequestConfig_SpotPrice = this.SpotFleetRequestConfig_SpotPrice;
@@ -423,6 +454,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchTemplateConfig != null)
             {
                 request.SpotFleetRequestConfig.LaunchTemplateConfigs = requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchTemplateConfig;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
+            System.Double? requestSpotFleetRequestConfig_spotFleetRequestConfig_OnDemandFulfilledCapacity = null;
+            if (cmdletContext.SpotFleetRequestConfig_OnDemandFulfilledCapacity != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_OnDemandFulfilledCapacity = cmdletContext.SpotFleetRequestConfig_OnDemandFulfilledCapacity.Value;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_OnDemandFulfilledCapacity != null)
+            {
+                request.SpotFleetRequestConfig.OnDemandFulfilledCapacity = requestSpotFleetRequestConfig_spotFleetRequestConfig_OnDemandFulfilledCapacity.Value;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
+            System.Int32? requestSpotFleetRequestConfig_spotFleetRequestConfig_OnDemandTargetCapacity = null;
+            if (cmdletContext.SpotFleetRequestConfig_OnDemandTargetCapacity != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_OnDemandTargetCapacity = cmdletContext.SpotFleetRequestConfig_OnDemandTargetCapacity.Value;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_OnDemandTargetCapacity != null)
+            {
+                request.SpotFleetRequestConfig.OnDemandTargetCapacity = requestSpotFleetRequestConfig_spotFleetRequestConfig_OnDemandTargetCapacity.Value;
                 requestSpotFleetRequestConfigIsNull = false;
             }
             System.Boolean? requestSpotFleetRequestConfig_spotFleetRequestConfig_ReplaceUnhealthyInstance = null;
@@ -639,6 +690,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<Amazon.EC2.Model.LaunchTemplateConfig> SpotFleetRequestConfig_LaunchTemplateConfigs { get; set; }
             public List<Amazon.EC2.Model.ClassicLoadBalancer> SpotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig_ClassicLoadBalancers { get; set; }
             public List<Amazon.EC2.Model.TargetGroup> SpotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig_TargetGroups { get; set; }
+            public System.Double? SpotFleetRequestConfig_OnDemandFulfilledCapacity { get; set; }
+            public System.Int32? SpotFleetRequestConfig_OnDemandTargetCapacity { get; set; }
             public System.Boolean? SpotFleetRequestConfig_ReplaceUnhealthyInstances { get; set; }
             public System.String SpotFleetRequestConfig_SpotPrice { get; set; }
             public System.Int32? SpotFleetRequestConfig_TargetCapacity { get; set; }

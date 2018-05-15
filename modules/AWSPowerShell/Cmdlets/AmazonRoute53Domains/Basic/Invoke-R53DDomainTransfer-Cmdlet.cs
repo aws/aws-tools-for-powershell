@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
     /// This operation transfers a domain from another registrar to Amazon Route 53. When
-    /// the transfer is complete, the domain is registered with the AWS registrar partner,
-    /// Gandi.
+    /// the transfer is complete, the domain is registered either with Amazon Registrar (for
+    /// .com, .net, and .org domains) or with our registrar associate, Gandi (for all other
+    /// TLDs).
     /// 
     ///  
     /// <para>
@@ -514,8 +515,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Whether you want to conceal contact information from WHOIS queries. If you specify
-        /// <code>true</code>, WHOIS ("who is") queries will return contact information for our
-        /// registrar partner, Gandi, instead of the contact information that you enter.</para><para>Default: <code>true</code></para>
+        /// <code>true</code>, WHOIS ("who is") queries return contact information either for
+        /// Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
+        /// Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return
+        /// the information that you entered for the admin contact.</para><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -526,8 +529,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Whether you want to conceal contact information from WHOIS queries. If you specify
-        /// <code>true</code>, WHOIS ("who is") queries will return contact information for our
-        /// registrar partner, Gandi, instead of the contact information that you enter.</para><para>Default: <code>true</code></para>
+        /// <code>true</code>, WHOIS ("who is") queries return contact information either for
+        /// Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
+        /// Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return
+        /// the information that you entered for the registrant contact (domain owner).</para><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -538,8 +543,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Whether you want to conceal contact information from WHOIS queries. If you specify
-        /// <code>true</code>, WHOIS ("who is") queries will return contact information for our
-        /// registrar partner, Gandi, instead of the contact information that you enter.</para><para>Default: <code>true</code></para>
+        /// <code>true</code>, WHOIS ("who is") queries return contact information either for
+        /// Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
+        /// Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return
+        /// the information that you entered for the technical contact.</para><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

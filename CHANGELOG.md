@@ -1,4 +1,4 @@
-### 3.3.280.0 (2018-05-15)
+### 3.3.281.0 (2018-05-15)
   * Alexa for Business
     * Added operations for creating and managing address books of phone contacts for use in A4B managed shared devices.
     * Added Get-ALXBDeviceEventList to paginated list of device events (such as ConnectionStatus).
@@ -20,7 +20,7 @@
   * Amazon Elasticsearch
     * Added Get-ESReservedElasticsearchInstanceList, Get-ESReservedElasticsearchInstanceOfferingList and New-ESReservedElasticsearchInstanceOffering to support Reserved Instances on AWS Elasticsearch.
   * Amazon GameLift
-    * AutoScaling Target Tracking scaling simplification along with Start-GMLFleetActions and Stop-GMLFleetActions to suspend and resume automatic scaling at will.
+    * AutoScaling Target Tracking scaling simplification along with Start-GMLFleetAction and Stop-GMLFleetAction to suspend and resume automatic scaling at will.
   * Amazon Guard Duty
     * Added new cmdlets for Amazon GuardDuty for creating and managing filters. For each filter, you can specify a criteria and an action. The action you specify is applied to findings that match the specified criteria.
   * Amazon Kinesis Firehose

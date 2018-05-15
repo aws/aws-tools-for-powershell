@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Expire
         /// <summary>
         /// <para>
-        /// <para>The time after which the API key expires. The date is represented as seconds since
-        /// the epoch.</para>
+        /// <para>The time from update time after which the API key expires. The date is represented
+        /// as seconds since the epoch. For more information, see .</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

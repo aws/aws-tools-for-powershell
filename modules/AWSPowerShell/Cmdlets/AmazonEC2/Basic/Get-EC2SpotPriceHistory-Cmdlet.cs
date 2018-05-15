@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Describes the Spot price history. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html">Spot
-    /// Instance Pricing History</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// Instance Pricing History</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
     /// 
     ///  
     /// <para>
@@ -78,9 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// returned.</para></li><li><para><code>instance-type</code> - The type of instance (for example, <code>m3.medium</code>).</para></li><li><para><code>product-description</code> - The product description for the Spot price (<code>Linux/UNIX</code>
         /// | <code>SUSE Linux</code> | <code>Windows</code> | <code>Linux/UNIX (Amazon VPC)</code>
         /// | <code>SUSE Linux (Amazon VPC)</code> | <code>Windows (Amazon VPC)</code>).</para></li><li><para><code>spot-price</code> - The Spot price. The value must match exactly (or use wildcards;
-        /// greater than or less than comparison is not supported).</para></li><li><para><code>timestamp</code> - The timestamp of the Spot price history, in UTC format (for
-        /// example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z). You can
-        /// use wildcards (* and ?). Greater than or less than comparison is not supported.</para></li></ul>
+        /// greater than or less than comparison is not supported).</para></li><li><para><code>timestamp</code> - The time stamp of the Spot price history, in UTC format
+        /// (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z). You
+        /// can use wildcards (* and ?). Greater than or less than comparison is not supported.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

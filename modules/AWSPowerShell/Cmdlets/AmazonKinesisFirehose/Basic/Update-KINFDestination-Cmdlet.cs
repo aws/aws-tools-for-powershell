@@ -53,12 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// Amazon S3 to Amazon Redshift, Kinesis Data Firehose does not merge any parameters.
     /// In this case, all parameters must be specified.
     /// </para><para>
-    /// Kinesis Data Firehose uses <code>CurrentDeliveryStreamVersionId</code> to avoid race
-    /// conditions and conflicting merges. This is a required field, and the service updates
-    /// the configuration only if the existing configuration has a version ID that matches.
-    /// After the update is applied successfully, the version ID is updated, and you can retrieve
-    /// it using <a>DescribeDeliveryStream</a>. Use the new version ID to set <code>CurrentDeliveryStreamVersionId</code>
-    /// in the next call.
+    /// Kinesis Data Firehose uses <b>CurrentDeliveryStreamVersionId</b> to avoid race conditions
+    /// and conflicting merges. This is a required field, and the service updates the configuration
+    /// only if the existing configuration has a version ID that matches. After the update
+    /// is applied successfully, the version ID is updated, and can be retrieved using <a>DescribeDeliveryStream</a>.
+    /// Use the new version ID to set <b>CurrentDeliveryStreamVersionId</b> in the next call.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "KINFDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -74,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter CurrentDeliveryStreamVersionId
         /// <summary>
         /// <para>
-        /// <para>Obtain this value from the <code>VersionId</code> result of <a>DeliveryStreamDescription</a>.
-        /// This value is required, and it helps the service perform conditional operations. For
+        /// <para>Obtain this value from the <b>VersionId</b> result of <a>DeliveryStreamDescription</a>.
+        /// This value is required, and helps the service perform conditional operations. For
         /// example, if there is an interleaving update and this value is null, then the update
         /// destination fails. After the update is successful, the <code>VersionId</code> value
         /// is updated. The service then performs a merge of the old configuration with the new
@@ -111,7 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>
         /// <para>The ARN of the Amazon ES domain. The IAM role must have permissions for <code>DescribeElasticsearchDomain</code>,
         /// <code>DescribeElasticsearchDomains</code>, and <code>DescribeElasticsearchDomainConfig</code> after
-        /// assuming the IAM role specified in <code>RoleARN</code>.</para>
+        /// assuming the IAM role specified in <b>RoleARN</b>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>After an initial failure to deliver to Amazon ES, the total amount of time during
-        /// which Kinesis Data Firehose re-attempts delivery (including the first attempt). After
+        /// which Kinesis Data Firehose retries delivery (including the first attempt). After
         /// this time has elapsed, the failed documents are written to Amazon S3. Default value
         /// is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.</para>
         /// </para>
@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ElasticsearchDestinationUpdate_IndexRotationPeriod
         /// <summary>
         /// <para>
-        /// <para>The Elasticsearch index rotation period. Index rotation appends a time stamp to IndexName
+        /// <para>The Elasticsearch index rotation period. Index rotation appends a time stamp to <code>IndexName</code>
         /// to facilitate the expiration of old data. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index
         /// Rotation for the Amazon ES Destination</a>. Default value is <code>OneDay</code>.</para>
         /// </para>
@@ -250,7 +250,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose
         /// for calling the Amazon ES Configuration API and for indexing documents. For more information,
         /// see <a href="http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Grant
-        /// Kinesis Data Firehose Access to an Amazon S3 Destination</a>.</para>
+        /// Kinesis Data Firehose Access to an Amazon S3 Destination</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -304,7 +305,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ElasticsearchDestinationUpdate_TypeName
         /// <summary>
         /// <para>
-        /// <para>The Elasticsearch type name.</para>
+        /// <para>The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per
+        /// index. If you try to specify a new type for an existing index that already has another
+        /// type, Kinesis Data Firehose returns an error during runtime.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

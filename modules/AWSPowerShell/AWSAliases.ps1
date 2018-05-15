@@ -40,6 +40,7 @@ Set-Alias -Name ALXB-GetProfile -Value Get-ALXBProfile
 Set-Alias -Name ALXB-GetRoom -Value Get-ALXBRoom
 Set-Alias -Name ALXB-GetRoomSkillParameter -Value Get-ALXBRoomSkillParameter
 Set-Alias -Name ALXB-GetSkillGroup -Value Get-ALXBSkillGroup
+Set-Alias -Name ALXB-ListDeviceEvents -Value Get-ALXBDeviceEventList
 Set-Alias -Name ALXB-ListSkills -Value Get-ALXBSkillList
 Set-Alias -Name ALXB-ListTags -Value Get-ALXBTagList
 Set-Alias -Name ALXB-PutRoomSkillParameter -Value Set-ALXBRoomSkillParameter
@@ -1132,6 +1133,8 @@ Set-Alias -Name Delete-CPCustomActionType -Value Remove-CPCustomActionType
 Set-Alias -Name CP-DeleteCustomActionType -Value Remove-CPCustomActionType
 Set-Alias -Name Delete-CPPipeline -Value Remove-CPPipeline
 Set-Alias -Name CP-DeletePipeline -Value Remove-CPPipeline
+Set-Alias -Name CP-DeleteWebhook -Value Remove-CPWebhook
+Set-Alias -Name CP-DeregisterWebhookWithThirdParty -Value Unregister-CPWebhookWithThirdParty
 Set-Alias -Name CP-DisableStageTransition -Value Disable-CPStageTransition
 Set-Alias -Name CP-EnableStageTransition -Value Enable-CPStageTransition
 Set-Alias -Name CP-GetJobDetails -Value Get-CPJobDetail
@@ -1142,6 +1145,7 @@ Set-Alias -Name CP-GetThirdPartyJobDetails -Value Get-CPThirdPartyJobDetail
 Set-Alias -Name CP-ListActionTypes -Value Get-CPActionType
 Set-Alias -Name CP-ListPipelineExecutions -Value Get-CPPipelineExecutionSummary
 Set-Alias -Name CP-ListPipelines -Value Get-CPPipelineList
+Set-Alias -Name CP-ListWebhooks -Value Get-CPWebhookList
 Set-Alias -Name CP-PollForJobs -Value Get-CPActionableJobList
 Set-Alias -Name CP-PollForThirdPartyJobs -Value Get-CPActionableThirdPartyJobList
 Set-Alias -Name Put-CPActionRevision -Value Write-CPActionRevision
@@ -1156,6 +1160,8 @@ Set-Alias -Name Put-CPThirdPartyJobFailureResult -Value Write-CPThirdPartyJobFai
 Set-Alias -Name CP-PutThirdPartyJobFailureResult -Value Write-CPThirdPartyJobFailureResult
 Set-Alias -Name Put-CPThirdPartyJobSuccessResult -Value Write-CPThirdPartyJobSuccessResult
 Set-Alias -Name CP-PutThirdPartyJobSuccessResult -Value Write-CPThirdPartyJobSuccessResult
+Set-Alias -Name CP-PutWebhook -Value Write-CPWebhook
+Set-Alias -Name CP-RegisterWebhookWithThirdParty -Value Register-CPWebhookWithThirdParty
 Set-Alias -Name CP-RetryStageExecution -Value Redo-CPStageExecution
 Set-Alias -Name CP-StartPipelineExecution -Value Start-CPPipelineExecution
 Set-Alias -Name CP-UpdatePipeline -Value Update-CPPipeline
@@ -1764,6 +1770,7 @@ Set-Alias -Name DDB-DeleteTable -Value Remove-DDBTable
 Set-Alias -Name DDB-DescribeBackup -Value Get-DDBBackup
 Set-Alias -Name DDB-DescribeContinuousBackups -Value Get-DDBContinuousBackup
 Set-Alias -Name DDB-DescribeGlobalTable -Value Get-DDBGlobalTable
+Set-Alias -Name DDB-DescribeGlobalTableSettings -Value Get-DDBGlobalTableSetting
 Set-Alias -Name Describe-DDBProvisionLimit -Value Get-DDBProvisionLimit
 Set-Alias -Name DDB-DescribeLimits -Value Get-DDBProvisionLimit
 Set-Alias -Name Describe-DDBTable -Value Get-DDBTable
@@ -1780,6 +1787,7 @@ Set-Alias -Name DDB-TagResource -Value Add-DDBResourceTag
 Set-Alias -Name DDB-UntagResource -Value Remove-DDBResourceTag
 Set-Alias -Name DDB-UpdateContinuousBackups -Value Update-DDBContinuousBackup
 Set-Alias -Name DDB-UpdateGlobalTable -Value Update-DDBGlobalTable
+Set-Alias -Name DDB-UpdateGlobalTableSettings -Value Update-DDBGlobalTableSetting
 Set-Alias -Name DDB-UpdateTable -Value Update-DDBTable
 Set-Alias -Name DDB-UpdateTimeToLive -Value Update-DDBTimeToLive
 Set-Alias -Name Describe-DDBStream -Value Get-DDBStream
@@ -1843,6 +1851,7 @@ Set-Alias -Name Create-EC2DhcpOptions -Value New-EC2DhcpOption
 Set-Alias -Name EC2-CreateDhcpOptions -Value New-EC2DhcpOption
 Set-Alias -Name Create-EC2EgressOnlyInternetGateway -Value New-EC2EgressOnlyInternetGateway
 Set-Alias -Name EC2-CreateEgressOnlyInternetGateway -Value New-EC2EgressOnlyInternetGateway
+Set-Alias -Name EC2-CreateFleet -Value New-EC2Fleet
 Set-Alias -Name Create-EC2FlowLog -Value New-EC2FlowLog
 Set-Alias -Name EC2-CreateFlowLogs -Value New-EC2FlowLog
 Set-Alias -Name Create-EC2FpgaImage -Value New-EC2FpgaImage
@@ -1907,6 +1916,7 @@ Set-Alias -Name Delete-EC2DhcpOptions -Value Remove-EC2DhcpOption
 Set-Alias -Name EC2-DeleteDhcpOptions -Value Remove-EC2DhcpOption
 Set-Alias -Name Delete-EC2EgressOnlyInternetGateway -Value Remove-EC2EgressOnlyInternetGateway
 Set-Alias -Name EC2-DeleteEgressOnlyInternetGateway -Value Remove-EC2EgressOnlyInternetGateway
+Set-Alias -Name EC2-DeleteFleets -Value Remove-EC2Fleet
 Set-Alias -Name Delete-EC2FlowLog -Value Remove-EC2FlowLog
 Set-Alias -Name EC2-DeleteFlowLogs -Value Remove-EC2FlowLog
 Set-Alias -Name Delete-EC2FpgaImage -Value Remove-EC2FpgaImage
@@ -1982,6 +1992,9 @@ Set-Alias -Name Describe-EC2ElasticGpu -Value Get-EC2ElasticGpu
 Set-Alias -Name EC2-DescribeElasticGpus -Value Get-EC2ElasticGpu
 Set-Alias -Name Describe-EC2ExportTask -Value Get-EC2ExportTask
 Set-Alias -Name EC2-DescribeExportTasks -Value Get-EC2ExportTask
+Set-Alias -Name EC2-DescribeFleetHistory -Value Get-EC2FleetHistory
+Set-Alias -Name EC2-DescribeFleetInstances -Value Get-EC2FleetInstanceList
+Set-Alias -Name EC2-DescribeFleets -Value Get-EC2FleetList
 Set-Alias -Name Describe-EC2FlowLog -Value Get-EC2FlowLog
 Set-Alias -Name EC2-DescribeFlowLogs -Value Get-EC2FlowLog
 Set-Alias -Name Describe-EC2FpgaImageAttribute -Value Get-EC2FpgaImageAttribute
@@ -2139,6 +2152,7 @@ Set-Alias -Name EC2-GetReservedInstancesExchangeQuote -Value Get-EC2ReservedInst
 Set-Alias -Name EC2-ImportImage -Value Import-EC2Image
 Set-Alias -Name EC2-ImportKeyPair -Value Import-EC2KeyPair
 Set-Alias -Name EC2-ImportSnapshot -Value Import-EC2Snapshot
+Set-Alias -Name EC2-ModifyFleet -Value Edit-EC2Fleet
 Set-Alias -Name Modify-EC2FpgaImageAttribute -Value Edit-EC2FpgaImageAttribute
 Set-Alias -Name EC2-ModifyFpgaImageAttribute -Value Edit-EC2FpgaImageAttribute
 Set-Alias -Name Modify-EC2Host -Value Edit-EC2Host
@@ -2578,10 +2592,13 @@ Set-Alias -Name Describe-ESDomainList -Value Get-ESDomainList
 Set-Alias -Name ES-DescribeElasticsearchDomains -Value Get-ESDomainList
 Set-Alias -Name Describe-ESInstanceTypeLimit -Value Get-ESInstanceTypeLimit
 Set-Alias -Name ES-DescribeElasticsearchInstanceTypeLimits -Value Get-ESInstanceTypeLimit
+Set-Alias -Name ES-DescribeReservedElasticsearchInstanceOfferings -Value Get-ESReservedElasticsearchInstanceOfferingList
+Set-Alias -Name ES-DescribeReservedElasticsearchInstances -Value Get-ESReservedElasticsearchInstanceList
 Set-Alias -Name ES-ListDomainNames -Value Get-ESDomainNameList
 Set-Alias -Name ES-ListElasticsearchInstanceTypes -Value Get-ESInstanceTypeList
 Set-Alias -Name ES-ListElasticsearchVersions -Value Get-ESVersionList
 Set-Alias -Name ES-ListTags -Value Get-ESResourceTag
+Set-Alias -Name ES-PurchaseReservedElasticsearchInstanceOffering -Value New-ESReservedElasticsearchInstanceOffering
 Set-Alias -Name ES-RemoveTags -Value Remove-ESResourceTag
 Set-Alias -Name ES-UpdateElasticsearchDomainConfig -Value Update-ESDomainConfig
 Set-Alias -Name Cancel-ETSJob -Value Stop-ETSJob
@@ -2792,9 +2809,11 @@ Set-Alias -Name GML-PutScalingPolicy -Value Write-GMLScalingPolicy
 Set-Alias -Name GML-RequestUploadCredentials -Value Request-GMLUploadCredential
 Set-Alias -Name GML-ResolveAlias -Value Resolve-GMLAlias
 Set-Alias -Name GML-SearchGameSessions -Value Find-GMLGameSession
+Set-Alias -Name GML-StartFleetActions -Value Start-GMLFleetAction
 Set-Alias -Name GML-StartGameSessionPlacement -Value Start-GMLGameSessionPlacement
 Set-Alias -Name GML-StartMatchBackfill -Value Start-GMLMatchBackfill
 Set-Alias -Name GML-StartMatchmaking -Value Start-GMLMatchmaking
+Set-Alias -Name GML-StopFleetActions -Value Stop-GMLFleetAction
 Set-Alias -Name GML-StopGameSessionPlacement -Value Stop-GMLGameSessionPlacement
 Set-Alias -Name GML-StopMatchmaking -Value Stop-GMLMatchmaking
 Set-Alias -Name GML-UpdateAlias -Value Update-GMLAlias
@@ -2918,12 +2937,14 @@ Set-Alias -Name GG-UpdateSubscriptionDefinition -Value Update-GGSubscriptionDefi
 Set-Alias -Name GD-AcceptInvitation -Value Confirm-GDInvitation
 Set-Alias -Name GD-ArchiveFindings -Value Backup-GDFinding
 Set-Alias -Name GD-CreateDetector -Value New-GDDetector
+Set-Alias -Name GD-CreateFilter -Value New-GDFilter
 Set-Alias -Name GD-CreateIPSet -Value New-GDIPSet
 Set-Alias -Name GD-CreateMembers -Value New-GDMember
 Set-Alias -Name GD-CreateSampleFindings -Value New-GDSampleFinding
 Set-Alias -Name GD-CreateThreatIntelSet -Value New-GDThreatIntelSet
 Set-Alias -Name GD-DeclineInvitations -Value Deny-GDInvitation
 Set-Alias -Name GD-DeleteDetector -Value Remove-GDDetector
+Set-Alias -Name GD-DeleteFilter -Value Remove-GDFilter
 Set-Alias -Name GD-DeleteInvitations -Value Remove-GDInvitation
 Set-Alias -Name GD-DeleteIPSet -Value Remove-GDIPSet
 Set-Alias -Name GD-DeleteMembers -Value Remove-GDMember
@@ -2931,6 +2952,7 @@ Set-Alias -Name GD-DeleteThreatIntelSet -Value Remove-GDThreatIntelSet
 Set-Alias -Name GD-DisassociateFromMasterAccount -Value Unregister-GDFromMasterAccount
 Set-Alias -Name GD-DisassociateMembers -Value Unregister-GDMember
 Set-Alias -Name GD-GetDetector -Value Get-GDDetector
+Set-Alias -Name GD-GetFilter -Value Get-GDFilter
 Set-Alias -Name GD-GetFindings -Value Get-GDFinding
 Set-Alias -Name GD-GetFindingsStatistics -Value Get-GDFindingStatistic
 Set-Alias -Name GD-GetInvitationsCount -Value Get-GDInvitationCount
@@ -2940,6 +2962,7 @@ Set-Alias -Name GD-GetMembers -Value Get-GDMember
 Set-Alias -Name GD-GetThreatIntelSet -Value Get-GDThreatIntelSet
 Set-Alias -Name GD-InviteMembers -Value Send-GDMemberInvitation
 Set-Alias -Name GD-ListDetectors -Value Get-GDDetectorList
+Set-Alias -Name GD-ListFilters -Value Get-GDFilterList
 Set-Alias -Name GD-ListFindings -Value Get-GDFindingList
 Set-Alias -Name GD-ListInvitations -Value Get-GDInvitationList
 Set-Alias -Name GD-ListIPSets -Value Get-GDIPSetList
@@ -2949,6 +2972,7 @@ Set-Alias -Name GD-StartMonitoringMembers -Value Start-GDMonitoringMember
 Set-Alias -Name GD-StopMonitoringMembers -Value Stop-GDMonitoringMember
 Set-Alias -Name GD-UnarchiveFindings -Value Restore-GDFinding
 Set-Alias -Name GD-UpdateDetector -Value Update-GDDetector
+Set-Alias -Name GD-UpdateFilter -Value Update-GDFilter
 Set-Alias -Name GD-UpdateFindingsFeedback -Value Update-GDFindingFeedback
 Set-Alias -Name GD-UpdateIPSet -Value Update-GDIPSet
 Set-Alias -Name GD-UpdateThreatIntelSet -Value Update-GDThreatIntelSet
@@ -4257,6 +4281,7 @@ Set-Alias -Name RDS-AddSourceIdentifierToSubscription -Value Add-RDSSourceIdenti
 Set-Alias -Name RDS-AddTagsToResource -Value Add-RDSTagsToResource
 Set-Alias -Name RDS-ApplyPendingMaintenanceAction -Value Submit-RDSPendingMaintenanceAction
 Set-Alias -Name RDS-AuthorizeDBSecurityGroupIngress -Value Enable-RDSDBSecurityGroupIngress
+Set-Alias -Name RDS-BacktrackDBCluster -Value Reset-RDSDBCluster
 Set-Alias -Name RDS-CopyDBClusterParameterGroup -Value Copy-RDSDBClusterParameterGroup
 Set-Alias -Name RDS-CopyDBClusterSnapshot -Value Copy-RDSDBClusterSnapshot
 Set-Alias -Name RDS-CopyDBParameterGroup -Value Copy-RDSDBParameterGroup
@@ -4308,6 +4333,7 @@ Set-Alias -Name Describe-RDSAccountAttribute -Value Get-RDSAccountAttribute
 Set-Alias -Name RDS-DescribeAccountAttributes -Value Get-RDSAccountAttribute
 Set-Alias -Name Describe-RDSCertificate -Value Get-RDSCertificate
 Set-Alias -Name RDS-DescribeCertificates -Value Get-RDSCertificate
+Set-Alias -Name RDS-DescribeDBClusterBacktracks -Value Get-RDSDBClusterBacktrackList
 Set-Alias -Name Describe-RDSDBClusterParameterGroups -Value Get-RDSDBClusterParameterGroup
 Set-Alias -Name RDS-DescribeDBClusterParameterGroups -Value Get-RDSDBClusterParameterGroup
 Set-Alias -Name Describe-RDSDBClusterParameters -Value Get-RDSDBClusterParameter
@@ -5726,12 +5752,17 @@ Set-Alias -Name WD-UpdateDocument -Value Update-WDDocument
 Set-Alias -Name WD-UpdateDocumentVersion -Value Update-WDDocumentVersion
 Set-Alias -Name WD-UpdateFolder -Value Update-WDFolder
 Set-Alias -Name WD-UpdateUser -Value Update-WDUser
+Set-Alias -Name WKS-AssociateIpGroups -Value Register-WKSIpGroup
+Set-Alias -Name WKS-AuthorizeIpRules -Value Approve-WKSIpRule
+Set-Alias -Name WKS-CreateIpGroup -Value New-WKSIpGroup
 Set-Alias -Name Create-WKSTags -Value New-WKSTag
 Set-Alias -Name WKS-CreateTags -Value New-WKSTag
 Set-Alias -Name Create-WKSWorkspace -Value New-WKSWorkspace
 Set-Alias -Name WKS-CreateWorkspaces -Value New-WKSWorkspace
+Set-Alias -Name WKS-DeleteIpGroup -Value Remove-WKSIpGroup
 Set-Alias -Name Delete-WKSTags -Value Remove-WKSTag
 Set-Alias -Name WKS-DeleteTags -Value Remove-WKSTag
+Set-Alias -Name WKS-DescribeIpGroups -Value Get-WKSIpGroup
 Set-Alias -Name Describe-WKSTags -Value Get-WKSTag
 Set-Alias -Name WKS-DescribeTags -Value Get-WKSTag
 Set-Alias -Name Describe-WKSWorkspaceBundle -Value Get-WKSWorkspaceBundle
@@ -5742,8 +5773,12 @@ Set-Alias -Name Describe-WKSWorkspace -Value Get-WKSWorkspace
 Set-Alias -Name WKS-DescribeWorkspaces -Value Get-WKSWorkspace
 Set-Alias -Name Describe-WKSWorkspacesConnectionStatus -Value Get-WKSWorkspacesConnectionStatus
 Set-Alias -Name WKS-DescribeWorkspacesConnectionStatus -Value Get-WKSWorkspacesConnectionStatus
+Set-Alias -Name WKS-DisassociateIpGroups -Value Unregister-WKSIpGroup
 Set-Alias -Name Modify-WKSWorkspaceProperty -Value Edit-WKSWorkspaceProperty
 Set-Alias -Name WKS-ModifyWorkspaceProperties -Value Edit-WKSWorkspaceProperty
+Set-Alias -Name WKS-ModifyWorkspaceState -Value Edit-WKSWorkspaceState
+Set-Alias -Name WKS-RevokeIpRules -Value Revoke-WKSIpRule
+Set-Alias -Name WKS-UpdateRulesOfIpGroup -Value Update-WKSRulesOfIpGroup
 Set-Alias -Name WM-AssociateDelegateToResource -Value Add-WMDelegateToResource
 Set-Alias -Name WM-AssociateMemberToGroup -Value Add-WMMemberToGroup
 Set-Alias -Name WM-CreateAlias -Value New-WMAlias

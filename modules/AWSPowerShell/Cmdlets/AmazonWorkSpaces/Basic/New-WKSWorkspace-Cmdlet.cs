@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter Workspace
         /// <summary>
         /// <para>
-        /// <para>Information about the WorkSpaces to create.</para>
+        /// <para>The WorkSpaces to create. You can specify up to 25 WorkSpaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

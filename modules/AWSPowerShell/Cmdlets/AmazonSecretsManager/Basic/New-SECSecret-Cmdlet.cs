@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// You provide the secret data to be encrypted by putting text in either the <code>SecretString</code>
     /// parameter or binary data in the <code>SecretBinary</code> parameter, but not both.
     /// If you include <code>SecretString</code> or <code>SecretBinary</code> then Secrets
-    /// Manager also creates an initial secret version and, if you don't supply a staging
-    /// label, automatically maps the new version's ID to the staging label <code>AWSCURRENT</code>.
+    /// Manager also creates an initial secret version and automatically attaches the staging
+    /// label <code>AWSCURRENT</code> to the new version.
     /// </para><note><ul><li><para>
     /// If you call an operation that needs to encrypt or decrypt the <code>SecretString</code>
     /// or <code>SecretBinary</code> for a secret in the same account as the calling user
@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// the secret or when you update it by including it in the <code>KMSKeyId</code>. If
     /// you call an API that must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code>
     /// using credentials from a different account then the KMS key policy must grant cross-account
-    /// access to that other account's user or role.
+    /// access to that other account's user or role for both the kms:GenerateDataKey and kms:Decrypt
+    /// operations.
     /// </para></li></ul></note><para></para><para><b>Minimum permissions</b></para><para>
     /// To run this command, you must have the following permissions:
     /// </para><ul><li><para>
@@ -74,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// the secret. You do not need this permission to use the account's default AWS managed
     /// CMK for Secrets Manager.
     /// </para></li><li><para>
-    /// kms:Encrypt - needed only if you use a customer-created KMS key to encrypt the secret.
+    /// kms:Decrypt - needed only if you use a customer-created KMS key to encrypt the secret.
     /// You do not need this permission to use the account's default AWS managed CMK for Secrets
     /// Manager.
     /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>

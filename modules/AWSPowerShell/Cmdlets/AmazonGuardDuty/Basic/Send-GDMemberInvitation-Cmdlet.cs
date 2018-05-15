@@ -65,11 +65,23 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.String DetectorId { get; set; }
         #endregion
         
+        #region Parameter DisableEmailNotification
+        /// <summary>
+        /// <para>
+        /// A boolean value that specifies
+        /// whether you want to disable email notification to the accounts that you’re inviting
+        /// to GuardDuty as members.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DisableEmailNotification { get; set; }
+        #endregion
+        
         #region Parameter Message
         /// <summary>
         /// <para>
         /// The invitation message that you want to send to
-        /// the accounts that you're inviting to GuardDuty as members.
+        /// the accounts that you’re inviting to GuardDuty as members.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -110,6 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 context.AccountIds = new List<System.String>(this.AccountId);
             }
             context.DetectorId = this.DetectorId;
+            if (ParameterWasBound("DisableEmailNotification"))
+                context.DisableEmailNotification = this.DisableEmailNotification;
             context.Message = this.Message;
             
             // allow further manipulation of loaded context prior to processing
@@ -134,6 +148,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
             if (cmdletContext.DetectorId != null)
             {
                 request.DetectorId = cmdletContext.DetectorId;
+            }
+            if (cmdletContext.DisableEmailNotification != null)
+            {
+                request.DisableEmailNotification = cmdletContext.DisableEmailNotification.Value;
             }
             if (cmdletContext.Message != null)
             {
@@ -205,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         {
             public List<System.String> AccountIds { get; set; }
             public System.String DetectorId { get; set; }
+            public System.Boolean? DisableEmailNotification { get; set; }
             public System.String Message { get; set; }
         }
         

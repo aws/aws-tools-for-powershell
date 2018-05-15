@@ -31,6 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// Retrieves the default patch baseline. Note that Systems Manager supports creating
     /// multiple default patch baselines. For example, you can create a default patch baseline
     /// for each operating system.
+    /// 
+    ///  
+    /// <para>
+    /// If you do not specify an operating system value, the default patch baseline for Windows
+    /// is returned.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "SSMDefaultPatchBaseline")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetDefaultPatchBaselineResponse")]

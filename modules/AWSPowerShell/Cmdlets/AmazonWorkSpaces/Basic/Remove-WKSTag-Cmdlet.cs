@@ -28,7 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Deletes the specified tags from a WorkSpace.
+    /// Deletes the specified tags from the specified WorkSpace.
     /// </summary>
     [Cmdlet("Remove", "WKSTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource.</para>
+        /// <para>The ID of the WorkSpace. To find this ID, use <a>DescribeWorkspaces</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

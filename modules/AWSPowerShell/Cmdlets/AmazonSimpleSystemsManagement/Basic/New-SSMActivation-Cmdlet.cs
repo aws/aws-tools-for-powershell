@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A userdefined description of the resource that you want to register with Amazon EC2.
+        /// <para>A user-defined description of the resource that you want to register with Amazon EC2.
         /// </para><important><para>Do not enter personally identifiable information in this field.</para></important>
         /// </para>
         /// </summary>

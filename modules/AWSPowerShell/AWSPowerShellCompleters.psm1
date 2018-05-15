@@ -217,6 +217,13 @@ $ALXB_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AlexaForBusiness.DeviceEventType
+        "Get-ALXBDeviceEventList/EventType"
+        {
+            $v = "CONNECTION_STATUS","DEVICE_STATUS"
+            break
+        }
+        
         # Amazon.AlexaForBusiness.DistanceUnit
         {
             ($_ -eq "New-ALXBProfile/DistanceUnit") -Or
@@ -256,6 +263,7 @@ $ALXB_Completers = {
 
 $ALXB_map = @{
     "DistanceUnit"=@("New-ALXBProfile","Update-ALXBProfile")
+    "EventType"=@("Get-ALXBDeviceEventList")
     "TemperatureUnit"=@("New-ALXBProfile","Update-ALXBProfile")
     "WakeWord"=@("New-ALXBProfile","Update-ALXBProfile")
 }
@@ -565,7 +573,7 @@ $ASYN_Completers = {
             ($_ -eq "Update-ASYNGraphqlApi/AuthenticationType")
         }
         {
-            $v = "AMAZON_COGNITO_USER_POOLS","API_KEY","AWS_IAM"
+            $v = "AMAZON_COGNITO_USER_POOLS","API_KEY","AWS_IAM","OPENID_CONNECT"
             break
         }
         
@@ -576,6 +584,16 @@ $ASYN_Completers = {
         }
         {
             $v = "AMAZON_DYNAMODB","AMAZON_ELASTICSEARCH","AWS_LAMBDA","NONE"
+            break
+        }
+        
+        # Amazon.AppSync.FieldLogLevel
+        {
+            ($_ -eq "New-ASYNGraphqlApi/LogConfig_FieldLogLevel") -Or
+            ($_ -eq "Update-ASYNGraphqlApi/LogConfig_FieldLogLevel")
+        }
+        {
+            $v = "ALL","ERROR","NONE"
             break
         }
         
@@ -608,6 +626,7 @@ $ASYN_Completers = {
 $ASYN_map = @{
     "AuthenticationType"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
     "Format"=@("Get-ASYNIntrospectionSchema","Get-ASYNType","Get-ASYNTypeList","New-ASYNType","Update-ASYNType")
+    "LogConfig_FieldLogLevel"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
     "Type"=@("New-ASYNDataSource","Update-ASYNDataSource")
 }
 
@@ -829,7 +848,7 @@ $BGT_Completers = {
             ($_ -eq "Update-BGTBudget/NewBudget_BudgetType")
         }
         {
-            $v = "COST","RI_UTILIZATION","USAGE"
+            $v = "COST","RI_COVERAGE","RI_UTILIZATION","USAGE"
             break
         }
         
@@ -1523,7 +1542,8 @@ $CB_Completers = {
         # Amazon.CodeBuild.CacheType
         {
             ($_ -eq "New-CBProject/Cache_Type") -Or
-            ($_ -eq "Update-CBProject/Cache_Type")
+            ($_ -eq "Update-CBProject/Cache_Type") -Or
+            ($_ -eq "Start-CBBuild/CacheOverride_Type")
         }
         {
             $v = "NO_CACHE","S3"
@@ -1532,6 +1552,7 @@ $CB_Completers = {
         
         # Amazon.CodeBuild.ComputeType
         {
+            ($_ -eq "Start-CBBuild/ComputeTypeOverride") -Or
             ($_ -eq "New-CBProject/Environment_ComputeType") -Or
             ($_ -eq "Update-CBProject/Environment_ComputeType")
         }
@@ -1543,7 +1564,8 @@ $CB_Completers = {
         # Amazon.CodeBuild.EnvironmentType
         {
             ($_ -eq "New-CBProject/Environment_Type") -Or
-            ($_ -eq "Update-CBProject/Environment_Type")
+            ($_ -eq "Update-CBProject/Environment_Type") -Or
+            ($_ -eq "Start-CBBuild/EnvironmentTypeOverride")
         }
         {
             $v = "LINUX_CONTAINER"
@@ -1571,7 +1593,8 @@ $CB_Completers = {
         # Amazon.CodeBuild.SourceAuthType
         {
             ($_ -eq "New-CBProject/Source_Auth_Type") -Or
-            ($_ -eq "Update-CBProject/Source_Auth_Type")
+            ($_ -eq "Update-CBProject/Source_Auth_Type") -Or
+            ($_ -eq "Start-CBBuild/SourceAuthOverride_Type")
         }
         {
             $v = "OAUTH"
@@ -1581,7 +1604,8 @@ $CB_Completers = {
         # Amazon.CodeBuild.SourceType
         {
             ($_ -eq "New-CBProject/Source_Type") -Or
-            ($_ -eq "Update-CBProject/Source_Type")
+            ($_ -eq "Update-CBProject/Source_Type") -Or
+            ($_ -eq "Start-CBBuild/SourceTypeOverride")
         }
         {
             $v = "BITBUCKET","CODECOMMIT","CODEPIPELINE","GITHUB","GITHUB_ENTERPRISE","S3"
@@ -1603,12 +1627,17 @@ $CB_map = @{
     "ArtifactsOverride_Packaging"=@("Start-CBBuild")
     "ArtifactsOverride_Type"=@("Start-CBBuild")
     "Cache_Type"=@("New-CBProject","Update-CBProject")
+    "CacheOverride_Type"=@("Start-CBBuild")
+    "ComputeTypeOverride"=@("Start-CBBuild")
     "Environment_ComputeType"=@("New-CBProject","Update-CBProject")
     "Environment_Type"=@("New-CBProject","Update-CBProject")
+    "EnvironmentTypeOverride"=@("Start-CBBuild")
     "SortBy"=@("Get-CBProjectList")
     "SortOrder"=@("Get-CBBuildIdList","Get-CBBuildIdListForProject","Get-CBProjectList")
     "Source_Auth_Type"=@("New-CBProject","Update-CBProject")
     "Source_Type"=@("New-CBProject","Update-CBProject")
+    "SourceAuthOverride_Type"=@("Start-CBBuild")
+    "SourceTypeOverride"=@("Start-CBBuild")
 }
 
 _awsArgumentCompleterRegistration $CB_Completers $CB_map
@@ -1931,6 +1960,13 @@ $CP_Completers = {
             break
         }
         
+        # Amazon.CodePipeline.WebhookAuthenticationType
+        "Write-CPWebhook/Webhook_Authentication"
+        {
+            $v = "GITHUB_HMAC","IP","UNAUTHENTICATED"
+            break
+        }
+        
     }
     
     $v |
@@ -1947,6 +1983,7 @@ $CP_map = @{
     "Result_Status"=@("Write-CPApprovalResult")
     "RetryMode"=@("Redo-CPStageExecution")
     "TransitionType"=@("Disable-CPStageTransition","Enable-CPStageTransition")
+    "Webhook_Authentication"=@("Write-CPWebhook")
 }
 
 _awsArgumentCompleterRegistration $CP_Completers $CP_map
@@ -2178,7 +2215,7 @@ $CFG_Completers = {
             ($_ -eq "Get-CFGResourceConfigHistory/ResourceType")
         }
         {
-            $v = "AWS::ACM::Certificate","AWS::AutoScaling::AutoScalingGroup","AWS::AutoScaling::LaunchConfiguration","AWS::AutoScaling::ScalingPolicy","AWS::AutoScaling::ScheduledAction","AWS::CloudFormation::Stack","AWS::CloudFront::Distribution","AWS::CloudFront::StreamingDistribution","AWS::CloudTrail::Trail","AWS::CloudWatch::Alarm","AWS::CodeBuild::Project","AWS::DynamoDB::Table","AWS::EC2::CustomerGateway","AWS::EC2::EIP","AWS::EC2::Host","AWS::EC2::Instance","AWS::EC2::InternetGateway","AWS::EC2::NetworkAcl","AWS::EC2::NetworkInterface","AWS::EC2::RouteTable","AWS::EC2::SecurityGroup","AWS::EC2::Subnet","AWS::EC2::Volume","AWS::EC2::VPC","AWS::EC2::VPNConnection","AWS::EC2::VPNGateway","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::IAM::Group","AWS::IAM::Policy","AWS::IAM::Role","AWS::IAM::User","AWS::RDS::DBInstance","AWS::RDS::DBSecurityGroup","AWS::RDS::DBSnapshot","AWS::RDS::DBSubnetGroup","AWS::RDS::EventSubscription","AWS::Redshift::Cluster","AWS::Redshift::ClusterParameterGroup","AWS::Redshift::ClusterSecurityGroup","AWS::Redshift::ClusterSnapshot","AWS::Redshift::ClusterSubnetGroup","AWS::Redshift::EventSubscription","AWS::S3::Bucket","AWS::SSM::ManagedInstanceInventory","AWS::WAF::RateBasedRule","AWS::WAF::Rule","AWS::WAF::WebACL","AWS::WAFRegional::RateBasedRule","AWS::WAFRegional::Rule","AWS::WAFRegional::WebACL"
+            $v = "AWS::ACM::Certificate","AWS::AutoScaling::AutoScalingGroup","AWS::AutoScaling::LaunchConfiguration","AWS::AutoScaling::ScalingPolicy","AWS::AutoScaling::ScheduledAction","AWS::CloudFormation::Stack","AWS::CloudFront::Distribution","AWS::CloudFront::StreamingDistribution","AWS::CloudTrail::Trail","AWS::CloudWatch::Alarm","AWS::CodeBuild::Project","AWS::DynamoDB::Table","AWS::EC2::CustomerGateway","AWS::EC2::EIP","AWS::EC2::Host","AWS::EC2::Instance","AWS::EC2::InternetGateway","AWS::EC2::NetworkAcl","AWS::EC2::NetworkInterface","AWS::EC2::RouteTable","AWS::EC2::SecurityGroup","AWS::EC2::Subnet","AWS::EC2::Volume","AWS::EC2::VPC","AWS::EC2::VPNConnection","AWS::EC2::VPNGateway","AWS::ElasticBeanstalk::Application","AWS::ElasticBeanstalk::ApplicationVersion","AWS::ElasticBeanstalk::Environment","AWS::ElasticLoadBalancing::LoadBalancer","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::IAM::Group","AWS::IAM::Policy","AWS::IAM::Role","AWS::IAM::User","AWS::Lambda::Function","AWS::RDS::DBInstance","AWS::RDS::DBSecurityGroup","AWS::RDS::DBSnapshot","AWS::RDS::DBSubnetGroup","AWS::RDS::EventSubscription","AWS::Redshift::Cluster","AWS::Redshift::ClusterParameterGroup","AWS::Redshift::ClusterSecurityGroup","AWS::Redshift::ClusterSnapshot","AWS::Redshift::ClusterSubnetGroup","AWS::Redshift::EventSubscription","AWS::S3::Bucket","AWS::SSM::ManagedInstanceInventory","AWS::WAF::RateBasedRule","AWS::WAF::Rule","AWS::WAF::RuleGroup","AWS::WAF::WebACL","AWS::WAFRegional::RateBasedRule","AWS::WAFRegional::Rule","AWS::WAFRegional::RuleGroup","AWS::WAFRegional::WebACL","AWS::XRay::EncryptionConfig"
             break
         }
         
@@ -2818,6 +2855,16 @@ $EC2_Completers = {
             break
         }
         
+        # Amazon.EC2.DefaultTargetCapacityType
+        {
+            ($_ -eq "Edit-EC2Fleet/TargetCapacitySpecification_DefaultTargetCapacityType") -Or
+            ($_ -eq "New-EC2Fleet/TargetCapacitySpecification_DefaultTargetCapacityType")
+        }
+        {
+            $v = "on-demand","spot"
+            break
+        }
+        
         # Amazon.EC2.DiskImageFormat
         "New-EC2InstanceExportTask/ExportToS3Task_DiskImageFormat"
         {
@@ -2856,8 +2903,28 @@ $EC2_Completers = {
             break
         }
         
+        # Amazon.EC2.FleetEventType
+        "Get-EC2FleetHistory/EventType"
+        {
+            $v = "fleet-change","instance-change","service-error"
+            break
+        }
+        
+        # Amazon.EC2.FleetExcessCapacityTerminationPolicy
+        {
+            ($_ -eq "Edit-EC2Fleet/ExcessCapacityTerminationPolicy") -Or
+            ($_ -eq "New-EC2Fleet/ExcessCapacityTerminationPolicy")
+        }
+        {
+            $v = "no-termination","termination"
+            break
+        }
+        
         # Amazon.EC2.FleetType
-        "Request-EC2SpotFleet/SpotFleetRequestConfig_Type"
+        {
+            ($_ -eq "Request-EC2SpotFleet/SpotFleetRequestConfig_Type") -Or
+            ($_ -eq "New-EC2Fleet/Type")
+        }
         {
             $v = "maintain","request"
             break
@@ -3044,6 +3111,20 @@ $EC2_Completers = {
             break
         }
         
+        # Amazon.EC2.SpotAllocationStrategy
+        "New-EC2Fleet/SpotOptions_AllocationStrategy"
+        {
+            $v = "diversified","lowest-price"
+            break
+        }
+        
+        # Amazon.EC2.SpotInstanceInterruptionBehavior
+        "New-EC2Fleet/SpotOptions_InstanceInterruptionBehavior"
+        {
+            $v = "hibernate","stop","terminate"
+            break
+        }
+        
         # Amazon.EC2.SpotInstanceType
         "Request-EC2SpotInstance/Type"
         {
@@ -3122,8 +3203,8 @@ $EC2_map = @{
     "AutoPlacement"=@("Edit-EC2Host","New-EC2Host")
     "CurrencyCode"=@("New-EC2HostReservation")
     "Domain"=@("New-EC2Address")
-    "EventType"=@("Get-EC2SpotFleetRequestHistory")
-    "ExcessCapacityTerminationPolicy"=@("Edit-EC2SpotFleetRequest")
+    "EventType"=@("Get-EC2FleetHistory","Get-EC2SpotFleetRequestHistory")
+    "ExcessCapacityTerminationPolicy"=@("Edit-EC2Fleet","Edit-EC2SpotFleetRequest","New-EC2Fleet")
     "ExportToS3Task_ContainerFormat"=@("New-EC2InstanceExportTask")
     "ExportToS3Task_DiskImageFormat"=@("New-EC2InstanceExportTask")
     "InstanceInitiatedShutdownBehavior"=@("New-EC2Instance")
@@ -3144,12 +3225,15 @@ $EC2_map = @{
     "SpotFleetRequestConfig_ExcessCapacityTerminationPolicy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_InstanceInterruptionBehavior"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_Type"=@("Request-EC2SpotFleet")
+    "SpotOptions_AllocationStrategy"=@("New-EC2Fleet")
+    "SpotOptions_InstanceInterruptionBehavior"=@("New-EC2Fleet")
     "Status"=@("Send-EC2InstanceStatus")
     "Strategy"=@("New-EC2PlacementGroup")
+    "TargetCapacitySpecification_DefaultTargetCapacityType"=@("Edit-EC2Fleet","New-EC2Fleet")
     "TargetEnvironment"=@("New-EC2InstanceExportTask")
     "Tenancy"=@("Edit-EC2InstancePlacement","New-EC2Instance")
     "TrafficType"=@("New-EC2FlowLog")
-    "Type"=@("New-EC2CustomerGateway","New-EC2VpnGateway","Request-EC2SpotInstance")
+    "Type"=@("New-EC2CustomerGateway","New-EC2Fleet","New-EC2VpnGateway","Request-EC2SpotInstance")
     "VolumeType"=@("Edit-EC2Volume","New-EC2Volume")
     "VpcEndpointType"=@("New-EC2VpcEndpoint")
 }
@@ -3628,6 +3712,13 @@ $GML_Completers = {
             break
         }
         
+        # Amazon.GameLift.PolicyType
+        "Write-GMLScalingPolicy/PolicyType"
+        {
+            $v = "RuleBased","TargetBased"
+            break
+        }
+        
         # Amazon.GameLift.ProtectionPolicy
         {
             ($_ -eq "New-GMLFleet/NewGameSessionProtectionPolicy") -Or
@@ -3680,6 +3771,7 @@ $GML_map = @{
     "NewGameSessionProtectionPolicy"=@("New-GMLFleet","Update-GMLFleetAttribute")
     "OperatingSystem"=@("New-GMLBuild")
     "PlayerSessionCreationPolicy"=@("Update-GMLGameSession")
+    "PolicyType"=@("Write-GMLScalingPolicy")
     "ProtectionPolicy"=@("Update-GMLGameSession")
     "RoutingStrategy_Type"=@("New-GMLAlias","Update-GMLAlias")
     "RoutingStrategyType"=@("Get-GMLAlias")
@@ -3763,6 +3855,16 @@ $GD_Completers = {
             break
         }
         
+        # Amazon.GuardDuty.FilterAction
+        {
+            ($_ -eq "New-GDFilter/Action") -Or
+            ($_ -eq "Update-GDFilter/Action")
+        }
+        {
+            $v = "ARCHIVE","NOOP"
+            break
+        }
+        
         # Amazon.GuardDuty.IpSetFormat
         "New-GDIPSet/Format"
         {
@@ -3785,6 +3887,7 @@ $GD_Completers = {
 }
 
 $GD_map = @{
+    "Action"=@("New-GDFilter","Update-GDFilter")
     "Feedback"=@("Update-GDFindingFeedback")
     "Format"=@("New-GDIPSet","New-GDThreatIntelSet")
 }
@@ -6909,6 +7012,13 @@ $WKS_Completers = {
             break
         }
         
+        # Amazon.WorkSpaces.TargetWorkspaceState
+        "Edit-WKSWorkspaceState/WorkspaceState"
+        {
+            $v = "ADMIN_MAINTENANCE","AVAILABLE"
+            break
+        }
+        
     }
     
     $v |
@@ -6919,6 +7029,7 @@ $WKS_Completers = {
 $WKS_map = @{
     "WorkspaceProperties_ComputeTypeName"=@("Edit-WKSWorkspaceProperty")
     "WorkspaceProperties_RunningMode"=@("Edit-WKSWorkspaceProperty")
+    "WorkspaceState"=@("Edit-WKSWorkspaceState")
 }
 
 _awsArgumentCompleterRegistration $WKS_Completers $WKS_map

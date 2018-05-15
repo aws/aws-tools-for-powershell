@@ -28,10 +28,11 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a NAT gateway in the specified subnet. A NAT gateway can be used to enable
-    /// instances in a private subnet to connect to the Internet. This action creates a network
+    /// Creates a NAT gateway in the specified public subnet. This action creates a network
     /// interface in the specified subnet with a private IP address from the IP address range
-    /// of the subnet. For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html">NAT
+    /// of the subnet. Internet-bound traffic from a private subnet can be routed to the NAT
+    /// gateway, therefore enabling instances in the private subnet to connect to the internet.
+    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html">NAT
     /// Gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </summary>
     [Cmdlet("New", "EC2NatGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

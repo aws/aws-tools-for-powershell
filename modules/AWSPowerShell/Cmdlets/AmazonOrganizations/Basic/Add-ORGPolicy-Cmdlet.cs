@@ -28,8 +28,8 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Attaches a policy to a root, an organizational unit, or an individual account. How
-    /// the policy affects accounts depends on the type of policy:
+    /// Attaches a policy to a root, an organizational unit (OU), or an individual account.
+    /// How the policy affects accounts depends on the type of policy:
     /// 
     ///  <ul><li><para><b>Service control policy (SCP)</b> - An SCP specifies what permissions can be delegated
     /// to users in affected member accounts. The scope of influence for a policy depends

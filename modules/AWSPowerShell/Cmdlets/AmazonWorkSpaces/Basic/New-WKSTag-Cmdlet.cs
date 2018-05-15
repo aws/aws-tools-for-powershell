@@ -28,7 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Creates tags for the specified WorkSpace.
+    /// Creates the specified tags for the specified WorkSpace.
     /// </summary>
     [Cmdlet("New", "WKSTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource.</para>
+        /// <para>The ID of the WorkSpace. To find this ID, use <a>DescribeWorkspaces</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags. Each resource can have a maximum of 50 tags.</para>
+        /// <para>The tags. Each WorkSpace can have a maximum of 50 tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

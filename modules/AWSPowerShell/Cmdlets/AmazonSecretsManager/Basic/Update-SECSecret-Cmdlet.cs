@@ -41,15 +41,13 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// store binary data as part of the version of a secret, you must use either the AWS
     /// CLI or one of the AWS SDKs.
     /// </para></note><ul><li><para>
-    /// If this update creates the first version of the secret or if you did not include the
-    /// <code>VersionStages</code> parameter then Secrets Manager automatically attaches the
-    /// staging label <code>AWSCURRENT</code> to the new version and removes it from any version
-    /// that had it previously. The previous version (if any) is then given the staging label
-    /// <code>AWSPREVIOUS</code>.
-    /// </para></li><li><para>
     /// If a version with a <code>SecretVersionId</code> with the same value as the <code>ClientRequestToken</code>
     /// parameter already exists, the operation generates an error. You cannot modify an existing
     /// version, you can only create new ones.
+    /// </para></li><li><para>
+    /// If you include <code>SecretString</code> or <code>SecretBinary</code> to create a
+    /// new secret version, Secrets Manager automatically attaches the staging label <code>AWSCURRENT</code>
+    /// to the new version. 
     /// </para></li></ul><note><ul><li><para>
     /// If you call an operation that needs to encrypt or decrypt the <code>SecretString</code>
     /// or <code>SecretBinary</code> for a secret in the same account as the calling user
@@ -68,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// the secret or when you update it by including it in the <code>KMSKeyId</code>. If
     /// you call an API that must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code>
     /// using credentials from a different account then the KMS key policy must grant cross-account
-    /// access to that other account's user or role.
+    /// access to that other account's user or role for both the kms:GenerateDataKey and kms:Decrypt
+    /// operations.
     /// </para></li></ul></note><para><b>Minimum permissions</b></para><para>
     /// To run this command, you must have the following permissions:
     /// </para><ul><li><para>

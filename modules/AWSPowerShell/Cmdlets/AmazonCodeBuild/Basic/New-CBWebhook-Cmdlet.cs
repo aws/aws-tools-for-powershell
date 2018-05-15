@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     /// Because billing is on a per-build basis, you will be billed for both builds. Therefore,
     /// if you are using AWS CodePipeline, we recommend that you disable webhooks in CodeBuild.
     /// In the AWS CodeBuild console, clear the Webhook box. For more information, see step
-    /// 9 in <a href="http://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console">Change
+    /// 5 in <a href="http://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console">Change
     /// a Build Project's Settings</a>.
     /// </para></important>
     /// </summary>

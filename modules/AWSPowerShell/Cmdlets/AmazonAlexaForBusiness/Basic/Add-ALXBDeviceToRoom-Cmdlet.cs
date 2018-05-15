@@ -28,9 +28,9 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Associates a device to a given room. This applies all the settings from the room profile
-    /// to the device, and all the skills in any skill groups added to that room. This operation
-    /// requires the device to be online, or a manual sync is required.
+    /// Associates a device with a given room. This applies all the settings from the room
+    /// profile to the device, and all the skills in any skill groups added to that room.
+    /// This operation requires the device to be online, or else a manual sync is required.
     /// </summary>
     [Cmdlet("Add", "ALXBDeviceToRoom", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

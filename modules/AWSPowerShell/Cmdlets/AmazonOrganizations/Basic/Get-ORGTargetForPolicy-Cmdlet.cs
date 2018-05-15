@@ -28,7 +28,8 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Lists all the roots, OUs, and accounts to which the specified policy is attached.
+    /// Lists all the roots, organizaitonal units (OUs), and accounts to which the specified
+    /// policy is attached.
     /// 
     ///  <note><para>
     /// Always check the <code>NextToken</code> response parameter for a <code>null</code>

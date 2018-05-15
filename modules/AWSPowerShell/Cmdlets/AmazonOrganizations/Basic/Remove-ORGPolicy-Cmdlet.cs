@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
     /// Deletes the specified policy from your organization. Before you perform this operation,
-    /// you must first detach the policy from all OUs, roots, and accounts.
+    /// you must first detach the policy from all organizational units (OUs), roots, and accounts.
     /// 
     ///  
     /// <para>

@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </para><para>
     /// For more information about creating accounts, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html">Creating
     /// an AWS Account in Your Organization</a> in the <i>AWS Organizations User Guide</i>.
-    /// </para><important><para>
+    /// </para><important><ul><li><para>
     /// When you create an account in an organization using the AWS Organizations console,
     /// API, or CLI commands, the information required for the account to operate as a standalone
     /// account, such as a payment method and signing the End User Licence Agreement (EULA)
@@ -63,7 +63,17 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">
     /// To leave an organization when all required account information has not yet been provided</a>
     /// in the <i>AWS Organizations User Guide</i>.
-    /// </para></important><note><para>
+    /// </para></li><li><para>
+    /// If you get an exception that indicates that you exceeded your account limits for the
+    /// organization or that the operation failed because your organization is still initializing,
+    /// wait one hour and then try again. If the error persists after an hour, then contact
+    /// <a href="https://console.aws.amazon.com/support/home#/">AWS Customer Support</a>.
+    /// </para></li><li><para>
+    /// Because <code>CreateAccount</code> operates asynchronously, it can return a successful
+    /// completion message even though account initialization might still be in progress.
+    /// You might need to wait a few minutes before you can successfully access the account.
+    /// 
+    /// </para></li></ul></important><note><para>
     /// When you create a member account with this operation, you can choose whether to create
     /// the account with the <b>IAM User and Role Access to Billing Information</b> switch
     /// enabled. If you enable it, IAM users and roles that have appropriate permissions can
@@ -71,14 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// root user can access billing information. For information about how to disable this
     /// for an account, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html">Granting
     /// Access to Your Billing Information and Tools</a>.
-    /// </para></note><para>
-    /// This operation can be called only from the organization's master account.
-    /// </para><important><para>
-    /// If you get an exception that indicates that you exceeded your account limits for the
-    /// organization or that you can"t add an account because your organization is still initializing,
-    /// please contact <a href="https://console.aws.amazon.com/support/home#/"> AWS Customer
-    /// Support</a>.
-    /// </para></important>
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "ORGAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Organizations.Model.CreateAccountStatus")]

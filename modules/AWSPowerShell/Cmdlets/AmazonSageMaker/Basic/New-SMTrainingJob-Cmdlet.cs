@@ -173,6 +173,30 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter VpcConfig_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for
+        /// the VPC that is specified in the <code>Subnets</code> field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("VpcConfig_SecurityGroupIds")]
+        public System.String[] VpcConfig_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_Subnet
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the subnets in the VPC to which you want to connect your training job or
+        /// model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("VpcConfig_Subnets")]
+        public System.String[] VpcConfig_Subnet { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -249,6 +273,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Tags = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
             }
             context.TrainingJobName = this.TrainingJobName;
+            if (this.VpcConfig_SecurityGroupId != null)
+            {
+                context.VpcConfig_SecurityGroupIds = new List<System.String>(this.VpcConfig_SecurityGroupId);
+            }
+            if (this.VpcConfig_Subnet != null)
+            {
+                context.VpcConfig_Subnets = new List<System.String>(this.VpcConfig_Subnet);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -315,6 +347,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.TrainingJobName != null)
             {
                 request.TrainingJobName = cmdletContext.TrainingJobName;
+            }
+            
+             // populate VpcConfig
+            bool requestVpcConfigIsNull = true;
+            request.VpcConfig = new Amazon.SageMaker.Model.VpcConfig();
+            List<System.String> requestVpcConfig_vpcConfig_SecurityGroupId = null;
+            if (cmdletContext.VpcConfig_SecurityGroupIds != null)
+            {
+                requestVpcConfig_vpcConfig_SecurityGroupId = cmdletContext.VpcConfig_SecurityGroupIds;
+            }
+            if (requestVpcConfig_vpcConfig_SecurityGroupId != null)
+            {
+                request.VpcConfig.SecurityGroupIds = requestVpcConfig_vpcConfig_SecurityGroupId;
+                requestVpcConfigIsNull = false;
+            }
+            List<System.String> requestVpcConfig_vpcConfig_Subnet = null;
+            if (cmdletContext.VpcConfig_Subnets != null)
+            {
+                requestVpcConfig_vpcConfig_Subnet = cmdletContext.VpcConfig_Subnets;
+            }
+            if (requestVpcConfig_vpcConfig_Subnet != null)
+            {
+                request.VpcConfig.Subnets = requestVpcConfig_vpcConfig_Subnet;
+                requestVpcConfigIsNull = false;
+            }
+             // determine if request.VpcConfig should be set to null
+            if (requestVpcConfigIsNull)
+            {
+                request.VpcConfig = null;
             }
             
             CmdletOutput output;
@@ -389,6 +450,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? StoppingCondition_MaxRuntimeInSeconds { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tags { get; set; }
             public System.String TrainingJobName { get; set; }
+            public List<System.String> VpcConfig_SecurityGroupIds { get; set; }
+            public List<System.String> VpcConfig_Subnets { get; set; }
         }
         
     }

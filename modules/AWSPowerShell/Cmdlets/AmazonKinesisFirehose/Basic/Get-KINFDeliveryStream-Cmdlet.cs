@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ExclusiveStartDestinationId
         /// <summary>
         /// <para>
-        /// <para>The ID of the destination to start returning the destination information. Currently,
-        /// Kinesis Data Firehose supports one destination per delivery stream.</para>
+        /// <para>The ID of the destination to start returning the destination information. Kinesis
+        /// Data Firehose supports one destination per delivery stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The limit on the number of destinations to return. Currently, you can have one destination
-        /// per delivery stream.</para>
+        /// <para>The limit on the number of destinations to return. You can have one destination per
+        /// delivery stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -95,8 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The targets (either instances or tags). Instances are specified using Key=instanceids,Values=&lt;instanceid1&gt;,&lt;instanceid2&gt;.
-        /// Tags are specified using Key=&lt;tag name&gt;,Values=&lt;tag value&gt;.</para>
+        /// <para>The targets (either instances or tags). </para><para>Specify instances using the following format:</para><para><code>Key=InstanceIds,Values=&lt;instance-id-1&gt;,&lt;instance-id-2&gt;</code></para><para>Specify tags using either of the following formats:</para><para><code>Key=tag:&lt;tag-key&gt;,Values=&lt;tag-value-1&gt;,&lt;tag-value-2&gt;</code></para><para><code>Key=tag-key,Values=&lt;tag-key-1&gt;,&lt;tag-key-2&gt;</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

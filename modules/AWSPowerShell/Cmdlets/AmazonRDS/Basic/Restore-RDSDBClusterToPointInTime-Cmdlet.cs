@@ -54,6 +54,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class RestoreRDSDBClusterToPointInTimeCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        #region Parameter BacktrackWindow
+        /// <summary>
+        /// <para>
+        /// <para>The target backtrack window, in seconds. To disable backtracking, set this value to
+        /// 0.</para><para>Default: 0</para><para>Constraints:</para><ul><li><para>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int64 BacktrackWindow { get; set; }
+        #endregion
+        
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
@@ -220,6 +231,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("BacktrackWindow"))
+                context.BacktrackWindow = this.BacktrackWindow;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
             if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
@@ -258,6 +271,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // create request
             var request = new Amazon.RDS.Model.RestoreDBClusterToPointInTimeRequest();
             
+            if (cmdletContext.BacktrackWindow != null)
+            {
+                request.BacktrackWindow = cmdletContext.BacktrackWindow.Value;
+            }
             if (cmdletContext.DBClusterIdentifier != null)
             {
                 request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
@@ -370,6 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int64? BacktrackWindow { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBSubnetGroupName { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }

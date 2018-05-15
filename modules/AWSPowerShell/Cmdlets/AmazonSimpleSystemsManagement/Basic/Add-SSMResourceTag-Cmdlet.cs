@@ -64,8 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The resource ID you want to tag.</para><para>For the ManagedInstance, MaintenanceWindow, and PatchBaseline values, use the ID of
-        /// the resource, such as mw-01234361858c9b57b for a Maintenance Window.</para><para>For the Document and Parameter values, use the name of the resource.</para>
+        /// <para>The resource ID you want to tag.</para><para>Use the ID of the resource. Here are some examples:</para><para>ManagedInstance: mi-012345abcde</para><para>MaintenanceWindow: mw-012345abcde</para><para>PatchBaseline: pb-012345abcde</para><para>For the Document and Parameter values, use the name of the resource.</para><note><para>The ManagedInstance type for this API action is only for on-premises managed instances.
+        /// You must specify the the name of the managed instance in the following format: mi-ID_number.
+        /// For example, mi-1a2b3c4d5e6f.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -75,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>Specifies the type of resource you are tagging.</para>
+        /// <para>Specifies the type of resource you are tagging.</para><note><para>The ManagedInstance type for this API action is for on-premises managed instances.
+        /// You must specify the the name of the managed instance in the following format: mi-ID_number.
+        /// For example, mi-1a2b3c4d5e6f.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

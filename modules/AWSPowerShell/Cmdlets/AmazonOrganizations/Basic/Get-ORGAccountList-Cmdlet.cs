@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
     /// Lists all the accounts in the organization. To request only the accounts in a specified
-    /// root or OU, use the <a>ListAccountsForParent</a> operation instead.
+    /// root or organizational unit (OU), use the <a>ListAccountsForParent</a> operation instead.
     /// 
     ///  <note><para>
     /// Always check the <code>NextToken</code> response parameter for a <code>null</code>

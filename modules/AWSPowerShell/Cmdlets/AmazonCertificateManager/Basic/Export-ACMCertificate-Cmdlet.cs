@@ -28,12 +28,12 @@ using Amazon.CertificateManager.Model;
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
-    /// Exports a certificate for use anywhere. You can export the certificate, the certificate
-    /// chain, and the encrypted private key associated with the public key embedded in the
-    /// certificate. You must store the private key securely. The private key is a 2048 bit
-    /// RSA key. You must provide a passphrase for the private key when exporting it. You
-    /// can use the following OpenSSL command to decrypt it later. Provide the passphrase
-    /// when prompted. 
+    /// Exports a private certificate issued by a private certificate authority (CA) for use
+    /// anywhere. You can export the certificate, the certificate chain, and the encrypted
+    /// private key associated with the public key embedded in the certificate. You must store
+    /// the private key securely. The private key is a 2048 bit RSA key. You must provide
+    /// a passphrase for the private key when exporting it. You can use the following OpenSSL
+    /// command to decrypt it later. Provide the passphrase when prompted. 
     /// 
     ///  
     /// <para><code>openssl rsa -in encrypted_key.pem -out decrypted_key.pem</code></para>

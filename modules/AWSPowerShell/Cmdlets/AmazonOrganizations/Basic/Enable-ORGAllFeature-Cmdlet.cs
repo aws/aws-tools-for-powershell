@@ -37,8 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// 
     ///  <important><para>
     /// This operation is required only for organizations that were created explicitly with
-    /// only the consolidated billing features enabled, or that were migrated from a Consolidated
-    /// Billing account family to Organizations. Calling this operation sends a handshake
+    /// only the consolidated billing features enabled. Calling this operation sends a handshake
     /// to every invited account in the organization. The feature set change can be finalized
     /// and the additional features enabled only after all administrators in the invited accounts
     /// approve the change by accepting the handshake.

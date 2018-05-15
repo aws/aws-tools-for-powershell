@@ -28,9 +28,9 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Detaches a policy from a target root, organizational unit, or account. If the policy
-    /// being detached is a service control policy (SCP), the changes to permissions for IAM
-    /// users and roles in affected accounts are immediate.
+    /// Detaches a policy from a target root, organizational unit (OU), or account. If the
+    /// policy being detached is a service control policy (SCP), the changes to permissions
+    /// for IAM users and roles in affected accounts are immediate.
     /// 
     ///  
     /// <para><b>Note:</b> Every root, OU, and account must have at least one SCP attached. If

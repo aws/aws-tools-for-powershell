@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The name of the contact to display on the AWS management console.</para>
+        /// <para>The name of the contact to display on the console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         #region Parameter PhoneNumber
         /// <summary>
         /// <para>
-        /// <para>The phone number of the contact in E164 format.</para>
+        /// <para>The phone number of the contact in E.164 format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

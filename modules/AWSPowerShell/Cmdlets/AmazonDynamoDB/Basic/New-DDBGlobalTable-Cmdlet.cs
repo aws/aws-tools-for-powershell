@@ -44,6 +44,19 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     ///  The tables must have the same hash key and sort key (if present). 
     /// </para></li><li><para>
     ///  The tables must have DynamoDB Streams enabled (NEW_AND_OLD_IMAGES). 
+    /// </para></li><li><para>
+    ///  The tables must have same provisioned and maximum write capacity units. 
+    /// </para></li></ul><para>
+    ///  If global secondary indexes are specified, then the following conditions must also
+    /// be met: 
+    /// </para><ul><li><para>
+    ///  The global secondary indexes must have the same name. 
+    /// </para></li><li><para>
+    ///  The global secondary indexes must have the same hash key and sort key (if present).
+    /// 
+    /// </para></li><li><para>
+    ///  The global secondary indexes must have the same provisioned and maximum write capacity
+    /// units. 
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "DDBGlobalTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

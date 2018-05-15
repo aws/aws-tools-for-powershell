@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Associates a contact to a given address book.
+    /// Associates a contact with a given address book.
     /// </summary>
     [Cmdlet("Add", "ALXBContactWithAddressBook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

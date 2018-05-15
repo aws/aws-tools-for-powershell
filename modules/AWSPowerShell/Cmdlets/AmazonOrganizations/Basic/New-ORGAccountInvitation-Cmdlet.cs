@@ -33,21 +33,21 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// the other account's owner. The invitation is implemented as a <a>Handshake</a> whose
     /// details are in the response.
     /// 
-    ///  <important><para>
+    ///  <important><ul><li><para>
     /// You can invite AWS accounts only from the same seller as the master account. For example,
     /// if your organization's master account was created by Amazon Internet Services Pvt.
     /// Ltd (AISPL), an AWS seller in India, then you can only invite other AISPL accounts
     /// to your organization. You can't combine accounts from AISPL and AWS, or any other
     /// AWS seller. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html">Consolidated
     /// Billing in India</a>.
-    /// </para></important><para>
+    /// </para></li><li><para>
+    /// If you receive an exception that indicates that you exceeded your account limits for
+    /// the organization or that the operation failed because your organization is still initializing,
+    /// wait one hour and then try again. If the error persists after an hour, then contact
+    /// <a href="https://console.aws.amazon.com/support/home#/">AWS Customer Support</a>.
+    /// </para></li></ul></important><para>
     /// This operation can be called only from the organization's master account.
-    /// </para><important><para>
-    /// If you get an exception that indicates that you exceeded your account limits for the
-    /// organization or that you can"t add an account because your organization is still initializing,
-    /// please contact <a href="https://console.aws.amazon.com/support/home#/"> AWS Customer
-    /// Support</a>.
-    /// </para></important>
+    /// </para>
     /// </summary>
     [Cmdlet("New", "ORGAccountInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Organizations.Model.Handshake")]

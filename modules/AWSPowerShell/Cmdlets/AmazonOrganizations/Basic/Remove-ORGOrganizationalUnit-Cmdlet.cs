@@ -28,8 +28,8 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Deletes an organizational unit from a root or another OU. You must first remove all
-    /// accounts and child OUs from the OU that you want to delete.
+    /// Deletes an organizational unit (OU) from a root or another OU. You must first remove
+    /// all accounts and child OUs from the OU that you want to delete.
     /// 
     ///  
     /// <para>

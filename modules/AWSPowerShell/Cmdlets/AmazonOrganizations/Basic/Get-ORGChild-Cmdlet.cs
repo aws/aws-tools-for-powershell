@@ -28,9 +28,9 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Lists all of the OUs or accounts that are contained in the specified parent OU or
-    /// root. This operation, along with <a>ListParents</a> enables you to traverse the tree
-    /// structure that makes up this root.
+    /// Lists all of the organizational units (OUs) or accounts that are contained in the
+    /// specified parent OU or root. This operation, along with <a>ListParents</a> enables
+    /// you to traverse the tree structure that makes up this root.
     /// 
     ///  <note><para>
     /// Always check the <code>NextToken</code> response parameter for a <code>null</code>

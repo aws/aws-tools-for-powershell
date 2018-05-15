@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Describes the Spot Instance requests that belong to your account. Spot Instances are
     /// instances that Amazon EC2 launches when the Spot price that you specify exceeds the
     /// current Spot price. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
-    /// Instance Requests</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// Instance Requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
     /// 
     ///  
     /// <para>
@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Alternatively, you can use <a>DescribeInstances</a> with a filter to look for instances
     /// where the instance lifecycle is <code>spot</code>.
     /// </para><para>
-    /// Spot Instance requests are deleted 4 hours after they are canceled and their instances
+    /// Spot Instance requests are deleted four hours after they are canceled and their instances
     /// are terminated.
     /// </para>
     /// </summary>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <code>active</code> | <code>closed</code> | <code>cancelled</code> | <code>failed</code>).
         /// Spot request status information can help you track your Amazon EC2 Spot Instance requests.
         /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html">Spot
-        /// Request Status</a> in the Amazon Elastic Compute Cloud User Guide.</para></li><li><para><code>status-code</code> - The short code describing the most recent evaluation of
+        /// Request Status</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para></li><li><para><code>status-code</code> - The short code describing the most recent evaluation of
         /// your Spot Instance request.</para></li><li><para><code>status-message</code> - The message explaining the status of the Spot Instance
         /// request.</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
         /// to the resource. Specify the key of the tag in the filter name and the value of the

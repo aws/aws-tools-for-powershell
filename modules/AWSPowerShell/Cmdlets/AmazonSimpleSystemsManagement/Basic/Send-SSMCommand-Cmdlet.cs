@@ -83,6 +83,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String DocumentName { get; set; }
         #endregion
         
+        #region Parameter DocumentVersion
+        /// <summary>
+        /// <para>
+        /// <para>The SSM document version to use in the request. You can specify Default, Latest, or
+        /// a specific version number. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DocumentVersion { get; set; }
+        #endregion
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>
@@ -276,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             context.DocumentHash = this.DocumentHash;
             context.DocumentHashType = this.DocumentHashType;
             context.DocumentName = this.DocumentName;
+            context.DocumentVersion = this.DocumentVersion;
             if (this.InstanceId != null)
             {
                 context.InstanceIds = new List<System.String>(this.InstanceId);
@@ -349,6 +361,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.DocumentName != null)
             {
                 request.DocumentName = cmdletContext.DocumentName;
+            }
+            if (cmdletContext.DocumentVersion != null)
+            {
+                request.DocumentVersion = cmdletContext.DocumentVersion;
             }
             if (cmdletContext.InstanceIds != null)
             {
@@ -497,6 +513,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String DocumentHash { get; set; }
             public Amazon.SimpleSystemsManagement.DocumentHashType DocumentHashType { get; set; }
             public System.String DocumentName { get; set; }
+            public System.String DocumentVersion { get; set; }
             public List<System.String> InstanceIds { get; set; }
             public System.String MaxConcurrency { get; set; }
             public System.String MaxErrors { get; set; }

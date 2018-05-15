@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Not currently supported.</para>
+        /// <para>This parameter is not currently supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

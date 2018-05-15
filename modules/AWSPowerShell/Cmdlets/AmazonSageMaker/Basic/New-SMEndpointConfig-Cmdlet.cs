@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// models. In the configuration, you identify one or more models, created using the <code>CreateModel</code>
     /// API, to deploy and the resources that you want Amazon SageMaker to provision. Then
     /// you call the <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a>
-    /// API. 
+    /// API.
     /// 
     ///  <note><para>
     ///  Use this API only if you want to use Amazon SageMaker hosting services to deploy

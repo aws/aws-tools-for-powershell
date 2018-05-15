@@ -28,7 +28,9 @@ using Amazon.CodePipeline.Model;
 namespace Amazon.PowerShell.Cmdlets.CP
 {
     /// <summary>
-    /// Returns information about any jobs for AWS CodePipeline to act upon.
+    /// Returns information about any jobs for AWS CodePipeline to act upon. PollForJobs is
+    /// only valid for action types with "Custom" in the owner field. If the action type contains
+    /// "AWS" or "ThirdParty" in the owner field, the PollForJobs action returns an error.
     /// 
     ///  <important><para>
     /// When this API is called, AWS CodePipeline returns temporary credentials for the Amazon
@@ -97,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter ActionTypeId_Version
         /// <summary>
         /// <para>
-        /// <para>A string that identifies the action type.</para>
+        /// <para>A string that describes the action version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

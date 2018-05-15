@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter ActionTypeId_Version
         /// <summary>
         /// <para>
-        /// <para>A string that identifies the action type.</para>
+        /// <para>A string that describes the action version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

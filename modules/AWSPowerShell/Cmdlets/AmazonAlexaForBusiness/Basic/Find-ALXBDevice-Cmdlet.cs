@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         /// <summary>
         /// <para>
         /// <para>The filters to use to list a specified set of devices. Supported filter keys are DeviceName,
-        /// DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType, DeviceSerialNumber, and
-        /// UnassociatedOnly.</para>
+        /// DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType, DeviceSerialNumber, UnassociatedOnly,
+        /// and ConnectionStatus (ONLINE and OFFLINE).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         /// <summary>
         /// <para>
         /// <para>The sort order to use in listing the specified set of devices. Supported sort keys
-        /// are DeviceName, DeviceStatus, RoomName, DeviceType, and DeviceSerialNumber.</para>
+        /// are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, and ConnectionStatus.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

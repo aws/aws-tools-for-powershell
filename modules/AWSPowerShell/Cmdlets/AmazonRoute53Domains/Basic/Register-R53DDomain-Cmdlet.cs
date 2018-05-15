@@ -28,8 +28,9 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// This operation registers a domain. Domains are registered by the AWS registrar partner,
-    /// Gandi. For some top-level domains (TLDs), this operation requires extra parameters.
+    /// This operation registers a domain. Domains are registered either by Amazon Registrar
+    /// (for .com, .net, and .org domains) or by our registrar associate, Gandi (for all other
+    /// domains). For some top-level domains (TLDs), this operation requires extra parameters.
     /// 
     ///  
     /// <para>
@@ -44,8 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// the registration.
     /// </para></li><li><para>
     /// Optionally enables privacy protection, so WHOIS queries return contact information
-    /// for our registrar partner, Gandi, instead of the information you entered for registrant,
-    /// admin, and tech contacts.
+    /// either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar
+    /// associate, Gandi (for all other TLDs). If you don't enable privacy protection, WHOIS
+    /// queries return the information that you entered for the registrant, admin, and tech
+    /// contacts.
     /// </para></li><li><para>
     /// If registration is successful, returns an operation ID that you can use to track the
     /// progress and completion of the action. If the request is not completed successfully,
@@ -496,8 +499,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Whether you want to conceal contact information from WHOIS queries. If you specify
-        /// <code>true</code>, WHOIS ("who is") queries will return contact information for our
-        /// registrar partner, Gandi, instead of the contact information that you enter.</para><para>Default: <code>true</code></para>
+        /// <code>true</code>, WHOIS ("who is") queries return contact information either for
+        /// Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
+        /// Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return
+        /// the information that you entered for the admin contact.</para><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -508,8 +513,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Whether you want to conceal contact information from WHOIS queries. If you specify
-        /// <code>true</code>, WHOIS ("who is") queries will return contact information for our
-        /// registrar partner, Gandi, instead of the contact information that you enter.</para><para>Default: <code>true</code></para>
+        /// <code>true</code>, WHOIS ("who is") queries return contact information either for
+        /// Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
+        /// Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return
+        /// the information that you entered for the registrant contact (the domain owner).</para><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -520,8 +527,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Whether you want to conceal contact information from WHOIS queries. If you specify
-        /// <code>true</code>, WHOIS ("who is") queries will return contact information for our
-        /// registrar partner, Gandi, instead of the contact information that you enter.</para><para>Default: <code>true</code></para>
+        /// <code>true</code>, WHOIS ("who is") queries return contact information either for
+        /// Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
+        /// Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return
+        /// the information that you entered for the technical contact.</para><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

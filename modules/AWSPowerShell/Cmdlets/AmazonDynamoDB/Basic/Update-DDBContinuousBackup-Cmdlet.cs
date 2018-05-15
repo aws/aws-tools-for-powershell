@@ -40,8 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// any point in time within <code>EarliestRestorableDateTime</code> and <code>LatestRestorableDateTime</code>.
     /// 
     /// </para><para><code>LatestRestorableDateTime</code> is typically 5 minutes before the current time.
-    /// You can restore your table to any point in time during the last 35 days with a 1-minute
-    /// granularity. 
+    /// You can restore your table to any point in time during the last 35 days.. 
     /// </para>
     /// </summary>
     [Cmdlet("Update", "DDBContinuousBackup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

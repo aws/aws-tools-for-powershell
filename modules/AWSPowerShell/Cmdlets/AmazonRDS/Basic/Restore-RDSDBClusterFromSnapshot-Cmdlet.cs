@@ -64,6 +64,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String[] AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter BacktrackWindow
+        /// <summary>
+        /// <para>
+        /// <para>The target backtrack window, in seconds. To disable backtracking, set this value to
+        /// 0.</para><para>Default: 0</para><para>Constraints:</para><ul><li><para>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int64 BacktrackWindow { get; set; }
+        #endregion
+        
         #region Parameter DatabaseName
         /// <summary>
         /// <para>
@@ -230,6 +241,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.AvailabilityZones = new List<System.String>(this.AvailabilityZone);
             }
+            if (ParameterWasBound("BacktrackWindow"))
+                context.BacktrackWindow = this.BacktrackWindow;
             context.DatabaseName = this.DatabaseName;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
@@ -269,6 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.AvailabilityZones != null)
             {
                 request.AvailabilityZones = cmdletContext.AvailabilityZones;
+            }
+            if (cmdletContext.BacktrackWindow != null)
+            {
+                request.BacktrackWindow = cmdletContext.BacktrackWindow.Value;
             }
             if (cmdletContext.DatabaseName != null)
             {
@@ -383,6 +400,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AvailabilityZones { get; set; }
+            public System.Int64? BacktrackWindow { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBSubnetGroupName { get; set; }

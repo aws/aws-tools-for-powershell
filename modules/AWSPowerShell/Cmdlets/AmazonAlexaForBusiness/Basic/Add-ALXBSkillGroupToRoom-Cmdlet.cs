@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Associates a skill group to a given room. This enables all skills in the associated
+    /// Associates a skill group with a given room. This enables all skills in the associated
     /// skill group on all devices in the room.
     /// </summary>
     [Cmdlet("Add", "ALXBSkillGroupToRoom", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

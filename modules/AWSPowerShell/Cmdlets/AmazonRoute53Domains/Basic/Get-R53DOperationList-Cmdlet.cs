@@ -41,6 +41,18 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     public partial class GetR53DOperationListCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
+        #region Parameter SubmittedSince
+        /// <summary>
+        /// <para>
+        /// <para>An optional parameter that lets you get information about all the operations that
+        /// you submitted after a specified date and time. Specify the date and time in Coordinated
+        /// Universal time (UTC).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.DateTime SubmittedSince { get; set; }
+        #endregion
+        
         #region Parameter Marker
         /// <summary>
         /// <para>
@@ -87,6 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxItem"))
                 context.MaxItems = this.MaxItem;
+            if (ParameterWasBound("SubmittedSince"))
+                context.SubmittedSince = this.SubmittedSince;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -107,6 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (cmdletContext.MaxItems != null)
             {
                 request.MaxItems = cmdletContext.MaxItems.Value;
+            }
+            if (cmdletContext.SubmittedSince != null)
+            {
+                request.SubmittedSince = cmdletContext.SubmittedSince.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -211,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             public System.String Marker { get; set; }
             public System.Int32? MaxItems { get; set; }
+            public System.DateTime? SubmittedSince { get; set; }
         }
         
     }
