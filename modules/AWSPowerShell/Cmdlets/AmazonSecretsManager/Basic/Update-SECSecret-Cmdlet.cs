@@ -187,7 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// that the default Lambda rotation function knows how to parse.</para><para>For storing multiple values, we recommend that you use a JSON text string argument
         /// and specify key/value pairs. For information on how to format a JSON parameter for
         /// the various command line tool environments, see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
-        /// JSON for Parameters</a> in the <i>AWS CLI User Guide</i>.</para>
+        /// JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. For example:</para><para><code>[{"username":"bob"},{"password":"abc123xyz456"}]</code></para><para>If your command-line tool or SDK requires quotation marks around the parameter, you
+        /// should use single quotes to avoid confusion with the double quotes required in the
+        /// JSON text.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

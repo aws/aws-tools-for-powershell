@@ -65,6 +65,17 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public int PageSize { get; set; }
         #endregion
         
+        #region Parameter PortfolioShareType
+        /// <summary>
+        /// <para>
+        /// <para>The type of shared portfolios to list. The default is to list imported portfolios.</para><ul><li><para><code>AWS_SERVICECATALOG</code> - List default portfolios</para></li><li><para><code>IMPORTED</code> - List imported portfolios</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ServiceCatalog.PortfolioShareType")]
+        public Amazon.ServiceCatalog.PortfolioShareType PortfolioShareType { get; set; }
+        #endregion
+        
         #region Parameter PageToken
         /// <summary>
         /// <para>
@@ -97,6 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (ParameterWasBound("PageSize"))
                 context.PageSize = this.PageSize;
             context.PageToken = this.PageToken;
+            context.PortfolioShareType = this.PortfolioShareType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -116,6 +128,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
+            }
+            if (cmdletContext.PortfolioShareType != null)
+            {
+                request.PortfolioShareType = cmdletContext.PortfolioShareType;
             }
             
             // Initialize loop variants and commence piping
@@ -236,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             public System.String AcceptLanguage { get; set; }
             public int? PageSize { get; set; }
             public System.String PageToken { get; set; }
+            public Amazon.ServiceCatalog.PortfolioShareType PortfolioShareType { get; set; }
         }
         
     }

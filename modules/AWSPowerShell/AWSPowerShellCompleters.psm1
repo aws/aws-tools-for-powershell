@@ -6236,6 +6236,13 @@ $SC_Completers = {
             break
         }
         
+        # Amazon.ServiceCatalog.PortfolioShareType
+        "Get-SCAcceptedPortfolioSharesList/PortfolioShareType"
+        {
+            $v = "AWS_SERVICECATALOG","IMPORTED"
+            break
+        }
+        
         # Amazon.ServiceCatalog.PrincipalType
         "Register-SCPrincipalWithPortfolio/PrincipalType"
         {
@@ -6306,6 +6313,7 @@ $SC_map = @{
     "AccessLevelFilter_Key"=@("Find-SCProvisionedProduct","Get-SCProvisionedProduct","Get-SCProvisionedProductPlanList","Get-SCRecordHistory")
     "Parameters_Type"=@("New-SCProvisioningArtifact")
     "PlanType"=@("New-SCProvisionedProductPlan")
+    "PortfolioShareType"=@("Get-SCAcceptedPortfolioSharesList")
     "PrincipalType"=@("Register-SCPrincipalWithPortfolio")
     "ProductSource"=@("Find-SCProductsAsAdmin")
     "ProductType"=@("New-SCProduct")

@@ -1,3 +1,8 @@
+### 3.3.282.0 (2018-05-16)
+  * AWS Secrets Manager
+    * Documentation updates for secrets manager
+  * AWS Service Catalog
+    * Users can now pass a new option to Get-SCAcceptedPortfolioSharesList called PortfolioShareType with a value of AWS_SERVICECATALOG in order to access Getting Started Portfolios that contain selected products representing common customer use cases.
 ### 3.3.281.0 (2018-05-15)
   * Alexa for Business
     * Added operations for creating and managing address books of phone contacts for use in A4B managed shared devices.

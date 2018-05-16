@@ -190,7 +190,7 @@
       <HintPath>..\..\packages\AWSSDK.SageMakerRuntime.3.3.0.5\lib\net35\AWSSDK.SageMakerRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SecretsManager">
-      <HintPath>..\..\packages\AWSSDK.SecretsManager.3.3.0.6\lib\net35\AWSSDK.SecretsManager.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SecretsManager.3.3.0.7\lib\net35\AWSSDK.SecretsManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ServerlessApplicationRepository">
       <HintPath>..\..\packages\AWSSDK.ServerlessApplicationRepository.3.3.1.6\lib\net35\AWSSDK.ServerlessApplicationRepository.dll</HintPath>
@@ -253,7 +253,7 @@
       <HintPath>..\..\packages\AWSSDK.SimpleEmail.3.3.6.6\lib\net35\AWSSDK.SimpleEmail.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ServiceCatalog">
-      <HintPath>..\..\packages\AWSSDK.ServiceCatalog.3.3.8.5\lib\net35\AWSSDK.ServiceCatalog.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ServiceCatalog.3.3.9\lib\net35\AWSSDK.ServiceCatalog.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SecurityToken">
       <HintPath>..\..\packages\AWSSDK.SecurityToken.3.3.4.3\lib\net35\AWSSDK.SecurityToken.dll</HintPath>
