@@ -61,7 +61,7 @@
     </PropertyGroup>
     
 	<Target Name="full-build" 
-            DependsOnTargets="clean;build-generator;get-references;create-cmdlets;update-version;clean-sdkpackages;build-modules;copy-desktop-artifacts;copy-coreclr-artifacts;patch-manifests;sign-script-artifacts;run-tests;create-help;keyscan;save-build">
+            DependsOnTargets="clean;build-generator;get-references;create-cmdlets;update-version;clean-sdkpackages;build-modules;copy-desktop-artifacts;copy-coreclr-artifacts;copy-tests;patch-manifests;sign-script-artifacts;run-tests;create-help;keyscan;save-build">
 		<Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts, including native and web help files."/>
 	</Target>
 
@@ -235,6 +235,18 @@
         	  DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
     </Target>
 	
+	<Target Name="copy-tests">
+		<PropertyGroup>
+			<TestSourceFolder>$(RootPath)\Tests</TestSourceFolder>
+		</PropertyGroup>
+		
+		<ItemGroup>
+			<TestFiles Include="$(TestSourceFolder)\**\*.*" /> 
+		</ItemGroup>
+		
+		<Copy SourceFiles="@(TestFiles)" DestinationFolder="$(RootPath)\Deployment\Tests\%(RecursiveDir)" />
+	</Target>
+
     <Target Name="patch-manifests" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">
 		<Message Text="Building manifest patch util for desktop module"/>
 		<Exec Command="$(devenv2013) /Rebuild $(Configuration) $(RootPath)\buildtools\Tools\DesktopManifestPatcher\DesktopManifestPatcher.sln"/>
