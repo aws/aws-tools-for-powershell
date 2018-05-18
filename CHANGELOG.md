@@ -1,18 +1,6 @@
-### 3.3.283.0 (2018-05-17)
-* CodeDeploy
-	* Documentation updates for codedeploy
-* CognitoIdentityProvider
-	* Amazon Cognito User Pools now supports federation for users to sign up and sign in with any identity provider following the OpenID Connect standard. Amazon Cognito User Pools now returns the User Pool's Amazon Resource Name (ARN) from the New-CGIPUserPoolClient, Update-CGIPUserPoolClient, and Get-CGIPUserPool cmdlets.
-* EC2
-	* You are now able to use instance storage (up to 1800 GB of NVMe based SSD) on C5 instances, the next generation of EC2's compute optimized instances in us-east-1, us-west-2, us-east-2, eu-west-1 and ca-central-1. C5 instances offer up to 72 vCPUs, 144 GiB of DDR4 instance memory, 25 Gbps in Network bandwidth and improved EBS and Networking bandwidth on smaller instance sizes to deliver improved performance for compute-intensive workloads.You can now run bare metal workloads on EC2 with i3.metal instances. As a new instance size belonging to the I3 instance family, i3.metal instances have the same characteristics as other instances in the family, including NVMe SSD-backed instance storage optimized for low latency, very high random I/O performance, and high sequential read throughput. I3.metal instances are powered by 2.3 GHz Intel Xeon processors, offering 36 hyper-threaded cores (72 logical processors), 512 GiB of memory, and 15.2 TB of NVMe SSD-backed instance storage. These instances deliver high networking throughput and lower latency with up to 25 Gbps of aggregate network bandwidth using Elastic Network Adapter (ENA)-based Enhanced Networking.
-
-### 3.3.282.0 (2018-05-16)
-  * AWS Secrets Manager
-    * Documentation updates for secrets manager
+### 3.3.283.0 (2018-05-18)
   * AWS Service Catalog
     * Users can now pass a new option to Get-SCAcceptedPortfolioSharesList called PortfolioShareType with a value of AWS_SERVICECATALOG in order to access Getting Started Portfolios that contain selected products representing common customer use cases.
-    
-### 3.3.281.0 (2018-05-15)
   * Alexa for Business
     * Added operations for creating and managing address books of phone contacts for use in A4B managed shared devices.
     * Added Get-ALXBDeviceEventList to paginated list of device events (such as ConnectionStatus).
@@ -54,7 +42,7 @@
     * Added support for new parameter, DocumentVersion, for Send-SSMCommand. Users can now specify version of SSM document to be executed on the target(s).
   * Amazon WorkSpaces
     * Added new IP Access Control cmdlets. You can now create/delete IP Access Control Groups, add/delete/update rules for IP Access Control Groups, Associate/Disassociate IP Access Control Groups to/from a WorkSpaces Directory, and Describe IP Based Access Control Groups.
-    * Added cmdlet Edit-WKSWorkspaceStateto change the state of a Workspace, and the ADMIN_MAINTENANCE WorkSpace state.
+    * Added cmdlet Edit-WKSWorkspaceState to change the state of a Workspace, and the ADMIN_MAINTENANCE WorkSpace state.
 
 ### 3.3.270.0 (2018-04-25)
   * The CmdletsToExport property in the module manifest has been temporarily set to '*-*' instead of the individual cmdlet names to work around a limitation publishing modules that contain over 4000 cmdlets to the PowerShell Gallery. The net effect of this change is to disable tab completion for cmdlet names unless the module is explicitly imported. We are investigating approaches to work around or fix this issue and will re-instate the list of cmdlets as soon as possible.
