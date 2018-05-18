@@ -25,7 +25,7 @@ Describe -Tag "Smoke" "CloudWatch" {
             if ($metrics) {
                 $targetMetric = $metrics[0]
 
-                $m = (Get-CWMetrics -MetricName $targetMetric.MetricName)[0]
+                $m = (Get-CWMetrics -MetricName $targetMetric.MetricName -Namespace $targetMetric.Namespace)[0]
 
                 $m | Should Not Be $null
 
