@@ -28,10 +28,13 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a Spot Instance request. Spot Instances are instances that Amazon EC2 launches
-    /// when the maximum price that you specify exceeds the current Spot price. For more information,
-    /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
+    /// Creates a Spot Instance request.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
     /// Instance Requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Request", "EC2SpotInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.SpotInstanceRequest")]

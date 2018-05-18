@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para>
         /// <para>An array containing information about the load balancer to use for load balancing
         /// in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load
-        /// Balancers.</para>
+        /// Balancers.</para><note><para> Adding more than one load balancer to the array is not supported. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -295,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para>
         /// <para>An array containing information about the target group to use for load balancing in
         /// a deployment. In Elastic Load Balancing, target groups are used with Application Load
-        /// Balancers.</para>
+        /// Balancers.</para><note><para> Adding more than one target group to the array is not supported. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -306,7 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>The number of minutes to wait after a successful blue/green deployment before terminating
-        /// instances from the original environment.</para>
+        /// instances from the original environment. The maximum setting is 2880 minutes (2 days).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

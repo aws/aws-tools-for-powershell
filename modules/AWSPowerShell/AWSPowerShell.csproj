@@ -340,7 +340,7 @@
       <HintPath>..\..\packages\AWSSDK.ECR.3.3.3.8\lib\net35\AWSSDK.ECR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EC2">
-      <HintPath>..\..\packages\AWSSDK.EC2.3.3.51\lib\net35\AWSSDK.EC2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.EC2.3.3.52\lib\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.8\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
@@ -367,7 +367,7 @@
       <HintPath>..\..\packages\AWSSDK.ConfigService.3.3.17\lib\net35\AWSSDK.ConfigService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CognitoIdentityProvider">
-      <HintPath>..\..\packages\AWSSDK.CognitoIdentityProvider.3.3.9.5\lib\net35\AWSSDK.CognitoIdentityProvider.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CognitoIdentityProvider.3.3.10\lib\net35\AWSSDK.CognitoIdentityProvider.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CognitoIdentity">
       <HintPath>..\..\packages\AWSSDK.CognitoIdentity.3.3.2.22\lib\net35\AWSSDK.CognitoIdentity.dll</HintPath>
@@ -376,7 +376,7 @@
       <HintPath>..\..\packages\AWSSDK.CodePipeline.3.3.4\lib\net35\AWSSDK.CodePipeline.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeDeploy">
-      <HintPath>..\..\packages\AWSSDK.CodeDeploy.3.3.10\lib\net35\AWSSDK.CodeDeploy.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CodeDeploy.3.3.10.1\lib\net35\AWSSDK.CodeDeploy.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeCommit">
       <HintPath>..\..\packages\AWSSDK.CodeCommit.3.3.4.5\lib\net35\AWSSDK.CodeCommit.dll</HintPath>

@@ -28,10 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Cancels one or more Spot Instance requests. Spot Instances are instances that Amazon
-    /// EC2 starts on your behalf when the maximum price that you specify exceeds the current
-    /// Spot price. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
-    /// Instance Requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
+    /// Cancels one or more Spot Instance requests.
     /// 
     ///  <important><para>
     /// Canceling a Spot Instance request does not terminate running Spot Instances associated

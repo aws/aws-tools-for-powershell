@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
     /// Use this API to register a user's entered TOTP code and mark the user's software token
-    /// MFA status as "verified" if successful,
+    /// MFA status as "verified" if successful. The request takes an access token or a session
+    /// string, but not both.
     /// </summary>
     [Cmdlet("Test", "CGIPSoftwareToken")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.VerifySoftwareTokenResponse")]

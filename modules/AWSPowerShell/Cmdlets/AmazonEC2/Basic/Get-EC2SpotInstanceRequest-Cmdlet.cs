@@ -28,10 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the Spot Instance requests that belong to your account. Spot Instances are
-    /// instances that Amazon EC2 launches when the Spot price that you specify exceeds the
-    /// current Spot price. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
-    /// Instance Requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
+    /// Describes the specified Spot Instance requests.
     /// 
     ///  
     /// <para>
