@@ -25,6 +25,8 @@ namespace AWSPowerShellGenerator.Writers.Help
         private const string FeedbackSection =
             "<!-- BEGIN-FEEDBACK-SECTION --><span class=\"feedback\">{0}</span><!-- END-FEEDBACK-SECTION -->";
 
+        public const string GdprScriptBlock = "<script src=\"/SdkStatic/sdk-priv.js\" async=\"true\"></script>";
+
         protected static string SiteCatalystSnippet { get; private set; }
 
         static BasePageWriter()
@@ -102,6 +104,7 @@ namespace AWSPowerShellGenerator.Writers.Help
 
                         this.WriteFooter(writer);
 
+                        writer.WriteLine(GdprScriptBlock);
                     writer.WriteLine("</body>");
                 writer.WriteLine("</html>");
 
