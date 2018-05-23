@@ -530,6 +530,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String CpuCredit { get; set; }
         #endregion
 
+        #region Parameter CpuOption
+        /// <summary>
+        /// The CPU options for the instance. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimizing
+        /// CPU Options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </summary>
+        [Parameter]
+        public CpuOptionsRequest CpuOption { get; set; }
+        #endregion
+
         public NewEC2InstanceCmdlet()
         {
             this.MinCount = this.MaxCount = 1;    
@@ -627,6 +636,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.CpuCredit = this.CpuCredit;
             }
+            context.CpuOption = this.CpuOption;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -893,6 +903,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 };
             }
 
+            request.CpuOptions = cmdletContext.CpuOption;
+
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             CmdletOutput output;
             
@@ -993,6 +1005,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.Model.LaunchTemplateSpecification LaunchTemplate { get; set; }
             public Amazon.EC2.Model.InstanceMarketOptionsRequest InstanceMarketOption { get; set; }
             public System.String CpuCredit { get; set; }
+            public CpuOptionsRequest CpuOption { get; set; }
         }
         
     }

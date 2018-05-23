@@ -1,3 +1,7 @@
+### (next release - replace with version number and date)
+  * Amazon EC2
+    - Added parameter -CpuOption to the New-EC2Instance cmdlet to enable optimizing CPU options for your new instance(s). For more details see [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the Amazon EC2 User Guide.
+
 ### 3.3.283.0 (2018-05-18)
   * AWS Service Catalog
     * Users can now pass a new option to Get-SCAcceptedPortfolioSharesList called PortfolioShareType with a value of AWS_SERVICECATALOG in order to access Getting Started Portfolios that contain selected products representing common customer use cases.
