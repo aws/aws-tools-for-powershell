@@ -28,7 +28,7 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Lists the email templates present in your Amazon SES account.
+    /// Lists the email templates present in your Amazon SES account in the current AWS Region.
     /// 
     ///  
     /// <para>

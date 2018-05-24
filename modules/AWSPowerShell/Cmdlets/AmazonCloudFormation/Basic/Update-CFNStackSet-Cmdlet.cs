@@ -28,7 +28,8 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Updates the stack set and <i>all</i> associated stack instances.
+    /// Updates the stack set, and associated stack instances in the specified accounts and
+    /// regions.
     /// 
     ///  
     /// <para>
@@ -47,6 +48,25 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     )]
     public partial class UpdateCFNStackSetCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
+        
+        #region Parameter Account
+        /// <summary>
+        /// <para>
+        /// <para>The accounts in which to update associated stack instances. If you specify accounts,
+        /// you must also specify the regions in which to update stack set instances.</para><para>To update <i>all</i> the stack instances associated with this stack set, do not specify
+        /// the <code>Accounts</code> or <code>Regions</code> properties.</para><para>If the stack set update includes changes to the template (that is, if the <code>TemplateBody</code>
+        /// or <code>TemplateURL</code> properties are specified), or the <code>Parameters</code>
+        /// property, AWS CloudFormation marks all stack instances with a status of <code>OUTDATED</code>
+        /// prior to updating the stack instances in the specified accounts and regions. If the
+        /// stack set update does not include changes to the template or parameters, AWS CloudFormation
+        /// updates the stack instances in the specified accounts and regions, while leaving all
+        /// other stack instances with their existing stack instance status. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Accounts")]
+        public System.String[] Account { get; set; }
+        #endregion
         
         #region Parameter AdministrationRoleARN
         /// <summary>
@@ -94,6 +114,22 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ExecutionRoleName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the IAM execution role to use to update the stack set. If you do not specify
+        /// an execution role, AWS CloudFormation uses the <code>AWSCloudFormationStackSetExecutionRole</code>
+        /// role for the stack set operation.</para><para>Specify an IAM role only if you are using customized execution roles to control which
+        /// stack resources users and groups can include in their stack sets. </para><para> If you specify a customized execution role, AWS CloudFormation uses that role to
+        /// update the stack. If you do not specify a customized execution role, AWS CloudFormation
+        /// performs the update using the role previously associated with the stack set, so long
+        /// as you have permissions to perform operations on the stack set.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ExecutionRoleName { get; set; }
+        #endregion
+        
         #region Parameter OperationId
         /// <summary>
         /// <para>
@@ -128,6 +164,24 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter]
         [Alias("Parameters")]
         public Amazon.CloudFormation.Model.Parameter[] Parameter { get; set; }
+        #endregion
+        
+        #region Parameter StackRegion
+        /// <summary>
+        /// <para>
+        /// <para>The regions in which to update associated stack instances. If you specify regions,
+        /// you must also specify accounts in which to update stack set instances.</para><para>To update <i>all</i> the stack instances associated with this stack set, do not specify
+        /// the <code>Accounts</code> or <code>Regions</code> properties.</para><para>If the stack set update includes changes to the template (that is, if the <code>TemplateBody</code>
+        /// or <code>TemplateURL</code> properties are specified), or the <code>Parameters</code>
+        /// property, AWS CloudFormation marks all stack instances with a status of <code>OUTDATED</code>
+        /// prior to updating the stack instances in the specified accounts and regions. If the
+        /// stack set update does not include changes to the template or parameters, AWS CloudFormation
+        /// updates the stack instances in the specified accounts and regions, while leaving all
+        /// other stack instances with their existing stack instance status. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] StackRegion { get; set; }
         #endregion
         
         #region Parameter StackSetName
@@ -233,17 +287,26 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.Account != null)
+            {
+                context.Accounts = new List<System.String>(this.Account);
+            }
             context.AdministrationRoleARN = this.AdministrationRoleARN;
             if (this.Capability != null)
             {
                 context.Capabilities = new List<System.String>(this.Capability);
             }
             context.Description = this.Description;
+            context.ExecutionRoleName = this.ExecutionRoleName;
             context.OperationId = this.OperationId;
             context.OperationPreferences = this.OperationPreference;
             if (this.Parameter != null)
             {
                 context.Parameters = new List<Amazon.CloudFormation.Model.Parameter>(this.Parameter);
+            }
+            if (this.StackRegion != null)
+            {
+                context.StackRegion = new List<System.String>(this.StackRegion);
             }
             context.StackSetName = this.StackSetName;
             if (this.Tag != null)
@@ -270,6 +333,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             // create request
             var request = new Amazon.CloudFormation.Model.UpdateStackSetRequest();
             
+            if (cmdletContext.Accounts != null)
+            {
+                request.Accounts = cmdletContext.Accounts;
+            }
             if (cmdletContext.AdministrationRoleARN != null)
             {
                 request.AdministrationRoleARN = cmdletContext.AdministrationRoleARN;
@@ -282,6 +349,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.ExecutionRoleName != null)
+            {
+                request.ExecutionRoleName = cmdletContext.ExecutionRoleName;
+            }
             if (cmdletContext.OperationId != null)
             {
                 request.OperationId = cmdletContext.OperationId;
@@ -293,6 +364,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.Parameters != null)
             {
                 request.Parameters = cmdletContext.Parameters;
+            }
+            if (cmdletContext.StackRegion != null)
+            {
+                request.Regions = cmdletContext.StackRegion;
             }
             if (cmdletContext.StackSetName != null)
             {
@@ -378,12 +453,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Accounts { get; set; }
             public System.String AdministrationRoleARN { get; set; }
             public List<System.String> Capabilities { get; set; }
             public System.String Description { get; set; }
+            public System.String ExecutionRoleName { get; set; }
             public System.String OperationId { get; set; }
             public Amazon.CloudFormation.Model.StackSetOperationPreferences OperationPreferences { get; set; }
             public List<Amazon.CloudFormation.Model.Parameter> Parameters { get; set; }
+            public List<System.String> StackRegion { get; set; }
             public System.String StackSetName { get; set; }
             public List<Amazon.CloudFormation.Model.Tag> Tags { get; set; }
             public System.String TemplateBody { get; set; }

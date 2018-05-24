@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// 
     ///  <note><para>
     /// When you create or update an event destination, you must provide one, and only one,
-    /// destination. The destination can be Amazon CloudWatch, Amazon Kinesis Firehose, or
-    /// Amazon Simple Notification Service (Amazon SNS).
+    /// destination. The destination can be CloudWatch, Amazon Kinesis Firehose, or Amazon
+    /// Simple Notification Service (Amazon SNS).
     /// </para></note><para>
     /// An event destination is the AWS service to which Amazon SES publishes the email sending
     /// events associated with a configuration set. For information about using configuration

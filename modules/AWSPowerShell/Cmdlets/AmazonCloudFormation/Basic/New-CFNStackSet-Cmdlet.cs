@@ -46,8 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The Amazon Resource Number (ARN) of the IAM role to use to create this stack set.
         /// </para><para>Specify an IAM role only if you are using customized administrator roles to control
         /// which users or groups can manage specific stack sets within the same administrator
-        /// account. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Define
-        /// Permissions for Multiple Administrators</a> in the <i>AWS CloudFormation User Guide</i>.</para>
+        /// account. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites:
+        /// Granting Permissions for Stack Set Operations</a> in the <i>AWS CloudFormation User
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,6 +97,19 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter ExecutionRoleName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the IAM execution role to use to create the stack set. If you do not specify
+        /// an execution role, AWS CloudFormation uses the <code>AWSCloudFormationStackSetExecutionRole</code>
+        /// role for the stack set operation.</para><para>Specify an IAM role only if you are using customized execution roles to control which
+        /// stack resources users and groups can include in their stack sets. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ExecutionRoleName { get; set; }
         #endregion
         
         #region Parameter Parameter
@@ -200,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             }
             context.ClientRequestToken = this.ClientRequestToken;
             context.Description = this.Description;
+            context.ExecutionRoleName = this.ExecutionRoleName;
             if (this.Parameter != null)
             {
                 context.Parameters = new List<Amazon.CloudFormation.Model.Parameter>(this.Parameter);
@@ -242,6 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.ExecutionRoleName != null)
+            {
+                request.ExecutionRoleName = cmdletContext.ExecutionRoleName;
             }
             if (cmdletContext.Parameters != null)
             {
@@ -331,6 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public List<System.String> Capabilities { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String Description { get; set; }
+            public System.String ExecutionRoleName { get; set; }
             public List<Amazon.CloudFormation.Model.Parameter> Parameters { get; set; }
             public System.String StackSetName { get; set; }
             public List<Amazon.CloudFormation.Model.Tag> Tags { get; set; }

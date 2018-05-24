@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
     /// Enables or disables the publishing of reputation metrics for emails sent using a specific
-    /// configuration set. Reputation metrics include bounce and complaint rates. These metrics
-    /// are published to Amazon CloudWatch. By using Amazon CloudWatch, you can create alarms
-    /// when bounce or complaint rates exceed a certain threshold.
+    /// configuration set in a given AWS Region. Reputation metrics include bounce and complaint
+    /// rates. These metrics are published to Amazon CloudWatch. By using CloudWatch, you
+    /// can create alarms when bounce or complaint rates exceed certain thresholds.
     /// 
     ///  
     /// <para>

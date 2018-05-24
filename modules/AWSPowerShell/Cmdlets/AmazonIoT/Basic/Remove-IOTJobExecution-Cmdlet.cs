@@ -22,45 +22,73 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleEmail;
-using Amazon.SimpleEmail.Model;
+using Amazon.IoT;
+using Amazon.IoT.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SES
+namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Deletes an existing custom verification email template. 
-    /// 
-    ///  
-    /// <para>
-    /// For more information about custom verification email templates, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using
-    /// Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.
-    /// </para><para>
-    /// You can execute this operation no more than once per second.
-    /// </para>
+    /// Deletes a job execution.
     /// </summary>
-    [Cmdlet("Remove", "SESCustomVerificationEmailTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service DeleteCustomVerificationEmailTemplate API operation.", Operation = new[] {"DeleteCustomVerificationEmailTemplate"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TemplateName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.SimpleEmail.Model.DeleteCustomVerificationEmailTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "IOTJobExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.Int64")]
+    [AWSCmdlet("Calls the AWS IoT DeleteJobExecution API operation.", Operation = new[] {"DeleteJobExecution"})]
+    [AWSCmdletOutput("None or System.Int64",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ExecutionNumber parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.IoT.Model.DeleteJobExecutionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSESCustomVerificationEmailTemplateCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
+    public partial class RemoveIOTJobExecutionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
-        #region Parameter TemplateName
+        #region Parameter ExecutionNumber
         /// <summary>
         /// <para>
-        /// <para>The name of the custom verification email template that you want to delete.</para>
+        /// <para>The ID of the job execution to be deleted. The <code>executionNumber</code> refers
+        /// to the execution of a particular job on a particular device.</para><para>Note that once a job execution is deleted, the <code>executionNumber</code> may be
+        /// reused by IoT, so be sure you get and use the correct value here.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String TemplateName { get; set; }
+        public System.Int64 ExecutionNumber { get; set; }
+        #endregion
+        
+        #region Parameter Enforce
+        /// <summary>
+        /// <para>
+        /// <para>(Optional) When true, you can delete a job execution which is "IN_PROGRESS". Otherwise,
+        /// you can only delete a job execution which is in a terminal state ("SUCCEEDED", "FAILED",
+        /// "REJECTED", "REMOVED" or "CANCELED") or an exception will occur. The default is false.</para><note><para>Deleting a job execution which is "IN_PROGRESS", will cause the device to be unable
+        /// to access job information or update the job execution status. Use caution and ensure
+        /// that the device is able to recover to a valid state.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Enforce { get; set; }
+        #endregion
+        
+        #region Parameter JobId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the job whose execution on a particular device will be deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String JobId { get; set; }
+        #endregion
+        
+        #region Parameter ThingName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the thing whose job execution will be deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ThingName { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the TemplateName parameter.
+        /// Returns the value passed to the ExecutionNumber parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -81,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("TemplateName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SESCustomVerificationEmailTemplate (DeleteCustomVerificationEmailTemplate)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ExecutionNumber", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IOTJobExecution (DeleteJobExecution)"))
             {
                 return;
             }
@@ -96,7 +124,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.TemplateName = this.TemplateName;
+            if (ParameterWasBound("ExecutionNumber"))
+                context.ExecutionNumber = this.ExecutionNumber;
+            if (ParameterWasBound("Enforce"))
+                context.Enforce = this.Enforce;
+            context.JobId = this.JobId;
+            context.ThingName = this.ThingName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -111,11 +144,23 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleEmail.Model.DeleteCustomVerificationEmailTemplateRequest();
+            var request = new Amazon.IoT.Model.DeleteJobExecutionRequest();
             
-            if (cmdletContext.TemplateName != null)
+            if (cmdletContext.ExecutionNumber != null)
             {
-                request.TemplateName = cmdletContext.TemplateName;
+                request.ExecutionNumber = cmdletContext.ExecutionNumber.Value;
+            }
+            if (cmdletContext.Enforce != null)
+            {
+                request.Force = cmdletContext.Enforce.Value;
+            }
+            if (cmdletContext.JobId != null)
+            {
+                request.JobId = cmdletContext.JobId;
+            }
+            if (cmdletContext.ThingName != null)
+            {
+                request.ThingName = cmdletContext.ThingName;
             }
             
             CmdletOutput output;
@@ -128,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.TemplateName;
+                    pipelineOutput = this.ExecutionNumber;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -153,16 +198,16 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleEmail.Model.DeleteCustomVerificationEmailTemplateResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.DeleteCustomVerificationEmailTemplateRequest request)
+        private Amazon.IoT.Model.DeleteJobExecutionResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DeleteJobExecutionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "DeleteCustomVerificationEmailTemplate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "DeleteJobExecution");
             try
             {
                 #if DESKTOP
-                return client.DeleteCustomVerificationEmailTemplate(request);
+                return client.DeleteJobExecution(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteCustomVerificationEmailTemplateAsync(request);
+                var task = client.DeleteJobExecutionAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -183,7 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String TemplateName { get; set; }
+            public System.Int64? ExecutionNumber { get; set; }
+            public System.Boolean? Enforce { get; set; }
+            public System.String JobId { get; set; }
+            public System.String ThingName { get; set; }
         }
         
     }

@@ -28,7 +28,7 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Lists the IP address filters associated with your AWS account.
+    /// Lists the IP address filters associated with your AWS account in the current AWS Region.
     /// 
     ///  
     /// <para>

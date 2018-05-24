@@ -3331,6 +3331,8 @@ Set-Alias -Name Delete-IOTCACertificate -Value Remove-IOTCACertificate
 Set-Alias -Name IOT-DeleteCACertificate -Value Remove-IOTCACertificate
 Set-Alias -Name Delete-IOTCertificate -Value Remove-IOTCertificate
 Set-Alias -Name IOT-DeleteCertificate -Value Remove-IOTCertificate
+Set-Alias -Name IOT-DeleteJob -Value Remove-IOTJob
+Set-Alias -Name IOT-DeleteJobExecution -Value Remove-IOTJobExecution
 Set-Alias -Name IOT-DeleteOTAUpdate -Value Remove-IOTOTAUpdate
 Set-Alias -Name Delete-IOTPolicy -Value Remove-IOTPolicy
 Set-Alias -Name IOT-DeletePolicy -Value Remove-IOTPolicy

@@ -28,9 +28,9 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Adds an email address to the list of identities for your Amazon SES account and attempts
-    /// to verify it. As a result of executing this operation, a verification email is sent
-    /// to the specified address.
+    /// Adds an email address to the list of identities for your Amazon SES account in the
+    /// current AWS region and attempts to verify it. As a result of executing this operation,
+    /// a verification email is sent to the specified address.
     /// 
     ///  
     /// <para>

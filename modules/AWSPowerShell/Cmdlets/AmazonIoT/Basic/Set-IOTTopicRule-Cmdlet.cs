@@ -453,8 +453,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter IotAnalytics_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the role which has a policy that grants IoT permission to send message
-        /// data via IoT Analytics (iotanalytics:BatchPutMessage).</para>
+        /// <para>The ARN of the role which has a policy that grants IoT Analytics permission to send
+        /// message data via IoT Analytics (iotanalytics:BatchPutMessage).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
