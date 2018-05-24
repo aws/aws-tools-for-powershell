@@ -1,6 +1,8 @@
 ### (next release - replace with version number and date)
   * Amazon EC2
-    - Added parameter -CpuOption to the New-EC2Instance cmdlet to enable optimizing CPU options for your new instance(s). For more details see [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the Amazon EC2 User Guide.
+    * Added parameter -CpuOption to the New-EC2Instance cmdlet to enable optimizing CPU options for your new instance(s). For more details see [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the Amazon EC2 User Guide.
+  * Amazon Workpaces
+    * Renamed the _-ResourceId_ parameter for the New-WKSTag and Get-WKSTag cmdlets to _-WorkspaceId_ to improve consistency with other Amazon Workspaces cmdlets. A backwards compatible alias of ResourceId has also been applied to this parameter to support existing scripts.
 
 ### 3.3.283.0 (2018-05-18)
   * AWS Service Catalog

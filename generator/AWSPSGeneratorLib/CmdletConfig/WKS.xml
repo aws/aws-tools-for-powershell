@@ -32,7 +32,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
+            <Params>
+                <Param Name="ResourceId" NewName="WorkspaceId" AutoApplyAlias="true" />
+            </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkspaces" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Workspace" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Workspaces" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
@@ -47,7 +49,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeTags" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
+            <Params>
+                <Param Name="ResourceId" NewName="WorkspaceId" AutoApplyAlias="true" />
+            </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeWorkspaceBundles" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="WorkspaceBundle" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-WKSWorkspaceBundles">
             <Params />

@@ -40,14 +40,15 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class NewWKSTagCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceId
+        #region Parameter WorkspaceId
         /// <summary>
         /// <para>
         /// <para>The ID of the WorkSpace. To find this ID, use <a>DescribeWorkspaces</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ResourceId { get; set; }
+        [Alias("ResourceId")]
+        public System.String WorkspaceId { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -75,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceId", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("WorkspaceId", MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-WKSTag (CreateTags)"))
             {
                 return;
@@ -90,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ResourceId = this.ResourceId;
+            context.WorkspaceId = this.WorkspaceId;
             if (this.Tag != null)
             {
                 context.Tags = new List<Amazon.WorkSpaces.Model.Tag>(this.Tag);
@@ -111,9 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             // create request
             var request = new Amazon.WorkSpaces.Model.CreateTagsRequest();
             
-            if (cmdletContext.ResourceId != null)
+            if (cmdletContext.WorkspaceId != null)
             {
-                request.ResourceId = cmdletContext.ResourceId;
+                request.ResourceId = cmdletContext.WorkspaceId;
             }
             if (cmdletContext.Tags != null)
             {
@@ -183,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceId { get; set; }
+            public System.String WorkspaceId { get; set; }
             public List<Amazon.WorkSpaces.Model.Tag> Tags { get; set; }
         }
         

@@ -40,14 +40,15 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class GetWKSTagCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceId
+        #region Parameter WorkspaceId
         /// <summary>
         /// <para>
         /// <para>The ID of the WorkSpace. To find this ID, use <a>DescribeWorkspaces</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ResourceId { get; set; }
+        [Alias("ResourceId")]
+        public System.String WorkspaceId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -63,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ResourceId = this.ResourceId;
+            context.WorkspaceId = this.WorkspaceId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -80,9 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             // create request
             var request = new Amazon.WorkSpaces.Model.DescribeTagsRequest();
             
-            if (cmdletContext.ResourceId != null)
+            if (cmdletContext.WorkspaceId != null)
             {
-                request.ResourceId = cmdletContext.ResourceId;
+                request.ResourceId = cmdletContext.WorkspaceId;
             }
             
             CmdletOutput output;
@@ -148,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceId { get; set; }
+            public System.String WorkspaceId { get; set; }
         }
         
     }
