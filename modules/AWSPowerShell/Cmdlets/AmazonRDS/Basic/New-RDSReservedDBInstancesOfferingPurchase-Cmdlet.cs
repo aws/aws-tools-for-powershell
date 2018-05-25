@@ -30,14 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <summary>
     /// Purchases a reserved DB instance offering.
     /// </summary>
-    [Cmdlet("Get", "RDSReservedDBInstancesOffering")]
+    [Cmdlet("New", "RDSReservedDBInstancesOfferingPurchase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.ReservedDBInstance")]
-    [AWSCmdlet("Calls the Amazon Relational Database Service PurchaseReservedDBInstancesOffering API operation.", Operation = new[] {"PurchaseReservedDBInstancesOffering"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service PurchaseReservedDBInstancesOffering API operation.", Operation = new[] {"PurchaseReservedDBInstancesOffering"}, LegacyAlias="Get-RDSReservedDBInstancesOffering")]
     [AWSCmdletOutput("Amazon.RDS.Model.ReservedDBInstance",
         "This cmdlet returns a ReservedDBInstance object.",
         "The service call response (type Amazon.RDS.Model.PurchaseReservedDBInstancesOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetRDSReservedDBInstancesOfferingCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class NewRDSReservedDBInstancesOfferingPurchaseCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         #region Parameter DBInstanceCount
@@ -81,9 +81,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ReservedDBInstancesOfferingId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-RDSReservedDBInstancesOfferingPurchase (PurchaseReservedDBInstancesOffering)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {

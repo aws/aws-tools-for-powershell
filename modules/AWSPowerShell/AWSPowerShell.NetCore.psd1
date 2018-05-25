@@ -369,6 +369,7 @@ AliasesToExport = @(
   "Get-RDSEventCategories",
   "Get-RDSEventSubscriptions",
   "Get-RDSPendingMaintenanceActions",
+  "Get-RDSReservedDBInstancesOffering",
   "Get-RDSReservedDBInstancesOfferings",
   "Get-RSClusterParameterGroups",
   "Get-RSClusterParameters",

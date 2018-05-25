@@ -7,6 +7,8 @@
     * Updated the New-CFNStackSet and Update-CFNStack set with parameters to support filtered updates for StackSets based on accounts and regions (this feature will allow flexibility for the customers to roll out updates on a StackSet based on specific accounts and regions) and to support customized ExecutionRoleName (this feature will allow customers to attach ExecutionRoleName to the StackSet thus ensuring more security and controlling the behavior of any AWS resources in the target accounts).
   * AWS IoT
     * Added cmdlets to support new APIs released by the service: Remove-IOTJob (DeleteJob API) and Remove-IOTJobExecution (DeleteJobExecution API).
+  * Amazon Relational Database Service
+    * The name of the cmdlet _Get-RDSReservedDBInstancesOffering_, which maps to the service API _PurchaseReservedDBInstancesOffering_, has been corrected to _New-RDSReservedDBInstancesOfferingPurchase_. The Get verb had been applied incorrectly as this cmdlet/API actually performs a purchase and does not simply return information. An alias for the old name has been included in the module for backwards compatibility but we encourage users of this cmdlet to adopt the new name at their earliest convenience.
 
 ### 3.3.283.0 (2018-05-18)
   * AWS Service Catalog

@@ -4096,8 +4096,8 @@
       }
     },
     "PurchaseReservedDBInstancesOffering": {
-      "verb": "Get",
-      "noun": "ReservedDBInstancesOffering",
+      "verb": "New",
+      "noun": "ReservedDBInstancesOfferingPurchase",
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
@@ -4107,7 +4107,7 @@
       },
       "parameterCustomizations": [],
       "legacySettings": {
-        "alias": "",
+        "alias": "Get-RDSReservedDBInstancesOffering",
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
@@ -4139,6 +4139,11 @@
           "resultLimitMember": "MaxRecords",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ReservedDBInstancesOfferingId"
         },
         "memoryStreamParameters": []
       }
