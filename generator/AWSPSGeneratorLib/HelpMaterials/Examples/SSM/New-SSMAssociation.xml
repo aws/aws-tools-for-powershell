@@ -25,4 +25,18 @@ Status.Message        :
 Status.AdditionalInfo :</code>
         <description>This example associates a configuration document with an instance, using targets.</description>
     </example>
+	    <example>
+        <code>PS C:\> $option1 = @{Key="instanceids";Values=@("i-0cb2b964d3e14fd9f")}
+PS C:\> $option2 = @{"action"="configure";"mode"="ec2";"optionalConfigurationSource"="ssm";"optionalConfigurationLocation"="<ParameterStoreName>";"optionalRestart"="yes"}
+PS C:\> New-SSMAssociation -Name "AWS-UpdateSSMAgent" -AssociationName "CWConfiguration" -Target $option1 -Parameter $option2
+
+Name                  : AWS-UpdateSSMAgent
+InstanceId            :
+Date                  : 5/17/2018 3:17:44 PM
+Status.Name           :
+Status.Date           :
+Status.Message        :
+Status.AdditionalInfo :</code>
+        <description>This example associates a configuration document with an instance, using targets and parameters.</description>
+    </example>    
 </examples>
