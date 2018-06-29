@@ -154,8 +154,19 @@ namespace AWSPowerShellGenerator.Generators
             _jsonWriter.WritePropertyName(propertyName);
             _jsonWriter.WriteStartObject();
 
-            // empty list implies no pipeline parameter
-            WriteStringListProperty("byValueMembers", new[] { Model.PipelineParameter });
+            if (operation.NoPipelineParameter)
+            {
+                WriteSimpleProperty("omitPipelineByValue", true);
+            }
+            else
+            {
+                // empty list causes us to defer to overall model settings
+                WriteStringListProperty("byValueMembers", new[] { operation.PipelineParameter });
+            }
+
+            // this is always an empty construct in the current generator, the new generator has
+            // the ability to annotate parameters that can be piped by matching parameter name.
+            WriteStringListProperty("byNameMembers", new string[] { });
 
             _jsonWriter.WriteEndObject();
         }
