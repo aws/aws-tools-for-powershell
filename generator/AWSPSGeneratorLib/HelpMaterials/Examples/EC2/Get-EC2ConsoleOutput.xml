@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2ConsoleOutput -InstanceId i-12345678 | format-list
-    
-InstanceId       : i-12345678
-Output           : ...
-Timestamp        : 12/27/2015 5:51:05 PM</code>
-    <description>This example gets the console output for the specified Linux instance.</description>
+	<code>
+PS C:\> Get-EC2ConsoleOutput -InstanceId i-0e19abcd47c123456
+ 
+InstanceId          Output
+----------          ------
+i-0e194d3c47c123637 WyAgICAwLjAwMDAwMF0gQ29tbW...bGU9dHR5UzAgc2Vs
+	</code>
+	<description>This example gets the console output for the specified Linux instance. The console output is encoded.</description>
+  </example>
+  <example>
+	<code>
+PS C:\> $Output_encoded = (Get-EC2ConsoleOutput -InstanceId i-0e19abcd47c123456).Output
+PS C:\> [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($Output_encoded))
+	</code>
+	<description>This example stores the encoded console output in a variable and then decodes it.</description>
   </example>
 </examples>
