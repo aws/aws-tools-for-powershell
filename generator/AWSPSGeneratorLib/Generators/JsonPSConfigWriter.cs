@@ -59,7 +59,8 @@ namespace AWSPowerShellGenerator.Generators
 
             foreach (var so in Model.ServiceOperationsList)
             {
-                WriteOperation(so);
+                if (so.Analyzer != null)
+                    WriteOperation(so);
             }
 
             _jsonWriter.WriteEndObject();
