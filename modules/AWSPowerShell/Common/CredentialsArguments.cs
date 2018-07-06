@@ -560,6 +560,15 @@ namespace Amazon.PowerShell.Common
     #region Concrete classes
     internal class AWSRegionArguments : IAWSRegionArguments
     {
+
+        /// <summary>
+        /// <para>
+        /// In some cases, the Region parameter collides with other parameters (e.g. RegionName on the Get-EC2Region cmdlet).
+        /// This alias is provided to specify the Region to be used for the API call in those cases.
+        /// </para>
+        /// </summary>
+        internal const string RegionParameterAlias = "RegionToCall";
+
         public SessionState SessionState { get; private set; }
 
         #region Parameter Region
@@ -575,9 +584,10 @@ namespace Amazon.PowerShell.Common
         /// </para>
         /// </summary>
         [Parameter(Mandatory = false,
-                   ValueFromPipeline=true,
-                   ValueFromPipelineByPropertyName=true,
+                   ValueFromPipeline = true,
+                   ValueFromPipelineByPropertyName = true,
                    Position = 210)]
+        [Alias(RegionParameterAlias)]
         public object Region { get; set; }
         #endregion
 
@@ -627,6 +637,7 @@ namespace Amazon.PowerShell.Common
         /// the AWS resources referenced in a call are usually region-specific.
         /// </summary>
         [Parameter(Mandatory = false, ValueFromPipelineByPropertyName = true)]
+        [Alias(AWSRegionArguments.RegionParameterAlias)]
         public object Region { get; set; }
         #endregion
 

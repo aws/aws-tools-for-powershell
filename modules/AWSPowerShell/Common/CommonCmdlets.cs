@@ -102,6 +102,7 @@ namespace Amazon.PowerShell.Common
             //[Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 210, ParameterSetName = AWSCredentialsArgumentsFull.FederatedSet)]
             [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 210, ParameterSetName = AWSCredentialsArgumentsFull.StoredProfileSet)]
             [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, Position = 210, ParameterSetName = RegionOnlySet)]
+            [Alias(AWSRegionArguments.RegionParameterAlias)]
             public object Region { get; set; }
             #endregion
 
