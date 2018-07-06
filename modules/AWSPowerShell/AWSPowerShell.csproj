@@ -130,7 +130,7 @@
       <HintPath>..\..\packages\AWSSDK.MarketplaceEntitlementService.3.3.0.17\lib\net35\AWSSDK.MarketplaceEntitlementService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaConvert">
-      <HintPath>..\..\packages\AWSSDK.MediaConvert.3.3.3.3\lib\net35\AWSSDK.MediaConvert.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.MediaConvert.3.3.4\lib\net35\AWSSDK.MediaConvert.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaLive">
       <HintPath>..\..\packages\AWSSDK.MediaLive.3.3.7.2\lib\net35\AWSSDK.MediaLive.dll</HintPath>
@@ -193,7 +193,7 @@
       <HintPath>..\..\packages\AWSSDK.SecretsManager.3.3.1.2\lib\net35\AWSSDK.SecretsManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ServerlessApplicationRepository">
-      <HintPath>..\..\packages\AWSSDK.ServerlessApplicationRepository.3.3.1.10\lib\net35\AWSSDK.ServerlessApplicationRepository.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ServerlessApplicationRepository.3.3.2\lib\net35\AWSSDK.ServerlessApplicationRepository.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleWorkflow">
       <HintPath>..\..\packages\AWSSDK.SimpleWorkflow.3.3.0.33\lib\net35\AWSSDK.SimpleWorkflow.dll</HintPath>

@@ -3809,6 +3809,9 @@ Set-Alias -Name EMC-ListJobs -Value Get-EMCJobList
 Set-Alias -Name EMC-ListJobTemplates -Value Get-EMCJobTemplateList
 Set-Alias -Name EMC-ListPresets -Value Get-EMCPresetList
 Set-Alias -Name EMC-ListQueues -Value Get-EMCQueueList
+Set-Alias -Name EMC-ListTagsForResource -Value Get-EMCResourceTag
+Set-Alias -Name EMC-TagResource -Value Add-EMCResourceTag
+Set-Alias -Name EMC-UntagResource -Value Remove-EMCResourceTag
 Set-Alias -Name EMC-UpdateJobTemplate -Value Update-EMCJobTemplate
 Set-Alias -Name EMC-UpdatePreset -Value Update-EMCPreset
 Set-Alias -Name EMC-UpdateQueue -Value Update-EMCQueue

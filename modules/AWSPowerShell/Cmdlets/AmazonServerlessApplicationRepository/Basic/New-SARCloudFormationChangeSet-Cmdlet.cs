@@ -28,7 +28,7 @@ using Amazon.ServerlessApplicationRepository.Model;
 namespace Amazon.PowerShell.Cmdlets.SAR
 {
     /// <summary>
-    /// Creates an AWS CloudFormation ChangeSet for the given application.
+    /// Creates an AWS CloudFormation change set for the given application.
     /// </summary>
     [Cmdlet("New", "SARCloudFormationChangeSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServerlessApplicationRepository.Model.CreateCloudFormationChangeSetResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The ID of the application to get.</para>
+        /// <para>The Amazon Resource Name (ARN) of the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

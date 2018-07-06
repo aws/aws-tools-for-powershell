@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter Author
         /// <summary>
         /// <para>
-        /// <para>The name of the author publishing the app.</para><para>Min Length=1. Max Length=127.</para><para>Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";</para>
+        /// <para>The name of the author publishing the app.</para><para>Minimum length=1. Maximum length=127.</para><para>Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the application.</para><para>Min Length=1. Max Length=256</para>
+        /// <para>The description of the application.</para><para>Minimum length=1. Maximum length=256</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter Label
         /// <summary>
         /// <para>
-        /// <para>Labels to improve discovery of apps in search results.</para><para>Min Length=1. Max Length=127. Maximum number of labels: 10</para><para>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</para>
+        /// <para>Labels to improve discovery of apps in search results.</para><para>Minimum length=1. Maximum length=127. Maximum number of labels: 10</para><para>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -85,8 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter LicenseBody
         /// <summary>
         /// <para>
-        /// <para>A raw text file that contains the license of the app that matches the spdxLicenseID
-        /// of your application.</para><para>Max size 5 MB</para>
+        /// <para>A local text file that contains the license of the app that matches the spdxLicenseID
+        /// value of your application. The file is of the format file://&lt;path&gt;/&lt;filename&gt;.</para><para>Maximum size 5 MB</para><para>Note: Only one of licenseBody and licenseUrl can be specified, otherwise an error
+        /// will result.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter LicenseUrl
         /// <summary>
         /// <para>
-        /// <para>A link to a license file of the app that matches the spdxLicenseID of your application.</para><para>Max size 5 MB</para>
+        /// <para>A link to the S3 object that contains the license of the app that matches the spdxLicenseID
+        /// value of your application.</para><para>Maximum size 5 MB</para><para>Note: Only one of licenseBody and licenseUrl can be specified, otherwise an error
+        /// will result.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -106,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the application you want to publish.</para><para>Min Length=1. Max Length=140</para><para>Pattern: "[a-zA-Z0-9\\-]+";</para>
+        /// <para>The name of the application that you want to publish.</para><para>Minimum length=1. Maximum length=140</para><para>Pattern: "[a-zA-Z0-9\\-]+";</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -116,8 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter ReadmeBody
         /// <summary>
         /// <para>
-        /// <para>A raw text Readme file that contains a more detailed description of the application
-        /// and how it works in markdown language.</para><para>Max size 5 MB</para>
+        /// <para>A local text readme file in Markdown language that contains a more detailed description
+        /// of the application and how it works. The file is of the format file://&lt;path&gt;/&lt;filename&gt;.</para><para>Maximum size 5 MB</para><para>Note: Only one of readmeBody and readmeUrl can be specified, otherwise an error will
+        /// result.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -127,8 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter ReadmeUrl
         /// <summary>
         /// <para>
-        /// <para>A link to the Readme file that contains a more detailed description of the application
-        /// and how it works in markdown language.</para><para>Max size 5 MB</para>
+        /// <para>A link to the S3 object in Markdown language that contains a more detailed description
+        /// of the application and how it works.</para><para>Maximum size 5 MB</para><para>Note: Only one of readmeBody and readmeUrl can be specified, otherwise an error will
+        /// result.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -168,7 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter TemplateBody
         /// <summary>
         /// <para>
-        /// <para>The raw packaged AWS SAM template of your application.</para>
+        /// <para>The local raw packaged AWS SAM template file of your application. The file is of the
+        /// format file://&lt;path&gt;/&lt;filename&gt;.</para><para>Note: Only one of templateBody and templateUrl can be specified, otherwise an error
+        /// will result.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -178,7 +185,8 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter TemplateUrl
         /// <summary>
         /// <para>
-        /// <para>A link to the packaged AWS SAM template of your application.</para>
+        /// <para>A link to the S3 object cotaining the packaged AWS SAM template of your application.</para><para>Note: Only one of templateBody and templateUrl can be specified, otherwise an error
+        /// will result.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

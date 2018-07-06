@@ -95,6 +95,18 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         public Amazon.MediaConvert.Model.JobTemplateSettings Setting { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// The tags that you want to add to the resource. You
+        /// can tag resources with a key-value pair or with only a key.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -129,6 +141,14 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             context.Name = this.Name;
             context.Queue = this.Queue;
             context.Settings = this.Setting;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -164,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             if (cmdletContext.Settings != null)
             {
                 request.Settings = cmdletContext.Settings;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -234,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             public System.String Name { get; set; }
             public System.String Queue { get; set; }
             public Amazon.MediaConvert.Model.JobTemplateSettings Settings { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
         }
         
     }

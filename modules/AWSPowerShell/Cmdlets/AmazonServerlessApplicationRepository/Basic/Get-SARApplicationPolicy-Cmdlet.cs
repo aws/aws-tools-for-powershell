@@ -28,7 +28,7 @@ using Amazon.ServerlessApplicationRepository.Model;
 namespace Amazon.PowerShell.Cmdlets.SAR
 {
     /// <summary>
-    /// Gets the policy for the specified application.
+    /// Retrieves the policy for the application.
     /// </summary>
     [Cmdlet("Get", "SARApplicationPolicy")]
     [OutputType("Amazon.ServerlessApplicationRepository.Model.ApplicationPolicyStatement")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The ID of the application to get.</para>
+        /// <para>The Amazon Resource Name (ARN) of the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

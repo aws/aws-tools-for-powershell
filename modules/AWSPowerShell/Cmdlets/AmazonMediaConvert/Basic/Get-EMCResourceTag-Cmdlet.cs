@@ -22,65 +22,38 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ServerlessApplicationRepository;
-using Amazon.ServerlessApplicationRepository.Model;
+using Amazon.MediaConvert;
+using Amazon.MediaConvert.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SAR
+namespace Amazon.PowerShell.Cmdlets.EMC
 {
     /// <summary>
-    /// Sets the permission policy for an application. See <a href="https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions">Application
-    /// Permissions</a> for the list of supported actions that can be used with this operation.
+    /// Retrieve the tags for a MediaConvert resource.
     /// </summary>
-    [Cmdlet("Set", "SARApplicationPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ServerlessApplicationRepository.Model.ApplicationPolicyStatement")]
-    [AWSCmdlet("Calls the AWS Serverless Application Repository PutApplicationPolicy API operation.", Operation = new[] {"PutApplicationPolicy"})]
-    [AWSCmdletOutput("Amazon.ServerlessApplicationRepository.Model.ApplicationPolicyStatement",
-        "This cmdlet returns a collection of ApplicationPolicyStatement objects.",
-        "The service call response (type Amazon.ServerlessApplicationRepository.Model.PutApplicationPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "EMCResourceTag")]
+    [OutputType("Amazon.MediaConvert.Model.ResourceTags")]
+    [AWSCmdlet("Calls the AWS Elemental MediaConvert ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"})]
+    [AWSCmdletOutput("Amazon.MediaConvert.Model.ResourceTags",
+        "This cmdlet returns a ResourceTags object.",
+        "The service call response (type Amazon.MediaConvert.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class SetSARApplicationPolicyCmdlet : AmazonServerlessApplicationRepositoryClientCmdlet, IExecutor
+    public partial class GetEMCResourceTagCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {
         
-        #region Parameter ApplicationId
+        #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the application.</para>
+        /// The Amazon Resource Name (ARN) of the resource that
+        /// you want to list tags for. To get the ARN, send a GET request with the resource name.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ApplicationId { get; set; }
-        #endregion
-        
-        #region Parameter Statement
-        /// <summary>
-        /// <para>
-        /// <para>An array of policy statements applied to the application.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("Statements")]
-        public Amazon.ServerlessApplicationRepository.Model.ApplicationPolicyStatement[] Statement { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public System.String Arn { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ApplicationId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-SARApplicationPolicy (PutApplicationPolicy)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -91,11 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ApplicationId = this.ApplicationId;
-            if (this.Statement != null)
-            {
-                context.Statements = new List<Amazon.ServerlessApplicationRepository.Model.ApplicationPolicyStatement>(this.Statement);
-            }
+            context.Arn = this.Arn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -110,15 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ServerlessApplicationRepository.Model.PutApplicationPolicyRequest();
+            var request = new Amazon.MediaConvert.Model.ListTagsForResourceRequest();
             
-            if (cmdletContext.ApplicationId != null)
+            if (cmdletContext.Arn != null)
             {
-                request.ApplicationId = cmdletContext.ApplicationId;
-            }
-            if (cmdletContext.Statements != null)
-            {
-                request.Statements = cmdletContext.Statements;
+                request.Arn = cmdletContext.Arn;
             }
             
             CmdletOutput output;
@@ -129,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Statements;
+                object pipelineOutput = response.ResourceTags;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -154,16 +119,16 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         
         #region AWS Service Operation Call
         
-        private Amazon.ServerlessApplicationRepository.Model.PutApplicationPolicyResponse CallAWSServiceOperation(IAmazonServerlessApplicationRepository client, Amazon.ServerlessApplicationRepository.Model.PutApplicationPolicyRequest request)
+        private Amazon.MediaConvert.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonMediaConvert client, Amazon.MediaConvert.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Serverless Application Repository", "PutApplicationPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaConvert", "ListTagsForResource");
             try
             {
                 #if DESKTOP
-                return client.PutApplicationPolicy(request);
+                return client.ListTagsForResource(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutApplicationPolicyAsync(request);
+                var task = client.ListTagsForResourceAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -184,8 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationId { get; set; }
-            public List<Amazon.ServerlessApplicationRepository.Model.ApplicationPolicyStatement> Statements { get; set; }
+            public System.String Arn { get; set; }
         }
         
     }

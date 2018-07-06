@@ -1,4 +1,4 @@
-### (next release - replace with version number and date)
+### 3.3.313.0 (2018-07-09)
   * Amazon CloudFront
     * [Breaking Change] The DeleteServiceLinkedRole api was released in error and has now been removed by the service. Accordingly the Remove-CFServiceLinkedRole cmdlet has been removed from the module. We apologize for any inconvenience caused.
   * Amazon EC2
@@ -47,6 +47,8 @@
     * Updated cmdlets to support new service feature for sending delay notification to Amazon CloudWatch Events when an ETL job runs longer than the specified delay notification threshold.
   * AWS Elemental MediaLive
     * Added and updated cmdlets to support new service features for reserved inputs and outputs. You can reserve inputs and outputs with a 12 month commitment in exchange for discounted hourly rates. Pricing is available at https://aws.amazon.com/medialive/pricing/.
+  * AWS Elemental MediaConvert
+    * Added cmdlets to support tagging queues, presets, and templates during creation of those resources on MediaConvert.
   * AWS Config
     * Updated cmdlets to support new service feature for retention, allowing you to specify a retention period for your AWS Config configuration items.
   * AWS Directory Service
