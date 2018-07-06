@@ -28,7 +28,7 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Stops the specified streaming session.
+    /// Immediately stops the specified streaming session.
     /// </summary>
     [Cmdlet("Revoke", "APSSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

@@ -49,6 +49,20 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Comment { get; set; }
         #endregion
         
+        #region Parameter Enforce
+        /// <summary>
+        /// <para>
+        /// <para>(Optional) If <code>true</code> job executions with status "IN_PROGRESS" and "QUEUED"
+        /// are canceled, otherwise only job executions with status "QUEUED" are canceled. The
+        /// default is <code>false</code>.</para><para>Canceling a job which is "IN_PROGRESS", will cause a device which is executing the
+        /// job to be unable to update the job execution status. Use caution and ensure that each
+        /// device executing a job which is canceled is able to recover to a valid state.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Enforce { get; set; }
+        #endregion
+        
         #region Parameter JobId
         /// <summary>
         /// <para>
@@ -89,6 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             PreExecutionContextLoad(context);
             
             context.Comment = this.Comment;
+            if (ParameterWasBound("Enforce"))
+                context.Enforce = this.Enforce;
             context.JobId = this.JobId;
             
             // allow further manipulation of loaded context prior to processing
@@ -109,6 +125,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.Comment != null)
             {
                 request.Comment = cmdletContext.Comment;
+            }
+            if (cmdletContext.Enforce != null)
+            {
+                request.Force = cmdletContext.Enforce.Value;
             }
             if (cmdletContext.JobId != null)
             {
@@ -179,6 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Comment { get; set; }
+            public System.Boolean? Enforce { get; set; }
             public System.String JobId { get; set; }
         }
         

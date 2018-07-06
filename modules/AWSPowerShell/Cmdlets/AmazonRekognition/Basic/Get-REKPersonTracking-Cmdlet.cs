@@ -28,14 +28,15 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Gets the person tracking results of a Rekognition Video analysis started by .
+    /// Gets the person tracking results of a Amazon Rekognition Video analysis started by
+    /// .
     /// 
     ///  
     /// <para>
     /// The person detection operation is started by a call to <code>StartPersonTracking</code>
     /// which returns a job identifier (<code>JobId</code>). When the person detection operation
-    /// finishes, Rekognition Video publishes a completion status to the Amazon Simple Notification
-    /// Service topic registered in the initial call to <code>StartPersonTracking</code>.
+    /// finishes, Amazon Rekognition Video publishes a completion status to the Amazon Simple
+    /// Notification Service topic registered in the initial call to <code>StartPersonTracking</code>.
     /// </para><para>
     /// To get the results of the person tracking operation, first check that the status value
     /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call and pass
@@ -45,7 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para><note><para><code>GetPersonTracking</code> only returns the default facial attributes (<code>BoundingBox</code>,
     /// <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and <code>Quality</code>).
     /// The other facial attributes listed in the <code>Face</code> object of the following
-    /// response syntax are not returned. For more information, see . 
+    /// response syntax are not returned. 
+    /// </para><para>
+    /// For more information, see FaceDetail in the Amazon Rekognition Developer Guide.
     /// </para></note><para>
     /// By default, the array is sorted by the time(s) a person is tracked in the video. You
     /// can sort by tracked persons by specifying <code>INDEX</code> for the <code>SortBy</code>
@@ -113,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>If the previous response was incomplete (because there are more persons to retrieve),
-        /// Rekognition Video returns a pagination token in the response. You can use this pagination
-        /// token to retrieve the next set of persons. </para>
+        /// Amazon Rekognition Video returns a pagination token in the response. You can use this
+        /// pagination token to retrieve the next set of persons. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

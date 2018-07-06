@@ -56,7 +56,10 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "byValueMembers": [
+          "Id"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -108,7 +111,10 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "byValueMembers": [
+          "JobTemplate"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -160,7 +166,10 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "byValueMembers": [
+          "Queue"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -212,7 +221,10 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "byValueMembers": [
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -264,7 +276,10 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "byValueMembers": [
+          "Queue"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -316,7 +331,10 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "byValueMembers": [
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -368,7 +386,10 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "byValueMembers": [
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -420,7 +441,10 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "byValueMembers": [
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -472,7 +496,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -519,7 +544,10 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "byValueMembers": [
+          "Id"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -577,7 +605,10 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "byValueMembers": [
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -624,7 +655,10 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "byValueMembers": [
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -671,7 +705,10 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "byValueMembers": [
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -729,7 +766,10 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "byValueMembers": [
+          "Queue"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -776,7 +816,10 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "byValueMembers": [
+          "Category"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -823,7 +866,10 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "byValueMembers": [
+          "Category"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -870,7 +916,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -917,7 +964,10 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "byValueMembers": [
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -969,7 +1019,10 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "byValueMembers": [
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1021,7 +1074,10 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": []
+        "byValueMembers": [
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",

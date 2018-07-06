@@ -64,8 +64,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "TicketId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -116,9 +117,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -169,9 +169,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -222,9 +221,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -275,9 +273,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -329,8 +326,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -382,8 +380,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "RuleSetName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -435,8 +434,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -468,9 +468,6 @@
         "memoryStreamParameters": []
       }
     },
-    "CreatePlayerSession": {
-      "excludeFromGeneration": "true"
-    },
     "CreatePlayerSessions": {
       "verb": "New",
       "noun": "PlayerSession",
@@ -491,8 +488,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "GameSessionId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -543,9 +541,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -597,8 +594,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "FleetId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -650,8 +648,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "AliasId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -702,9 +701,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -756,8 +754,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "FleetId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -809,8 +808,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -862,8 +862,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -915,8 +916,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "FleetId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -967,9 +969,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1021,8 +1022,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "FleetId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1074,8 +1076,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "AliasId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1121,9 +1124,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1170,8 +1172,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "EC2InstanceType"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1218,8 +1221,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "FleetIds"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1266,8 +1270,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "FleetIds"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1313,9 +1318,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1362,8 +1366,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "FleetId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1410,8 +1415,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "FleetIds"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1458,8 +1464,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "GameSessionId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1506,8 +1513,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "PlacementId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1554,8 +1562,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "Names"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1601,9 +1610,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1650,8 +1658,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "FleetId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1698,8 +1707,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "TicketIds"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1745,9 +1755,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1793,9 +1802,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1841,9 +1849,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1890,8 +1897,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "FleetId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1938,8 +1946,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "FleetId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1985,9 +1994,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2034,8 +2042,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "FleetId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2082,8 +2091,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "GameSessionId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2130,8 +2140,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "FleetId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2177,9 +2188,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2226,8 +2236,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "Status"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2273,9 +2284,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2322,8 +2332,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "FleetId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2374,9 +2385,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2428,8 +2438,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "AliasId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2481,8 +2492,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "FleetId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2528,9 +2540,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2582,8 +2593,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "GameSessionName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2635,8 +2647,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "GameSessionArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2688,8 +2701,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "ConfigurationName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2740,9 +2754,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2794,8 +2807,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "PlacementId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2847,8 +2861,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "TicketId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2899,9 +2914,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2952,9 +2966,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3005,9 +3018,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3058,9 +3070,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3111,9 +3122,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3164,9 +3174,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "BuildId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3218,8 +3227,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3271,8 +3281,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3324,8 +3335,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "FleetId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3377,8 +3389,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BuildId"
-        ]
+          "RuleSetBody"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",

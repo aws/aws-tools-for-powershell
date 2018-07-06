@@ -29,7 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Returns a list of configuration items for the specified resource. The list contains
-    /// details about each state of the resource during the specified time interval.
+    /// details about each state of the resource during the specified time interval. If you
+    /// specified a retention period to retain your <code>ConfigurationItems</code> between
+    /// a minimum of 30 days and a maximum of 7 years (2557 days), AWS Config returns the
+    /// <code>ConfigurationItems</code> for the specified retention period. 
     /// 
     ///  
     /// <para>

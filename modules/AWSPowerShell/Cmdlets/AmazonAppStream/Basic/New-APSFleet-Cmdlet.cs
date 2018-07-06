@@ -28,7 +28,7 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Creates a fleet.
+    /// Creates a fleet. A fleet consists of streaming instances that run a specified image.
     /// </summary>
     [Cmdlet("New", "APSFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.Fleet")]

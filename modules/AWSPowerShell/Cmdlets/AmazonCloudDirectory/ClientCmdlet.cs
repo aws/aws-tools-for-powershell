@@ -27,7 +27,7 @@ using Amazon.CloudDirectory.Model;
 
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
-    [AWSClientCmdlet("AWS Cloud Directory", "CDIR", "2016-05-10")]
+    [AWSClientCmdlet("AWS Cloud Directory", "CDIR", "2017-01-11")]
     public abstract partial class AmazonCloudDirectoryClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCloudDirectory Client { get; private set; }

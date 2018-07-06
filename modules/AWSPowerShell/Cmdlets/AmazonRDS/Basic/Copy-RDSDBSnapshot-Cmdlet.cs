@@ -38,8 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// for the DB snapshot copy. 
     /// </para><para>
     /// For more information about copying snapshots, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopyDBSnapshot.html">Copying
-    /// a DB Snapshot</a> in the Amazon RDS User Guide. 
-    /// </para>
+    /// a DB Snapshot</a> in the <i>Amazon RDS User Guide.</i></para>
     /// </summary>
     [Cmdlet("Copy", "RDSDBSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBSnapshot")]

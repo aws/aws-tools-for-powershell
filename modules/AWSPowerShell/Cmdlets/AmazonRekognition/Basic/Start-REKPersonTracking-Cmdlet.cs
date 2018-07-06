@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// 
     ///  
     /// <para>
-    /// Rekognition Video can track persons in a video stored in an Amazon S3 bucket. Use
-    /// <a>Video</a> to specify the bucket name and the filename of the video. <code>StartPersonTracking</code>
+    /// Amazon Rekognition Video can track persons in a video stored in an Amazon S3 bucket.
+    /// Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartPersonTracking</code>
     /// returns a job identifier (<code>JobId</code>) which you use to get the results of
     /// the operation. When label detection is finished, Amazon Rekognition publishes a completion
     /// status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.

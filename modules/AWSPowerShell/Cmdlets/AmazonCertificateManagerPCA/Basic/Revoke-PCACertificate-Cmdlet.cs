@@ -28,7 +28,7 @@ using Amazon.ACMPCA.Model;
 namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
-    /// Revokes a certificate that you issued by calling the <a>IssueCertificate</a> function.
+    /// Revokes a certificate that you issued by calling the <a>IssueCertificate</a> operation.
     /// If you enable a certificate revocation list (CRL) when you create or update your private
     /// CA, information about the revoked certificates will be included in the CRL. ACM PCA
     /// writes the CRL to an S3 bucket that you specify. For more information about revocation,
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked.
-        /// This must be of the form:</para><para><code>arn:aws:acm:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code></para>
+        /// This must be of the form:</para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -62,10 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <para>Serial number of the certificate to be revoked. This must be in hexadecimal format.
         /// You can retrieve the serial number by calling <a>GetCertificate</a> with the Amazon
         /// Resource Name (ARN) of the certificate you want and the ARN of your private CA. The
-        /// <b>GetCertificate</b> function retrieves the certificate in the PEM format. You can
+        /// <b>GetCertificate</b> operation retrieves the certificate in the PEM format. You can
         /// use the following OpenSSL command to list the certificate in text format and copy
-        /// the hexadecimal serial number. </para><para><code>openssl x509 -in <i>file_path</i> -text -noout</code></para><para>You can also copy the serial number from the console or use the <a href="http://docs.aws.amazon.comacm/latest/APIReferenceAPI_DescribeCertificate.html">DescribeCertificate</a>
-        /// function in the <i>AWS Certificate Manager API Reference</i>. </para>
+        /// the hexadecimal serial number. </para><para><code>openssl x509 -in <i>file_path</i> -text -noout</code></para><para>You can also copy the serial number from the console or use the <a href="https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html">DescribeCertificate</a>
+        /// operation in the <i>AWS Certificate Manager API Reference</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

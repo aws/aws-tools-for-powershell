@@ -28,7 +28,8 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Describes the specified stacks or all stacks in the account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieves a list that describes one or more specified stacks, if the stack names are
+    /// provided. Otherwise, all stacks in the account are described.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "APSStackList")]
     [OutputType("Amazon.AppStream.Model.Stack")]

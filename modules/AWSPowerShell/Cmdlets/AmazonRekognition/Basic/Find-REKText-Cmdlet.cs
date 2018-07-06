@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para><para>
     /// To be detected, text must be within +/- 30 degrees orientation of the horizontal axis.
     /// </para><para>
-    /// For more information, see <a>text-detection</a>.
+    /// For more information, see DetectText in the Amazon Rekognition Developer Guide.
     /// </para>
     /// </summary>
     [Cmdlet("Find", "REKText")]

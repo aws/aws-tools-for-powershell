@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
     /// Describes the attributes for the specified target group.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes">Target
+    /// Group Attributes</a> in the <i>Application Load Balancers Guide</i> or <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#target-group-attributes">Target
+    /// Group Attributes</a> in the <i>Network Load Balancers Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "ELB2TargetGroupAttribute")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.TargetGroupAttribute")]

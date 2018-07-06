@@ -28,7 +28,7 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Use to update an endpoint.
+    /// Creates or updates an endpoint.
     /// </summary>
     [Cmdlet("Update", "PINEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Pinpoint.Model.MessageBody")]
@@ -43,8 +43,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter EndpointRequest_Address
         /// <summary>
         /// <para>
-        /// The address or token of the endpoint as provided
-        /// by your push provider (e.g. DeviceToken or RegistrationId).
+        /// The destination for messages that you send to
+        /// this endpoint. The address varies by channel. For mobile push channels, use the token
+        /// provided by the push notification service, such as the APNs device token or the FCM
+        /// registration token. For the SMS channel, use a phone number in E.164 format, such
+        /// as +1206XXX5550100. For the email channel, use an email address.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// The unique ID of your Amazon Pinpoint application.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -139,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter EndpointId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// The unique ID of the endpoint.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -149,9 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter EndpointRequest_EndpointStatus
         /// <summary>
         /// <para>
-        /// The endpoint status. Can be either ACTIVE
-        /// or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if
-        /// the address is updated.
+        /// Unused.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

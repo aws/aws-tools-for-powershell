@@ -28,7 +28,8 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Describes the specified images or all images in the account.
+    /// Retrieves a list that describes one or more specified images, if the image names are
+    /// provided. Otherwise, all images in the account are described.
     /// </summary>
     [Cmdlet("Get", "APSImageList")]
     [OutputType("Amazon.AppStream.Model.Image")]

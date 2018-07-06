@@ -35,7 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// To receive the next page, you call <code>ListEndpointsByPlatformApplication</code>
     /// again using the NextToken string received from the previous call. When there are no
     /// more records to return, NextToken will be null. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
-    /// Amazon SNS Mobile Push Notifications</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Amazon SNS Mobile Push Notifications</a>. 
+    /// 
+    ///  
+    /// <para>
+    /// This action is throttled at 30 transactions per second (TPS).
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SNSEndpointsByPlatformApplication")]
     [OutputType("Amazon.SimpleNotificationService.Model.Endpoint")]

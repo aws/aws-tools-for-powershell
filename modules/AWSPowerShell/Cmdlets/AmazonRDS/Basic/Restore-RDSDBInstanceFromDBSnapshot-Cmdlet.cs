@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Not all DB instance classes are available in all AWS Regions, or for all database
         /// engines. For the full list of DB instance classes, and availability for your engine,
         /// see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
-        /// Instance Class</a> in the Amazon RDS User Guide. </para><para>Default: The same DBInstanceClass as the original DB instance.</para>
+        /// Instance Class</a> in the <i>Amazon RDS User Guide.</i></para><para>Default: The same DBInstanceClass as the original DB instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -264,6 +264,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Int32 Port { get; set; }
         #endregion
         
+        #region Parameter ProcessorFeature
+        /// <summary>
+        /// <para>
+        /// <para>The number of CPU cores and the number of threads per core for the DB instance class
+        /// of the DB instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ProcessorFeatures")]
+        public Amazon.RDS.Model.ProcessorFeature[] ProcessorFeature { get; set; }
+        #endregion
+        
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
@@ -324,6 +336,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String TdeCredentialPassword { get; set; }
         #endregion
         
+        #region Parameter UseDefaultProcessorFeature
+        /// <summary>
+        /// <para>
+        /// <para>A value that specifies that the DB instance class of the DB instance uses its default
+        /// processor features.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("UseDefaultProcessorFeatures")]
+        public System.Boolean UseDefaultProcessorFeature { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -380,6 +404,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.OptionGroupName = this.OptionGroupName;
             if (ParameterWasBound("Port"))
                 context.Port = this.Port;
+            if (this.ProcessorFeature != null)
+            {
+                context.ProcessorFeatures = new List<Amazon.RDS.Model.ProcessorFeature>(this.ProcessorFeature);
+            }
             if (ParameterWasBound("PubliclyAccessible"))
                 context.PubliclyAccessible = this.PubliclyAccessible;
             context.StorageType = this.StorageType;
@@ -389,6 +417,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             context.TdeCredentialArn = this.TdeCredentialArn;
             context.TdeCredentialPassword = this.TdeCredentialPassword;
+            if (ParameterWasBound("UseDefaultProcessorFeature"))
+                context.UseDefaultProcessorFeatures = this.UseDefaultProcessorFeature;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -477,6 +507,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.Port = cmdletContext.Port.Value;
             }
+            if (cmdletContext.ProcessorFeatures != null)
+            {
+                request.ProcessorFeatures = cmdletContext.ProcessorFeatures;
+            }
             if (cmdletContext.PubliclyAccessible != null)
             {
                 request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
@@ -496,6 +530,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.TdeCredentialPassword != null)
             {
                 request.TdeCredentialPassword = cmdletContext.TdeCredentialPassword;
+            }
+            if (cmdletContext.UseDefaultProcessorFeatures != null)
+            {
+                request.UseDefaultProcessorFeatures = cmdletContext.UseDefaultProcessorFeatures.Value;
             }
             
             CmdletOutput output;
@@ -579,11 +617,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? MultiAZ { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }
+            public List<Amazon.RDS.Model.ProcessorFeature> ProcessorFeatures { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public System.String StorageType { get; set; }
             public List<Amazon.RDS.Model.Tag> Tags { get; set; }
             public System.String TdeCredentialArn { get; set; }
             public System.String TdeCredentialPassword { get; set; }
+            public System.Boolean? UseDefaultProcessorFeatures { get; set; }
         }
         
     }

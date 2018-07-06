@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// the input face with faces in the specified collection. 
     /// 
     ///  <note><para>
-    ///  To search for all faces in an input image, you might first call the operation, and
+    /// To search for all faces in an input image, you might first call the operation, and
     /// then use the face IDs returned in subsequent calls to the operation. 
     /// </para><para>
     ///  You can also call the <code>DetectFaces</code> operation and use the bounding boxes
@@ -52,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// also returns the bounding box (and a confidence level that the bounding box contains
     /// a face) of the face that Amazon Rekognition used for the input image. 
     /// </para><para>
-    /// For an example, see <a>search-face-with-image-procedure</a>.
+    /// For an example, Searching for a Face Using an Image in the Amazon Rekognition Developer
+    /// Guide.
     /// </para><para>
     /// This operation requires permissions to perform the <code>rekognition:SearchFacesByImage</code>
     /// action.

@@ -58,9 +58,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -111,9 +110,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -167,9 +165,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -201,9 +198,6 @@
         "memoryStreamParameters": []
       }
     },
-    "CreateFunction": {
-      "excludeFromGeneration": "true"
-    },
     "DeleteAlias": {
       "verb": "Remove",
       "noun": "Alias",
@@ -223,9 +217,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -277,8 +270,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "FunctionName"
-        ]
+          "UUID"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -329,9 +323,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -382,9 +375,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -435,9 +427,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -483,9 +474,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -532,8 +522,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "FunctionName"
-        ]
+          "UUID"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -579,9 +570,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -627,9 +617,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -675,9 +664,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -704,12 +692,6 @@
         "memoryStreamParameters": []
       }
     },
-    "Invoke": {
-      "excludeFromGeneration": "true"
-    },
-    "InvokeAsync": {
-      "excludeFromGeneration": "true"
-    },
     "ListAliases": {
       "verb": "Get",
       "noun": "AliasList",
@@ -729,9 +711,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -777,9 +758,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -825,9 +805,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -874,8 +853,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "FunctionName"
-        ]
+          "Resource"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -921,9 +901,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -969,9 +948,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1022,9 +1000,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1075,9 +1052,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1129,8 +1105,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "FunctionName"
-        ]
+          "Resource"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1182,8 +1159,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "FunctionName"
-        ]
+          "TagKeys"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1234,9 +1212,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1287,9 +1264,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1321,9 +1297,6 @@
         "memoryStreamParameters": []
       }
     },
-    "UpdateFunctionCode": {
-      "excludeFromGeneration": "true"
-    },
     "UpdateFunctionConfiguration": {
       "verb": "Update",
       "noun": "FunctionConfiguration",
@@ -1343,9 +1316,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "FunctionName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",

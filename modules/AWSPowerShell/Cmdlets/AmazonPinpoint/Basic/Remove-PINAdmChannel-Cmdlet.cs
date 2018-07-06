@@ -28,7 +28,7 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Delete an ADM channel
+    /// Delete an ADM channel.
     /// </summary>
     [Cmdlet("Remove", "PINAdmChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Pinpoint.Model.ADMChannelResponse")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// The unique ID of your Amazon Pinpoint application.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -74,6 +74,61 @@
     "Reboot": "Restart"
   },
   "serviceOperations": {
+    "AcceptReservedNodeExchange": {
+      "verb": "Switch",
+      "noun": "ReservedNode",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ExchangedReservedNode",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ReservedNodeId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ReservedNodeExchange",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ReservedNodeId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "AuthorizeClusterSecurityGroupIngress": {
       "verb": "Approve",
       "noun": "ClusterSecurityGroupIngress",
@@ -98,8 +153,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ClusterSecurityGroupName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -154,8 +210,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "SnapshotIdentifier"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -210,8 +267,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "SourceSnapshotIdentifier"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -277,8 +335,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "DBName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -334,8 +393,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ParameterGroupName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -390,8 +450,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ClusterSecurityGroupName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -446,8 +507,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "SnapshotIdentifier"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -503,8 +565,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ClusterSubnetGroupName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -556,9 +619,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -610,9 +672,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -664,9 +725,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -719,8 +779,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "Tag"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -772,9 +833,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -826,9 +886,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -881,8 +940,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ParameterGroupName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -935,8 +995,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ClusterSecurityGroupName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -989,8 +1050,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "SnapshotIdentifier"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1043,8 +1105,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ClusterSubnetGroupName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1097,8 +1160,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "SubscriptionName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1151,8 +1215,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "HsmClientCertificateIdentifier"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1205,8 +1270,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "HsmConfigurationIdentifier"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1259,8 +1325,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "SnapshotCopyGrantName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1312,9 +1379,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1347,6 +1413,54 @@
         "memoryStreamParameters": []
       }
     },
+    "DescribeClusterDbRevisions": {
+      "verb": "Get",
+      "noun": "ClusterDbRevision",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ClusterDbRevisions",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ClusterDbRevisions",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "DescribeClusterParameterGroups": {
       "verb": "Get",
       "noun": "ClusterParameterGroup",
@@ -1367,8 +1481,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ParameterGroupName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1418,8 +1533,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ParameterGroupName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1466,9 +1582,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1516,8 +1631,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ClusterSecurityGroupName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1567,9 +1683,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1617,8 +1732,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ClusterSubnetGroupName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1668,8 +1784,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ClusterVersion"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1717,8 +1834,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ParameterGroupFamily"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1766,8 +1884,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "SourceType"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1817,8 +1936,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "SourceIdentifier"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1865,9 +1985,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1914,9 +2033,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1963,9 +2081,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2012,9 +2129,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2064,8 +2180,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ClusterVersion"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2113,8 +2230,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ReservedNodeOfferingId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2162,8 +2280,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ReservedNodeId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2210,9 +2329,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2259,9 +2377,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2308,9 +2425,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2357,9 +2473,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2406,9 +2521,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2460,9 +2574,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2514,9 +2627,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2568,9 +2680,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2622,9 +2733,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2636,6 +2746,56 @@
         "confirmationMessageNoun": "ClusterCredentials",
         "confirmImpactSetting": "Medium",
         "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetReservedNodeExchangeOfferings": {
+      "verb": "Get",
+      "noun": "ReservedNodeExchangeOffering",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ReservedNodeOfferings",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ReservedNodeId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ReservedNodeExchangeOfferings",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2680,9 +2840,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2715,6 +2874,59 @@
         "memoryStreamParameters": []
       }
     },
+    "ModifyClusterDbRevision": {
+      "verb": "Edit",
+      "noun": "ClusterDbRevision",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Cluster",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ClusterDbRevision",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ClusterIdentifier"
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "ModifyClusterIamRoles": {
       "verb": "Edit",
       "noun": "ClusterIamRole",
@@ -2734,9 +2946,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2791,8 +3002,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ParameterGroupName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2848,8 +3060,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ClusterSubnetGroupName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2901,9 +3114,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2955,9 +3167,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3012,8 +3223,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ReservedNodeOfferingId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3065,9 +3277,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3120,8 +3331,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ParameterGroupName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3175,9 +3387,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3229,9 +3440,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3288,8 +3498,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "ClusterSecurityGroupName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3344,8 +3555,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+          "SnapshotIdentifier"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3397,9 +3609,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ClusterIdentifier"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",

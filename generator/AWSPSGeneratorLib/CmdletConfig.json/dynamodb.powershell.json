@@ -40,12 +40,6 @@
   "supportsShouldProcessVerbs": [],
   "verbMaps": {},
   "serviceOperations": {
-    "BatchGetItem": {
-      "excludeFromGeneration": "true"
-    },
-    "BatchWriteItem": {
-      "excludeFromGeneration": "true"
-    },
     "CreateBackup": {
       "verb": "New",
       "noun": "Backup",
@@ -65,9 +59,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -118,9 +111,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -152,9 +144,6 @@
         "memoryStreamParameters": []
       }
     },
-    "CreateTable": {
-      "excludeFromGeneration": "true"
-    },
     "DeleteBackup": {
       "verb": "Remove",
       "noun": "Backup",
@@ -175,8 +164,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "TableName"
-        ]
+          "BackupArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -208,9 +198,6 @@
         "memoryStreamParameters": []
       }
     },
-    "DeleteItem": {
-      "excludeFromGeneration": "true"
-    },
     "DeleteTable": {
       "verb": "Remove",
       "noun": "Table",
@@ -230,9 +217,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -284,8 +270,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "TableName"
-        ]
+          "BackupArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -331,9 +318,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -380,8 +366,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "TableName"
-        ]
+          "GlobalTableName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -428,8 +415,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "TableName"
-        ]
+          "GlobalTableName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -475,9 +463,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -523,9 +510,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -571,9 +557,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -600,9 +585,6 @@
         "memoryStreamParameters": []
       }
     },
-    "GetItem": {
-      "excludeFromGeneration": "true"
-    },
     "ListBackups": {
       "verb": "Get",
       "noun": "BackupsList",
@@ -622,9 +604,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -670,9 +651,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -718,9 +698,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -766,9 +745,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -795,12 +773,6 @@
         "memoryStreamParameters": []
       }
     },
-    "PutItem": {
-      "excludeFromGeneration": "true"
-    },
-    "Query": {
-      "excludeFromGeneration": "true"
-    },
     "RestoreTableFromBackup": {
       "verb": "Restore",
       "noun": "TableFromBackup",
@@ -820,9 +792,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -874,8 +845,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "TableName"
-        ]
+          "TargetTableName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -907,9 +879,6 @@
         "memoryStreamParameters": []
       }
     },
-    "Scan": {
-      "excludeFromGeneration": "true"
-    },
     "TagResource": {
       "verb": "Add",
       "noun": "ResourceTag",
@@ -929,9 +898,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -982,9 +950,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1035,9 +1002,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1088,9 +1054,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1141,9 +1106,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1174,9 +1138,6 @@
         },
         "memoryStreamParameters": []
       }
-    },
-    "UpdateItem": {
-      "excludeFromGeneration": "true"
     },
     "UpdateTable": {
       "verb": "Update",
@@ -1218,9 +1179,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1271,9 +1231,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",

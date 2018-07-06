@@ -28,9 +28,16 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Describes the specified directory configurations. Note that although the response
-    /// syntax in this topic includes the account password, this password is not returned
-    /// in the actual response.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieves a list that describes one or more specified Directory Config objects for
+    /// AppStream 2.0, if the names for these objects are provided. Otherwise, all Directory
+    /// Config objects in the account are described. These objects include the information
+    /// required to join streaming instances to an Active Directory domain. 
+    /// 
+    ///  
+    /// <para>
+    /// Although the response syntax in this topic includes the account password, this password
+    /// is not returned in the actual response.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "APSDirectoryConfigList")]
     [OutputType("Amazon.AppStream.Model.DirectoryConfig")]

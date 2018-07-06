@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of stream processors you want Rekognition Video to return in the response.
-        /// The default is 1000. </para>
+        /// <para>Maximum number of stream processors you want Amazon Rekognition Video to return in
+        /// the response. The default is 1000. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>If the previous response was incomplete (because there are more stream processors
-        /// to retrieve), Rekognition Video returns a pagination token in the response. You can
-        /// use this pagination token to retrieve the next set of stream processors. </para>
+        /// to retrieve), Amazon Rekognition Video returns a pagination token in the response.
+        /// You can use this pagination token to retrieve the next set of stream processors. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

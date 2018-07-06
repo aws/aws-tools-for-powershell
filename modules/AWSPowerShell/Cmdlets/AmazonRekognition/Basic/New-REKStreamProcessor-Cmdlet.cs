@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// 
     ///  
     /// <para>
-    /// Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. Rekognition
-    /// Video sends analysis results to Amazon Kinesis Data Streams.
+    /// Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams.
+    /// Amazon Rekognition Video sends analysis results to Amazon Kinesis Data Streams.
     /// </para><para>
     /// You provide as input a Kinesis video stream (<code>Input</code>) and a Kinesis data
     /// stream (<code>Output</code>) stream. You also specify the face recognition criteria

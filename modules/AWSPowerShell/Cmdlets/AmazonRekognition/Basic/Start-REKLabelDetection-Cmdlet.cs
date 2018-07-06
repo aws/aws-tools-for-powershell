@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// 
     ///  
     /// <para>
-    /// Rekognition Video can detect labels in a video. Labels are instances of real-world
+    /// Amazon Rekognition Video can detect labels in a video. Labels are instances of real-world
     /// entities. This includes objects like flower, tree, and table; events like wedding,
     /// graduation, and birthday party; concepts like landscape, evening, and nature; and
     /// activities like a person getting out of a car or a person skiing.
@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// The video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket
     /// name and the filename of the video. <code>StartLabelDetection</code> returns a job
     /// identifier (<code>JobId</code>) which you use to get the results of the operation.
-    /// When label detection is finished, Rekognition Video publishes a completion status
-    /// to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.
+    /// When label detection is finished, Amazon Rekognition Video publishes a completion
+    /// status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.
     /// </para><para>
     /// To get the results of the label detection operation, first check that the status value
     /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call and pass
@@ -85,11 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter MinConfidence
         /// <summary>
         /// <para>
-        /// <para>Specifies the minimum confidence that Rekognition Video must have in order to return
-        /// a detected label. Confidence represents how certain Amazon Rekognition is that a label
-        /// is correctly identified.0 is the lowest confidence. 100 is the highest confidence.
-        /// Rekognition Video doesn't return any labels with a confidence level lower than this
-        /// specified value.</para><para>If you don't specify <code>MinConfidence</code>, the operation returns labels with
+        /// <para>Specifies the minimum confidence that Amazon Rekognition Video must have in order
+        /// to return a detected label. Confidence represents how certain Amazon Rekognition is
+        /// that a label is correctly identified.0 is the lowest confidence. 100 is the highest
+        /// confidence. Amazon Rekognition Video doesn't return any labels with a confidence level
+        /// lower than this specified value.</para><para>If you don't specify <code>MinConfidence</code>, the operation returns labels with
         /// confidence values greater than or equal to 50 percent.</para>
         /// </para>
         /// </summary>

@@ -28,15 +28,15 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Gets face detection results for a Rekognition Video analysis started by .
+    /// Gets face detection results for a Amazon Rekognition Video analysis started by .
     /// 
     ///  
     /// <para>
-    /// Face detection with Rekognition Video is an asynchronous operation. You start face
-    /// detection by calling which returns a job identifier (<code>JobId</code>). When the
-    /// face detection operation finishes, Rekognition Video publishes a completion status
-    /// to the Amazon Simple Notification Service topic registered in the initial call to
-    /// <code>StartFaceDetection</code>. To get the results of the face detection operation,
+    /// Face detection with Amazon Rekognition Video is an asynchronous operation. You start
+    /// face detection by calling which returns a job identifier (<code>JobId</code>). When
+    /// the face detection operation finishes, Amazon Rekognition Video publishes a completion
+    /// status to the Amazon Simple Notification Service topic registered in the initial call
+    /// to <code>StartFaceDetection</code>. To get the results of the face detection operation,
     /// first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>.
     /// If so, call and pass the job identifier (<code>JobId</code>) from the initial call
     /// to <code>StartFaceDetection</code>.
@@ -91,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>If the previous response was incomplete (because there are more faces to retrieve),
-        /// Rekognition Video returns a pagination token in the response. You can use this pagination
-        /// token to retrieve the next set of faces.</para>
+        /// Amazon Rekognition Video returns a pagination token in the response. You can use this
+        /// pagination token to retrieve the next set of faces.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

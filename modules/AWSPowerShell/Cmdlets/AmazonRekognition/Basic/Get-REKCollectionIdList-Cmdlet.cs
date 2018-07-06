@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// 
     ///  
     /// <para>
-    /// For an example, see <a>list-collection-procedure</a>.
+    /// For an example, see Listing Collections in the Amazon Rekognition Developer Guide.
     /// </para><para>
     /// This operation requires permissions to perform the <code>rekognition:ListCollections</code>
     /// action.

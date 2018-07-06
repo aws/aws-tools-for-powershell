@@ -28,7 +28,8 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Gets the label detection results of a Rekognition Video analysis started by . 
+    /// Gets the label detection results of a Amazon Rekognition Video analysis started by
+    /// . 
     /// 
     ///  
     /// <para>
@@ -108,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>If the previous response was incomplete (because there are more labels to retrieve),
-        /// Rekognition Video returns a pagination token in the response. You can use this pagination
-        /// token to retrieve the next set of labels. </para>
+        /// Amazon Rekognition Video returns a pagination token in the response. You can use this
+        /// pagination token to retrieve the next set of labels. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

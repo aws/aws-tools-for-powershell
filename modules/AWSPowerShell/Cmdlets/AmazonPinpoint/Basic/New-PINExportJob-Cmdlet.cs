@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// The unique ID of your Amazon Pinpoint application.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -79,11 +79,22 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// The ID of the segment to export endpoints from.
-        /// If not present all endpoints will be exported.
+        /// If not present, Amazon Pinpoint exports all of the endpoints that belong to the application.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ExportJobRequest_SegmentId { get; set; }
+        #endregion
+        
+        #region Parameter ExportJobRequest_SegmentVersion
+        /// <summary>
+        /// <para>
+        /// The version of the segment to export if
+        /// specified.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ExportJobRequest_SegmentVersion { get; set; }
         #endregion
         
         #region Parameter Force
@@ -119,6 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.ExportJobRequest_RoleArn = this.ExportJobRequest_RoleArn;
             context.ExportJobRequest_S3UrlPrefix = this.ExportJobRequest_S3UrlPrefix;
             context.ExportJobRequest_SegmentId = this.ExportJobRequest_SegmentId;
+            if (ParameterWasBound("ExportJobRequest_SegmentVersion"))
+                context.ExportJobRequest_SegmentVersion = this.ExportJobRequest_SegmentVersion;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -171,6 +184,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestExportJobRequest_exportJobRequest_SegmentId != null)
             {
                 request.ExportJobRequest.SegmentId = requestExportJobRequest_exportJobRequest_SegmentId;
+                requestExportJobRequestIsNull = false;
+            }
+            System.Int32? requestExportJobRequest_exportJobRequest_SegmentVersion = null;
+            if (cmdletContext.ExportJobRequest_SegmentVersion != null)
+            {
+                requestExportJobRequest_exportJobRequest_SegmentVersion = cmdletContext.ExportJobRequest_SegmentVersion.Value;
+            }
+            if (requestExportJobRequest_exportJobRequest_SegmentVersion != null)
+            {
+                request.ExportJobRequest.SegmentVersion = requestExportJobRequest_exportJobRequest_SegmentVersion.Value;
                 requestExportJobRequestIsNull = false;
             }
              // determine if request.ExportJobRequest should be set to null
@@ -246,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String ExportJobRequest_RoleArn { get; set; }
             public System.String ExportJobRequest_S3UrlPrefix { get; set; }
             public System.String ExportJobRequest_SegmentId { get; set; }
+            public System.Int32? ExportJobRequest_SegmentVersion { get; set; }
         }
         
     }

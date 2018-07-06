@@ -28,7 +28,9 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Test custom authorization.
+    /// Tests if a specified principal is authorized to perform an AWS IoT action on a specified
+    /// resource. Use this to test and debug the authorization behavior of devices that connect
+    /// to the AWS IoT device gateway.
     /// </summary>
     [Cmdlet("Test", "IOTAuthorization")]
     [OutputType("Amazon.IoT.Model.AuthResult")]

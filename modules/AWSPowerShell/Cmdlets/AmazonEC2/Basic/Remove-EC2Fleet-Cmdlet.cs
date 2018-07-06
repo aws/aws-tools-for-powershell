@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// After you delete an EC2 Fleet, the EC2 Fleet launches no new instances. You must specify
-    /// whether the EC2 Fleet should also terminate its instances. If you terminate the instances,
+    /// After you delete an EC2 Fleet, it launches no new instances. You must specify whether
+    /// an EC2 Fleet should also terminate its instances. If you terminate the instances,
     /// the EC2 Fleet enters the <code>deleted_terminating</code> state. Otherwise, the EC2
     /// Fleet enters the <code>deleted_running</code> state, and the instances continue to
     /// run until they are interrupted or you terminate them manually. 

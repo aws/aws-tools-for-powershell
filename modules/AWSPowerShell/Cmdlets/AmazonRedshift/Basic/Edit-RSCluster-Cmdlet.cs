@@ -276,7 +276,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of virtual private cloud (VPC) security groups to be associated with the cluster.</para>
+        /// <para>A list of virtual private cloud (VPC) security groups to be associated with the cluster.
+        /// This change is asynchronously applied as soon as possible.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

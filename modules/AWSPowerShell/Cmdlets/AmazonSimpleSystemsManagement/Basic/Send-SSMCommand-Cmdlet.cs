@@ -40,6 +40,28 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class SendSSMCommandCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter CloudWatchOutputConfig_CloudWatchLogGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the CloudWatch log group where you want to send command output. If you
+        /// don't specify a group name, Systems Manager automatically creates a log group for
+        /// you. The log group uses the following naming format: aws/ssm/<i>SystemsManagerDocumentName</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CloudWatchOutputConfig_CloudWatchLogGroupName { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchOutputConfig_CloudWatchOutputEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables Systems Manager to send command output to CloudWatch Logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean CloudWatchOutputConfig_CloudWatchOutputEnabled { get; set; }
+        #endregion
+        
         #region Parameter Comment
         /// <summary>
         /// <para>
@@ -86,8 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DocumentVersion
         /// <summary>
         /// <para>
-        /// <para>The SSM document version to use in the request. You can specify Default, Latest, or
-        /// a specific version number. </para>
+        /// <para>The SSM document version to use in the request. You can specify $DEFAULT, $LATEST,
+        /// or a specific version number. If you execute commands by using the AWS CLI, then you
+        /// must escape the first two options by using a backslash. If you specify a version number,
+        /// then you don't need to use the backslash. For example:</para><para>--document-version "\$DEFAULT"</para><para>--document-version "\$LATEST"</para><para>--document-version "3"</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -101,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// IDs. If you prefer not to list individual instance IDs, you can instead send commands
         /// to a fleet of instances using the Targets parameter, which accepts EC2 tags. For more
         /// information about how to use Targets, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending
-        /// Commands to a Fleet</a>.</para>
+        /// Commands to a Fleet</a> in the <i>AWS Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>(Optional) The maximum number of instances that are allowed to execute the command
         /// at the same time. You can specify a number such as 10 or a percentage such as 10%.
         /// The default value is 50. For more information about how to use MaxConcurrency, see
-        /// <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-velocity.html">Using
-        /// Concurrency Controls</a>.</para>
+        /// <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity">Using
+        /// Concurrency Controls</a> in the <i>AWS Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -129,8 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The maximum number of errors allowed without the command failing. When the command
         /// fails one more time beyond the value of MaxErrors, the systems stops sending the command
         /// to additional targets. You can specify a number like 10 or a percentage like 10%.
-        /// The default value is 0. For more information about how to use MaxErrors, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-maxerrors.html">Using
-        /// Error Controls</a>.</para>
+        /// The default value is 0. For more information about how to use MaxErrors, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-maxerrors">Using
+        /// Error Controls</a> in the <i>AWS Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -154,8 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The different events for which you can receive notifications. These events include
         /// the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To
-        /// learn more about these events, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Setting
-        /// Up Events and Notifications</a> in the <i>AWS Systems Manager User Guide</i>.</para>
+        /// learn more about these events, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html">Configuring
+        /// Amazon SNS Notifications for Run Command</a> in the <i>AWS Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -234,7 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>(Optional) An array of search criteria that targets instances using a Key,Value combination
         /// that you specify. Targets is required if you don't provide one or more instance IDs
         /// in the call. For more information about how to use Targets, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending
-        /// Commands to a Fleet</a>.</para>
+        /// Commands to a Fleet</a> in the <i>AWS Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -283,6 +307,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.CloudWatchOutputConfig_CloudWatchLogGroupName = this.CloudWatchOutputConfig_CloudWatchLogGroupName;
+            if (ParameterWasBound("CloudWatchOutputConfig_CloudWatchOutputEnabled"))
+                context.CloudWatchOutputConfig_CloudWatchOutputEnabled = this.CloudWatchOutputConfig_CloudWatchOutputEnabled;
             context.Comment = this.Comment;
             context.DocumentHash = this.DocumentHash;
             context.DocumentHashType = this.DocumentHashType;
@@ -346,6 +373,35 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.SendCommandRequest();
             
+            
+             // populate CloudWatchOutputConfig
+            bool requestCloudWatchOutputConfigIsNull = true;
+            request.CloudWatchOutputConfig = new Amazon.SimpleSystemsManagement.Model.CloudWatchOutputConfig();
+            System.String requestCloudWatchOutputConfig_cloudWatchOutputConfig_CloudWatchLogGroupName = null;
+            if (cmdletContext.CloudWatchOutputConfig_CloudWatchLogGroupName != null)
+            {
+                requestCloudWatchOutputConfig_cloudWatchOutputConfig_CloudWatchLogGroupName = cmdletContext.CloudWatchOutputConfig_CloudWatchLogGroupName;
+            }
+            if (requestCloudWatchOutputConfig_cloudWatchOutputConfig_CloudWatchLogGroupName != null)
+            {
+                request.CloudWatchOutputConfig.CloudWatchLogGroupName = requestCloudWatchOutputConfig_cloudWatchOutputConfig_CloudWatchLogGroupName;
+                requestCloudWatchOutputConfigIsNull = false;
+            }
+            System.Boolean? requestCloudWatchOutputConfig_cloudWatchOutputConfig_CloudWatchOutputEnabled = null;
+            if (cmdletContext.CloudWatchOutputConfig_CloudWatchOutputEnabled != null)
+            {
+                requestCloudWatchOutputConfig_cloudWatchOutputConfig_CloudWatchOutputEnabled = cmdletContext.CloudWatchOutputConfig_CloudWatchOutputEnabled.Value;
+            }
+            if (requestCloudWatchOutputConfig_cloudWatchOutputConfig_CloudWatchOutputEnabled != null)
+            {
+                request.CloudWatchOutputConfig.CloudWatchOutputEnabled = requestCloudWatchOutputConfig_cloudWatchOutputConfig_CloudWatchOutputEnabled.Value;
+                requestCloudWatchOutputConfigIsNull = false;
+            }
+             // determine if request.CloudWatchOutputConfig should be set to null
+            if (requestCloudWatchOutputConfigIsNull)
+            {
+                request.CloudWatchOutputConfig = null;
+            }
             if (cmdletContext.Comment != null)
             {
                 request.Comment = cmdletContext.Comment;
@@ -509,6 +565,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CloudWatchOutputConfig_CloudWatchLogGroupName { get; set; }
+            public System.Boolean? CloudWatchOutputConfig_CloudWatchOutputEnabled { get; set; }
             public System.String Comment { get; set; }
             public System.String DocumentHash { get; set; }
             public Amazon.SimpleSystemsManagement.DocumentHashType DocumentHashType { get; set; }

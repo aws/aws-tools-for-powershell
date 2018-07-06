@@ -28,7 +28,7 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Disassociates the specified tags from the specified AppStream 2.0 resource.
+    /// Disassociates one or more specified tags from the specified AppStream 2.0 resource.
     /// 
     ///  
     /// <para>

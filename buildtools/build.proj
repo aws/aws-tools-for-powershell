@@ -61,7 +61,7 @@
     </PropertyGroup>
     
 	<Target Name="full-build" 
-            DependsOnTargets="clean;build-generator;get-references;create-cmdlets;update-version;clean-sdkpackages;build-modules;copy-desktop-artifacts;copy-coreclr-artifacts;copy-tests;patch-manifests;sign-script-artifacts;run-tests;create-help;keyscan;save-build">
+            DependsOnTargets="clean;build-generator;get-references;create-cmdlets;update-version;clean-sdkpackages;build-modules;copy-desktop-artifacts;copy-coreclr-artifacts;copy-tests;copy-validation-scripts;patch-manifests;sign-script-artifacts;run-tests;create-help;keyscan;save-build">
 		<Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts, including native and web help files."/>
 	</Target>
 
@@ -245,6 +245,15 @@
 		</ItemGroup>
 		
 		<Copy SourceFiles="@(TestFiles)" DestinationFolder="$(RootPath)\Deployment\Tests\%(RecursiveDir)" />
+	</Target>
+	
+	<Target Name="copy-validation-scripts">
+		<ItemGroup>
+			<ValidationScripts Include="$(RootPath)\buildtools\Test-StagedArtifacts.ps1" /> 
+		</ItemGroup>
+		
+		<Copy SourceFiles="@(ValidationScripts)" DestinationFolder="$(RootPath)\Deployment" />
+		
 	</Target>
 
     <Target Name="patch-manifests" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">

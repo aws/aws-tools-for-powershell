@@ -28,7 +28,8 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Describes the specified fleets or all fleets in the account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieves a list that describes one or more specified fleets, if the fleet names are
+    /// provided. Otherwise, all fleets in the account are described.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "APSFleetList")]
     [OutputType("Amazon.AppStream.Model.Fleet")]

@@ -96,7 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter OutputDataConfig
         /// <summary>
         /// <para>
-        /// <para>Specifies where to send the output files.</para>
+        /// <para>Specifies where to send the output files. The output is a compressed archive with
+        /// two files, <code>topic-terms.csv</code> that lists the terms associated with each
+        /// topic, and <code>doc-topics.csv</code> that lists the documents associated with each
+        /// topic</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

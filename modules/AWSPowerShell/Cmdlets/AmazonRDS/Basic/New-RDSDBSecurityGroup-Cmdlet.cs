@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Creates a new DB security group. DB security groups control access to a DB instance.
+    /// 
+    ///  <note><para>
+    /// A DB security group controls access to EC2-Classic DB instances that are not in a
+    /// VPC.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "RDSDBSecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBSecurityGroup")]

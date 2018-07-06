@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// The number of entries you want on each page in
+        /// the response.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Token
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// The NextToken string returned on a previous page
+        /// that you use to get the next page of results in a paginated response.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

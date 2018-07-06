@@ -28,7 +28,8 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Creates a URL to start a streaming session for the specified user.
+    /// Creates a temporary URL to start an AppStream 2.0 streaming session for the specified
+    /// user. A streaming URL enables application streaming to be tested without user setup.
     /// </summary>
     [Cmdlet("New", "APSStreamingURL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.CreateStreamingURLResponse")]

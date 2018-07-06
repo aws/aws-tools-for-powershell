@@ -32,6 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// To actually create a subscription, the endpoint owner must call the <code>ConfirmSubscription</code>
     /// action with the token from the confirmation message. Confirmation tokens are valid
     /// for three days.
+    /// 
+    ///  
+    /// <para>
+    /// This action is throttled at 100 transactions per second (TPS).
+    /// </para>
     /// </summary>
     [Cmdlet("Connect", "SNSNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -42,6 +47,18 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     )]
     public partial class ConnectSNSNotificationCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Attribute
+        /// <summary>
+        /// <para>
+        /// <para>Assigns attributes to the subscription as a map of key-value pairs. You can assign
+        /// any attribute that is supported by the <code>SetSubscriptionAttributes</code> action.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Attributes")]
+        public System.Collections.Hashtable Attribute { get; set; }
+        #endregion
         
         #region Parameter Endpoint
         /// <summary>
@@ -64,6 +81,21 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Protocol { get; set; }
+        #endregion
+        
+        #region Parameter ReturnSubscriptionArn
+        /// <summary>
+        /// <para>
+        /// <para>Sets whether the response from the <code>Subscribe</code> request includes the subscription
+        /// ARN, even if the subscription is not yet confirmed.</para><para>If you set this parameter to <code>false</code>, the response includes the ARN for
+        /// confirmed subscriptions, but it includes an ARN value of "pending subscription" for
+        /// subscriptions that are not yet confirmed. A subscription becomes confirmed when the
+        /// subscriber calls the <code>ConfirmSubscription</code> action with a confirmation token.</para><para>If you set this parameter to <code>true</code>, the response includes the ARN in all
+        /// cases, even if the subscription is not yet confirmed.</para><para>The default value is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean ReturnSubscriptionArn { get; set; }
         #endregion
         
         #region Parameter TopicArn
@@ -105,8 +137,18 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.Attribute != null)
+            {
+                context.Attributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Attribute.Keys)
+                {
+                    context.Attributes.Add((String)hashKey, (String)(this.Attribute[hashKey]));
+                }
+            }
             context.Endpoint = this.Endpoint;
             context.Protocol = this.Protocol;
+            if (ParameterWasBound("ReturnSubscriptionArn"))
+                context.ReturnSubscriptionArn = this.ReturnSubscriptionArn;
             context.TopicArn = this.TopicArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -124,6 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             // create request
             var request = new Amazon.SimpleNotificationService.Model.SubscribeRequest();
             
+            if (cmdletContext.Attributes != null)
+            {
+                request.Attributes = cmdletContext.Attributes;
+            }
             if (cmdletContext.Endpoint != null)
             {
                 request.Endpoint = cmdletContext.Endpoint;
@@ -131,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             if (cmdletContext.Protocol != null)
             {
                 request.Protocol = cmdletContext.Protocol;
+            }
+            if (cmdletContext.ReturnSubscriptionArn != null)
+            {
+                request.ReturnSubscriptionArn = cmdletContext.ReturnSubscriptionArn.Value;
             }
             if (cmdletContext.TopicArn != null)
             {
@@ -200,8 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, System.String> Attributes { get; set; }
             public System.String Endpoint { get; set; }
             public System.String Protocol { get; set; }
+            public System.Boolean? ReturnSubscriptionArn { get; set; }
             public System.String TopicArn { get; set; }
         }
         

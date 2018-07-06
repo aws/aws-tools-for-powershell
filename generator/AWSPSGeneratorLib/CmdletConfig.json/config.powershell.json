@@ -48,8 +48,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+          "ResourceKeys"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -88,9 +89,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -135,8 +135,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+          "ConfigRuleName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -181,8 +182,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+          "ConfigurationAggregatorName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -227,8 +229,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+          "ConfigurationRecorderName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -272,9 +275,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -319,8 +321,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+          "ConfigRuleName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -364,9 +367,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -391,6 +393,53 @@
         "memoryStreamParameters": []
       }
     },
+    "DeleteRetentionConfiguration": {
+      "verb": "Remove",
+      "noun": "RetentionConfiguration",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RetentionConfigurationName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RetentionConfiguration",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: RetentionConfigurationName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {},
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "RetentionConfigurationName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "DeliverConfigSnapshot": {
       "verb": "Submit",
       "noun": "ConfigSnapshotDelivery",
@@ -410,9 +459,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -456,9 +504,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -497,9 +544,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -538,9 +584,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -579,9 +624,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -620,9 +664,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -661,9 +704,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -702,9 +744,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -743,9 +784,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -785,8 +825,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+          "ConfigurationRecorderName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -826,8 +867,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+          "ConfigurationRecorderName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -867,8 +909,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+          "DeliveryChannelNames"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -908,8 +951,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+          "DeliveryChannelNames"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -948,9 +992,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -960,6 +1003,46 @@
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PendingAggregationRequests",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
+      }
+    },
+    "DescribeRetentionConfigurations": {
+      "verb": "Get",
+      "noun": "RetentionConfiguration",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "RetentionConfigurations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RetentionConfigurations",
         "confirmImpactSetting": "Medium",
         "generateIterationCode": "false",
         "iterationPattern": "None",
@@ -989,9 +1072,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1030,9 +1112,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1071,9 +1152,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1112,9 +1192,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1153,9 +1232,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1195,8 +1273,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+          "ResourceTypes"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1235,9 +1314,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1276,9 +1354,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1318,8 +1395,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+          "ResourceName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1358,9 +1436,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1405,8 +1482,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+          "ConfigRule_ConfigRuleName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1451,8 +1529,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+          "ConfigurationAggregatorName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1508,8 +1587,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+          "ConfigurationRecorder_Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1565,8 +1645,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+          "DeliveryChannel_Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1611,8 +1692,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+          "Evaluations"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1637,6 +1719,53 @@
         "memoryStreamParameters": []
       }
     },
+    "PutRetentionConfiguration": {
+      "verb": "Write",
+      "noun": "RetentionConfiguration",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "RetentionConfiguration",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RetentionPeriodInDays"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RetentionConfiguration",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "RetentionPeriodInDays"
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "StartConfigRulesEvaluation": {
       "verb": "Start",
       "noun": "ConfigRulesEvaluation",
@@ -1657,8 +1786,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+          "ConfigRuleNames"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1703,8 +1833,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+          "ConfigurationRecorder_Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1749,8 +1880,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "DeliveryChannelName"
-        ]
+          "ConfigurationRecorder_Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",

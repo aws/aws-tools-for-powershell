@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Not all DB instance classes are available in all AWS Regions, or for all database
         /// engines. For the full list of DB instance classes, and availability for your engine,
         /// see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
-        /// Instance Class</a> in the Amazon RDS User Guide. </para><para>If you modify the DB instance class, an outage occurs during the change. The change
+        /// Instance Class</a> in the <i>Amazon RDS User Guide.</i></para><para>If you modify the DB instance class, an outage occurs during the change. The change
         /// is applied during the next maintenance window, unless <code>ApplyImmediately</code>
         /// is specified as <code>true</code> for this request. </para><para>Default: Uses existing setting</para>
         /// </para>
@@ -283,7 +283,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnablePerformanceInsight
         /// <summary>
         /// <para>
-        /// <para>True to enable Performance Insights for the DB instance, and otherwise false.</para>
+        /// <para>True to enable Performance Insights for the DB instance, and otherwise false.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using
+        /// Amazon Performance Insights</a> in the <i>Amazon Relational Database Service User
+        /// Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -300,7 +302,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// this request. </para><para>For major version upgrades, if a nondefault DB parameter group is currently in use,
         /// a new DB parameter group in the DB parameter group family for the new engine version
         /// must be specified. The new DB parameter group can be the default for that DB parameter
-        /// group family.</para><para>For a list of valid engine versions, see <a>CreateDBInstance</a>.</para>
+        /// group family.</para><para>For information about valid engine versions, see <a>CreateDBInstance</a>, or call
+        /// <a>DescribeDBEngineVersions</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -446,6 +449,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String PerformanceInsightsKMSKeyId { get; set; }
         #endregion
         
+        #region Parameter PerformanceInsightsRetentionPeriod
+        /// <summary>
+        /// <para>
+        /// <para>The amount of time, in days, to retain Performance Insights data. Valid values are
+        /// 7 or 731 (2 years). </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 PerformanceInsightsRetentionPeriod { get; set; }
+        #endregion
+        
         #region Parameter PreferredBackupWindow
         /// <summary>
         /// <para>
@@ -475,6 +489,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PreferredMaintenanceWindow { get; set; }
+        #endregion
+        
+        #region Parameter ProcessorFeature
+        /// <summary>
+        /// <para>
+        /// <para>The number of CPU cores and the number of threads per core for the DB instance class
+        /// of the DB instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ProcessorFeatures")]
+        public Amazon.RDS.Model.ProcessorFeature[] ProcessorFeature { get; set; }
         #endregion
         
         #region Parameter PromotionTier
@@ -546,6 +572,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TdeCredentialPassword { get; set; }
+        #endregion
+        
+        #region Parameter UseDefaultProcessorFeature
+        /// <summary>
+        /// <para>
+        /// <para>A value that specifies that the DB instance class of the DB instance uses its default
+        /// processor features.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("UseDefaultProcessorFeatures")]
+        public System.Boolean UseDefaultProcessorFeature { get; set; }
         #endregion
         
         #region Parameter VpcSecurityGroupId
@@ -640,8 +678,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.NewDBInstanceIdentifier = this.NewDBInstanceIdentifier;
             context.OptionGroupName = this.OptionGroupName;
             context.PerformanceInsightsKMSKeyId = this.PerformanceInsightsKMSKeyId;
+            if (ParameterWasBound("PerformanceInsightsRetentionPeriod"))
+                context.PerformanceInsightsRetentionPeriod = this.PerformanceInsightsRetentionPeriod;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
+            if (this.ProcessorFeature != null)
+            {
+                context.ProcessorFeatures = new List<Amazon.RDS.Model.ProcessorFeature>(this.ProcessorFeature);
+            }
             if (ParameterWasBound("PromotionTier"))
                 context.PromotionTier = this.PromotionTier;
             if (ParameterWasBound("PubliclyAccessible"))
@@ -649,6 +693,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.StorageType = this.StorageType;
             context.TdeCredentialArn = this.TdeCredentialArn;
             context.TdeCredentialPassword = this.TdeCredentialPassword;
+            if (ParameterWasBound("UseDefaultProcessorFeature"))
+                context.UseDefaultProcessorFeatures = this.UseDefaultProcessorFeature;
             if (this.VpcSecurityGroupId != null)
             {
                 context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
@@ -806,6 +852,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.PerformanceInsightsKMSKeyId = cmdletContext.PerformanceInsightsKMSKeyId;
             }
+            if (cmdletContext.PerformanceInsightsRetentionPeriod != null)
+            {
+                request.PerformanceInsightsRetentionPeriod = cmdletContext.PerformanceInsightsRetentionPeriod.Value;
+            }
             if (cmdletContext.PreferredBackupWindow != null)
             {
                 request.PreferredBackupWindow = cmdletContext.PreferredBackupWindow;
@@ -813,6 +863,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
                 request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
+            }
+            if (cmdletContext.ProcessorFeatures != null)
+            {
+                request.ProcessorFeatures = cmdletContext.ProcessorFeatures;
             }
             if (cmdletContext.PromotionTier != null)
             {
@@ -833,6 +887,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.TdeCredentialPassword != null)
             {
                 request.TdeCredentialPassword = cmdletContext.TdeCredentialPassword;
+            }
+            if (cmdletContext.UseDefaultProcessorFeatures != null)
+            {
+                request.UseDefaultProcessorFeatures = cmdletContext.UseDefaultProcessorFeatures.Value;
             }
             if (cmdletContext.VpcSecurityGroupIds != null)
             {
@@ -931,13 +989,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String NewDBInstanceIdentifier { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.String PerformanceInsightsKMSKeyId { get; set; }
+            public System.Int32? PerformanceInsightsRetentionPeriod { get; set; }
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
+            public List<Amazon.RDS.Model.ProcessorFeature> ProcessorFeatures { get; set; }
             public System.Int32? PromotionTier { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public System.String StorageType { get; set; }
             public System.String TdeCredentialArn { get; set; }
             public System.String TdeCredentialPassword { get; set; }
+            public System.Boolean? UseDefaultProcessorFeatures { get; set; }
             public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         

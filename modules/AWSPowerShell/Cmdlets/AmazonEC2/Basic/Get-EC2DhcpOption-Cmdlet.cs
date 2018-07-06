@@ -63,13 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>One or more filters.</para><ul><li><para><code>dhcp-options-id</code> - The ID of a set of DHCP options.</para></li><li><para><code>key</code> - The key for one of the options (for example, <code>domain-name</code>).</para></li><li><para><code>value</code> - The value for one of the options.</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
         /// to the resource. Specify the key of the tag in the filter name and the value of the
         /// tag in the filter value. For example, for the tag Purpose=X, specify <code>tag:Purpose</code>
-        /// for the filter name and <code>X</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is
-        /// independent of the <code>tag-value</code> filter. For example, if you use both the
-        /// filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned
-        /// both the tag key Purpose (regardless of what the tag's value is), and the tag value
-        /// X (regardless of what the tag's key is). If you want to list only resources where
-        /// Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</para></li><li><para><code>tag-value</code> - The value of a tag assigned to the resource. This filter
-        /// is independent of the <code>tag-key</code> filter.</para></li></ul>
+        /// for the filter name and <code>X</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
+        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

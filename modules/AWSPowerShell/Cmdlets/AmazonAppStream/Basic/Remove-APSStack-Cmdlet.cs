@@ -28,8 +28,9 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Deletes the specified stack. After this operation completes, the environment can no
-    /// longer be activated and any reservations made for the stack are released.
+    /// Deletes the specified stack. After the stack is deleted, the application streaming
+    /// environment provided by the stack is no longer available to users. Also, any reservations
+    /// made for application streaming sessions for the stack are released.
     /// </summary>
     [Cmdlet("Remove", "APSStack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

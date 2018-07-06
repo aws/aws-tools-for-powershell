@@ -49,6 +49,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// </para><para>
     /// For an example, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/ex1.html">Exercise
     /// 1: Using the K-Means Algorithm Provided by Amazon SageMaker</a>. 
+    /// </para><para>
+    /// If any of the models hosted at this endpoint get model data from an Amazon S3 location,
+    /// Amazon SageMaker uses AWS Security Token Service to download model artifacts from
+    /// the S3 path you provided. AWS STS is activated in your IAM user account by default.
+    /// If you previously deactivated AWS STS for a region, you need to reactivate AWS STS
+    /// for that region. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
+    /// and Deactivating AWS STS i an AWS Region</a> in the <i>AWS Identity and Access Management
+    /// User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SMEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -120,7 +120,13 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ResourceLifecycleConfig_ServiceRole
         /// <summary>
         /// <para>
-        /// <para>The ARN of an IAM service role that Elastic Beanstalk has permission to assume.</para>
+        /// <para>The ARN of an IAM service role that Elastic Beanstalk has permission to assume.</para><para>The <code>ServiceRole</code> property is required the first time that you provide
+        /// a <code>VersionLifecycleConfig</code> for the application in one of the supporting
+        /// calls (<code>CreateApplication</code> or <code>UpdateApplicationResourceLifecycle</code>).
+        /// After you provide it once, in either one of the calls, Elastic Beanstalk persists
+        /// the Service Role with the application, and you don't need to specify it again in subsequent
+        /// <code>UpdateApplicationResourceLifecycle</code> calls. You can, however, specify it
+        /// in subsequent calls to change the Service Role to another value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

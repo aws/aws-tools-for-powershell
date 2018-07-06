@@ -51,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Certificate
         /// <summary>
         /// <para>
-        /// <para>The default SSL server certificate.</para>
+        /// <para>[HTTPS listeners] The default SSL server certificate. You must provide exactly one
+        /// certificate. To create a certificate list, use <a>AddListenerCertificates</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -62,9 +63,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter DefaultAction
         /// <summary>
         /// <para>
-        /// <para>The default action. For Application Load Balancers, the protocol of the specified
-        /// target group must be HTTP or HTTPS. For Network Load Balancers, the protocol of the
-        /// specified target group must be TCP.</para>
+        /// <para>The actions for the default rule. The rule must include one forward action.</para><para>If the action type is <code>forward</code>, you can specify a single target group.
+        /// The protocol of the target group must be HTTP or HTTPS for an Application Load Balancer
+        /// or TCP for a Network Load Balancer.</para><para>If the action type is <code>authenticate-oidc</code>, you can use an identity provider
+        /// that is OpenID Connect (OIDC) compliant to authenticate users as they access your
+        /// application.</para><para>If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito
+        /// to authenticate users as they access your application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter SslPolicy
         /// <summary>
         /// <para>
-        /// <para>The security policy that defines which protocols and ciphers are supported. For more
-        /// information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security
+        /// <para>[HTTPS listeners] The security policy that defines which protocols and ciphers are
+        /// supported. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security
         /// Policies</a> in the <i>Application Load Balancers Guide</i>.</para>
         /// </para>
         /// </summary>

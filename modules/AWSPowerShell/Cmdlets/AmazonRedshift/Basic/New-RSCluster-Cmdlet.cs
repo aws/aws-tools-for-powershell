@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// 
     ///  
     /// <para>
-    /// To create the cluster in Virtual Private Cloud (VPC), you must provide a cluster subnet
+    /// To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster subnet
     /// group name. The cluster subnet group identifies the subnets of your VPC that Amazon
     /// Redshift uses when creating the cluster. For more information about managing clusters,
     /// go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon

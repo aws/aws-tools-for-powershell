@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the specified EC2 Fleet.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes one or more of your EC2 Fleet.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2FleetList")]
     [OutputType("Amazon.EC2.Model.FleetData")]
@@ -44,7 +44,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para>
+        /// <para>One or more filters.</para><ul><li><para><code>activity-status</code> - The progress of the EC2 Fleet ( <code>error</code>
+        /// | <code>pending-fulfillment</code> | <code>pending-termination</code> | <code>fulfilled</code>).</para></li><li><para><code>excess-capacity-termination-policy</code> - Indicates whether to terminate
+        /// running instances if the target capacity is decreased below the current EC2 Fleet
+        /// size (<code>true</code> | <code>false</code>).</para></li><li><para><code>fleet-state</code> - The state of the EC2 Fleet (<code>submitted</code> | <code>active</code>
+        /// | <code>deleted</code> | <code>failed</code> | <code>deleted-running</code> | <code>deleted-terminating</code>
+        /// | <code>modifying</code>).</para></li><li><para><code>replace-unhealthy-instances</code> - Indicates whether EC2 Fleet should replace
+        /// unhealthy instances (<code>true</code> | <code>false</code>).</para></li><li><para><code>type</code> - The type of request (<code>request</code> | <code>maintain</code>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

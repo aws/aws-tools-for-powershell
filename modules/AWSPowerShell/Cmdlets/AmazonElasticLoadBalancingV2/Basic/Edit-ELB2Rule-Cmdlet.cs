@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// <para>
     /// Any existing properties that you do not modify retain their current values.
     /// </para><para>
-    /// To modify the default action, use <a>ModifyListener</a>.
+    /// To modify the actions for the default rule, use <a>ModifyListener</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "ELB2Rule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,7 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Action
         /// <summary>
         /// <para>
-        /// <para>The actions. The target group must use the HTTP or HTTPS protocol.</para>
+        /// <para>The actions.</para><para>If the action type is <code>forward</code>, you can specify a single target group.</para><para>If the action type is <code>authenticate-oidc</code>, you can use an identity provider
+        /// that is OpenID Connect (OIDC) compliant to authenticate users as they access your
+        /// application.</para><para>If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito
+        /// to authenticate users as they access your application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -61,7 +64,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Condition
         /// <summary>
         /// <para>
-        /// <para>The conditions.</para>
+        /// <para>The conditions. Each condition specifies a field name and a single value.</para><para>If the field name is <code>host-header</code>, you can specify a single host name
+        /// (for example, my.example.com). A host name is case insensitive, can be up to 128 characters
+        /// in length, and can contain any of the following characters. Note that you can include
+        /// up to three wildcard characters.</para><ul><li><para>A-Z, a-z, 0-9</para></li><li><para>- .</para></li><li><para>* (matches 0 or more characters)</para></li><li><para>? (matches exactly 1 character)</para></li></ul><para>If the field name is <code>path-pattern</code>, you can specify a single path pattern.
+        /// A path pattern is case sensitive, can be up to 128 characters in length, and can contain
+        /// any of the following characters. Note that you can include up to three wildcard characters.</para><ul><li><para>A-Z, a-z, 0-9</para></li><li><para>_ - . $ / ~ " ' @ : +</para></li><li><para>&amp; (using &amp;amp;)</para></li><li><para>* (matches 0 or more characters)</para></li><li><para>? (matches exactly 1 character)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

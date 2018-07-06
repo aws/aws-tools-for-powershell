@@ -80,8 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// For more information on copying encrypted DB cluster snapshots from one AWS Region
     /// to another, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBClusterSnapshot.CrossRegion">
     /// Copying a DB Cluster Snapshot in the Same Account, Either in the Same Region or Across
-    /// Regions</a> in the Amazon RDS User Guide.
-    /// </para><para>
+    /// Regions</a> in the <i>Amazon RDS User Guide.</i></para><para>
     /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
     /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
     /// </summary>

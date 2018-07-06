@@ -34,6 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// and the requester is not the subscription owner, a final cancellation message is delivered
     /// to the endpoint, so that the endpoint owner can easily resubscribe to the topic if
     /// the <code>Unsubscribe</code> request was unintended.
+    /// 
+    ///  
+    /// <para>
+    /// This action is throttled at 100 transactions per second (TPS).
+    /// </para>
     /// </summary>
     [Cmdlet("Disconnect", "SNSNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

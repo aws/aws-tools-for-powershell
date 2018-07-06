@@ -139,10 +139,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Process
         /// <summary>
         /// <para>
-        /// <para>Preprocesses and validates the environment manifest (<code>env.yaml</code>) and configuration
+        /// <para>Pre-processes and validates the environment manifest (<code>env.yaml</code>) and configuration
         /// files (<code>*.config</code> files in the <code>.ebextensions</code> folder) in the
         /// source bundle. Validating configuration files can identify issues prior to deploying
-        /// the application version to an environment.</para><note><para>The <code>Process</code> option validates Elastic Beanstalk configuration files. It
+        /// the application version to an environment.</para><para>You must turn processing on for application versions that you create using AWS CodeBuild
+        /// or AWS CodeCommit. For application versions built from a source bundle in Amazon S3,
+        /// processing is optional.</para><note><para>The <code>Process</code> option validates Elastic Beanstalk configuration files. It
         /// doesn't validate your application's configuration files, like proxy server or Docker
         /// configuration.</para></note>
         /// </para>

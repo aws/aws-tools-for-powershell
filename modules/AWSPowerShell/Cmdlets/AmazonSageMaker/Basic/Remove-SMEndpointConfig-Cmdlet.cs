@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Deletes an endpoint configuration. The <code>DeleteEndpoingConfig</code> API deletes
+    /// Deletes an endpoint configuration. The <code>DeleteEndpointConfig</code> API deletes
     /// only the specified configuration. It does not delete endpoints created using the configuration.
     /// </summary>
     [Cmdlet("Remove", "SMEndpointConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

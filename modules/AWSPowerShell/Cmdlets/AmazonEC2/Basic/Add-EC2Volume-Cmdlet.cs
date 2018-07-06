@@ -54,9 +54,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// example, you can't detach a volume from a Windows instance and attach it to a Linux
     /// instance.
     /// </para></li></ul><para>
-    /// For an overview of the AWS Marketplace, see <a href="https://aws.amazon.com/marketplace/help/200900000">Introducing
-    /// AWS Marketplace</a>.
-    /// </para><para>
     /// For more information about EBS volumes, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attaching
     /// Amazon EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>

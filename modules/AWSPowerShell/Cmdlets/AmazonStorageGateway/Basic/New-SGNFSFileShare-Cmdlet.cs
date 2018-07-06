@@ -28,10 +28,10 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Creates a file share on an existing file gateway. In Storage Gateway, a file share
-    /// is a file system mount point backed by Amazon S3 cloud storage. Storage Gateway exposes
-    /// file shares using a Network File System (NFS) interface. This operation is only supported
-    /// in the file gateway type.
+    /// Creates a Network File System (NFS) file share on an existing file gateway. In Storage
+    /// Gateway, a file share is a file system mount point backed by Amazon S3 cloud storage.
+    /// Storage Gateway exposes file shares using a NFS interface. This operation is only
+    /// supported in the file gateway type.
     /// 
     ///  <important><para>
     /// File gateway requires AWS Security Token Service (AWS STS) to be activated to enable
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The default storage class for objects put into an Amazon S3 bucket by file gateway.
-        /// Possible values are S3_STANDARD or S3_STANDARD_IA. If this field is not populated,
-        /// the default value S3_STANDARD is used. Optional.</para>
+        /// Possible values are S3_STANDARD, S3_STANDARD_IA or S3_ONEZONE_IA. If this field is
+        /// not populated, the default value S3_STANDARD is used. Optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -157,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSKey
         /// <summary>
         /// <para>
-        /// <para>The KMS key used for Amazon S3 server side encryption. This value can only be set
-        /// when KmsEncrypted is true. Optional.</para>
+        /// <para>The Amazon Resource Name (ARN) KMS key used for Amazon S3 server side encryption.
+        /// This value can only be set when KMSEncrypted is true. Optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

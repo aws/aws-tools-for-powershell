@@ -148,7 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>
         /// <para>This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk
         /// sets the configuration values to the default values associated with the specified
-        /// solution stack.</para>
+        /// solution stack.</para><para>For a list of current solution stacks, see <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html">Elastic
+        /// Beanstalk Supported Platforms</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,7 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Tier_Version
         /// <summary>
         /// <para>
-        /// <para>The version of this environment tier.</para>
+        /// <para>The version of this environment tier. When you don't set a value to it, Elastic Beanstalk
+        /// uses the latest compatible worker tier version.</para><note><para>This member is deprecated. Any specific version that you set may become out of date.
+        /// We recommend leaving it unspecified.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

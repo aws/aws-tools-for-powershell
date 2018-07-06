@@ -68,10 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>A key-value map of query string parameters that specify properties of the export,
         /// depending on the requested <code>exportType</code>. For <code>exportType</code><code>swagger</code>,
-        /// any combination of the following parameters are supported: <code>integrations</code>
-        /// will export the API with x-amazon-apigateway-integration extensions. <code>authorizers</code>
-        /// will export the API with x-amazon-apigateway-authorizer extensions. <code>postman</code>
-        /// will export the API with Postman extensions, allowing for import to the Postman tool</para>
+        /// any combination of the following parameters are supported: <code>extensions='integrations'</code>
+        /// or <code>extensions='apigateway'</code> will export the API with x-amazon-apigateway-integration
+        /// extensions. <code>extensions='authorizers'</code> will export the API with x-amazon-apigateway-authorizer
+        /// extensions. <code>postman</code> will export the API with Postman extensions, allowing
+        /// for import to the Postman tool</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

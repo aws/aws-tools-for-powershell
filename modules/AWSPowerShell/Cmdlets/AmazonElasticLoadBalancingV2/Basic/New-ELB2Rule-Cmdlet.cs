@@ -34,8 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     ///  
     /// <para>
     /// Rules are evaluated in priority order, from the lowest value to the highest value.
-    /// When the condition for a rule is met, the specified action is taken. If no conditions
-    /// are met, the action for the default rule is taken. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener
+    /// When the conditions for a rule are met, its actions are performed. If the conditions
+    /// for no rules are met, the actions for the default rule are performed. For more information,
+    /// see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener
     /// Rules</a> in the <i>Application Load Balancers Guide</i>.
     /// </para><para>
     /// To view your current rules, use <a>DescribeRules</a>. To update a rule, use <a>ModifyRule</a>.
@@ -56,7 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Action
         /// <summary>
         /// <para>
-        /// <para>An action. Each action has the type <code>forward</code> and specifies a target group.</para>
+        /// <para>The actions. Each rule must include one forward action.</para><para>If the action type is <code>forward</code>, you can specify a single target group.</para><para>If the action type is <code>authenticate-oidc</code>, you can use an identity provider
+        /// that is OpenID Connect (OIDC) compliant to authenticate users as they access your
+        /// application.</para><para>If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito
+        /// to authenticate users as they access your application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Priority
         /// <summary>
         /// <para>
-        /// <para>The priority for the rule. A listener can't have multiple rules with the same priority.</para>
+        /// <para>The rule priority. A listener can't have multiple rules with the same priority.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

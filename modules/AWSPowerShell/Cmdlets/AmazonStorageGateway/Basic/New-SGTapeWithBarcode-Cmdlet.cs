@@ -60,6 +60,28 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String GatewayARN { get; set; }
         #endregion
         
+        #region Parameter KMSEncrypted
+        /// <summary>
+        /// <para>
+        /// <para>True to use Amazon S3 server side encryption with your own AWS KMS key, or false to
+        /// use a key managed by Amazon S3. Optional.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean KMSEncrypted { get; set; }
+        #endregion
+        
+        #region Parameter KMSKey
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the KMS Key used for Amazon S3 server side encryption.
+        /// This value can only be set when KMSEncrypted is true. Optional.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KMSKey { get; set; }
+        #endregion
+        
         #region Parameter TapeBarcode
         /// <summary>
         /// <para>
@@ -111,6 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
             PreExecutionContextLoad(context);
             
             context.GatewayARN = this.GatewayARN;
+            if (ParameterWasBound("KMSEncrypted"))
+                context.KMSEncrypted = this.KMSEncrypted;
+            context.KMSKey = this.KMSKey;
             context.TapeBarcode = this.TapeBarcode;
             if (ParameterWasBound("TapeSizeInByte"))
                 context.TapeSizeInBytes = this.TapeSizeInByte;
@@ -133,6 +158,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.GatewayARN != null)
             {
                 request.GatewayARN = cmdletContext.GatewayARN;
+            }
+            if (cmdletContext.KMSEncrypted != null)
+            {
+                request.KMSEncrypted = cmdletContext.KMSEncrypted.Value;
+            }
+            if (cmdletContext.KMSKey != null)
+            {
+                request.KMSKey = cmdletContext.KMSKey;
             }
             if (cmdletContext.TapeBarcode != null)
             {
@@ -207,6 +240,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String GatewayARN { get; set; }
+            public System.Boolean? KMSEncrypted { get; set; }
+            public System.String KMSKey { get; set; }
             public System.String TapeBarcode { get; set; }
             public System.Int64? TapeSizeInBytes { get; set; }
         }

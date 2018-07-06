@@ -63,6 +63,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.LaunchType LaunchType { get; set; }
         #endregion
         
+        #region Parameter SchedulingStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The scheduling strategy for services to list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ECS.SchedulingStrategy")]
+        public Amazon.ECS.SchedulingStrategy SchedulingStrategy { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -118,6 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.SchedulingStrategy = this.SchedulingStrategy;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -141,6 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.LaunchType != null)
             {
                 request.LaunchType = cmdletContext.LaunchType;
+            }
+            if (cmdletContext.SchedulingStrategy != null)
+            {
+                request.SchedulingStrategy = cmdletContext.SchedulingStrategy;
             }
             
             // Initialize loop variants and commence piping
@@ -262,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public Amazon.ECS.LaunchType LaunchType { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.ECS.SchedulingStrategy SchedulingStrategy { get; set; }
         }
         
     }

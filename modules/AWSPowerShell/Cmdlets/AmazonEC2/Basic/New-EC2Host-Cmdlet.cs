@@ -28,8 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Allocates a Dedicated Host to your account. At minimum you need to specify the instance
-    /// size type, Availability Zone, and quantity of hosts you want to allocate.
+    /// Allocates a Dedicated Host to your account. At a minimum, specify the instance size
+    /// type, Availability Zone, and quantity of hosts to allocate.
     /// </summary>
     [Cmdlet("New", "EC2Host", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier you provide to ensure idempotency of the request.
-        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
         /// to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </para>
         /// </para>
         /// </summary>
@@ -79,9 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>Specify the instance type that you want your Dedicated Hosts to be configured for.
-        /// When you specify the instance type, that is the only instance type that you can launch
-        /// onto that host.</para>
+        /// <para>Specify the instance type for which to configure your Dedicated Hosts. When you specify
+        /// the instance type, that is the only instance type that you can launch onto that host.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Quantity
         /// <summary>
         /// <para>
-        /// <para>The number of Dedicated Hosts you want to allocate to your account with these parameters.</para>
+        /// <para>The number of Dedicated Hosts to allocate to your account with these parameters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

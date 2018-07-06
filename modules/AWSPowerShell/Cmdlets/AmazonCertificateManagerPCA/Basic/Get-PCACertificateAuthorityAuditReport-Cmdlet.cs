@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
     /// Lists information about a specific audit report created by calling the <a>CreateCertificateAuthorityAuditReport</a>
-    /// function. Audit information is created every time the certificate authority (CA) private
-    /// key is used. The private key is used when you call the <a>IssueCertificate</a> function
-    /// or the <a>RevokeCertificate</a> function.
+    /// operation. Audit information is created every time the certificate authority (CA)
+    /// private key is used. The private key is used when you call the <a>IssueCertificate</a>
+    /// operation or the <a>RevokeCertificate</a> operation.
     /// </summary>
     [Cmdlet("Get", "PCACertificateAuthorityAuditReport")]
     [OutputType("Amazon.ACMPCA.Model.DescribeCertificateAuthorityAuditReportResponse")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>The report ID returned by calling the <a>CreateCertificateAuthorityAuditReport</a>
-        /// function.</para>
+        /// operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         #region Parameter CertificateAuthorityArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the private CA. This must be of the form:</para><para><code>arn:aws:acm:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code>. </para>
+        /// <para>The Amazon Resource Name (ARN) of the private CA. This must be of the form:</para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

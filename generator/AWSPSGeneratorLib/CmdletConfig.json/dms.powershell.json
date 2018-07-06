@@ -70,8 +70,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ResourceArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -127,8 +128,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "EndpointIdentifier"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -184,8 +186,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "SubscriptionName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -241,8 +244,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ReplicationInstanceIdentifier"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -298,8 +302,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ReplicationSubnetGroupIdentifier"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -355,8 +360,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ReplicationInstanceArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -412,8 +418,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "CertificateArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -468,9 +475,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "EndpointArn"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -526,8 +532,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "SubscriptionName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -583,8 +590,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ReplicationInstanceArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -640,8 +648,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ReplicationSubnetGroupIdentifier"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -697,8 +706,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ReplicationTaskArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -753,9 +763,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "EndpointArn"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -806,8 +815,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "Filters"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -857,9 +867,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "EndpointArn"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -909,9 +918,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "EndpointArn"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -961,9 +969,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "EndpointArn"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1014,8 +1021,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "SourceType"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1066,8 +1074,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "SourceIdentifier"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1118,8 +1127,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "SubscriptionName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1169,9 +1179,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "EndpointArn"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1221,9 +1230,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "EndpointArn"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1273,9 +1281,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "EndpointArn"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1328,8 +1335,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ReplicationInstanceArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1379,9 +1387,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "EndpointArn"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1432,8 +1439,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ReplicationTaskArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1483,9 +1491,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "EndpointArn"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1535,9 +1542,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "EndpointArn"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1588,8 +1594,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ReplicationTaskArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1640,8 +1647,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "CertificatePem"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1699,8 +1707,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ResourceArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1750,9 +1759,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "EndpointArn"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1808,8 +1816,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "SubscriptionName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1865,8 +1874,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ReplicationInstanceArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1922,8 +1932,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ReplicationSubnetGroupIdentifier"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1979,8 +1990,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ReplicationTaskArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2035,9 +2047,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "EndpointArn"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2092,9 +2103,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "EndpointArn"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2150,8 +2160,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ReplicationTaskArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2207,8 +2218,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ResourceArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2264,8 +2276,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ReplicationTaskArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2321,8 +2334,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ReplicationTaskArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2378,8 +2392,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ReplicationTaskArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2435,8 +2450,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "EndpointArn"
-        ]
+          "ReplicationInstanceArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",

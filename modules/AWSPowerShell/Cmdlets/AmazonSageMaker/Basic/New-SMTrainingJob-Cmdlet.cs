@@ -88,9 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HyperParameter
         /// <summary>
         /// <para>
-        /// <para>Algorithm-specific parameters. You set hyperparameters before you start the learning
-        /// process. Hyperparameters influence the quality of the model. For a list of hyperparameters
-        /// for each training algorithm provided by Amazon SageMaker, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
+        /// <para>Algorithm-specific parameters that influence the quality of the model. You set hyperparameters
+        /// before you start the learning process. For a list of hyperparameters for each training
+        /// algorithm provided by Amazon SageMaker, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
         /// </para><para>You can specify a maximum of 100 hyperparameters. Each hyperparameter is a key-value
         /// pair. Each key and value is limited to 256 characters, as specified by the <code>Length
         /// Constraint</code>. </para>
@@ -166,7 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// to an S3 bucket, write logs to Amazon CloudWatch Logs, and publish metrics to Amazon
         /// CloudWatch. You grant permissions for all of these tasks to an IAM role. For more
         /// information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
-        /// SageMaker Roles</a>. </para>
+        /// SageMaker Roles</a>. </para><note><para>To be able to pass this role to Amazon SageMaker, the caller of this API must have
+        /// the <code>iam:PassRole</code> permission.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

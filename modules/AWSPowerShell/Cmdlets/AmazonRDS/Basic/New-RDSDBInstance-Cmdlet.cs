@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Not all DB instance classes are available in all AWS Regions, or for all database
         /// engines. For the full list of DB instance classes, and availability for your engine,
         /// see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
-        /// Instance Class</a> in the Amazon RDS User Guide. </para>
+        /// Instance Class</a> in the <i>Amazon RDS User Guide.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -243,7 +243,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnablePerformanceInsight
         /// <summary>
         /// <para>
-        /// <para>True to enable Performance Insights for the DB instance, and otherwise false. </para>
+        /// <para>True to enable Performance Insights for the DB instance, and otherwise false. </para><para>For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using
+        /// Amazon Performance Insights</a> in the <i>Amazon Relational Database Service User
+        /// Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -264,26 +266,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the database engine to use.</para><para>The following are the database engines and major and minor versions that are available
-        /// with Amazon RDS. Not every database engine is available for every AWS Region.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The version number of the database engine to be used by the DB instance
-        /// is managed by the DB cluster. For more information, see <a>CreateDBCluster</a>.</para><para><b>MariaDB</b></para><ul><li><para><code>10.2.12</code> (supported in all AWS Regions)</para></li><li><para><code>10.2.11</code> (supported in all AWS Regions)</para></li></ul><ul><li><para><code>10.1.31</code> (supported in all AWS Regions)</para></li><li><para><code>10.1.26</code> (supported in all AWS Regions)</para></li><li><para><code>10.1.23</code> (supported in all AWS Regions)</para></li><li><para><code>10.1.19</code> (supported in all AWS Regions)</para></li><li><para><code>10.1.14</code> (supported in all AWS Regions except us-east-2)</para></li></ul><ul><li><para><code>10.0.34</code> (supported in all AWS Regions)</para></li><li><para><code>10.0.32</code> (supported in all AWS Regions)</para></li><li><para><code>10.0.31</code> (supported in all AWS Regions)</para></li><li><para><code>10.0.28</code> (supported in all AWS Regions)</para></li><li><para><code>10.0.24</code> (supported in all AWS Regions)</para></li><li><para><code>10.0.17</code> (supported in all AWS Regions except us-east-2, ca-central-1,
-        /// eu-west-2)</para></li></ul><para><b>Microsoft SQL Server 2017</b></para><ul><li><para><code>14.00.1000.169.v1</code> (supported for all editions, and all AWS Regions)</para></li></ul><para><b>Microsoft SQL Server 2016</b></para><ul><li><para><code>13.00.4451.0.v1</code> (supported for all editions, and all AWS Regions)</para></li><li><para><code>13.00.4422.0.v1</code> (supported for all editions, and all AWS Regions)</para></li><li><para><code>13.00.2164.0.v1</code> (supported for all editions, and all AWS Regions)</para></li></ul><para><b>Microsoft SQL Server 2014</b></para><ul><li><para><code>12.00.5546.0.v1</code> (supported for all editions, and all AWS Regions)</para></li><li><para><code>12.00.5000.0.v1</code> (supported for all editions, and all AWS Regions)</para></li><li><para><code>12.00.4422.0.v1</code> (supported for all editions except Enterprise Edition,
-        /// and all AWS Regions except ca-central-1 and eu-west-2)</para></li></ul><para><b>Microsoft SQL Server 2012</b></para><ul><li><para><code>11.00.6594.0.v1</code> (supported for all editions, and all AWS Regions)</para></li><li><para><code>11.00.6020.0.v1</code> (supported for all editions, and all AWS Regions)</para></li><li><para><code>11.00.5058.0.v1</code> (supported for all editions, and all AWS Regions except
-        /// us-east-2, ca-central-1, and eu-west-2)</para></li><li><para><code>11.00.2100.60.v1</code> (supported for all editions, and all AWS Regions except
-        /// us-east-2, ca-central-1, and eu-west-2)</para></li></ul><para><b>Microsoft SQL Server 2008 R2</b></para><ul><li><para><code>10.50.6529.0.v1</code> (supported for all editions, and all AWS Regions except
-        /// us-east-2, ca-central-1, and eu-west-2)</para></li><li><para><code>10.50.6000.34.v1</code> (supported for all editions, and all AWS Regions except
-        /// us-east-2, ca-central-1, and eu-west-2)</para></li><li><para><code>10.50.2789.0.v1</code> (supported for all editions, and all AWS Regions except
-        /// us-east-2, ca-central-1, and eu-west-2)</para></li></ul><para><b>MySQL</b></para><ul><li><para><code>5.7.21</code> (supported in all AWS regions)</para></li><li><para><code>5.7.19</code> (supported in all AWS regions)</para></li><li><para><code>5.7.17</code> (supported in all AWS regions)</para></li><li><para><code>5.7.16</code> (supported in all AWS regions)</para></li></ul><ul><li><para><code>5.6.39</code> (supported in all AWS Regions)</para></li><li><para><code>5.6.37</code> (supported in all AWS Regions)</para></li><li><para><code>5.6.35</code> (supported in all AWS Regions)</para></li><li><para><code>5.6.34</code> (supported in all AWS Regions)</para></li><li><para><code>5.6.29</code> (supported in all AWS Regions)</para></li><li><para><code>5.6.27</code> (supported in all AWS Regions except us-east-2, ca-central-1,
-        /// eu-west-2)</para></li></ul><ul><li><para><code>5.5.59</code> (supported in all AWS Regions)</para></li><li><para><code>5.5.57</code> (supported in all AWS Regions)</para></li><li><para><code>5.5.54</code> (supported in all AWS Regions)</para></li><li><para><code>5.5.53</code> (supported in all AWS Regions)</para></li><li><para><code>5.5.46</code> (supported in all AWS Regions)</para></li></ul><para><b>Oracle 12c</b></para><ul><li><para><code>12.1.0.2.v9</code> (supported for EE in all AWS regions, and SE2 in all AWS
-        /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v8</code> (supported for EE in all AWS regions, and SE2 in all AWS
-        /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v7</code> (supported for EE in all AWS regions, and SE2 in all AWS
-        /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v6</code> (supported for EE in all AWS regions, and SE2 in all AWS
-        /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v5</code> (supported for EE in all AWS regions, and SE2 in all AWS
-        /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v4</code> (supported for EE in all AWS regions, and SE2 in all AWS
-        /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v3</code> (supported for EE in all AWS regions, and SE2 in all AWS
-        /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v2</code> (supported for EE in all AWS regions, and SE2 in all AWS
-        /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v1</code> (supported for EE in all AWS regions, and SE2 in all AWS
-        /// regions except us-gov-west-1)</para></li></ul><para><b>Oracle 11g</b></para><ul><li><para><code>11.2.0.4.v13</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v12</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v11</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v10</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v9</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v8</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v7</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v6</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v5</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v4</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v3</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v1</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li></ul><para><b>PostgreSQL</b></para><ul><li><para><b>Version 10.1</b></para></li><li><para><b>Version 9.6.x:</b><code> 9.6.6 | 9.6.5 | 9.6.3 | 9.6.2 | 9.6.1</code></para></li><li><para><b>Version 9.5.x:</b><code> 9.5.9 | 9.5.7 | 9.5.6 | 9.5.4 | 9.5.2</code></para></li><li><para><b>Version 9.4.x:</b><code> 9.4.14 | 9.4.12 | 9.4.11 | 9.4.9 | 9.4.7</code></para></li><li><para><b>Version 9.3.x:</b><code> 9.3.19 | 9.3.17 | 9.3.16 | 9.3.14 | 9.3.12</code></para></li></ul>
+        /// <para>The version number of the database engine to use.</para><para>For a list of valid engine versions, call <a>DescribeDBEngineVersions</a>.</para><para>The following are the database engines and links to information about the major and
+        /// minor versions that are available with Amazon RDS. Not every database engine is available
+        /// for every AWS Region.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The version number of the database engine to be used by the DB instance
+        /// is managed by the DB cluster. For more information, see <a>CreateDBCluster</a>.</para><para><b>MariaDB</b></para><para>See <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt">MariaDB
+        /// on Amazon RDS Versions</a> in the <i>Amazon RDS User Guide.</i></para><para><b>Microsoft SQL Server</b></para><para>See <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.FeatureSupport">Version
+        /// and Feature Support on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para><para><b>MySQL</b></para><para>See <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">MySQL
+        /// on Amazon RDS Versions</a> in the <i>Amazon RDS User Guide.</i></para><para><b>Oracle</b></para><para>See <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html">Oracle
+        /// Database Engine Release Notes</a> in the <i>Amazon RDS User Guide.</i></para><para><b>PostgreSQL</b></para><para>See <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions">Supported
+        /// PostgreSQL Database Versions</a> in the <i>Amazon RDS User Guide.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -418,6 +409,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String PerformanceInsightsKMSKeyId { get; set; }
         #endregion
         
+        #region Parameter PerformanceInsightsRetentionPeriod
+        /// <summary>
+        /// <para>
+        /// <para>The amount of time, in days, to retain Performance Insights data. Valid values are
+        /// 7 or 731 (2 years). </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 PerformanceInsightsRetentionPeriod { get; set; }
+        #endregion
+        
         #region Parameter Port
         /// <summary>
         /// <para>
@@ -457,6 +459,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PreferredMaintenanceWindow { get; set; }
+        #endregion
+        
+        #region Parameter ProcessorFeature
+        /// <summary>
+        /// <para>
+        /// <para>The number of CPU cores and the number of threads per core for the DB instance class
+        /// of the DB instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ProcessorFeatures")]
+        public Amazon.RDS.Model.ProcessorFeature[] ProcessorFeature { get; set; }
         #endregion
         
         #region Parameter PromotionTier
@@ -641,10 +655,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.MultiAZ = this.MultiAZ;
             context.OptionGroupName = this.OptionGroupName;
             context.PerformanceInsightsKMSKeyId = this.PerformanceInsightsKMSKeyId;
+            if (ParameterWasBound("PerformanceInsightsRetentionPeriod"))
+                context.PerformanceInsightsRetentionPeriod = this.PerformanceInsightsRetentionPeriod;
             if (ParameterWasBound("Port"))
                 context.Port = this.Port;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
+            if (this.ProcessorFeature != null)
+            {
+                context.ProcessorFeatures = new List<Amazon.RDS.Model.ProcessorFeature>(this.ProcessorFeature);
+            }
             if (ParameterWasBound("PromotionTier"))
                 context.PromotionTier = this.PromotionTier;
             if (ParameterWasBound("PubliclyAccessible"))
@@ -799,6 +819,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.PerformanceInsightsKMSKeyId = cmdletContext.PerformanceInsightsKMSKeyId;
             }
+            if (cmdletContext.PerformanceInsightsRetentionPeriod != null)
+            {
+                request.PerformanceInsightsRetentionPeriod = cmdletContext.PerformanceInsightsRetentionPeriod.Value;
+            }
             if (cmdletContext.Port != null)
             {
                 request.Port = cmdletContext.Port.Value;
@@ -810,6 +834,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
                 request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
+            }
+            if (cmdletContext.ProcessorFeatures != null)
+            {
+                request.ProcessorFeatures = cmdletContext.ProcessorFeatures;
             }
             if (cmdletContext.PromotionTier != null)
             {
@@ -941,9 +969,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? MultiAZ { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.String PerformanceInsightsKMSKeyId { get; set; }
+            public System.Int32? PerformanceInsightsRetentionPeriod { get; set; }
             public System.Int32? Port { get; set; }
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
+            public List<Amazon.RDS.Model.ProcessorFeature> ProcessorFeatures { get; set; }
             public System.Int32? PromotionTier { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public System.Boolean? StorageEncrypted { get; set; }

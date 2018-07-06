@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>Custom header parameters as part of the request. For example, to exclude <a>DocumentationParts</a>
         /// from an imported API, set <code>ignore=documentation</code> as a <code>parameters</code>
         /// value, as in the AWS CLI command of <code>aws apigateway import-rest-api --parameters
-        /// ignore=documentation --body 'file:///path/to/imported-api-body.json</code>.</para>
+        /// ignore=documentation --body 'file:///path/to/imported-api-body.json'</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in each page.</para>
+        /// <para>The maximum number of results to return in each page. The default is 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

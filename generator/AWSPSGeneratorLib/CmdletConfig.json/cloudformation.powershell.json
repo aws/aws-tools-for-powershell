@@ -97,9 +97,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "StackName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -152,9 +151,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "StackName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -188,9 +186,6 @@
         "memoryStreamParameters": []
       }
     },
-    "CreateChangeSet": {
-      "excludeFromGeneration": "true"
-    },
     "CreateStack": {
       "verb": "New",
       "noun": "Stack",
@@ -219,9 +214,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "StackName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -284,8 +278,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "StackSetName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -339,8 +334,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "StackSetName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -394,8 +390,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "ChangeSetName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -448,9 +445,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "StackName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -513,8 +509,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "StackSetName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -568,8 +565,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "StackSetName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -622,9 +620,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "StackName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -673,8 +670,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "ChangeSetName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -722,9 +720,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "StackName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -773,8 +770,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "StackSetName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -824,9 +822,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "StackName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -874,9 +871,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "StackName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -924,9 +920,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "StackName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -975,8 +970,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "StackSetName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1025,8 +1021,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "OperationId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1075,8 +1072,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "TemplateBody"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1130,8 +1128,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "ChangeSetName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1184,9 +1183,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "StackName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1215,9 +1213,6 @@
         "memoryStreamParameters": []
       }
     },
-    "GetTemplate": {
-      "excludeFromGeneration": "true"
-    },
     "GetTemplateSummary": {
       "verb": "Get",
       "noun": "TemplateSummary",
@@ -1237,9 +1232,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "StackName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1287,9 +1281,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "StackName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1337,9 +1330,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "StackName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1388,8 +1380,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "ExportName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1445,8 +1438,9 @@
       },
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "StackSetName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1494,9 +1488,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "StackName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1545,8 +1538,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "StackStatusFilter"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1602,8 +1596,9 @@
       },
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "OperationId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1659,8 +1654,9 @@
       },
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "StackSetName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1716,8 +1712,9 @@
       },
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "Status"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1765,9 +1762,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "StackName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1820,9 +1816,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "StackName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1876,8 +1871,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "StackSetName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1930,9 +1926,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "StackName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1995,8 +1990,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "StackSetName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2059,8 +2055,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "StackSetName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2113,9 +2110,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "StackName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2169,8 +2165,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "StackName"
-        ]
+          "TemplateBody"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",

@@ -38,7 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// After updating the endpoint, it sets the status to <code>InService</code>. To check
     /// the status of an endpoint, use the <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeEndpoint.html">DescribeEndpoint</a>
     /// API. 
-    /// </para>
+    /// </para><note><para>
+    /// You cannot update an endpoint with the current <code>EndpointConfig</code>. To update
+    /// an endpoint, you must create a new <code>EndpointConfig</code>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "SMEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

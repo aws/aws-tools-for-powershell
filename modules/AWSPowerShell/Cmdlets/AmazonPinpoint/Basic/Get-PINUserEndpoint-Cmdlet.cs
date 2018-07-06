@@ -22,62 +22,47 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudFront;
-using Amazon.CloudFront.Model;
+using Amazon.Pinpoint;
+using Amazon.Pinpoint.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CF
+namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    
+    /// Returns information about the endpoints associated with an user id.
     /// </summary>
-    [Cmdlet("Remove", "CFServiceLinkedRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the Amazon CloudFront DeleteServiceLinkedRole API operation.", Operation = new[] {"DeleteServiceLinkedRole"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RoleName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CloudFront.Model.DeleteServiceLinkedRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "PINUserEndpoint")]
+    [OutputType("Amazon.Pinpoint.Model.EndpointsResponse")]
+    [AWSCmdlet("Calls the Amazon Pinpoint GetUserEndpoints API operation.", Operation = new[] {"GetUserEndpoints"})]
+    [AWSCmdletOutput("Amazon.Pinpoint.Model.EndpointsResponse",
+        "This cmdlet returns a EndpointsResponse object.",
+        "The service call response (type Amazon.Pinpoint.Model.GetUserEndpointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveCFServiceLinkedRoleCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
+    public partial class GetPINUserEndpointCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
-        #region Parameter RoleName
+        #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// The unique ID of your Amazon Pinpoint application.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String RoleName { get; set; }
+        public System.String ApplicationId { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter UserId
         /// <summary>
-        /// Returns the value passed to the RoleName parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// The unique ID of the user.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public System.String UserId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RoleName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CFServiceLinkedRole (DeleteServiceLinkedRole)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -88,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.RoleName = this.RoleName;
+            context.ApplicationId = this.ApplicationId;
+            context.UserId = this.UserId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -103,11 +89,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudFront.Model.DeleteServiceLinkedRoleRequest();
+            var request = new Amazon.Pinpoint.Model.GetUserEndpointsRequest();
             
-            if (cmdletContext.RoleName != null)
+            if (cmdletContext.ApplicationId != null)
             {
-                request.RoleName = cmdletContext.RoleName;
+                request.ApplicationId = cmdletContext.ApplicationId;
+            }
+            if (cmdletContext.UserId != null)
+            {
+                request.UserId = cmdletContext.UserId;
             }
             
             CmdletOutput output;
@@ -118,9 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.RoleName;
+                object pipelineOutput = response.EndpointsResponse;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -145,16 +133,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudFront.Model.DeleteServiceLinkedRoleResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.DeleteServiceLinkedRoleRequest request)
+        private Amazon.Pinpoint.Model.GetUserEndpointsResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetUserEndpointsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "DeleteServiceLinkedRole");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "GetUserEndpoints");
             try
             {
                 #if DESKTOP
-                return client.DeleteServiceLinkedRole(request);
+                return client.GetUserEndpoints(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteServiceLinkedRoleAsync(request);
+                var task = client.GetUserEndpointsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -175,7 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String RoleName { get; set; }
+            public System.String ApplicationId { get; set; }
+            public System.String UserId { get; set; }
         }
         
     }

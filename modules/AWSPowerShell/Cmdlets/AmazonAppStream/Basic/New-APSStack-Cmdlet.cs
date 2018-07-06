@@ -28,7 +28,8 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Creates a stack.
+    /// Creates a stack to start streaming applications to users. A stack consists of an associated
+    /// fleet, user access policies, and storage configurations.
     /// </summary>
     [Cmdlet("New", "APSStack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.Stack")]
@@ -102,6 +103,18 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public Amazon.AppStream.Model.StorageConnector[] StorageConnector { get; set; }
         #endregion
         
+        #region Parameter UserSetting
+        /// <summary>
+        /// <para>
+        /// <para>The actions that are enabled or disabled for users during their streaming sessions.
+        /// By default, these actions are enabled. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("UserSettings")]
+        public Amazon.AppStream.Model.UserSetting[] UserSetting { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -139,6 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (this.StorageConnector != null)
             {
                 context.StorageConnectors = new List<Amazon.AppStream.Model.StorageConnector>(this.StorageConnector);
+            }
+            if (this.UserSetting != null)
+            {
+                context.UserSettings = new List<Amazon.AppStream.Model.UserSetting>(this.UserSetting);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -179,6 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.StorageConnectors != null)
             {
                 request.StorageConnectors = cmdletContext.StorageConnectors;
+            }
+            if (cmdletContext.UserSettings != null)
+            {
+                request.UserSettings = cmdletContext.UserSettings;
             }
             
             CmdletOutput output;
@@ -250,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String Name { get; set; }
             public System.String RedirectURL { get; set; }
             public List<Amazon.AppStream.Model.StorageConnector> StorageConnectors { get; set; }
+            public List<Amazon.AppStream.Model.UserSetting> UserSettings { get; set; }
         }
         
     }

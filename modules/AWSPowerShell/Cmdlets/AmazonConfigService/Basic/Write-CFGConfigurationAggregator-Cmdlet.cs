@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter OrganizationAggregationSource_AllAwsRegion
         /// <summary>
         /// <para>
-        /// <para>If true, aggreagate existing AWS Config regions and future regions.</para>
+        /// <para>If true, aggregate existing AWS Config regions and future regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

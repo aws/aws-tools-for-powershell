@@ -66,6 +66,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String Cluster { get; set; }
         #endregion
         
+        #region Parameter Enforce
+        /// <summary>
+        /// <para>
+        /// <para>If <code>true</code>, allows you to delete a service even if it has not been scaled
+        /// down to zero tasks. It is only necessary to use this if the service is using the <code>REPLICA</code>
+        /// scheduling strategy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Enforce { get; set; }
+        #endregion
+        
         #region Parameter Service
         /// <summary>
         /// <para>
@@ -106,6 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             PreExecutionContextLoad(context);
             
             context.Cluster = this.Cluster;
+            if (ParameterWasBound("Enforce"))
+                context.Enforce = this.Enforce;
             context.Service = this.Service;
             
             // allow further manipulation of loaded context prior to processing
@@ -126,6 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.Cluster != null)
             {
                 request.Cluster = cmdletContext.Cluster;
+            }
+            if (cmdletContext.Enforce != null)
+            {
+                request.Force = cmdletContext.Enforce.Value;
             }
             if (cmdletContext.Service != null)
             {
@@ -196,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Cluster { get; set; }
+            public System.Boolean? Enforce { get; set; }
             public System.String Service { get; set; }
         }
         

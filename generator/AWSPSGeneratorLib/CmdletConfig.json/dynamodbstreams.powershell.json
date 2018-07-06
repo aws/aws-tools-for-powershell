@@ -51,8 +51,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "TableName"
-        ]
+          "StreamArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -71,12 +72,6 @@
         "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
-    },
-    "GetRecords": {
-      "excludeFromGeneration": "true"
-    },
-    "GetShardIterator": {
-      "excludeFromGeneration": "true"
     },
     "ListStreams": {
       "verb": "Get",
@@ -100,9 +95,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "TableName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",

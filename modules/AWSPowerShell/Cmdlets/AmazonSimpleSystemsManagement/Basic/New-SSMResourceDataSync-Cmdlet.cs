@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// encryption in Amazon S3 to ensure secure data storage. We also recommend that you
     /// secure access to the Amazon S3 bucket by creating a restrictive bucket policy. To
     /// view an example of a restrictive Amazon S3 bucket policy for Resource Data Sync, see
-    /// <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-configuring.html#sysman-inventory-datasync">Configuring
-    /// Resource Data Sync for Inventory</a>.
+    /// <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync-create.html">Create
+    /// a Resource Data Sync for Inventory</a> in the <i>AWS Systems Manager User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SSMResourceDataSync", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -43,11 +43,22 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// The unique ID of your Amazon Pinpoint application.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ApplicationId { get; set; }
+        #endregion
+        
+        #region Parameter WriteApplicationSettingsRequest_CloudWatchMetricsEnabled
+        /// <summary>
+        /// <para>
+        /// The CloudWatchMetrics settings
+        /// for the app.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean WriteApplicationSettingsRequest_CloudWatchMetricsEnabled { get; set; }
         #endregion
         
         #region Parameter Limits_Daily
@@ -191,6 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.WriteApplicationSettingsRequest_CampaignHook_LambdaFunctionName = this.CampaignHook_LambdaFunctionName;
             context.WriteApplicationSettingsRequest_CampaignHook_Mode = this.CampaignHook_Mode;
             context.WriteApplicationSettingsRequest_CampaignHook_WebUrl = this.CampaignHook_WebUrl;
+            if (ParameterWasBound("WriteApplicationSettingsRequest_CloudWatchMetricsEnabled"))
+                context.WriteApplicationSettingsRequest_CloudWatchMetricsEnabled = this.WriteApplicationSettingsRequest_CloudWatchMetricsEnabled;
             if (ParameterWasBound("Limits_Daily"))
                 context.WriteApplicationSettingsRequest_Limits_Daily = this.Limits_Daily;
             if (ParameterWasBound("Limits_MaximumDuration"))
@@ -225,6 +238,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
              // populate WriteApplicationSettingsRequest
             bool requestWriteApplicationSettingsRequestIsNull = true;
             request.WriteApplicationSettingsRequest = new Amazon.Pinpoint.Model.WriteApplicationSettingsRequest();
+            System.Boolean? requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CloudWatchMetricsEnabled = null;
+            if (cmdletContext.WriteApplicationSettingsRequest_CloudWatchMetricsEnabled != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CloudWatchMetricsEnabled = cmdletContext.WriteApplicationSettingsRequest_CloudWatchMetricsEnabled.Value;
+            }
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CloudWatchMetricsEnabled != null)
+            {
+                request.WriteApplicationSettingsRequest.CloudWatchMetricsEnabled = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CloudWatchMetricsEnabled.Value;
+                requestWriteApplicationSettingsRequestIsNull = false;
+            }
             Amazon.Pinpoint.Model.QuietTime requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_QuietTime = null;
             
              // populate QuietTime
@@ -433,6 +456,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String WriteApplicationSettingsRequest_CampaignHook_LambdaFunctionName { get; set; }
             public Amazon.Pinpoint.Mode WriteApplicationSettingsRequest_CampaignHook_Mode { get; set; }
             public System.String WriteApplicationSettingsRequest_CampaignHook_WebUrl { get; set; }
+            public System.Boolean? WriteApplicationSettingsRequest_CloudWatchMetricsEnabled { get; set; }
             public System.Int32? WriteApplicationSettingsRequest_Limits_Daily { get; set; }
             public System.Int32? WriteApplicationSettingsRequest_Limits_MaximumDuration { get; set; }
             public System.Int32? WriteApplicationSettingsRequest_Limits_MessagesPerSecond { get; set; }

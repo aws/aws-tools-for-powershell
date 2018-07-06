@@ -381,7 +381,7 @@ namespace AWSPowerShellGenerator.Generators
 
                     // always serialize the json format, so we have reliable test data to work
                     // on in the new ps generator
-                    new JsonPSConfigWriter(configModel, Options.RootPath).Serialize();
+                    new JsonPSConfigWriter(configModel, Options.RootPath, Logger).Serialize();
 
                     if (!Options.BreakOnOutputMismatchError)
                     {

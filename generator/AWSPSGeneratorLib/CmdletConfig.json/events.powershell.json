@@ -55,8 +55,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "Rule"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -107,9 +108,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "Rule"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -156,8 +156,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "Rule"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -204,8 +205,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "Rule"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -257,8 +259,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "Rule"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -310,8 +313,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "Rule"
-        ]
+          "TargetArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -358,8 +362,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "Rule"
-        ]
+          "NamePrefix"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -405,9 +410,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "Rule"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -454,8 +458,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "Rule"
-        ]
+          "Entries"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -507,8 +512,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "Rule"
-        ]
+          "PrincipalId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -560,8 +566,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "Rule"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -612,9 +619,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "Rule"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -666,8 +672,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "Rule"
-        ]
+          "StatementId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -718,9 +725,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "Rule"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -772,8 +778,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "Rule"
-        ]
+          "Event"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",

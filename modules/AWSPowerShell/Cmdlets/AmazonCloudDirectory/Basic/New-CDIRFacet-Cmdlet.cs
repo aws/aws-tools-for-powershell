@@ -52,6 +52,19 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         public Amazon.CloudDirectory.Model.FacetAttribute[] Attribute { get; set; }
         #endregion
         
+        #region Parameter FacetStyle
+        /// <summary>
+        /// <para>
+        /// <para>There are two different styles that you can define on any given facet, <code>Static</code>
+        /// and <code>Dynamic</code>. For static facets, all attributes must be defined in the
+        /// schema. For dynamic facets, attributes can be defined during data plane operations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CloudDirectory.FacetStyle")]
+        public Amazon.CloudDirectory.FacetStyle FacetStyle { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -128,6 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             {
                 context.Attributes = new List<Amazon.CloudDirectory.Model.FacetAttribute>(this.Attribute);
             }
+            context.FacetStyle = this.FacetStyle;
             context.Name = this.Name;
             context.ObjectType = this.ObjectType;
             context.SchemaArn = this.SchemaArn;
@@ -150,6 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             if (cmdletContext.Attributes != null)
             {
                 request.Attributes = cmdletContext.Attributes;
+            }
+            if (cmdletContext.FacetStyle != null)
+            {
+                request.FacetStyle = cmdletContext.FacetStyle;
             }
             if (cmdletContext.Name != null)
             {
@@ -230,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.CloudDirectory.Model.FacetAttribute> Attributes { get; set; }
+            public Amazon.CloudDirectory.FacetStyle FacetStyle { get; set; }
             public System.String Name { get; set; }
             public Amazon.CloudDirectory.ObjectType ObjectType { get; set; }
             public System.String SchemaArn { get; set; }

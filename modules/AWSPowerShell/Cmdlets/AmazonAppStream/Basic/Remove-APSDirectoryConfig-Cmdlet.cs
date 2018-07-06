@@ -28,7 +28,8 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Deletes the specified directory configuration.
+    /// Deletes the specified Directory Config object from AppStream 2.0. This object includes
+    /// the information required to join streaming instances to an Active Directory domain.
     /// </summary>
     [Cmdlet("Remove", "APSDirectoryConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

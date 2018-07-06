@@ -130,6 +130,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBSubnetGroupName { get; set; }
         #endregion
         
+        #region Parameter EnableCloudwatchLogsExport
+        /// <summary>
+        /// <para>
+        /// <para>The list of logs that the restored DB cluster is to export to CloudWatch Logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("EnableCloudwatchLogsExports")]
+        public System.String[] EnableCloudwatchLogsExport { get; set; }
+        #endregion
+        
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
@@ -376,6 +387,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            if (this.EnableCloudwatchLogsExport != null)
+            {
+                context.EnableCloudwatchLogsExports = new List<System.String>(this.EnableCloudwatchLogsExport);
+            }
             if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
                 context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.Engine = this.Engine;
@@ -450,6 +465,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.EnableCloudwatchLogsExports != null)
+            {
+                request.EnableCloudwatchLogsExports = cmdletContext.EnableCloudwatchLogsExports;
             }
             if (cmdletContext.EnableIAMDatabaseAuthentication != null)
             {
@@ -595,6 +614,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public List<System.String> EnableCloudwatchLogsExports { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }

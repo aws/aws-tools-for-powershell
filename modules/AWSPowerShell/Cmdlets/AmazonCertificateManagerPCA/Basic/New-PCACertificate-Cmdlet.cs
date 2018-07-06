@@ -28,12 +28,12 @@ using Amazon.ACMPCA.Model;
 namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
-    /// Uses your private certificate authority (CA) to issue a client certificate. This function
+    /// Uses your private certificate authority (CA) to issue a client certificate. This operation
     /// returns the Amazon Resource Name (ARN) of the certificate. You can retrieve the certificate
-    /// by calling the <a>GetCertificate</a> function and specifying the ARN. 
+    /// by calling the <a>GetCertificate</a> operation and specifying the ARN. 
     /// 
     ///  <note><para>
-    /// You cannot use the ACM <b>ListCertificateAuthorities</b> function to retrieve the
+    /// You cannot use the ACM <b>ListCertificateAuthorities</b> operation to retrieve the
     /// ARNs of the certificates that you issue by using ACM PCA.
     /// </para></note>
     /// </summary>
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) that was returned when you called <a>CreateCertificateAuthority</a>.
-        /// This must be of the form:</para><para><code>arn:aws:acm:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code></para>
+        /// This must be of the form:</para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>Custom string that can be used to distinguish between calls to the <b>IssueCertificate</b>
-        /// function. Idempotency tokens time out after one hour. Therefore, if you call <b>IssueCertificate</b>
+        /// operation. Idempotency tokens time out after one hour. Therefore, if you call <b>IssueCertificate</b>
         /// multiple times with the same idempotency token within 5 minutes, ACM PCA recognizes
         /// that you are requesting only one certificate and will issue only one. If you change
         /// the idempotency token for each call, PCA recognizes that you are requesting multiple

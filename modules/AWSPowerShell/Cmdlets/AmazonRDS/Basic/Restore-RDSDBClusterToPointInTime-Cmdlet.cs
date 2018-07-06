@@ -85,6 +85,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBSubnetGroupName { get; set; }
         #endregion
         
+        #region Parameter EnableCloudwatchLogsExport
+        /// <summary>
+        /// <para>
+        /// <para>The list of logs that the restored DB cluster is to export to CloudWatch Logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("EnableCloudwatchLogsExports")]
+        public System.String[] EnableCloudwatchLogsExport { get; set; }
+        #endregion
+        
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
@@ -128,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the new DB cluster accepts connections.</para><para>Constraints: Value must be <code>1150-65535</code></para><para>Default: The same port as the original DB cluster.</para>
+        /// <para>The port number on which the new DB cluster accepts connections.</para><para>Constraints: A value from <code>1150-65535</code>. </para><para>Default: The default port for the engine.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -235,6 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.BacktrackWindow = this.BacktrackWindow;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            if (this.EnableCloudwatchLogsExport != null)
+            {
+                context.EnableCloudwatchLogsExports = new List<System.String>(this.EnableCloudwatchLogsExport);
+            }
             if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
                 context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.KmsKeyId = this.KmsKeyId;
@@ -282,6 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.EnableCloudwatchLogsExports != null)
+            {
+                request.EnableCloudwatchLogsExports = cmdletContext.EnableCloudwatchLogsExports;
             }
             if (cmdletContext.EnableIAMDatabaseAuthentication != null)
             {
@@ -390,6 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int64? BacktrackWindow { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public List<System.String> EnableCloudwatchLogsExports { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String OptionGroupName { get; set; }

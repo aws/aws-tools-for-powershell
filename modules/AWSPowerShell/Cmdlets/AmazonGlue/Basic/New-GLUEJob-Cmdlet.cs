@@ -144,6 +144,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter NotificationProperty_NotifyDelayAfter
+        /// <summary>
+        /// <para>
+        /// <para>After a job run starts, the number of minutes to wait before sending a job run delay
+        /// notification.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 NotificationProperty_NotifyDelayAfter { get; set; }
+        #endregion
+        
         #region Parameter Role
         /// <summary>
         /// <para>
@@ -215,6 +226,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (ParameterWasBound("MaxRetry"))
                 context.MaxRetries = this.MaxRetry;
             context.Name = this.Name;
+            if (ParameterWasBound("NotificationProperty_NotifyDelayAfter"))
+                context.NotificationProperty_NotifyDelayAfter = this.NotificationProperty_NotifyDelayAfter;
             context.Role = this.Role;
             if (ParameterWasBound("Timeout"))
                 context.Timeout = this.Timeout;
@@ -300,6 +313,25 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             {
                 request.Name = cmdletContext.Name;
             }
+            
+             // populate NotificationProperty
+            bool requestNotificationPropertyIsNull = true;
+            request.NotificationProperty = new Amazon.Glue.Model.NotificationProperty();
+            System.Int32? requestNotificationProperty_notificationProperty_NotifyDelayAfter = null;
+            if (cmdletContext.NotificationProperty_NotifyDelayAfter != null)
+            {
+                requestNotificationProperty_notificationProperty_NotifyDelayAfter = cmdletContext.NotificationProperty_NotifyDelayAfter.Value;
+            }
+            if (requestNotificationProperty_notificationProperty_NotifyDelayAfter != null)
+            {
+                request.NotificationProperty.NotifyDelayAfter = requestNotificationProperty_notificationProperty_NotifyDelayAfter.Value;
+                requestNotificationPropertyIsNull = false;
+            }
+             // determine if request.NotificationProperty should be set to null
+            if (requestNotificationPropertyIsNull)
+            {
+                request.NotificationProperty = null;
+            }
             if (cmdletContext.Role != null)
             {
                 request.Role = cmdletContext.Role;
@@ -381,6 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String LogUri { get; set; }
             public System.Int32? MaxRetries { get; set; }
             public System.String Name { get; set; }
+            public System.Int32? NotificationProperty_NotifyDelayAfter { get; set; }
             public System.String Role { get; set; }
             public System.Int32? Timeout { get; set; }
         }

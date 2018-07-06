@@ -56,8 +56,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "IdentityPoolId"
-        ]
+          "IdentityPoolName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -90,9 +91,6 @@
         "memoryStreamParameters": []
       }
     },
-    "DeleteIdentities": {
-      "excludeFromGeneration": "true"
-    },
     "DeleteIdentityPool": {
       "verb": "Remove",
       "noun": "IdentityPool",
@@ -112,9 +110,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "IdentityPoolId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -147,9 +144,6 @@
         "memoryStreamParameters": []
       }
     },
-    "DescribeIdentity": {
-      "excludeFromGeneration": "true"
-    },
     "DescribeIdentityPool": {
       "verb": "Get",
       "noun": "IdentityPool",
@@ -169,9 +163,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "IdentityPoolId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -199,12 +192,6 @@
         "memoryStreamParameters": []
       }
     },
-    "GetCredentialsForIdentity": {
-      "excludeFromGeneration": "true"
-    },
-    "GetId": {
-      "excludeFromGeneration": "true"
-    },
     "GetIdentityPoolRoles": {
       "verb": "Get",
       "noun": "IdentityPoolRole",
@@ -224,9 +211,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "IdentityPoolId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -254,15 +240,6 @@
         "memoryStreamParameters": []
       }
     },
-    "GetOpenIdToken": {
-      "excludeFromGeneration": "true"
-    },
-    "GetOpenIdTokenForDeveloperIdentity": {
-      "excludeFromGeneration": "true"
-    },
-    "ListIdentities": {
-      "excludeFromGeneration": "true"
-    },
     "ListIdentityPools": {
       "verb": "Get",
       "noun": "IdentityPoolList",
@@ -282,9 +259,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "IdentityPoolId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -312,12 +288,6 @@
         "memoryStreamParameters": []
       }
     },
-    "LookupDeveloperIdentity": {
-      "excludeFromGeneration": "true"
-    },
-    "MergeDeveloperIdentities": {
-      "excludeFromGeneration": "true"
-    },
     "SetIdentityPoolRoles": {
       "verb": "Set",
       "noun": "IdentityPoolRole",
@@ -337,9 +307,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "IdentityPoolId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -372,12 +341,6 @@
         "memoryStreamParameters": []
       }
     },
-    "UnlinkDeveloperIdentity": {
-      "excludeFromGeneration": "true"
-    },
-    "UnlinkIdentity": {
-      "excludeFromGeneration": "true"
-    },
     "UpdateIdentityPool": {
       "verb": "Update",
       "noun": "IdentityPool",
@@ -397,9 +360,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "IdentityPoolId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",

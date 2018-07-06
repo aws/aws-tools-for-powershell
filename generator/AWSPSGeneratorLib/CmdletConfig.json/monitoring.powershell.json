@@ -64,9 +64,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "AlarmNames"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -118,8 +117,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AlarmNames"
-        ]
+          "DashboardNames"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -175,8 +175,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AlarmNames"
-        ]
+          "AlarmName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -222,9 +223,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "AlarmNames"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -274,8 +274,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AlarmNames"
-        ]
+          "MetricName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -321,9 +322,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "AlarmNames"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -374,9 +374,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "AlarmNames"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -428,8 +427,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AlarmNames"
-        ]
+          "DashboardName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -475,9 +475,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "AlarmNames"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -529,8 +528,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AlarmNames"
-        ]
+          "Namespace"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -584,8 +584,9 @@
       },
       "pipeline": {
         "byValueMembers": [
-          "AlarmNames"
-        ]
+          "DashboardNamePrefix"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -612,9 +613,6 @@
         "memoryStreamParameters": []
       }
     },
-    "ListMetrics": {
-      "excludeFromGeneration": "true"
-    },
     "PutDashboard": {
       "verb": "Write",
       "noun": "Dashboard",
@@ -635,8 +633,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AlarmNames"
-        ]
+          "DashboardBody"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -690,8 +689,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AlarmNames"
-        ]
+          "AlarmName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -745,8 +745,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AlarmNames"
-        ]
+          "Namespace"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -802,8 +803,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AlarmNames"
-        ]
+          "AlarmName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",

@@ -30,12 +30,15 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// <summary>
     /// Detects instances of real-world entities within an image (JPEG or PNG) provided as
     /// input. This includes objects like flower, tree, and table; events like wedding, graduation,
-    /// and birthday party; and concepts like landscape, evening, and nature. For an example,
-    /// see <a>images-s3</a>.
+    /// and birthday party; and concepts like landscape, evening, and nature. 
     /// 
-    ///  <note><para><code>DetectLabels</code> does not support the detection of activities. However,
+    ///  
+    /// <para>
+    /// For an example, see Analyzing Images Stored in an Amazon S3 Bucket in the Amazon Rekognition
+    /// Developer Guide.
+    /// </para><note><para><code>DetectLabels</code> does not support the detection of activities. However,
     /// activity detection is supported for label detection in videos. For more information,
-    /// see .
+    /// see StartLabelDetection in the Amazon Rekognition Developer Guide.
     /// </para></note><para>
     /// You pass the input image as base64-encoded image bytes or as a reference to an image
     /// in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon Rekognition operations,
@@ -47,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// object. For example, suppose the input image has a lighthouse, the sea, and a rock.
     /// The response will include all three labels, one for each object. 
     /// </para><para><code>{Name: lighthouse, Confidence: 98.4629}</code></para><para><code>{Name: rock,Confidence: 79.2097}</code></para><para><code> {Name: sea,Confidence: 75.061}</code></para><para>
-    ///  In the preceding example, the operation returns one label for each of the three objects.
+    /// In the preceding example, the operation returns one label for each of the three objects.
     /// The operation can also return multiple labels for the same object in the image. For
     /// example, if the input image shows a flower (for example, a tulip), the operation might
     /// return the following three labels. 

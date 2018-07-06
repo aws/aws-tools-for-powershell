@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
     /// Imports your signed private CA certificate into ACM PCA. Before you can call this
-    /// function, you must create the private certificate authority by calling the <a>CreateCertificateAuthority</a>
-    /// function. You must then generate a certificate signing request (CSR) by calling the
-    /// <a>GetCertificateAuthorityCsr</a> function. Take the CSR to your on-premises CA and
+    /// operation, you must create the private certificate authority by calling the <a>CreateCertificateAuthority</a>
+    /// operation. You must then generate a certificate signing request (CSR) by calling the
+    /// <a>GetCertificateAuthorityCsr</a> operation. Take the CSR to your on-premises CA and
     /// use the root certificate or a subordinate certificate to sign it. Create a certificate
     /// chain and copy the signed certificate and the certificate chain to your working directory.
     /// 
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) that was returned when you called <a>CreateCertificateAuthority</a>.
-        /// This must be of the form: </para><para><code>arn:aws:acm:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code></para>
+        /// This must be of the form: </para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -68,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to
         /// access model artifacts and docker image for deployment on ML compute instances. Deploying
         /// on ML compute instances is part of model hosting. For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
-        /// SageMaker Roles</a>. </para>
+        /// SageMaker Roles</a>. </para><note><para>To be able to pass this role to Amazon SageMaker, the caller of this API must have
+        /// the <code>iam:PassRole</code> permission.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

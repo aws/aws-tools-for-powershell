@@ -56,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// the host.</para></li><li><para><code>host-reservation-id</code> - The ID of the reservation assigned to this host.</para></li><li><para><code>instance-type</code> - The instance type size that the Dedicated Host is configured
         /// to support.</para></li><li><para><code>state</code> - The allocation state of the Dedicated Host (<code>available</code>
         /// | <code>under-assessment</code> | <code>permanent-failure</code> | <code>released</code>
-        /// | <code>released-permanent-failure</code>).</para></li></ul>
+        /// | <code>released-permanent-failure</code>).</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
+        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

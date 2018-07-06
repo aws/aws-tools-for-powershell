@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <summary>
     /// Removes the server or virtual machine from the list of registered servers. You can
     /// reregister the instance again at any time. If you don't plan to use Run Command on
-    /// the server, we suggest uninstalling the SSM Agent first.
+    /// the server, we suggest uninstalling SSM Agent first.
     /// </summary>
     [Cmdlet("Unregister", "SSMManagedInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

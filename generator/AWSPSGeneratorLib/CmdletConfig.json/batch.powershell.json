@@ -59,9 +59,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "JobId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -112,9 +111,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "JobId"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -165,9 +163,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "JobId"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -219,8 +216,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "JobId"
-        ]
+          "ComputeEnvironment"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -272,8 +270,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "JobId"
-        ]
+          "JobQueue"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -325,8 +324,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "JobId"
-        ]
+          "JobDefinition"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -377,9 +377,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "JobId"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -426,8 +425,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "JobId"
-        ]
+          "JobDefinitionName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -473,9 +473,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "JobId"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -522,8 +521,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "JobId"
-        ]
+          "Jobs"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -570,8 +570,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "JobId"
-        ]
+          "JobQueue"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -618,8 +619,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "JobId"
-        ]
+          "JobDefinitionName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -671,8 +673,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "JobId"
-        ]
+          "JobName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -723,9 +726,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "JobId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -777,8 +779,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "JobId"
-        ]
+          "ComputeEnvironment"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -830,8 +833,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "JobId"
-        ]
+          "JobQueue"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",

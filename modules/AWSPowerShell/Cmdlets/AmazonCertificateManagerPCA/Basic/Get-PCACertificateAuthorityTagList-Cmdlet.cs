@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// <summary>
     /// Lists the tags, if any, that are associated with your private CA. Tags are labels
     /// that you can use to identify and organize your CAs. Each tag consists of a key and
-    /// an optional value. Call the <a>TagCertificateAuthority</a> function to add one or
-    /// more tags to your CA. Call the <a>UntagCertificateAuthority</a> function to remove
+    /// an optional value. Call the <a>TagCertificateAuthority</a> operation to add one or
+    /// more tags to your CA. Call the <a>UntagCertificateAuthority</a> operation to remove
     /// tags.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "PCACertificateAuthorityTagList")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) that was returned when you called the <a>CreateCertificateAuthority</a>
-        /// function. This must be of the form: </para><para><code>arn:aws:acm:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code></para>
+        /// operation. This must be of the form: </para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

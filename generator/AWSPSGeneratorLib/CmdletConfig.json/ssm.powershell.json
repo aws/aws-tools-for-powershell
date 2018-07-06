@@ -82,8 +82,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "ResourceId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -137,9 +138,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -193,9 +193,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -249,9 +248,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -306,8 +304,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "Entries"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -362,8 +361,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "Content"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -418,8 +418,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -473,9 +474,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -530,8 +530,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "SyncName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -586,8 +587,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "ActivationId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -641,9 +643,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -698,8 +699,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -753,9 +755,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -810,8 +811,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "WindowId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -866,8 +868,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -922,8 +925,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "Names"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -978,8 +982,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "BaselineId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1034,8 +1039,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "SyncName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1089,9 +1095,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1146,8 +1151,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "PatchGroup"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1202,8 +1208,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "WindowTargetId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1258,8 +1265,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "WindowTaskId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1313,9 +1321,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1364,9 +1371,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1378,6 +1384,106 @@
         "confirmationMessageNoun": "Association",
         "confirmImpactSetting": "Medium",
         "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 50,
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DescribeAssociationExecutions": {
+      "verb": "Get",
+      "noun": "AssociationExecution",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "AssociationExecutions",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "AssociationExecutions",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 50,
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DescribeAssociationExecutionTargets": {
+      "verb": "Get",
+      "noun": "AssociationExecutionTarget",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "AssociationExecutionTargets",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "AssociationExecutionTargets",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1415,9 +1521,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1466,9 +1571,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1525,9 +1629,8 @@
         "resultsTruncatedMember": ""
       },
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1576,9 +1679,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1628,8 +1730,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1686,9 +1789,8 @@
         "resultsTruncatedMember": ""
       },
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1746,8 +1848,9 @@
       },
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "BaselineId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1796,9 +1899,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1847,9 +1949,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1906,9 +2007,8 @@
         "resultsTruncatedMember": ""
       },
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1965,9 +2065,8 @@
         "resultsTruncatedMember": ""
       },
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2025,8 +2124,9 @@
       },
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "PatchGroup"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2076,8 +2176,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "DeletionId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2135,8 +2236,9 @@
       },
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "WindowId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2194,8 +2296,9 @@
       },
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "WindowExecutionId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2253,8 +2356,9 @@
       },
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "WindowExecutionId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2312,8 +2416,9 @@
       },
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "Filters"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2370,9 +2475,8 @@
         "resultsTruncatedMember": ""
       },
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2430,8 +2534,9 @@
       },
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "WindowId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2480,9 +2585,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2539,9 +2643,8 @@
         "resultsTruncatedMember": ""
       },
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2599,8 +2702,9 @@
       },
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "Filters"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2650,8 +2754,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "PatchGroup"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2701,8 +2806,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "AutomationExecutionId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2751,9 +2857,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2803,8 +2908,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "OperatingSystem"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2854,8 +2960,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "SnapshotId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2904,9 +3011,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -2955,9 +3061,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3015,8 +3120,9 @@
       },
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "TypeName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3066,8 +3172,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "WindowId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3117,8 +3224,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "WindowExecutionId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3168,8 +3276,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "TaskId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3219,8 +3328,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "TaskId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3270,8 +3380,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "WindowTaskId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3321,8 +3432,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3372,8 +3484,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3422,9 +3535,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3482,8 +3594,9 @@
       },
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "Path"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3533,8 +3646,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "BaselineId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3583,9 +3697,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3635,8 +3748,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "AssociationFilterList"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3686,8 +3800,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "AssociationId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3736,9 +3851,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3787,9 +3901,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3846,9 +3959,8 @@
         "resultsTruncatedMember": ""
       },
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3905,9 +4017,8 @@
         "resultsTruncatedMember": ""
       },
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -3956,9 +4067,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -4008,8 +4118,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -4058,9 +4169,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -4117,9 +4227,8 @@
         "resultsTruncatedMember": ""
       },
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -4168,9 +4277,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -4220,8 +4328,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "ResourceId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -4271,8 +4380,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -4327,8 +4437,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "ResourceId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -4382,9 +4493,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -4439,8 +4549,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -4495,8 +4606,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "BaselineId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -4551,8 +4663,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "BaselineId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -4607,8 +4720,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "WindowId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -4663,8 +4777,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "TaskArn"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -4721,8 +4836,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "ResourceId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -4777,8 +4893,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "AutomationExecutionId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -4832,9 +4949,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -4869,6 +4985,63 @@
         "memoryStreamParameters": []
       }
     },
+    "StartAssociationsOnce": {
+      "verb": "Start",
+      "noun": "AssociationsOnce",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "AssociationIds"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "AssociationsOnce",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "Auto-assigned from pipeline parameter: AssociationId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 50,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "AssociationIds"
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "StartAutomationExecution": {
       "verb": "Start",
       "noun": "AutomationExecution",
@@ -4889,8 +5062,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "DocumentName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -4944,9 +5118,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -5001,8 +5174,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "AssociationId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -5056,9 +5230,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -5113,8 +5286,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "Content"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -5169,8 +5343,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "Name"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -5225,8 +5400,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "WindowId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -5281,8 +5457,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "WindowTargetId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -5337,8 +5514,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "WindowTaskId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -5394,9 +5572,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "InstanceId"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -5451,8 +5628,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InstanceId"
-        ]
+          "BaselineId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",

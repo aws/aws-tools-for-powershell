@@ -153,7 +153,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
-        /// <para>The tags for an EC2 Fleet resource.</para>
+        /// <para>The key-value pair for tagging the EC2 Fleet request on creation. The value for <code>ResourceType</code>
+        /// must be <code>fleet</code>, otherwise the fleet request fails. To tag instances at
+        /// launch, specify the tags in the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
+        /// template</a>. For information about tagging after launch, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging
+        /// Your Resources</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

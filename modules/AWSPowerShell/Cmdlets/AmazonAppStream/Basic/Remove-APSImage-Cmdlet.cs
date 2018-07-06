@@ -28,8 +28,8 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Deletes the specified image. You cannot delete an image that is currently in use.
-    /// After you delete an image, you cannot provision new capacity using the image.
+    /// Deletes the specified image. You cannot delete an image when it is in use. After you
+    /// delete an image, you cannot provision new capacity using the image.
     /// </summary>
     [Cmdlet("Remove", "APSImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.AppStream.Model.Image")]

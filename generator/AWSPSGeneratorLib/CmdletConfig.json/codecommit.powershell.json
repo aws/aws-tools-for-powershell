@@ -53,8 +53,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RepositoryName"
-        ]
+          "RepositoryNames"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -100,9 +101,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "RepositoryName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -153,9 +153,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "RepositoryName"
-        ]
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -206,9 +205,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "RepositoryName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -260,8 +258,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RepositoryName"
-        ]
+          "BranchName"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -313,8 +312,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RepositoryName"
-        ]
+          "CommentId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -365,9 +365,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "RepositoryName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -419,8 +418,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RepositoryName"
-        ]
+          "PullRequestId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -466,9 +466,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "RepositoryName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -514,9 +513,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "RepositoryName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -563,8 +561,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RepositoryName"
-        ]
+          "CommentId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -611,8 +610,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RepositoryName"
-        ]
+          "AfterCommitId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -659,8 +659,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RepositoryName"
-        ]
+          "PullRequestId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -707,8 +708,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RepositoryName"
-        ]
+          "CommitId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -754,9 +756,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "RepositoryName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -802,9 +803,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "RepositoryName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -851,8 +851,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RepositoryName"
-        ]
+          "PullRequestId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -898,9 +899,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "RepositoryName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -946,9 +946,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "RepositoryName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -994,9 +993,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "RepositoryName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1042,9 +1040,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "RepositoryName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1090,9 +1087,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "RepositoryName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1139,8 +1135,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RepositoryName"
-        ]
+          "PullRequestId"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1192,8 +1189,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RepositoryName"
-        ]
+          "Content"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1245,8 +1243,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RepositoryName"
-        ]
+          "Content"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1298,8 +1297,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RepositoryName"
-        ]
+          "Content"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1350,9 +1350,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "RepositoryName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1406,8 +1405,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RepositoryName"
-        ]
+          "Trigger"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1459,8 +1459,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RepositoryName"
-        ]
+          "Trigger"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1507,8 +1508,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RepositoryName"
-        ]
+          "Content"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1559,9 +1561,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "RepositoryName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1613,8 +1614,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RepositoryName"
-        ]
+          "Description"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1666,8 +1668,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RepositoryName"
-        ]
+          "PullRequestStatus"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1719,8 +1722,9 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RepositoryName"
-        ]
+          "Title"
+        ],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1771,9 +1775,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "RepositoryName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
@@ -1824,9 +1827,8 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "RepositoryName"
-        ]
+        "byValueMembers": [],
+        "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",

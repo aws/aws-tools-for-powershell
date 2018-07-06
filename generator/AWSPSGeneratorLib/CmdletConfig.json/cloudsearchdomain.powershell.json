@@ -23,15 +23,5 @@
   "nonSpecifiedRegionFallback": "",
   "supportsShouldProcessVerbs": [],
   "verbMaps": {},
-  "serviceOperations": {
-    "Search": {
-      "excludeFromGeneration": "true"
-    },
-    "Suggest": {
-      "excludeFromGeneration": "true"
-    },
-    "UploadDocuments": {
-      "excludeFromGeneration": "true"
-    }
-  }
+  "serviceOperations": {}
 }

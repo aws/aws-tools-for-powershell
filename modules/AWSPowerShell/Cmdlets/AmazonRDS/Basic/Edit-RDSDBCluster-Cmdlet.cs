@@ -103,6 +103,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBClusterParameterGroupName { get; set; }
         #endregion
         
+        #region Parameter CloudwatchLogsExportConfiguration_DisableLogType
+        /// <summary>
+        /// <para>
+        /// <para>The list of log types to disable.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("CloudwatchLogsExportConfiguration_DisableLogTypes")]
+        public System.String[] CloudwatchLogsExportConfiguration_DisableLogType { get; set; }
+        #endregion
+        
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
@@ -114,12 +125,23 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean EnableIAMDatabaseAuthentication { get; set; }
         #endregion
         
+        #region Parameter CloudwatchLogsExportConfiguration_EnableLogType
+        /// <summary>
+        /// <para>
+        /// <para>The list of log types to enable.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("CloudwatchLogsExportConfiguration_EnableLogTypes")]
+        public System.String[] CloudwatchLogsExportConfiguration_EnableLogType { get; set; }
+        #endregion
+        
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
         /// <para>The version number of the database engine to which you want to upgrade. Changing this
         /// parameter results in an outage. The change is applied during the next maintenance
-        /// window unless the ApplyImmediately parameter is set to true.</para><para>For a list of valid engine versions, see <a>CreateDBInstance</a>, or call <a>DescribeDBEngineVersions</a>.</para>
+        /// window unless the ApplyImmediately parameter is set to true.</para><para>For a list of valid engine versions, see <a>CreateDBCluster</a>, or call <a>DescribeDBEngineVersions</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,6 +270,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.BacktrackWindow = this.BacktrackWindow;
             if (ParameterWasBound("BackupRetentionPeriod"))
                 context.BackupRetentionPeriod = this.BackupRetentionPeriod;
+            if (this.CloudwatchLogsExportConfiguration_DisableLogType != null)
+            {
+                context.CloudwatchLogsExportConfiguration_DisableLogTypes = new List<System.String>(this.CloudwatchLogsExportConfiguration_DisableLogType);
+            }
+            if (this.CloudwatchLogsExportConfiguration_EnableLogType != null)
+            {
+                context.CloudwatchLogsExportConfiguration_EnableLogTypes = new List<System.String>(this.CloudwatchLogsExportConfiguration_EnableLogType);
+            }
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
@@ -291,6 +321,35 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.BackupRetentionPeriod != null)
             {
                 request.BackupRetentionPeriod = cmdletContext.BackupRetentionPeriod.Value;
+            }
+            
+             // populate CloudwatchLogsExportConfiguration
+            bool requestCloudwatchLogsExportConfigurationIsNull = true;
+            request.CloudwatchLogsExportConfiguration = new Amazon.RDS.Model.CloudwatchLogsExportConfiguration();
+            List<System.String> requestCloudwatchLogsExportConfiguration_cloudwatchLogsExportConfiguration_DisableLogType = null;
+            if (cmdletContext.CloudwatchLogsExportConfiguration_DisableLogTypes != null)
+            {
+                requestCloudwatchLogsExportConfiguration_cloudwatchLogsExportConfiguration_DisableLogType = cmdletContext.CloudwatchLogsExportConfiguration_DisableLogTypes;
+            }
+            if (requestCloudwatchLogsExportConfiguration_cloudwatchLogsExportConfiguration_DisableLogType != null)
+            {
+                request.CloudwatchLogsExportConfiguration.DisableLogTypes = requestCloudwatchLogsExportConfiguration_cloudwatchLogsExportConfiguration_DisableLogType;
+                requestCloudwatchLogsExportConfigurationIsNull = false;
+            }
+            List<System.String> requestCloudwatchLogsExportConfiguration_cloudwatchLogsExportConfiguration_EnableLogType = null;
+            if (cmdletContext.CloudwatchLogsExportConfiguration_EnableLogTypes != null)
+            {
+                requestCloudwatchLogsExportConfiguration_cloudwatchLogsExportConfiguration_EnableLogType = cmdletContext.CloudwatchLogsExportConfiguration_EnableLogTypes;
+            }
+            if (requestCloudwatchLogsExportConfiguration_cloudwatchLogsExportConfiguration_EnableLogType != null)
+            {
+                request.CloudwatchLogsExportConfiguration.EnableLogTypes = requestCloudwatchLogsExportConfiguration_cloudwatchLogsExportConfiguration_EnableLogType;
+                requestCloudwatchLogsExportConfigurationIsNull = false;
+            }
+             // determine if request.CloudwatchLogsExportConfiguration should be set to null
+            if (requestCloudwatchLogsExportConfigurationIsNull)
+            {
+                request.CloudwatchLogsExportConfiguration = null;
             }
             if (cmdletContext.DBClusterIdentifier != null)
             {
@@ -403,6 +462,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? ApplyImmediately { get; set; }
             public System.Int64? BacktrackWindow { get; set; }
             public System.Int32? BackupRetentionPeriod { get; set; }
+            public List<System.String> CloudwatchLogsExportConfiguration_DisableLogTypes { get; set; }
+            public List<System.String> CloudwatchLogsExportConfiguration_EnableLogTypes { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }

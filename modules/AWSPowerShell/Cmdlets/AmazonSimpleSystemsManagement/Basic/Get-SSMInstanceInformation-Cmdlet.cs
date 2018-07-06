@@ -33,7 +33,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// etc. If you specify one or more instance IDs, it returns information for those instances.
     /// If you do not specify instance IDs, it returns information for all your instances.
     /// If you specify an instance ID that is not valid or an instance that you do not own,
-    /// you receive an error.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// you receive an error. 
+    /// 
+    ///  <note><para>
+    /// The IamRole field for this API action is the Amazon Identity and Access Management
+    /// (IAM) role assigned to on-premises instances. This call does not return the IAM role
+    /// for Amazon EC2 instances.
+    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SSMInstanceInformation")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.InstanceInformation")]

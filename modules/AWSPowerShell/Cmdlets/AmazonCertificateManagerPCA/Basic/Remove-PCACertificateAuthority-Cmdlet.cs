@@ -28,17 +28,28 @@ using Amazon.ACMPCA.Model;
 namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
-    /// Deletes the private certificate authority (CA) that you created or started to create
-    /// by calling the <a>CreateCertificateAuthority</a> function. This action requires that
-    /// you enter an ARN (Amazon Resource Name) for the private CA that you want to delete.
-    /// You can find the ARN by calling the <a>ListCertificateAuthorities</a> function. You
-    /// can delete the CA if you are waiting for it to be created (the <b>Status</b> field
-    /// of the <a>CertificateAuthority</a> is <code>CREATING</code>) or if the CA has been
-    /// created but you haven't yet imported the signed certificate (the <b>Status</b> is
-    /// <code>PENDING_CERTIFICATE</code>) into ACM PCA. If you've already imported the certificate,
-    /// you cannot delete the CA unless it has been disabled for more than 30 days. To disable
-    /// a CA, call the <a>UpdateCertificateAuthority</a> function and set the <b>CertificateAuthorityStatus</b>
-    /// argument to <code>DISABLED</code>.
+    /// Deletes a private certificate authority (CA). You must provide the ARN (Amazon Resource
+    /// Name) of the private CA that you want to delete. You can find the ARN by calling the
+    /// <a>ListCertificateAuthorities</a> operation. Before you can delete a CA, you must
+    /// disable it. Call the <a>UpdateCertificateAuthority</a> operation and set the <b>CertificateAuthorityStatus</b>
+    /// parameter to <code>DISABLED</code>. 
+    /// 
+    ///  
+    /// <para>
+    /// Additionally, you can delete a CA if you are waiting for it to be created (the <b>Status</b>
+    /// field of the <a>CertificateAuthority</a> is <code>CREATING</code>). You can also delete
+    /// it if the CA has been created but you haven't yet imported the signed certificate
+    /// (the <b>Status</b> is <code>PENDING_CERTIFICATE</code>) into ACM PCA. 
+    /// </para><para>
+    /// If the CA is in one of the aforementioned states and you call <a>DeleteCertificateAuthority</a>,
+    /// the CA's status changes to <code>DELETED</code>. However, the CA won't be permentantly
+    /// deleted until the restoration period has passed. By default, if you do not set the
+    /// <code>PermanentDeletionTimeInDays</code> parameter, the CA remains restorable for
+    /// 30 days. You can set the parameter from 7 to 30 days. The <a>DescribeCertificateAuthority</a>
+    /// operation returns the time remaining in the restoration window of a Private CA in
+    /// the <code>DELETED</code> state. To restore an eligable CA, call the <a>RestoreCertificateAuthority</a>
+    /// operation.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "PCACertificateAuthority", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -54,11 +65,23 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) that was returned when you called <a>CreateCertificateAuthority</a>.
-        /// This must be of the form: </para><para><code>arn:aws:acm:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code>. </para>
+        /// This must have the following form: </para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String CertificateAuthorityArn { get; set; }
+        #endregion
+        
+        #region Parameter PermanentDeletionTimeInDay
+        /// <summary>
+        /// <para>
+        /// <para>The number of days to make a CA restorable after it has been deleted. This can be
+        /// anywhere from 7 to 30 days, with 30 being the default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("PermanentDeletionTimeInDays")]
+        public System.Int32 PermanentDeletionTimeInDay { get; set; }
         #endregion
         
         #region Parameter PassThru
@@ -100,6 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             PreExecutionContextLoad(context);
             
             context.CertificateAuthorityArn = this.CertificateAuthorityArn;
+            if (ParameterWasBound("PermanentDeletionTimeInDay"))
+                context.PermanentDeletionTimeInDays = this.PermanentDeletionTimeInDay;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -119,6 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             if (cmdletContext.CertificateAuthorityArn != null)
             {
                 request.CertificateAuthorityArn = cmdletContext.CertificateAuthorityArn;
+            }
+            if (cmdletContext.PermanentDeletionTimeInDays != null)
+            {
+                request.PermanentDeletionTimeInDays = cmdletContext.PermanentDeletionTimeInDays.Value;
             }
             
             CmdletOutput output;
@@ -187,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CertificateAuthorityArn { get; set; }
+            public System.Int32? PermanentDeletionTimeInDays { get; set; }
         }
         
     }

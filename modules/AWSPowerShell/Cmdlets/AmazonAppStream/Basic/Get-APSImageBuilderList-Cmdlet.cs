@@ -28,7 +28,8 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Describes the specified image builders or all image builders in the account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieves a list that describes one or more specified image builders, if the image
+    /// builder names are provided. Otherwise, all image builders in the account are described.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "APSImageBuilderList")]
     [OutputType("Amazon.AppStream.Model.ImageBuilder")]

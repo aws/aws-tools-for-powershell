@@ -147,7 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// permissions so Amazon SageMaker can perform these tasks. The policy must allow the
         /// Amazon SageMaker service principal (sagemaker.amazonaws.com) permissions to assume
         /// this role. For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
-        /// SageMaker Roles</a>. </para>
+        /// SageMaker Roles</a>. </para><note><para>To be able to pass this role to Amazon SageMaker, the caller of this API must have
+        /// the <code>iam:PassRole</code> permission.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

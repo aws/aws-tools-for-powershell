@@ -1,4 +1,6 @@
 ### (next release - replace with version number and date)
+  * Amazon CloudFront
+    * [Breaking Change] The DeleteServiceLinkedRole api was released in error and has now been removed by the service. Accordingly the Remove-CFServiceLinkedRole cmdlet has been removed from the module. We apologize for any inconvenience caused.
   * Amazon EC2
     * Added parameter -CpuOption to the New-EC2Instance cmdlet to enable optimizing CPU options for your new instance(s). For more details see [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the Amazon EC2 User Guide.
   * Amazon Workpaces
@@ -21,7 +23,7 @@
   * AWS Certificate Manager
     * Updated documentation notes to
       * Replace incorrect userguide links in Add-ACMCertificateTag, Import-ACMCertificate, New-ACMCertificate, Send-ACMValidationEmail and Update-ACMCertificateOption with the correct links.
-      * Added comments in Export-ACMCertificate detailing the issuer of a private certificate as the Private Certificate Authority (CA). 
+      * Added comments in Export-ACMCertificate detailing the issuer of a private certificate as the Private Certificate Authority (CA).
   * AWS CodeBuild
     * Added support for more override fields such as CertificateOverride, EnvironmentTypeOverride for Start-CBBuild
     * Added support for idempotency token field (IdempotencyToken) for Start-CBBuild
@@ -321,7 +323,7 @@
     * AWS Lambda
     * AWS WAF
     * AWS WAF Regional
-  
+
 ### 3.3.197.0 (2017-11-27)
   * AWS Elemental Media Convert
     * Added support for the new service. Cmdlets for the service have the noun prefix 'EMC'.
@@ -521,7 +523,7 @@
     - Added new cmdlet, Get-SSMAssociationVersionList (ListAssociationVersions API), to returns versioned associations.
   * Amazon Kinesis Firehose
     - Added new cmdlet, Get-KINFKinesisStream (GetKinesisStream API).
-	
+
 ### 3.3.140.0 (2017-08-16)
   * All services
     - Improved error messaging for 'name resolution failure' errors. The cmdlets now detail the endpoint they attempted to access and list some possible causes (for example, use of an availability zone instead of a region code).
@@ -555,7 +557,7 @@
   * AWS Config Service
     - Added new cmdlet, Get-CFGDiscoveredResourceCount (GetDiscoveredResourceCounts API), to returns the resource types and the number of each resource type in your AWS account.
   * Amazon Simple Systems Management
-    - Added new cmdlet, Send-SSMAutomationSignal (SendAutomationSignal API). This API is used to send a signal to an automation execution to change the current behavior or status of the execution. 
+    - Added new cmdlet, Send-SSMAutomationSignal (SendAutomationSignal API). This API is used to send a signal to an automation execution to change the current behavior or status of the execution.
 
 ### 3.3.130.0 (2017-07-28)
   * Fixed issue using Kerberos authentication when obtaining SAML federated credentials. The authentication process failed for some users with a '401 unauthorized' exception.
@@ -565,7 +567,7 @@
   * Amazon Kinesis
     - You can now encrypt your data at rest within an Amazon Kinesis Stream using server-side encryption using new cmdlets Start-KINStreamEncryption (StartStreamEncryption API) and Stop-KINStreamEncryption (StopStreamEncryption API). Server-side encryption via AWS KMS makes it easy for customers to meet strict data management requirements by encrypting their data at rest within the Amazon Kinesis Streams, a fully managed real-time data processing service.
   * Amazon EC2 Simple Systems Management
-    - Added parameters to support patching for Amazon Linux, Red Hat and Ubuntu systems.  
+    - Added parameters to support patching for Amazon Linux, Red Hat and Ubuntu systems.
   * Amazon API Gateway
     - Added new cmdlets Get-AGGatewayResponse (GetGatewayResponse API), Get-AG-GatewayResponseList (GetGatewayResponses API), Update-AGGatewayResponse(UpdateGatewayResponse API), Remove-AGGatewayResponse (DeleteGatewayResponse API) and Write-AGGatewayResponse (PutGatewayResponse API) to support management of gateway responses.
   * AWS AppStream
@@ -585,7 +587,7 @@
   * Amazon Lambda
     - Updated the Get-LMFunctionList cmdlet to support the latest Lambda@Edge enhancements.
   * AWS CloudFormation
-    - Added and updated cmdlets to support StackSets, enabling users to manage stacks across multiple accounts and regions. 
+    - Added and updated cmdlets to support StackSets, enabling users to manage stacks across multiple accounts and regions.
 
 ### 3.3.119.0 (2017-07-07)
   * AWS CloudFormation
@@ -643,7 +645,7 @@
   * Application AutoScaling
     - Updated the Write-AASScalingPolicy cmdlet to support automatic scaling of read and write throughput capacity for DynamoDB tables and global secondary indexes.
   * AWS IoT
-    - [Breaking change] Updated the Get-IOTCertificate cmdlet to remove the parameter -CertificatePem, previously added in v3.3.104.0.  
+    - [Breaking change] Updated the Get-IOTCertificate cmdlet to remove the parameter -CertificatePem, previously added in v3.3.104.0.
   * Amazon Relational Database Service
     - Updated the Copy-RDSDBSnapshot and Restore-RDSDBClusterToPointInTime cmdlets to support copy-on-write, a new Aurora MySQL Compatible Edition feature that allows users to restore their database, and support copy of TDE enabled snapshot cross region.
   * AWS Service Catalog
@@ -656,7 +658,7 @@
   * AWS OpsWorks
     - Added support for resource tagging with new cmdlets Add-OPSResourceTag (TagResource API), Get-OPSResourceTag (ListTags API) and Remove-OPSResourceTag (UntagResource API).
   * AWS IoT
-    - Updated the Get-IOTCertificate cmdlet with a new parameter -CertificatePem to support retrieving the description of a certificate with the certificate's PEM.  
+    - Updated the Get-IOTCertificate cmdlet with a new parameter -CertificatePem to support retrieving the description of a certificate with the certificate's PEM.
   * Amazon Pinpoint
     - Added cmdlets to support SMS Text and Email Messaging in addition to Mobile Push Notifications.
   * AWS Rekognition
@@ -668,7 +670,7 @@
   * Amazon Kinesis Analytics
     - Added support for publishing error messages concerning application misconfigurations to to AWS CloudWatch Logs with new cmdlets Add-KINAApplicationCloudWatchLoggingOption (AddApplicationCloudWatchLoggingOption API) and Remove-KINAApplicationCloudWatchLoggingOption (DeleteApplicationCloudWatchLoggingOption API).
   * Amazon WorkDocs
-    - Added support for managing tags and custom metadata on resources with new cmdlets New-WDCustomMetadata (CreateCustomMetadata API), New-WDLabel (CreateLabels API), Remove-WDCustomMetadata (DeleteCustomMetadata API) and Remove-WDLabel (DeleteLabels API). 
+    - Added support for managing tags and custom metadata on resources with new cmdlets New-WDCustomMetadata (CreateCustomMetadata API), New-WDLabel (CreateLabels API), Remove-WDCustomMetadata (DeleteCustomMetadata API) and Remove-WDLabel (DeleteLabels API).
     - Added new cmdlets to support adding and retrieving comments at the document level: Get-WDComment (DescribeComments API), New-WDComment (CreateComment API) and Remove-WDComment (DeleteComment API)
 
 ### 3.3.98.0 (2017-06-02)
@@ -712,10 +714,10 @@
     - Added a new cmdlet, Get-ELB2AccountLimit (DescribeAccountLimits API), enabling customers to describe their account limits, such as load balancer limit, target group limit etc.
   * Amazon Lex Model Builder Service
     - Added support for new APIs with three new cmdlets: Remove-LMBBotVersion (DeleteBotVersion API), Remove-LMBIntentVersion (DeleteIntentVersion API) and Remove-LMBSlitTypeVersion (DeleteSlotTypeVersion API).
-    - *Breaking Change*:  The -Version parameter has been removed from the Remove-LMBBot, Remove-LMBIntent and Remove-LMBSlotType cmdlets in favor of the specific cmdlets to delete versions. 
+    - *Breaking Change*:  The -Version parameter has been removed from the Remove-LMBBot, Remove-LMBIntent and Remove-LMBSlotType cmdlets in favor of the specific cmdlets to delete versions.
   * Amazon Cognito Identity Provider
     - Added support for the new group support APIs with new cmdlets Add-CGIPUserToGroupAdmin (AdminAddUserToGroup API), Get-CGIPGroup (GetGroup API), Get-CGIPGroupList (ListGroups API), Get-CGIPGroupsForuserAdmin (AdminListGroupsForUser API), Get-CGIPUsersInGroup (ListUsersInGroup API), New-CGIPGroup (CreateGroup API), Remove-CGIPGroup (DeleteGroup API), Remove-CGIPuserFromGroup (AdminRemoveUserFromGroup API) and Update-CGIPGroup (UpdateGroup API).
-     
+
 ### 3.3.84.0 (2017-05-05)
   * AWS Marketplace Entitlement Service
     - Added support for the new Marketplace Entitlement Service. The cmdlet noun prefix for this service is 'MES' and the cmdlets can be listed using the command 'Get-AWSCmdletName -Service MES'. Currently the service exposes one cmdlet, Get-MESEntitlement (GetEntitlements API).
@@ -740,7 +742,7 @@
   * Amazon Lex Model Builder Service
     - Added support for the new Amazon Lex Model Builder Service. Cmdlets for the service have the noun prefix LMB and can be listed with the command Get-AWSCmdletName -Service LMB.
   * Amazon EC2
-    - Added a new cmdlet, New-EC2FpgaImage (CreateFpgaImage API), to support creating an Amazon FPGA Image (AFI) from a specified design checkpoint (DCP). 
+    - Added a new cmdlet, New-EC2FpgaImage (CreateFpgaImage API), to support creating an Amazon FPGA Image (AFI) from a specified design checkpoint (DCP).
   * AWS Rekognition
     - Added a new cmdlet, Find-REKModerationLabel (DetectModerationLabel API), to support detection of explicit or suggestive adult content in an image. The cmdlet a list of corresponding labels with confidence scores, as well as a taxonomy (parent-child relation) for each label.
   * AWS Identity and Access Management
@@ -750,7 +752,7 @@
     - Added new cmdlets to support the new service feature using tags to group and filter Lambda functions. The new cmdlets are Add-LMResourceTag (TagResource API), Get-LMResourceTag (ListTags API) and Remove-LMResourceTag (UntagResource API).
     - Added a new parameter, -TracingConfig_Mode, to the Update-LMFunctionConfiguration cmdlet to support integration with CloudDebugger service to enable customers to enable tracing for the Lambda functions and send trace information to the CloudDebugger service.
   * Amazon API Gateway
-    - Extended the Get-AGDeployment, Get-AGResource and Get-AGResourceList cmdlets with a new parameter, -Embed, to support specifying embedded resources to retrieve. 
+    - Extended the Get-AGDeployment, Get-AGResource and Get-AGResourceList cmdlets with a new parameter, -Embed, to support specifying embedded resources to retrieve.
   * Amazon Polly
     - Added a new parameter, -SpeechMarkType, to the Get-POLSpeech cmdlet to support defining the speech marks to be used in the returned text.
   * AWS DeviceFarm
@@ -790,14 +792,14 @@
   * AWS Storage Gateway
     - Added a new cmdlet, Invoke-CacheRefresh (RefreshCache API), and extended the New-SGNFSFileShare and Update-SGNFSFileShare cmdlets with new parameters -ReadOnly and -Squash.
   * Amazon Cloud Directory
-    - Updated the Get-CDIRObjectAttribute cmdlet with two new parameters, -FacetFilter_FacetName and -FacetFilter_SchemaArn, to support the new service feature enabling filtering by facet.  
+    - Updated the Get-CDIRObjectAttribute cmdlet with two new parameters, -FacetFilter_FacetName and -FacetFilter_SchemaArn, to support the new service feature enabling filtering by facet.
 
 ### 3.3.69.0 (2017-03-29)
   * AWS Batch
     - Added parameters to support specifying retry strategy for the Register-BATJobDefinition and Submit-BATJob cmdlets. The parameter, -RetryStrategy_Attempt, accepts a numeric value for attempts. This is the number of non successful executions before a job is considered FAILED. In addition, the JobDetail object returned by other cmdlets now has an attempts field and shows all execution attempts.
   * Amazon EC2
     - Added support for tagging Amazon EC2 Instances and Amazon EBS Volumes at the time of their creation with the addition of a parameter, -TagSpecification, to the New-EC2Volume and New-EC2Instance cmdlets. By tagging resources at the time of creation, you can eliminate the need to run custom tagging scripts after resource creation. In addition, you can now set resource-level permissions on the CreateVolume, CreateTags, DeleteTags, and the RunInstances APIs. This allows you to implement stronger security policies by giving you more granular control over which users and groups have access to these APIs. You can also enforce the use of tagging and control what tag keys and values are set on your resources. When you combine tag usage and resource-level IAM policies together, you can ensure your instances and volumes are properly secured upon creation and achieve more accurate cost allocation reporting. These new features are provided at no additional cost.
-  * Added the legacy alias Get-SSMParameterNameList (an alias for Get-SSMParameterValue) to the AliasesToExport collection in the module manifest so that the alias is available without needing to explicitly import the module.    
+  * Added the legacy alias Get-SSMParameterNameList (an alias for Get-SSMParameterValue) to the AliasesToExport collection in the module manifest so that the alias is available without needing to explicitly import the module.
 
 ### 3.3.67.0 (2017-03-24)
   * AWS Application Discovery Service
@@ -830,12 +832,12 @@
   * Amazon WorkDocs
     - Added support for the Amazon WorkDocs service. The Amazon WorkDocs SDK provides full administrator level access to WorkDocs site resources, allowing developers to integrate their applications to manage WorkDocs users, content and permissions programmatically. Cmd;lets for this service have the noun prefix 'WD' and can be listed using the command 'Get-AWSCmdletName -Service WD'.
   * AWS Organizations
-    - *Breaking Change* 
+    - *Breaking Change*
     Updated cmdlets to fix an issue with the wrong service model version being used. This may be a breaking change for some users. The Enable-ORGFullControl cmdlet has been removed, and the Enable-ORGAllFeatures cmdlet added in the corrected.
   * Amazon Cloud Directory
     - Added a new cmdlet, Get-CDIRObjectParentPath, to enable retrieval of all available parent paths for any type of object (a node, leaf node, policy node, and index node) in a hierarchy.
   * Amazon API Gateway
-    - Updated the New-AGDomainName cmdlet to add support for ACM certificates on custom domain names. Both Amazon-issued certificates and uploaded third-part certificates are supported.  
+    - Updated the New-AGDomainName cmdlet to add support for ACM certificates on custom domain names. Both Amazon-issued certificates and uploaded third-part certificates are supported.
   * Amazon Elastic MapReduce
     - Added support for instance fleets with new cmdlets Add-EMRInstanceFleet (AddInstanceFleet API), Edit-EMRInstanceFleet (ModifyInstanceFleet API) and Get-EMRInstanceFleets (ListInstanceFleets API).
 
@@ -868,7 +870,7 @@
     - Added cmdlet support for the new service feature enabling developers to configure global queues for creating GameSessions and to allow PlayerData on PlayerSessions to store player-specific data.
   * AWS Elastic Beanstalk
     - Added support for creating and managing custom platforms with environments.
-    - *Breaking Change* 
+    - *Breaking Change*
       The update for custom platform support changed the service response data for the DescribeConfigurationOptions API (Get-EBConfigurationOption cmdlet) to include an additional field, PlatformArn. Previously the cmdlet was able to pipe the configuration options collection to the pipeline. In this release the output from the cmdlet has changed so that the entire service response data (Amazon.ElasticBeanstalk.Model.DescribeConfigurationOptionsResponse) is emitted to the pipeline, not the collection of configuration options. To obtain the previous behavior, add a select clause to your code, for example: 'Get-EBConfigurationOption ...parameters... | select -expandproperty Options | ...'.
 
 ### 3.3.53.1 (2017-02-20)
@@ -910,7 +912,7 @@
     - Added support for the new Amazon Cloud Directory service, a highly scalable, high performance, multi-tenant directory service in the cloud. Its web-based directories make it easy for you to organize and manage application resources such as users, groups, locations, devices, policies, and the rich relationships between them. Cmdlets for this service have the noun prefix 'CDIR' and can be viewed using the command 'Get-AWSCmdletName -Service CDIR'.
   * AWS CodeDeploy
     - Updated cmdlets to support the new service feature enabling blue/green deployments. In a blue/green deployment, the current set of instances in a deployment group is replaced by new instances that have the latest application revision installed on them. After traffic is rerouted behind a load balancer to the replacement instances, the original instances can be terminated automatically or kept running for other uses. In addition to additional parameters on existing cmdlets, two new cmdlets were added: Resume-CDDeployment (ContinueDeployment API) and Skip-CDWaitTimeForInstanceTermination (SkipWaitTimeForInstanceTermination API).
-  * Amazon EC2 
+  * Amazon EC2
     - Updated the Request-EC2SpotFleet cmdlet with a new parameter, -SpotFleetRequestConfig_ReplaceUnhealthyInstance, to support instance health check functionality to replace EC2 spot fleet instances with new ones.
   * Amazon Relational Database Service
     - Updated cmdlets to support the new Snapshot Engine version upgrade. This update includes a new cmdlet, Edit-RDSDBSnapshot, mapped to the ModifyDBSnapshot API.
@@ -934,7 +936,7 @@
   * This version was only distributed in the downloadable AWS Tools for Windows msi installer.
   * AWS Health
     - Updated the parameter documentation for several cmdlets to match latest service documentation updates.
-  * AWS Certificate Manager  
+  * AWS Certificate Manager
     - Updated the parameter documentation for several cmdlets to match latest service documentation updates.
 
 ### 3.3.41.0 (2017-01-19)
@@ -969,7 +971,7 @@
   * AWS Lambda
     - Updated the Publish-LMFunction and Update-LMFunctionCode with new parameters to support the latest features in these APIs (e.g. environment variable support, VPC configuration etc) and made both cmdlets consistent with support for specifying the function code to upload using an object in an Amazon S3 bucket. The parameter names used in both cmdlets have also been made consistent, with aliases applied for backwards compatibility. Help examples for the two cmdlets have also been added.
   * AWS Marketplace Commerce Analytics
-    - Added argument completion support for the new data set disbursed_amount_by_instance_hours, with historical data available starting 2012-09-04. New data is published to this data set every 30 days. 
+    - Added argument completion support for the new data set disbursed_amount_by_instance_hours, with historical data available starting 2012-09-04. New data is published to this data set every 30 days.
 
 ### 3.3.36.0 (2016-12-29)
   * AWS CodeDeploy
@@ -983,7 +985,7 @@
   * Amazon API Gateway
     - Added cmdlets to support the new service feature for generating SDKs in more languages. This update introduces two new operations used to dynamically discover these SDK types and what configuration each type accepts. The new cmdlets are: Get-AGSdkType (GetSdkType API), Get-AGSdkTypeList (GetSdkTypes API). In addition the existing cmdlet Write-AGMethod has been updated with a new parameter, -OperationName, enabling users to set a human-friendly operation identifier for the method.
   * AWS Identity and Access Management
-    - Added new cmdlets to support service-specific credentials for IAM users. This makes it easier to onboard AWS CodeCommit customers. Service-specific credentials are username/password credentials that work with a single service (currently only AWS CodeCommit). The new cmdlets are: Get-IAMServiceSpecificCredentialList (ListServiceSpecificCredentials API), New-IAMServiceSpecificCredential (CreateServiceSpecificCredential API), Remove-IAMServiceSpecificCredential (DeleteServiceSpecificCredential API), Reset-IAMServiceSpecificCredential (ResetServiceSpecificCredential API) and Update-IAMServiceSpecificCredential (UpdateServiceSpecificCredential API). 
+    - Added new cmdlets to support service-specific credentials for IAM users. This makes it easier to onboard AWS CodeCommit customers. Service-specific credentials are username/password credentials that work with a single service (currently only AWS CodeCommit). The new cmdlets are: Get-IAMServiceSpecificCredentialList (ListServiceSpecificCredentials API), New-IAMServiceSpecificCredential (CreateServiceSpecificCredential API), Remove-IAMServiceSpecificCredential (DeleteServiceSpecificCredential API), Reset-IAMServiceSpecificCredential (ResetServiceSpecificCredential API) and Update-IAMServiceSpecificCredential (UpdateServiceSpecificCredential API).
   * AWS Elastic Beanstalk
     - Added a new cmdlet, Update-EBApplicationResourceLifecycle, to support the new UpdateApplicationVersionResourceLifecycle API.
 
@@ -1025,7 +1027,7 @@
   * AWS WAF Regional
     - Added support for the new AWS WAF Regional service, enabling customers to use AWS WAF directly on Application Load Balancers in a VPC within available regions to protect their websites and web services from malicious attacks such as SQL injection, Cross Site Scripting, bad bots, etc. Cmdlets for this service have the noun prefix 'WAFR' and can be viewed using the command 'Get-AWSCmdletName -Service WAFR'.
   * Amazon CloudFront
-    - Updated the New-CFDistribution, New-CFDistributionWithTag and Update-CFDistribution cmdlets with support for adding Lambda function associations to cache behaviors.  
+    - Updated the New-CFDistribution, New-CFDistributionWithTag and Update-CFDistribution cmdlets with support for adding Lambda function associations to cache behaviors.
   * Amazon Relation Database Service
     - Updates in the underlying AWS SDK for .NET support for Amazon RDS enable you to now specify cluster creation time in the DBCluster API cmdlets.
 
@@ -1060,7 +1062,7 @@
   * Amazon Polly
     - Added suport for the new Amazon Polly service. Amazon Polly service turns text into lifelike speech, making it easy to develop applications that use high-quality speech to increase engagement and accessibility. Cmdlets for this service have a noun prefix of 'POL' and can be viewed with the command 'Get-AWSCmdletName -Service POL'.
   * Amazon Rekognition
-    - Added support for the new Amazon Rekognition service, a deep-learning based service to search, verify and organize images. With Rekognition, you can detect objects, scenes, and faces in images. You can also search and compare faces. Cmdlets for the service have the noun prefix 'REK' and can be viewed with the command 'Get-AWSCmdletName -Service REK'. 
+    - Added support for the new Amazon Rekognition service, a deep-learning based service to search, verify and organize images. With Rekognition, you can detect objects, scenes, and faces in images. You can also search and compare faces. Cmdlets for the service have the noun prefix 'REK' and can be viewed with the command 'Get-AWSCmdletName -Service REK'.
   * AWS AppStream
     - Added support for AWS AppStream, a fully managed desktop application streaming service that provides users instant access to their apps from a web browser. The cmdlets for the new service have the noun prefix 'APS' and can be viewed using the command 'Get-AWSCmdletName -Service APS'.
   * AWS CodeBuild
@@ -1103,14 +1105,14 @@
     - Added support for automatic Scaling of EMR clusters based on metrics. This update adds a new parameter -InstanceGroup to the Edit-EMRInstanceGroup cmdlet, adds parameters -AutoScalingRole and -ScaleDownBehavior to the Start-EMRJobFlow cmdlet, and adds new cmdlets Write-EMRAutoScalingPolicy (PutAutoScalingPolicy API), Stop-EMRStops (CancelSteps API) and Remove-EMRAutoScalingPolicy (RemoveAutoScalingPolicy API).
   * Amazon Elastic Transcoder
     - The Test-ETSRole cmdlet now emits a deprecation warning, due to the deprecation of the underlying TestRole service API.
-    - Updated the New-ETSJob cmdlet with new parameters to add support for the new service feature emabling multiple media input files to be stitched together. 
+    - Updated the New-ETSJob cmdlet with new parameters to add support for the new service feature emabling multiple media input files to be stitched together.
   * Application AutoScaling
     - Added support for setting a new target resource (EMR Instance Group) as a scalable target.
 
 ### 3.3.21.0 (2016-11-17)
   (This version was only released as part of the combined AWS SDK and Tools Windows Installer, and not published to the PowerShell Gallery.)
   * Amazon API Gateway
-    - Added new parameters to several cmdlets to support custom encoding. 
+    - Added new parameters to several cmdlets to support custom encoding.
   * Amazon CloudWatch
     - Updated cmdlet documentation.
   * AWS Marketplace Metering
@@ -1123,7 +1125,7 @@
     - Added support for cross-account VPC assocation with new cmdlets: get-R53VPCAssociationAuthorizationList (ListVPCAssociationAuthorizations API), New-R53VPCAssociationAuthorization (CreateVPCAssociationAuthorization API) and Remove-R53VPCAssociationAuthorization (DeleteVPVAssociationAuthorization API).
     - Three cmdlets that were marked obsolete have now been removed due to the removal of the underlying service APIs (the service apis had also been set to return error states since being marked obsolete so no script would have been able to use them successfully). The cmdlets that have been removed were: Get-R53ChangeDetails, Get-R53ChangeBatchesByHostedZone and Get-R53ChangeBatchesByRRSet.
   * AWS Service Catalog
-    - Added support for the new administrative operations with 32 new cmdlets. The full list of cmdlets for this service can be viewed with the command 'Get-AWSCmdletName -Service SC'. 
+    - Added support for the new administrative operations with 32 new cmdlets. The full list of cmdlets for this service can be viewed with the command 'Get-AWSCmdletName -Service SC'.
     - [BREAKING CHANGE] With the addition of a new CreateProduct API for this service we have had to rename the original New-SCProduct cmdlet (which mapped to the ProvisionProduct API) to 'New-SCProvisionedProduct'. The New-SCProduct cmdlet now maps to the 'CreateProduct' API. We aplogize for any inconvenience this change may cause.
 
 ### 3.3.19.0 (2016-11-16)
@@ -1152,7 +1154,7 @@
 
 ### 3.3.14.0 (2016-10-25)
   * AWS Server Migration Service
-    - Added support for the new Server Migration Service, an agentless service that makes it easier and faster for you to migrate thousands of on-premises workloads to AWS. Cmdlets for the service have the noun prefix 'SMS'. The cmdlets and the service APIs they map to can be listed with the command 'Get-AWSCmdletName -Service "SMS"'. 
+    - Added support for the new Server Migration Service, an agentless service that makes it easier and faster for you to migrate thousands of on-premises workloads to AWS. Cmdlets for the service have the noun prefix 'SMS'. The cmdlets and the service APIs they map to can be listed with the command 'Get-AWSCmdletName -Service "SMS"'.
 
 ### 3.3.13.0 (2016-10-20)
   (This version was only released as part of the combined AWS SDK and Tools Windows Installer, and not published to the PowerShell Gallery.)
@@ -1202,7 +1204,7 @@
 
 ### 3.3.3.0 (2016-09-27)
   * AWS CloudFormation
-    - Updated the New-CFNChangeSet, New-CFNStack, Remove-CFNStack, Resume-CFNUpdateRollback and UpdateStack with a new parameter, -RoleARN. When specified AWS CloudFormation uses the role's credentials to make calls on your behalf for future operations on the stack. 
+    - Updated the New-CFNChangeSet, New-CFNStack, Remove-CFNStack, Resume-CFNUpdateRollback and UpdateStack with a new parameter, -RoleARN. When specified AWS CloudFormation uses the role's credentials to make calls on your behalf for future operations on the stack.
 
 ### 3.3.2.0 (2016-09-22)
   * Amazon API Gateway

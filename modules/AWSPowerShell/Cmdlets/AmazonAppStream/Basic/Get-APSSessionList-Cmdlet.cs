@@ -28,9 +28,10 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Describes the streaming sessions for the specified stack and fleet. If a user ID is
-    /// provided, only the streaming sessions for only that user are returned. If an authentication
-    /// type is not provided, the default is to authenticate users using a streaming URL.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieves a list that describes the streaming sessions for a specified stack and fleet.
+    /// If a user ID is provided for the stack and fleet, only streaming sessions for that
+    /// user are described. If an authentication type is not provided, the default is to authenticate
+    /// users using a streaming URL.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "APSSessionList")]
     [OutputType("Amazon.AppStream.Model.Session")]

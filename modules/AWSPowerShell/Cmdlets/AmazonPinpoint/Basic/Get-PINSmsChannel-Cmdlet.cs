@@ -28,7 +28,7 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Get an SMS channel
+    /// Get an SMS channel.
     /// </summary>
     [Cmdlet("Get", "PINSmsChannel")]
     [OutputType("Amazon.Pinpoint.Model.SMSChannelResponse")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// The unique ID of your Amazon Pinpoint application.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

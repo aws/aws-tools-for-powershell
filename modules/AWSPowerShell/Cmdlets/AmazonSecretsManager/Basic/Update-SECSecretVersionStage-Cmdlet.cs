@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
     /// To get the list of staging labels that are currently associated with a version of
     /// a secret, use <code><a>DescribeSecret</a></code> and examine the <code>SecretVersionsToStages</code>
-    /// response value.
+    /// response value. 
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Update", "SECSecretVersionStage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

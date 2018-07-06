@@ -168,7 +168,7 @@ $PCA_Completers = {
         # Amazon.ACMPCA.CertificateAuthorityStatus
         "Update-PCACertificateAuthority/Status"
         {
-            $v = "ACTIVE","CREATING","DISABLED","EXPIRED","FAILED","PENDING_CERTIFICATE"
+            $v = "ACTIVE","CREATING","DELETED","DISABLED","EXPIRED","FAILED","PENDING_CERTIFICATE"
             break
         }
         
@@ -1029,6 +1029,7 @@ $CDIR_Completers = {
         {
             ($_ -eq "Get-CDIRIncomingTypedLink/ConsistencyLevel") -Or
             ($_ -eq "Get-CDIRIndex/ConsistencyLevel") -Or
+            ($_ -eq "Get-CDIRLinkAttribute/ConsistencyLevel") -Or
             ($_ -eq "Get-CDIRObjectAttribute/ConsistencyLevel") -Or
             ($_ -eq "Get-CDIRObjectAttributeList/ConsistencyLevel") -Or
             ($_ -eq "Get-CDIRObjectChild/ConsistencyLevel") -Or
@@ -1052,6 +1053,13 @@ $CDIR_Completers = {
             break
         }
         
+        # Amazon.CloudDirectory.FacetStyle
+        "New-CDIRFacet/FacetStyle"
+        {
+            $v = "DYNAMIC","STATIC"
+            break
+        }
+        
         # Amazon.CloudDirectory.ObjectType
         {
             ($_ -eq "New-CDIRFacet/ObjectType") -Or
@@ -1070,7 +1078,8 @@ $CDIR_Completers = {
 }
 
 $CDIR_map = @{
-    "ConsistencyLevel"=@("Get-CDIRIncomingTypedLink","Get-CDIRIndex","Get-CDIRObjectAttribute","Get-CDIRObjectAttributeList","Get-CDIRObjectChild","Get-CDIRObjectIndex","Get-CDIRObjectInformation","Get-CDIRObjectParent","Get-CDIRObjectPolicy","Get-CDIROutgoingTypedLink","Get-CDIRPolicyAttachment","Read-CDIRDirectoryBatch")
+    "ConsistencyLevel"=@("Get-CDIRIncomingTypedLink","Get-CDIRIndex","Get-CDIRLinkAttribute","Get-CDIRObjectAttribute","Get-CDIRObjectAttributeList","Get-CDIRObjectChild","Get-CDIRObjectIndex","Get-CDIRObjectInformation","Get-CDIRObjectParent","Get-CDIRObjectPolicy","Get-CDIROutgoingTypedLink","Get-CDIRPolicyAttachment","Read-CDIRDirectoryBatch")
+    "FacetStyle"=@("New-CDIRFacet")
     "ObjectType"=@("New-CDIRFacet","Update-CDIRFacet")
     "State"=@("Get-CDIRDirectory")
 }
@@ -1568,7 +1577,7 @@ $CB_Completers = {
             ($_ -eq "Start-CBBuild/EnvironmentTypeOverride")
         }
         {
-            $v = "LINUX_CONTAINER"
+            $v = "LINUX_CONTAINER","WINDOWS_CONTAINER"
             break
         }
         
@@ -2133,8 +2142,14 @@ $COMP_Completers = {
         # Amazon.Comprehend.LanguageCode
         {
             ($_ -eq "Find-COMPEntity/LanguageCode") -Or
+            ($_ -eq "Find-COMPEntityBatch/LanguageCode") -Or
             ($_ -eq "Find-COMPKeyPhrase/LanguageCode") -Or
-            ($_ -eq "Find-COMPSentiment/LanguageCode")
+            ($_ -eq "Find-COMPKeyPhrasesBatch/LanguageCode") -Or
+            ($_ -eq "Find-COMPSentiment/LanguageCode") -Or
+            ($_ -eq "Find-COMPSentimentBatch/LanguageCode") -Or
+            ($_ -eq "Start-COMPEntitiesDetectionJob/LanguageCode") -Or
+            ($_ -eq "Start-COMPKeyPhrasesDetectionJob/LanguageCode") -Or
+            ($_ -eq "Start-COMPSentimentDetectionJob/LanguageCode")
         }
         {
             $v = "en","es"
@@ -2149,7 +2164,7 @@ $COMP_Completers = {
 }
 
 $COMP_map = @{
-    "LanguageCode"=@("Find-COMPEntity","Find-COMPKeyPhrase","Find-COMPSentiment")
+    "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPSentiment","Find-COMPSentimentBatch","Start-COMPEntitiesDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPSentimentDetectionJob")
 }
 
 _awsArgumentCompleterRegistration $COMP_Completers $COMP_map
@@ -2999,7 +3014,7 @@ $EC2_Completers = {
             ($_ -eq "Request-EC2SpotInstance/LaunchSpecification_InstanceType")
         }
         {
-            $v = "c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.18xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","c5d.18xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.large","m5.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge"
+            $v = "c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.18xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","c5d.18xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.large","m5.xlarge","m5d.12xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.large","m5d.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge"
             break
         }
         
@@ -3326,6 +3341,16 @@ $ECS_Completers = {
             break
         }
         
+        # Amazon.ECS.SchedulingStrategy
+        {
+            ($_ -eq "Get-ECSClusterService/SchedulingStrategy") -Or
+            ($_ -eq "New-ECSService/SchedulingStrategy")
+        }
+        {
+            $v = "DAEMON","REPLICA"
+            break
+        }
+        
         # Amazon.ECS.SortOrder
         "Get-ECSTaskDefinitionList/Sort"
         {
@@ -3366,6 +3391,7 @@ $ECS_map = @{
     "LaunchType"=@("Get-ECSClusterService","Get-ECSTaskList","New-ECSService","New-ECSTask")
     "NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp"=@("New-ECSService","New-ECSTask","Start-ECSTask","Update-ECSService")
     "NetworkMode"=@("Register-ECSTaskDefinition")
+    "SchedulingStrategy"=@("Get-ECSClusterService","New-ECSService")
     "Sort"=@("Get-ECSTaskDefinitionList")
     "Status"=@("Get-ECSContainerInstanceList","Get-ECSTaskDefinitionFamilyList","Get-ECSTaskDefinitionList","Update-ECSContainerInstancesState")
     "TargetType"=@("Get-ECSAttributeList")
@@ -4069,6 +4095,8 @@ $INS_Completers = {
         
         # Amazon.Inspector.Locale
         {
+            ($_ -eq "Get-INSExclusion/Locale") -Or
+            ($_ -eq "Get-INSExclusionsPreview/Locale") -Or
             ($_ -eq "Get-INSFinding/Locale") -Or
             ($_ -eq "Get-INSRulesPackage/Locale")
         }
@@ -4107,7 +4135,7 @@ $INS_Completers = {
 
 $INS_map = @{
     "Event"=@("Add-INSEventSubscription","Remove-INSEventSubscription")
-    "Locale"=@("Get-INSFinding","Get-INSRulesPackage")
+    "Locale"=@("Get-INSExclusion","Get-INSExclusionsPreview","Get-INSFinding","Get-INSRulesPackage")
     "ReportFileFormat"=@("Get-INSAssessmentReport")
     "ReportType"=@("Get-INSAssessmentReport")
     "StopAction"=@("Stop-INSAssessmentRun")
@@ -4192,7 +4220,7 @@ $IOT_Completers = {
         # Amazon.IoT.JobStatus
         "Get-IOTJobsList/Status"
         {
-            $v = "CANCELED","COMPLETED","IN_PROGRESS"
+            $v = "CANCELED","COMPLETED","DELETION_IN_PROGRESS","IN_PROGRESS"
             break
         }
         
@@ -4943,6 +4971,16 @@ $EML_Completers = {
             break
         }
         
+        # Amazon.MediaLive.LogLevel
+        {
+            ($_ -eq "New-EMLChannel/LogLevel") -Or
+            ($_ -eq "Update-EMLChannel/LogLevel")
+        }
+        {
+            $v = "DEBUG","DISABLED","ERROR","INFO","WARNING"
+            break
+        }
+        
     }
     
     $v |
@@ -4954,6 +4992,7 @@ $EML_map = @{
     "InputSpecification_Codec"=@("New-EMLChannel","Update-EMLChannel")
     "InputSpecification_MaximumBitrate"=@("New-EMLChannel","Update-EMLChannel")
     "InputSpecification_Resolution"=@("New-EMLChannel","Update-EMLChannel")
+    "LogLevel"=@("New-EMLChannel","Update-EMLChannel")
     "Type"=@("New-EMLInput")
 }
 
@@ -5499,6 +5538,16 @@ $PIN_Completers = {
             break
         }
         
+        # Amazon.Pinpoint.Include
+        {
+            ($_ -eq "New-PINSegment/WriteSegmentRequest_SegmentGroups_Include") -Or
+            ($_ -eq "Update-PINSegment/WriteSegmentRequest_SegmentGroups_Include")
+        }
+        {
+            $v = "ALL","ANY","NONE"
+            break
+        }
+        
         # Amazon.Pinpoint.MessageType
         {
             ($_ -eq "Send-PINMessage/MessageRequest_MessageConfiguration_SMSMessage_MessageType") -Or
@@ -5572,6 +5621,7 @@ $PIN_map = @{
     "WriteSegmentRequest_Dimensions_Demographic_Model_DimensionType"=@("New-PINSegment","Update-PINSegment")
     "WriteSegmentRequest_Dimensions_Demographic_Platform_DimensionType"=@("New-PINSegment","Update-PINSegment")
     "WriteSegmentRequest_Dimensions_Location_Country_DimensionType"=@("New-PINSegment","Update-PINSegment")
+    "WriteSegmentRequest_SegmentGroups_Include"=@("New-PINSegment","Update-PINSegment")
 }
 
 _awsArgumentCompleterRegistration $PIN_Completers $PIN_map
@@ -5607,7 +5657,7 @@ $POL_Completers = {
         # Amazon.Polly.VoiceId
         "Get-POLSpeech/VoiceId"
         {
-            $v = "Aditi","Amy","Astrid","Brian","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Dora","Emma","Enrique","Ewa","Filiz","Geraint","Giorgio","Gwyneth","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Karl","Kendra","Kimberly","Liv","Lotte","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Miguel","Mizuki","Naja","Nicole","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Takumi","Tatyana","Vicki","Vitoria"
+            $v = "Aditi","Amy","Astrid","Brian","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Dora","Emma","Enrique","Ewa","Filiz","Geraint","Giorgio","Gwyneth","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Karl","Kendra","Kimberly","Lea","Liv","Lotte","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Miguel","Mizuki","Naja","Nicole","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Takumi","Tatyana","Vicki","Vitoria"
             break
         }
         
@@ -6116,6 +6166,34 @@ $SM_Completers = {
             break
         }
         
+        # Amazon.SageMaker.HyperParameterTuningJobObjectiveType
+        "New-SMHyperParameterTuningJob/HyperParameterTuningJobConfig_HyperParameterTuningJobObjective_Type"
+        {
+            $v = "Maximize","Minimize"
+            break
+        }
+        
+        # Amazon.SageMaker.HyperParameterTuningJobSortByOptions
+        "Get-SMHyperParameterTuningJobList/SortBy"
+        {
+            $v = "CreationTime","Name","Status"
+            break
+        }
+        
+        # Amazon.SageMaker.HyperParameterTuningJobStatus
+        "Get-SMHyperParameterTuningJobList/StatusEquals"
+        {
+            $v = "Completed","Failed","InProgress","Stopped","Stopping"
+            break
+        }
+        
+        # Amazon.SageMaker.HyperParameterTuningJobStrategyType
+        "New-SMHyperParameterTuningJob/HyperParameterTuningJobConfig_Strategy"
+        {
+            $v = "Bayesian"
+            break
+        }
+        
         # Amazon.SageMaker.InstanceType
         {
             ($_ -eq "New-SMNotebookInstance/InstanceType") -Or
@@ -6164,7 +6242,7 @@ $SM_Completers = {
         # Amazon.SageMaker.NotebookInstanceStatus
         "Get-SMNotebookInstanceList/StatusEquals"
         {
-            $v = "Deleting","Failed","InService","Pending","Stopped","Stopping"
+            $v = "Deleting","Failed","InService","Pending","Stopped","Stopping","Updating"
             break
         }
         
@@ -6187,14 +6265,35 @@ $SM_Completers = {
         }
         
         # Amazon.SageMaker.SortOrder
-        "Get-SMTrainingJobList/SortOrder"
+        {
+            ($_ -eq "Get-SMHyperParameterTuningJobList/SortOrder") -Or
+            ($_ -eq "Get-SMTrainingJobList/SortOrder") -Or
+            ($_ -eq "Get-SMTrainingJobsForHyperParameterTuningJobList/SortOrder")
+        }
         {
             $v = "Ascending","Descending"
             break
         }
         
+        # Amazon.SageMaker.TrainingInputMode
+        "New-SMHyperParameterTuningJob/TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode"
+        {
+            $v = "File","Pipe"
+            break
+        }
+        
+        # Amazon.SageMaker.TrainingJobSortByOptions
+        "Get-SMTrainingJobsForHyperParameterTuningJobList/SortBy"
+        {
+            $v = "CreationTime","FinalObjectiveMetricValue","Name","Status"
+            break
+        }
+        
         # Amazon.SageMaker.TrainingJobStatus
-        "Get-SMTrainingJobList/StatusEquals"
+        {
+            ($_ -eq "Get-SMTrainingJobList/StatusEquals") -Or
+            ($_ -eq "Get-SMTrainingJobsForHyperParameterTuningJobList/StatusEquals")
+        }
         {
             $v = "Completed","Failed","InProgress","Stopped","Stopping"
             break
@@ -6209,10 +6308,13 @@ $SM_Completers = {
 
 $SM_map = @{
     "DirectInternetAccess"=@("New-SMNotebookInstance")
+    "HyperParameterTuningJobConfig_HyperParameterTuningJobObjective_Type"=@("New-SMHyperParameterTuningJob")
+    "HyperParameterTuningJobConfig_Strategy"=@("New-SMHyperParameterTuningJob")
     "InstanceType"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
-    "SortBy"=@("Get-SMConfigList","Get-SMEndpointList","Get-SMModelList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMTrainingJobList")
-    "SortOrder"=@("Get-SMConfigList","Get-SMEndpointList","Get-SMModelList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMTrainingJobList")
-    "StatusEquals"=@("Get-SMEndpointList","Get-SMNotebookInstanceList","Get-SMTrainingJobList")
+    "SortBy"=@("Get-SMConfigList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMModelList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList")
+    "SortOrder"=@("Get-SMConfigList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMModelList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList")
+    "StatusEquals"=@("Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMNotebookInstanceList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList")
+    "TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode"=@("New-SMHyperParameterTuningJob")
 }
 
 _awsArgumentCompleterRegistration $SM_Completers $SM_map
@@ -6417,6 +6519,33 @@ $SFN_map = @{
 _awsArgumentCompleterRegistration $SFN_Completers $SFN_map
 
 
+# Argument completions for service AWS Shield
+$SHLD_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Shield.AutoRenew
+        "Update-SHLDSubscription/AutoRenew"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SHLD_map = @{
+    "AutoRenew"=@("Update-SHLDSubscription")
+}
+
+_awsArgumentCompleterRegistration $SHLD_Completers $SHLD_map
+
+
 # Argument completions for service Amazon Server Migration Service
 $SMS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -6610,7 +6739,7 @@ $SSM_Completers = {
             ($_ -eq "New-SSMPatchBaseline/OperatingSystem")
         }
         {
-            $v = "AMAZON_LINUX","CENTOS","REDHAT_ENTERPRISE_LINUX","SUSE","UBUNTU","WINDOWS"
+            $v = "AMAZON_LINUX","AMAZON_LINUX_2","CENTOS","REDHAT_ENTERPRISE_LINUX","SUSE","UBUNTU","WINDOWS"
             break
         }
         
@@ -6702,7 +6831,9 @@ $SG_Completers = {
         # Amazon.StorageGateway.ObjectACL
         {
             ($_ -eq "New-SGNFSFileShare/ObjectACL") -Or
-            ($_ -eq "Update-SGNFSFileShare/ObjectACL")
+            ($_ -eq "New-SGSMBFileShare/ObjectACL") -Or
+            ($_ -eq "Update-SGNFSFileShare/ObjectACL") -Or
+            ($_ -eq "Update-SGSMBFileShare/ObjectACL")
         }
         {
             $v = "authenticated-read","aws-exec-read","bucket-owner-full-control","bucket-owner-read","private","public-read","public-read-write"
@@ -6717,7 +6848,7 @@ $SG_Completers = {
 }
 
 $SG_map = @{
-    "ObjectACL"=@("New-SGNFSFileShare","Update-SGNFSFileShare")
+    "ObjectACL"=@("New-SGNFSFileShare","New-SGSMBFileShare","Update-SGNFSFileShare","Update-SGSMBFileShare")
 }
 
 _awsArgumentCompleterRegistration $SG_Completers $SG_map

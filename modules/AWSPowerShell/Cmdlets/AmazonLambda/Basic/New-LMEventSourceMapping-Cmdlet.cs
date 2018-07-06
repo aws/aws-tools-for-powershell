@@ -28,21 +28,22 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Identifies a stream as an event source for a Lambda function. It can be either an
-    /// Amazon Kinesis stream or an Amazon DynamoDB stream. AWS Lambda invokes the specified
-    /// function when records are posted to the stream.
+    /// Identifies a poll-based event source for a Lambda function. It can be either an Amazon
+    /// Kinesis or DynamoDB stream, or an Amazon SQS queue. AWS Lambda invokes the specified
+    /// function when records are posted to the event source.
     /// 
     ///  
     /// <para>
-    /// This association between a stream source and a Lambda function is called the event
+    /// This association between a poll-based source and a Lambda function is called the event
     /// source mapping.
     /// </para><para>
-    /// You provide mapping information (for example, which stream to read from and which
-    /// Lambda function to invoke) in the request body.
+    /// You provide mapping information (for example, which stream or SQS queue to read from
+    /// and which Lambda function to invoke) in the request body.
     /// </para><para>
-    /// Each event source, such as an Amazon Kinesis or a DynamoDB stream, can be associated
-    /// with multiple AWS Lambda functions. A given Lambda function can be associated with
-    /// multiple AWS event sources.
+    /// Amazon Kinesis or DynamoDB stream event sources can be associated with multiple AWS
+    /// Lambda functions and a given Lambda function can be associated with multiple AWS event
+    /// sources. For Amazon SQS, you can configure multiple queues as event sources for a
+    /// single Lambda function, but an SQS queue can be mapped only to a single Lambda function.
     /// </para><para>
     /// If you are using versioning, you can specify a specific function version or an alias
     /// via the function name parameter. For more information about versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
@@ -66,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para>
         /// <para>The largest number of records that AWS Lambda will retrieve from your event source
         /// at the time of invoking your function. Your function receives an event with all the
-        /// retrieved records. The default is 100 records.</para>
+        /// retrieved records. The default for Amazon Kinesis and Amazon DynamoDB is 100 records.
+        /// For SQS, the default is 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -87,10 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter EventSourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Kinesis or the Amazon DynamoDB stream
-        /// that is the event source. Any record added to this stream could cause AWS Lambda to
-        /// invoke your Lambda function, it depends on the <code>BatchSize</code>. AWS Lambda
-        /// POSTs the Amazon Kinesis event, containing records, to your Lambda function as JSON.</para>
+        /// <para>The Amazon Resource Name (ARN) of the event source. Any record added to this source
+        /// could cause AWS Lambda to invoke your Lambda function, it depends on the <code>BatchSize</code>.
+        /// AWS Lambda POSTs the event's records to your Lambda function as JSON.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Retrieve parameters in a specific hierarchy. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html">Working
-    /// with Systems Manager Parameters</a>. 
+    /// with Systems Manager Parameters</a> in the <i>AWS Systems Manager User Guide</i>.
+    /// 
     /// 
     ///  
     /// <para>
@@ -70,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end
-        /// with the parameter name. A hierarchy can have a maximum of 15 levels. Here is an example
-        /// of a hierarchy: <code>/Finance/Prod/IAD/WinServ2016/license33</code></para>
+        /// with the parameter name. A parameter name hierarchy can have a maximum of 15 levels.
+        /// Here is an example of a hierarchy: <code>/Finance/Prod/IAD/WinServ2016/license33</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -70,11 +70,12 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>A key-value map of context-specific query string parameters specifying the behavior
         /// of different API importing operations. The following shows operation-specific parameters
         /// and their supported values.</para><para> To exclude <a>DocumentationParts</a> from the import, set <code>parameters</code>
-        /// as <code>ignore=documentation</code>.</para><para> To configure the endpoint type, set <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>
-        /// or<code>endpointConfigurationTypes=REGIONAL</code>. The default endpoint type is <code>EDGE</code>.</para><para> To handle imported <code>basePath</code>, set <code>parameters</code> as <code>basePath=ignore</code>,
+        /// as <code>ignore=documentation</code>.</para><para> To configure the endpoint type, set <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>,
+        /// <code>endpointConfigurationTypes=REGIONAL</code>, or <code>endpointConfigurationTypes=PRIVATE</code>.
+        /// The default endpoint type is <code>EDGE</code>.</para><para> To handle imported <code>basePath</code>, set <code>parameters</code> as <code>basePath=ignore</code>,
         /// <code>basePath=prepend</code> or <code>basePath=split</code>.</para><para>For example, the AWS CLI command to exclude documentation from the imported API is:</para><pre><code>aws apigateway import-rest-api --parameters ignore=documentation --body
-        /// 'file:///path/to/imported-api-body.json</code></pre><para>The AWS CLI command to set the regional endpoint on the imported API is:</para><pre><code>aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL
-        /// --body 'file:///path/to/imported-api-body.json</code></pre>
+        /// 'file:///path/to/imported-api-body.json'</code></pre><para>The AWS CLI command to set the regional endpoint on the imported API is:</para><pre><code>aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL
+        /// --body 'file:///path/to/imported-api-body.json'</code></pre>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

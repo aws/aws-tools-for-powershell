@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NameContain
         /// <summary>
         /// <para>
-        /// <para>A string in the training job name. This filter returns only models whose name contains
-        /// the specified string.</para>
+        /// <para>A string in the training job name. This filter returns only training jobs whose name
+        /// contains the specified string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

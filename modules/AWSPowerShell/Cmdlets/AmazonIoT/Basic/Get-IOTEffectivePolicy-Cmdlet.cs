@@ -28,7 +28,8 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Gets effective policies.
+    /// Gets a list of the policies that have an effect on the authorization behavior of the
+    /// specified device when it connects to the AWS IoT device gateway.
     /// </summary>
     [Cmdlet("Get", "IOTEffectivePolicy")]
     [OutputType("Amazon.IoT.Model.EffectivePolicy")]

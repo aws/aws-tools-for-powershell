@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// 
     ///  
     /// <para>
-    /// A resource can have up to 10 tags. If you try to create more than 10 tags for a resource,
+    /// A resource can have up to 50 tags. If you try to create more than 50 tags for a resource,
     /// you will receive an error and the attempt will fail.
     /// </para><para>
     /// If you specify a key that already exists for the resource, the value for that key

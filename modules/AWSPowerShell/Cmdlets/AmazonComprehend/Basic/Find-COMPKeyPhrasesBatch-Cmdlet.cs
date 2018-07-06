@@ -42,11 +42,13 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language of the input documents. All documents must be in the same language.</para>
+        /// <para>The language of the input documents. You can specify English ("en") or Spanish ("es").
+        /// All documents must be in the same language.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String LanguageCode { get; set; }
+        [AWSConstantClassSource("Amazon.Comprehend.LanguageCode")]
+        public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }
         #endregion
         
         #region Parameter TextList
@@ -167,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String LanguageCode { get; set; }
+            public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }
             public List<System.String> TextList { get; set; }
         }
         

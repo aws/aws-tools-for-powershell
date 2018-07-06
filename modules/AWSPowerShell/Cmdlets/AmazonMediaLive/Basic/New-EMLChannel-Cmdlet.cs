@@ -84,6 +84,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.Model.InputAttachment[] InputAttachment { get; set; }
         #endregion
         
+        #region Parameter LogLevel
+        /// <summary>
+        /// <para>
+        /// The log level to write to CloudWatch Logs.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.MediaLive.LogLevel")]
+        public Amazon.MediaLive.LogLevel LogLevel { get; set; }
+        #endregion
+        
         #region Parameter InputSpecification_MaximumBitrate
         /// <summary>
         /// <para>
@@ -190,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             context.InputSpecification_Codec = this.InputSpecification_Codec;
             context.InputSpecification_MaximumBitrate = this.InputSpecification_MaximumBitrate;
             context.InputSpecification_Resolution = this.InputSpecification_Resolution;
+            context.LogLevel = this.LogLevel;
             context.Name = this.Name;
             context.RequestId = this.RequestId;
             context.Reserved = this.Reserved;
@@ -260,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (requestInputSpecificationIsNull)
             {
                 request.InputSpecification = null;
+            }
+            if (cmdletContext.LogLevel != null)
+            {
+                request.LogLevel = cmdletContext.LogLevel;
             }
             if (cmdletContext.Name != null)
             {
@@ -347,6 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public Amazon.MediaLive.InputCodec InputSpecification_Codec { get; set; }
             public Amazon.MediaLive.InputMaximumBitrate InputSpecification_MaximumBitrate { get; set; }
             public Amazon.MediaLive.InputResolution InputSpecification_Resolution { get; set; }
+            public Amazon.MediaLive.LogLevel LogLevel { get; set; }
             public System.String Name { get; set; }
             public System.String RequestId { get; set; }
             public System.String Reserved { get; set; }

@@ -28,7 +28,8 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Get information about a parameter by using the parameter name.
+    /// Get information about a parameter by using the parameter name. Don't confuse this
+    /// API action with the <a>GetParameters</a> API action.
     /// </summary>
     [Cmdlet("Get", "SSMParameter")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Parameter")]

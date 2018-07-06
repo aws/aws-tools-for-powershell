@@ -36,8 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
     ///  
     /// <para>
     /// To filter images, use the labels returned by <code>DetectModerationLabels</code> to
-    /// determine which types of content are appropriate. For information about moderation
-    /// labels, see <a>moderation</a>.
+    /// determine which types of content are appropriate.
+    /// </para><para>
+    /// For information about moderation labels, see Detecting Unsafe Content in the Amazon
+    /// Rekognition Developer Guide.
     /// </para><para>
     /// You pass the input image either as base64-encoded image bytes or as a reference to
     /// an image in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon Rekognition

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// The unique ID of your Amazon Pinpoint application.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -172,6 +172,62 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public Amazon.Pinpoint.Duration Recency_Duration { get; set; }
         #endregion
         
+        #region Parameter SegmentGroups_Group
+        /// <summary>
+        /// <para>
+        /// List of dimension groups to evaluate.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteSegmentRequest_SegmentGroups_Groups")]
+        public Amazon.Pinpoint.Model.SegmentGroup[] SegmentGroups_Group { get; set; }
+        #endregion
+        
+        #region Parameter SegmentGroups_Include
+        /// <summary>
+        /// <para>
+        /// How should the groups be applied for the result
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteSegmentRequest_SegmentGroups_Include")]
+        [AWSConstantClassSource("Amazon.Pinpoint.Include")]
+        public Amazon.Pinpoint.Include SegmentGroups_Include { get; set; }
+        #endregion
+        
+        #region Parameter Coordinates_Latitude
+        /// <summary>
+        /// <para>
+        /// Latitude
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_Latitude")]
+        public System.Double Coordinates_Latitude { get; set; }
+        #endregion
+        
+        #region Parameter Coordinates_Longitude
+        /// <summary>
+        /// <para>
+        /// Longitude
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_Longitude")]
+        public System.Double Coordinates_Longitude { get; set; }
+        #endregion
+        
+        #region Parameter Dimensions_Metric
+        /// <summary>
+        /// <para>
+        /// Custom segment metrics.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteSegmentRequest_Dimensions_Metrics")]
+        public System.Collections.Hashtable Dimensions_Metric { get; set; }
+        #endregion
+        
         #region Parameter WriteSegmentRequest_Name
         /// <summary>
         /// <para>
@@ -180,6 +236,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String WriteSegmentRequest_Name { get; set; }
+        #endregion
+        
+        #region Parameter GPSPoint_RangeInKilometer
+        /// <summary>
+        /// <para>
+        /// Range in kilometers from the coordinate.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteSegmentRequest_Dimensions_Location_GPSPoint_RangeInKilometers")]
+        public System.Double GPSPoint_RangeInKilometer { get; set; }
         #endregion
         
         #region Parameter Recency_RecencyType
@@ -374,6 +441,20 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             {
                 context.WriteSegmentRequest_Dimensions_Location_Country_Values = new List<System.String>(this.Country_Value);
             }
+            if (ParameterWasBound("Coordinates_Latitude"))
+                context.WriteSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_Latitude = this.Coordinates_Latitude;
+            if (ParameterWasBound("Coordinates_Longitude"))
+                context.WriteSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_Longitude = this.Coordinates_Longitude;
+            if (ParameterWasBound("GPSPoint_RangeInKilometer"))
+                context.WriteSegmentRequest_Dimensions_Location_GPSPoint_RangeInKilometers = this.GPSPoint_RangeInKilometer;
+            if (this.Dimensions_Metric != null)
+            {
+                context.WriteSegmentRequest_Dimensions_Metrics = new Dictionary<System.String, Amazon.Pinpoint.Model.MetricDimension>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Dimensions_Metric.Keys)
+                {
+                    context.WriteSegmentRequest_Dimensions_Metrics.Add((String)hashKey, (MetricDimension)(this.Dimensions_Metric[hashKey]));
+                }
+            }
             if (this.Dimensions_UserAttribute != null)
             {
                 context.WriteSegmentRequest_Dimensions_UserAttributes = new Dictionary<System.String, Amazon.Pinpoint.Model.AttributeDimension>(StringComparer.Ordinal);
@@ -383,6 +464,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 }
             }
             context.WriteSegmentRequest_Name = this.WriteSegmentRequest_Name;
+            if (this.SegmentGroups_Group != null)
+            {
+                context.WriteSegmentRequest_SegmentGroups_Groups = new List<Amazon.Pinpoint.Model.SegmentGroup>(this.SegmentGroups_Group);
+            }
+            context.WriteSegmentRequest_SegmentGroups_Include = this.SegmentGroups_Include;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -417,6 +503,41 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 request.WriteSegmentRequest.Name = requestWriteSegmentRequest_writeSegmentRequest_Name;
                 requestWriteSegmentRequestIsNull = false;
             }
+            Amazon.Pinpoint.Model.SegmentGroupList requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups = null;
+            
+             // populate SegmentGroups
+            bool requestWriteSegmentRequest_writeSegmentRequest_SegmentGroupsIsNull = true;
+            requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups = new Amazon.Pinpoint.Model.SegmentGroupList();
+            List<Amazon.Pinpoint.Model.SegmentGroup> requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups_segmentGroups_Group = null;
+            if (cmdletContext.WriteSegmentRequest_SegmentGroups_Groups != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups_segmentGroups_Group = cmdletContext.WriteSegmentRequest_SegmentGroups_Groups;
+            }
+            if (requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups_segmentGroups_Group != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups.Groups = requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups_segmentGroups_Group;
+                requestWriteSegmentRequest_writeSegmentRequest_SegmentGroupsIsNull = false;
+            }
+            Amazon.Pinpoint.Include requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups_segmentGroups_Include = null;
+            if (cmdletContext.WriteSegmentRequest_SegmentGroups_Include != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups_segmentGroups_Include = cmdletContext.WriteSegmentRequest_SegmentGroups_Include;
+            }
+            if (requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups_segmentGroups_Include != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups.Include = requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups_segmentGroups_Include;
+                requestWriteSegmentRequest_writeSegmentRequest_SegmentGroupsIsNull = false;
+            }
+             // determine if requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups should be set to null
+            if (requestWriteSegmentRequest_writeSegmentRequest_SegmentGroupsIsNull)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups = null;
+            }
+            if (requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups != null)
+            {
+                request.WriteSegmentRequest.SegmentGroups = requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups;
+                requestWriteSegmentRequestIsNull = false;
+            }
             Amazon.Pinpoint.Model.SegmentDimensions requestWriteSegmentRequest_writeSegmentRequest_Dimensions = null;
             
              // populate Dimensions
@@ -430,6 +551,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteSegmentRequest_writeSegmentRequest_Dimensions_dimensions_Attribute != null)
             {
                 requestWriteSegmentRequest_writeSegmentRequest_Dimensions.Attributes = requestWriteSegmentRequest_writeSegmentRequest_Dimensions_dimensions_Attribute;
+                requestWriteSegmentRequest_writeSegmentRequest_DimensionsIsNull = false;
+            }
+            Dictionary<System.String, Amazon.Pinpoint.Model.MetricDimension> requestWriteSegmentRequest_writeSegmentRequest_Dimensions_dimensions_Metric = null;
+            if (cmdletContext.WriteSegmentRequest_Dimensions_Metrics != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_dimensions_Metric = cmdletContext.WriteSegmentRequest_Dimensions_Metrics;
+            }
+            if (requestWriteSegmentRequest_writeSegmentRequest_Dimensions_dimensions_Metric != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions.Metrics = requestWriteSegmentRequest_writeSegmentRequest_Dimensions_dimensions_Metric;
                 requestWriteSegmentRequest_writeSegmentRequest_DimensionsIsNull = false;
             }
             Dictionary<System.String, Amazon.Pinpoint.Model.AttributeDimension> requestWriteSegmentRequest_writeSegmentRequest_Dimensions_dimensions_UserAttribute = null;
@@ -530,6 +661,66 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_Country != null)
             {
                 requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location.Country = requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_Country;
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_LocationIsNull = false;
+            }
+            Amazon.Pinpoint.Model.GPSPointDimension requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint = null;
+            
+             // populate GPSPoint
+            bool requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPointIsNull = true;
+            requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint = new Amazon.Pinpoint.Model.GPSPointDimension();
+            System.Double? requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_gPSPoint_RangeInKilometer = null;
+            if (cmdletContext.WriteSegmentRequest_Dimensions_Location_GPSPoint_RangeInKilometers != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_gPSPoint_RangeInKilometer = cmdletContext.WriteSegmentRequest_Dimensions_Location_GPSPoint_RangeInKilometers.Value;
+            }
+            if (requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_gPSPoint_RangeInKilometer != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint.RangeInKilometers = requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_gPSPoint_RangeInKilometer.Value;
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPointIsNull = false;
+            }
+            Amazon.Pinpoint.Model.GPSCoordinates requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_Coordinates = null;
+            
+             // populate Coordinates
+            bool requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_CoordinatesIsNull = true;
+            requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_Coordinates = new Amazon.Pinpoint.Model.GPSCoordinates();
+            System.Double? requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_coordinates_Latitude = null;
+            if (cmdletContext.WriteSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_Latitude != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_coordinates_Latitude = cmdletContext.WriteSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_Latitude.Value;
+            }
+            if (requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_coordinates_Latitude != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_Coordinates.Latitude = requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_coordinates_Latitude.Value;
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_CoordinatesIsNull = false;
+            }
+            System.Double? requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_coordinates_Longitude = null;
+            if (cmdletContext.WriteSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_Longitude != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_coordinates_Longitude = cmdletContext.WriteSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_Longitude.Value;
+            }
+            if (requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_coordinates_Longitude != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_Coordinates.Longitude = requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_coordinates_Longitude.Value;
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_CoordinatesIsNull = false;
+            }
+             // determine if requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_Coordinates should be set to null
+            if (requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_CoordinatesIsNull)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_Coordinates = null;
+            }
+            if (requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_Coordinates != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint.Coordinates = requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint_writeSegmentRequest_Dimensions_Location_GPSPoint_Coordinates;
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPointIsNull = false;
+            }
+             // determine if requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint should be set to null
+            if (requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPointIsNull)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint = null;
+            }
+            if (requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location.GPSPoint = requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location_writeSegmentRequest_Dimensions_Location_GPSPoint;
                 requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_LocationIsNull = false;
             }
              // determine if requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Location should be set to null
@@ -864,8 +1055,14 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public List<System.String> WriteSegmentRequest_Dimensions_Demographic_Platform_Values { get; set; }
             public Amazon.Pinpoint.DimensionType WriteSegmentRequest_Dimensions_Location_Country_DimensionType { get; set; }
             public List<System.String> WriteSegmentRequest_Dimensions_Location_Country_Values { get; set; }
+            public System.Double? WriteSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_Latitude { get; set; }
+            public System.Double? WriteSegmentRequest_Dimensions_Location_GPSPoint_Coordinates_Longitude { get; set; }
+            public System.Double? WriteSegmentRequest_Dimensions_Location_GPSPoint_RangeInKilometers { get; set; }
+            public Dictionary<System.String, Amazon.Pinpoint.Model.MetricDimension> WriteSegmentRequest_Dimensions_Metrics { get; set; }
             public Dictionary<System.String, Amazon.Pinpoint.Model.AttributeDimension> WriteSegmentRequest_Dimensions_UserAttributes { get; set; }
             public System.String WriteSegmentRequest_Name { get; set; }
+            public List<Amazon.Pinpoint.Model.SegmentGroup> WriteSegmentRequest_SegmentGroups_Groups { get; set; }
+            public Amazon.Pinpoint.Include WriteSegmentRequest_SegmentGroups_Include { get; set; }
         }
         
     }

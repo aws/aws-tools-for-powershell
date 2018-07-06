@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using AWSPowerShellGenerator.Utils;
 
 namespace AWSPowerShellGenerator.Generators
 {
@@ -23,6 +24,8 @@ namespace AWSPowerShellGenerator.Generators
 
         public string OutputPath { get; private set; }
 
+        public BasicLogger Logger { get; private set; }
+
         private StreamWriter _streamWriter;
         private JsonWriter _jsonWriter;
 
@@ -31,9 +34,10 @@ namespace AWSPowerShellGenerator.Generators
         /// </summary>
         /// <param name="configModel"></param>
         /// <param name="rootPath"></param>
-        public JsonPSConfigWriter(ConfigModel configModel, string rootPath)
+        public JsonPSConfigWriter(ConfigModel configModel, string rootPath, BasicLogger logger)
         {
             Model = configModel;
+            Logger = logger;
             var outputFolder = Path.Combine(Path.GetFullPath(rootPath), CmdletGenerator.CmdletJsonConfigurationsFoldername);
             OutputPath = Path.Combine(outputFolder, configModel.C2jFilename + ".powershell.json");
         }

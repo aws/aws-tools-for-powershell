@@ -28,7 +28,13 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Send a batch of messages
+    /// Use this resource to send a direct message, which is a one time message that you send
+    /// to a limited audience without creating a campaign. You can send the message to up
+    /// to 100 recipients. You cannot use the message to engage a segment. When you send the
+    /// message, Amazon Pinpoint delivers it immediately, and you cannot schedule the delivery.
+    /// To engage a user segment, and to schedule the message delivery, create a campaign
+    /// instead of sending a direct message.You can send a direct message as a push notification
+    /// to your mobile app or as an SMS message to SMS-enabled devices.
     /// </summary>
     [Cmdlet("Send", "PINMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Pinpoint.Model.MessageResponse")]
@@ -133,9 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter MessageRequest_Address
         /// <summary>
         /// <para>
-        /// A map of destination addresses, with the address
-        /// as the key(Email address, phone number or push token) and the Address Configuration
-        /// as the value.
+        /// A map of key-value pairs, where each key is
+        /// an address and each value is an AddressConfiguration object. An address can be a push
+        /// notification token, a phone number, or an email address.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -146,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// The unique ID of your Amazon Pinpoint application.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -241,8 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter SMSMessage_Body
         /// <summary>
         /// <para>
-        /// The message body of the notification, the email body
-        /// or the text message.
+        /// The body of the SMS message.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -381,9 +386,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter MessageRequest_Endpoint
         /// <summary>
         /// <para>
-        /// A map of destination addresses, with the address
-        /// as the key(Email address, phone number or push token) and the Address Configuration
-        /// as the value.
+        /// A map of key-value pairs, where each key is
+        /// an endpoint ID and each value is an EndpointSendConfiguration object. Within an EndpointSendConfiguration
+        /// object, you can tailor the message for an endpoint by specifying message overrides
+        /// or substitutions.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -509,6 +515,18 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter]
         [Alias("MessageRequest_MessageConfiguration_GCMMessage_ImageUrl")]
         public System.String GCMMessage_ImageUrl { get; set; }
+        #endregion
+        
+        #region Parameter SMSMessage_Keyword
+        /// <summary>
+        /// <para>
+        /// The SMS program name that you provided to AWS
+        /// Support when you requested your dedicated number.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MessageRequest_MessageConfiguration_SMSMessage_Keyword")]
+        public System.String SMSMessage_Keyword { get; set; }
         #endregion
         
         #region Parameter ADMMessage_MD5
@@ -953,6 +971,19 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.Int32 APNSMessage_TimeToLive { get; set; }
         #endregion
         
+        #region Parameter BaiduMessage_TimeToLive
+        /// <summary>
+        /// <para>
+        /// This parameter specifies how long (in seconds)
+        /// the message should be kept in Baidu storage if the device is offline. The and the
+        /// default value and the maximum time to live supported is 7 days (604800 seconds)
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MessageRequest_MessageConfiguration_BaiduMessage_TimeToLive")]
+        public System.Int32 BaiduMessage_TimeToLive { get; set; }
+        #endregion
+        
         #region Parameter GCMMessage_TimeToLive
         /// <summary>
         /// <para>
@@ -1268,6 +1299,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                     context.MessageRequest_MessageConfiguration_BaiduMessage_Substitutions.Add((String)hashKey, valueSet);
                 }
             }
+            if (ParameterWasBound("BaiduMessage_TimeToLive"))
+                context.MessageRequest_MessageConfiguration_BaiduMessage_TimeToLive = this.BaiduMessage_TimeToLive;
             context.MessageRequest_MessageConfiguration_BaiduMessage_Title = this.BaiduMessage_Title;
             context.MessageRequest_MessageConfiguration_BaiduMessage_Url = this.BaiduMessage_Url;
             context.MessageRequest_MessageConfiguration_DefaultMessage_Body = this.DefaultMessage_Body;
@@ -1371,6 +1404,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.MessageRequest_MessageConfiguration_GCMMessage_Title = this.GCMMessage_Title;
             context.MessageRequest_MessageConfiguration_GCMMessage_Url = this.GCMMessage_Url;
             context.MessageRequest_MessageConfiguration_SMSMessage_Body = this.SMSMessage_Body;
+            context.MessageRequest_MessageConfiguration_SMSMessage_Keyword = this.SMSMessage_Keyword;
             context.MessageRequest_MessageConfiguration_SMSMessage_MessageType = this.SMSMessage_MessageType;
             context.MessageRequest_MessageConfiguration_SMSMessage_OriginationNumber = this.SMSMessage_OriginationNumber;
             context.MessageRequest_MessageConfiguration_SMSMessage_SenderId = this.SMSMessage_SenderId;
@@ -1501,6 +1535,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage_sMSMessage_Body != null)
             {
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage.Body = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage_sMSMessage_Body;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessageIsNull = false;
+            }
+            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage_sMSMessage_Keyword = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_SMSMessage_Keyword != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage_sMSMessage_Keyword = cmdletContext.MessageRequest_MessageConfiguration_SMSMessage_Keyword;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage_sMSMessage_Keyword != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage.Keyword = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage_sMSMessage_Keyword;
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessageIsNull = false;
             }
             Amazon.Pinpoint.MessageType requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage_sMSMessage_MessageType = null;
@@ -1751,6 +1795,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessage_baiduMessage_Substitution != null)
             {
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessage.Substitutions = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessage_baiduMessage_Substitution;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessageIsNull = false;
+            }
+            System.Int32? requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessage_baiduMessage_TimeToLive = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_BaiduMessage_TimeToLive != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessage_baiduMessage_TimeToLive = cmdletContext.MessageRequest_MessageConfiguration_BaiduMessage_TimeToLive.Value;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessage_baiduMessage_TimeToLive != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessage.TimeToLive = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessage_baiduMessage_TimeToLive.Value;
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessageIsNull = false;
             }
             System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessage_baiduMessage_Title = null;
@@ -2455,6 +2509,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String MessageRequest_MessageConfiguration_BaiduMessage_SmallImageIconUrl { get; set; }
             public System.String MessageRequest_MessageConfiguration_BaiduMessage_Sound { get; set; }
             public Dictionary<System.String, List<System.String>> MessageRequest_MessageConfiguration_BaiduMessage_Substitutions { get; set; }
+            public System.Int32? MessageRequest_MessageConfiguration_BaiduMessage_TimeToLive { get; set; }
             public System.String MessageRequest_MessageConfiguration_BaiduMessage_Title { get; set; }
             public System.String MessageRequest_MessageConfiguration_BaiduMessage_Url { get; set; }
             public System.String MessageRequest_MessageConfiguration_DefaultMessage_Body { get; set; }
@@ -2484,6 +2539,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String MessageRequest_MessageConfiguration_GCMMessage_Title { get; set; }
             public System.String MessageRequest_MessageConfiguration_GCMMessage_Url { get; set; }
             public System.String MessageRequest_MessageConfiguration_SMSMessage_Body { get; set; }
+            public System.String MessageRequest_MessageConfiguration_SMSMessage_Keyword { get; set; }
             public Amazon.Pinpoint.MessageType MessageRequest_MessageConfiguration_SMSMessage_MessageType { get; set; }
             public System.String MessageRequest_MessageConfiguration_SMSMessage_OriginationNumber { get; set; }
             public System.String MessageRequest_MessageConfiguration_SMSMessage_SenderId { get; set; }

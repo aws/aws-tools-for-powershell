@@ -37,9 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// </para><ul><li><para>
     /// secretsmanager:GetSecretValue
     /// </para></li><li><para>
-    /// kms:Decrypt - required only if you use a customer-created KMS key to encrypt the secret.
-    /// You do not need this permission to use the account's default AWS managed CMK for Secrets
-    /// Manager.
+    /// kms:Decrypt - required only if you use a customer-managed AWS KMS key to encrypt the
+    /// secret. You do not need this permission to use the account's default AWS managed CMK
+    /// for Secrets Manager.
     /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
     /// To create a new version of the secret with different encrypted information, use <a>PutSecretValue</a>.
     /// </para></li><li><para>

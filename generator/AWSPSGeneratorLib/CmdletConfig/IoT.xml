@@ -44,7 +44,14 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="CancelJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="Job" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
+            <Params>
+                <Param Name="Force" NewName="Enforce" AutoApplyAlias="false"/>
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelJobExecution" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="JobExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="Force" NewName="Enforce" AutoApplyAlias="false"/>
+            </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="ClearDefaultAuthorizer" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Clear" Noun="DefaultAuthorizer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
@@ -101,12 +108,12 @@
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Job" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
-                <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
+                <Param Name="Force" NewName="Enforce" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" AutoConvert="None" />
             </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteJobExecution" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="JobExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ExecutionNumber" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ExecutionNumber" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
-                <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
+                <Param Name="Force" NewName="Enforce" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" AutoConvert="None" />
             </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteOTAUpdate" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="OTAUpdate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OtaUpdateId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

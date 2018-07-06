@@ -28,7 +28,8 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Updates the specified directory configuration.
+    /// Updates the specified Directory Config object in AppStream 2.0. This object includes
+    /// the information required to join streaming instances to an Active Directory domain.
     /// </summary>
     [Cmdlet("Update", "APSDirectoryConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.DirectoryConfig")]
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DirectoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the directory configuration.</para>
+        /// <para>The name of the Directory Config object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

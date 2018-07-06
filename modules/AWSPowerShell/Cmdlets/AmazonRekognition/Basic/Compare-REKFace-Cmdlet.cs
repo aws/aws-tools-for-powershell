@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     ///  This is a stateless API operation. That is, data returned by this operation doesn't
     /// persist.
     /// </para></note><para>
-    /// For an example, see <a>faces-compare-images</a>.
+    /// For an example, see Comparing Faces in Images in the Amazon Rekognition Developer
+    /// Guide.
     /// </para><para>
     /// This operation requires permissions to perform the <code>rekognition:CompareFaces</code>
     /// action.

@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A unique identifier that you use to retry a request. If you retry a request, use the
+        /// same <code>ClientToken</code> you specified in the initial request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 5)]
@@ -76,10 +77,34 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String GatewayARN { get; set; }
         #endregion
         
+        #region Parameter KMSEncrypted
+        /// <summary>
+        /// <para>
+        /// <para>True to use Amazon S3 server side encryption with your own AWS KMS key, or false to
+        /// use a key managed by Amazon S3. Optional.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean KMSEncrypted { get; set; }
+        #endregion
+        
+        #region Parameter KMSKey
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side encryption.
+        /// This value can only be set when KMSEncrypted is true. Optional.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KMSKey { get; set; }
+        #endregion
+        
         #region Parameter NetworkInterfaceId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The network interface of the gateway on which to expose the iSCSI target. Only IPv4
+        /// addresses are accepted. Use <a>DescribeGatewayInformation</a> to get a list of the
+        /// network interfaces available on a gateway.</para><para> Valid Values: A valid IP address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
@@ -89,7 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter SnapshotId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new cached
+        /// volume. Specify this field if you want to create the iSCSI storage volume from a snapshot
+        /// otherwise do not include this field. To list snapshots for your account use <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a>
+        /// in the <i>Amazon Elastic Compute Cloud API Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -112,7 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter TargetName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the iSCSI target used by initiators to connect to the target and as a
+        /// suffix for the target ARN. For example, specifying <code>TargetName</code> as <i>myvolume</i>
+        /// results in the target ARN of arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume.
+        /// The target name must be unique across all volumes of a gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -122,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter VolumeSizeInBytes
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The size of the volume in bytes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -160,6 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
             
             context.ClientToken = this.ClientToken;
             context.GatewayARN = this.GatewayARN;
+            if (ParameterWasBound("KMSEncrypted"))
+                context.KMSEncrypted = this.KMSEncrypted;
+            context.KMSKey = this.KMSKey;
             context.NetworkInterfaceId = this.NetworkInterfaceId;
             context.SnapshotId = this.SnapshotId;
             context.SourceVolumeARN = this.SourceVolumeARN;
@@ -189,6 +223,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.GatewayARN != null)
             {
                 request.GatewayARN = cmdletContext.GatewayARN;
+            }
+            if (cmdletContext.KMSEncrypted != null)
+            {
+                request.KMSEncrypted = cmdletContext.KMSEncrypted.Value;
+            }
+            if (cmdletContext.KMSKey != null)
+            {
+                request.KMSKey = cmdletContext.KMSKey;
             }
             if (cmdletContext.NetworkInterfaceId != null)
             {
@@ -276,6 +318,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             public System.String ClientToken { get; set; }
             public System.String GatewayARN { get; set; }
+            public System.Boolean? KMSEncrypted { get; set; }
+            public System.String KMSKey { get; set; }
             public System.String NetworkInterfaceId { get; set; }
             public System.String SnapshotId { get; set; }
             public System.String SourceVolumeARN { get; set; }

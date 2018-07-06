@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
     /// Lists the private certificate authorities that you created by using the <a>CreateCertificateAuthority</a>
-    /// function.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// operation.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "PCACertificateAuthorityList")]
     [OutputType("Amazon.ACMPCA.Model.CertificateAuthority")]

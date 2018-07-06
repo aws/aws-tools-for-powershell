@@ -177,6 +177,17 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.String SshPublicKey { get; set; }
         #endregion
         
+        #region Parameter Configuration_VpceConfigurationArn
+        /// <summary>
+        /// <para>
+        /// <para>An array of Amazon Resource Names (ARNs) included in the VPC endpoint configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Configuration_VpceConfigurationArns")]
+        public System.String[] Configuration_VpceConfigurationArn { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -208,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
             
             context.ClientId = this.ClientId;
             context.Configuration_BillingMethod = this.Configuration_BillingMethod;
+            if (this.Configuration_VpceConfigurationArn != null)
+            {
+                context.Configuration_VpceConfigurationArns = new List<System.String>(this.Configuration_VpceConfigurationArn);
+            }
             context.DeviceArn = this.DeviceArn;
             context.InstanceArn = this.InstanceArn;
             context.InteractionMode = this.InteractionMode;
@@ -253,6 +268,16 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (requestConfiguration_configuration_BillingMethod != null)
             {
                 request.Configuration.BillingMethod = requestConfiguration_configuration_BillingMethod;
+                requestConfigurationIsNull = false;
+            }
+            List<System.String> requestConfiguration_configuration_VpceConfigurationArn = null;
+            if (cmdletContext.Configuration_VpceConfigurationArns != null)
+            {
+                requestConfiguration_configuration_VpceConfigurationArn = cmdletContext.Configuration_VpceConfigurationArns;
+            }
+            if (requestConfiguration_configuration_VpceConfigurationArn != null)
+            {
+                request.Configuration.VpceConfigurationArns = requestConfiguration_configuration_VpceConfigurationArn;
                 requestConfigurationIsNull = false;
             }
              // determine if request.Configuration should be set to null
@@ -366,6 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             public System.String ClientId { get; set; }
             public Amazon.DeviceFarm.BillingMethod Configuration_BillingMethod { get; set; }
+            public List<System.String> Configuration_VpceConfigurationArns { get; set; }
             public System.String DeviceArn { get; set; }
             public System.String InstanceArn { get; set; }
             public Amazon.DeviceFarm.InteractionMode InteractionMode { get; set; }

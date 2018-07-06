@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para>
+        /// <para>One or more filters.</para><ul><li><para><code>instance-type</code> - The instance type.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

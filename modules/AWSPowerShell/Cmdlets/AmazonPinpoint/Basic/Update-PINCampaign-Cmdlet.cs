@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// The unique ID of your Amazon Pinpoint application.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter CampaignId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// The unique ID of the campaign.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -898,6 +898,81 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String Schedule_StartTime { get; set; }
         #endregion
         
+        #region Parameter ADMMessage_TimeToLive
+        /// <summary>
+        /// <para>
+        /// This parameter specifies how long (in seconds)
+        /// the message should be kept if the service is unable to deliver the notification the
+        /// first time. If the value is 0, it treats the notification as if it expires immediately
+        /// and does not store the notification or attempt to redeliver it. This value is converted
+        /// to the expiration field when sent to the service. It only applies to APNs and GCM
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_MessageConfiguration_ADMMessage_TimeToLive")]
+        public System.Int32 ADMMessage_TimeToLive { get; set; }
+        #endregion
+        
+        #region Parameter APNSMessage_TimeToLive
+        /// <summary>
+        /// <para>
+        /// This parameter specifies how long (in seconds)
+        /// the message should be kept if the service is unable to deliver the notification the
+        /// first time. If the value is 0, it treats the notification as if it expires immediately
+        /// and does not store the notification or attempt to redeliver it. This value is converted
+        /// to the expiration field when sent to the service. It only applies to APNs and GCM
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_MessageConfiguration_APNSMessage_TimeToLive")]
+        public System.Int32 APNSMessage_TimeToLive { get; set; }
+        #endregion
+        
+        #region Parameter BaiduMessage_TimeToLive
+        /// <summary>
+        /// <para>
+        /// This parameter specifies how long (in seconds)
+        /// the message should be kept if the service is unable to deliver the notification the
+        /// first time. If the value is 0, it treats the notification as if it expires immediately
+        /// and does not store the notification or attempt to redeliver it. This value is converted
+        /// to the expiration field when sent to the service. It only applies to APNs and GCM
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_MessageConfiguration_BaiduMessage_TimeToLive")]
+        public System.Int32 BaiduMessage_TimeToLive { get; set; }
+        #endregion
+        
+        #region Parameter DefaultMessage_TimeToLive
+        /// <summary>
+        /// <para>
+        /// This parameter specifies how long (in seconds)
+        /// the message should be kept if the service is unable to deliver the notification the
+        /// first time. If the value is 0, it treats the notification as if it expires immediately
+        /// and does not store the notification or attempt to redeliver it. This value is converted
+        /// to the expiration field when sent to the service. It only applies to APNs and GCM
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_MessageConfiguration_DefaultMessage_TimeToLive")]
+        public System.Int32 DefaultMessage_TimeToLive { get; set; }
+        #endregion
+        
+        #region Parameter GCMMessage_TimeToLive
+        /// <summary>
+        /// <para>
+        /// This parameter specifies how long (in seconds)
+        /// the message should be kept if the service is unable to deliver the notification the
+        /// first time. If the value is 0, it treats the notification as if it expires immediately
+        /// and does not store the notification or attempt to redeliver it. This value is converted
+        /// to the expiration field when sent to the service. It only applies to APNs and GCM
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_MessageConfiguration_GCMMessage_TimeToLive")]
+        public System.Int32 GCMMessage_TimeToLive { get; set; }
+        #endregion
+        
         #region Parameter Schedule_Timezone
         /// <summary>
         /// <para>
@@ -1147,6 +1222,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.WriteCampaignRequest_MessageConfiguration_ADMMessage_RawContent = this.ADMMessage_RawContent;
             if (ParameterWasBound("ADMMessage_SilentPush"))
                 context.WriteCampaignRequest_MessageConfiguration_ADMMessage_SilentPush = this.ADMMessage_SilentPush;
+            if (ParameterWasBound("ADMMessage_TimeToLive"))
+                context.WriteCampaignRequest_MessageConfiguration_ADMMessage_TimeToLive = this.ADMMessage_TimeToLive;
             context.WriteCampaignRequest_MessageConfiguration_ADMMessage_Title = this.ADMMessage_Title;
             context.WriteCampaignRequest_MessageConfiguration_ADMMessage_Url = this.ADMMessage_Url;
             context.WriteCampaignRequest_MessageConfiguration_APNSMessage_Action = this.APNSMessage_Action;
@@ -1159,6 +1236,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.WriteCampaignRequest_MessageConfiguration_APNSMessage_RawContent = this.APNSMessage_RawContent;
             if (ParameterWasBound("APNSMessage_SilentPush"))
                 context.WriteCampaignRequest_MessageConfiguration_APNSMessage_SilentPush = this.APNSMessage_SilentPush;
+            if (ParameterWasBound("APNSMessage_TimeToLive"))
+                context.WriteCampaignRequest_MessageConfiguration_APNSMessage_TimeToLive = this.APNSMessage_TimeToLive;
             context.WriteCampaignRequest_MessageConfiguration_APNSMessage_Title = this.APNSMessage_Title;
             context.WriteCampaignRequest_MessageConfiguration_APNSMessage_Url = this.APNSMessage_Url;
             context.WriteCampaignRequest_MessageConfiguration_BaiduMessage_Action = this.BaiduMessage_Action;
@@ -1171,6 +1250,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.WriteCampaignRequest_MessageConfiguration_BaiduMessage_RawContent = this.BaiduMessage_RawContent;
             if (ParameterWasBound("BaiduMessage_SilentPush"))
                 context.WriteCampaignRequest_MessageConfiguration_BaiduMessage_SilentPush = this.BaiduMessage_SilentPush;
+            if (ParameterWasBound("BaiduMessage_TimeToLive"))
+                context.WriteCampaignRequest_MessageConfiguration_BaiduMessage_TimeToLive = this.BaiduMessage_TimeToLive;
             context.WriteCampaignRequest_MessageConfiguration_BaiduMessage_Title = this.BaiduMessage_Title;
             context.WriteCampaignRequest_MessageConfiguration_BaiduMessage_Url = this.BaiduMessage_Url;
             context.WriteCampaignRequest_MessageConfiguration_DefaultMessage_Action = this.DefaultMessage_Action;
@@ -1183,6 +1264,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.WriteCampaignRequest_MessageConfiguration_DefaultMessage_RawContent = this.DefaultMessage_RawContent;
             if (ParameterWasBound("DefaultMessage_SilentPush"))
                 context.WriteCampaignRequest_MessageConfiguration_DefaultMessage_SilentPush = this.DefaultMessage_SilentPush;
+            if (ParameterWasBound("DefaultMessage_TimeToLive"))
+                context.WriteCampaignRequest_MessageConfiguration_DefaultMessage_TimeToLive = this.DefaultMessage_TimeToLive;
             context.WriteCampaignRequest_MessageConfiguration_DefaultMessage_Title = this.DefaultMessage_Title;
             context.WriteCampaignRequest_MessageConfiguration_DefaultMessage_Url = this.DefaultMessage_Url;
             context.WriteCampaignRequest_MessageConfiguration_EmailMessage_Body = this.EmailMessage_Body;
@@ -1199,6 +1282,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.WriteCampaignRequest_MessageConfiguration_GCMMessage_RawContent = this.GCMMessage_RawContent;
             if (ParameterWasBound("GCMMessage_SilentPush"))
                 context.WriteCampaignRequest_MessageConfiguration_GCMMessage_SilentPush = this.GCMMessage_SilentPush;
+            if (ParameterWasBound("GCMMessage_TimeToLive"))
+                context.WriteCampaignRequest_MessageConfiguration_GCMMessage_TimeToLive = this.GCMMessage_TimeToLive;
             context.WriteCampaignRequest_MessageConfiguration_GCMMessage_Title = this.GCMMessage_Title;
             context.WriteCampaignRequest_MessageConfiguration_GCMMessage_Url = this.GCMMessage_Url;
             context.WriteCampaignRequest_MessageConfiguration_SMSMessage_Body = this.SMSMessage_Body;
@@ -1736,6 +1821,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_ADMMessage.SilentPush = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_ADMMessage_aDMMessage_SilentPush.Value;
                 requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_ADMMessageIsNull = false;
             }
+            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_ADMMessage_aDMMessage_TimeToLive = null;
+            if (cmdletContext.WriteCampaignRequest_MessageConfiguration_ADMMessage_TimeToLive != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_ADMMessage_aDMMessage_TimeToLive = cmdletContext.WriteCampaignRequest_MessageConfiguration_ADMMessage_TimeToLive.Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_ADMMessage_aDMMessage_TimeToLive != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_ADMMessage.TimeToLive = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_ADMMessage_aDMMessage_TimeToLive.Value;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_ADMMessageIsNull = false;
+            }
             System.String requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_ADMMessage_aDMMessage_Title = null;
             if (cmdletContext.WriteCampaignRequest_MessageConfiguration_ADMMessage_Title != null)
             {
@@ -1859,6 +1954,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessage_aPNSMessage_SilentPush != null)
             {
                 requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessage.SilentPush = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessage_aPNSMessage_SilentPush.Value;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessageIsNull = false;
+            }
+            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessage_aPNSMessage_TimeToLive = null;
+            if (cmdletContext.WriteCampaignRequest_MessageConfiguration_APNSMessage_TimeToLive != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessage_aPNSMessage_TimeToLive = cmdletContext.WriteCampaignRequest_MessageConfiguration_APNSMessage_TimeToLive.Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessage_aPNSMessage_TimeToLive != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessage.TimeToLive = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessage_aPNSMessage_TimeToLive.Value;
                 requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessageIsNull = false;
             }
             System.String requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessage_aPNSMessage_Title = null;
@@ -1986,6 +2091,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_BaiduMessage.SilentPush = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_BaiduMessage_baiduMessage_SilentPush.Value;
                 requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_BaiduMessageIsNull = false;
             }
+            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_BaiduMessage_baiduMessage_TimeToLive = null;
+            if (cmdletContext.WriteCampaignRequest_MessageConfiguration_BaiduMessage_TimeToLive != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_BaiduMessage_baiduMessage_TimeToLive = cmdletContext.WriteCampaignRequest_MessageConfiguration_BaiduMessage_TimeToLive.Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_BaiduMessage_baiduMessage_TimeToLive != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_BaiduMessage.TimeToLive = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_BaiduMessage_baiduMessage_TimeToLive.Value;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_BaiduMessageIsNull = false;
+            }
             System.String requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_BaiduMessage_baiduMessage_Title = null;
             if (cmdletContext.WriteCampaignRequest_MessageConfiguration_BaiduMessage_Title != null)
             {
@@ -2111,6 +2226,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessage.SilentPush = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessage_defaultMessage_SilentPush.Value;
                 requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessageIsNull = false;
             }
+            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessage_defaultMessage_TimeToLive = null;
+            if (cmdletContext.WriteCampaignRequest_MessageConfiguration_DefaultMessage_TimeToLive != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessage_defaultMessage_TimeToLive = cmdletContext.WriteCampaignRequest_MessageConfiguration_DefaultMessage_TimeToLive.Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessage_defaultMessage_TimeToLive != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessage.TimeToLive = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessage_defaultMessage_TimeToLive.Value;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessageIsNull = false;
+            }
             System.String requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessage_defaultMessage_Title = null;
             if (cmdletContext.WriteCampaignRequest_MessageConfiguration_DefaultMessage_Title != null)
             {
@@ -2234,6 +2359,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessage_gCMMessage_SilentPush != null)
             {
                 requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessage.SilentPush = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessage_gCMMessage_SilentPush.Value;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessageIsNull = false;
+            }
+            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessage_gCMMessage_TimeToLive = null;
+            if (cmdletContext.WriteCampaignRequest_MessageConfiguration_GCMMessage_TimeToLive != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessage_gCMMessage_TimeToLive = cmdletContext.WriteCampaignRequest_MessageConfiguration_GCMMessage_TimeToLive.Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessage_gCMMessage_TimeToLive != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessage.TimeToLive = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessage_gCMMessage_TimeToLive.Value;
                 requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessageIsNull = false;
             }
             System.String requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessage_gCMMessage_Title = null;
@@ -2367,6 +2502,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String WriteCampaignRequest_MessageConfiguration_ADMMessage_MediaUrl { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_ADMMessage_RawContent { get; set; }
             public System.Boolean? WriteCampaignRequest_MessageConfiguration_ADMMessage_SilentPush { get; set; }
+            public System.Int32? WriteCampaignRequest_MessageConfiguration_ADMMessage_TimeToLive { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_ADMMessage_Title { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_ADMMessage_Url { get; set; }
             public Amazon.Pinpoint.Action WriteCampaignRequest_MessageConfiguration_APNSMessage_Action { get; set; }
@@ -2378,6 +2514,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String WriteCampaignRequest_MessageConfiguration_APNSMessage_MediaUrl { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_APNSMessage_RawContent { get; set; }
             public System.Boolean? WriteCampaignRequest_MessageConfiguration_APNSMessage_SilentPush { get; set; }
+            public System.Int32? WriteCampaignRequest_MessageConfiguration_APNSMessage_TimeToLive { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_APNSMessage_Title { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_APNSMessage_Url { get; set; }
             public Amazon.Pinpoint.Action WriteCampaignRequest_MessageConfiguration_BaiduMessage_Action { get; set; }
@@ -2389,6 +2526,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String WriteCampaignRequest_MessageConfiguration_BaiduMessage_MediaUrl { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_BaiduMessage_RawContent { get; set; }
             public System.Boolean? WriteCampaignRequest_MessageConfiguration_BaiduMessage_SilentPush { get; set; }
+            public System.Int32? WriteCampaignRequest_MessageConfiguration_BaiduMessage_TimeToLive { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_BaiduMessage_Title { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_BaiduMessage_Url { get; set; }
             public Amazon.Pinpoint.Action WriteCampaignRequest_MessageConfiguration_DefaultMessage_Action { get; set; }
@@ -2400,6 +2538,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String WriteCampaignRequest_MessageConfiguration_DefaultMessage_MediaUrl { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_DefaultMessage_RawContent { get; set; }
             public System.Boolean? WriteCampaignRequest_MessageConfiguration_DefaultMessage_SilentPush { get; set; }
+            public System.Int32? WriteCampaignRequest_MessageConfiguration_DefaultMessage_TimeToLive { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_DefaultMessage_Title { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_DefaultMessage_Url { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_EmailMessage_Body { get; set; }
@@ -2415,6 +2554,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String WriteCampaignRequest_MessageConfiguration_GCMMessage_MediaUrl { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_GCMMessage_RawContent { get; set; }
             public System.Boolean? WriteCampaignRequest_MessageConfiguration_GCMMessage_SilentPush { get; set; }
+            public System.Int32? WriteCampaignRequest_MessageConfiguration_GCMMessage_TimeToLive { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_GCMMessage_Title { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_GCMMessage_Url { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_SMSMessage_Body { get; set; }

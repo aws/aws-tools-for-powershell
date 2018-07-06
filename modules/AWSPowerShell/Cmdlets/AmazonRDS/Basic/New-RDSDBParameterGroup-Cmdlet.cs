@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The DB parameter group family name. A DB parameter group can be associated with one
         /// and only one DB parameter group family, and can be applied only to a DB instance running
-        /// a database engine and engine version compatible with that DB parameter group family.</para>
+        /// a database engine and engine version compatible with that DB parameter group family.</para><para>To list all of the available parameter group families, use the following command:</para><para><code>aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"</code></para><note><para>The output contains duplicates.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

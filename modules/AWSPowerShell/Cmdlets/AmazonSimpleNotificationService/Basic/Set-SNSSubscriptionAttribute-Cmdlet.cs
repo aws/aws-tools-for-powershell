@@ -28,7 +28,7 @@ using Amazon.SimpleNotificationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
-    /// Allows a subscription owner to set an attribute of the topic to a new value.
+    /// Allows a subscription owner to set an attribute of the subscription to a new value.
     /// </summary>
     [Cmdlet("Set", "SNSSubscriptionAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>The name of the attribute you want to set. Only a subset of the subscriptions attributes
-        /// are mutable.</para><para>Valid values: <code>DeliveryPolicy</code> | <code>RawMessageDelivery</code></para>
+        /// are mutable.</para><para>Valid values: <code>DeliveryPolicy</code> | <code>FilterPolicy</code> | <code>RawMessageDelivery</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
