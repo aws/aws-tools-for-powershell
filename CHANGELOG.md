@@ -3,14 +3,54 @@
     * [Breaking Change] The DeleteServiceLinkedRole api was released in error and has now been removed by the service. Accordingly the Remove-CFServiceLinkedRole cmdlet has been removed from the module. We apologize for any inconvenience caused.
   * Amazon EC2
     * Added parameter -CpuOption to the New-EC2Instance cmdlet to enable optimizing CPU options for your new instance(s). For more details see [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the Amazon EC2 User Guide.
+    * Added revised examples for the Get-EC2ConsoleOutput and Grant-EC2SecurityGroupIngress cmdets based on user feedback.
   * Amazon Workpaces
     * Renamed the _-ResourceId_ parameter for the New-WKSTag and Get-WKSTag cmdlets to _-WorkspaceId_ to improve consistency with other Amazon Workspaces cmdlets. A backwards compatible alias of ResourceId has also been applied to this parameter to support existing scripts.
+  * Amazon Relational Database Service
+    * The name of the cmdlet _Get-RDSReservedDBInstancesOffering_, which maps to the service API _PurchaseReservedDBInstancesOffering_, has been corrected to _New-RDSReservedDBInstancesOfferingPurchase_. The Get verb had been applied incorrectly as this cmdlet/API actually performs a purchase and does not simply return information. An alias for the old name has been included in the module for backwards compatibility but we encourage users of this cmdlet to adopt the new name at their earliest convenience.
+    * Updated cmdlets to support new service feature enabling users to specify the retention period for Performance Insights data for RDS instances. You can either choose 7 days (default) or 731 days.
+  * Amazon Comprehend
+    * Updated cmdlets to support new service feature enabling batch processing of a set of documents stored within an S3 bucket.
+  * Amazon ECS
+    * Updated cmdlets to support new service feature enabling daemon scheduling capability to deploy one task per instance on selected instances in a cluster.
+    * Added parameter _-Enforce_ flag to the Remove-ECSService cmdlet to allow deleting a service without requiring to scale down the number of tasks to zero. This parameter maps to the _Force_ value in the underlying DeleteService API.
+  * Amazon Inspector
+    * Added cmdlets to support new service feature for viewing and previewing exclusions. Exclusions show which intended security checks are excluded from an assessment, along with reasons and recommendations to fix.
+  * Amazon Pinpoint
+    * Updated cmdlets to support new service features for creating complex segments and validating phone numbers for SMS messages. It also adds the ability to get or delete endpoints based on user IDs, remove attributes from endpoints, and list the defined channels for an app.
+  * Amazon Redshift
+    * Updated cmdlets to support new service features. (1) On-demand cluster release version: When Amazon Redshift releases a new cluster version, you can choose to upgrade to that version immediately instead of waiting until your next maintenance window. You can also choose to roll back to a previous version. (2) Upgradeable reserved instance - You can now exchange one Reserved Instance for a new Reserved Instance with no changes to the terms of your existing Reserved Instance (term, payment type, or number of nodes).
+  * Amazon SageMaker
+    * Added support for Notebook instances and the ability to run hyperparameter tuning jobs. A hyperparameter tuning job will create and evaluate multiple training jobs while tuning algorithm hyperparameters, to optimize a customer specified objective metric.
+  * AWS Secrets Manager
+    * Updated cmdlets to support new service feature for esource-based policies that attach directly to your secrets. These policies provide an additional way to control who can access your secrets and what they can do with them. For more information, see https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html in the Secrets Manager User Guide.
+  * AWS Shield
+    * Added support for DDoS Response Team access management.
+  * AWS Storage Gateway
+    * Updated cmdlets to support new service features for using Server Message Block (SMB) protocol to store and access objects in Amazon Simple Storage Service (S3).
   * AWS CloudFormation
     * Updated the New-CFNStackSet and Update-CFNStack set with parameters to support filtered updates for StackSets based on accounts and regions (this feature will allow flexibility for the customers to roll out updates on a StackSet based on specific accounts and regions) and to support customized ExecutionRoleName (this feature will allow customers to attach ExecutionRoleName to the StackSet thus ensuring more security and controlling the behavior of any AWS resources in the target accounts).
   * AWS IoT
     * Added cmdlets to support new APIs released by the service: Remove-IOTJob (DeleteJob API) and Remove-IOTJobExecution (DeleteJobExecution API).
-  * Amazon Relational Database Service
-    * The name of the cmdlet _Get-RDSReservedDBInstancesOffering_, which maps to the service API _PurchaseReservedDBInstancesOffering_, has been corrected to _New-RDSReservedDBInstancesOfferingPurchase_. The Get verb had been applied incorrectly as this cmdlet/API actually performs a purchase and does not simply return information. An alias for the old name has been included in the module for backwards compatibility but we encourage users of this cmdlet to adopt the new name at their earliest convenience.
+    * Updated the Stop-IOTJob cmdlet to support forced cancellation.
+    * Added cmdlet Stop-IOTJobExecution (CancelJobExecution API).
+  * AWS Systems Manager
+    * Added example for the New-SSMAssociation cmdlet.
+    * Updated cmdlets to support new service features around sending RunCommand output to CloudWatch Logs, add the ability to view association execution history and execute an association.
+  * AWS AppStream
+    * Updated cmdlets to support new service feature enabling customers to find their VPC private IP address and ENI ID associated with AppStream streaming sessions.
+  * AWS Certificate Manager Private Certificate Authority
+    * Updated cmdlets to support new service 'Restore' feature, enabling users to restore a private certificate authority that has been deleted. When you use the Remove-PCACertificateAuthority cmdlet, you can now specify the number of days (7-30, with 30 being the default) in which the private certificate authority will remain in the DELETED state. During this time, the private certificate authority can be restored with the new Restore-PCACertificateAuthority (RestoreCertificateAuthority API) cmdlet and then be returned to the PENDING_CERTIFICATE or DISABLED state, depending upon the state prior to deletion.
+  * AWS Cloud Directory
+    * Updated cmdlets to support new service 'Flexible Schema' feature. This feature lets customers using new capabilities like: variant typed attributes, dynamic facets and AWS managed Cloud Directory schemas.
+  * AWS Glue
+    * Updated cmdlets to support new service feature for sending delay notification to Amazon CloudWatch Events when an ETL job runs longer than the specified delay notification threshold.
+  * AWS Elemental MediaLive
+    * Added and updated cmdlets to support new service features for reserved inputs and outputs. You can reserve inputs and outputs with a 12 month commitment in exchange for discounted hourly rates. Pricing is available at https://aws.amazon.com/medialive/pricing/.
+  * AWS Config
+    * Updated cmdlets to support new service feature for retention, allowing you to specify a retention period for your AWS Config configuration items.
+  * AWS Directory Service
+    * Added cmdlet Reset-DSUserPassword (ResetUserPassword API). Customers can now reset their users' passwords without providing the old passwords in Simple AD and Microsoft AD.
 
 ### 3.3.283.0 (2018-05-18)
   * AWS Service Catalog
