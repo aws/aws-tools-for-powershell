@@ -195,6 +195,9 @@
     <Reference Include="AWSSDK.ServerlessApplicationRepository">
       <HintPath>..\..\packages\AWSSDK.ServerlessApplicationRepository.3.3.2\lib\net35\AWSSDK.ServerlessApplicationRepository.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ServiceDiscovery">
+      <HintPath>..\..\packages\AWSSDK.ServiceDiscovery.3.3.2.8\lib\net35\AWSSDK.ServiceDiscovery.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SimpleWorkflow">
       <HintPath>..\..\packages\AWSSDK.SimpleWorkflow.3.3.0.33\lib\net35\AWSSDK.SimpleWorkflow.dll</HintPath>
     </Reference>

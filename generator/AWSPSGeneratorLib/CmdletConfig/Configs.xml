@@ -109,6 +109,7 @@
     <Path>Shield.xml</Path>
     <Path>ServerlessApplicationRepository.xml</Path>
     <Path>ServiceCatalog.xml</Path>
+    <Path>ServiceDiscovery.xml</Path>
     <Path>SES.xml</Path>
     <Path>SFN.xml</Path>
     <Path>Snowball.xml</Path>
@@ -142,14 +143,14 @@
     <Map From="Modify" To="Edit" />
     <Map From="Put" To="Write" />
   </VerbMappings>
-  
+
   <TypesNotToFlatten>
     <Type>System.IO.Stream</Type>
     <Type>System.IO.MemoryStream</Type>
     <Type>System.Collections.Generic.List`1</Type>
     <Type>System.Collections.Generic.Dictionary`2</Type>
   </TypesNotToFlatten>
-  
+
   <MetadataProperties>
     <Property>NextToken</Property>
     <Property>NextPageToken</Property>

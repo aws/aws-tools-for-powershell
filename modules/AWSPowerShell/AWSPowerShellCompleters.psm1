@@ -6427,6 +6427,41 @@ $SC_map = @{
 _awsArgumentCompleterRegistration $SC_Completers $SC_map
 
 
+# Argument completions for service Amazon Route 53 Auto Naming
+$SD_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ServiceDiscovery.CustomHealthStatus
+        "Update-SDInstanceCustomHealthStatus/Status"
+        {
+            $v = "HEALTHY","UNHEALTHY"
+            break
+        }
+        
+        # Amazon.ServiceDiscovery.HealthCheckType
+        "New-SDService/HealthCheckConfig_Type"
+        {
+            $v = "HTTP","HTTPS","TCP"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SD_map = @{
+    "HealthCheckConfig_Type"=@("New-SDService")
+    "Status"=@("Update-SDInstanceCustomHealthStatus")
+}
+
+_awsArgumentCompleterRegistration $SD_Completers $SD_map
+
+
 # Argument completions for service Amazon Simple Email Service
 $SES_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

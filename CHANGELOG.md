@@ -1,4 +1,6 @@
 ### 3.3.313.0 (2018-07-09)
+  * Amazon Route 53 Auto Naming
+    * Added support for the Amazon Route 53 Auto Naming service (Service Discovery). Amazon Route 53 auto naming lets you configure public or private namespaces that your microservice applications run in. When instances of the service become available, you can call the auto naming API to register the instance, and Route 53 automatically creates up to five DNS records and an optional health check. Clients that submit DNS queries for the service receive an answer that contains up to eight healthy records. Cmdlets for the service have the noun prefix SD and can be listed with the command *Get-AWSCmdletName -Service SD*.
   * Amazon CloudFront
     * [Breaking Change] The DeleteServiceLinkedRole api was released in error and has now been removed by the service. Accordingly the Remove-CFServiceLinkedRole cmdlet has been removed from the module. We apologize for any inconvenience caused.
   * Amazon EC2

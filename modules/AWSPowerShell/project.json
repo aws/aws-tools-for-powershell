@@ -113,6 +113,7 @@
 		"AWSSDK.ServerlessApplicationRepository": "3.3.2",
 		"AWSSDK.ServerMigrationService": "3.3.0.31",
 		"AWSSDK.ServiceCatalog": "3.3.10.3",
+		"AWSSDK.ServiceDiscovery": "3.3.2.8",
 		"AWSSDK.Shield": "3.3.2.3",
 		"AWSSDK.SimpleEmail": "3.3.6.11",
 		"AWSSDK.SimpleNotificationService": "3.3.1.3",
