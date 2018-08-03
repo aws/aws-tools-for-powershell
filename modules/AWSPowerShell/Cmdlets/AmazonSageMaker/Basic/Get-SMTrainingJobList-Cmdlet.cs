@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CreationTimeAfter
         /// <summary>
         /// <para>
-        /// <para>A filter that only training jobs created after the specified time (timestamp).</para>
+        /// <para>A filter that returns only training jobs created after the specified time (timestamp).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

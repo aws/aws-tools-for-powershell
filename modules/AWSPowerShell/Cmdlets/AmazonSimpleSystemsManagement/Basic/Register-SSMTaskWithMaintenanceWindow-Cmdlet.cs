@@ -335,7 +335,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The role that should be assumed when executing the task.</para>
+        /// <para>The role to assume when running the Maintenance Window task.</para><para>If you do not specify a service role ARN, Systems Manager will use your account's
+        /// service-linked role for Systems Manager by default. If no service-linked role for
+        /// Systems Manager exists in your account, it will be created when you run <code>RegisterTaskWithMaintenanceWindow</code>
+        /// without specifying a service role ARN.</para><para>For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions">Service-Linked
+        /// Role Permissions for Systems Manager</a> and <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role">Should
+        /// I Use a Service-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?
+        /// </a> in the <i>AWS Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter Encrypted
         /// <summary>
         /// <para>
-        /// <para>A boolean value that, if true, creates an encrypted file system. When creating an
+        /// <para>A Boolean value that, if true, creates an encrypted file system. When creating an
         /// encrypted file system, you have the option of specifying a <a>CreateFileSystemRequest$KmsKeyId</a>
         /// for an existing AWS Key Management Service (AWS KMS) customer master key (CMK). If
         /// you don't specify a CMK, then the default CMK for Amazon EFS, <code>/aws/elasticfilesystem</code>,
@@ -114,11 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The id of the AWS KMS CMK that will be used to protect the encrypted file system.
-        /// This parameter is only required if you want to use a non-default CMK. If this parameter
-        /// is not specified, the default CMK for Amazon EFS is used. This id can be in one of
-        /// the following formats:</para><ul><li><para>Key ID - A unique identifier of the key. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>ARN - An Amazon Resource Name for the key. For example, <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Key alias - A previously created display name for a key. For example, <code>alias/projectKey1</code>.</para></li><li><para>Key alias ARN - An Amazon Resource Name for a key alias. For example, <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.</para></li></ul><para>Note that if the KmsKeyId is specified, the <a>CreateFileSystemRequest$Encrypted</a>
-        /// parameter must be set to true.</para>
+        /// <para>The ID of the AWS KMS CMK to be used to protect the encrypted file system. This parameter
+        /// is only required if you want to use a non-default CMK. If this parameter is not specified,
+        /// the default CMK for Amazon EFS is used. This ID can be in one of the following formats:</para><ul><li><para>Key ID - A unique identifier of the key, for example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>ARN - An Amazon Resource Name (ARN) for the key, for example, <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Key alias - A previously created display name for a key. For example, <code>alias/projectKey1</code>.</para></li><li><para>Key alias ARN - An ARN for a key alias, for example, <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.</para></li></ul><para>If KmsKeyId is specified, the <a>CreateFileSystemRequest$Encrypted</a> parameter must
+        /// be set to true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -138,6 +137,35 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.ElasticFileSystem.PerformanceMode")]
         public Amazon.ElasticFileSystem.PerformanceMode PerformanceMode { get; set; }
+        #endregion
+        
+        #region Parameter ProvisionedThroughputInMibp
+        /// <summary>
+        /// <para>
+        /// <para>The throughput, measured in MiB/s, that you want to provision for a file system that
+        /// you're creating. The limit on throughput is 1024 MiB/s. You can get these limits increased
+        /// by contacting AWS Support. For more information, see <a href="http://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon
+        /// EFS Limits That You Can Increase</a> in the <i>Amazon EFS User Guide.</i></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ProvisionedThroughputInMibps")]
+        public System.Double ProvisionedThroughputInMibp { get; set; }
+        #endregion
+        
+        #region Parameter ThroughputMode
+        /// <summary>
+        /// <para>
+        /// <para>The throughput mode for the file system to be created. There are two throughput modes
+        /// to choose from for your file system: bursting and provisioned. You can decrease your
+        /// file system's throughput in Provisioned Throughput mode or change between the throughput
+        /// modes as long as it’s been more than 24 hours since the last decrease or throughput
+        /// mode change.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ElasticFileSystem.ThroughputMode")]
+        public Amazon.ElasticFileSystem.ThroughputMode ThroughputMode { get; set; }
         #endregion
         
         #region Parameter Force
@@ -174,6 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
                 context.Encrypted = this.Encrypted;
             context.KmsKeyId = this.KmsKeyId;
             context.PerformanceMode = this.PerformanceMode;
+            if (ParameterWasBound("ProvisionedThroughputInMibp"))
+                context.ProvisionedThroughputInMibps = this.ProvisionedThroughputInMibp;
+            context.ThroughputMode = this.ThroughputMode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -205,6 +236,14 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             if (cmdletContext.PerformanceMode != null)
             {
                 request.PerformanceMode = cmdletContext.PerformanceMode;
+            }
+            if (cmdletContext.ProvisionedThroughputInMibps != null)
+            {
+                request.ProvisionedThroughputInMibps = cmdletContext.ProvisionedThroughputInMibps.Value;
+            }
+            if (cmdletContext.ThroughputMode != null)
+            {
+                request.ThroughputMode = cmdletContext.ThroughputMode;
             }
             
             CmdletOutput output;
@@ -274,6 +313,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             public System.Boolean? Encrypted { get; set; }
             public System.String KmsKeyId { get; set; }
             public Amazon.ElasticFileSystem.PerformanceMode PerformanceMode { get; set; }
+            public System.Double? ProvisionedThroughputInMibps { get; set; }
+            public Amazon.ElasticFileSystem.ThroughputMode ThroughputMode { get; set; }
         }
         
     }

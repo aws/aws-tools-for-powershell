@@ -28,8 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Sets the password for the guest user “smbguest”. "smbguest" is the user when the Authentication
-    /// method for the file share is “GuestAccess”.
+    /// Sets the password for the guest user <code>smbguest</code>. The <code>smbguest</code>
+    /// user is the user when the authentication method for the file share is set to <code>GuestAccess</code>.
     /// </summary>
     [Cmdlet("Set", "SGSMBGuestPassword", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter Password
         /// <summary>
         /// <para>
-        /// <para>The password you want to set for your SMB Server.</para>
+        /// <para>The password that you want to set for your SMB Server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

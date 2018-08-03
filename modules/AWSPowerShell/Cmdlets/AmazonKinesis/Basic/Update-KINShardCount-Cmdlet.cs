@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// shards. We recommend that you double or halve the shard count, as this results in
     /// the fewest number of splits or merges.
     /// </para><para>
-    /// This operation has the following limits. You cannot do the following:
+    /// This operation has the following default limits. By default, you cannot do the following:
     /// </para><ul><li><para>
     /// Scale more than twice per rolling 24-hour period per stream
     /// </para></li><li><para>

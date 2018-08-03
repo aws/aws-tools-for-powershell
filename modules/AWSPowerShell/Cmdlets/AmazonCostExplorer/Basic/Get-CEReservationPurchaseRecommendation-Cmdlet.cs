@@ -71,9 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AccountScope
         /// <summary>
         /// <para>
-        /// <para>The account scope that you want recommendations for. The only valid value is <code>Payer</code>.
-        /// This means that AWS includes the master account and any member accounts when it calculates
-        /// its recommendations.</para>
+        /// <para>The account scope that you want recommendations for. <code>PAYER</code> means that
+        /// AWS includes the master account and any member accounts when it calculates its recommendations.
+        /// <code>LINKED</code> means that AWS includes only member accounts when it calculates
+        /// its recommendations.</para><para>Valid values are <code>PAYER</code> and <code>LINKED</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

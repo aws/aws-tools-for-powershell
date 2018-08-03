@@ -191,6 +191,20 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String HsmConfigurationIdentifier { get; set; }
         #endregion
         
+        #region Parameter MaintenanceTrackName
+        /// <summary>
+        /// <para>
+        /// <para>The name for the maintenance track that you want to assign for the cluster. This name
+        /// change is asynchronous. The new track name stays in the <code>PendingModifiedValues</code>
+        /// for the cluster until the next maintenance window. When the maintenance track changes,
+        /// the cluster is switched to the latest cluster release available for the maintenance
+        /// track. At this point, the maintenance track name is applied.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MaintenanceTrackName { get; set; }
+        #endregion
+        
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
@@ -331,6 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 context.EnhancedVpcRouting = this.EnhancedVpcRouting;
             context.HsmClientCertificateIdentifier = this.HsmClientCertificateIdentifier;
             context.HsmConfigurationIdentifier = this.HsmConfigurationIdentifier;
+            context.MaintenanceTrackName = this.MaintenanceTrackName;
             context.MasterUserPassword = this.MasterUserPassword;
             context.NewClusterIdentifier = this.NewClusterIdentifier;
             context.NodeType = this.NodeType;
@@ -402,6 +417,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.HsmConfigurationIdentifier != null)
             {
                 request.HsmConfigurationIdentifier = cmdletContext.HsmConfigurationIdentifier;
+            }
+            if (cmdletContext.MaintenanceTrackName != null)
+            {
+                request.MaintenanceTrackName = cmdletContext.MaintenanceTrackName;
             }
             if (cmdletContext.MasterUserPassword != null)
             {
@@ -506,6 +525,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.Boolean? EnhancedVpcRouting { get; set; }
             public System.String HsmClientCertificateIdentifier { get; set; }
             public System.String HsmConfigurationIdentifier { get; set; }
+            public System.String MaintenanceTrackName { get; set; }
             public System.String MasterUserPassword { get; set; }
             public System.String NewClusterIdentifier { get; set; }
             public System.String NodeType { get; set; }

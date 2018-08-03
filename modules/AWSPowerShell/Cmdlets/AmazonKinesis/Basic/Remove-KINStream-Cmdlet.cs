@@ -59,6 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     public partial class RemoveKINStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
+        #region Parameter EnforceConsumerDeletion
+        /// <summary>
+        /// <para>
+        /// <para>If this parameter is unset (<code>null</code>) or if you set it to <code>false</code>,
+        /// and the stream has registered consumers, the call to <code>DeleteStream</code> fails
+        /// with a <code>ResourceInUseException</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnforceConsumerDeletion { get; set; }
+        #endregion
+        
         #region Parameter StreamName
         /// <summary>
         /// <para>
@@ -107,6 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("EnforceConsumerDeletion"))
+                context.EnforceConsumerDeletion = this.EnforceConsumerDeletion;
             context.StreamName = this.StreamName;
             
             // allow further manipulation of loaded context prior to processing
@@ -124,6 +138,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             // create request
             var request = new Amazon.Kinesis.Model.DeleteStreamRequest();
             
+            if (cmdletContext.EnforceConsumerDeletion != null)
+            {
+                request.EnforceConsumerDeletion = cmdletContext.EnforceConsumerDeletion.Value;
+            }
             if (cmdletContext.StreamName != null)
             {
                 request.StreamName = cmdletContext.StreamName;
@@ -194,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? EnforceConsumerDeletion { get; set; }
             public System.String StreamName { get; set; }
         }
         

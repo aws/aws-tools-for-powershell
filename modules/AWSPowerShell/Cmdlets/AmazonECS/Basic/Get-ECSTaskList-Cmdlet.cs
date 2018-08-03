@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter LaunchType
         /// <summary>
         /// <para>
-        /// <para>The launch type for services you want to list.</para>
+        /// <para>The launch type for services to list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

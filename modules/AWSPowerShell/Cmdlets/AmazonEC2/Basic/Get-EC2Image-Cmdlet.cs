@@ -77,10 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <code>/dev/sda1</code>).</para></li><li><para><code>root-device-type</code> - The type of the root device volume (<code>ebs</code>
         /// | <code>instance-store</code>).</para></li><li><para><code>state</code> - The state of the image (<code>available</code> | <code>pending</code>
         /// | <code>failed</code>).</para></li><li><para><code>state-reason-code</code> - The reason code for the state change.</para></li><li><para><code>state-reason-message</code> - The message for the state change.</para></li><li><para><code>sriov-net-support</code> - A value of <code>simple</code> indicates that enhanced
-        /// networking with the Intel 82599 VF interface is enabled.</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
-        /// to the resource. Specify the key of the tag in the filter name and the value of the
-        /// tag in the filter value. For example, for the tag Purpose=X, specify <code>tag:Purpose</code>
-        /// for the filter name and <code>X</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
+        /// networking with the Intel 82599 VF interface is enabled.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// resource. Use the tag key in the filter name and the tag value as the filter value.
+        /// For example, to find all resources that have a tag with the key <code>Owner</code>
+        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
+        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
         /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>virtualization-type</code> - The virtualization type (<code>paravirtual</code>
         /// | <code>hvm</code>).</para></li></ul>
         /// </para>

@@ -54,7 +54,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDevEndpoint" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DevEndpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EndpointName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PublicKey" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
+            <Params>
+                <Param Name="PublicKeys" NewName="PublicKeyList" AutoApplyAlias="false" />>
+            </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="CreateJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Job" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Command" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />

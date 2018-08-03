@@ -28,7 +28,9 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Updates an existing vocabulary with new values.
+    /// Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code>
+    /// operation overwrites all of the existing information with the values that you provide
+    /// in the request.
     /// </summary>
     [Cmdlet("Update", "TRSVocabulary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.UpdateVocabularyResponse")]

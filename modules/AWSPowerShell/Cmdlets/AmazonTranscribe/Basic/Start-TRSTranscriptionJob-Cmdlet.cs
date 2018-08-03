@@ -40,6 +40,20 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     public partial class StartTRSTranscriptionJobCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter Settings_ChannelIdentification
+        /// <summary>
+        /// <para>
+        /// <para>Instructs Amazon Transcribe to process each audio channel separately and then merge
+        /// the transcription output of each channel into a single transcription. </para><para>Amazon Transcribe also produces a transcription of each item detected on an audio
+        /// channel, including the start time and end time of the item and alternative transcriptions
+        /// of the item including the confidence that Amazon Transcribe has in the transcription.</para><para>You can't set both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code>
+        /// in the same request. If you set both, your request returns a <code>BadRequestException</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Settings_ChannelIdentification { get; set; }
+        #endregion
+        
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
@@ -99,13 +113,32 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.Int32 MediaSampleRateHertz { get; set; }
         #endregion
         
+        #region Parameter OutputBucketName
+        /// <summary>
+        /// <para>
+        /// <para>The location where the transcription is stored.</para><para>If you set the <code>OutputBucketName</code>, Amazon Transcribe puts the transcription
+        /// in the specified S3 bucket. When you call the <a>GetTranscriptionJob</a> operation,
+        /// the operation returns this location in the <code>TranscriptFileUri</code> field. The
+        /// S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket.
+        /// For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/access-control-managing-permissions.html#auth-role-iam-user">Permissions
+        /// Required for IAM User Roles</a>.</para><para>If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a
+        /// pre-signed URL, a shareable URL that provides secure access to your transcription,
+        /// and returns it in the <code>TranscriptFileUri</code> field. Use this URL to download
+        /// the transcription.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String OutputBucketName { get; set; }
+        #endregion
+        
         #region Parameter Settings_ShowSpeakerLabel
         /// <summary>
         /// <para>
-        /// <para>Determines whether the transcription job should use speaker recognition to identify
-        /// different speakers in the input audio. If you set the <code>ShowSpeakerLabels</code>
-        /// field to true, you must also set the maximum number of speaker labels <code>MaxSpeakerLabels</code>
-        /// field.</para>
+        /// <para>Determines whether the transcription job uses speaker recognition to identify different
+        /// speakers in the input audio. Speaker recognition labels individual speakers in the
+        /// audio file. If you set the <code>ShowSpeakerLabels</code> field to true, you must
+        /// also set the maximum number of speaker labels <code>MaxSpeakerLabels</code> field.</para><para>You can't set both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code>
+        /// in the same request. If you set both, your request returns a <code>BadRequestException</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -116,7 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter TranscriptionJobName
         /// <summary>
         /// <para>
-        /// <para>The name of the job. The name must be unique within an AWS account.</para>
+        /// <para>The name of the job. You can't use the strings "." or ".." in the job name. The name
+        /// must be unique within an AWS account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -167,6 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             context.MediaFormat = this.MediaFormat;
             if (ParameterWasBound("MediaSampleRateHertz"))
                 context.MediaSampleRateHertz = this.MediaSampleRateHertz;
+            context.OutputBucketName = this.OutputBucketName;
+            if (ParameterWasBound("Settings_ChannelIdentification"))
+                context.Settings_ChannelIdentification = this.Settings_ChannelIdentification;
             if (ParameterWasBound("Settings_MaxSpeakerLabel"))
                 context.Settings_MaxSpeakerLabels = this.Settings_MaxSpeakerLabel;
             if (ParameterWasBound("Settings_ShowSpeakerLabel"))
@@ -220,10 +257,24 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             {
                 request.MediaSampleRateHertz = cmdletContext.MediaSampleRateHertz.Value;
             }
+            if (cmdletContext.OutputBucketName != null)
+            {
+                request.OutputBucketName = cmdletContext.OutputBucketName;
+            }
             
              // populate Settings
             bool requestSettingsIsNull = true;
             request.Settings = new Amazon.TranscribeService.Model.Settings();
+            System.Boolean? requestSettings_settings_ChannelIdentification = null;
+            if (cmdletContext.Settings_ChannelIdentification != null)
+            {
+                requestSettings_settings_ChannelIdentification = cmdletContext.Settings_ChannelIdentification.Value;
+            }
+            if (requestSettings_settings_ChannelIdentification != null)
+            {
+                request.Settings.ChannelIdentification = requestSettings_settings_ChannelIdentification.Value;
+                requestSettingsIsNull = false;
+            }
             System.Int32? requestSettings_settings_MaxSpeakerLabel = null;
             if (cmdletContext.Settings_MaxSpeakerLabels != null)
             {
@@ -331,6 +382,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public System.String Media_MediaFileUri { get; set; }
             public Amazon.TranscribeService.MediaFormat MediaFormat { get; set; }
             public System.Int32? MediaSampleRateHertz { get; set; }
+            public System.String OutputBucketName { get; set; }
+            public System.Boolean? Settings_ChannelIdentification { get; set; }
             public System.Int32? Settings_MaxSpeakerLabels { get; set; }
             public System.Boolean? Settings_ShowSpeakerLabels { get; set; }
             public System.String Settings_VocabularyName { get; set; }

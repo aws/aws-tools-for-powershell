@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter ElasticIp
         /// <summary>
         /// <para>
-        /// <para>The address.</para>
+        /// <para>The IP address for which you want to update the name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

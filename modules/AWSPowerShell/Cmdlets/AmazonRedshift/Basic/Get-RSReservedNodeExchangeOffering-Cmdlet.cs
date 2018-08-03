@@ -28,8 +28,8 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Returns an array of ReservedNodeOfferings which is filtered by payment type, term,
-    /// and instance type.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns an array of DC2 ReservedNodeOfferings that matches the payment type, term,
+    /// and usage price of the given DC1 reserved node.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RSReservedNodeExchangeOffering")]
     [OutputType("Amazon.Redshift.Model.ReservedNodeOffering")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ReservedNodeId
         /// <summary>
         /// <para>
-        /// <para>A string representing the node identifier for the Reserved Node to be exchanged.</para>
+        /// <para>A string representing the node identifier for the DC1 Reserved Node to be exchanged.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

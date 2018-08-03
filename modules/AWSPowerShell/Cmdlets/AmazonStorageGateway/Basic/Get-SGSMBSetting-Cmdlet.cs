@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Gets a description of a Server Message Block (SMB) file share settings from a file
-    /// gateway. This operation is only supported in the file gateway type.
+    /// gateway. This operation is only supported for file gateways.
     /// </summary>
     [Cmdlet("Get", "SGSMBSetting")]
     [OutputType("Amazon.StorageGateway.Model.DescribeSMBSettingsResponse")]

@@ -40,10 +40,23 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class RestoreDMSTableCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter ReloadOption
+        /// <summary>
+        /// <para>
+        /// <para>Options for reload. Specify <code>data-reload</code> to reload the data and re-validate
+        /// it if validation is enabled. Specify <code>validate-only</code> to re-validate the
+        /// table. This option applies only when validation is enabled for the task. </para><para>Valid values: data-reload, validate-only</para><para>Default value is data-reload.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.ReloadOptionValue")]
+        public Amazon.DatabaseMigrationService.ReloadOptionValue ReloadOption { get; set; }
+        #endregion
+        
         #region Parameter ReplicationTaskArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the replication instance. </para>
+        /// <para>The Amazon Resource Name (ARN) of the replication task. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -89,6 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ReloadOption = this.ReloadOption;
             context.ReplicationTaskArn = this.ReplicationTaskArn;
             if (this.TablesToReload != null)
             {
@@ -110,6 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             // create request
             var request = new Amazon.DatabaseMigrationService.Model.ReloadTablesRequest();
             
+            if (cmdletContext.ReloadOption != null)
+            {
+                request.ReloadOption = cmdletContext.ReloadOption;
+            }
             if (cmdletContext.ReplicationTaskArn != null)
             {
                 request.ReplicationTaskArn = cmdletContext.ReplicationTaskArn;
@@ -182,6 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.DatabaseMigrationService.ReloadOptionValue ReloadOption { get; set; }
             public System.String ReplicationTaskArn { get; set; }
             public List<Amazon.DatabaseMigrationService.Model.TableToReload> TablesToReload { get; set; }
         }

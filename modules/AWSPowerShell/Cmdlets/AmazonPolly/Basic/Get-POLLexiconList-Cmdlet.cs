@@ -49,6 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.POL
         /// <para>An opaque pagination token returned from previous <code>ListLexicons</code> operation.
         /// If present, indicates where to continue the list of lexicons.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String NextToken { get; set; }

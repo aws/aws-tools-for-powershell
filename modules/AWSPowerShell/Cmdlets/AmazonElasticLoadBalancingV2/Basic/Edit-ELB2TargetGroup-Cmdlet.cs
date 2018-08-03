@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The approximate amount of time, in seconds, between health checks of an individual
-        /// target. For Application Load Balancers, the range is 5 to 300 seconds. For Network
-        /// Load Balancers, the supported values are 10 or 30 seconds.</para>
+        /// target. For Application Load Balancers, the range is 5–300 seconds. For Network Load
+        /// Balancers, the supported values are 10 or 30 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>
         /// <para>The HTTP codes.</para><para>For Application Load Balancers, you can specify values between 200 and 499, and the
         /// default value is 200. You can specify multiple values (for example, "200,202") or
-        /// a range of values (for example, "200-299").</para><para>For Network Load Balancers, this is 200 to 399.</para>
+        /// a range of values (for example, "200-299").</para><para>For Network Load Balancers, this is 200–399.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

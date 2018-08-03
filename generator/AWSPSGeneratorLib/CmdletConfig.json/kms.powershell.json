@@ -1078,7 +1078,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "KeyId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {

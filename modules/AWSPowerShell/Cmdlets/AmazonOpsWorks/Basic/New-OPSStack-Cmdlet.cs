@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// 
     ///  
     /// <para><b>Required Permissions</b>: To use this action, an IAM user must have an attached
-    /// policy that explicitly grants permissions. For more information on user permissions,
+    /// policy that explicitly grants permissions. For more information about user permissions,
     /// see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
     /// User Permissions</a>.
     /// </para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>A string that contains user-defined, custom JSON. It can be used to override the corresponding
         /// default stack configuration attribute values or to pass data to recipes. The string
-        /// should be in the following format:</para><para><code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code></para><para>For more information on custom JSON, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
+        /// should be in the following format:</para><para><code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code></para><para>For more information about custom JSON, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
         /// Custom JSON to Modify the Stack Configuration Attributes</a>.</para>
         /// </para>
         /// </summary>
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <code>Microsoft Windows Server 2012 R2 with SQL Server Standard</code>, or <code>Microsoft
         /// Windows Server 2012 R2 with SQL Server Web</code>.</para></li><li><para>A custom AMI: <code>Custom</code>. You specify the custom AMI you want to use when
         /// you create instances. For more information, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">
-        /// Using Custom AMIs</a>.</para></li></ul><para>The default option is the current Amazon Linux version. For more information on the
+        /// Using Custom AMIs</a>.</para></li></ul><para>The default option is the current Amazon Linux version. For more information about
         /// supported operating systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS
         /// OpsWorks Stacks Operating Systems</a>.</para>
         /// </para>
@@ -253,9 +253,23 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter StackRegion
         /// <summary>
         /// <para>
-        /// <para>The stack's AWS region, such as "ap-south-1". For more information about Amazon regions,
-        /// see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
-        /// Endpoints</a>.</para>
+        /// <para>The stack's AWS region, such as <code>ap-south-1</code>. For more information about
+        /// Amazon regions, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html">Regions
+        /// and Endpoints</a>.</para><note><para>In the AWS CLI, this API maps to the <code>--stack-region</code> parameter. If the
+        /// <code>--stack-region</code> parameter and the AWS CLI common parameter <code>--region</code>
+        /// are set to the same value, the stack uses a <i>regional</i> endpoint. If the <code>--stack-region</code>
+        /// parameter is not set, but the AWS CLI <code>--region</code> parameter is, this also
+        /// results in a stack with a <i>regional</i> endpoint. However, if the <code>--region</code>
+        /// parameter is set to <code>us-east-1</code>, and the <code>--stack-region</code> parameter
+        /// is set to one of the following, then the stack uses a legacy or <i>classic</i> region:
+        /// <code>us-west-1, us-west-2, sa-east-1, eu-central-1, eu-west-1, ap-northeast-1, ap-southeast-1,
+        /// ap-southeast-2</code>. In this case, the actual API endpoint of the stack is in <code>us-east-1</code>.
+        /// Only the preceding regions are supported as classic regions in the <code>us-east-1</code>
+        /// API endpoint. Because it is a best practice to choose the regional endpoint that is
+        /// closest to where you manage AWS, we recommend that you use regional endpoints for
+        /// new stacks. The AWS CLI common <code>--region</code> parameter always specifies a
+        /// regional API endpoint; it cannot be used to specify a classic AWS OpsWorks Stacks
+        /// region.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -385,8 +399,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// or the <code>DefaultSubnetId</code> parameter only, AWS OpsWorks Stacks infers the
         /// value of the other parameter. If you specify neither parameter, AWS OpsWorks Stacks
         /// sets these parameters to the first valid Availability Zone for the specified region
-        /// and the corresponding default VPC subnet ID, respectively.</para><para>If you specify a nondefault VPC ID, note the following:</para><ul><li><para>It must belong to a VPC in your account that is in the specified region.</para></li><li><para>You must specify a value for <code>DefaultSubnetId</code>.</para></li></ul><para>For more information on how to use AWS OpsWorks Stacks with a VPC, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html">Running
-        /// a Stack in a VPC</a>. For more information on default VPC and EC2-Classic, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
+        /// and the corresponding default VPC subnet ID, respectively.</para><para>If you specify a nondefault VPC ID, note the following:</para><ul><li><para>It must belong to a VPC in your account that is in the specified region.</para></li><li><para>You must specify a value for <code>DefaultSubnetId</code>.</para></li></ul><para>For more information about how to use AWS OpsWorks Stacks with a VPC, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html">Running
+        /// a Stack in a VPC</a>. For more information about default VPC and EC2-Classic, see
+        /// <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
         /// Platforms</a>. </para>
         /// </para>
         /// </summary>

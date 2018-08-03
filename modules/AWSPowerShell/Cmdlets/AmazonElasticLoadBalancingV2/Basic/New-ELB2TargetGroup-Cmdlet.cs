@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The approximate amount of time, in seconds, between health checks of an individual
-        /// target. For Application Load Balancers, the range is 5 to 300 seconds. For Network
-        /// Load Balancers, the supported values are 10 or 30 seconds. The default is 30 seconds.</para>
+        /// target. For Application Load Balancers, the range is 5–300 seconds. For Network Load
+        /// Balancers, the supported values are 10 or 30 seconds. The default is 30 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -113,9 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, during which no response from a target means a failed
-        /// health check. For Application Load Balancers, the range is 2 to 60 seconds and the
-        /// default is 5 seconds. For Network Load Balancers, this is 10 seconds for TCP and HTTPS
-        /// health checks and 6 seconds for HTTP health checks.</para>
+        /// health check. For Application Load Balancers, the range is 2–60 seconds and the default
+        /// is 5 seconds. For Network Load Balancers, this is 10 seconds for TCP and HTTPS health
+        /// checks and 6 seconds for HTTP health checks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>
         /// <para>The HTTP codes.</para><para>For Application Load Balancers, you can specify values between 200 and 499, and the
         /// default value is 200. You can specify multiple values (for example, "200,202") or
-        /// a range of values (for example, "200-299").</para><para>For Network Load Balancers, this is 200 to 399.</para>
+        /// a range of values (for example, "200-299").</para><para>For Network Load Balancers, this is 200–399.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -189,8 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>The type of target that you must specify when registering targets with this target
         /// group. The possible values are <code>instance</code> (targets are specified by instance
         /// ID) or <code>ip</code> (targets are specified by IP address). The default is <code>instance</code>.
-        /// Note that you can't specify targets for a target group using both instance IDs and
-        /// IP addresses.</para><para>If the target type is <code>ip</code>, specify IP addresses from the subnets of the
+        /// You can't specify targets for a target group using both instance IDs and IP addresses.</para><para>If the target type is <code>ip</code>, specify IP addresses from the subnets of the
         /// virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8,
         /// 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't
         /// specify publicly routable IP addresses.</para>

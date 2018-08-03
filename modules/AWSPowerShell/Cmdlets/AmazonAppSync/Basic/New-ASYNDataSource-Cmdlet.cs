@@ -80,6 +80,18 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public Amazon.AppSync.Model.ElasticsearchDataSourceConfig ElasticsearchConfig { get; set; }
         #endregion
         
+        #region Parameter HttpConfig_Endpoint
+        /// <summary>
+        /// <para>
+        /// <para>The Http url endpoint. You can either specify the domain name or ip and port combination
+        /// and the url scheme must be http(s). If the port is not specified, AWS AppSync will
+        /// use the default port 80 for http endpoint and port 443 for https endpoints.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String HttpConfig_Endpoint { get; set; }
+        #endregion
+        
         #region Parameter LambdaConfig
         /// <summary>
         /// <para>
@@ -155,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             context.Description = this.Description;
             context.DynamodbConfig = this.DynamodbConfig;
             context.ElasticsearchConfig = this.ElasticsearchConfig;
+            context.HttpConfig_Endpoint = this.HttpConfig_Endpoint;
             context.LambdaConfig = this.LambdaConfig;
             context.Name = this.Name;
             context.ServiceRoleArn = this.ServiceRoleArn;
@@ -190,6 +203,25 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.ElasticsearchConfig != null)
             {
                 request.ElasticsearchConfig = cmdletContext.ElasticsearchConfig;
+            }
+            
+             // populate HttpConfig
+            bool requestHttpConfigIsNull = true;
+            request.HttpConfig = new Amazon.AppSync.Model.HttpDataSourceConfig();
+            System.String requestHttpConfig_httpConfig_Endpoint = null;
+            if (cmdletContext.HttpConfig_Endpoint != null)
+            {
+                requestHttpConfig_httpConfig_Endpoint = cmdletContext.HttpConfig_Endpoint;
+            }
+            if (requestHttpConfig_httpConfig_Endpoint != null)
+            {
+                request.HttpConfig.Endpoint = requestHttpConfig_httpConfig_Endpoint;
+                requestHttpConfigIsNull = false;
+            }
+             // determine if request.HttpConfig should be set to null
+            if (requestHttpConfigIsNull)
+            {
+                request.HttpConfig = null;
             }
             if (cmdletContext.LambdaConfig != null)
             {
@@ -275,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public System.String Description { get; set; }
             public Amazon.AppSync.Model.DynamodbDataSourceConfig DynamodbConfig { get; set; }
             public Amazon.AppSync.Model.ElasticsearchDataSourceConfig ElasticsearchConfig { get; set; }
+            public System.String HttpConfig_Endpoint { get; set; }
             public Amazon.AppSync.Model.LambdaDataSourceConfig LambdaConfig { get; set; }
             public System.String Name { get; set; }
             public System.String ServiceRoleArn { get; set; }

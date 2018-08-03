@@ -77,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter Resources_Ec2AmiResource
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Machine Images (AMIs) associated with this job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Resources_Ec2AmiResources")]
+        public Amazon.Snowball.Model.Ec2AmiResource[] Resources_Ec2AmiResource { get; set; }
+        #endregion
+        
         #region Parameter ForwardingAddressId
         /// <summary>
         /// <para>
@@ -196,8 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter SnowballType
         /// <summary>
         /// <para>
-        /// <para>The type of AWS Snowball appliance to use for this job. Currently, the only supported
-        /// appliance type for cluster jobs is <code>EDGE</code>.</para>
+        /// <para>The type of AWS Snowball device to use for this job. Currently, the only supported
+        /// device type for cluster jobs is <code>EDGE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -261,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (ParameterWasBound("Notification_NotifyAll"))
                 context.Notification_NotifyAll = this.Notification_NotifyAll;
             context.Notification_SnsTopicARN = this.Notification_SnsTopicARN;
+            if (this.Resources_Ec2AmiResource != null)
+            {
+                context.Resources_Ec2AmiResources = new List<Amazon.Snowball.Model.Ec2AmiResource>(this.Resources_Ec2AmiResource);
+            }
             if (this.Resources_LambdaResource != null)
             {
                 context.Resources_LambdaResources = new List<Amazon.Snowball.Model.LambdaResource>(this.Resources_LambdaResource);
@@ -356,6 +371,16 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
              // populate Resources
             bool requestResourcesIsNull = true;
             request.Resources = new Amazon.Snowball.Model.JobResource();
+            List<Amazon.Snowball.Model.Ec2AmiResource> requestResources_resources_Ec2AmiResource = null;
+            if (cmdletContext.Resources_Ec2AmiResources != null)
+            {
+                requestResources_resources_Ec2AmiResource = cmdletContext.Resources_Ec2AmiResources;
+            }
+            if (requestResources_resources_Ec2AmiResource != null)
+            {
+                request.Resources.Ec2AmiResources = requestResources_resources_Ec2AmiResource;
+                requestResourcesIsNull = false;
+            }
             List<Amazon.Snowball.Model.LambdaResource> requestResources_resources_LambdaResource = null;
             if (cmdletContext.Resources_LambdaResources != null)
             {
@@ -470,6 +495,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             public List<System.String> Notification_JobStatesToNotify { get; set; }
             public System.Boolean? Notification_NotifyAll { get; set; }
             public System.String Notification_SnsTopicARN { get; set; }
+            public List<Amazon.Snowball.Model.Ec2AmiResource> Resources_Ec2AmiResources { get; set; }
             public List<Amazon.Snowball.Model.LambdaResource> Resources_LambdaResources { get; set; }
             public List<Amazon.Snowball.Model.S3Resource> Resources_S3Resources { get; set; }
             public System.String RoleARN { get; set; }

@@ -28,16 +28,25 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Gets a list of all aliases in the caller's AWS account and region. You cannot list
-    /// aliases in other accounts. For more information about aliases, see <a>CreateAlias</a>.
+    /// Gets a list of aliases in the caller's AWS account and region. You cannot list aliases
+    /// in other accounts. For more information about aliases, see <a>CreateAlias</a>.
     /// 
     ///  
     /// <para>
-    /// The response might include several aliases that do not have a <code>TargetKeyId</code>
-    /// field because they are not associated with a CMK. These are predefined aliases that
-    /// are reserved for CMKs managed by AWS services. If an alias is not associated with
-    /// a CMK, the alias does not count against the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/limits.html#aliases-limit">alias
-    /// limit</a> for your account.
+    /// By default, the ListAliases command returns all aliases in the account and region.
+    /// To get only the aliases that point to a particular customer master key (CMK), use
+    /// the <code>KeyId</code> parameter.
+    /// </para><para>
+    /// The <code>ListAliases</code> response can include aliases that you created and associated
+    /// with your customer managed CMKs, and aliases that AWS created and associated with
+    /// AWS managed CMKs in your account. You can recognize AWS aliases because their names
+    /// have the format <code>aws/&lt;service-name&gt;</code>, such as <code>aws/dynamodb</code>.
+    /// </para><para>
+    /// The response might also include aliases that have no <code>TargetKeyId</code> field.
+    /// These are predefined aliases that AWS has created but has not yet associated with
+    /// a CMK. Aliases that AWS creates in your account, including predefined aliases, do
+    /// not count against your <a href="http://docs.aws.amazon.com/kms/latest/developerguide/limits.html#aliases-limit">AWS
+    /// KMS aliases limit</a>.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "KMSAliasList")]
@@ -50,6 +59,19 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     )]
     public partial class GetKMSAliasListCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter KeyId
+        /// <summary>
+        /// <para>
+        /// <para>Lists only aliases that refer to the specified CMK. The value of this parameter can
+        /// be the ID or Amazon Resource Name (ARN) of a CMK in the caller's account and region.
+        /// You cannot use an alias name or alias ARN in this value.</para><para>This parameter is optional. If you omit it, <code>ListAliases</code> returns all aliases
+        /// in the account and region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String KeyId { get; set; }
+        #endregion
         
         #region Parameter Limit
         /// <summary>
@@ -97,6 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.KeyId = this.KeyId;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.Marker = this.Marker;
@@ -116,6 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             
             // create request and set iteration invariants
             var request = new Amazon.KeyManagementService.Model.ListAliasesRequest();
+            if (cmdletContext.KeyId != null)
+            {
+                request.KeyId = cmdletContext.KeyId;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
@@ -233,6 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String KeyId { get; set; }
             public int? Limit { get; set; }
             public System.String Marker { get; set; }
         }

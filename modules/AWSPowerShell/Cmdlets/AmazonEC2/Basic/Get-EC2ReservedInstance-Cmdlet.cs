@@ -64,10 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// with SQL Server Web (Amazon VPC)</code> | <code>Windows with SQL Server Enterprise</code>
         /// | <code>Windows with SQL Server Enterprise (Amazon VPC)</code>).</para></li><li><para><code>reserved-instances-id</code> - The ID of the Reserved Instance.</para></li><li><para><code>start</code> - The time at which the Reserved Instance purchase request was
         /// placed (for example, 2014-08-07T11:54:42.000Z).</para></li><li><para><code>state</code> - The state of the Reserved Instance (<code>payment-pending</code>
-        /// | <code>active</code> | <code>payment-failed</code> | <code>retired</code>).</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
-        /// to the resource. Specify the key of the tag in the filter name and the value of the
-        /// tag in the filter value. For example, for the tag Purpose=X, specify <code>tag:Purpose</code>
-        /// for the filter name and <code>X</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
+        /// | <code>active</code> | <code>payment-failed</code> | <code>retired</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// resource. Use the tag key in the filter name and the tag value as the filter value.
+        /// For example, to find all resources that have a tag with the key <code>Owner</code>
+        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
+        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
         /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>usage-price</code> - The usage price of the Reserved Instance, per hour (for
         /// example, 0.84).</para></li></ul>
         /// </para>

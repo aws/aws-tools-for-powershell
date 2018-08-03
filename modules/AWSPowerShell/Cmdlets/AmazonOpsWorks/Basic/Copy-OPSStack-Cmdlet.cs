@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// 
     ///  
     /// <para><b>Required Permissions</b>: To use this action, an IAM user must have an attached
-    /// policy that explicitly grants permissions. For more information on user permissions,
+    /// policy that explicitly grants permissions. For more information about user permissions,
     /// see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
     /// User Permissions</a>.
     /// </para>
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>A string that contains user-defined, custom JSON. It is used to override the corresponding
-        /// default stack configuration JSON values. The string should be in the following format:</para><para><code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code></para><para>For more information on custom JSON, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
+        /// default stack configuration JSON values. The string should be in the following format:</para><para><code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code></para><para>For more information about custom JSON, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
         /// Custom JSON to Modify the Stack Configuration Attributes</a></para>
         /// </para>
         /// </summary>
@@ -158,10 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// 2012 R2 with SQL Server Express</code>, <code>Microsoft Windows Server 2012 R2 with
         /// SQL Server Standard</code>, or <code>Microsoft Windows Server 2012 R2 with SQL Server
         /// Web</code>.</para></li><li><para>A custom AMI: <code>Custom</code>. You specify the custom AMI you want to use when
-        /// you create instances. For more information on how to use custom AMIs with OpsWorks,
+        /// you create instances. For more information about how to use custom AMIs with OpsWorks,
         /// see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using
-        /// Custom AMIs</a>.</para></li></ul><para>The default option is the parent stack's operating system. For more information on
-        /// the supported operating systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS
+        /// Custom AMIs</a>.</para></li></ul><para>The default option is the parent stack's operating system. For more information about
+        /// supported operating systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS
         /// OpsWorks Stacks Operating Systems</a>.</para><note><para>You can specify a different Linux operating system for the cloned stack, but you cannot
         /// change from Linux to Windows or Windows to Linux.</para></note>
         /// </para>
@@ -422,8 +422,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// or the <code>DefaultSubnetId</code> parameter only, AWS OpsWorks Stacks infers the
         /// value of the other parameter. If you specify neither parameter, AWS OpsWorks Stacks
         /// sets these parameters to the first valid Availability Zone for the specified region
-        /// and the corresponding default VPC subnet ID, respectively. </para><para>If you specify a nondefault VPC ID, note the following:</para><ul><li><para>It must belong to a VPC in your account that is in the specified region.</para></li><li><para>You must specify a value for <code>DefaultSubnetId</code>.</para></li></ul><para>For more information on how to use AWS OpsWorks Stacks with a VPC, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html">Running
-        /// a Stack in a VPC</a>. For more information on default VPC and EC2 Classic, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
+        /// and the corresponding default VPC subnet ID, respectively. </para><para>If you specify a nondefault VPC ID, note the following:</para><ul><li><para>It must belong to a VPC in your account that is in the specified region.</para></li><li><para>You must specify a value for <code>DefaultSubnetId</code>.</para></li></ul><para>For more information about how to use AWS OpsWorks Stacks with a VPC, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html">Running
+        /// a Stack in a VPC</a>. For more information about default VPC and EC2 Classic, see
+        /// <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
         /// Platforms</a>. </para>
         /// </para>
         /// </summary>

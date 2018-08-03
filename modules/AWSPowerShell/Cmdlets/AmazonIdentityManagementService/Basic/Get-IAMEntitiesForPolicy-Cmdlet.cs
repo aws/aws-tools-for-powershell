@@ -91,6 +91,18 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         public System.String PolicyArn { get; set; }
         #endregion
         
+        #region Parameter PolicyUsageFilter
+        /// <summary>
+        /// <para>
+        /// <para>The policy usage method to use for filtering the results.</para><para>To list only permissions policies, set <code>PolicyUsageFilter</code> to <code>PermissionsPolicy</code>.
+        /// To list only the policies used to set permissions boundaries, set the value to <code>PermissionsBoundary</code>.</para><para>This parameter is optional. If it is not included, all policies are returned. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.IdentityManagement.PolicyUsageType")]
+        public Amazon.IdentityManagement.PolicyUsageType PolicyUsageFilter { get; set; }
+        #endregion
+        
         #region Parameter Marker
         /// <summary>
         /// <para>
@@ -145,6 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 context.MaxItems = this.MaxItem;
             context.PathPrefix = this.PathPrefix;
             context.PolicyArn = this.PolicyArn;
+            context.PolicyUsageFilter = this.PolicyUsageFilter;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -180,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.PolicyArn != null)
             {
                 request.PolicyArn = cmdletContext.PolicyArn;
+            }
+            if (cmdletContext.PolicyUsageFilter != null)
+            {
+                request.PolicyUsageFilter = cmdletContext.PolicyUsageFilter;
             }
             
             CmdletOutput output;
@@ -250,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             public System.Int32? MaxItems { get; set; }
             public System.String PathPrefix { get; set; }
             public System.String PolicyArn { get; set; }
+            public Amazon.IdentityManagement.PolicyUsageType PolicyUsageFilter { get; set; }
         }
         
     }

@@ -77,10 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html">Spot
         /// Request Status</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para></li><li><para><code>status-code</code> - The short code describing the most recent evaluation of
         /// your Spot Instance request.</para></li><li><para><code>status-message</code> - The message explaining the status of the Spot Instance
-        /// request.</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
-        /// to the resource. Specify the key of the tag in the filter name and the value of the
-        /// tag in the filter value. For example, for the tag Purpose=X, specify <code>tag:Purpose</code>
-        /// for the filter name and <code>X</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
+        /// request.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// resource. Use the tag key in the filter name and the tag value as the filter value.
+        /// For example, to find all resources that have a tag with the key <code>Owner</code>
+        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
+        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
         /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>type</code> - The type of Spot Instance request (<code>one-time</code> | <code>persistent</code>).</para></li><li><para><code>valid-from</code> - The start date of the request.</para></li><li><para><code>valid-until</code> - The end date of the request.</para></li></ul>
         /// </para>
         /// </summary>

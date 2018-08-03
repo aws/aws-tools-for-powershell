@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// 
     ///  
     /// <para>
-    /// Note that Network Load Balancers must use <code>ipv4</code>.
+    /// Network Load Balancers must use <code>ipv4</code>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ELB2IpAddressType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

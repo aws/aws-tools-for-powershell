@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Create a thing group.
+    /// 
+    ///  <note><para>
+    /// This is a control plane operation. See <a href="http://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a>
+    /// for information about authorizing control plane actions.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "IOTThingGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoT.Model.CreateThingGroupResponse")]

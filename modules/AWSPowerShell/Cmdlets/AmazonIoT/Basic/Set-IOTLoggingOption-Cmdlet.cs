@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Sets the logging options.
+    /// 
+    ///  
+    /// <para>
+    /// NOTE: use of this command is not recommended. Use <code>SetV2LoggingOptions</code>
+    /// instead.
+    /// </para>
     /// </summary>
     [Cmdlet("Set", "IOTLoggingOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// unhealthy Elastic Load Balancing target health checks after a task has first started.
         /// This is only valid if your service is configured to use a load balancer. If your service's
         /// tasks take a while to start and respond to Elastic Load Balancing health checks, you
-        /// can specify a health check grace period of up to 1,800 seconds during which the ECS
+        /// can specify a health check grace period of up to 7,200 seconds during which the ECS
         /// service scheduler ignores health check status. This grace period can prevent the ECS
         /// service scheduler from marking tasks as unhealthy and stopping them before they have
         /// time to come up.</para>
@@ -312,7 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The security groups associated with the task or service. If you do not specify a security
         /// group, the default security group for the VPC is used. There is a limit of 5 security
-        /// groups able to be specified per AwsVpcConfiguration.</para>
+        /// groups able to be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -325,8 +325,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The name of your service. Up to 255 letters (uppercase and lowercase), numbers, hyphens,
         /// and underscores are allowed. Service names must be unique within a cluster, but you
-        /// can have similarly named services in multiple clusters within a region or across multiple
-        /// regions.</para>
+        /// can have similarly named services in multiple clusters within a Region or across multiple
+        /// Regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -336,8 +336,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ServiceRegistry
         /// <summary>
         /// <para>
-        /// <para>The details of the service discovery registries you want to assign to this service.
-        /// For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+        /// <para>The details of the service discovery registries to assign to this service. For more
+        /// information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
         /// Discovery</a>.</para><note><para>Service discovery is supported for Fargate tasks if using platform version v1.1.0
         /// or later. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
         /// Fargate Platform Versions</a>.</para></note>
@@ -352,7 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The subnets associated with the task or service. There is a limit of 10 subnets able
-        /// to be specified per AwsVpcConfiguration.</para>
+        /// to be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

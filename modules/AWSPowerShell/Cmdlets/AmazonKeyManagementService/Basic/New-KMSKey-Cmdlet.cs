@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// 
     ///  
     /// <para>
-    /// You can use a CMK to encrypt small amounts of data (4 KiB or less) directly, but CMKs
+    /// You can use a CMK to encrypt small amounts of data (4 KiB or less) directly. But CMKs
     /// are more commonly used to encrypt data encryption keys (DEKs), which are used to encrypt
     /// raw data. For more information about DEKs and the difference between CMKs and DEKs,
     /// see the following:
@@ -115,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// Key Policy</a> section of the <i>AWS Key Management Service Developer Guide</i>.</para></li><li><para>Each statement in the key policy must contain one or more principals. The principals
         /// in the key policy must exist and be visible to AWS KMS. When you create a new AWS
         /// principal (for example, an IAM user or role), you might need to enforce a delay before
-        /// including the new principal in a key policy because the new principal might not be
-        /// immediately visible to AWS KMS. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes
+        /// including the new principal in a key policy. The reason for this is that the new principal
+        /// might not be immediately visible to AWS KMS. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes
         /// that I make are not always immediately visible</a> in the <i>AWS Identity and Access
         /// Management User Guide</i>.</para></li></ul><para>If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
         /// For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default

@@ -145,6 +145,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.InstanceInterruptionBehavior SpotFleetRequestConfig_InstanceInterruptionBehavior { get; set; }
         #endregion
         
+        #region Parameter SpotFleetRequestConfig_InstancePoolsToUseCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of Spot pools across which to allocate your target Spot capacity. Valid
+        /// only when Spot <b>AllocationStrategy</b> is set to <code>lowest-price</code>. Spot
+        /// Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity
+        /// across the number of Spot pools that you specify.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 SpotFleetRequestConfig_InstancePoolsToUseCount { get; set; }
+        #endregion
+        
         #region Parameter SpotFleetRequestConfig_LaunchSpecification
         /// <summary>
         /// <para>
@@ -165,6 +178,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("SpotFleetRequestConfig_LaunchTemplateConfigs")]
         public Amazon.EC2.Model.LaunchTemplateConfig[] SpotFleetRequestConfig_LaunchTemplateConfig { get; set; }
+        #endregion
+        
+        #region Parameter SpotFleetRequestConfig_OnDemandAllocationStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The order of the launch template overrides to use in fulfilling On-Demand capacity.
+        /// If you specify <code>lowestPrice</code>, Spot Fleet uses price to determine the order,
+        /// launching the lowest price first. If you specify <code>prioritized</code>, Spot Fleet
+        /// uses the priority that you assign to each Spot Fleet launch template override, launching
+        /// the highest priority first. If you do not specify a value, Spot Fleet defaults to
+        /// <code>lowestPrice</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.OnDemandAllocationStrategy")]
+        public Amazon.EC2.OnDemandAllocationStrategy SpotFleetRequestConfig_OnDemandAllocationStrategy { get; set; }
         #endregion
         
         #region Parameter SpotFleetRequestConfig_OnDemandFulfilledCapacity
@@ -324,6 +353,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.SpotFleetRequestConfig_FulfilledCapacity = this.SpotFleetRequestConfig_FulfilledCapacity;
             context.SpotFleetRequestConfig_IamFleetRole = this.SpotFleetRequestConfig_IamFleetRole;
             context.SpotFleetRequestConfig_InstanceInterruptionBehavior = this.SpotFleetRequestConfig_InstanceInterruptionBehavior;
+            if (ParameterWasBound("SpotFleetRequestConfig_InstancePoolsToUseCount"))
+                context.SpotFleetRequestConfig_InstancePoolsToUseCount = this.SpotFleetRequestConfig_InstancePoolsToUseCount;
             if (this.SpotFleetRequestConfig_LaunchSpecification != null)
             {
                 context.SpotFleetRequestConfig_LaunchSpecifications = new List<Amazon.EC2.Model.SpotFleetLaunchSpecification>(this.SpotFleetRequestConfig_LaunchSpecification);
@@ -340,6 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.SpotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig_TargetGroups = new List<Amazon.EC2.Model.TargetGroup>(this.TargetGroupsConfig_TargetGroup);
             }
+            context.SpotFleetRequestConfig_OnDemandAllocationStrategy = this.SpotFleetRequestConfig_OnDemandAllocationStrategy;
             if (ParameterWasBound("SpotFleetRequestConfig_OnDemandFulfilledCapacity"))
                 context.SpotFleetRequestConfig_OnDemandFulfilledCapacity = this.SpotFleetRequestConfig_OnDemandFulfilledCapacity;
             if (ParameterWasBound("SpotFleetRequestConfig_OnDemandTargetCapacity"))
@@ -436,6 +468,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.SpotFleetRequestConfig.InstanceInterruptionBehavior = requestSpotFleetRequestConfig_spotFleetRequestConfig_InstanceInterruptionBehavior;
                 requestSpotFleetRequestConfigIsNull = false;
             }
+            System.Int32? requestSpotFleetRequestConfig_spotFleetRequestConfig_InstancePoolsToUseCount = null;
+            if (cmdletContext.SpotFleetRequestConfig_InstancePoolsToUseCount != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_InstancePoolsToUseCount = cmdletContext.SpotFleetRequestConfig_InstancePoolsToUseCount.Value;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_InstancePoolsToUseCount != null)
+            {
+                request.SpotFleetRequestConfig.InstancePoolsToUseCount = requestSpotFleetRequestConfig_spotFleetRequestConfig_InstancePoolsToUseCount.Value;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
             List<Amazon.EC2.Model.SpotFleetLaunchSpecification> requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchSpecification = null;
             if (cmdletContext.SpotFleetRequestConfig_LaunchSpecifications != null)
             {
@@ -454,6 +496,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchTemplateConfig != null)
             {
                 request.SpotFleetRequestConfig.LaunchTemplateConfigs = requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchTemplateConfig;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
+            Amazon.EC2.OnDemandAllocationStrategy requestSpotFleetRequestConfig_spotFleetRequestConfig_OnDemandAllocationStrategy = null;
+            if (cmdletContext.SpotFleetRequestConfig_OnDemandAllocationStrategy != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_OnDemandAllocationStrategy = cmdletContext.SpotFleetRequestConfig_OnDemandAllocationStrategy;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_OnDemandAllocationStrategy != null)
+            {
+                request.SpotFleetRequestConfig.OnDemandAllocationStrategy = requestSpotFleetRequestConfig_spotFleetRequestConfig_OnDemandAllocationStrategy;
                 requestSpotFleetRequestConfigIsNull = false;
             }
             System.Double? requestSpotFleetRequestConfig_spotFleetRequestConfig_OnDemandFulfilledCapacity = null;
@@ -686,10 +738,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Double? SpotFleetRequestConfig_FulfilledCapacity { get; set; }
             public System.String SpotFleetRequestConfig_IamFleetRole { get; set; }
             public Amazon.EC2.InstanceInterruptionBehavior SpotFleetRequestConfig_InstanceInterruptionBehavior { get; set; }
+            public System.Int32? SpotFleetRequestConfig_InstancePoolsToUseCount { get; set; }
             public List<Amazon.EC2.Model.SpotFleetLaunchSpecification> SpotFleetRequestConfig_LaunchSpecifications { get; set; }
             public List<Amazon.EC2.Model.LaunchTemplateConfig> SpotFleetRequestConfig_LaunchTemplateConfigs { get; set; }
             public List<Amazon.EC2.Model.ClassicLoadBalancer> SpotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig_ClassicLoadBalancers { get; set; }
             public List<Amazon.EC2.Model.TargetGroup> SpotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig_TargetGroups { get; set; }
+            public Amazon.EC2.OnDemandAllocationStrategy SpotFleetRequestConfig_OnDemandAllocationStrategy { get; set; }
             public System.Double? SpotFleetRequestConfig_OnDemandFulfilledCapacity { get; set; }
             public System.Int32? SpotFleetRequestConfig_OnDemandTargetCapacity { get; set; }
             public System.Boolean? SpotFleetRequestConfig_ReplaceUnhealthyInstances { get; set; }

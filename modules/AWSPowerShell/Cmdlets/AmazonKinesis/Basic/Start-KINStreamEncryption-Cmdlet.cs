@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// API Limits: You can successfully apply a new AWS KMS key for server-side encryption
     /// 25 times in a rolling 24-hour period.
     /// </para><para>
-    /// Note: It can take up to five seconds after the stream is in an <code>ACTIVE</code>
-    /// status before all records written to the stream are encrypted. After you enable encryption,
+    /// Note: It can take up to 5 seconds after the stream is in an <code>ACTIVE</code> status
+    /// before all records written to the stream are encrypted. After you enable encryption,
     /// you can verify that encryption is applied by inspecting the API response from <code>PutRecord</code>
     /// or <code>PutRecords</code>.
     /// </para>

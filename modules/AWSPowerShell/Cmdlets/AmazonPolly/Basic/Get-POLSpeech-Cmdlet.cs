@@ -43,6 +43,23 @@ namespace Amazon.PowerShell.Cmdlets.POL
     public partial class GetPOLSpeechCmdlet : AmazonPollyClientCmdlet, IExecutor
     {
         
+        #region Parameter LanguageCode
+        /// <summary>
+        /// <para>
+        /// <para>Optional language code for the Synthesize Speech request. This is only necessary if
+        /// using a bilingual voice, such as Aditi, which can be used for either Indian English
+        /// (en-IN) or Hindi (hi-IN). </para><para>If a bilingual voice is used and no language code is specified, Amazon Polly will
+        /// use the default language of the bilingual voice. The default language for any voice
+        /// is the one returned by the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a>
+        /// operation for the <code>LanguageCode</code> parameter. For example, if no language
+        /// code is specified, Aditi will use Indian English rather than Hindi.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Polly.LanguageCode")]
+        public Amazon.Polly.LanguageCode LanguageCode { get; set; }
+        #endregion
+        
         #region Parameter LexiconName
         /// <summary>
         /// <para>
@@ -141,6 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.LanguageCode = this.LanguageCode;
             if (this.LexiconName != null)
             {
                 context.LexiconNames = new List<System.String>(this.LexiconName);
@@ -170,6 +188,10 @@ namespace Amazon.PowerShell.Cmdlets.POL
             // create request
             var request = new Amazon.Polly.Model.SynthesizeSpeechRequest();
             
+            if (cmdletContext.LanguageCode != null)
+            {
+                request.LanguageCode = cmdletContext.LanguageCode;
+            }
             if (cmdletContext.LexiconNames != null)
             {
                 request.LexiconNames = cmdletContext.LexiconNames;
@@ -262,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Polly.LanguageCode LanguageCode { get; set; }
             public List<System.String> LexiconNames { get; set; }
             public Amazon.Polly.OutputFormat OutputFormat { get; set; }
             public System.String SampleRate { get; set; }

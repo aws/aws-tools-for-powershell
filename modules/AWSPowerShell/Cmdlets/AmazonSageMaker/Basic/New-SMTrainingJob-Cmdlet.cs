@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of the training job. The name must be unique within an AWS Region in an AWS
-        /// account. It appears in the Amazon SageMaker console. </para>
+        /// account. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

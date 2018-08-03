@@ -28,22 +28,24 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Adds or overwrites one or more tags for the specified customer master key (CMK). You
-    /// cannot perform this operation on a CMK in a different AWS account.
+    /// Adds or edits tags for a customer master key (CMK). You cannot perform this operation
+    /// on a CMK in a different AWS account.
     /// 
     ///  
     /// <para>
     /// Each tag consists of a tag key and a tag value. Tag keys and tag values are both required,
     /// but tag values can be empty (null) strings.
     /// </para><para>
-    /// You cannot use the same tag key more than once per CMK. For example, consider a CMK
-    /// with one tag whose tag key is <code>Purpose</code> and tag value is <code>Test</code>.
-    /// If you send a <code>TagResource</code> request for this CMK with a tag key of <code>Purpose</code>
-    /// and a tag value of <code>Prod</code>, it does not create a second tag. Instead, the
-    /// original tag is overwritten with the new tag value.
+    /// You can only use a tag key once for each CMK. If you use the tag key again, AWS KMS
+    /// replaces the current tag value with the specified value.
     /// </para><para>
     /// For information about the rules that apply to tag keys and tag values, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined
     /// Tag Restrictions</a> in the <i>AWS Billing and Cost Management User Guide</i>.
+    /// </para><para>
+    /// The result of this operation varies with the key state of the CMK. For details, see
+    /// <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
+    /// Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service
+    /// Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "KMSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

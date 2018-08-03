@@ -291,12 +291,14 @@ Set-Alias -Name Delete-APSImage -Value Remove-APSImage
 Set-Alias -Name APS-DeleteImage -Value Remove-APSImage
 Set-Alias -Name Delete-APSImageBuilder -Value Remove-APSImageBuilder
 Set-Alias -Name APS-DeleteImageBuilder -Value Remove-APSImageBuilder
+Set-Alias -Name APS-DeleteImagePermissions -Value Remove-APSImagePermission
 Set-Alias -Name Delete-APSStack -Value Remove-APSStack
 Set-Alias -Name APS-DeleteStack -Value Remove-APSStack
 Set-Alias -Name Describe-APSDirectoryConfigList -Value Get-APSDirectoryConfigList
 Set-Alias -Name APS-DescribeDirectoryConfigs -Value Get-APSDirectoryConfigList
 Set-Alias -Name APS-DescribeFleets -Value Get-APSFleetList
 Set-Alias -Name APS-DescribeImageBuilders -Value Get-APSImageBuilderList
+Set-Alias -Name APS-DescribeImagePermissions -Value Get-APSImagePermission
 Set-Alias -Name APS-DescribeImages -Value Get-APSImageList
 Set-Alias -Name APS-DescribeSessions -Value Get-APSSessionList
 Set-Alias -Name APS-DescribeStacks -Value Get-APSStackList
@@ -313,6 +315,7 @@ Set-Alias -Name APS-TagResource -Value Add-APSResourceTag
 Set-Alias -Name APS-UntagResource -Value Remove-APSResourceTag
 Set-Alias -Name APS-UpdateDirectoryConfig -Value Update-APSDirectoryConfig
 Set-Alias -Name APS-UpdateFleet -Value Update-APSFleet
+Set-Alias -Name APS-UpdateImagePermissions -Value Update-APSImagePermission
 Set-Alias -Name APS-UpdateStack -Value Update-APSStack
 Set-Alias -Name ASYN-CreateApiKey -Value New-ASYNApiKey
 Set-Alias -Name ASYN-CreateDataSource -Value New-ASYNDataSource
@@ -1328,6 +1331,7 @@ Set-Alias -Name COMP-BatchDetectDominantLanguage -Value Find-COMPDominantLanguag
 Set-Alias -Name COMP-BatchDetectEntities -Value Find-COMPEntityBatch
 Set-Alias -Name COMP-BatchDetectKeyPhrases -Value Find-COMPKeyPhrasesBatch
 Set-Alias -Name COMP-BatchDetectSentiment -Value Find-COMPSentimentBatch
+Set-Alias -Name COMP-BatchDetectSyntax -Value Find-COMPSyntaxBatch
 Set-Alias -Name COMP-DescribeDominantLanguageDetectionJob -Value Get-COMPDominantLanguageDetectionJob
 Set-Alias -Name COMP-DescribeEntitiesDetectionJob -Value Get-COMPEntitiesDetectionJob
 Set-Alias -Name COMP-DescribeKeyPhrasesDetectionJob -Value Get-COMPKeyPhrasesDetectionJob
@@ -1337,6 +1341,7 @@ Set-Alias -Name COMP-DetectDominantLanguage -Value Find-COMPDominantLanguage
 Set-Alias -Name COMP-DetectEntities -Value Find-COMPEntity
 Set-Alias -Name COMP-DetectKeyPhrases -Value Find-COMPKeyPhrase
 Set-Alias -Name COMP-DetectSentiment -Value Find-COMPSentiment
+Set-Alias -Name COMP-DetectSyntax -Value Find-COMPSyntax
 Set-Alias -Name COMP-ListDominantLanguageDetectionJobs -Value Get-COMPDominantLanguageDetectionJobList
 Set-Alias -Name COMP-ListEntitiesDetectionJobs -Value Get-COMPEntitiesDetectionJobList
 Set-Alias -Name COMP-ListKeyPhrasesDetectionJobs -Value Get-COMPKeyPhrasesDetectionJobList
@@ -2362,6 +2367,7 @@ Set-Alias -Name Describe-EFSTags -Value Get-EFSTag
 Set-Alias -Name EFS-DescribeTags -Value Get-EFSTag
 Set-Alias -Name Modify-EFSMountTargetSecurityGroups -Value Edit-EFSMountTargetSecurityGroup
 Set-Alias -Name EFS-ModifyMountTargetSecurityGroups -Value Edit-EFSMountTargetSecurityGroup
+Set-Alias -Name EFS-UpdateFileSystem -Value Update-EFSFileSystem
 Set-Alias -Name EC-AddTagsToResource -Value Add-ECTag
 Set-Alias -Name Authorize-ECCacheSecurityGroupIngress -Value Approve-ECCacheSecurityGroupIngress
 Set-Alias -Name EC-AuthorizeCacheSecurityGroupIngress -Value Approve-ECCacheSecurityGroupIngress
@@ -3047,6 +3053,7 @@ Set-Alias -Name HSM-ModifyHsm -Value Edit-HSMItem
 Set-Alias -Name Modify-HSMLunaClient -Value Edit-HSMLunaClient
 Set-Alias -Name HSM-ModifyLunaClient -Value Edit-HSMLunaClient
 Set-Alias -Name HSM-RemoveTagsFromResource -Value Remove-HSMResourceTag
+Set-Alias -Name HSM2-CopyBackupToRegion -Value Copy-HSM2BackupToRegion
 Set-Alias -Name Create-HSM2Cluster -Value New-HSM2Cluster
 Set-Alias -Name HSM2-CreateCluster -Value New-HSM2Cluster
 Set-Alias -Name Create-HSM2Hsm -Value New-HSM2Hsm
@@ -3123,6 +3130,7 @@ Set-Alias -Name Delete-IAMPolicyVersion -Value Remove-IAMPolicyVersion
 Set-Alias -Name IAM-DeletePolicyVersion -Value Remove-IAMPolicyVersion
 Set-Alias -Name Delete-IAMRole -Value Remove-IAMRole
 Set-Alias -Name IAM-DeleteRole -Value Remove-IAMRole
+Set-Alias -Name IAM-DeleteRolePermissionsBoundary -Value Remove-IAMRolePermissionsBoundary
 Set-Alias -Name Delete-IAMRolePolicy -Value Remove-IAMRolePolicy
 Set-Alias -Name IAM-DeleteRolePolicy -Value Remove-IAMRolePolicy
 Set-Alias -Name Delete-IAMSAMLProvider -Value Remove-IAMSAMLProvider
@@ -3139,6 +3147,7 @@ Set-Alias -Name Delete-IAMSSHPublicKey -Value Remove-IAMSSHPublicKey
 Set-Alias -Name IAM-DeleteSSHPublicKey -Value Remove-IAMSSHPublicKey
 Set-Alias -Name Delete-IAMUser -Value Remove-IAMUser
 Set-Alias -Name IAM-DeleteUser -Value Remove-IAMUser
+Set-Alias -Name IAM-DeleteUserPermissionsBoundary -Value Remove-IAMUserPermissionsBoundary
 Set-Alias -Name Delete-IAMUserPolicy -Value Remove-IAMUserPolicy
 Set-Alias -Name IAM-DeleteUserPolicy -Value Remove-IAMUserPolicy
 Set-Alias -Name Delete-IAMVirtualMFADevice -Value Remove-IAMVirtualMFADevice
@@ -3220,8 +3229,10 @@ Set-Alias -Name List-IAMVirtualMFADevices -Value Get-IAMVirtualMFADevice
 Set-Alias -Name IAM-ListVirtualMFADevices -Value Get-IAMVirtualMFADevice
 Set-Alias -Name Put-IAMGroupPolicy -Value Write-IAMGroupPolicy
 Set-Alias -Name IAM-PutGroupPolicy -Value Write-IAMGroupPolicy
+Set-Alias -Name IAM-PutRolePermissionsBoundary -Value Write-IAMRolePermissionsBoundary
 Set-Alias -Name Put-IAMRolePolicy -Value Write-IAMRolePolicy
 Set-Alias -Name IAM-PutRolePolicy -Value Write-IAMRolePolicy
+Set-Alias -Name IAM-PutUserPermissionsBoundary -Value Write-IAMUserPermissionsBoundary
 Set-Alias -Name Put-IAMUserPolicy -Value Write-IAMUserPolicy
 Set-Alias -Name IAM-PutUserPolicy -Value Write-IAMUserPolicy
 Set-Alias -Name IAM-RemoveClientIDFromOpenIDConnectProvider -Value Remove-IAMClientIDFromOpenIDConnectProvider
@@ -3327,7 +3338,9 @@ Set-Alias -Name IOT-AddThingToThingGroup -Value Add-IOTThingToThingGroup
 Set-Alias -Name IOT-AssociateTargetsWithJob -Value Add-IOTTargetsWithJob
 Set-Alias -Name IOT-AttachPolicy -Value Add-IOTPolicy
 Set-Alias -Name IOT-AttachPrincipalPolicy -Value Add-IOTPrincipalPolicy
+Set-Alias -Name IOT-AttachSecurityProfile -Value Mount-IOTSecurityProfile
 Set-Alias -Name IOT-AttachThingPrincipal -Value Add-IOTThingPrincipal
+Set-Alias -Name IOT-CancelAuditTask -Value Stop-IOTAuditTask
 Set-Alias -Name Cancel-IOTCertificateTransfer -Value Stop-IOTCertificateTransfer
 Set-Alias -Name IOT-CancelCertificateTransfer -Value Stop-IOTCertificateTransfer
 Set-Alias -Name IOT-CancelJob -Value Stop-IOTJob
@@ -3345,6 +3358,8 @@ Set-Alias -Name IOT-CreatePolicy -Value New-IOTPolicy
 Set-Alias -Name Create-IOTPolicyVersion -Value New-IOTPolicyVersion
 Set-Alias -Name IOT-CreatePolicyVersion -Value New-IOTPolicyVersion
 Set-Alias -Name IOT-CreateRoleAlias -Value New-IOTRoleAlias
+Set-Alias -Name IOT-CreateScheduledAudit -Value New-IOTScheduledAudit
+Set-Alias -Name IOT-CreateSecurityProfile -Value New-IOTSecurityProfile
 Set-Alias -Name IOT-CreateStream -Value New-IOTStream
 Set-Alias -Name Create-IOTThing -Value New-IOTThing
 Set-Alias -Name IOT-CreateThing -Value New-IOTThing
@@ -3353,6 +3368,7 @@ Set-Alias -Name Create-IOTThingType -Value New-IOTThingType
 Set-Alias -Name IOT-CreateThingType -Value New-IOTThingType
 Set-Alias -Name Create-IOTTopicRule -Value New-IOTTopicRule
 Set-Alias -Name IOT-CreateTopicRule -Value New-IOTTopicRule
+Set-Alias -Name IOT-DeleteAccountAuditConfiguration -Value Remove-IOTAccountAuditConfiguration
 Set-Alias -Name IOT-DeleteAuthorizer -Value Remove-IOTAuthorizer
 Set-Alias -Name Delete-IOTCACertificate -Value Remove-IOTCACertificate
 Set-Alias -Name IOT-DeleteCACertificate -Value Remove-IOTCACertificate
@@ -3368,6 +3384,8 @@ Set-Alias -Name IOT-DeletePolicyVersion -Value Remove-IOTPolicyVersion
 Set-Alias -Name Delete-IOTRegistrationCode -Value Remove-IOTRegistrationCode
 Set-Alias -Name IOT-DeleteRegistrationCode -Value Remove-IOTRegistrationCode
 Set-Alias -Name IOT-DeleteRoleAlias -Value Remove-IOTRoleAlias
+Set-Alias -Name IOT-DeleteScheduledAudit -Value Remove-IOTScheduledAudit
+Set-Alias -Name IOT-DeleteSecurityProfile -Value Remove-IOTSecurityProfile
 Set-Alias -Name IOT-DeleteStream -Value Remove-IOTStream
 Set-Alias -Name Delete-IOTThing -Value Remove-IOTThing
 Set-Alias -Name IOT-DeleteThing -Value Remove-IOTThing
@@ -3378,6 +3396,8 @@ Set-Alias -Name Delete-IOTTopicRule -Value Remove-IOTTopicRule
 Set-Alias -Name IOT-DeleteTopicRule -Value Remove-IOTTopicRule
 Set-Alias -Name IOT-DeleteV2LoggingLevel -Value Remove-IOTV2LoggingLevel
 Set-Alias -Name IOT-DeprecateThingType -Value Set-IOTThingTypeDeprecation
+Set-Alias -Name IOT-DescribeAccountAuditConfiguration -Value Get-IOTAccountAuditConfiguration
+Set-Alias -Name IOT-DescribeAuditTask -Value Get-IOTAuditTask
 Set-Alias -Name IOT-DescribeAuthorizer -Value Get-IOTAuthorizer
 Set-Alias -Name Describe-IOTCACertificate -Value Get-IOTCACertificate
 Set-Alias -Name IOT-DescribeCACertificate -Value Get-IOTCACertificate
@@ -3391,6 +3411,8 @@ Set-Alias -Name IOT-DescribeIndex -Value Get-IOTIndex
 Set-Alias -Name IOT-DescribeJob -Value Get-IOTJob
 Set-Alias -Name IOT-DescribeJobExecution -Value Get-IOTJobExecution
 Set-Alias -Name IOT-DescribeRoleAlias -Value Get-IOTRoleAlias
+Set-Alias -Name IOT-DescribeScheduledAudit -Value Get-IOTScheduledAudit
+Set-Alias -Name IOT-DescribeSecurityProfile -Value Get-IOTSecurityProfile
 Set-Alias -Name IOT-DescribeStream -Value Get-IOTStream
 Set-Alias -Name Describe-IOTThing -Value Get-IOTThing
 Set-Alias -Name IOT-DescribeThing -Value Get-IOTThing
@@ -3400,6 +3422,7 @@ Set-Alias -Name Describe-IOTThingType -Value Get-IOTThingType
 Set-Alias -Name IOT-DescribeThingType -Value Get-IOTThingType
 Set-Alias -Name IOT-DetachPolicy -Value Dismount-IOTPolicy
 Set-Alias -Name IOT-DetachPrincipalPolicy -Value Remove-IOTPrincipalPolicy
+Set-Alias -Name IOT-DetachSecurityProfile -Value Dismount-IOTSecurityProfile
 Set-Alias -Name IOT-DetachThingPrincipal -Value Remove-IOTThingPrincipal
 Set-Alias -Name IOT-DisableTopicRule -Value Disable-IOTTopicRule
 Set-Alias -Name IOT-EnableTopicRule -Value Enable-IOTTopicRule
@@ -3413,7 +3436,10 @@ Set-Alias -Name IOT-GetPolicyVersion -Value Get-IOTPolicyVersion
 Set-Alias -Name IOT-GetRegistrationCode -Value Get-IOTRegistrationCode
 Set-Alias -Name IOT-GetTopicRule -Value Get-IOTTopicRule
 Set-Alias -Name IOT-GetV2LoggingOptions -Value Get-IOTV2LoggingOption
+Set-Alias -Name IOT-ListActiveViolations -Value Get-IOTActiveViolationList
 Set-Alias -Name IOT-ListAttachedPolicies -Value Get-IOTAttachedPoliciesList
+Set-Alias -Name IOT-ListAuditFindings -Value Get-IOTAuditFindingList
+Set-Alias -Name IOT-ListAuditTasks -Value Get-IOTTaskList
 Set-Alias -Name IOT-ListAuthorizers -Value Get-IOTAuthorizersList
 Set-Alias -Name IOT-ListCACertificates -Value Get-IOTCACertificateList
 Set-Alias -Name IOT-ListCertificates -Value Get-IOTCertificateList
@@ -3430,8 +3456,12 @@ Set-Alias -Name IOT-ListPolicyVersions -Value Get-IOTPolicyVersionList
 Set-Alias -Name IOT-ListPrincipalPolicies -Value Get-IOTPrincipalPolicyList
 Set-Alias -Name IOT-ListPrincipalThings -Value Get-IOTPrincipalThingList
 Set-Alias -Name IOT-ListRoleAliases -Value Get-IOTRoleAliasesList
+Set-Alias -Name IOT-ListScheduledAudits -Value Get-IOTScheduledAuditList
+Set-Alias -Name IOT-ListSecurityProfiles -Value Get-IOTSecurityProfileList
+Set-Alias -Name IOT-ListSecurityProfilesForTarget -Value Get-IOTSecurityProfilesForTargetList
 Set-Alias -Name IOT-ListStreams -Value Get-IOTStreamList
 Set-Alias -Name IOT-ListTargetsForPolicy -Value Get-IOTTargetsForPolicyList
+Set-Alias -Name IOT-ListTargetsForSecurityProfile -Value Get-IOTTargetsForSecurityProfileList
 Set-Alias -Name IOT-ListThingGroups -Value Get-IOTThingGroupsList
 Set-Alias -Name IOT-ListThingGroupsForThing -Value Get-IOTThingGroupsForThingList
 Set-Alias -Name IOT-ListThingPrincipals -Value Get-IOTThingPrincipalList
@@ -3442,6 +3472,7 @@ Set-Alias -Name IOT-ListThingsInThingGroup -Value Get-IOTThingsInThingGroupList
 Set-Alias -Name IOT-ListThingTypes -Value Get-IOTThingTypesList
 Set-Alias -Name IOT-ListTopicRules -Value Get-IOTTopicRuleList
 Set-Alias -Name IOT-ListV2LoggingLevels -Value Get-IOTV2LoggingLevelsList
+Set-Alias -Name IOT-ListViolationEvents -Value Get-IOTViolationEventsList
 Set-Alias -Name IOT-RegisterCACertificate -Value Register-IOTCACertificate
 Set-Alias -Name IOT-RegisterCertificate -Value Register-IOTCertificate
 Set-Alias -Name IOT-RegisterThing -Value Register-IOTThing
@@ -3454,21 +3485,26 @@ Set-Alias -Name IOT-SetDefaultPolicyVersion -Value Set-IOTDefaultPolicyVersion
 Set-Alias -Name IOT-SetLoggingOptions -Value Set-IOTLoggingOption
 Set-Alias -Name IOT-SetV2LoggingLevel -Value Set-IOTV2LoggingLevel
 Set-Alias -Name IOT-SetV2LoggingOptions -Value Set-IOTV2LoggingOption
+Set-Alias -Name IOT-StartOnDemandAuditTask -Value Start-IOTOnDemandAuditTask
 Set-Alias -Name IOT-StartThingRegistrationTask -Value Start-IOTThingRegistrationTask
 Set-Alias -Name IOT-StopThingRegistrationTask -Value Stop-IOTThingRegistrationTask
 Set-Alias -Name IOT-TestAuthorization -Value Test-IOTAuthorization
 Set-Alias -Name IOT-TestInvokeAuthorizer -Value Test-IOTInvokeAuthorizer
 Set-Alias -Name IOT-TransferCertificate -Value Request-IOTCertificateTransfer
+Set-Alias -Name IOT-UpdateAccountAuditConfiguration -Value Update-IOTAccountAuditConfiguration
 Set-Alias -Name IOT-UpdateAuthorizer -Value Update-IOTAuthorizer
 Set-Alias -Name IOT-UpdateCACertificate -Value Update-IOTCACertificate
 Set-Alias -Name IOT-UpdateCertificate -Value Update-IOTCertificate
 Set-Alias -Name IOT-UpdateEventConfigurations -Value Update-IOTEventConfiguration
 Set-Alias -Name IOT-UpdateIndexingConfiguration -Value Update-IOTIndexingConfiguration
 Set-Alias -Name IOT-UpdateRoleAlias -Value Update-IOTRoleAlias
+Set-Alias -Name IOT-UpdateScheduledAudit -Value Update-IOTScheduledAudit
+Set-Alias -Name IOT-UpdateSecurityProfile -Value Update-IOTSecurityProfile
 Set-Alias -Name IOT-UpdateStream -Value Update-IOTStream
 Set-Alias -Name IOT-UpdateThing -Value Update-IOTThing
 Set-Alias -Name IOT-UpdateThingGroup -Value Update-IOTThingGroup
 Set-Alias -Name IOT-UpdateThingGroupsForThing -Value Update-IOTThingGroupsForThing
+Set-Alias -Name IOT-ValidateSecurityProfileBehaviors -Value Test-IOTValidSecurityProfileBehavior
 Set-Alias -Name IOTJ-DescribeJobExecution -Value Get-IOTJJobExecution
 Set-Alias -Name IOTJ-GetPendingJobExecutions -Value Get-IOTJPendingJobExecution
 Set-Alias -Name IOTJ-StartNextPendingJobExecution -Value Start-IOTJNextPendingJobExecution
@@ -3479,10 +3515,12 @@ Set-Alias -Name KIN-CreateStream -Value New-KINStream
 Set-Alias -Name KIN-DecreaseStreamRetentionPeriod -Value Request-KINStreamRetentionPeriodDecrease
 Set-Alias -Name Delete-KINStream -Value Remove-KINStream
 Set-Alias -Name KIN-DeleteStream -Value Remove-KINStream
+Set-Alias -Name KIN-DeregisterStreamConsumer -Value Unregister-KINStreamConsumer
 Set-Alias -Name Describe-KINLimit -Value Get-KINLimit
 Set-Alias -Name KIN-DescribeLimits -Value Get-KINLimit
 Set-Alias -Name Describe-KINStream -Value Get-KINStream
 Set-Alias -Name KIN-DescribeStream -Value Get-KINStream
+Set-Alias -Name KIN-DescribeStreamConsumer -Value Get-KINStreamConsumer
 Set-Alias -Name Describe-KINStreamSummary -Value Get-KINStreamSummary
 Set-Alias -Name KIN-DescribeStreamSummary -Value Get-KINStreamSummary
 Set-Alias -Name KIN-DisableEnhancedMonitoring -Value Disable-KINEnhancedMonitoring
@@ -3492,12 +3530,14 @@ Set-Alias -Name KIN-GetRecords -Value Get-KINRecord
 Set-Alias -Name KIN-GetShardIterator -Value Get-KINShardIterator
 Set-Alias -Name KIN-IncreaseStreamRetentionPeriod -Value Request-KINStreamRetentionPeriodIncrease
 Set-Alias -Name KIN-ListShards -Value Get-KINShardList
+Set-Alias -Name KIN-ListStreamConsumers -Value Get-KINStreamConsumerList
 Set-Alias -Name KIN-ListStreams -Value Get-KINStreamList
 Set-Alias -Name KIN-ListTagsForStream -Value Get-KINTagsForStream
 Set-Alias -Name Merge-KINShards -Value Merge-KINShard
 Set-Alias -Name KIN-MergeShards -Value Merge-KINShard
 Set-Alias -Name Put-KINMultipleRecord -Value Write-KINMultipleRecord
 Set-Alias -Name KIN-PutRecords -Value Write-KINMultipleRecord
+Set-Alias -Name KIN-RegisterStreamConsumer -Value Register-KINStreamConsumer
 Set-Alias -Name KIN-RemoveTagsFromStream -Value Remove-KINTagsFromStream
 Set-Alias -Name KIN-SplitShard -Value Split-KINShard
 Set-Alias -Name KIN-StartStreamEncryption -Value Start-KINStreamEncryption
@@ -4311,9 +4351,12 @@ Set-Alias -Name POL-DeleteLexicon -Value Remove-POLLexicon
 Set-Alias -Name Describe-POLVoice -Value Get-POLVoice
 Set-Alias -Name POL-DescribeVoices -Value Get-POLVoice
 Set-Alias -Name POL-GetLexicon -Value Get-POLLexicon
+Set-Alias -Name POL-GetSpeechSynthesisTask -Value Get-POLSpeechSynthesisTask
 Set-Alias -Name POL-ListLexicons -Value Get-POLLexiconList
+Set-Alias -Name POL-ListSpeechSynthesisTasks -Value Get-POLSpeechSynthesisTaskList
 Set-Alias -Name Put-POLLexicon -Value Write-POLLexicon
 Set-Alias -Name POL-PutLexicon -Value Write-POLLexicon
+Set-Alias -Name POL-StartSpeechSynthesisTask -Value Start-POLSpeechSynthesisTask
 Set-Alias -Name POL-SynthesizeSpeech -Value Get-POLSpeech
 Set-Alias -Name Describe-PLSService -Value Get-PLSService
 Set-Alias -Name PLS-DescribeServices -Value Get-PLSService
@@ -4535,6 +4578,7 @@ Set-Alias -Name Describe-RSClusterSnapshot -Value Get-RSClusterSnapshot
 Set-Alias -Name RS-DescribeClusterSnapshots -Value Get-RSClusterSnapshot
 Set-Alias -Name Describe-RSClusterSubnetGroup -Value Get-RSClusterSubnetGroup
 Set-Alias -Name RS-DescribeClusterSubnetGroups -Value Get-RSClusterSubnetGroup
+Set-Alias -Name RS-DescribeClusterTracks -Value Get-RSClusterTrack
 Set-Alias -Name Describe-RSClusterVersion -Value Get-RSClusterVersion
 Set-Alias -Name RS-DescribeClusterVersions -Value Get-RSClusterVersion
 Set-Alias -Name Describe-RSDefaultClusterParameter -Value Get-RSDefaultClusterParameter
@@ -4835,6 +4879,7 @@ Set-Alias -Name S3-PutLifecycleConfiguration -Value Write-S3LifecycleConfigurati
 Set-Alias -Name Put-S3ObjectTagSet -Value Write-S3ObjectTagSet
 Set-Alias -Name S3-PutObjectTagging -Value Write-S3ObjectTagSet
 Set-Alias -Name S3-RestoreObject -Value Restore-S3Object
+Set-Alias -Name S3-SelectObjectContent -Value Select-S3ObjectContent
 Set-Alias -Name List-S3Buckets -Value Get-S3Bucket
 Set-Alias -Name List-S3Objects -Value Get-S3Object
 Set-Alias -Name Get-S3Content -Value Read-S3Object
@@ -4847,6 +4892,7 @@ Set-Alias -Name SM-CreateNotebookInstance -Value New-SMNotebookInstance
 Set-Alias -Name SM-CreateNotebookInstanceLifecycleConfig -Value New-SMNotebookInstanceLifecycleConfig
 Set-Alias -Name SM-CreatePresignedNotebookInstanceUrl -Value New-SMPresignedNotebookInstanceUrl
 Set-Alias -Name SM-CreateTrainingJob -Value New-SMTrainingJob
+Set-Alias -Name SM-CreateTransformJob -Value New-SMTransformJob
 Set-Alias -Name SM-DeleteEndpoint -Value Remove-SMEndpoint
 Set-Alias -Name SM-DeleteEndpointConfig -Value Remove-SMEndpointConfig
 Set-Alias -Name SM-DeleteModel -Value Remove-SMModel
@@ -4860,6 +4906,7 @@ Set-Alias -Name SM-DescribeModel -Value Get-SMModel
 Set-Alias -Name SM-DescribeNotebookInstance -Value Get-SMNotebookInstance
 Set-Alias -Name SM-DescribeNotebookInstanceLifecycleConfig -Value Get-SMNotebookInstanceLifecycleConfig
 Set-Alias -Name SM-DescribeTrainingJob -Value Get-SMTrainingJob
+Set-Alias -Name SM-DescribeTransformJob -Value Get-SMTransformJob
 Set-Alias -Name SM-ListEndpointConfigs -Value Get-SMConfigList
 Set-Alias -Name SM-ListEndpoints -Value Get-SMEndpointList
 Set-Alias -Name SM-ListHyperParameterTuningJobs -Value Get-SMHyperParameterTuningJobList
@@ -4869,10 +4916,12 @@ Set-Alias -Name SM-ListNotebookInstances -Value Get-SMNotebookInstanceList
 Set-Alias -Name SM-ListTags -Value Get-SMResourceTagList
 Set-Alias -Name SM-ListTrainingJobs -Value Get-SMTrainingJobList
 Set-Alias -Name SM-ListTrainingJobsForHyperParameterTuningJob -Value Get-SMTrainingJobsForHyperParameterTuningJobList
+Set-Alias -Name SM-ListTransformJobs -Value Get-SMTransformJobList
 Set-Alias -Name SM-StartNotebookInstance -Value Start-SMNotebookInstance
 Set-Alias -Name SM-StopHyperParameterTuningJob -Value Stop-SMHyperParameterTuningJob
 Set-Alias -Name SM-StopNotebookInstance -Value Stop-SMNotebookInstance
 Set-Alias -Name SM-StopTrainingJob -Value Stop-SMTrainingJob
+Set-Alias -Name SM-StopTransformJob -Value Stop-SMTransformJob
 Set-Alias -Name SM-UpdateEndpoint -Value Update-SMEndpoint
 Set-Alias -Name SM-UpdateEndpointWeightsAndCapacities -Value Update-SMEndpointWeightAndCapacity
 Set-Alias -Name SM-UpdateNotebookInstance -Value Update-SMNotebookInstance
@@ -5206,6 +5255,7 @@ Set-Alias -Name SNOW-GetJobUnlockCode -Value Get-SNOWJobUnlockCode
 Set-Alias -Name SNOW-GetSnowballUsage -Value Get-SNOWSnowballUsage
 Set-Alias -Name SNOW-ListClusterJobs -Value Get-SNOWClusterJobList
 Set-Alias -Name SNOW-ListClusters -Value Get-SNOWClusterList
+Set-Alias -Name SNOW-ListCompatibleImages -Value Get-SNOWCompatibleImageList
 Set-Alias -Name List-SNOWJobsList -Value Get-SNOWJobsList
 Set-Alias -Name SNOW-ListJobs -Value Get-SNOWJobsList
 Set-Alias -Name SNOW-UpdateCluster -Value Update-SNOWCluster
@@ -5396,6 +5446,7 @@ Set-Alias -Name SSM-GetParameters -Value Get-SSMParameterValue
 Set-Alias -Name SSM-GetParametersByPath -Value Get-SSMParametersByPath
 Set-Alias -Name SSM-GetPatchBaseline -Value Get-SSMPatchBaselineDetail
 Set-Alias -Name SSM-GetPatchBaselineForPatchGroup -Value Get-SSMPatchBaselineForPatchGroup
+Set-Alias -Name SSM-LabelParameterVersion -Value Set-SSMParameterVersionLabel
 Set-Alias -Name SSM-ListAssociations -Value Get-SSMAssociationList
 Set-Alias -Name SSM-ListAssociationVersions -Value Get-SSMAssociationVersionList
 Set-Alias -Name SSM-ListCommandInvocations -Value Get-SSMCommandInvocation

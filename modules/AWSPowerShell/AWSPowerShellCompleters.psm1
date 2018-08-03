@@ -457,7 +457,7 @@ $AAS_Completers = {
             ($_ -eq "Set-AASScheduledAction/ScalableDimension")
         }
         {
-            $v = "appstream:fleet:DesiredCapacity","dynamodb:index:ReadCapacityUnits","dynamodb:index:WriteCapacityUnits","dynamodb:table:ReadCapacityUnits","dynamodb:table:WriteCapacityUnits","ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticmapreduce:instancegroup:InstanceCount","rds:cluster:ReadReplicaCount","sagemaker:variant:DesiredInstanceCount"
+            $v = "appstream:fleet:DesiredCapacity","custom-resource:ResourceType:Property","dynamodb:index:ReadCapacityUnits","dynamodb:index:WriteCapacityUnits","dynamodb:table:ReadCapacityUnits","dynamodb:table:WriteCapacityUnits","ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticmapreduce:instancegroup:InstanceCount","rds:cluster:ReadReplicaCount","sagemaker:variant:DesiredInstanceCount"
             break
         }
         
@@ -475,7 +475,7 @@ $AAS_Completers = {
             ($_ -eq "Set-AASScheduledAction/ServiceNamespace")
         }
         {
-            $v = "appstream","dynamodb","ec2","ecs","elasticmapreduce","rds","sagemaker"
+            $v = "appstream","custom-resource","dynamodb","ec2","ecs","elasticmapreduce","rds","sagemaker"
             break
         }
         
@@ -546,6 +546,13 @@ $APS_Completers = {
             break
         }
         
+        # Amazon.AppStream.VisibilityType
+        "Get-APSImageList/Type"
+        {
+            $v = "PRIVATE","PUBLIC","SHARED"
+            break
+        }
+        
     }
     
     $v |
@@ -556,6 +563,7 @@ $APS_Completers = {
 $APS_map = @{
     "AuthenticationType"=@("Get-APSSessionList")
     "FleetType"=@("New-APSFleet")
+    "Type"=@("Get-APSImageList")
 }
 
 _awsArgumentCompleterRegistration $APS_Completers $APS_map
@@ -583,7 +591,7 @@ $ASYN_Completers = {
             ($_ -eq "Update-ASYNDataSource/Type")
         }
         {
-            $v = "AMAZON_DYNAMODB","AMAZON_ELASTICSEARCH","AWS_LAMBDA","NONE"
+            $v = "AMAZON_DYNAMODB","AMAZON_ELASTICSEARCH","AWS_LAMBDA","HTTP","NONE"
             break
         }
         
@@ -2156,6 +2164,16 @@ $COMP_Completers = {
             break
         }
         
+        # Amazon.Comprehend.SyntaxLanguageCode
+        {
+            ($_ -eq "Find-COMPSyntax/LanguageCode") -Or
+            ($_ -eq "Find-COMPSyntaxBatch/LanguageCode")
+        }
+        {
+            $v = "en"
+            break
+        }
+        
     }
     
     $v |
@@ -2164,7 +2182,7 @@ $COMP_Completers = {
 }
 
 $COMP_map = @{
-    "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPSentiment","Find-COMPSentimentBatch","Start-COMPEntitiesDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPSentimentDetectionJob")
+    "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","Start-COMPEntitiesDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPSentimentDetectionJob")
 }
 
 _awsArgumentCompleterRegistration $COMP_Completers $COMP_map
@@ -2316,7 +2334,7 @@ $CE_Completers = {
         # Amazon.CostExplorer.AccountScope
         "Get-CEReservationPurchaseRecommendation/AccountScope"
         {
-            $v = "PAYER"
+            $v = "LINKED","PAYER"
             break
         }
         
@@ -2362,7 +2380,7 @@ $CE_Completers = {
         # Amazon.CostExplorer.PaymentOption
         "Get-CEReservationPurchaseRecommendation/PaymentOption"
         {
-            $v = "ALL_UPFRONT","NO_UPFRONT","PARTIAL_UPFRONT"
+            $v = "ALL_UPFRONT","HEAVY_UTILIZATION","LIGHT_UTILIZATION","MEDIUM_UTILIZATION","NO_UPFRONT","PARTIAL_UPFRONT"
             break
         }
         
@@ -2460,6 +2478,13 @@ $DMS_Completers = {
             break
         }
         
+        # Amazon.DatabaseMigrationService.ReloadOptionValue
+        "Restore-DMSTable/ReloadOption"
+        {
+            $v = "data-reload","validate-only"
+            break
+        }
+        
         # Amazon.DatabaseMigrationService.ReplicationEndpointTypeValue
         {
             ($_ -eq "Edit-DMSEndpoint/EndpointType") -Or
@@ -2497,6 +2522,7 @@ $DMS_map = @{
     "MongoDbSettings_AuthMechanism"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MongoDbSettings_AuthType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MongoDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "ReloadOption"=@("Restore-DMSTable")
     "S3Settings_CompressionType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "SourceType"=@("Get-DMSEvent")
     "SslMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
@@ -2935,6 +2961,13 @@ $EC2_Completers = {
             break
         }
         
+        # Amazon.EC2.FleetOnDemandAllocationStrategy
+        "New-EC2Fleet/OnDemandOptions_AllocationStrategy"
+        {
+            $v = "lowest-price","prioritized"
+            break
+        }
+        
         # Amazon.EC2.FleetType
         {
             ($_ -eq "Request-EC2SpotFleet/SpotFleetRequestConfig_Type") -Or
@@ -3014,7 +3047,7 @@ $EC2_Completers = {
             ($_ -eq "Request-EC2SpotInstance/LaunchSpecification_InstanceType")
         }
         {
-            $v = "c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.18xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","c5d.18xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.large","m5.xlarge","m5d.12xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.large","m5d.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge"
+            $v = "c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.18xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","c5d.18xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.large","m5.xlarge","m5d.12xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.large","m5d.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.metal","r5.xlarge","r5d.12xlarge","r5d.16xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.8xlarge","r5d.large","r5d.metal","r5d.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge","z1d.12xlarge","z1d.2xlarge","z1d.3xlarge","z1d.6xlarge","z1d.large","z1d.xlarge"
             break
         }
         
@@ -3049,6 +3082,13 @@ $EC2_Completers = {
         }
         {
             $v = "All Upfront","Heavy Utilization","Light Utilization","Medium Utilization","No Upfront","Partial Upfront"
+            break
+        }
+        
+        # Amazon.EC2.OnDemandAllocationStrategy
+        "Request-EC2SpotFleet/SpotFleetRequestConfig_OnDemandAllocationStrategy"
+        {
+            $v = "lowestPrice","prioritized"
             break
         }
         
@@ -3231,6 +3271,7 @@ $EC2_map = @{
     "LimitPrice_CurrencyCode"=@("New-EC2ReservedInstance")
     "OfferingClass"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OfferingType"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
+    "OnDemandOptions_AllocationStrategy"=@("New-EC2Fleet")
     "OperationType"=@("Edit-EC2FpgaImageAttribute","Edit-EC2ImageAttribute","Edit-EC2SnapshotAttribute")
     "Permission"=@("New-EC2NetworkInterfacePermission")
     "ProductDescription"=@("Get-EC2ReservedInstancesOffering")
@@ -3239,6 +3280,7 @@ $EC2_map = @{
     "SpotFleetRequestConfig_AllocationStrategy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_ExcessCapacityTerminationPolicy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_InstanceInterruptionBehavior"=@("Request-EC2SpotFleet")
+    "SpotFleetRequestConfig_OnDemandAllocationStrategy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_Type"=@("Request-EC2SpotFleet")
     "SpotOptions_AllocationStrategy"=@("New-EC2Fleet")
     "SpotOptions_InstanceInterruptionBehavior"=@("New-EC2Fleet")
@@ -3413,6 +3455,16 @@ $EFS_Completers = {
             break
         }
         
+        # Amazon.ElasticFileSystem.ThroughputMode
+        {
+            ($_ -eq "New-EFSFileSystem/ThroughputMode") -Or
+            ($_ -eq "Update-EFSFileSystem/ThroughputMode")
+        }
+        {
+            $v = "bursting","provisioned"
+            break
+        }
+        
     }
     
     $v |
@@ -3422,6 +3474,7 @@ $EFS_Completers = {
 
 $EFS_map = @{
     "PerformanceMode"=@("New-EFSFileSystem")
+    "ThroughputMode"=@("New-EFSFileSystem","Update-EFSFileSystem")
 }
 
 _awsArgumentCompleterRegistration $EFS_Completers $EFS_map
@@ -4017,6 +4070,16 @@ $IAM_Completers = {
             break
         }
         
+        # Amazon.IdentityManagement.PolicyUsageType
+        {
+            ($_ -eq "Get-IAMEntitiesForPolicy/PolicyUsageFilter") -Or
+            ($_ -eq "Get-IAMPolicyList/PolicyUsageFilter")
+        }
+        {
+            $v = "PermissionsBoundary","PermissionsPolicy"
+            break
+        }
+        
         # Amazon.IdentityManagement.StatusType
         {
             ($_ -eq "Update-IAMAccessKey/Status") -Or
@@ -4040,6 +4103,7 @@ $IAM_map = @{
     "AssignmentStatus"=@("Get-IAMVirtualMFADevice")
     "Encoding"=@("Get-IAMSSHPublicKey")
     "EntityFilter"=@("Get-IAMEntitiesForPolicy")
+    "PolicyUsageFilter"=@("Get-IAMEntitiesForPolicy","Get-IAMPolicyList")
     "Scope"=@("Get-IAMPolicyList")
     "Status"=@("Update-IAMAccessKey","Update-IAMServiceSpecificCredential","Update-IAMSigningCertificate","Update-IAMSSHPublicKey")
 }
@@ -4150,6 +4214,30 @@ $IOT_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IoT.AuditFrequency
+        {
+            ($_ -eq "New-IOTScheduledAudit/Frequency") -Or
+            ($_ -eq "Update-IOTScheduledAudit/Frequency")
+        }
+        {
+            $v = "BIWEEKLY","DAILY","MONTHLY","WEEKLY"
+            break
+        }
+        
+        # Amazon.IoT.AuditTaskStatus
+        "Get-IOTTaskList/TaskStatus"
+        {
+            $v = "CANCELED","COMPLETED","FAILED","IN_PROGRESS"
+            break
+        }
+        
+        # Amazon.IoT.AuditTaskType
+        "Get-IOTTaskList/TaskType"
+        {
+            $v = "ON_DEMAND_AUDIT_TASK","SCHEDULED_AUDIT_TASK"
+            break
+        }
+        
         # Amazon.IoT.AuthorizerStatus
         {
             ($_ -eq "Get-IOTAuthorizersList/Status") -Or
@@ -4192,6 +4280,16 @@ $IOT_Completers = {
         }
         {
             $v = "ACTIVE","INACTIVE","PENDING_ACTIVATION","PENDING_TRANSFER","REGISTER_INACTIVE","REVOKED"
+            break
+        }
+        
+        # Amazon.IoT.DayOfWeek
+        {
+            ($_ -eq "New-IOTScheduledAudit/DayOfWeek") -Or
+            ($_ -eq "Update-IOTScheduledAudit/DayOfWeek")
+        }
+        {
+            $v = "FRI","MON","SAT","SUN","THU","TUE","WED"
             break
         }
         
@@ -4303,7 +4401,9 @@ $IOT_Completers = {
 }
 
 $IOT_map = @{
+    "DayOfWeek"=@("New-IOTScheduledAudit","Update-IOTScheduledAudit")
     "DefaultLogLevel"=@("Set-IOTV2LoggingOption")
+    "Frequency"=@("New-IOTScheduledAudit","Update-IOTScheduledAudit")
     "LoggingOptionsPayload_LogLevel"=@("Set-IOTLoggingOption")
     "LogLevel"=@("Set-IOTV2LoggingLevel")
     "LogTarget_TargetType"=@("Set-IOTV2LoggingLevel")
@@ -4314,6 +4414,8 @@ $IOT_map = @{
     "Status"=@("Get-IOTAuthorizersList","Get-IOTJobExecutionsForJobList","Get-IOTJobExecutionsForThingList","Get-IOTJobsList","Get-IOTThingRegistrationTasksList","New-IOTAuthorizer","Register-IOTCertificate","Update-IOTAuthorizer")
     "TargetSelection"=@("Get-IOTJobsList","New-IOTJob","New-IOTOTAUpdate")
     "TargetType"=@("Get-IOTV2LoggingLevelsList","Remove-IOTV2LoggingLevel")
+    "TaskStatus"=@("Get-IOTTaskList")
+    "TaskType"=@("Get-IOTTaskList")
     "ThingIndexingConfiguration_ThingIndexingMode"=@("Update-IOTIndexingConfiguration")
     "TopicRulePayload_ErrorAction_DynamoDB_HashKeyType"=@("New-IOTTopicRule","Set-IOTTopicRule")
     "TopicRulePayload_ErrorAction_DynamoDB_RangeKeyType"=@("New-IOTTopicRule","Set-IOTTopicRule")
@@ -4497,7 +4599,7 @@ $KV_Completers = {
         # Amazon.KinesisVideo.APIName
         "Get-KVDataEndpoint/APIName"
         {
-            $v = "GET_MEDIA","GET_MEDIA_FOR_FRAGMENT_LIST","LIST_FRAGMENTS","PUT_MEDIA"
+            $v = "GET_HLS_STREAMING_SESSION_URL","GET_MEDIA","GET_MEDIA_FOR_FRAGMENT_LIST","LIST_FRAGMENTS","PUT_MEDIA"
             break
         }
         
@@ -4633,7 +4735,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnetcore1.0","dotnetcore2.0","go1.x","java8","nodejs","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","python2.7","python3.6"
+            $v = "dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","go1.x","java8","nodejs","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","python2.7","python3.6"
             break
         }
         
@@ -5634,28 +5736,48 @@ $POL_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.Polly.LanguageCode
-        "Get-POLVoice/LanguageCode"
         {
-            $v = "cy-GB","da-DK","de-DE","en-AU","en-GB","en-GB-WLS","en-IN","en-US","es-ES","es-US","fr-CA","fr-FR","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR"
+            ($_ -eq "Get-POLSpeech/LanguageCode") -Or
+            ($_ -eq "Get-POLVoice/LanguageCode") -Or
+            ($_ -eq "Start-POLSpeechSynthesisTask/LanguageCode")
+        }
+        {
+            $v = "cy-GB","da-DK","de-DE","en-AU","en-GB","en-GB-WLS","en-IN","en-US","es-ES","es-US","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR"
             break
         }
         
         # Amazon.Polly.OutputFormat
-        "Get-POLSpeech/OutputFormat"
+        {
+            ($_ -eq "Get-POLSpeech/OutputFormat") -Or
+            ($_ -eq "Start-POLSpeechSynthesisTask/OutputFormat")
+        }
         {
             $v = "json","mp3","ogg_vorbis","pcm"
             break
         }
         
+        # Amazon.Polly.TaskStatus
+        "Get-POLSpeechSynthesisTaskList/Status"
+        {
+            $v = "completed","failed","inProgress","scheduled"
+            break
+        }
+        
         # Amazon.Polly.TextType
-        "Get-POLSpeech/TextType"
+        {
+            ($_ -eq "Get-POLSpeech/TextType") -Or
+            ($_ -eq "Start-POLSpeechSynthesisTask/TextType")
+        }
         {
             $v = "ssml","text"
             break
         }
         
         # Amazon.Polly.VoiceId
-        "Get-POLSpeech/VoiceId"
+        {
+            ($_ -eq "Get-POLSpeech/VoiceId") -Or
+            ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
+        }
         {
             $v = "Aditi","Amy","Astrid","Brian","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Dora","Emma","Enrique","Ewa","Filiz","Geraint","Giorgio","Gwyneth","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Karl","Kendra","Kimberly","Lea","Liv","Lotte","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Miguel","Mizuki","Naja","Nicole","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Takumi","Tatyana","Vicki","Vitoria"
             break
@@ -5669,10 +5791,11 @@ $POL_Completers = {
 }
 
 $POL_map = @{
-    "LanguageCode"=@("Get-POLVoice")
-    "OutputFormat"=@("Get-POLSpeech")
-    "TextType"=@("Get-POLSpeech")
-    "VoiceId"=@("Get-POLSpeech")
+    "LanguageCode"=@("Get-POLSpeech","Get-POLVoice","Start-POLSpeechSynthesisTask")
+    "OutputFormat"=@("Get-POLSpeech","Start-POLSpeechSynthesisTask")
+    "Status"=@("Get-POLSpeechSynthesisTaskList")
+    "TextType"=@("Get-POLSpeech","Start-POLSpeechSynthesisTask")
+    "VoiceId"=@("Get-POLSpeech","Start-POLSpeechSynthesisTask")
 }
 
 _awsArgumentCompleterRegistration $POL_Completers $POL_map
@@ -5992,6 +6115,13 @@ $S3_Completers = {
             break
         }
         
+        # Amazon.S3.ExpressionType
+        "Select-S3ObjectContent/ExpressionType"
+        {
+            $v = "SQL"
+            break
+        }
+        
         # Amazon.S3.GlacierJobTier
         {
             ($_ -eq "Restore-S3Object/RetrievalTier") -Or
@@ -6063,6 +6193,7 @@ $S3_Completers = {
         # Amazon.S3.ServerSideEncryptionCustomerMethod
         {
             ($_ -eq "Copy-S3Object/CopySourceServerSideEncryptionCustomerMethod") -Or
+            ($_ -eq "Select-S3ObjectContent/ServerSideCustomerEncryptionMethod") -Or
             ($_ -eq "Copy-S3Object/ServerSideEncryptionCustomerMethod") -Or
             ($_ -eq "Get-S3ObjectMetadata/ServerSideEncryptionCustomerMethod") -Or
             ($_ -eq "Get-S3PreSignedURL/ServerSideEncryptionCustomerMethod") -Or
@@ -6113,6 +6244,7 @@ $S3_map = @{
     "CannedACLName"=@("Copy-S3Object","New-S3Bucket","Set-S3ACL","Write-S3Object")
     "CopySourceServerSideEncryptionCustomerMethod"=@("Copy-S3Object")
     "Encoding"=@("Get-S3Object","Get-S3Version")
+    "ExpressionType"=@("Select-S3ObjectContent")
     "InventoryConfiguration_Destination_S3BucketDestination_InventoryFormat"=@("Write-S3BucketInventoryConfiguration")
     "InventoryConfiguration_IncludedObjectVersions"=@("Write-S3BucketInventoryConfiguration")
     "InventoryConfiguration_Schedule_Frequency"=@("Write-S3BucketInventoryConfiguration")
@@ -6122,6 +6254,7 @@ $S3_map = @{
     "RequestPayer"=@("Get-S3ObjectMetadata","Restore-S3Object")
     "RestoreRequestType"=@("Restore-S3Object")
     "RetrievalTier"=@("Restore-S3Object")
+    "ServerSideCustomerEncryptionMethod"=@("Select-S3ObjectContent")
     "ServerSideEncryption"=@("Copy-S3Object","Write-S3Object")
     "ServerSideEncryptionCustomerMethod"=@("Copy-S3Object","Get-S3ObjectMetadata","Get-S3PreSignedURL","Read-S3Object","Write-S3Object")
     "ServerSideEncryptionMethod"=@("Get-S3PreSignedURL")
@@ -6138,6 +6271,27 @@ $SM_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.SageMaker.AssemblyType
+        "New-SMTransformJob/TransformOutput_AssembleWith"
+        {
+            $v = "Line","None"
+            break
+        }
+        
+        # Amazon.SageMaker.BatchStrategy
+        "New-SMTransformJob/BatchStrategy"
+        {
+            $v = "MultiRecord","SingleRecord"
+            break
+        }
+        
+        # Amazon.SageMaker.CompressionType
+        "New-SMTransformJob/TransformInput_CompressionType"
+        {
+            $v = "Gzip","None"
+            break
+        }
+        
         # Amazon.SageMaker.DirectInternetAccess
         "New-SMNotebookInstance/DirectInternetAccess"
         {
@@ -6257,8 +6411,18 @@ $SM_Completers = {
             break
         }
         
+        # Amazon.SageMaker.S3DataType
+        "New-SMTransformJob/TransformInput_DataSource_S3DataSource_S3DataType"
+        {
+            $v = "ManifestFile","S3Prefix"
+            break
+        }
+        
         # Amazon.SageMaker.SortBy
-        "Get-SMTrainingJobList/SortBy"
+        {
+            ($_ -eq "Get-SMTrainingJobList/SortBy") -Or
+            ($_ -eq "Get-SMTransformJobList/SortBy")
+        }
         {
             $v = "CreationTime","Name","Status"
             break
@@ -6268,10 +6432,18 @@ $SM_Completers = {
         {
             ($_ -eq "Get-SMHyperParameterTuningJobList/SortOrder") -Or
             ($_ -eq "Get-SMTrainingJobList/SortOrder") -Or
-            ($_ -eq "Get-SMTrainingJobsForHyperParameterTuningJobList/SortOrder")
+            ($_ -eq "Get-SMTrainingJobsForHyperParameterTuningJobList/SortOrder") -Or
+            ($_ -eq "Get-SMTransformJobList/SortOrder")
         }
         {
             $v = "Ascending","Descending"
+            break
+        }
+        
+        # Amazon.SageMaker.SplitType
+        "New-SMTransformJob/TransformInput_SplitType"
+        {
+            $v = "Line","None","RecordIO"
             break
         }
         
@@ -6299,6 +6471,20 @@ $SM_Completers = {
             break
         }
         
+        # Amazon.SageMaker.TransformInstanceType
+        "New-SMTransformJob/TransformResources_InstanceType"
+        {
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge"
+            break
+        }
+        
+        # Amazon.SageMaker.TransformJobStatus
+        "Get-SMTransformJobList/StatusEquals"
+        {
+            $v = "Completed","Failed","InProgress","Stopped","Stopping"
+            break
+        }
+        
     }
     
     $v |
@@ -6307,14 +6493,20 @@ $SM_Completers = {
 }
 
 $SM_map = @{
+    "BatchStrategy"=@("New-SMTransformJob")
     "DirectInternetAccess"=@("New-SMNotebookInstance")
     "HyperParameterTuningJobConfig_HyperParameterTuningJobObjective_Type"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningJobConfig_Strategy"=@("New-SMHyperParameterTuningJob")
     "InstanceType"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
-    "SortBy"=@("Get-SMConfigList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMModelList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList")
-    "SortOrder"=@("Get-SMConfigList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMModelList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList")
-    "StatusEquals"=@("Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMNotebookInstanceList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList")
+    "SortBy"=@("Get-SMConfigList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMModelList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
+    "SortOrder"=@("Get-SMConfigList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMModelList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
+    "StatusEquals"=@("Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMNotebookInstanceList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
     "TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode"=@("New-SMHyperParameterTuningJob")
+    "TransformInput_CompressionType"=@("New-SMTransformJob")
+    "TransformInput_DataSource_S3DataSource_S3DataType"=@("New-SMTransformJob")
+    "TransformInput_SplitType"=@("New-SMTransformJob")
+    "TransformOutput_AssembleWith"=@("New-SMTransformJob")
+    "TransformResources_InstanceType"=@("New-SMTransformJob")
 }
 
 _awsArgumentCompleterRegistration $SM_Completers $SM_map

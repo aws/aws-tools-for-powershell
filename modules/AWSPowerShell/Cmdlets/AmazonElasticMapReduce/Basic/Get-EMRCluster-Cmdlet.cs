@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
     /// Provides cluster-level details including status, hardware and software configuration,
-    /// VPC settings, and so on. For information about the cluster steps, see <a>ListSteps</a>.
+    /// VPC settings, and so on.
     /// </summary>
     [Cmdlet("Get", "EMRCluster")]
     [OutputType("Amazon.ElasticMapReduce.Model.Cluster")]

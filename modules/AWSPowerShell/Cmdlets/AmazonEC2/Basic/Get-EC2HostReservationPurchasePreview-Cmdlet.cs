@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter HostIdSet
         /// <summary>
         /// <para>
-        /// <para>The ID/s of the Dedicated Host/s that the reservation will be associated with.</para>
+        /// <para>The IDs of the Dedicated Hosts with which the reservation is associated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -48,10 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>create-time</code> - The creation time of the AFI.</para></li><li><para><code>fpga-image-id</code> - The FPGA image identifier (AFI ID).</para></li><li><para><code>fpga-image-global-id</code> - The global FPGA image identifier (AGFI ID).</para></li><li><para><code>name</code> - The name of the AFI.</para></li><li><para><code>owner-id</code> - The AWS account ID of the AFI owner.</para></li><li><para><code>product-code</code> - The product code.</para></li><li><para><code>shell-version</code> - The version of the AWS Shell that was used to create
         /// the bitstream.</para></li><li><para><code>state</code> - The state of the AFI (<code>pending</code> | <code>failed</code>
-        /// | <code>available</code> | <code>unavailable</code>).</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
-        /// to the resource. Specify the key of the tag in the filter name and the value of the
-        /// tag in the filter value. For example, for the tag Purpose=X, specify <code>tag:Purpose</code>
-        /// for the filter name and <code>X</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
+        /// | <code>available</code> | <code>unavailable</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// resource. Use the tag key in the filter name and the tag value as the filter value.
+        /// For example, to find all resources that have a tag with the key <code>Owner</code>
+        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
+        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
         /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>update-time</code> - The time of the most recent update.</para></li></ul>
         /// </para>
         /// </summary>

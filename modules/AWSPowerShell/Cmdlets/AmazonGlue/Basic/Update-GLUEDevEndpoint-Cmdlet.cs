@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class UpdateGLUEDevEndpointCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        #region Parameter AddPublicKey
+        /// <summary>
+        /// <para>
+        /// <para>The list of public keys for the DevEndpoint to use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AddPublicKeys")]
+        public System.String[] AddPublicKey { get; set; }
+        #endregion
+        
         #region Parameter CustomLibrary
         /// <summary>
         /// <para>
@@ -49,6 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.Parameter]
         [Alias("CustomLibraries")]
         public Amazon.Glue.Model.DevEndpointCustomLibraries CustomLibrary { get; set; }
+        #endregion
+        
+        #region Parameter DeletePublicKey
+        /// <summary>
+        /// <para>
+        /// <para>The list of public keys to be deleted from the DevEndpoint. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DeletePublicKeys")]
+        public System.String[] DeletePublicKey { get; set; }
         #endregion
         
         #region Parameter EndpointName
@@ -121,7 +143,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.AddPublicKey != null)
+            {
+                context.AddPublicKeys = new List<System.String>(this.AddPublicKey);
+            }
             context.CustomLibraries = this.CustomLibrary;
+            if (this.DeletePublicKey != null)
+            {
+                context.DeletePublicKeys = new List<System.String>(this.DeletePublicKey);
+            }
             context.EndpointName = this.EndpointName;
             context.PublicKey = this.PublicKey;
             if (ParameterWasBound("UpdateEtlLibrary"))
@@ -142,9 +172,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request
             var request = new Amazon.Glue.Model.UpdateDevEndpointRequest();
             
+            if (cmdletContext.AddPublicKeys != null)
+            {
+                request.AddPublicKeys = cmdletContext.AddPublicKeys;
+            }
             if (cmdletContext.CustomLibraries != null)
             {
                 request.CustomLibraries = cmdletContext.CustomLibraries;
+            }
+            if (cmdletContext.DeletePublicKeys != null)
+            {
+                request.DeletePublicKeys = cmdletContext.DeletePublicKeys;
             }
             if (cmdletContext.EndpointName != null)
             {
@@ -224,7 +262,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AddPublicKeys { get; set; }
             public Amazon.Glue.Model.DevEndpointCustomLibraries CustomLibraries { get; set; }
+            public List<System.String> DeletePublicKeys { get; set; }
             public System.String EndpointName { get; set; }
             public System.String PublicKey { get; set; }
             public System.Boolean? UpdateEtlLibraries { get; set; }

@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <code>instance-stop</code>).</para></li><li><para><code>event.description</code> - A description of the event.</para></li><li><para><code>event.not-after</code> - The latest end time for the scheduled event (for example,
         /// <code>2014-09-15T17:15:20.000Z</code>).</para></li><li><para><code>event.not-before</code> - The earliest start time for the scheduled event (for
         /// example, <code>2014-09-15T17:15:20.000Z</code>).</para></li><li><para><code>instance-state-code</code> - The code for the instance state, as a 16-bit unsigned
-        /// integer. The high byte is an opaque internal value and should be ignored. The low
+        /// integer. The high byte is used for internal purposes and should be ignored. The low
         /// byte is set based on the state represented. The valid values are 0 (pending), 16 (running),
         /// 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</para></li><li><para><code>instance-state-name</code> - The state of the instance (<code>pending</code>
         /// | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code>

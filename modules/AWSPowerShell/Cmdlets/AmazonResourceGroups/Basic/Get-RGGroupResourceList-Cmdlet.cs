@@ -41,6 +41,20 @@ namespace Amazon.PowerShell.Cmdlets.RG
     public partial class GetRGGroupResourceListCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>Filters, formatted as ResourceFilter objects, that you want to apply to a ListGroupResources
+        /// operation.</para><ul><li><para><code>resource-type</code> - Filter resources by their type. Specify up to five resource
+        /// types in the format AWS::ServiceCode::ResourceType. For example, AWS::EC2::Instance,
+        /// or AWS::S3::Bucket.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filters")]
+        public Amazon.ResourceGroups.Model.ResourceFilter[] Filter { get; set; }
+        #endregion
+        
         #region Parameter GroupName
         /// <summary>
         /// <para>
@@ -95,6 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.Filter != null)
+            {
+                context.Filters = new List<Amazon.ResourceGroups.Model.ResourceFilter>(this.Filter);
+            }
             context.GroupName = this.GroupName;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
@@ -115,6 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
             
             // create request and set iteration invariants
             var request = new Amazon.ResourceGroups.Model.ListGroupResourcesRequest();
+            if (cmdletContext.Filters != null)
+            {
+                request.Filters = cmdletContext.Filters;
+            }
             if (cmdletContext.GroupName != null)
             {
                 request.GroupName = cmdletContext.GroupName;
@@ -265,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.ResourceGroups.Model.ResourceFilter> Filters { get; set; }
             public System.String GroupName { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// with the <code>networkMode</code> parameter. The available network modes correspond
     /// to those described in <a href="https://docs.docker.com/engine/reference/run/#/network-settings">Network
     /// settings</a> in the Docker run reference. If you specify the <code>awsvpc</code> network
-    /// mode, the task is allocated an Elastic Network Interface, and you must specify a <a>NetworkConfiguration</a>
+    /// mode, the task is allocated an elastic network interface, and you must specify a <a>NetworkConfiguration</a>
     /// when you create a service or run a task with the task definition. For more information,
     /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
     /// Networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The number of CPU units used by the task. It can be expressed as an integer using
         /// CPU units, for example <code>1024</code>, or as a string using vCPUs, for example
-        /// <code>1 vCPU</code> or <code>1 vcpu</code>, in a task definition but will be converted
-        /// to an integer indicating the CPU units when the task definition is registered.</para><note><para>Task-level CPU and memory parameters are ignored for Windows containers. We recommend
+        /// <code>1 vCPU</code> or <code>1 vcpu</code>, in a task definition. String values are
+        /// converted to an integer indicating the CPU units when the task definition is registered.</para><note><para>Task-level CPU and memory parameters are ignored for Windows containers. We recommend
         /// specifying container-level resources for Windows containers.</para></note><para>If using the EC2 launch type, this field is optional. Supported values are between
         /// <code>128</code> CPU units (<code>0.125</code> vCPUs) and <code>10240</code> CPU units
         /// (<code>10</code> vCPUs).</para><para>If using the Fargate launch type, this field is required and you must use one of the
@@ -126,8 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The amount of memory (in MiB) used by the task. It can be expressed as an integer
         /// using MiB, for example <code>1024</code>, or as a string using GB, for example <code>1GB</code>
-        /// or <code>1 GB</code>, in a task definition but will be converted to an integer indicating
-        /// the MiB when the task definition is registered.</para><note><para>Task-level CPU and memory parameters are ignored for Windows containers. We recommend
+        /// or <code>1 GB</code>, in a task definition. String values are converted to an integer
+        /// indicating the MiB when the task definition is registered.</para><note><para>Task-level CPU and memory parameters are ignored for Windows containers. We recommend
         /// specifying container-level resources for Windows containers.</para></note><para>If using the EC2 launch type, this field is optional.</para><para>If using the Fargate launch type, this field is required and you must use one of the
         /// following values, which determines your range of supported values for the <code>cpu</code>
         /// parameter:</para><ul><li><para>512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available <code>cpu</code> values: 256 (.25

@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter LayerId
         /// <summary>
         /// <para>
-        /// <para>The ID of the layer that the Elastic Load Balancing instance is to be attached to.</para>
+        /// <para>The ID of the layer to which the Elastic Load Balancing instance is to be attached.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

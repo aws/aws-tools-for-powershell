@@ -152,6 +152,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Elasticsearch_Endpoint { get; set; }
         #endregion
         
+        #region Parameter StepFunctions_ExecutionNamePrefix
+        /// <summary>
+        /// <para>
+        /// <para>(Optional) A name will be given to the state machine execution consisting of this
+        /// prefix followed by a UUID. Step Functions automatically creates a unique name for
+        /// each state machine execution if one is not provided.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TopicRulePayload_ErrorAction_StepFunctions_ExecutionNamePrefix")]
+        public System.String StepFunctions_ExecutionNamePrefix { get; set; }
+        #endregion
+        
         #region Parameter Lambda_FunctionArn
         /// <summary>
         /// <para>
@@ -516,6 +529,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Sqs_RoleArn { get; set; }
         #endregion
         
+        #region Parameter StepFunctions_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the role that grants IoT permission to start execution of a state machine
+        /// ("Action":"states:StartExecution").</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TopicRulePayload_ErrorAction_StepFunctions_RoleArn")]
+        public System.String StepFunctions_RoleArn { get; set; }
+        #endregion
+        
         #region Parameter TopicRulePayload_RuleDisabled
         /// <summary>
         /// <para>
@@ -558,6 +583,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TopicRulePayload_Sql { get; set; }
+        #endregion
+        
+        #region Parameter StepFunctions_StateMachineName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Step Functions state machine whose execution will be started.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TopicRulePayload_ErrorAction_StepFunctions_StateMachineName")]
+        public System.String StepFunctions_StateMachineName { get; set; }
         #endregion
         
         #region Parameter CloudwatchAlarm_StateReason
@@ -772,6 +808,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.TopicRulePayload_ErrorAction_Sqs_RoleArn = this.Sqs_RoleArn;
             if (ParameterWasBound("Sqs_UseBase64"))
                 context.TopicRulePayload_ErrorAction_Sqs_UseBase64 = this.Sqs_UseBase64;
+            context.TopicRulePayload_ErrorAction_StepFunctions_ExecutionNamePrefix = this.StepFunctions_ExecutionNamePrefix;
+            context.TopicRulePayload_ErrorAction_StepFunctions_RoleArn = this.StepFunctions_RoleArn;
+            context.TopicRulePayload_ErrorAction_StepFunctions_StateMachineName = this.StepFunctions_StateMachineName;
             if (ParameterWasBound("TopicRulePayload_RuleDisabled"))
                 context.TopicRulePayload_RuleDisabled = this.TopicRulePayload_RuleDisabled;
             context.TopicRulePayload_Sql = this.TopicRulePayload_Sql;
@@ -1222,6 +1261,51 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Sqs != null)
             {
                 requestTopicRulePayload_topicRulePayload_ErrorAction.Sqs = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Sqs;
+                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
+            }
+            Amazon.IoT.Model.StepFunctionsAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions = null;
+            
+             // populate StepFunctions
+            bool requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctionsIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions = new Amazon.IoT.Model.StepFunctionsAction();
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions_stepFunctions_ExecutionNamePrefix = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_StepFunctions_ExecutionNamePrefix != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions_stepFunctions_ExecutionNamePrefix = cmdletContext.TopicRulePayload_ErrorAction_StepFunctions_ExecutionNamePrefix;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions_stepFunctions_ExecutionNamePrefix != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions.ExecutionNamePrefix = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions_stepFunctions_ExecutionNamePrefix;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctionsIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions_stepFunctions_RoleArn = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_StepFunctions_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions_stepFunctions_RoleArn = cmdletContext.TopicRulePayload_ErrorAction_StepFunctions_RoleArn;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions_stepFunctions_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions.RoleArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions_stepFunctions_RoleArn;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctionsIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions_stepFunctions_StateMachineName = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_StepFunctions_StateMachineName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions_stepFunctions_StateMachineName = cmdletContext.TopicRulePayload_ErrorAction_StepFunctions_StateMachineName;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions_stepFunctions_StateMachineName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions.StateMachineName = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions_stepFunctions_StateMachineName;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctionsIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctionsIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction.StepFunctions = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_StepFunctions;
                 requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
             }
             Amazon.IoT.Model.CloudwatchAlarmAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchAlarm = null;
@@ -1723,6 +1807,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String TopicRulePayload_ErrorAction_Sqs_QueueUrl { get; set; }
             public System.String TopicRulePayload_ErrorAction_Sqs_RoleArn { get; set; }
             public System.Boolean? TopicRulePayload_ErrorAction_Sqs_UseBase64 { get; set; }
+            public System.String TopicRulePayload_ErrorAction_StepFunctions_ExecutionNamePrefix { get; set; }
+            public System.String TopicRulePayload_ErrorAction_StepFunctions_RoleArn { get; set; }
+            public System.String TopicRulePayload_ErrorAction_StepFunctions_StateMachineName { get; set; }
             public System.Boolean? TopicRulePayload_RuleDisabled { get; set; }
             public System.String TopicRulePayload_Sql { get; set; }
         }

@@ -86,11 +86,28 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter PublicKey
         /// <summary>
         /// <para>
-        /// <para>The public key to use for authentication.</para>
+        /// <para>The public key to be used by this DevEndpoint for authentication. This attribute is
+        /// provided for backward compatibility, as the recommended attribute to use is public
+        /// keys.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String PublicKey { get; set; }
+        #endregion
+        
+        #region Parameter PublicKeyList
+        /// <summary>
+        /// <para>
+        /// <para>A list of public keys to be used by the DevEndpoints for authentication. The use of
+        /// this attribute is preferred over a single public key because the public keys allow
+        /// you to have a different private key per client.</para><note><para>If you previously created an endpoint with a public key, you must remove that key
+        /// to be able to set a list of public keys: call the <code>UpdateDevEndpoint</code> API
+        /// with the public key content in the <code>deletePublicKeys</code> attribute, and the
+        /// list of new keys in the <code>addPublicKeys</code> attribute.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] PublicKeyList { get; set; }
         #endregion
         
         #region Parameter RoleArn
@@ -159,6 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (ParameterWasBound("NumberOfNode"))
                 context.NumberOfNodes = this.NumberOfNode;
             context.PublicKey = this.PublicKey;
+            if (this.PublicKeyList != null)
+            {
+                context.PublicKeyList = new List<System.String>(this.PublicKeyList);
+            }
             context.RoleArn = this.RoleArn;
             if (this.SecurityGroupId != null)
             {
@@ -200,6 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.PublicKey != null)
             {
                 request.PublicKey = cmdletContext.PublicKey;
+            }
+            if (cmdletContext.PublicKeyList != null)
+            {
+                request.PublicKeys = cmdletContext.PublicKeyList;
             }
             if (cmdletContext.RoleArn != null)
             {
@@ -282,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String ExtraPythonLibsS3Path { get; set; }
             public System.Int32? NumberOfNodes { get; set; }
             public System.String PublicKey { get; set; }
+            public List<System.String> PublicKeyList { get; set; }
             public System.String RoleArn { get; set; }
             public List<System.String> SecurityGroupIds { get; set; }
             public System.String SubnetId { get; set; }

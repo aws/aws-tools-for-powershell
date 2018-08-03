@@ -98,6 +98,16 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.Boolean EnableDefaultInternetAccess { get; set; }
         #endregion
         
+        #region Parameter ImageArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the public, private, or shared image to use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ImageArn { get; set; }
+        #endregion
+        
         #region Parameter ImageName
         /// <summary>
         /// <para>
@@ -196,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             context.DomainJoinInfo_OrganizationalUnitDistinguishedName = this.DomainJoinInfo_OrganizationalUnitDistinguishedName;
             if (ParameterWasBound("EnableDefaultInternetAccess"))
                 context.EnableDefaultInternetAccess = this.EnableDefaultInternetAccess;
+            context.ImageArn = this.ImageArn;
             context.ImageName = this.ImageName;
             context.InstanceType = this.InstanceType;
             context.Name = this.Name;
@@ -267,6 +278,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.EnableDefaultInternetAccess != null)
             {
                 request.EnableDefaultInternetAccess = cmdletContext.EnableDefaultInternetAccess.Value;
+            }
+            if (cmdletContext.ImageArn != null)
+            {
+                request.ImageArn = cmdletContext.ImageArn;
             }
             if (cmdletContext.ImageName != null)
             {
@@ -379,6 +394,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String DomainJoinInfo_DirectoryName { get; set; }
             public System.String DomainJoinInfo_OrganizationalUnitDistinguishedName { get; set; }
             public System.Boolean? EnableDefaultInternetAccess { get; set; }
+            public System.String ImageArn { get; set; }
             public System.String ImageName { get; set; }
             public System.String InstanceType { get; set; }
             public System.String Name { get; set; }

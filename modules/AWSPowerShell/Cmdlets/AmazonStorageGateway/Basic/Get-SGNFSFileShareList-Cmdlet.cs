@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Gets a description for one or more Network File System (NFS) file shares from a file
-    /// gateway. This operation is only supported in the file gateway type.
+    /// gateway. This operation is only supported for file gateways.
     /// </summary>
     [Cmdlet("Get", "SGNFSFileShareList")]
     [OutputType("Amazon.StorageGateway.Model.NFSFileShareInfo")]

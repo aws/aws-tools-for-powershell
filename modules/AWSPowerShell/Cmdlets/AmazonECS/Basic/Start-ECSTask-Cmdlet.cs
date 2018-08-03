@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The security groups associated with the task or service. If you do not specify a security
         /// group, the default security group for the VPC is used. There is a limit of 5 security
-        /// groups able to be specified per AwsVpcConfiguration.</para>
+        /// groups able to be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The subnets associated with the task or service. There is a limit of 10 subnets able
-        /// to be specified per AwsVpcConfiguration.</para>
+        /// to be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

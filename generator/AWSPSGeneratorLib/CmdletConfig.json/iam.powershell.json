@@ -1997,6 +1997,64 @@
         "memoryStreamParameters": []
       }
     },
+    "DeleteRolePermissionsBoundary": {
+      "verb": "Remove",
+      "noun": "RolePermissionsBoundary",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RoleName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RolePermissionsBoundary",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetGroup",
+            "GetAccountAuthorizationDetails",
+            "ListEntitiesForPolicy"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "IsTruncated"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "RoleName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "DeleteRolePolicy": {
       "verb": "Remove",
       "noun": "RolePolicy",
@@ -2435,6 +2493,62 @@
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetGroup",
+            "GetAccountAuthorizationDetails",
+            "ListEntitiesForPolicy"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "IsTruncated"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "UserName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DeleteUserPermissionsBoundary": {
+      "verb": "Remove",
+      "noun": "UserPermissionsBoundary",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "UserPermissionsBoundary",
         "confirmImpactSetting": "High",
         "generateIterationCode": "false",
         "iterationPattern": "Pattern3",
@@ -5347,6 +5461,62 @@
         "memoryStreamParameters": []
       }
     },
+    "PutRolePermissionsBoundary": {
+      "verb": "Write",
+      "noun": "RolePermissionsBoundary",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RolePermissionsBoundary",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetGroup",
+            "GetAccountAuthorizationDetails",
+            "ListEntitiesForPolicy"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "IsTruncated"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "RoleName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "PutRolePolicy": {
       "verb": "Write",
       "noun": "RolePolicy",
@@ -5404,6 +5574,62 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "PutUserPermissionsBoundary": {
+      "verb": "Write",
+      "noun": "UserPermissionsBoundary",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "UserPermissionsBoundary",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetGroup",
+            "GetAccountAuthorizationDetails",
+            "ListEntitiesForPolicy"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "IsTruncated"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "UserName"
         },
         "memoryStreamParameters": []
       }

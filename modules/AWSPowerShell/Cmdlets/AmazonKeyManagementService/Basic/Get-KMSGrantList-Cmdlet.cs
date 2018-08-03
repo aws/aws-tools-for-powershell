@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     ///  
     /// <para>
     /// To perform this operation on a CMK in a different AWS account, specify the key ARN
-    /// in the value of the KeyId parameter.
+    /// in the value of the <code>KeyId</code> parameter.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "KMSGrantList")]

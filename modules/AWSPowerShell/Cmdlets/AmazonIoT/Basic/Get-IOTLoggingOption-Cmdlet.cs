@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Gets the logging options.
+    /// 
+    ///  
+    /// <para>
+    /// NOTE: use of this command is not recommended. Use <code>GetV2LoggingOptions</code>
+    /// instead.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTLoggingOption")]
     [OutputType("Amazon.IoT.Model.GetLoggingOptionsResponse")]

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// You can tag your volumes during creation. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging
-    /// Your Amazon EC2 Resources</a>.
+    /// Your Amazon EC2 Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Creating
     /// an Amazon EBS Volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The number of I/O operations per second (IOPS) to provision for the volume, with a
         /// maximum ratio of 50 IOPS/GiB. Range is 100 to 32000 IOPS for volumes in most regions.
         /// For exceptions, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
-        /// EBS Volume Types</a>.</para><para>This parameter is valid only for Provisioned IOPS SSD (io1) volumes.</para>
+        /// EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>This parameter is valid only for Provisioned IOPS SSD (io1) volumes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

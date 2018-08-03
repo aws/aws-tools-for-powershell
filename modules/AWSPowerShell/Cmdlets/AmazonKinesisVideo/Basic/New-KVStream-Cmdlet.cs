@@ -56,7 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The number of hours that you want to retain the data in the stream. Kinesis Video
-        /// Streams retains the data in a data store that is associated with the stream.</para><para>The default value is 0, indicating that the stream does not persist data.</para>
+        /// Streams retains the data in a data store that is associated with the stream.</para><para>The default value is 0, indicating that the stream does not persist data.</para><para>When the <code>DataRetentionInHours</code> value is 0, consumers can still consume
+        /// the fragments that remain in the service host buffer, which has a retention time limit
+        /// of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the
+        /// buffer when either limit is reached.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

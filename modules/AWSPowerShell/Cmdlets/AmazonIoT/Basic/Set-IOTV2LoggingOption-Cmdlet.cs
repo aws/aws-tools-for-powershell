@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter DisableAllLog
         /// <summary>
         /// <para>
-        /// <para>Set to true to disable all logs, otherwise set to false.</para>
+        /// <para>If true all logs are disabled. The default is false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The role ARN that allows IoT to write to Cloudwatch logs.</para>
+        /// <para>The ARN of the role that allows IoT to write to Cloudwatch logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

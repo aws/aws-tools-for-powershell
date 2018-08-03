@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     /// <summary>
     /// Cancels the specified job. You can only cancel a job before its <code>JobState</code>
     /// value changes to <code>PreparingAppliance</code>. Requesting the <code>ListJobs</code>
-    /// or <code>DescribeJob</code> action will return a job's <code>JobState</code> as part
-    /// of the response element data returned.
+    /// or <code>DescribeJob</code> action returns a job's <code>JobState</code> as part of
+    /// the response element data returned.
     /// </summary>
     [Cmdlet("Stop", "SNOWJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

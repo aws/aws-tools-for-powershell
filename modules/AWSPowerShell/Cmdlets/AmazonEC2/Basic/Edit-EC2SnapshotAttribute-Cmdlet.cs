@@ -33,11 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// you cannot do both in a single API call. If you need to both add and remove account
     /// IDs for a snapshot, you must use multiple API calls.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
     /// Encrypted snapshots and snapshots with AWS Marketplace product codes cannot be made
     /// public. Snapshots encrypted with your default CMK cannot be shared with other accounts.
-    /// </para></note><para>
-    /// For more information on modifying snapshot permissions, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Sharing
+    /// </para><para>
+    /// For more information about modifying snapshot permissions, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Sharing
     /// Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
@@ -64,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The snapshot attribute to modify.</para><note><para>Only volume creation permissions may be modified at the customer level.</para></note>
+        /// <para>The snapshot attribute to modify. Only volume creation permissions can be modified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

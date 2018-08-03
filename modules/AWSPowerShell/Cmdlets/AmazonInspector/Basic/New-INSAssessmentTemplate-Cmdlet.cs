@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     /// <summary>
     /// Creates an assessment template for the assessment target that is specified by the
     /// ARN of the assessment target. If the <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_slr.html">service-linked
-    /// role</a> isn’t already registered, also creates and registers a service-linked role
-    /// to grant Amazon Inspector access to AWS Services needed to perform security assessments.
+    /// role</a> isn’t already registered, this action also creates and registers a service-linked
+    /// role to grant Amazon Inspector access to AWS Services needed to perform security assessments.
     /// </summary>
     [Cmdlet("New", "INSAssessmentTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -70,8 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter DurationInSecond
         /// <summary>
         /// <para>
-        /// <para>The duration of the assessment run in seconds. The default value is 3600 seconds (one
-        /// hour).</para>
+        /// <para>The duration of the assessment run in seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

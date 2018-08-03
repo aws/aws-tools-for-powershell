@@ -39,6 +39,17 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     public partial class NewMQBrokerCmdlet : AmazonMQClientCmdlet, IExecutor
     {
         
+        #region Parameter Logs_Audit
+        /// <summary>
+        /// <para>
+        /// Enables audit logging. Every user management action
+        /// made using JMX or the ActiveMQ Web Console is logged.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Logs_Audit { get; set; }
+        #endregion
+        
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
@@ -92,9 +103,6 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <summary>
         /// <para>
         /// Required. The deployment mode of the broker.
-        /// Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ SINGLE_INSTANCE creates
-        /// a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates
-        /// an active/standby broker for high availability.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -125,11 +133,20 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         public System.String EngineVersion { get; set; }
         #endregion
         
+        #region Parameter Logs_General
+        /// <summary>
+        /// <para>
+        /// Enables general logging.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Logs_General { get; set; }
+        #endregion
+        
         #region Parameter HostInstanceType
         /// <summary>
         /// <para>
         /// Required. The broker's instance type.
-        /// Possible values: mq.t2.micro, mq.m4.large
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -161,8 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter SecurityGroup
         /// <summary>
         /// <para>
-        /// Required. The list of rules (1 minimum,
-        /// 125 maximum) that authorize connections to brokers.
+        /// The list of rules (1 minimum, 125 maximum)
+        /// that authorize connections to brokers.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -173,10 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// Required. The list of groups (2 maximum) that
-        /// define which subnets and IP ranges the broker can use from different Availability
-        /// Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default
-        /// subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
+        /// The list of groups (2 maximum) that define which
+        /// subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE
+        /// deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ
+        /// deployment requires two subnets.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -236,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             context.EngineType = this.EngineType;
             context.EngineVersion = this.EngineVersion;
             context.HostInstanceType = this.HostInstanceType;
+            if (ParameterWasBound("Logs_Audit"))
+                context.Logs_Audit = this.Logs_Audit;
+            if (ParameterWasBound("Logs_General"))
+                context.Logs_General = this.Logs_General;
             context.MaintenanceWindowStartTime = this.MaintenanceWindowStartTime;
             if (ParameterWasBound("PubliclyAccessible"))
                 context.PubliclyAccessible = this.PubliclyAccessible;
@@ -298,6 +319,35 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             if (cmdletContext.HostInstanceType != null)
             {
                 request.HostInstanceType = cmdletContext.HostInstanceType;
+            }
+            
+             // populate Logs
+            bool requestLogsIsNull = true;
+            request.Logs = new Amazon.MQ.Model.Logs();
+            System.Boolean? requestLogs_logs_Audit = null;
+            if (cmdletContext.Logs_Audit != null)
+            {
+                requestLogs_logs_Audit = cmdletContext.Logs_Audit.Value;
+            }
+            if (requestLogs_logs_Audit != null)
+            {
+                request.Logs.Audit = requestLogs_logs_Audit.Value;
+                requestLogsIsNull = false;
+            }
+            System.Boolean? requestLogs_logs_General = null;
+            if (cmdletContext.Logs_General != null)
+            {
+                requestLogs_logs_General = cmdletContext.Logs_General.Value;
+            }
+            if (requestLogs_logs_General != null)
+            {
+                request.Logs.General = requestLogs_logs_General.Value;
+                requestLogsIsNull = false;
+            }
+             // determine if request.Logs should be set to null
+            if (requestLogsIsNull)
+            {
+                request.Logs = null;
             }
             if (cmdletContext.MaintenanceWindowStartTime != null)
             {
@@ -391,6 +441,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             public Amazon.MQ.EngineType EngineType { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String HostInstanceType { get; set; }
+            public System.Boolean? Logs_Audit { get; set; }
+            public System.Boolean? Logs_General { get; set; }
             public Amazon.MQ.Model.WeeklyStartTime MaintenanceWindowStartTime { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public List<System.String> SecurityGroups { get; set; }

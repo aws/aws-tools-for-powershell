@@ -28,8 +28,8 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Gets an Amazon Kinesis shard iterator. A shard iterator expires five minutes after
-    /// it is returned to the requester.
+    /// Gets an Amazon Kinesis shard iterator. A shard iterator expires 5 minutes after it
+    /// is returned to the requester.
     /// 
     ///  
     /// <para>

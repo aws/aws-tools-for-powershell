@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Confirm the state of the resource before you run a command to modify it. Run the DescribeTasks
     /// command using an exponential backoff algorithm to ensure that you allow enough time
     /// for the previous command to propagate through the system. To do this, run the DescribeTasks
-    /// command repeatedly, starting with a couple of seconds of wait time, and increasing
+    /// command repeatedly, starting with a couple of seconds of wait time and increasing
     /// gradually up to five minutes of wait time.
     /// </para></li><li><para>
     /// Add wait time between subsequent commands, even if the DescribeTasks command returns
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The security groups associated with the task or service. If you do not specify a security
         /// group, the default security group for the VPC is used. There is a limit of 5 security
-        /// groups able to be specified per AwsVpcConfiguration.</para>
+        /// groups able to be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The subnets associated with the task or service. There is a limit of 10 subnets able
-        /// to be specified per AwsVpcConfiguration.</para>
+        /// to be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

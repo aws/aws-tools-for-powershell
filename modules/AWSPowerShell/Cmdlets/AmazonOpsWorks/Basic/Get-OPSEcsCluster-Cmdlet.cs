@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     ///  
     /// <para><b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy,
     /// or Manage permissions level for the stack or an attached policy that explicitly grants
-    /// permission. For more information on user permissions, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
+    /// permission. For more information about user permissions, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
     /// User Permissions</a>.
     /// </para><para>
     /// This call accepts only one resource-identifying parameter.

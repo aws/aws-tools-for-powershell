@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// 
     ///  
     /// <para>
-    /// Note that you can't specify a security group for a Network Load Balancer.
+    /// You can't specify a security group for a Network Load Balancer.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ELB2SecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// 
     ///  
     /// <para>
-    /// Alternatively, your listener is deleted when you delete the load balancer it is attached
-    /// to using <a>DeleteLoadBalancer</a>.
+    /// Alternatively, your listener is deleted when you delete the load balancer to which
+    /// it is attached, using <a>DeleteLoadBalancer</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "ELB2Listener", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

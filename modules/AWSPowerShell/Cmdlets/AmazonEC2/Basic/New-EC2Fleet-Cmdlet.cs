@@ -49,6 +49,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2FleetCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        #region Parameter OnDemandOptions_AllocationStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The order of the launch template overrides to use in fulfilling On-Demand capacity.
+        /// If you specify <code>lowest-price</code>, EC2 Fleet uses price to determine the order,
+        /// launching the lowest price first. If you specify <code>prioritized</code>, EC2 Fleet
+        /// uses the priority that you assigned to each launch template override, launching the
+        /// highest priority first. If you do not specify a value, EC2 Fleet defaults to <code>lowest-price</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.FleetOnDemandAllocationStrategy")]
+        public Amazon.EC2.FleetOnDemandAllocationStrategy OnDemandOptions_AllocationStrategy { get; set; }
+        #endregion
+        
         #region Parameter SpotOptions_AllocationStrategy
         /// <summary>
         /// <para>
@@ -106,6 +121,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.EC2.SpotInstanceInterruptionBehavior")]
         public Amazon.EC2.SpotInstanceInterruptionBehavior SpotOptions_InstanceInterruptionBehavior { get; set; }
+        #endregion
+        
+        #region Parameter SpotOptions_InstancePoolsToUseCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of Spot pools across which to allocate your target Spot capacity. Valid
+        /// only when Spot <b>AllocationStrategy</b> is set to <code>lowest-price</code>. EC2
+        /// Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity
+        /// across the number of Spot pools that you specify.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 SpotOptions_InstancePoolsToUseCount { get; set; }
         #endregion
         
         #region Parameter LaunchTemplateConfig
@@ -260,10 +288,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.LaunchTemplateConfigs = new List<Amazon.EC2.Model.FleetLaunchTemplateConfigRequest>(this.LaunchTemplateConfig);
             }
+            context.OnDemandOptions_AllocationStrategy = this.OnDemandOptions_AllocationStrategy;
             if (ParameterWasBound("ReplaceUnhealthyInstance"))
                 context.ReplaceUnhealthyInstances = this.ReplaceUnhealthyInstance;
             context.SpotOptions_AllocationStrategy = this.SpotOptions_AllocationStrategy;
             context.SpotOptions_InstanceInterruptionBehavior = this.SpotOptions_InstanceInterruptionBehavior;
+            if (ParameterWasBound("SpotOptions_InstancePoolsToUseCount"))
+                context.SpotOptions_InstancePoolsToUseCount = this.SpotOptions_InstancePoolsToUseCount;
             if (this.TagSpecification != null)
             {
                 context.TagSpecifications = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -310,6 +341,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.LaunchTemplateConfigs = cmdletContext.LaunchTemplateConfigs;
             }
+            
+             // populate OnDemandOptions
+            bool requestOnDemandOptionsIsNull = true;
+            request.OnDemandOptions = new Amazon.EC2.Model.OnDemandOptionsRequest();
+            Amazon.EC2.FleetOnDemandAllocationStrategy requestOnDemandOptions_onDemandOptions_AllocationStrategy = null;
+            if (cmdletContext.OnDemandOptions_AllocationStrategy != null)
+            {
+                requestOnDemandOptions_onDemandOptions_AllocationStrategy = cmdletContext.OnDemandOptions_AllocationStrategy;
+            }
+            if (requestOnDemandOptions_onDemandOptions_AllocationStrategy != null)
+            {
+                request.OnDemandOptions.AllocationStrategy = requestOnDemandOptions_onDemandOptions_AllocationStrategy;
+                requestOnDemandOptionsIsNull = false;
+            }
+             // determine if request.OnDemandOptions should be set to null
+            if (requestOnDemandOptionsIsNull)
+            {
+                request.OnDemandOptions = null;
+            }
             if (cmdletContext.ReplaceUnhealthyInstances != null)
             {
                 request.ReplaceUnhealthyInstances = cmdletContext.ReplaceUnhealthyInstances.Value;
@@ -336,6 +386,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestSpotOptions_spotOptions_InstanceInterruptionBehavior != null)
             {
                 request.SpotOptions.InstanceInterruptionBehavior = requestSpotOptions_spotOptions_InstanceInterruptionBehavior;
+                requestSpotOptionsIsNull = false;
+            }
+            System.Int32? requestSpotOptions_spotOptions_InstancePoolsToUseCount = null;
+            if (cmdletContext.SpotOptions_InstancePoolsToUseCount != null)
+            {
+                requestSpotOptions_spotOptions_InstancePoolsToUseCount = cmdletContext.SpotOptions_InstancePoolsToUseCount.Value;
+            }
+            if (requestSpotOptions_spotOptions_InstancePoolsToUseCount != null)
+            {
+                request.SpotOptions.InstancePoolsToUseCount = requestSpotOptions_spotOptions_InstancePoolsToUseCount.Value;
                 requestSpotOptionsIsNull = false;
             }
              // determine if request.SpotOptions should be set to null
@@ -479,9 +539,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String ClientToken { get; set; }
             public Amazon.EC2.FleetExcessCapacityTerminationPolicy ExcessCapacityTerminationPolicy { get; set; }
             public List<Amazon.EC2.Model.FleetLaunchTemplateConfigRequest> LaunchTemplateConfigs { get; set; }
+            public Amazon.EC2.FleetOnDemandAllocationStrategy OnDemandOptions_AllocationStrategy { get; set; }
             public System.Boolean? ReplaceUnhealthyInstances { get; set; }
             public Amazon.EC2.SpotAllocationStrategy SpotOptions_AllocationStrategy { get; set; }
             public Amazon.EC2.SpotInstanceInterruptionBehavior SpotOptions_InstanceInterruptionBehavior { get; set; }
+            public System.Int32? SpotOptions_InstancePoolsToUseCount { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecifications { get; set; }
             public Amazon.EC2.DefaultTargetCapacityType TargetCapacitySpecification_DefaultTargetCapacityType { get; set; }
             public System.Int32? TargetCapacitySpecification_OnDemandTargetCapacity { get; set; }

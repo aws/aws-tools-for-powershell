@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     ///  
     /// <para><b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy,
     /// or Manage permissions level for the stack, or an attached policy that explicitly grants
-    /// permissions. For more information on user permissions, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
+    /// permissions. For more information about user permissions, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
     /// User Permissions</a>.
     /// </para><para>
     /// This call accepts only one resource-identifying parameter.
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter StackId
         /// <summary>
         /// <para>
-        /// <para>The stack ID that the instances are registered with. The operation returns descriptions
-        /// of all registered Amazon RDS instances.</para>
+        /// <para>The ID of the stack with which the instances are registered. The operation returns
+        /// descriptions of all registered Amazon RDS instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

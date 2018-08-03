@@ -32,15 +32,16 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     /// 
     ///  
     /// <para>
-    /// If the job state is <code>IN_PROGRESS</code> the job will be marked for termination
-    /// and put into the <code>STOPPING</code> state.
+    /// If the job state is <code>IN_PROGRESS</code> the job is marked for termination and
+    /// put into the <code>STOP_REQUESTED</code> state. If the job completes before it can
+    /// be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is
+    /// stopped and put into the <code>STOPPED</code> state.
     /// </para><para>
     /// If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you
-    /// call the <code>StopDominantLanguageDetectionJob</code> operation, the operation will
-    /// return a 400 Internal Request Exception. 
+    /// call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns
+    /// a 400 Internal Request Exception. 
     /// </para><para>
-    /// When a job is stopped, any document that has already been processed will be written
-    /// to the output location.
+    /// When a job is stopped, any documents already processed are written to the output location.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "COMPDominantLanguageDetectionJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -84,6 +84,18 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         public System.String PathPrefix { get; set; }
         #endregion
         
+        #region Parameter PolicyUsageFilter
+        /// <summary>
+        /// <para>
+        /// <para>The policy usage method to use for filtering the results.</para><para>To list only permissions policies, set <code>PolicyUsageFilter</code> to <code>PermissionsPolicy</code>.
+        /// To list only the policies used to set permissions boundaries, set the value to <code>PermissionsBoundary</code>.</para><para>This parameter is optional. If it is not included, all policies are returned. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.IdentityManagement.PolicyUsageType")]
+        public Amazon.IdentityManagement.PolicyUsageType PolicyUsageFilter { get; set; }
+        #endregion
+        
         #region Parameter Scope
         /// <summary>
         /// <para>
@@ -152,6 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (ParameterWasBound("OnlyAttached"))
                 context.OnlyAttached = this.OnlyAttached;
             context.PathPrefix = this.PathPrefix;
+            context.PolicyUsageFilter = this.PolicyUsageFilter;
             context.Scope = this.Scope;
             
             // allow further manipulation of loaded context prior to processing
@@ -176,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.PathPrefix != null)
             {
                 request.PathPrefix = cmdletContext.PathPrefix;
+            }
+            if (cmdletContext.PolicyUsageFilter != null)
+            {
+                request.PolicyUsageFilter = cmdletContext.PolicyUsageFilter;
             }
             if (cmdletContext.Scope != null)
             {
@@ -302,6 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             public int? MaxItems { get; set; }
             public System.Boolean? OnlyAttached { get; set; }
             public System.String PathPrefix { get; set; }
+            public Amazon.IdentityManagement.PolicyUsageType PolicyUsageFilter { get; set; }
             public Amazon.IdentityManagement.PolicyScopeType Scope { get; set; }
         }
         

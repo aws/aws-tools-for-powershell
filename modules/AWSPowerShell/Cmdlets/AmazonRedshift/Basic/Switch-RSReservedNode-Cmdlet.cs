@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ReservedNodeId
         /// <summary>
         /// <para>
-        /// <para>A string representing the identifier of the Reserved Node to be exchanged.</para>
+        /// <para>A string representing the node identifier of the DC1 Reserved Node to be exchanged.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter TargetReservedNodeOfferingId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Reserved Node offering to be used for the exchange.</para>
+        /// <para>The unique identifier of the DC2 Reserved Node offering to be used for the exchange.
+        /// You can obtain the value for the parameter by calling <a>GetReservedNodeExchangeOfferings</a></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

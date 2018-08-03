@@ -198,13 +198,13 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</para></li><li><para><code>CentOS Linux 7</code></para></li><li><para><code>Red Hat Enterprise Linux 7</code></para></li><li><para>A supported Windows operating system, such as <code>Microsoft Windows Server 2012
         /// R2 Base</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Express</code>,
         /// <code>Microsoft Windows Server 2012 R2 with SQL Server Standard</code>, or <code>Microsoft
-        /// Windows Server 2012 R2 with SQL Server Web</code>.</para></li><li><para>A custom AMI: <code>Custom</code>.</para></li></ul><para>For more information on the supported operating systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS
+        /// Windows Server 2012 R2 with SQL Server Web</code>.</para></li><li><para>A custom AMI: <code>Custom</code>.</para></li></ul><para>For more information about the supported operating systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS
         /// OpsWorks Stacks Operating Systems</a>.</para><para>The default option is the current Amazon Linux version. If you set this parameter
         /// to <code>Custom</code>, you must use the <a>CreateInstance</a> action's AmiId parameter
         /// to specify the custom AMI that you want to use. Block device mappings are not supported
-        /// if the value is <code>Custom</code>. For more information on the supported operating
+        /// if the value is <code>Custom</code>. For more information about supported operating
         /// systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">Operating
-        /// Systems</a>For more information on how to use custom AMIs with AWS OpsWorks Stacks,
+        /// Systems</a>For more information about how to use custom AMIs with AWS OpsWorks Stacks,
         /// see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using
         /// Custom AMIs</a>.</para>
         /// </para>

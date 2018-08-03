@@ -39,6 +39,17 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     public partial class UpdateMQBrokerCmdlet : AmazonMQClientCmdlet, IExecutor
     {
         
+        #region Parameter Logs_Audit
+        /// <summary>
+        /// <para>
+        /// Enables audit logging. Every user management action
+        /// made using JMX or the ActiveMQ Web Console is logged.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Logs_Audit { get; set; }
+        #endregion
+        
         #region Parameter BrokerId
         /// <summary>
         /// <para>
@@ -60,6 +71,16 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.MQ.Model.ConfigurationId Configuration { get; set; }
+        #endregion
+        
+        #region Parameter Logs_General
+        /// <summary>
+        /// <para>
+        /// Enables general logging.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Logs_General { get; set; }
         #endregion
         
         #region Parameter Force
@@ -93,6 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             
             context.BrokerId = this.BrokerId;
             context.Configuration = this.Configuration;
+            if (ParameterWasBound("Logs_Audit"))
+                context.Logs_Audit = this.Logs_Audit;
+            if (ParameterWasBound("Logs_General"))
+                context.Logs_General = this.Logs_General;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -116,6 +141,35 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             if (cmdletContext.Configuration != null)
             {
                 request.Configuration = cmdletContext.Configuration;
+            }
+            
+             // populate Logs
+            bool requestLogsIsNull = true;
+            request.Logs = new Amazon.MQ.Model.Logs();
+            System.Boolean? requestLogs_logs_Audit = null;
+            if (cmdletContext.Logs_Audit != null)
+            {
+                requestLogs_logs_Audit = cmdletContext.Logs_Audit.Value;
+            }
+            if (requestLogs_logs_Audit != null)
+            {
+                request.Logs.Audit = requestLogs_logs_Audit.Value;
+                requestLogsIsNull = false;
+            }
+            System.Boolean? requestLogs_logs_General = null;
+            if (cmdletContext.Logs_General != null)
+            {
+                requestLogs_logs_General = cmdletContext.Logs_General.Value;
+            }
+            if (requestLogs_logs_General != null)
+            {
+                request.Logs.General = requestLogs_logs_General.Value;
+                requestLogsIsNull = false;
+            }
+             // determine if request.Logs should be set to null
+            if (requestLogsIsNull)
+            {
+                request.Logs = null;
             }
             
             CmdletOutput output;
@@ -183,6 +237,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         {
             public System.String BrokerId { get; set; }
             public Amazon.MQ.Model.ConfigurationId Configuration { get; set; }
+            public System.Boolean? Logs_Audit { get; set; }
+            public System.Boolean? Logs_General { get; set; }
         }
         
     }

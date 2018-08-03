@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Sets the status of a service-specific credential to <code>Active</code> or <code>Inactive</code>.
     /// Service-specific credentials that are inactive cannot be used for authentication to
-    /// the service. This operation can be used to disable a user’s service-specific credential
+    /// the service. This operation can be used to disable a user's service-specific credential
     /// as part of a credential rotation work flow.
     /// </summary>
     [Cmdlet("Update", "IAMServiceSpecificCredential", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

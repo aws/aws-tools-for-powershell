@@ -71,10 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// for the network interface to perform network address translation (NAT) in your VPC.
         /// </para></li><li><para><code>status</code> - The status of the network interface. If the network interface
         /// is not attached to an instance, the status is <code>available</code>; if a network
-        /// interface is attached to an instance the status is <code>in-use</code>.</para></li><li><para><code>subnet-id</code> - The ID of the subnet for the network interface.</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
-        /// to the resource. Specify the key of the tag in the filter name and the value of the
-        /// tag in the filter value. For example, for the tag Purpose=X, specify <code>tag:Purpose</code>
-        /// for the filter name and <code>X</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
+        /// interface is attached to an instance the status is <code>in-use</code>.</para></li><li><para><code>subnet-id</code> - The ID of the subnet for the network interface.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// resource. Use the tag key in the filter name and the tag value as the filter value.
+        /// For example, to find all resources that have a tag with the key <code>Owner</code>
+        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
+        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
         /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>vpc-id</code> - The ID of the VPC for the network interface.</para></li></ul>
         /// </para>
         /// </summary>

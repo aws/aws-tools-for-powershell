@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Adds a file gateway to an Active Directory domain. This operation is only supported
-    /// in the file gateway type that supports the SMB file protocol.
+    /// for file gateways that support the SMB file protocol.
     /// </summary>
     [Cmdlet("Join", "SGDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter GatewayARN
         /// <summary>
         /// <para>
-        /// <para>The unique Amazon Resource Name of the file gateway you want to add to the Active
+        /// <para>The unique Amazon Resource Name (ARN) of the file gateway you want to add to the Active
         /// Directory domain. </para>
         /// </para>
         /// </summary>

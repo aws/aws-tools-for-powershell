@@ -123,17 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter AmiVersion
         /// <summary>
         /// <para>
-        /// <para>For Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, the
-        /// Linux AMI is determined by the <code>ReleaseLabel</code> specified or by <code>CustomAmiID</code>.
-        /// The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances
-        /// in the job flow. For details about the AMI versions currently supported in EMR version
-        /// 3.x and 2.x, see <a href="emr/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported">AMI
-        /// Versions Supported in EMR</a> in the <i>Amazon EMR Developer Guide</i>. </para><para>If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both
-        /// Hadoop 0.18 and 0.20), you can use the <a>JobFlowInstancesConfig</a><code>HadoopVersion</code>
-        /// parameter to modify the version of Hadoop from the defaults shown above.</para><note><para>Previously, the EMR AMI version API parameter options allowed you to use latest for
-        /// the latest AMI version rather than specify a numerical value. Some regions no longer
-        /// support this deprecated option as they only have a newer release label version of
-        /// EMR, which requires you to specify an EMR release label release (EMR 4.x or later).</para></note>
+        /// <para>Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and
+        /// later, <code>ReleaseLabel</code> is used. To specify a custom AMI, use <code>CustomAmiID</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -317,9 +308,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_HadoopVersion
         /// <summary>
         /// <para>
-        /// <para>The Hadoop version for the cluster. Valid inputs are "0.18" (deprecated), "0.20" (deprecated),
-        /// "0.20.205" (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value,
-        /// the default of 0.18 is used, unless the AmiVersion parameter is set in the RunJobFlow
+        /// <para>Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for
+        /// the cluster. Valid inputs are "0.18" (deprecated), "0.20" (deprecated), "0.20.205"
+        /// (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default
+        /// of 0.18 is used, unless the <code>AmiVersion</code> parameter is set in the RunJobFlow
         /// call, in which case the default version of Hadoop for that AMI version is used.</para>
         /// </para>
         /// </summary>
@@ -457,8 +449,13 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ReleaseLabel
         /// <summary>
         /// <para>
-        /// <para> The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use
-        /// <code>AmiVersion</code> instead.</para>
+        /// <para>The Amazon EMR release label, which determines the version of open-source application
+        /// packages installed on the cluster. Release labels are in the form <code>emr-x.x.x</code>,
+        /// where x.x.x is an Amazon EMR release version, for example, <code>emr-5.14.0</code>.
+        /// For more information about Amazon EMR release versions and included application versions
+        /// and features, see <a href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/">http://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>.
+        /// The release label applies only to Amazon EMR releases versions 4.x and later. Earlier
+        /// versions use <code>AmiVersion</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

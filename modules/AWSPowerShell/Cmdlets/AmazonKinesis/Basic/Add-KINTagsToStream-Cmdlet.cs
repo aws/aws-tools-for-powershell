@@ -28,8 +28,10 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Adds or updates tags for the specified Kinesis data stream. Each stream can have up
-    /// to 10 tags.
+    /// Adds or updates tags for the specified Kinesis data stream. Each time you invoke this
+    /// operation, you can specify up to 10 tags. If you want to add more than 10 tags to
+    /// your stream, you can invoke this operation multiple times. In total, each stream can
+    /// have up to 50 tags.
     /// 
     ///  
     /// <para>
@@ -61,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The set of key-value pairs to use to create the tags.</para>
+        /// <para>A set of up to 10 key-value pairs to use to create the tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

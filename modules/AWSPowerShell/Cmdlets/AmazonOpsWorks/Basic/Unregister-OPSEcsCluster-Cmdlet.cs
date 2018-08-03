@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter EcsClusterArn
         /// <summary>
         /// <para>
-        /// <para>The cluster's ARN.</para>
+        /// <para>The cluster's Amazon Resource Number (ARN).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -52,18 +52,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// using the <a>DescribeVolumesModifications</a> API. For information about tracking
     /// status changes using either method, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods">Monitoring
     /// Volume Modifications</a>. 
-    /// </para><note><para>
+    /// </para><para>
     /// With previous-generation instance types, resizing an EBS volume may require detaching
-    /// and reattaching the volume or stopping and restarting the instance. For more information
-    /// about modifying an EBS volume running Linux, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying
-    /// the Size, IOPS, or Type of an EBS Volume on Linux</a>. For more information about
-    /// modifying an EBS volume running Windows, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying
+    /// and reattaching the volume or stopping and restarting the instance. For more information,
+    /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying
+    /// the Size, IOPS, or Type of an EBS Volume on Linux</a> and <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying
     /// the Size, IOPS, or Type of an EBS Volume on Windows</a>.
-    /// </para></note><note><para>
+    /// </para><para>
     /// If you reach the maximum volume modification rate per volume limit, you will need
     /// to wait at least six hours before applying further modifications to the affected EBS
     /// volume.
-    /// </para></note>
+    /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2Volume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VolumeModification")]
@@ -78,8 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Iops
         /// <summary>
         /// <para>
-        /// <para>Target IOPS rate of the volume to be modified.</para><para>Only valid for Provisioned IOPS SSD (<code>io1</code>) volumes. For more information
-        /// about <code>io1</code> IOPS configuration, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops</a>.</para><para>Default: If no IOPS value is specified, the existing value is retained. </para>
+        /// <para>The target IOPS rate of the volume.</para><para>This is only valid for Provisioned IOPS SSD (<code>io1</code>) volumes. For more information,
+        /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops">Provisioned
+        /// IOPS SSD (io1) Volumes</a>.</para><para>Default: If no IOPS value is specified, the existing value is retained.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -89,9 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Size
         /// <summary>
         /// <para>
-        /// <para>Target size in GiB of the volume to be modified. Target volume size must be greater
-        /// than or equal to than the existing size of the volume. For information about available
-        /// EBS volume sizes, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html</a>.</para><para>Default: If no size is specified, the existing size is retained. </para>
+        /// <para>The target size of the volume, in GiB. The target volume size must be greater than
+        /// or equal to than the existing size of the volume. For information about available
+        /// EBS volume sizes, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+        /// EBS Volume Types</a>.</para><para>Default: If no size is specified, the existing size is retained.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -111,8 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VolumeType
         /// <summary>
         /// <para>
-        /// <para>Target EBS volume type of the volume to be modified</para><para> The API does not support modifications for volume type <code>standard</code>. You
-        /// also cannot change the type of a volume to <code>standard</code>. </para><para>Default: If no type is specified, the existing type is retained. </para>
+        /// <para>The target EBS volume type of the volume.</para><para>Default: If no type is specified, the existing type is retained.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -263,6 +263,18 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter MaintenanceTrackName
+        /// <summary>
+        /// <para>
+        /// <para>An optional parameter for the name of the maintenance track for the cluster. If you
+        /// don't provide a maintenance track name, the cluster is assigned to the <code>current</code>
+        /// track.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MaintenanceTrackName { get; set; }
+        #endregion
+        
         #region Parameter MasterUsername
         /// <summary>
         /// <para>
@@ -430,6 +442,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 context.IamRoles = new List<System.String>(this.IamRole);
             }
             context.KmsKeyId = this.KmsKeyId;
+            context.MaintenanceTrackName = this.MaintenanceTrackName;
             context.MasterUsername = this.MasterUsername;
             context.MasterUserPassword = this.MasterUserPassword;
             context.NodeType = this.NodeType;
@@ -535,6 +548,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.MaintenanceTrackName != null)
+            {
+                request.MaintenanceTrackName = cmdletContext.MaintenanceTrackName;
             }
             if (cmdletContext.MasterUsername != null)
             {
@@ -654,6 +671,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String HsmConfigurationIdentifier { get; set; }
             public List<System.String> IamRoles { get; set; }
             public System.String KmsKeyId { get; set; }
+            public System.String MaintenanceTrackName { get; set; }
             public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }
             public System.String NodeType { get; set; }

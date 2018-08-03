@@ -62,6 +62,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         public System.String Path { get; set; }
         #endregion
         
+        #region Parameter PermissionsBoundary
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the policy that is used to set the permissions boundary for the user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PermissionsBoundary { get; set; }
+        #endregion
+        
         #region Parameter UserName
         /// <summary>
         /// <para>
@@ -106,6 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             PreExecutionContextLoad(context);
             
             context.Path = this.Path;
+            context.PermissionsBoundary = this.PermissionsBoundary;
             context.UserName = this.UserName;
             
             // allow further manipulation of loaded context prior to processing
@@ -126,6 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.Path != null)
             {
                 request.Path = cmdletContext.Path;
+            }
+            if (cmdletContext.PermissionsBoundary != null)
+            {
+                request.PermissionsBoundary = cmdletContext.PermissionsBoundary;
             }
             if (cmdletContext.UserName != null)
             {
@@ -196,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Path { get; set; }
+            public System.String PermissionsBoundary { get; set; }
             public System.String UserName { get; set; }
         }
         

@@ -71,7 +71,9 @@
     "serviceNamespace": "Amazon.S3"
   },
   "nonFlattenedTypeNames": [
-    "Amazon.S3.Model.SelectParameters"
+    "Amazon.S3.Model.SelectParameters",
+    "Amazon.S3.Model.InputSerialization",
+    "Amazon.S3.Model.OutputSerialization"
   ],
   "nounMaps": {
     "Versions": "Version"
@@ -2333,6 +2335,46 @@
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
         },
+        "memoryStreamParameters": []
+      }
+    },
+    "SelectObjectContent": {
+      "verb": "Select",
+      "noun": "ObjectContent",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Payload",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "true",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ObjectContent",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     }

@@ -118,6 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public Amazon.AppStream.FleetType FleetType { get; set; }
         #endregion
         
+        #region Parameter ImageArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the public, private, or shared image to use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ImageArn { get; set; }
+        #endregion
+        
         #region Parameter ImageName
         /// <summary>
         /// <para>
@@ -233,6 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (ParameterWasBound("EnableDefaultInternetAccess"))
                 context.EnableDefaultInternetAccess = this.EnableDefaultInternetAccess;
             context.FleetType = this.FleetType;
+            context.ImageArn = this.ImageArn;
             context.ImageName = this.ImageName;
             context.InstanceType = this.InstanceType;
             if (ParameterWasBound("MaxUserDurationInSecond"))
@@ -329,6 +340,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.FleetType != null)
             {
                 request.FleetType = cmdletContext.FleetType;
+            }
+            if (cmdletContext.ImageArn != null)
+            {
+                request.ImageArn = cmdletContext.ImageArn;
             }
             if (cmdletContext.ImageName != null)
             {
@@ -447,6 +462,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String DomainJoinInfo_OrganizationalUnitDistinguishedName { get; set; }
             public System.Boolean? EnableDefaultInternetAccess { get; set; }
             public Amazon.AppStream.FleetType FleetType { get; set; }
+            public System.String ImageArn { get; set; }
             public System.String ImageName { get; set; }
             public System.String InstanceType { get; set; }
             public System.Int32? MaxUserDurationInSeconds { get; set; }

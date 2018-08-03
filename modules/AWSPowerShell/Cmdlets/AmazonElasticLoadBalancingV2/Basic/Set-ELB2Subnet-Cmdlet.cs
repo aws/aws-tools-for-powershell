@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// 
     ///  
     /// <para>
-    /// Note that you can't change the subnets for a Network Load Balancer.
+    /// You can't change the subnets for a Network Load Balancer.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ELB2Subnet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

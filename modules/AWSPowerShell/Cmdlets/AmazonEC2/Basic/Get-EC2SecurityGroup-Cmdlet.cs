@@ -74,7 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// which a security group rule allows inbound access.</para></li><li><para><code>ip-permission.protocol</code> - The IP protocol for an inbound security group
         /// rule (<code>tcp</code> | <code>udp</code> | <code>icmp</code> or a protocol number).</para></li><li><para><code>ip-permission.to-port</code> - For an inbound rule, the end of port range for
         /// the TCP and UDP protocols, or an ICMP code.</para></li><li><para><code>ip-permission.user-id</code> - The ID of an AWS account that has been referenced
-        /// in an inbound security group rule.</para></li><li><para><code>owner-id</code> - The AWS account ID of the owner of the security group.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
+        /// in an inbound security group rule.</para></li><li><para><code>owner-id</code> - The AWS account ID of the owner of the security group.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// resource. Use the tag key in the filter name and the tag value as the filter value.
+        /// For example, to find all resources that have a tag with the key <code>Owner</code>
+        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
+        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
         /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>vpc-id</code> - The ID of the VPC specified when the security group was created.</para></li></ul>
         /// </para>
         /// </summary>

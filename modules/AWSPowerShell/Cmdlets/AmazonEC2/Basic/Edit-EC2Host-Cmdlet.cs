@@ -29,12 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled,
-    /// AWS will place instances that you launch with a tenancy of <code>host</code>, but
-    /// without targeting a specific host ID, onto any available Dedicated Host in your account
-    /// which has auto-placement enabled. When auto-placement is disabled, you need to provide
-    /// a host ID if you want the instance to launch onto a specific host. If no host ID is
-    /// provided, the instance will be launched onto a suitable host which has auto-placement
-    /// enabled.
+    /// any instances that you launch with a tenancy of <code>host</code> but without a specific
+    /// host ID are placed onto any available Dedicated Host in your account that has auto-placement
+    /// enabled. When auto-placement is disabled, you need to provide a host ID ito have the
+    /// instance launch onto a specific host. If no host ID is provided, the instance is launched
+    /// onto a suitable host with auto-placement enabled.
     /// </summary>
     [Cmdlet("Edit", "EC2Host", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ModifyHostsResponse")]
@@ -59,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter HostId
         /// <summary>
         /// <para>
-        /// <para>The host IDs of the Dedicated Hosts you want to modify.</para>
+        /// <para>The IDs of the Dedicated Hosts to modify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

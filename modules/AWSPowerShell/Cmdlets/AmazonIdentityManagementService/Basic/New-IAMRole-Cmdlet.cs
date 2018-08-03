@@ -102,6 +102,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         public System.String Path { get; set; }
         #endregion
         
+        #region Parameter PermissionsBoundary
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the policy that is used to set the permissions boundary for the role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PermissionsBoundary { get; set; }
+        #endregion
+        
         #region Parameter RoleName
         /// <summary>
         /// <para>
@@ -149,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (ParameterWasBound("MaxSessionDuration"))
                 context.MaxSessionDuration = this.MaxSessionDuration;
             context.Path = this.Path;
+            context.PermissionsBoundary = this.PermissionsBoundary;
             context.RoleName = this.RoleName;
             
             // allow further manipulation of loaded context prior to processing
@@ -181,6 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.Path != null)
             {
                 request.Path = cmdletContext.Path;
+            }
+            if (cmdletContext.PermissionsBoundary != null)
+            {
+                request.PermissionsBoundary = cmdletContext.PermissionsBoundary;
             }
             if (cmdletContext.RoleName != null)
             {
@@ -254,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             public System.String Description { get; set; }
             public System.Int32? MaxSessionDuration { get; set; }
             public System.String Path { get; set; }
+            public System.String PermissionsBoundary { get; set; }
             public System.String RoleName { get; set; }
         }
         

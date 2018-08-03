@@ -59,17 +59,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Document { get; set; }
         #endregion
         
-        #region Parameter DocumentParameter
-        /// <summary>
-        /// <para>
-        /// <para>Parameters for the job document.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("DocumentParameters")]
-        public System.Collections.Hashtable DocumentParameter { get; set; }
-        #endregion
-        
         #region Parameter DocumentSource
         /// <summary>
         /// <para>
@@ -183,14 +172,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             
             context.Description = this.Description;
             context.Document = this.Document;
-            if (this.DocumentParameter != null)
-            {
-                context.DocumentParameters = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.DocumentParameter.Keys)
-                {
-                    context.DocumentParameters.Add((String)hashKey, (String)(this.DocumentParameter[hashKey]));
-                }
-            }
             context.DocumentSource = this.DocumentSource;
             if (ParameterWasBound("JobExecutionsRolloutConfig_MaximumPerMinute"))
                 context.JobExecutionsRolloutConfig_MaximumPerMinute = this.JobExecutionsRolloutConfig_MaximumPerMinute;
@@ -226,10 +207,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.Document != null)
             {
                 request.Document = cmdletContext.Document;
-            }
-            if (cmdletContext.DocumentParameters != null)
-            {
-                request.DocumentParameters = cmdletContext.DocumentParameters;
             }
             if (cmdletContext.DocumentSource != null)
             {
@@ -361,7 +338,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public System.String Description { get; set; }
             public System.String Document { get; set; }
-            public Dictionary<System.String, System.String> DocumentParameters { get; set; }
             public System.String DocumentSource { get; set; }
             public System.Int32? JobExecutionsRolloutConfig_MaximumPerMinute { get; set; }
             public System.String JobId { get; set; }

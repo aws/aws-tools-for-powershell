@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// The results describe only the Dedicated Hosts in the region you're currently using.
     /// All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that
-    /// have recently been released will be listed with the state <code>released</code>.
+    /// have recently been released are listed with the state <code>released</code>.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2Host")]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>auto-placement</code> - Whether auto-placement is enabled or disabled (<code>on</code>
-        /// | <code>off</code>).</para></li><li><para><code>availability-zone</code> - The Availability Zone of the host.</para></li><li><para><code>client-token</code> - The idempotency token you provided when you allocated
+        /// | <code>off</code>).</para></li><li><para><code>availability-zone</code> - The Availability Zone of the host.</para></li><li><para><code>client-token</code> - The idempotency token that you provided when you allocated
         /// the host.</para></li><li><para><code>host-reservation-id</code> - The ID of the reservation assigned to this host.</para></li><li><para><code>instance-type</code> - The instance type size that the Dedicated Host is configured
         /// to support.</para></li><li><para><code>state</code> - The allocation state of the Dedicated Host (<code>available</code>
         /// | <code>under-assessment</code> | <code>permanent-failure</code> | <code>released</code>
@@ -80,9 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The maximum number of results to return for the request in a single page. The remaining
         /// results can be seen by sending another request with the returned <code>nextToken</code>
-        /// value. This value can be between 5 and 500; if <code>maxResults</code> is given a
-        /// larger value than 500, you will receive an error. You cannot specify this parameter
-        /// and the host IDs parameter in the same request.</para>
+        /// value. This value can be between 5 and 500. If <code>maxResults</code> is given a
+        /// larger value than 500, you receive an error. You cannot specify this parameter and
+        /// the host IDs parameter in the same request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

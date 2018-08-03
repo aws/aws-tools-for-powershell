@@ -68,8 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token used to get the next set of results, or <b>null</b> if there are no additional
-        /// results.</para>
+        /// <para>The token to retrieve the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

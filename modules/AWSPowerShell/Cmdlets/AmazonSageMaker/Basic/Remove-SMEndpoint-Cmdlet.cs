@@ -29,7 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Deletes an endpoint. Amazon SageMaker frees up all of the resources that were deployed
-    /// when the endpoint was created.
+    /// when the endpoint was created. 
+    /// 
+    ///  
+    /// <para>
+    /// Amazon SageMaker retires any custom KMS key grants associated with the endpoint, meaning
+    /// you don't need to use the <a href="http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html">RevokeGrant</a>
+    /// API call.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "SMEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

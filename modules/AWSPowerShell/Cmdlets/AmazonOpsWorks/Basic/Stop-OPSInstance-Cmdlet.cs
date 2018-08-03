@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter StopWithForce
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies whether to force an instance to stop.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

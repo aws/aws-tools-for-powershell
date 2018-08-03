@@ -37,10 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><note><para>
     /// This action is not applicable for Linux/Unix instances or Windows instances that are
     /// backed by Amazon EBS.
-    /// </para></note><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html">Creating
-    /// an Instance Store-Backed Windows AMI</a>.
-    /// </para>
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "EC2InstanceBundle", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.BundleTask")]

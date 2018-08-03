@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// <summary>
         /// <para>
         /// <para>The tags to add to the specified resource. A tag is a string-to-string map of key-value
-        /// pairs. Tag keys can have a maximum character length of 127 characters, and tag values
-        /// can have a maximum length of 255 characters.</para>
+        /// pairs. Tag keys can have a maximum character length of 128 characters, and tag values
+        /// can have a maximum length of 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

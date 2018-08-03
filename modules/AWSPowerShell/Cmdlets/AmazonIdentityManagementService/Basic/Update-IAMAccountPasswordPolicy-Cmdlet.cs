@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric
-        /// characters:</para><para>! @ # $ % ^ &amp;amp; * ( ) _ + - = [ ] { } | '</para><para>If you do not specify a value for this parameter, then the operation uses the default
+        /// characters:</para><para>! @ # $ % ^ &amp; * ( ) _ + - = [ ] { } | '</para><para>If you do not specify a value for this parameter, then the operation uses the default
         /// value of <code>false</code>. The result is that passwords do not require at least
         /// one symbol character.</para>
         /// </para>

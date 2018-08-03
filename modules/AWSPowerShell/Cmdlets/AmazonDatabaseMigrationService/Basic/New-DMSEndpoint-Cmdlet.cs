@@ -88,6 +88,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String S3Settings_BucketFolder { get; set; }
         #endregion
         
+        #region Parameter DmsTransferSettings_BucketName
+        /// <summary>
+        /// <para>
+        /// <para> The name of the S3 bucket to use. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DmsTransferSettings_BucketName { get; set; }
+        #endregion
+        
         #region Parameter S3Settings_BucketName
         /// <summary>
         /// <para>
@@ -350,6 +360,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String ServerName { get; set; }
         #endregion
         
+        #region Parameter DmsTransferSettings_ServiceAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para> The IAM role that has permission to access the Amazon S3 bucket. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DmsTransferSettings_ServiceAccessRoleArn { get; set; }
+        #endregion
+        
         #region Parameter DynamoDbSettings_ServiceAccessRoleArn
         /// <summary>
         /// <para>
@@ -454,6 +474,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             
             context.CertificateArn = this.CertificateArn;
             context.DatabaseName = this.DatabaseName;
+            context.DmsTransferSettings_BucketName = this.DmsTransferSettings_BucketName;
+            context.DmsTransferSettings_ServiceAccessRoleArn = this.DmsTransferSettings_ServiceAccessRoleArn;
             context.DynamoDbSettings_ServiceAccessRoleArn = this.DynamoDbSettings_ServiceAccessRoleArn;
             context.EndpointIdentifier = this.EndpointIdentifier;
             context.EndpointType = this.EndpointType;
@@ -515,6 +537,35 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.DatabaseName != null)
             {
                 request.DatabaseName = cmdletContext.DatabaseName;
+            }
+            
+             // populate DmsTransferSettings
+            bool requestDmsTransferSettingsIsNull = true;
+            request.DmsTransferSettings = new Amazon.DatabaseMigrationService.Model.DmsTransferSettings();
+            System.String requestDmsTransferSettings_dmsTransferSettings_BucketName = null;
+            if (cmdletContext.DmsTransferSettings_BucketName != null)
+            {
+                requestDmsTransferSettings_dmsTransferSettings_BucketName = cmdletContext.DmsTransferSettings_BucketName;
+            }
+            if (requestDmsTransferSettings_dmsTransferSettings_BucketName != null)
+            {
+                request.DmsTransferSettings.BucketName = requestDmsTransferSettings_dmsTransferSettings_BucketName;
+                requestDmsTransferSettingsIsNull = false;
+            }
+            System.String requestDmsTransferSettings_dmsTransferSettings_ServiceAccessRoleArn = null;
+            if (cmdletContext.DmsTransferSettings_ServiceAccessRoleArn != null)
+            {
+                requestDmsTransferSettings_dmsTransferSettings_ServiceAccessRoleArn = cmdletContext.DmsTransferSettings_ServiceAccessRoleArn;
+            }
+            if (requestDmsTransferSettings_dmsTransferSettings_ServiceAccessRoleArn != null)
+            {
+                request.DmsTransferSettings.ServiceAccessRoleArn = requestDmsTransferSettings_dmsTransferSettings_ServiceAccessRoleArn;
+                requestDmsTransferSettingsIsNull = false;
+            }
+             // determine if request.DmsTransferSettings should be set to null
+            if (requestDmsTransferSettingsIsNull)
+            {
+                request.DmsTransferSettings = null;
             }
             
              // populate DynamoDbSettings
@@ -861,6 +912,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         {
             public System.String CertificateArn { get; set; }
             public System.String DatabaseName { get; set; }
+            public System.String DmsTransferSettings_BucketName { get; set; }
+            public System.String DmsTransferSettings_ServiceAccessRoleArn { get; set; }
             public System.String DynamoDbSettings_ServiceAccessRoleArn { get; set; }
             public System.String EndpointIdentifier { get; set; }
             public Amazon.DatabaseMigrationService.ReplicationEndpointTypeValue EndpointType { get; set; }

@@ -28,15 +28,15 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the Dedicated Host Reservations that are available to purchase.
+    /// Describes the Dedicated Host reservations that are available to purchase.
     /// 
     ///  
     /// <para>
-    /// The results describe all the Dedicated Host Reservation offerings, including offerings
+    /// The results describe all the Dedicated Host reservation offerings, including offerings
     /// that may not match the instance family and region of your Dedicated Hosts. When purchasing
-    /// an offering, ensure that the the instance family and region of the offering matches
-    /// that of the Dedicated Host/s it will be associated with. For an overview of supported
-    /// instance types, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
+    /// an offering, ensure that the instance family and Region of the offering matches that
+    /// of the Dedicated Hosts with which it is to be associated . For more information about
+    /// supported instance types, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
     /// Hosts Overview</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. 
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>instance-family</code> - The instance family of the offering (e.g., <code>m4</code>).</para></li><li><para><code>payment-option</code> - The payment option (<code>NoUpfront</code> | <code>PartialUpfront</code>
+        /// <para>One or more filters.</para><ul><li><para><code>instance-family</code> - The instance family of the offering (for example,
+        /// <code>m4</code>).</para></li><li><para><code>payment-option</code> - The payment option (<code>NoUpfront</code> | <code>PartialUpfront</code>
         /// | <code>AllUpfront</code>).</para></li></ul>
         /// </para>
         /// </summary>
@@ -65,10 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MaxDuration
         /// <summary>
         /// <para>
-        /// <para>This is the maximum duration of the reservation you'd like to purchase, specified
-        /// in seconds. Reservations are available in one-year and three-year terms. The number
-        /// of seconds specified must be the number of seconds in a year (365x24x60x60) times
-        /// one of the supported durations (1 or 3). For example, specify 94608000 for three years.</para>
+        /// <para>This is the maximum duration of the reservation to purchase, specified in seconds.
+        /// Reservations are available in one-year and three-year terms. The number of seconds
+        /// specified must be the number of seconds in a year (365x24x60x60) times one of the
+        /// supported durations (1 or 3). For example, specify 94608000 for three years.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -103,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The maximum number of results to return for the request in a single page. The remaining
         /// results can be seen by sending another request with the returned <code>nextToken</code>
-        /// value. This value can be between 5 and 500; if <code>maxResults</code> is given a
-        /// larger value than 500, you will receive an error.</para>
+        /// value. This value can be between 5 and 500. If <code>maxResults</code> is given a
+        /// larger value than 500, you receive an error.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

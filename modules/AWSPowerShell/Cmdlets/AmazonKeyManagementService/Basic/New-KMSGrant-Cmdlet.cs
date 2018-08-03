@@ -35,8 +35,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     ///  
     /// <para>
     /// To perform this operation on a CMK in a different AWS account, specify the key ARN
-    /// in the value of the KeyId parameter. For more information about grants, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants</a>
+    /// in the value of the <code>KeyId</code> parameter. For more information about grants,
+    /// see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants</a>
     /// in the <i>AWS Key Management Service Developer Guide</i>.
+    /// </para><para>
+    /// The result of this operation varies with the key state of the CMK. For details, see
+    /// <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
+    /// Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service
+    /// Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "KMSGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -117,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A friendly name for identifying the grant. Use this value to prevent unintended creation
-        /// of duplicate grants when retrying this request.</para><para>When this value is absent, all <code>CreateGrant</code> requests result in a new grant
+        /// <para>A friendly name for identifying the grant. Use this value to prevent the unintended
+        /// creation of duplicate grants when retrying this request.</para><para>When this value is absent, all <code>CreateGrant</code> requests result in a new grant
         /// with a unique <code>GrantId</code> even if all the supplied parameters are identical.
         /// This can result in unintended duplicates when you retry the <code>CreateGrant</code>
         /// request.</para><para>When this value is present, you can retry a <code>CreateGrant</code> request with

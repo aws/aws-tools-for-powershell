@@ -28,13 +28,18 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Removes the specified tag or tags from the specified customer master key (CMK). You
-    /// cannot perform this operation on a CMK in a different AWS account.
+    /// Removes the specified tags from the specified customer master key (CMK). You cannot
+    /// perform this operation on a CMK in a different AWS account.
     /// 
     ///  
     /// <para>
-    /// To remove a tag, you specify the tag key for each tag to remove. You do not specify
-    /// the tag value. To overwrite the tag value for an existing tag, use <a>TagResource</a>.
+    /// To remove a tag, specify the tag key. To change the tag value of an existing tag key,
+    /// use <a>TagResource</a>.
+    /// </para><para>
+    /// The result of this operation varies with the key state of the CMK. For details, see
+    /// <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
+    /// Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service
+    /// Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "KMSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -28,7 +28,8 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Lists the shards in a stream and provides information about each shard.
+    /// Lists the shards in a stream and provides information about each shard. This operation
+    /// has a limit of 100 transactions per second per data stream.
     /// 
     ///  <important><para>
     /// This API is a new operation that is used by the Amazon Kinesis Client Library (KCL).
@@ -51,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter ExclusiveStartShardId
         /// <summary>
         /// <para>
-        /// <para>The ID of the shard to start the list with. </para><para>If you don't specify this parameter, the default behavior is for <code>ListShards</code>
+        /// <para>Specify this parameter to indicate that you want to list the shards starting with
+        /// the shard whose ID immediately follows <code>ExclusiveStartShardId</code>.</para><para>If you don't specify this parameter, the default behavior is for <code>ListShards</code>
         /// to list the shards starting with the first one in the stream.</para><para>You cannot specify this parameter if you specify <code>NextToken</code>.</para>
         /// </para>
         /// </summary>

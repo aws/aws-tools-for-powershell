@@ -64,6 +64,16 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         public System.Collections.Hashtable Filter { get; set; }
         #endregion
         
+        #region Parameter SortAscending
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean SortAscending { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -129,6 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
+            if (ParameterWasBound("SortAscending"))
+                context.SortAscending = this.SortAscending;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -148,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
+            }
+            if (cmdletContext.SortAscending != null)
+            {
+                request.SortAscending = cmdletContext.SortAscending.Value;
             }
             
             // Initialize loop variants and commence piping
@@ -298,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             public Dictionary<System.String, List<System.String>> Filters { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
+            public System.Boolean? SortAscending { get; set; }
         }
         
     }

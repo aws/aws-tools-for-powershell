@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime
         /// or CdcStartPosition to specify when you want a CDC operation to start. Specifying
-        /// both values results in an error.</para>
+        /// both values results in an error.</para><para>Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

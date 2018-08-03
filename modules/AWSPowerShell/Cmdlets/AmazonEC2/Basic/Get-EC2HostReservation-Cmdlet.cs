@@ -28,8 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes Dedicated Host Reservations which are associated with Dedicated Hosts in
-    /// your account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes reservations that are associated with Dedicated Hosts in your account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2HostReservation")]
     [OutputType("Amazon.EC2.Model.HostReservation")]
@@ -45,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>instance-family</code> - The instance family (e.g., <code>m4</code>).</para></li><li><para><code>payment-option</code> - The payment option (<code>NoUpfront</code> | <code>PartialUpfront</code>
+        /// <para>One or more filters.</para><ul><li><para><code>instance-family</code> - The instance family (for example, <code>m4</code>).</para></li><li><para><code>payment-option</code> - The payment option (<code>NoUpfront</code> | <code>PartialUpfront</code>
         /// | <code>AllUpfront</code>).</para></li><li><para><code>state</code> - The state of the reservation (<code>payment-pending</code> |
         /// <code>payment-failed</code> | <code>active</code> | <code>retired</code>).</para></li></ul>
         /// </para>
@@ -69,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The maximum number of results to return for the request in a single page. The remaining
         /// results can be seen by sending another request with the returned <code>nextToken</code>
-        /// value. This value can be between 5 and 500; if <code>maxResults</code> is given a
-        /// larger value than 500, you will receive an error.</para>
+        /// value. This value can be between 5 and 500.If <code>maxResults</code> is given a larger
+        /// value than 500, you receive an error.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -211,6 +211,21 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter MaintenanceTrackName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the maintenance track for the restored cluster. When you take a snapshot,
+        /// the snapshot inherits the <code>MaintenanceTrack</code> value from the cluster. The
+        /// snapshot might be on a different track than the cluster that was the source for the
+        /// snapshot. For example, suppose that you take a snapshot of a cluster that is on the
+        /// current track and then change the cluster to be on the trailing track. In this case,
+        /// the snapshot and the source cluster are on different tracks.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MaintenanceTrackName { get; set; }
+        #endregion
+        
         #region Parameter NodeType
         /// <summary>
         /// <para>
@@ -360,6 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 context.IamRoles = new List<System.String>(this.IamRole);
             }
             context.KmsKeyId = this.KmsKeyId;
+            context.MaintenanceTrackName = this.MaintenanceTrackName;
             context.NodeType = this.NodeType;
             context.OwnerAccount = this.OwnerAccount;
             if (ParameterWasBound("Port"))
@@ -444,6 +460,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.MaintenanceTrackName != null)
+            {
+                request.MaintenanceTrackName = cmdletContext.MaintenanceTrackName;
             }
             if (cmdletContext.NodeType != null)
             {
@@ -555,6 +575,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String HsmConfigurationIdentifier { get; set; }
             public List<System.String> IamRoles { get; set; }
             public System.String KmsKeyId { get; set; }
+            public System.String MaintenanceTrackName { get; set; }
             public System.String NodeType { get; set; }
             public System.String OwnerAccount { get; set; }
             public System.Int32? Port { get; set; }

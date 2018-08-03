@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Creates a new crawler with specified targets, role, configuration, and optional schedule.
-    /// At least one crawl target must be specified, in either the <i>s3Targets</i> or the
-    /// <i>jdbcTargets</i> field.
+    /// At least one crawl target must be specified, in the <i>s3Targets</i> field, the <i>jdbcTargets</i>
+    /// field, or the <i>DynamoDBTargets</i> field.
     /// </summary>
     [Cmdlet("New", "GLUECrawler", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Classifier
         /// <summary>
         /// <para>
-        /// <para>A list of custom classifiers that the user has registered. By default, all AWS classifiers
-        /// are included in a crawl, but these custom classifiers always override the default
-        /// classifiers for a given classification.</para>
+        /// <para>A list of custom classifiers that the user has registered. By default, all built-in
+        /// classifiers are included in a crawl, but these custom classifiers always override
+        /// the default classifiers for a given classification.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -59,11 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>Crawler configuration information. This versioned JSON string allows users to specify
-        /// aspects of a Crawler's behavior.</para><para>You can use this field to force partitions to inherit metadata such as classification,
-        /// input format, output format, serde information, and schema from their parent table,
-        /// rather than detect this information separately for each partition. Use the following
-        /// JSON string to specify that behavior:</para><para>Example: <code>'{ "Version": 1.0, "CrawlerOutput": { "Partitions": { "AddOrUpdateBehavior":
-        /// "InheritFromTable" } } }'</code></para>
+        /// aspects of a crawler's behavior. For more information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring
+        /// a Crawler</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -93,6 +93,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter Artifacts_EncryptionDisabled
+        /// <summary>
+        /// <para>
+        /// <para> Set to true if you do not want your output artifacts encrypted. This option is only
+        /// valid if your artifacts type is Amazon S3. If this is set with another artifacts type,
+        /// an invalidInputException will be thrown. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Artifacts_EncryptionDisabled { get; set; }
+        #endregion
+        
         #region Parameter EncryptionKey
         /// <summary>
         /// <para>
@@ -297,13 +309,28 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// also start the Docker daemon so that builds can interact with it. One way to do this
         /// is to initialize the Docker daemon during the install phase of your build spec by
         /// running the following build commands. (Do not run the following build commands if
-        /// the specified build environment image is provided by AWS CodeBuild with Docker support.)</para><para><code>- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375
-        /// --storage-driver=overlay&amp; - timeout -t 15 sh -c "until docker info; do echo .;
+        /// the specified build environment image is provided by AWS CodeBuild with Docker support.)</para><para>If the operating system's base image is Ubuntu Linux:</para><para><code>- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375
+        /// --storage-driver=overlay&amp; - timeout 15 sh -c "until docker info; do echo .; sleep
+        /// 1; done"</code></para><para>If the operating system's base image is Alpine Linux, add the <code>-t</code> argument
+        /// to <code>timeout</code>:</para><para><code>- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375
+        /// --storage-driver=overlay&amp; - timeout 15 -t sh -c "until docker info; do echo .;
         /// sleep 1; done"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Environment_PrivilegedMode { get; set; }
+        #endregion
+        
+        #region Parameter Source_ReportBuildStatus
+        /// <summary>
+        /// <para>
+        /// <para> Set to true to report the status of a build's start and finish to your source provider.
+        /// This option is only valid when your source provider is GitHub. If this is set and
+        /// you use a different source provider, an invalidInputException is thrown. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Source_ReportBuildStatus { get; set; }
         #endregion
         
         #region Parameter Auth_Resource
@@ -474,6 +501,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("Artifacts_EncryptionDisabled"))
+                context.Artifacts_EncryptionDisabled = this.Artifacts_EncryptionDisabled;
             context.Artifacts_Location = this.Artifacts_Location;
             context.Artifacts_Name = this.Artifacts_Name;
             context.Artifacts_NamespaceType = this.Artifacts_NamespaceType;
@@ -506,6 +535,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (ParameterWasBound("Source_InsecureSsl"))
                 context.Source_InsecureSsl = this.Source_InsecureSsl;
             context.Source_Location = this.Source_Location;
+            if (ParameterWasBound("Source_ReportBuildStatus"))
+                context.Source_ReportBuildStatus = this.Source_ReportBuildStatus;
             context.Source_Type = this.Source_Type;
             if (this.Tag != null)
             {
@@ -542,6 +573,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
              // populate Artifacts
             bool requestArtifactsIsNull = true;
             request.Artifacts = new Amazon.CodeBuild.Model.ProjectArtifacts();
+            System.Boolean? requestArtifacts_artifacts_EncryptionDisabled = null;
+            if (cmdletContext.Artifacts_EncryptionDisabled != null)
+            {
+                requestArtifacts_artifacts_EncryptionDisabled = cmdletContext.Artifacts_EncryptionDisabled.Value;
+            }
+            if (requestArtifacts_artifacts_EncryptionDisabled != null)
+            {
+                request.Artifacts.EncryptionDisabled = requestArtifacts_artifacts_EncryptionDisabled.Value;
+                requestArtifactsIsNull = false;
+            }
             System.String requestArtifacts_artifacts_Location = null;
             if (cmdletContext.Artifacts_Location != null)
             {
@@ -769,6 +810,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 request.Source.Location = requestSource_source_Location;
                 requestSourceIsNull = false;
             }
+            System.Boolean? requestSource_source_ReportBuildStatus = null;
+            if (cmdletContext.Source_ReportBuildStatus != null)
+            {
+                requestSource_source_ReportBuildStatus = cmdletContext.Source_ReportBuildStatus.Value;
+            }
+            if (requestSource_source_ReportBuildStatus != null)
+            {
+                request.Source.ReportBuildStatus = requestSource_source_ReportBuildStatus.Value;
+                requestSourceIsNull = false;
+            }
             Amazon.CodeBuild.SourceType requestSource_source_Type = null;
             if (cmdletContext.Source_Type != null)
             {
@@ -930,6 +981,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? Artifacts_EncryptionDisabled { get; set; }
             public System.String Artifacts_Location { get; set; }
             public System.String Artifacts_Name { get; set; }
             public Amazon.CodeBuild.ArtifactNamespace Artifacts_NamespaceType { get; set; }
@@ -955,6 +1007,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.Int32? Source_GitCloneDepth { get; set; }
             public System.Boolean? Source_InsecureSsl { get; set; }
             public System.String Source_Location { get; set; }
+            public System.Boolean? Source_ReportBuildStatus { get; set; }
             public Amazon.CodeBuild.SourceType Source_Type { get; set; }
             public List<Amazon.CodeBuild.Model.Tag> Tags { get; set; }
             public System.Int32? TimeoutInMinutes { get; set; }

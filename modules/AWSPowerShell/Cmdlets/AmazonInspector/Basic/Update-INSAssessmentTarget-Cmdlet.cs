@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
     /// Updates the assessment target that is specified by the ARN of the assessment target.
+    /// 
+    ///  
+    /// <para>
+    /// If resourceGroupArn is not specified, all EC2 instances in the current AWS account
+    /// and region are included in the assessment target.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "INSAssessmentTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

@@ -28,20 +28,19 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Updates a Server Message Block (SMB) file share. This operation is only supported
-    /// in the file gateway type.
+    /// Updates a Server Message Block (SMB) file share.
     /// 
     ///  <note><para>
     /// To leave a file share field unchanged, set the corresponding input field to null.
-    /// This operation is only supported in the file gateway type.
+    /// This operation is only supported for file gateways.
     /// </para></note><important><para>
-    /// File gateway requires AWS Security Token Service (AWS STS) to be activated to enable
-    /// you create a file share. Make sure AWS STS is activated in the region you are creating
-    /// your file gateway in. If AWS STS is not activated in the region, activate it. For
-    /// information about how to activate AWS STS, see Activating and Deactivating AWS STS
-    /// in an AWS Region in the AWS Identity and Access Management User Guide. 
-    /// </para><para>
-    /// File gateway does not support creating hard or symbolic links on a file share.
+    /// File gateways require AWS Security Token Service (AWS STS) to be activated to enable
+    /// you to create a file share. Make sure that AWS STS is activated in the AWS Region
+    /// you are creating your file gateway in. If AWS STS is not activated in this AWS Region,
+    /// activate it. For information about how to activate AWS STS, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
+    /// and Deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management
+    /// User Guide.</i></para><para>
+    /// File gateways don't support creating hard or symbolic links on a file share.
     /// </para></important>
     /// </summary>
     [Cmdlet("Update", "SGSMBFileShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -57,9 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter DefaultStorageClass
         /// <summary>
         /// <para>
-        /// <para>The default storage class for objects put into an Amazon S3 bucket by file gateway.
-        /// Possible values are S3_STANDARD, S3_STANDARD_IA or S3_ONEZONE_IA. If this field is
-        /// not populated, the default value S3_STANDARD is used. Optional.</para>
+        /// <para>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
+        /// Possible values are <code>S3_STANDARD</code>, <code>S3_STANDARD_IA</code>, or <code>S3_ONEZONE_IA</code>.
+        /// If this field is not populated, the default value <code>S3_STANDARD</code> is used.
+        /// Optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter FileShareARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the SMB file share you want to update.</para>
+        /// <para>The Amazon Resource Name (ARN) of the SMB file share that you want to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -79,9 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter GuessMIMETypeEnabled
         /// <summary>
         /// <para>
-        /// <para>Enables guessing of the MIME type for uploaded objects based on file extensions. Set
-        /// this value to true to enable MIME type guessing, and otherwise to false. The default
-        /// value is true.</para>
+        /// <para>A value that enables guessing of the MIME type for uploaded objects based on file
+        /// extensions. Set this value to true to enable MIME type guessing, and otherwise to
+        /// false. The default value is true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,8 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter InvalidUserList
         /// <summary>
         /// <para>
-        /// <para>A list of users in the Active Directory that are not allowed to access the file share.
-        /// Can only be set if Authentication is set to "ActiveDirectory".</para>
+        /// <para>A list of users or groups in the Active Directory that are not allowed to access the
+        /// file share. A group must be prefixed with the @ character. For example <code>@group1</code>.
+        /// Can only be set if Authentication is set to <code>ActiveDirectory</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -113,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSKey
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) KMS key used for Amazon S3 server side encryption.
+        /// <para>The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption.
         /// This value can only be set when KMSEncrypted is true. Optional.</para>
         /// </para>
         /// </summary>
@@ -124,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter ObjectACL
         /// <summary>
         /// <para>
-        /// <para>Sets the access control list permission for objects in the Amazon S3 bucket that a
-        /// file gateway puts objects into. The default value is "private".</para>
+        /// <para>A value that sets the access control list permission for objects in the S3 bucket
+        /// that a file gateway puts objects into. The default value is "private".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -136,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter ReadOnly
         /// <summary>
         /// <para>
-        /// <para>Sets the write status of a file share. This value is true if the write status is read-only,
-        /// and otherwise false.</para>
+        /// <para>A value that sets the write status of a file share. This value is true if the write
+        /// status is read-only, and otherwise false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -147,9 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter RequesterPay
         /// <summary>
         /// <para>
-        /// <para>Sets who pays the cost of the request and the data download from the Amazon S3 bucket.
-        /// Set this value to true if you want the requester to pay instead of the bucket owner,
-        /// and otherwise to false.</para>
+        /// <para>A value that sets the access control list permission for objects in the Amazon S3
+        /// bucket that a file gateway puts objects into. The default value is <code>private</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter ValidUserList
         /// <summary>
         /// <para>
-        /// <para>A list of users in the Active Directory that are allowed to access the file share.
-        /// Can only be set if Authentication is set to "ActiveDirectory".</para>
+        /// <para>A list of users or groups in the Active Directory that are allowed to access the file
+        /// share. A group must be prefixed with the @ character. For example <code>@group1</code>.
+        /// Can only be set if Authentication is set to <code>ActiveDirectory</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

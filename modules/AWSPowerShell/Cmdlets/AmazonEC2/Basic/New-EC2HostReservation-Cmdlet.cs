@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter HostIdSet
         /// <summary>
         /// <para>
-        /// <para>The ID/s of the Dedicated Host/s that the reservation will be associated with.</para>
+        /// <para>The IDs of the Dedicated Hosts with which the reservation will be associated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The specified limit is checked against the total upfront cost of the reservation (calculated
         /// as the offering's upfront cost multiplied by the host count). If the total upfront
-        /// cost is greater than the specified price limit, the request will fail. This is used
-        /// to ensure that the purchase does not exceed the expected upfront cost of the purchase.
+        /// cost is greater than the specified price limit, the request fails. This is used to
+        /// ensure that the purchase does not exceed the expected upfront cost of the purchase.
         /// At this time, the only supported currency is <code>USD</code>. For example, to indicate
         /// a limit price of USD 100, specify 100.00.</para>
         /// </para>

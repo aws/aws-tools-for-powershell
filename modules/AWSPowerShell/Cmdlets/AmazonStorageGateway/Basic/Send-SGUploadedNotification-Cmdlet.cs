@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// that you make a request for notification. When the upload is done, Storage Gateway
     /// sends you notification through an Amazon CloudWatch Event. You can configure CloudWatch
     /// Events to send the notification through event targets such as Amazon SNS or AWS Lambda
-    /// function. This operation is only supported in the file gateway type.
+    /// function. This operation is only supported for file gateways.
     /// </para><para>
     /// For more information, see Getting File Upload Notification in the Storage Gateway
     /// User Guide (https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-upload-notification).

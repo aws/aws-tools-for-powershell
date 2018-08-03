@@ -74,6 +74,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public Amazon.CodeBuild.ComputeType ComputeTypeOverride { get; set; }
         #endregion
         
+        #region Parameter ArtifactsOverride_EncryptionDisabled
+        /// <summary>
+        /// <para>
+        /// <para> Set to true if you do not want your output artifacts encrypted. This option is only
+        /// valid if your artifacts type is Amazon S3. If this is set with another artifacts type,
+        /// an invalidInputException will be thrown. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean ArtifactsOverride_EncryptionDisabled { get; set; }
+        #endregion
+        
         #region Parameter EnvironmentTypeOverride
         /// <summary>
         /// <para>
@@ -262,6 +274,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String ProjectName { get; set; }
         #endregion
         
+        #region Parameter ReportBuildStatusOverride
+        /// <summary>
+        /// <para>
+        /// <para> Set to true to report to your source provider the status of a build's start and completion.
+        /// If you use this option with a source provider other than GitHub, an invalidInputException
+        /// is thrown. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean ReportBuildStatusOverride { get; set; }
+        #endregion
+        
         #region Parameter SourceAuthOverride_Resource
         /// <summary>
         /// <para>
@@ -401,6 +425,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("ArtifactsOverride_EncryptionDisabled"))
+                context.ArtifactsOverride_EncryptionDisabled = this.ArtifactsOverride_EncryptionDisabled;
             context.ArtifactsOverride_Location = this.ArtifactsOverride_Location;
             context.ArtifactsOverride_Name = this.ArtifactsOverride_Name;
             context.ArtifactsOverride_NamespaceType = this.ArtifactsOverride_NamespaceType;
@@ -426,6 +452,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (ParameterWasBound("PrivilegedModeOverride"))
                 context.PrivilegedModeOverride = this.PrivilegedModeOverride;
             context.ProjectName = this.ProjectName;
+            if (ParameterWasBound("ReportBuildStatusOverride"))
+                context.ReportBuildStatusOverride = this.ReportBuildStatusOverride;
             context.ServiceRoleOverride = this.ServiceRoleOverride;
             context.SourceAuthOverride_Resource = this.SourceAuthOverride_Resource;
             context.SourceAuthOverride_Type = this.SourceAuthOverride_Type;
@@ -454,6 +482,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
              // populate ArtifactsOverride
             bool requestArtifactsOverrideIsNull = true;
             request.ArtifactsOverride = new Amazon.CodeBuild.Model.ProjectArtifacts();
+            System.Boolean? requestArtifactsOverride_artifactsOverride_EncryptionDisabled = null;
+            if (cmdletContext.ArtifactsOverride_EncryptionDisabled != null)
+            {
+                requestArtifactsOverride_artifactsOverride_EncryptionDisabled = cmdletContext.ArtifactsOverride_EncryptionDisabled.Value;
+            }
+            if (requestArtifactsOverride_artifactsOverride_EncryptionDisabled != null)
+            {
+                request.ArtifactsOverride.EncryptionDisabled = requestArtifactsOverride_artifactsOverride_EncryptionDisabled.Value;
+                requestArtifactsOverrideIsNull = false;
+            }
             System.String requestArtifactsOverride_artifactsOverride_Location = null;
             if (cmdletContext.ArtifactsOverride_Location != null)
             {
@@ -592,6 +630,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 request.ProjectName = cmdletContext.ProjectName;
             }
+            if (cmdletContext.ReportBuildStatusOverride != null)
+            {
+                request.ReportBuildStatusOverride = cmdletContext.ReportBuildStatusOverride.Value;
+            }
             if (cmdletContext.ServiceRoleOverride != null)
             {
                 request.ServiceRoleOverride = cmdletContext.ServiceRoleOverride;
@@ -705,6 +747,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? ArtifactsOverride_EncryptionDisabled { get; set; }
             public System.String ArtifactsOverride_Location { get; set; }
             public System.String ArtifactsOverride_Name { get; set; }
             public Amazon.CodeBuild.ArtifactNamespace ArtifactsOverride_NamespaceType { get; set; }
@@ -724,6 +767,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.Boolean? InsecureSslOverride { get; set; }
             public System.Boolean? PrivilegedModeOverride { get; set; }
             public System.String ProjectName { get; set; }
+            public System.Boolean? ReportBuildStatusOverride { get; set; }
             public System.String ServiceRoleOverride { get; set; }
             public System.String SourceAuthOverride_Resource { get; set; }
             public Amazon.CodeBuild.SourceAuthType SourceAuthOverride_Type { get; set; }

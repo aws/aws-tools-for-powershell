@@ -60,6 +60,21 @@ namespace Amazon.PowerShell.Cmdlets.POL
     public partial class GetPOLVoiceCmdlet : AmazonPollyClientCmdlet, IExecutor
     {
         
+        #region Parameter IncludeAdditionalLanguageCode
+        /// <summary>
+        /// <para>
+        /// <para>Boolean value indicating whether to return any bilingual voices that use the specified
+        /// language as an additional language. For instance, if you request all languages that
+        /// use US English (es-US), and there is an Italian voice that speaks both Italian (it-IT)
+        /// and US English, that voice will be included if you specify <code>yes</code> but not
+        /// if you specify <code>no</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("IncludeAdditionalLanguageCodes")]
+        public System.Boolean IncludeAdditionalLanguageCode { get; set; }
+        #endregion
+        
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
@@ -79,6 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.POL
         /// <para>An opaque pagination token returned from the previous <code>DescribeVoices</code>
         /// operation. If present, this indicates where to continue the listing.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
@@ -97,6 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.POL
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("IncludeAdditionalLanguageCode"))
+                context.IncludeAdditionalLanguageCodes = this.IncludeAdditionalLanguageCode;
             context.LanguageCode = this.LanguageCode;
             context.NextToken = this.NextToken;
             
@@ -115,6 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.POL
             // create request
             var request = new Amazon.Polly.Model.DescribeVoicesRequest();
             
+            if (cmdletContext.IncludeAdditionalLanguageCodes != null)
+            {
+                request.IncludeAdditionalLanguageCodes = cmdletContext.IncludeAdditionalLanguageCodes.Value;
+            }
             if (cmdletContext.LanguageCode != null)
             {
                 request.LanguageCode = cmdletContext.LanguageCode;
@@ -189,6 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? IncludeAdditionalLanguageCodes { get; set; }
             public Amazon.Polly.LanguageCode LanguageCode { get; set; }
             public System.String NextToken { get; set; }
         }

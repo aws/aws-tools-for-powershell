@@ -52,20 +52,21 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// the record with the sequence number or other attribute that marks it as the last record
     /// to process.
     /// </para><para>
-    /// Each data record can be up to 1 MB in size, and each shard can read up to 2 MB per
+    /// Each data record can be up to 1 MiB in size, and each shard can read up to 2 MiB per
     /// second. You can ensure that your calls don't exceed the maximum supported size or
     /// throughput by using the <code>Limit</code> parameter to specify the maximum number
     /// of records that <a>GetRecords</a> can return. Consider your average record size when
-    /// determining this limit.
+    /// determining this limit. The maximum number of records that can be returned per call
+    /// is 10,000.
     /// </para><para>
     /// The size of the data returned by <a>GetRecords</a> varies depending on the utilization
-    /// of the shard. The maximum size of data that <a>GetRecords</a> can return is 10 MB.
-    /// If a call returns this amount of data, subsequent calls made within the next five
-    /// seconds throw <code>ProvisionedThroughputExceededException</code>. If there is insufficient
-    /// provisioned throughput on the stream, subsequent calls made within the next one second
-    /// throw <code>ProvisionedThroughputExceededException</code>. <a>GetRecords</a> won't
+    /// of the shard. The maximum size of data that <a>GetRecords</a> can return is 10 MiB.
+    /// If a call returns this amount of data, subsequent calls made within the next 5 seconds
+    /// throw <code>ProvisionedThroughputExceededException</code>. If there is insufficient
+    /// provisioned throughput on the stream, subsequent calls made within the next 1 second
+    /// throw <code>ProvisionedThroughputExceededException</code>. <a>GetRecords</a> doesn't
     /// return any data when it throws an exception. For this reason, we recommend that you
-    /// wait one second between calls to <a>GetRecords</a>; however, it's possible that the
+    /// wait 1 second between calls to <a>GetRecords</a>. However, it's possible that the
     /// application will get exceptions for longer than 1 second.
     /// </para><para>
     /// To detect whether the application is falling behind in processing, you can use the
@@ -81,6 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// time stamp has millisecond precision. There are no guarantees about the time stamp
     /// accuracy, or that the time stamp is always increasing. For example, records in a shard
     /// or across a stream might have time stamps that are out of order.
+    /// </para><para>
+    /// This operation has a limit of five transactions per second per account.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "KINRecord")]
