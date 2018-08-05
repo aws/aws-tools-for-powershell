@@ -28,10 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Lists the Device Event history for up to 30 days. If EventType isn't specified in
-    /// the request, this returns a list of all device events in reverse chronological order.
-    /// If EventType is specified, this returns a list of device events for that EventType
-    /// in reverse chronological order.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the device event history, including device connection status, for up to 30 days.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ALXBDeviceEventList")]
     [OutputType("Amazon.AlexaForBusiness.Model.DeviceEvent")]
@@ -57,7 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         #region Parameter EventType
         /// <summary>
         /// <para>
-        /// <para>The event type to filter device events.</para>
+        /// <para>The event type to filter device events. If EventType isn't specified, this returns
+        /// a list of all device events in reverse chronological order. If EventType is specified,
+        /// this returns a list of device events for that EventType in reverse chronological order.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -68,9 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to include in the response. If more results exist than
-        /// the specified MaxResults value, a token is included in the response so that the remaining
-        /// results can be retrieved. Required. </para>
+        /// <para>The maximum number of results to include in the response. The default value is 50.
+        /// If more results exist than the specified MaxResults value, a token is included in
+        /// the response so that the remaining results can be retrieved. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -86,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         /// <para>
         /// <para>An optional token returned from a prior request. Use this token for pagination of
         /// results from this action. If this parameter is specified, the response only includes
-        /// results beyond the token, up to the value specified by MaxResults.</para>
+        /// results beyond the token, up to the value specified by MaxResults. When the end of
+        /// results is reached, the response has a value of null.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

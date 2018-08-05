@@ -28,7 +28,7 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Lists all tags for a specific resource.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists all tags for the specified resource.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ALXBTagList")]
     [OutputType("Amazon.AlexaForBusiness.Model.Tag")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the specific resource for which to list tags. Required.</para>
+        /// <para>The ARN of the specified resource for which to list tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
