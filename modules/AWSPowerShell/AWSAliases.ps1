@@ -3229,10 +3229,10 @@ Set-Alias -Name List-IAMVirtualMFADevices -Value Get-IAMVirtualMFADevice
 Set-Alias -Name IAM-ListVirtualMFADevices -Value Get-IAMVirtualMFADevice
 Set-Alias -Name Put-IAMGroupPolicy -Value Write-IAMGroupPolicy
 Set-Alias -Name IAM-PutGroupPolicy -Value Write-IAMGroupPolicy
-Set-Alias -Name IAM-PutRolePermissionsBoundary -Value Write-IAMRolePermissionsBoundary
+Set-Alias -Name IAM-PutRolePermissionsBoundary -Value Set-IAMRolePermissionsBoundary
 Set-Alias -Name Put-IAMRolePolicy -Value Write-IAMRolePolicy
 Set-Alias -Name IAM-PutRolePolicy -Value Write-IAMRolePolicy
-Set-Alias -Name IAM-PutUserPermissionsBoundary -Value Write-IAMUserPermissionsBoundary
+Set-Alias -Name IAM-PutUserPermissionsBoundary -Value Set-IAMUserPermissionsBoundary
 Set-Alias -Name Put-IAMUserPolicy -Value Write-IAMUserPolicy
 Set-Alias -Name IAM-PutUserPolicy -Value Write-IAMUserPolicy
 Set-Alias -Name IAM-RemoveClientIDFromOpenIDConnectProvider -Value Remove-IAMClientIDFromOpenIDConnectProvider

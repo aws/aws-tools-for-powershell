@@ -269,7 +269,7 @@
                 <Param Name="Days" NewName="CopyLifetimeInDays" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="SelectObjectContent" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Select" Noun="ObjectContent" Exclude="false" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SelectObjectContent" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Select" Noun="ObjectContent" Exclude="false" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Expression" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UploadPart" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

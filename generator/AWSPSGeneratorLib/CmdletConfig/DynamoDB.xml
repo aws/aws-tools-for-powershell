@@ -131,5 +131,7 @@
     </ServiceOperations>
     <InputObjectMappingRules />
     <SupportsShouldProcessVerbs />
-    <TypesNotToFlatten />
+    <TypesNotToFlatten>
+        <Type>Amazon.DynamoDBv2.Model.AutoScalingSettingsUpdate</Type>
+    </TypesNotToFlatten>
 </ConfigModel>

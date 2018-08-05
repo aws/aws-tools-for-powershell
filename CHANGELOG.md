@@ -1,3 +1,50 @@
+### 3.3.330.0 (2018-08-06)
+  * Amazon Comprehend
+    * Updated and added cmdlets to support the new service ability to tokenize (find word boundaries) text and for each word provide a label for the part of speech, using the DetectSyntax operation. This API is useful to analyze text for specific conditions like for example finding nouns and the correlating adjectives to understand customer feedback. The new cmdlets are Find-COMPSyntax (DetectSyntax API) and Find-COMPSyntaxBatch (BatchDetectSyntax API).
+  * Amazon DynamoDB
+    * Updated the Update-DDBGlobalTableSetting cmdlet to add support for configuring AutoScaling settings for a DynamoDB global table.
+  * Amazon EC2
+    * Updated cmdlets to add support for two new allocation strategies for EC2/Spot customers -- LowestN for Spot instances, and OD priority for on-demand instances.
+  * Amazon Kinesis
+    * Updated and added cmdlets to support the new SubscribeToShard and RegisterStreamConsumer APIs which allows for retrieving records on a data stream over HTTP2 with enhanced fan-out capabilities. With this new feature the Java SDK now supports event streaming natively which will allow you to define payload and exception structures on the client over a persistent connection. For more information, see Developing Consumers with Enhanced Fan-Out in the Kinesis Developer Guide. The new cmdlets are Get-KINStreamConsumer (DescribeStreamConsumer API), Get-KINStreamConsumerList (ListStreamConsumers API), Register-KINStreamConsumer (RegisterStreamConsumer API) and Unregister-KINStreamConsumer (DeregisterStreamConsumer API).
+  * Amazon MQ
+    * Updated cmdlets to support integration with Amazon CloudWatch Logs.
+  * Amazon Polly
+    * Updated and added cmdlets to support asynchronous synthesis to Amazon S3. The new cmdlets are Get-POLSpeechSynthesisTask (GetSpeechSynthesisTask API), Get-POLSpeechSynthesisTaskList (ListSpeechSynthesisTasks API) and Start-POLSpeechSynthesisTask (StartSpeechSynthesisTask API).
+  * Amazon Redshift
+    * Updated and added cmdlets to support maintenance tracks. When we make a new version of Amazon Redshift available, we update your cluster during its maintenance window. By selecting a maintenance track, you control whether we update your cluster with the most recent approved release, or with the previous release. The two values for maintenance track are current and trailing. If you choose the current track, your cluster is updated with the latest approved release. If you choose the trailing track, your cluster is updated with the release that was approved previously. The new cmdlet is Get-RSClusterTrack (DescribeClusterTracks API).
+  * Amazon S3
+    * Added cmdlet Select-S3ObjectContent (SelectObjectContent API) to support Amazon S3 Select. Amazon S3 Select is an Amazon S3 feature that makes it easy to retrieve specific data from the contents of an object using simple SQL expressions without having to retrieve the entire object. With this release the S3 Select API is now generally available in all public regions and supports retrieval of a subset of data using SQL clauses, like SELECT and WHERE, from delimited text files and JSON objects.
+  * Amazon SageMaker
+    * Updated and added cmdlets to support the capability for customers to run fully-managed, high-throughput batch transform machine learning models with a simple API call. Batch Transform is ideal for high-throughput workloads and predictions in non-real-time scenarios where data is accumulated over a period of time for offline processing.
+  * Amazon Transcribe
+    * Updated the Start-TRSTranscribeJob cmdlet to support specifying an Amazon S3 output bucket to store the transcription of your audio file.
+  * AWS AppStream
+    * Updated and added cmdlets to support the new service feature enabling sharing AppStream images across AWS accounts within the same region. The new cmdlet are Get-APSImagePermission (DescribeImagePermissions API), Remove-APSImagePermission (DeleteImagePermission API) and Update-APSImagePermission (UpdateImagePermissions API).
+  * AWS AppSync
+    * Updated cmdlets to support configuring HTTP endpoints as data sources for your AWS AppSync GraphQL API.
+  * AWS Cloud HSM V2
+    * Updated and added cmdlets to support copy-backup-to-region, which allows you to copy a backup of a cluster from one region to another. The copied backup can be used in the destination region to create a new AWS CloudHSM cluster as a clone of the original cluster. The new cmdlet is Copy-HSM2BackupToRegion (CopyBackupToRegion API).
+  * AWS CodeBuild
+    * Updated cmdlets to support disabling encryption and specifying encryption key on build artifacts.
+  * AWS Database Migration Service
+    * Updated cmdlets to add support for DmsTransfer endpoint type and support for re-validate option in table reload API.
+  * AWS Elastic File System
+    * Updated and added cmdlets to support instant provisioning of the throughput required for your applications independent of the amount of data stored in your file system, allowing you to optimize throughput for your applications performance needs. The new cmdlet is Update-EFSFileSystem (UpdateFileSystem API).
+  * AWS Glue
+    * Updated cmdlets to support association of multiple SSH public keys with a development endpoints.
+  * AWS Identity and Access Management
+    * Updated and added cmdlets to support the IAM delegated administrator feature. This feature enables customers to attach permissions boundary to IAM principals. The IAM principals cannot operate exceeding the permission specified in permissions boundary. The new cmdlets for this feature are Set-IAMRolePermissionsBoundary (PutRolePermissionsBoundary), Set-IAMUserPermissionsBoundary (PutUserPermissionsBoundary API), Remove-IAMRolePermissionsBoundary (DeleteRolePermissionsBoundary API) and Remove-IAMUserPermissionsBoundary (DeleteUserPermissionsBoundary API).
+  * AWS Import/Export Snowball
+    * Updated and added cmdlets to support the availability of Amazon EC2 compute instances that run on the device. AWS Snowball Edge is a 100-TB ruggedized device built to transfer data into and out of AWS with optional support for local Lambda-based compute functions. With this feature, developers and administrators can run their EC2-based applications on the device providing them with an end to end vertically integrated AWS experience. Designed for data pre-processing, compression, machine learning, and data collection applications, these new instances, called SBE1 instances, feature 1.8 GHz Intel Xeon D processors up to 16 vCPUs, and 32 GB of memory. The SBE1 instance type is available in four sizes and multiple instances can be run on the device at the same time. Customers can now run compute instances using the same Amazon Machine Images (AMIs) that are used in Amazon EC2.
+  * AWS IoT
+    * Updated and added cmdlets to support the new IoT security service, AWS IoT Device Defender, and extending the capability of AWS IoT to support Step Functions rule action. The AWS IoT Device Defender is a fully managed service that helps you secure your fleet of IoT devices. For more details on this new service, go to https://aws.amazon.com/iot-device-defender. The Step Functions rule action lets you start an execution of AWS Step Functions state machine from a rule.
+  * AWS Storage Gateway
+    * Updated cmdlets to support creation of stored volumes using AWS KMS keys.
+  * AWS Systems Manager
+    * Updated and added cmdlets to support attaching labels to history parameter records and reference history parameter records via labels. It also adds Parameter Store integration with AWS Secrets Manager to allow referencing and retrieving AWS Secrets Manager's secrets from Parameter Store.
+    * Updated and added cmdlets to support creation and use of service-linked roles to register and edit Maintenance Window tasks.
+
 ### 3.3.313.0 (2018-07-09)
   * Amazon Route 53 Auto Naming
     * Added support for the Amazon Route 53 Auto Naming service (Service Discovery). Amazon Route 53 auto naming lets you configure public or private namespaces that your microservice applications run in. When instances of the service become available, you can call the auto naming API to register the instance, and Route 53 automatically creates up to five DNS records and an optional health check. Clients that submit DNS queries for the service receive an answer that contains up to eight healthy records. Cmdlets for the service have the noun prefix SD and can be listed with the command *Get-AWSCmdletName -Service SD*.

@@ -28,51 +28,57 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Adds or updates the policy that is specified as the IAM role's permissions boundary.
+    /// Adds or updates the policy that is specified as the IAM user's permissions boundary.
     /// You can use an AWS managed policy or a customer managed policy to set the boundary
-    /// for a role. Use the boundary to control the maximum permissions that the role can
+    /// for a user. Use the boundary to control the maximum permissions that the user can
     /// have. Setting a permissions boundary is an advanced feature that can affect the permissions
-    /// for the role.
+    /// for the user.
     /// 
-    ///  
-    /// <para>
-    /// You cannot set the boundary for a service-linked role. 
-    /// </para><important><para>
-    /// Policies used as permissions boundaries do not provide permissions. You must also
-    /// attach a permissions policy to the role. To learn how the effective permissions for
-    /// a role are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM
+    ///  <important><para>
+    /// Policies that are used as permissions boundaries do not provide permissions. You must
+    /// also attach a permissions policy to the user. To learn how the effective permissions
+    /// for a user are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM
     /// JSON Policy Evaluation Logic</a> in the IAM User Guide. 
     /// </para></important>
     /// </summary>
-    [Cmdlet("Write", "IAMRolePermissionsBoundary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Identity and Access Management PutRolePermissionsBoundary API operation.", Operation = new[] {"PutRolePermissionsBoundary"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
-        "The service response (type Amazon.IdentityManagement.Model.PutRolePermissionsBoundaryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Set", "IAMUserPermissionsBoundary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Calls the AWS Identity and Access Management PutUserPermissionsBoundary API operation.", Operation = new[] {"PutUserPermissionsBoundary"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.IdentityManagement.Model.PutUserPermissionsBoundaryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class WriteIAMRolePermissionsBoundaryCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public partial class SetIAMUserPermissionsBoundaryCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter PermissionsBoundary
         /// <summary>
         /// <para>
-        /// <para>The ARN of the policy that is used to set the permissions boundary for the role.</para>
+        /// <para>The ARN of the policy that is used to set the permissions boundary for the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PermissionsBoundary { get; set; }
         #endregion
         
-        #region Parameter RoleName
+        #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name (friendly name, not ARN) of the IAM role for which you want to set the permissions
+        /// <para>The name (friendly name, not ARN) of the IAM user for which you want to set the permissions
         /// boundary.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RoleName { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String UserName { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the UserName parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -89,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RoleName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-IAMRolePermissionsBoundary (PutRolePermissionsBoundary)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("UserName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-IAMUserPermissionsBoundary (PutUserPermissionsBoundary)"))
             {
                 return;
             }
@@ -105,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             PreExecutionContextLoad(context);
             
             context.PermissionsBoundary = this.PermissionsBoundary;
-            context.RoleName = this.RoleName;
+            context.UserName = this.UserName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -120,15 +126,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IdentityManagement.Model.PutRolePermissionsBoundaryRequest();
+            var request = new Amazon.IdentityManagement.Model.PutUserPermissionsBoundaryRequest();
             
             if (cmdletContext.PermissionsBoundary != null)
             {
                 request.PermissionsBoundary = cmdletContext.PermissionsBoundary;
             }
-            if (cmdletContext.RoleName != null)
+            if (cmdletContext.UserName != null)
             {
-                request.RoleName = cmdletContext.RoleName;
+                request.UserName = cmdletContext.UserName;
             }
             
             CmdletOutput output;
@@ -140,6 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.UserName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -164,16 +172,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private Amazon.IdentityManagement.Model.PutRolePermissionsBoundaryResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.PutRolePermissionsBoundaryRequest request)
+        private Amazon.IdentityManagement.Model.PutUserPermissionsBoundaryResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.PutUserPermissionsBoundaryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "PutRolePermissionsBoundary");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "PutUserPermissionsBoundary");
             try
             {
                 #if DESKTOP
-                return client.PutRolePermissionsBoundary(request);
+                return client.PutUserPermissionsBoundary(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutRolePermissionsBoundaryAsync(request);
+                var task = client.PutUserPermissionsBoundaryAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -195,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String PermissionsBoundary { get; set; }
-            public System.String RoleName { get; set; }
+            public System.String UserName { get; set; }
         }
         
     }

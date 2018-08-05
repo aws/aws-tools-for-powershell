@@ -39,40 +39,6 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class UpdateDDBGlobalTableSettingCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
-        #region Parameter GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingDisabled
-        /// <summary>
-        /// <para>
-        /// <para>Disabled autoscaling for this global table or global secondary index.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Boolean GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingDisabled { get; set; }
-        #endregion
-        
-        #region Parameter GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingRoleArn
-        /// <summary>
-        /// <para>
-        /// <para>Role ARN used for configuring autoscaling policy.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingRoleArn { get; set; }
-        #endregion
-        
-        #region Parameter TargetTrackingScalingPolicyConfiguration_DisableScaleIn
-        /// <summary>
-        /// <para>
-        /// <para>Indicates whether scale in by the target tracking policy is disabled. If the value
-        /// is true, scale in is disabled and the target tracking policy won't remove capacity
-        /// from the scalable resource. Otherwise, scale in is enabled and the target tracking
-        /// policy can remove capacity from the scalable resource. The default value is false.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_DisableScaleIn")]
-        public System.Boolean TargetTrackingScalingPolicyConfiguration_DisableScaleIn { get; set; }
-        #endregion
-        
         #region Parameter GlobalTableGlobalSecondaryIndexSettingsUpdate
         /// <summary>
         /// <para>
@@ -94,6 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public System.String GlobalTableName { get; set; }
         #endregion
         
+        #region Parameter GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate
+        /// <summary>
+        /// <para>
+        /// <para>AutoScaling settings for managing provisioned write capacity for the global table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.DynamoDBv2.Model.AutoScalingSettingsUpdate GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate { get; set; }
+        #endregion
+        
         #region Parameter GlobalTableProvisionedWriteCapacityUnit
         /// <summary>
         /// <para>
@@ -105,41 +81,6 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public System.Int64 GlobalTableProvisionedWriteCapacityUnit { get; set; }
         #endregion
         
-        #region Parameter GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MaximumUnit
-        /// <summary>
-        /// <para>
-        /// <para>The maximum capacity units that a global table or global secondary index should be
-        /// scaled up to.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MaximumUnits")]
-        public System.Int64 GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MaximumUnit { get; set; }
-        #endregion
-        
-        #region Parameter GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MinimumUnit
-        /// <summary>
-        /// <para>
-        /// <para>The minimum capacity units that a global table or global secondary index should be
-        /// scaled down to.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MinimumUnits")]
-        public System.Int64 GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MinimumUnit { get; set; }
-        #endregion
-        
-        #region Parameter ScalingPolicyUpdate_PolicyName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the scaling policy.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_PolicyName")]
-        public System.String ScalingPolicyUpdate_PolicyName { get; set; }
-        #endregion
-        
         #region Parameter ReplicaSettingsUpdate
         /// <summary>
         /// <para>
@@ -148,49 +89,6 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.DynamoDBv2.Model.ReplicaSettingsUpdate[] ReplicaSettingsUpdate { get; set; }
-        #endregion
-        
-        #region Parameter TargetTrackingScalingPolicyConfiguration_ScaleInCooldown
-        /// <summary>
-        /// <para>
-        /// <para>The amount of time, in seconds, after a scale in activity completes before another
-        /// scale in activity can start. The cooldown period is used to block subsequent scale
-        /// in requests until it has expired. You should scale in conservatively to protect your
-        /// application's availability. However, if another alarm triggers a scale out policy
-        /// during the cooldown period after a scale-in, application autoscaling scales out your
-        /// scalable target immediately. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown")]
-        public System.Int32 TargetTrackingScalingPolicyConfiguration_ScaleInCooldown { get; set; }
-        #endregion
-        
-        #region Parameter TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown
-        /// <summary>
-        /// <para>
-        /// <para>The amount of time, in seconds, after a scale out activity completes before another
-        /// scale out activity can start. While the cooldown period is in effect, the capacity
-        /// that has been added by the previous scale out event that initiated the cooldown is
-        /// calculated as part of the desired capacity for the next scale out. You should continuously
-        /// (but not excessively) scale out.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown")]
-        public System.Int32 TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown { get; set; }
-        #endregion
-        
-        #region Parameter TargetTrackingScalingPolicyConfiguration_TargetValue
-        /// <summary>
-        /// <para>
-        /// <para>The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base
-        /// 10) or 2e-360 to 2e360 (Base 2).</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_TargetValue")]
-        public System.Double TargetTrackingScalingPolicyConfiguration_TargetValue { get; set; }
         #endregion
         
         #region Parameter Force
@@ -227,22 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 context.GlobalTableGlobalSecondaryIndexSettingsUpdate = new List<Amazon.DynamoDBv2.Model.GlobalTableGlobalSecondaryIndexSettingsUpdate>(this.GlobalTableGlobalSecondaryIndexSettingsUpdate);
             }
             context.GlobalTableName = this.GlobalTableName;
-            if (ParameterWasBound("GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingDisabled"))
-                context.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingDisabled = this.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingDisabled;
-            context.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingRoleArn = this.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingRoleArn;
-            if (ParameterWasBound("GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MaximumUnit"))
-                context.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MaximumUnits = this.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MaximumUnit;
-            if (ParameterWasBound("GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MinimumUnit"))
-                context.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MinimumUnits = this.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MinimumUnit;
-            context.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_PolicyName = this.ScalingPolicyUpdate_PolicyName;
-            if (ParameterWasBound("TargetTrackingScalingPolicyConfiguration_DisableScaleIn"))
-                context.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_DisableScaleIn = this.TargetTrackingScalingPolicyConfiguration_DisableScaleIn;
-            if (ParameterWasBound("TargetTrackingScalingPolicyConfiguration_ScaleInCooldown"))
-                context.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown = this.TargetTrackingScalingPolicyConfiguration_ScaleInCooldown;
-            if (ParameterWasBound("TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown"))
-                context.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown = this.TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown;
-            if (ParameterWasBound("TargetTrackingScalingPolicyConfiguration_TargetValue"))
-                context.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_TargetValue = this.TargetTrackingScalingPolicyConfiguration_TargetValue;
+            context.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate = this.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate;
             if (ParameterWasBound("GlobalTableProvisionedWriteCapacityUnit"))
                 context.GlobalTableProvisionedWriteCapacityUnits = this.GlobalTableProvisionedWriteCapacityUnit;
             if (this.ReplicaSettingsUpdate != null)
@@ -273,134 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             {
                 request.GlobalTableName = cmdletContext.GlobalTableName;
             }
-            
-             // populate GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate
-            bool requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateIsNull = true;
-            request.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate = new Amazon.DynamoDBv2.Model.AutoScalingSettingsUpdate();
-            System.Boolean? requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingDisabled = null;
-            if (cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingDisabled != null)
+            if (cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate != null)
             {
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingDisabled = cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingDisabled.Value;
-            }
-            if (requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingDisabled != null)
-            {
-                request.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate.AutoScalingDisabled = requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingDisabled.Value;
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateIsNull = false;
-            }
-            System.String requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingRoleArn = null;
-            if (cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingRoleArn != null)
-            {
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingRoleArn = cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingRoleArn;
-            }
-            if (requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingRoleArn != null)
-            {
-                request.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate.AutoScalingRoleArn = requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingRoleArn;
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateIsNull = false;
-            }
-            System.Int64? requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MaximumUnit = null;
-            if (cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MaximumUnits != null)
-            {
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MaximumUnit = cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MaximumUnits.Value;
-            }
-            if (requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MaximumUnit != null)
-            {
-                request.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate.MaximumUnits = requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MaximumUnit.Value;
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateIsNull = false;
-            }
-            System.Int64? requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MinimumUnit = null;
-            if (cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MinimumUnits != null)
-            {
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MinimumUnit = cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MinimumUnits.Value;
-            }
-            if (requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MinimumUnit != null)
-            {
-                request.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate.MinimumUnits = requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MinimumUnit.Value;
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateIsNull = false;
-            }
-            Amazon.DynamoDBv2.Model.AutoScalingPolicyUpdate requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate = null;
-            
-             // populate ScalingPolicyUpdate
-            bool requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdateIsNull = true;
-            requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate = new Amazon.DynamoDBv2.Model.AutoScalingPolicyUpdate();
-            System.String requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_scalingPolicyUpdate_PolicyName = null;
-            if (cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_PolicyName != null)
-            {
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_scalingPolicyUpdate_PolicyName = cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_PolicyName;
-            }
-            if (requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_scalingPolicyUpdate_PolicyName != null)
-            {
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate.PolicyName = requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_scalingPolicyUpdate_PolicyName;
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdateIsNull = false;
-            }
-            Amazon.DynamoDBv2.Model.AutoScalingTargetTrackingScalingPolicyConfigurationUpdate requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration = null;
-            
-             // populate TargetTrackingScalingPolicyConfiguration
-            bool requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfigurationIsNull = true;
-            requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration = new Amazon.DynamoDBv2.Model.AutoScalingTargetTrackingScalingPolicyConfigurationUpdate();
-            System.Boolean? requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_DisableScaleIn = null;
-            if (cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_DisableScaleIn != null)
-            {
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_DisableScaleIn = cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_DisableScaleIn.Value;
-            }
-            if (requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_DisableScaleIn != null)
-            {
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration.DisableScaleIn = requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_DisableScaleIn.Value;
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfigurationIsNull = false;
-            }
-            System.Int32? requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_ScaleInCooldown = null;
-            if (cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown != null)
-            {
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_ScaleInCooldown = cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown.Value;
-            }
-            if (requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_ScaleInCooldown != null)
-            {
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration.ScaleInCooldown = requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_ScaleInCooldown.Value;
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfigurationIsNull = false;
-            }
-            System.Int32? requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_ScaleOutCooldown = null;
-            if (cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown != null)
-            {
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_ScaleOutCooldown = cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown.Value;
-            }
-            if (requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_ScaleOutCooldown != null)
-            {
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration.ScaleOutCooldown = requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_ScaleOutCooldown.Value;
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfigurationIsNull = false;
-            }
-            System.Double? requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_TargetValue = null;
-            if (cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_TargetValue != null)
-            {
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_TargetValue = cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_TargetValue.Value;
-            }
-            if (requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_TargetValue != null)
-            {
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration.TargetValue = requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_TargetValue.Value;
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfigurationIsNull = false;
-            }
-             // determine if requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration should be set to null
-            if (requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfigurationIsNull)
-            {
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration = null;
-            }
-            if (requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration != null)
-            {
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate.TargetTrackingScalingPolicyConfiguration = requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration;
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdateIsNull = false;
-            }
-             // determine if requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate should be set to null
-            if (requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdateIsNull)
-            {
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate = null;
-            }
-            if (requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate != null)
-            {
-                request.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate.ScalingPolicyUpdate = requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate;
-                requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateIsNull = false;
-            }
-             // determine if request.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate should be set to null
-            if (requestGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateIsNull)
-            {
-                request.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate = null;
+                request.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate = cmdletContext.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate;
             }
             if (cmdletContext.GlobalTableProvisionedWriteCapacityUnits != null)
             {
@@ -476,15 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         {
             public List<Amazon.DynamoDBv2.Model.GlobalTableGlobalSecondaryIndexSettingsUpdate> GlobalTableGlobalSecondaryIndexSettingsUpdate { get; set; }
             public System.String GlobalTableName { get; set; }
-            public System.Boolean? GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingDisabled { get; set; }
-            public System.String GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_AutoScalingRoleArn { get; set; }
-            public System.Int64? GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MaximumUnits { get; set; }
-            public System.Int64? GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_MinimumUnits { get; set; }
-            public System.String GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_PolicyName { get; set; }
-            public System.Boolean? GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_DisableScaleIn { get; set; }
-            public System.Int32? GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown { get; set; }
-            public System.Int32? GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown { get; set; }
-            public System.Double? GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate_ScalingPolicyUpdate_TargetTrackingScalingPolicyConfiguration_TargetValue { get; set; }
+            public Amazon.DynamoDBv2.Model.AutoScalingSettingsUpdate GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate { get; set; }
             public System.Int64? GlobalTableProvisionedWriteCapacityUnits { get; set; }
             public List<Amazon.DynamoDBv2.Model.ReplicaSettingsUpdate> ReplicaSettingsUpdate { get; set; }
         }

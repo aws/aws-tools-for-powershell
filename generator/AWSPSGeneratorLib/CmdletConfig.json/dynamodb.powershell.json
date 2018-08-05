@@ -14,7 +14,9 @@
     "serviceConfigClass": "AmazonDynamoDBConfig",
     "serviceNamespace": "Amazon.DynamoDBv2"
   },
-  "nonFlattenedTypeNames": [],
+  "nonFlattenedTypeNames": [
+    "Amazon.DynamoDBv2.Model.AutoScalingSettingsUpdate"
+  ],
   "nounMaps": {},
   "outputMetadataMembers": [
     "ExclusiveStartTableName",
@@ -1134,7 +1136,7 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GlobalTableName"
         },

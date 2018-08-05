@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// The expression that is used to query the object.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Expression { get; set; }
         #endregion
         
