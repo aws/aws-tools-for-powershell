@@ -917,8 +917,6 @@ namespace AWSPowerShellGenerator.Analysis
                 CurrentOperation.RequestedVerb = verb;
             }
 
-            CheckForPluralNoun(noun);
-
             if (CurrentOperation.IsAutoConfiguring)
             {
                 // if we're configuring a new operation, state the verb and noun selected
@@ -954,8 +952,7 @@ namespace AWSPowerShellGenerator.Analysis
 
             if (Pluralization.IsPlural(nounTermination) && !pluralFalsePositives.Contains(nounTermination))
             {
-                // entry 0-n is the capitalized noun prefix, skip that
-                for (var i = CurrentModel.ServiceNounPrefix.Length; i < nounArray.Length - 1; i++)
+                for (var i = 0; i < nounArray.Length - 1; i++)
                 {
                     suggestedNoun.Append(nounArray[i]);
                 }
