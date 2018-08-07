@@ -50,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class GetDDBBackupsListCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        #region Parameter BackupType
+        /// <summary>
+        /// <para>
+        /// <para>The backups from the table specified by BackupType are listed.</para><para>Where BackupType can be:</para><ul><li><para><code>USER</code> - On demand backup created by you.</para></li><li><para><code>SYSTEM</code> - On demand backup automatically created by DynamoDB.</para></li><li><para><code>ALL</code> - All types of on demand backups (USER and SYSTEM).</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DynamoDBv2.BackupTypeFilter")]
+        public Amazon.DynamoDBv2.BackupTypeFilter BackupType { get; set; }
+        #endregion
+        
         #region Parameter ExclusiveStartBackupArn
         /// <summary>
         /// <para>
@@ -122,6 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.BackupType = this.BackupType;
             context.ExclusiveStartBackupArn = this.ExclusiveStartBackupArn;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
@@ -146,6 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             // create request
             var request = new Amazon.DynamoDBv2.Model.ListBackupsRequest();
             
+            if (cmdletContext.BackupType != null)
+            {
+                request.BackupType = cmdletContext.BackupType;
+            }
             if (cmdletContext.ExclusiveStartBackupArn != null)
             {
                 request.ExclusiveStartBackupArn = cmdletContext.ExclusiveStartBackupArn;
@@ -230,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.DynamoDBv2.BackupTypeFilter BackupType { get; set; }
             public System.String ExclusiveStartBackupArn { get; set; }
             public int? Limit { get; set; }
             public System.String TableName { get; set; }

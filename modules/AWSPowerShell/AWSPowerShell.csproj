@@ -70,7 +70,7 @@
       <HintPath>..\..\packages\AWSSDK.Athena.3.3.0.18\lib\net35\AWSSDK.Athena.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AWSHealth">
-      <HintPath>..\..\packages\AWSSDK.AWSHealth.3.3.0.33\lib\net35\AWSSDK.AWSHealth.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.AWSHealth.3.3.1\lib\net35\AWSSDK.AWSHealth.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Batch">
       <HintPath>..\..\packages\AWSSDK.Batch.3.3.5.9\lib\net35\AWSSDK.Batch.dll</HintPath>
@@ -346,7 +346,7 @@
       <HintPath>..\..\packages\AWSSDK.EC2.3.3.57.2\lib\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
-      <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.11.2\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.12\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DirectoryService">
       <HintPath>..\..\packages\AWSSDK.DirectoryService.3.3.5.6\lib\net35\AWSSDK.DirectoryService.dll</HintPath>

@@ -2791,6 +2791,13 @@ $DDB_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.DynamoDBv2.BackupTypeFilter
+        "Get-DDBBackupsList/BackupType"
+        {
+            $v = "ALL","SYSTEM","USER"
+            break
+        }
+        
         # Amazon.DynamoDBv2.KeyType
         "Add-DDBKeySchema/KeyType"
         {
@@ -2831,6 +2838,7 @@ $DDB_Completers = {
 }
 
 $DDB_map = @{
+    "BackupType"=@("Get-DDBBackupsList")
     "HashKeyDataType"=@("Add-DDBIndexSchema")
     "KeyDataType"=@("Add-DDBKeySchema")
     "KeyType"=@("Add-DDBKeySchema")
