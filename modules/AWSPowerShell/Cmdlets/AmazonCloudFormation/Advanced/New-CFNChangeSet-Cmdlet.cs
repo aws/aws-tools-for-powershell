@@ -21,6 +21,7 @@ using System.Management.Automation;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.CloudFormation;
+using Amazon.CloudFormation.Model;
 
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
@@ -91,7 +92,29 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter]
         public System.String ChangeSetName { get; set; }
         #endregion
-        
+
+        #region Parameter ChangeSetType
+        /// <summary>
+        /// <para>
+        /// The type of change set operation. To create a change set for a new stack, specify
+        /// <code>CREATE</code>. To create a change set for an existing stack, specify <code>UPDATE</code>.
+        /// </para>
+        /// <para>
+        /// If you create a change set for a new stack, AWS Cloudformation creates a stack with
+        /// a unique stack ID, but no template or resources. The stack will be in the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#d0e11995">
+        /// <code>REVIEW_IN_PROGRESS</code> </a> state until you execute the change set.
+        /// </para>
+        /// <para>
+        /// By default, AWS CloudFormation specifies <code>UPDATE</code>. You can't use the <code>UPDATE</code>
+        /// type to create a change set for a new stack or the <code>CREATE</code> type to create
+        /// a change set for an existing stack.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CloudFormation.ChangeSetType")]
+        public Amazon.CloudFormation.ChangeSetType ChangeSetType { get; set; }
+        #endregion
+
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -174,7 +197,16 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter]
         public System.String RoleARN { get; set; }
         #endregion
-        
+
+        #region Parameter RollbackConfiguration
+        /// <summary>
+        /// The rollback triggers for AWS CloudFormation to monitor during stack creation and
+        /// updating operations, and for the specified monitoring period afterwards.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.CloudFormation.Model.RollbackConfiguration RollbackConfiguration { get; set; }
+        #endregion
+
         #region Parameter StackName
         /// <summary>
         /// <para>
@@ -269,6 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 context.Capabilities = new List<System.String>(this.Capability);
             }
             context.ChangeSetName = this.ChangeSetName;
+            context.ChangeSetType = this.ChangeSetType;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             if (this.NotificationARNs != null)
@@ -284,6 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 context.ResourceTypes = new List<System.String>(this.ResourceType);
             }
             context.RoleARN = this.RoleARN;
+            context.RollbackConfiguration = this.RollbackConfiguration;
             context.StackName = this.StackName;
             if (this.Tag != null)
             {
@@ -317,6 +351,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 request.ChangeSetName = cmdletContext.ChangeSetName;
             }
+
+            if (cmdletContext.ChangeSetType != null)
+            {
+                request.ChangeSetType = cmdletContext.ChangeSetType;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -340,6 +379,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.RoleARN != null)
             {
                 request.RoleARN = cmdletContext.RoleARN;
+            }
+
+            if (cmdletContext.RollbackConfiguration != null)
+            {
+                request.RollbackConfiguration = cmdletContext.RollbackConfiguration;
             }
             if (cmdletContext.StackName != null)
             {
@@ -429,12 +473,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             public List<System.String> Capabilities { get; set; }
             public System.String ChangeSetName { get; set; }
+            public Amazon.CloudFormation.ChangeSetType ChangeSetType { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public List<System.String> NotificationARNs { get; set; }
             public List<Amazon.CloudFormation.Model.Parameter> Parameters { get; set; }
             public List<System.String> ResourceTypes { get; set; }
             public System.String RoleARN { get; set; }
+            public Amazon.CloudFormation.Model.RollbackConfiguration RollbackConfiguration { get; set; }
             public System.String StackName { get; set; }
             public List<Amazon.CloudFormation.Model.Tag> Tags { get; set; }
             public System.String TemplateBody { get; set; }

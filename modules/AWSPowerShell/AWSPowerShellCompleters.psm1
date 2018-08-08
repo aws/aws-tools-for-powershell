@@ -1101,6 +1101,13 @@ $CFN_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CloudFormation.ChangeSetType
+        "New-CFNChangeSet/ChangeSetType"
+        {
+            $v = "CREATE","UPDATE"
+            break
+        }
+        
         # Amazon.CloudFormation.OnFailure
         "New-CFNStack/OnFailure"
         {
@@ -1141,6 +1148,7 @@ $CFN_Completers = {
 }
 
 $CFN_map = @{
+    "ChangeSetType"=@("New-CFNChangeSet")
     "OnFailure"=@("New-CFNStack")
     "Status"=@("Get-CFNStackSetList","Send-CFNResourceSignal","Test-CFNStack","Wait-CFNStack","Watch-CFNStackEvent")
 }
