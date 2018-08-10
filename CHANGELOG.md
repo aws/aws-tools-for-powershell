@@ -1,3 +1,24 @@
+### (2018-08-13)
+  * Amazon DynamoDB
+    * Updated the Get-DDBBackupsList cmdlet with new parameter -BackupType to filter the returned backups.
+  * Amazon DynamoDB Accelerator (DAX)
+    * Updated New-DAXCluster cmdlet to support creation of clusters with server-side encryption.
+  * Amazon EC2
+    * Updated the New-EC2FlowLog cmdlet to support delivering flow logs directly to Amazon S3.
+  * Amazon Pinpoint
+    * Updated cmdlets to support updating endpoints.
+    * Added Write-PINEvent (PutEvents API) cmdlet to support submission of events.
+  * Amazon Relational Database Service
+    * Added Edit-RDSCurrentDBClusterCapacity cmdlet, and updated others, to support the new ModifyCurrentDBClusterCapacity API for Aurora Serverless.
+  * AWS CloudFormation
+    * Fixed issue with missing parameters for ChangeSetType and RollbackConfiguration in New-CFNChangeSet cmdlet.
+  * AWS CodeBuild
+    * Updated cmdlets to support new service feature enabling semantic versioning.
+  * AWS Secrets Manager
+    * Updated the Remove-SECSecret cmdlet with parameter -DeleteWithNoRecovery. This enables forcing deletion of a secret without any recovery window and maps to the ForceDeleteWithoutRecovery property in the DeleteSecret API.
+  * AWS Systems Manager
+    * Updated the Start-SSMAutomationExecution cmdlet to support Automation Execution Rate Control based on tags and customized parameter maps. With Automation Execution Rate Control customers can target their resources by specifying a Tag with Key/Value. With customized parameter maps rate control customers can benefit from customization of input parameters.
+
 ### 3.3.330.0 (2018-08-06)
   * Amazon Comprehend
     * Updated and added cmdlets to support the new service ability to tokenize (find word boundaries) text and for each word provide a label for the part of speech, using the DetectSyntax operation. This API is useful to analyze text for specific conditions like for example finding nouns and the correlating adjectives to understand customer feedback. The new cmdlets are Find-COMPSyntax (DetectSyntax API) and Find-COMPSyntaxBatch (BatchDetectSyntax API).

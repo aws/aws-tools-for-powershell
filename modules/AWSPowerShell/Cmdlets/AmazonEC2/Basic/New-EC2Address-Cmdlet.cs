@@ -28,18 +28,21 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Allocates an Elastic IP address.
+    /// Allocates an Elastic IP address to your AWS account. After you allocate the Elastic
+    /// IP address you can associate it with an instance or network interface. After you release
+    /// an Elastic IP address, it is released to the IP address pool and can be allocated
+    /// to a different AWS account.
     /// 
     ///  
     /// <para>
+    /// [EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You
+    /// cannot recover an Elastic IP address that you released after it is allocated to another
+    /// AWS account. You cannot recover an Elastic IP address for EC2-Classic. To attempt
+    /// to recover an Elastic IP address that you released, specify it in this operation.
+    /// </para><para>
     /// An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By
     /// default, you can allocate 5 Elastic IP addresses for EC2-Classic per region and 5
     /// Elastic IP addresses for EC2-VPC per region.
-    /// </para><para>
-    /// If you release an Elastic IP address for use in a VPC, you might be able to recover
-    /// it. To recover an Elastic IP address that you released, specify it in the <code>Address</code>
-    /// parameter. Note that you cannot recover an Elastic IP address that you released after
-    /// it is allocated to another AWS account.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
     /// IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.

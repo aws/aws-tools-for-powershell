@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogStreamNamePrefix
         /// <summary>
         /// <para>
-        /// <para>The prefix to match.</para><para>iIf <code>orderBy</code> is <code>LastEventTime</code>,you cannot specify this parameter.</para>
+        /// <para>The prefix to match.</para><para>If <code>orderBy</code> is <code>LastEventTime</code>,you cannot specify this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

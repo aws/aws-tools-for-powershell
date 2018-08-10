@@ -935,7 +935,18 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                         writer.WriteLine("foreach (var hashTable in this.{0})", property.CmdletParameterName);
                                         writer.OpenRegion();
                                         {
-                                            writer.WriteLine("var d = new Dictionary<{0}, {1}>();", innerDictionaryTypes[0].FullName, innerDictionaryTypes[1].FullName);
+                                            // handles Dictionary<T1, List<T2>>
+                                            if (innerDictionaryTypes[1].IsGenericType && innerDictionaryTypes[1].Name.StartsWith("List`", StringComparison.Ordinal))
+                                            {
+                                                var innnerValueSetItemType =
+                                                    ((innerDictionaryTypes[1]).GetGenericArguments())[0].FullName;
+
+                                                writer.WriteLine("var d = new Dictionary<{0}, List<{1}>>();", innerDictionaryTypes[0].FullName, innnerValueSetItemType);
+                                            }
+                                            else
+                                            {
+                                                writer.WriteLine("var d = new Dictionary<{0}, {1}>();", innerDictionaryTypes[0].FullName, innerDictionaryTypes[1].FullName);
+                                            }
 
                                             writer.WriteLine("foreach (var hashKey in hashTable.Keys)");
                                             writer.OpenRegion();
@@ -952,7 +963,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                                     // IEnumerable<T> yields exception on hashValue
                                                     writer.WriteLine("object hashValue = hashTable[hashKey];");
                                                     // have to dig deeper to get the real type, and not "List`1"
-                                                    string valueSetItemType = ((innerDictionaryTypes[1]).GetGenericArguments())[0].Name;
+                                                    string valueSetItemType = ((innerDictionaryTypes[1]).GetGenericArguments())[0].FullName;
 
                                                     writer.WriteLine("if (hashValue == null)");
                                                     writer.OpenRegion();

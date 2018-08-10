@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// You must specify one of the following targets: Internet gateway or virtual private
+    /// You must specify one of the following targets: internet gateway or virtual private
     /// gateway, NAT instance, NAT gateway, VPC peering connection, network interface, or
-    /// egress-only Internet gateway.
+    /// egress-only internet gateway.
     /// </para><para>
     /// When determining how to route traffic, we use the route with the most specific match.
     /// For example, traffic is destined for the IPv4 address <code>192.0.2.3</code>, and
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter EgressOnlyInternetGatewayId
         /// <summary>
         /// <para>
-        /// <para>[IPv6 traffic only] The ID of an egress-only Internet gateway.</para>
+        /// <para>[IPv6 traffic only] The ID of an egress-only internet gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GatewayId
         /// <summary>
         /// <para>
-        /// <para>The ID of an Internet gateway or virtual private gateway attached to your VPC.</para>
+        /// <para>The ID of an internet gateway or virtual private gateway attached to your VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

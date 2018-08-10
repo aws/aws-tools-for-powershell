@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Deletes the specified Internet gateway. You must detach the Internet gateway from
+    /// Deletes the specified internet gateway. You must detach the internet gateway from
     /// the VPC before you can delete it.
     /// </summary>
     [Cmdlet("Remove", "EC2InternetGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InternetGatewayId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Internet gateway.</para>
+        /// <para>The ID of the internet gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

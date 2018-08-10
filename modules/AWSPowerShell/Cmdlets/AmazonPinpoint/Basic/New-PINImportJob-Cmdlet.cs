@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ImportJobRequest_ExternalId
         /// <summary>
         /// <para>
-        /// DEPRECATED. Your AWS account ID, which you
+        /// (Deprecated) Your AWS account ID, which you
         /// assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to
         /// assume an IAM role. This requirement is removed, and external IDs are not recommended
         /// for IAM roles assumed by Amazon Pinpoint.
@@ -113,10 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ImportJobRequest_S3Url
         /// <summary>
         /// <para>
-        /// A URL that points to the location within an Amazon
-        /// S3 bucket that contains the endpoints to import. The location can be a folder or a
-        /// single file.The URL should follow this format: s3://bucket-name/folder-name/file-nameAmazon
-        /// Pinpoint will import endpoints from this location and any subfolders it contains.
+        /// The URL of the S3 bucket that contains the segment
+        /// information to import. The location can be a folder or a single file. The URL should
+        /// use the following format: s3://bucket-name/folder-name/file-nameAmazon Pinpoint imports
+        /// endpoints from this location and any subfolders it contains.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

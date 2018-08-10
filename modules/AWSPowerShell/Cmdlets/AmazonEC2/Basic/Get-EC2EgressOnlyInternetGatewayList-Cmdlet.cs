@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your egress-only Internet gateways.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes one or more of your egress-only internet gateways.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2EgressOnlyInternetGatewayList")]
     [OutputType("Amazon.EC2.Model.EgressOnlyInternetGateway")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter EgressOnlyInternetGatewayId
         /// <summary>
         /// <para>
-        /// <para>One or more egress-only Internet gateway IDs.</para>
+        /// <para>One or more egress-only internet gateway IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The maximum number of results to return for the request in a single page. The remaining
         /// results can be seen by sending another request with the returned <code>NextToken</code>
-        /// value. This value can be between 5 and 1000; if <code>MaxResults</code> is given a
+        /// value. This value can be between 5 and 1000. If <code>MaxResults</code> is given a
         /// value larger than 1000, only 1000 results are returned.</para>
         /// </para>
         /// <para>

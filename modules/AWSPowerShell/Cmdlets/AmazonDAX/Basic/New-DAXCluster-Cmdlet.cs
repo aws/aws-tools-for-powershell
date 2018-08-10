@@ -73,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter SSESpecification_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether server-side encryption is enabled (true) or disabled (false) on
+        /// the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean SSESpecification_Enabled { get; set; }
+        #endregion
+        
         #region Parameter IamRoleArn
         /// <summary>
         /// <para>
@@ -224,6 +235,8 @@ namespace Amazon.PowerShell.Cmdlets.DAX
             {
                 context.SecurityGroupIds = new List<System.String>(this.SecurityGroupId);
             }
+            if (ParameterWasBound("SSESpecification_Enabled"))
+                context.SSESpecification_Enabled = this.SSESpecification_Enabled;
             context.SubnetGroupName = this.SubnetGroupName;
             if (this.Tag != null)
             {
@@ -284,6 +297,25 @@ namespace Amazon.PowerShell.Cmdlets.DAX
             if (cmdletContext.SecurityGroupIds != null)
             {
                 request.SecurityGroupIds = cmdletContext.SecurityGroupIds;
+            }
+            
+             // populate SSESpecification
+            bool requestSSESpecificationIsNull = true;
+            request.SSESpecification = new Amazon.DAX.Model.SSESpecification();
+            System.Boolean? requestSSESpecification_sSESpecification_Enabled = null;
+            if (cmdletContext.SSESpecification_Enabled != null)
+            {
+                requestSSESpecification_sSESpecification_Enabled = cmdletContext.SSESpecification_Enabled.Value;
+            }
+            if (requestSSESpecification_sSESpecification_Enabled != null)
+            {
+                request.SSESpecification.Enabled = requestSSESpecification_sSESpecification_Enabled.Value;
+                requestSSESpecificationIsNull = false;
+            }
+             // determine if request.SSESpecification should be set to null
+            if (requestSSESpecificationIsNull)
+            {
+                request.SSESpecification = null;
             }
             if (cmdletContext.SubnetGroupName != null)
             {
@@ -367,6 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.Int32? ReplicationFactor { get; set; }
             public List<System.String> SecurityGroupIds { get; set; }
+            public System.Boolean? SSESpecification_Enabled { get; set; }
             public System.String SubnetGroupName { get; set; }
             public List<Amazon.DAX.Model.Tag> Tags { get; set; }
         }

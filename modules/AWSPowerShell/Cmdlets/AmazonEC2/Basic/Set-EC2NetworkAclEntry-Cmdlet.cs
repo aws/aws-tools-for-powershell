@@ -28,8 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Replaces an entry (rule) in a network ACL. For more information about network ACLs,
-    /// see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html">Network
+    /// Replaces an entry (rule) in a network ACL. For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html">Network
     /// ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </summary>
     [Cmdlet("Set", "EC2NetworkAclEntry", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -109,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The IP protocol. You can specify <code>all</code> or <code>-1</code> to mean all protocols.
         /// If you specify <code>all</code>, <code>-1</code>, or a protocol number other than
         /// <code>tcp</code>, <code>udp</code>, or <code>icmp</code>, traffic on all ports is
-        /// allowed, regardless of any ports or ICMP types or codes you specify. If you specify
+        /// allowed, regardless of any ports or ICMP types or codes you that specify. If you specify
         /// protocol <code>58</code> (ICMPv6) and specify an IPv4 CIDR block, traffic for all
         /// ICMP types and codes allowed, regardless of any that you specify. If you specify protocol
         /// <code>58</code> (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP

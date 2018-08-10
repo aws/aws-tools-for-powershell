@@ -28,9 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// [IPv6 only] Creates an egress-only Internet gateway for your VPC. An egress-only Internet
+    /// [IPv6 only] Creates an egress-only internet gateway for your VPC. An egress-only internet
     /// gateway is used to enable outbound communication over IPv6 from instances in your
-    /// VPC to the Internet, and prevents hosts outside of your VPC from initiating an IPv6
+    /// VPC to the internet, and prevents hosts outside of your VPC from initiating an IPv6
     /// connection with your instance.
     /// </summary>
     [Cmdlet("New", "EC2EgressOnlyInternetGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
-        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
         /// to Ensure Idempotency</a>.</para>
         /// </para>
         /// </summary>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpcId
         /// <summary>
         /// <para>
-        /// <para>The ID of the VPC for which to create the egress-only Internet gateway.</para>
+        /// <para>The ID of the VPC for which to create the egress-only internet gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

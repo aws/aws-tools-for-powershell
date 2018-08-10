@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your ClassicLink-enabled
     /// VPC to allow communication over private IP addresses. You cannot enable your VPC for
-    /// ClassicLink if any of your VPC's route tables have existing routes for address ranges
+    /// ClassicLink if any of your VPC route tables have existing routes for address ranges
     /// within the <code>10.0.0.0/8</code> IP address range, excluding local routes for VPCs
     /// in the <code>10.0.0.0/16</code> and <code>10.1.0.0/16</code> IP address ranges. For
     /// more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>

@@ -28,8 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Attaches an Internet gateway to a VPC, enabling connectivity between the Internet
-    /// and the VPC. For more information about your VPC and Internet gateway, see the <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/">Amazon Virtual Private
+    /// Attaches an internet gateway to a VPC, enabling connectivity between the internet
+    /// and the VPC. For more information about your VPC and internet gateway, see the <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/">Amazon Virtual Private
     /// Cloud User Guide</a>.
     /// </summary>
     [Cmdlet("Add", "EC2InternetGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InternetGatewayId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Internet gateway.</para>
+        /// <para>The ID of the internet gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

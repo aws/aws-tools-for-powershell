@@ -28,7 +28,7 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Returns information about the endpoints associated with an user id.
+    /// Returns information about the endpoints that are associated with a User ID.
     /// </summary>
     [Cmdlet("Get", "PINUserEndpoint")]
     [OutputType("Amazon.Pinpoint.Model.EndpointsResponse")]

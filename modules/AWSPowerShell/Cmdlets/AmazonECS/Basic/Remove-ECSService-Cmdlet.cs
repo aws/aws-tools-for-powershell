@@ -43,7 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// the future, <code>INACTIVE</code> services may be cleaned up and purged from Amazon
     /// ECS record keeping, and <a>DescribeServices</a> API operations on those services return
     /// a <code>ServiceNotFoundException</code> error.
-    /// </para></note>
+    /// </para></note><important><para>
+    /// If you attempt to create a new service with the same name as an existing service in
+    /// either <code>ACTIVE</code> or <code>DRAINING</code> status, you will receive an error.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "ECSService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ECS.Model.Service")]

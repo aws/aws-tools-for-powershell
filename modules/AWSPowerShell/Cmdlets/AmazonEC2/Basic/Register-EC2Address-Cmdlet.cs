@@ -28,7 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Associates an Elastic IP address with an instance or a network interface.
+    /// Associates an Elastic IP address with an instance or a network interface. Before you
+    /// can use an Elastic IP address, you must allocate it to your account.
     /// 
     ///  
     /// <para>

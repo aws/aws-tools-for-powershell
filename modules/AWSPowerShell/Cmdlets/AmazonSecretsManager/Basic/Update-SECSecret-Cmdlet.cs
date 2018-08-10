@@ -28,9 +28,9 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Modifies many of the details of a secret. If you include a <code>ClientRequestToken</code>
-    /// and either <code>SecretString</code> or <code>SecretBinary</code> then it also creates
-    /// a new version attached to the secret.
+    /// Modifies many of the details of the specified secret. If you include a <code>ClientRequestToken</code>
+    /// and <i>either</i><code>SecretString</code> or <code>SecretBinary</code> then it also
+    /// creates a new version attached to the secret.
     /// 
     ///  
     /// <para>
@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// CLI or one of the AWS SDKs.
     /// </para></note><ul><li><para>
     /// If a version with a <code>SecretVersionId</code> with the same value as the <code>ClientRequestToken</code>
-    /// parameter already exists, the operation generates an error. You cannot modify an existing
-    /// version, you can only create new ones.
+    /// parameter already exists, the operation results in an error. You cannot modify an
+    /// existing version, you can only create a new version.
     /// </para></li><li><para>
     /// If you include <code>SecretString</code> or <code>SecretBinary</code> to create a
     /// new secret version, Secrets Manager automatically attaches the staging label <code>AWSCURRENT</code>
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>(Optional) Specifies a user-provided description of the secret.</para>
+        /// <para>(Optional) Specifies an updated user-provided description of the secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -134,15 +134,12 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>(Optional) Specifies the ARN or alias of the AWS KMS customer master key (CMK) to
-        /// be used to encrypt the protected text in the versions of this secret.</para><para>If you don't specify this value, then Secrets Manager defaults to using the default
-        /// CMK in the account (the one named <code>aws/secretsmanager</code>). If a AWS KMS CMK
-        /// with that name doesn't exist, then Secrets Manager creates it for you automatically
-        /// the first time it needs to encrypt a version's <code>Plaintext</code> or <code>PlaintextString</code>
-        /// fields.</para><important><para>You can only use the account's default CMK to encrypt and decrypt if you call this
+        /// <para>(Optional) Specifies an updated ARN or alias of the AWS KMS customer master key (CMK)
+        /// to be used to encrypt the protected text in new versions of this secret.</para><important><para>You can only use the account's default CMK to encrypt and decrypt if you call this
         /// operation using credentials from the same account that owns the secret. If the secret
-        /// is in a different account, then you must create a custom CMK and provide the ARN in
-        /// this field. </para></important>
+        /// is in a different account, then you must create a custom CMK and provide the ARN of
+        /// that CMK in this field. The user making the call must have permissions to both the
+        /// secret and the CMK in their respective accounts.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -152,10 +149,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretBinary
         /// <summary>
         /// <para>
-        /// <para>(Optional) Specifies binary data that you want to encrypt and store in the new version
-        /// of the secret. To use this parameter in the command-line tools, we recommend that
-        /// you store your binary data in a file and then use the appropriate technique for your
-        /// tool to pass the contents of the file as a parameter. Either <code>SecretBinary</code>
+        /// <para>(Optional) Specifies updated binary data that you want to encrypt and store in the
+        /// new version of the secret. To use this parameter in the command-line tools, we recommend
+        /// that you store your binary data in a file and then use the appropriate technique for
+        /// your tool to pass the contents of the file as a parameter. Either <code>SecretBinary</code>
         /// or <code>SecretString</code> must have a value, but not both. They cannot both be
         /// empty.</para><para>This parameter is not accessible using the Secrets Manager console.</para>
         /// </para>
@@ -167,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>Specifies the secret that you want to update or to which you want to add a new version.
+        /// <para>Specifies the secret that you want to modify or to which you want to add a new version.
         /// You can specify either the Amazon Resource Name (ARN) or the friendly name of the
         /// secret.</para>
         /// </para>
@@ -179,9 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretString
         /// <summary>
         /// <para>
-        /// <para>(Optional) Specifies text data that you want to encrypt and store in this new version
-        /// of the secret. Either <code>SecretBinary</code> or <code>SecretString</code> must
-        /// have a value, but not both. They cannot both be empty.</para><para>If you create this secret by using the Secrets Manager console then Secrets Manager
+        /// <para>(Optional) Specifies updated text data that you want to encrypt and store in this
+        /// new version of the secret. Either <code>SecretBinary</code> or <code>SecretString</code>
+        /// must have a value, but not both. They cannot both be empty.</para><para>If you create this secret by using the Secrets Manager console then Secrets Manager
         /// puts the protected secret text in only the <code>SecretString</code> parameter. The
         /// Secrets Manager console stores the information as a JSON structure of key/value pairs
         /// that the default Lambda rotation function knows how to parse.</para><para>For storing multiple values, we recommend that you use a JSON text string argument
@@ -189,7 +186,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// the various command line tool environments, see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
         /// JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. For example:</para><para><code>[{"username":"bob"},{"password":"abc123xyz456"}]</code></para><para>If your command-line tool or SDK requires quotation marks around the parameter, you
         /// should use single quotes to avoid confusion with the double quotes required in the
-        /// JSON text.</para>
+        /// JSON text. You can also 'escape' the double quote character in the embedded JSON text
+        /// by prefacing each with a backslash. For example, the following string is surrounded
+        /// by double-quotes. All of the embedded double quotes are escaped:</para><para><code>"[{\"username\":\"bob\"},{\"password\":\"abc123xyz456\"}]"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

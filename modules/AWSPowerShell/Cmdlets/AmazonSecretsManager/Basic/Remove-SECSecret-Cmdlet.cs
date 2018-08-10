@@ -72,6 +72,24 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     public partial class RemoveSECSecretCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {
         
+        #region Parameter DeleteWithNoRecovery
+        /// <summary>
+        /// <para>
+        /// <para>(Optional) Specifies that the secret is to be deleted immediately without any recovery
+        /// window. You cannot use both this parameter and the <code>RecoveryWindowInDays</code>
+        /// parameter in the same API call.</para><para>An asynchronous background process performs the actual deletion, so there can be a
+        /// short delay before the operation completes. If you write code to delete and then immediately
+        /// recreate a secret with the same name, ensure that your code includes appropriate back
+        /// off and retry logic.</para><important><para>Use this parameter with caution. This parameter causes the operation to skip the normal
+        /// waiting period before the permanent deletion that AWS would normally impose with the
+        /// <code>RecoveryWindowInDays</code> parameter. If you delete a secret with the <code>ForceDeleteWithouRecovery</code>
+        /// parameter, then you have no opportunity to recover the secret. It is permanently lost.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DeleteWithNoRecovery { get; set; }
+        #endregion
+        
         #region Parameter RecoveryWindowInDay
         /// <summary>
         /// <para>
@@ -124,6 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("DeleteWithNoRecovery"))
+                context.DeleteWithNoRecovery = this.DeleteWithNoRecovery;
             if (ParameterWasBound("RecoveryWindowInDay"))
                 context.RecoveryWindowInDays = this.RecoveryWindowInDay;
             context.SecretId = this.SecretId;
@@ -143,6 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             // create request
             var request = new Amazon.SecretsManager.Model.DeleteSecretRequest();
             
+            if (cmdletContext.DeleteWithNoRecovery != null)
+            {
+                request.ForceDeleteWithoutRecovery = cmdletContext.DeleteWithNoRecovery.Value;
+            }
             if (cmdletContext.RecoveryWindowInDays != null)
             {
                 request.RecoveryWindowInDays = cmdletContext.RecoveryWindowInDays.Value;
@@ -215,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DeleteWithNoRecovery { get; set; }
             public System.Int64? RecoveryWindowInDays { get; set; }
             public System.String SecretId { get; set; }
         }

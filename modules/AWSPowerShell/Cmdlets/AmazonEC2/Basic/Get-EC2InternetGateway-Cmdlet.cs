@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your Internet gateways.
+    /// Describes one or more of your internet gateways.
     /// </summary>
     [Cmdlet("Get", "EC2InternetGateway")]
     [OutputType("Amazon.EC2.Model.InternetGateway")]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InternetGatewayId
         /// <summary>
         /// <para>
-        /// <para>One or more Internet gateway IDs.</para><para>Default: Describes all your Internet gateways.</para>
+        /// <para>One or more internet gateway IDs.</para><para>Default: Describes all your internet gateways.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

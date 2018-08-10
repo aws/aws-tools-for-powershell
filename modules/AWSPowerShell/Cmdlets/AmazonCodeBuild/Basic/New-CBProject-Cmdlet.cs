@@ -266,6 +266,19 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public Amazon.CodeBuild.ArtifactNamespace Artifacts_NamespaceType { get; set; }
         #endregion
         
+        #region Parameter Artifacts_OverrideArtifactName
+        /// <summary>
+        /// <para>
+        /// <para> If this flag is set, a name specified in the buildspec file overrides the artifact
+        /// name. The name specified in a buildspec file is calculated at build time and uses
+        /// the Shell Command Language. For example, you can append a date and time to your artifact
+        /// name so that it is always unique. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Artifacts_OverrideArtifactName { get; set; }
+        #endregion
+        
         #region Parameter Artifacts_Packaging
         /// <summary>
         /// <para>
@@ -506,6 +519,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.Artifacts_Location = this.Artifacts_Location;
             context.Artifacts_Name = this.Artifacts_Name;
             context.Artifacts_NamespaceType = this.Artifacts_NamespaceType;
+            if (ParameterWasBound("Artifacts_OverrideArtifactName"))
+                context.Artifacts_OverrideArtifactName = this.Artifacts_OverrideArtifactName;
             context.Artifacts_Packaging = this.Artifacts_Packaging;
             context.Artifacts_Path = this.Artifacts_Path;
             context.Artifacts_Type = this.Artifacts_Type;
@@ -611,6 +626,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestArtifacts_artifacts_NamespaceType != null)
             {
                 request.Artifacts.NamespaceType = requestArtifacts_artifacts_NamespaceType;
+                requestArtifactsIsNull = false;
+            }
+            System.Boolean? requestArtifacts_artifacts_OverrideArtifactName = null;
+            if (cmdletContext.Artifacts_OverrideArtifactName != null)
+            {
+                requestArtifacts_artifacts_OverrideArtifactName = cmdletContext.Artifacts_OverrideArtifactName.Value;
+            }
+            if (requestArtifacts_artifacts_OverrideArtifactName != null)
+            {
+                request.Artifacts.OverrideArtifactName = requestArtifacts_artifacts_OverrideArtifactName.Value;
                 requestArtifactsIsNull = false;
             }
             Amazon.CodeBuild.ArtifactPackaging requestArtifacts_artifacts_Packaging = null;
@@ -985,6 +1010,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String Artifacts_Location { get; set; }
             public System.String Artifacts_Name { get; set; }
             public Amazon.CodeBuild.ArtifactNamespace Artifacts_NamespaceType { get; set; }
+            public System.Boolean? Artifacts_OverrideArtifactName { get; set; }
             public Amazon.CodeBuild.ArtifactPackaging Artifacts_Packaging { get; set; }
             public System.String Artifacts_Path { get; set; }
             public Amazon.CodeBuild.ArtifactsType Artifacts_Type { get; set; }

@@ -4327,7 +4327,7 @@ Set-Alias -Name PIN-GetSegmentVersions -Value Get-PINSegmentVersionList
 Set-Alias -Name PIN-GetSmsChannel -Value Get-PINSmsChannel
 Set-Alias -Name PIN-GetUserEndpoints -Value Get-PINUserEndpoint
 Set-Alias -Name PIN-PhoneNumberValidate -Value Confirm-PINPhoneNumber
-Set-Alias -Name Put-PINEventStream -Value Write-PINEventStream
+Set-Alias -Name PIN-PutEvents -Value Write-PINEvent
 Set-Alias -Name PIN-PutEventStream -Value Write-PINEventStream
 Set-Alias -Name PIN-RemoveAttributes -Value Remove-PINAttribute
 Set-Alias -Name PIN-SendMessages -Value Send-PINMessage
@@ -4479,6 +4479,8 @@ Set-Alias -Name RDS-DownloadDBLogFilePortion -Value Get-RDSDBLogFilePortion
 Set-Alias -Name RDS-FailoverDBCluster -Value Start-RDSDBClusterFailover
 Set-Alias -Name List-RDSTagsForResource -Value Get-RDSTagForResource
 Set-Alias -Name RDS-ListTagsForResource -Value Get-RDSTagForResource
+Set-Alias -Name Modify-RDSCurrentDBClusterCapacity -Value Edit-RDSCurrentDBClusterCapacity
+Set-Alias -Name RDS-ModifyCurrentDBClusterCapacity -Value Edit-RDSCurrentDBClusterCapacity
 Set-Alias -Name Modify-RDSDBCluster -Value Edit-RDSDBCluster
 Set-Alias -Name RDS-ModifyDBCluster -Value Edit-RDSDBCluster
 Set-Alias -Name Modify-RDSDBClusterParameterGroup -Value Edit-RDSDBClusterParameterGroup

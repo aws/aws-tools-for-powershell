@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ADMChannelRequest_ClientId
         /// <summary>
         /// <para>
-        /// Client ID as gotten from Amazon
+        /// The Client ID that you obtained from the Amazon
+        /// App Distribution Portal.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ADMChannelRequest_ClientSecret
         /// <summary>
         /// <para>
-        /// Client secret as gotten from Amazon
+        /// The Client Secret that you obtained from
+        /// the Amazon App Distribution Portal.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,7 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ADMChannelRequest_Enabled
         /// <summary>
         /// <para>
-        /// If the channel is enabled for sending messages.
+        /// Indicates whether or not the channel is enabled
+        /// for sending messages.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

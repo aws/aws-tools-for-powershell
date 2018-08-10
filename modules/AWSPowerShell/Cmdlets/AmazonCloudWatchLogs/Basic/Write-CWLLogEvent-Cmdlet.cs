@@ -48,15 +48,20 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// None of the log events in the batch can be older than 14 days or the retention period
     /// of the log group.
     /// </para></li><li><para>
-    /// The log events in the batch must be in chronological ordered by their time stamp (the
-    /// time the event occurred, expressed as the number of milliseconds after Jan 1, 1970
-    /// 00:00:00 UTC).
+    /// The log events in the batch must be in chronological ordered by their time stamp.
+    /// The time stamp is the time the event occurred, expressed as the number of milliseconds
+    /// after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET,
+    /// the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.)
+    /// 
     /// </para></li><li><para>
     /// The maximum number of log events in a batch is 10,000.
     /// </para></li><li><para>
     /// A batch of log events in a single request cannot span more than 24 hours. Otherwise,
     /// the operation fails.
-    /// </para></li></ul>
+    /// </para></li></ul><para>
+    /// If a call to PutLogEvents returns "UnrecognizedClientException" the most likely cause
+    /// is an invalid AWS access key ID or secret key. 
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "CWLLogEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

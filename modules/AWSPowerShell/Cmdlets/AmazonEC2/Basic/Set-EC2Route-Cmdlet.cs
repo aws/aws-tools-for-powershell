@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Replaces an existing route within a route table in a VPC. You must provide only one
-    /// of the following: Internet gateway or virtual private gateway, NAT instance, NAT gateway,
-    /// VPC peering connection, network interface, or egress-only Internet gateway.
+    /// of the following: internet gateway or virtual private gateway, NAT instance, NAT gateway,
+    /// VPC peering connection, network interface, or egress-only internet gateway.
     /// 
     ///  
     /// <para>
-    /// For more information about route tables, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route
+    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route
     /// Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para>
     /// </summary>
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DestinationCidrBlock
         /// <summary>
         /// <para>
-        /// <para>The IPv4 CIDR address block used for the destination match. The value you provide
+        /// <para>The IPv4 CIDR address block used for the destination match. The value that you provide
         /// must match the CIDR of an existing route in the table.</para>
         /// </para>
         /// </summary>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DestinationIpv6CidrBlock
         /// <summary>
         /// <para>
-        /// <para>The IPv6 CIDR address block used for the destination match. The value you provide
+        /// <para>The IPv6 CIDR address block used for the destination match. The value that you provide
         /// must match the CIDR of an existing route in the table.</para>
         /// </para>
         /// </summary>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter EgressOnlyInternetGatewayId
         /// <summary>
         /// <para>
-        /// <para>[IPv6 traffic only] The ID of an egress-only Internet gateway.</para>
+        /// <para>[IPv6 traffic only] The ID of an egress-only internet gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GatewayId
         /// <summary>
         /// <para>
-        /// <para>The ID of an Internet gateway or virtual private gateway.</para>
+        /// <para>The ID of an internet gateway or virtual private gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

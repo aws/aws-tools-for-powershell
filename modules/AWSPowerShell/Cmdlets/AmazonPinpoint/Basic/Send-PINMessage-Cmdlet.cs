@@ -28,13 +28,7 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Use this resource to send a direct message, which is a one time message that you send
-    /// to a limited audience without creating a campaign. You can send the message to up
-    /// to 100 recipients. You cannot use the message to engage a segment. When you send the
-    /// message, Amazon Pinpoint delivers it immediately, and you cannot schedule the delivery.
-    /// To engage a user segment, and to schedule the message delivery, create a campaign
-    /// instead of sending a direct message.You can send a direct message as a push notification
-    /// to your mobile app or as an SMS message to SMS-enabled devices.
+    /// Used to send a direct message.
     /// </summary>
     [Cmdlet("Send", "PINMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Pinpoint.Model.MessageResponse")]
@@ -175,8 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ADMMessage_Body
         /// <summary>
         /// <para>
-        /// The message body of the notification, the email body
-        /// or the text message.
+        /// The message body of the notification.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -187,8 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter APNSMessage_Body
         /// <summary>
         /// <para>
-        /// The message body of the notification, the email body
-        /// or the text message.
+        /// The message body of the notification.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -199,8 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter BaiduMessage_Body
         /// <summary>
         /// <para>
-        /// The message body of the notification, the email body
-        /// or the text message.
+        /// The message body of the notification.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -223,8 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter DefaultPushNotificationMessage_Body
         /// <summary>
         /// <para>
-        /// The message body of the notification, the email body
-        /// or the text message.
+        /// The message body of the notification.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -235,8 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter GCMMessage_Body
         /// <summary>
         /// <para>
-        /// The message body of the notification, the email body
-        /// or the text message.
+        /// The message body of the notification.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -1058,6 +1047,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String GCMMessage_Title { get; set; }
         #endregion
         
+        #region Parameter MessageRequest_TraceId
+        /// <summary>
+        /// <para>
+        /// A unique ID that you can use to trace a message.
+        /// This ID is visible to recipients.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MessageRequest_TraceId { get; set; }
+        #endregion
+        
         #region Parameter ADMMessage_Url
         /// <summary>
         /// <para>
@@ -1428,6 +1428,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                     context.MessageRequest_MessageConfiguration_SMSMessage_Substitutions.Add((String)hashKey, valueSet);
                 }
             }
+            context.MessageRequest_TraceId = this.MessageRequest_TraceId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -1480,6 +1481,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestMessageRequest_messageRequest_Endpoint != null)
             {
                 request.MessageRequest.Endpoints = requestMessageRequest_messageRequest_Endpoint;
+                requestMessageRequestIsNull = false;
+            }
+            System.String requestMessageRequest_messageRequest_TraceId = null;
+            if (cmdletContext.MessageRequest_TraceId != null)
+            {
+                requestMessageRequest_messageRequest_TraceId = cmdletContext.MessageRequest_TraceId;
+            }
+            if (requestMessageRequest_messageRequest_TraceId != null)
+            {
+                request.MessageRequest.TraceId = requestMessageRequest_messageRequest_TraceId;
                 requestMessageRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.DirectMessageConfiguration requestMessageRequest_messageRequest_MessageConfiguration = null;
@@ -2544,6 +2555,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String MessageRequest_MessageConfiguration_SMSMessage_OriginationNumber { get; set; }
             public System.String MessageRequest_MessageConfiguration_SMSMessage_SenderId { get; set; }
             public Dictionary<System.String, List<System.String>> MessageRequest_MessageConfiguration_SMSMessage_Substitutions { get; set; }
+            public System.String MessageRequest_TraceId { get; set; }
         }
         
     }

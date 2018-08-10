@@ -3074,6 +3074,13 @@ $EC2_Completers = {
             break
         }
         
+        # Amazon.EC2.LogDestinationType
+        "New-EC2FlowLog/LogDestinationType"
+        {
+            $v = "cloud-watch-logs","s3"
+            break
+        }
+        
         # Amazon.EC2.NetworkInterfaceAttribute
         "Get-EC2NetworkInterfaceAttribute/Attribute"
         {
@@ -3285,6 +3292,7 @@ $EC2_map = @{
     "LaunchSpecification_InstanceType"=@("Request-EC2SpotInstance")
     "LaunchSpecification_Placement_Tenancy"=@("Request-EC2SpotInstance")
     "LimitPrice_CurrencyCode"=@("New-EC2ReservedInstance")
+    "LogDestinationType"=@("New-EC2FlowLog")
     "OfferingClass"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OfferingType"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OnDemandOptions_AllocationStrategy"=@("New-EC2Fleet")

@@ -36,11 +36,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// You can create a default VPC if you deleted your previous default VPC. You cannot
-    /// have more than one default VPC per region. 
+    /// iIf you deleted your previous default VPC, you can create a default VPC. You cannot
+    /// have more than one default VPC per Region. 
     /// </para><para>
     /// If your account supports EC2-Classic, you cannot use this action to create a default
-    /// VPC in a region that supports EC2-Classic. If you want a default VPC in a region that
+    /// VPC in a Region that supports EC2-Classic. If you want a default VPC in a Region that
     /// supports EC2-Classic, see "I really want a default VPC for my existing EC2 account.
     /// Is that possible?" in the <a href="http://aws.amazon.com/vpc/faqs/#Default_VPCs">Default
     /// VPCs FAQ</a>.

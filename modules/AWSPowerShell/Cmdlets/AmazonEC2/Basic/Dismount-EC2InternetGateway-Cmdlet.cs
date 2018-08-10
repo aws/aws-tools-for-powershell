@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Detaches an Internet gateway from a VPC, disabling connectivity between the Internet
+    /// Detaches an internet gateway from a VPC, disabling connectivity between the internet
     /// and the VPC. The VPC must not contain any running instances with Elastic IP addresses
     /// or public IPv4 addresses.
     /// </summary>
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InternetGatewayId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Internet gateway.</para>
+        /// <para>The ID of the internet gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>(Optional) The secret version ID that you want to add the staging labels to.</para><para>If any of the staging labels are already attached to a different version of the secret,
-        /// then they are removed from that version before adding them to this version.</para>
+        /// then they are automatically removed from that version before adding them to this version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

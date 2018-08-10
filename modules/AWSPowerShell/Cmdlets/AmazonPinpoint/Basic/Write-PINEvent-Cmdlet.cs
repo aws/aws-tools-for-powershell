@@ -22,35 +22,45 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.Pinpoint;
+using Amazon.Pinpoint.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to
-    /// public IP addresses when addressed between a linked EC2-Classic instance and instances
-    /// in the VPC to which it's linked. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
-    /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// Use to record events for endpoints. This method creates events and creates or updates
+    /// the endpoints that those events are associated with.
     /// </summary>
-    [Cmdlet("Disable", "EC2VpcClassicLinkDnsSupport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisableVpcClassicLinkDnsSupport API operation.", Operation = new[] {"DisableVpcClassicLinkDnsSupport"})]
-    [AWSCmdletOutput("System.Boolean",
-        "This cmdlet returns a Boolean object.",
-        "The service call response (type Amazon.EC2.Model.DisableVpcClassicLinkDnsSupportResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Write", "PINEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Pinpoint.Model.EventsResponse")]
+    [AWSCmdlet("Calls the Amazon Pinpoint PutEvents API operation.", Operation = new[] {"PutEvents"})]
+    [AWSCmdletOutput("Amazon.Pinpoint.Model.EventsResponse",
+        "This cmdlet returns a EventsResponse object.",
+        "The service call response (type Amazon.Pinpoint.Model.PutEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class DisableEC2VpcClassicLinkDnsSupportCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class WritePINEventCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
-        #region Parameter VpcId
+        #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The ID of the VPC.</para>
+        /// The unique ID of your Amazon Pinpoint application.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String VpcId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ApplicationId { get; set; }
+        #endregion
+        
+        #region Parameter EventsRequest_BatchItem
+        /// <summary>
+        /// <para>
+        /// Batch of events with endpoint id as the key
+        /// and an object of EventsBatch as value. The EventsBatch object has the PublicEndpoint
+        /// and a map of event Id's to events
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Collections.Hashtable EventsRequest_BatchItem { get; set; }
         #endregion
         
         #region Parameter Force
@@ -67,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("VpcId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-EC2VpcClassicLinkDnsSupport (DisableVpcClassicLinkDnsSupport)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ApplicationId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-PINEvent (PutEvents)"))
             {
                 return;
             }
@@ -82,7 +92,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.VpcId = this.VpcId;
+            context.ApplicationId = this.ApplicationId;
+            if (this.EventsRequest_BatchItem != null)
+            {
+                context.EventsRequest_BatchItem = new Dictionary<System.String, Amazon.Pinpoint.Model.EventsBatch>(StringComparer.Ordinal);
+                foreach (var hashKey in this.EventsRequest_BatchItem.Keys)
+                {
+                    context.EventsRequest_BatchItem.Add((String)hashKey, (EventsBatch)(this.EventsRequest_BatchItem[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -97,11 +115,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.DisableVpcClassicLinkDnsSupportRequest();
+            var request = new Amazon.Pinpoint.Model.PutEventsRequest();
             
-            if (cmdletContext.VpcId != null)
+            if (cmdletContext.ApplicationId != null)
             {
-                request.VpcId = cmdletContext.VpcId;
+                request.ApplicationId = cmdletContext.ApplicationId;
+            }
+            
+             // populate EventsRequest
+            bool requestEventsRequestIsNull = true;
+            request.EventsRequest = new Amazon.Pinpoint.Model.EventsRequest();
+            Dictionary<System.String, Amazon.Pinpoint.Model.EventsBatch> requestEventsRequest_eventsRequest_BatchItem = null;
+            if (cmdletContext.EventsRequest_BatchItem != null)
+            {
+                requestEventsRequest_eventsRequest_BatchItem = cmdletContext.EventsRequest_BatchItem;
+            }
+            if (requestEventsRequest_eventsRequest_BatchItem != null)
+            {
+                request.EventsRequest.BatchItem = requestEventsRequest_eventsRequest_BatchItem;
+                requestEventsRequestIsNull = false;
+            }
+             // determine if request.EventsRequest should be set to null
+            if (requestEventsRequestIsNull)
+            {
+                request.EventsRequest = null;
             }
             
             CmdletOutput output;
@@ -112,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Return;
+                object pipelineOutput = response.EventsResponse;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -137,16 +174,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DisableVpcClassicLinkDnsSupportResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableVpcClassicLinkDnsSupportRequest request)
+        private Amazon.Pinpoint.Model.PutEventsResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.PutEventsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisableVpcClassicLinkDnsSupport");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "PutEvents");
             try
             {
                 #if DESKTOP
-                return client.DisableVpcClassicLinkDnsSupport(request);
+                return client.PutEvents(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisableVpcClassicLinkDnsSupportAsync(request);
+                var task = client.PutEventsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -167,7 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String VpcId { get; set; }
+            public System.String ApplicationId { get; set; }
+            public Dictionary<System.String, Amazon.Pinpoint.Model.EventsBatch> EventsRequest_BatchItem { get; set; }
         }
         
     }

@@ -174,7 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnableCloudwatchLogsExport
         /// <summary>
         /// <para>
-        /// <para>The list of logs that the restored DB instance is to export to CloudWatch Logs.</para>
+        /// <para>The list of logs that the restored DB instance is to export to CloudWatch Logs. The
+        /// values in the list depend on the DB engine being used. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational Database
+        /// Service User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -408,8 +411,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the DB instance is publicly accessible or not. For more information,
-        /// see <a>CreateDBInstance</a>. </para>
+        /// <para>Specifies the accessibility options for the DB instance. A value of true specifies
+        /// an Internet-facing instance with a publicly resolvable DNS name, which resolves to
+        /// a public IP address. A value of false specifies an internal instance with a DNS name
+        /// that resolves to a private IP address. For more information, see <a>CreateDBInstance</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

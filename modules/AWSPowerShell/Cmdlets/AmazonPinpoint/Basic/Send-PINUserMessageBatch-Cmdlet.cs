@@ -28,21 +28,7 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Use this resource to message a list of users. Amazon Pinpoint sends the message to
-    /// all of the endpoints that are associated with each user.A user represents an individual
-    /// who is assigned a unique user ID, and this ID is assigned to one or more endpoints.
-    /// For example, if an individual uses your app on multiple devices, your app could assign
-    /// that person's user ID to the endpoint for each device.With the users-messages resource,
-    /// you specify the message recipients as user IDs. For each user ID, Amazon Pinpoint
-    /// delivers the message to all of the user's endpoints. Within the body of your request,
-    /// you can specify a default message, and you can tailor your message for different channels,
-    /// including those for mobile push and SMS.With this resource, you send a direct message,
-    /// which is a one time message that you send to a limited audience without creating a
-    /// campaign. You can send the message to up to 100 users per request. You cannot use
-    /// the message to engage a segment. When you send the message, Amazon Pinpoint delivers
-    /// it immediately, and you cannot schedule the delivery. To engage a user segment, and
-    /// to schedule the message delivery, create a campaign instead of using the users-messages
-    /// resource.
+    /// Used to send a message to a list of users.
     /// </summary>
     [Cmdlet("Send", "PINUserMessageBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Pinpoint.Model.SendUsersMessageResponse")]
@@ -170,8 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ADMMessage_Body
         /// <summary>
         /// <para>
-        /// The message body of the notification, the email body
-        /// or the text message.
+        /// The message body of the notification.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -182,8 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter APNSMessage_Body
         /// <summary>
         /// <para>
-        /// The message body of the notification, the email body
-        /// or the text message.
+        /// The message body of the notification.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -194,8 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter BaiduMessage_Body
         /// <summary>
         /// <para>
-        /// The message body of the notification, the email body
-        /// or the text message.
+        /// The message body of the notification.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -218,8 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter DefaultPushNotificationMessage_Body
         /// <summary>
         /// <para>
-        /// The message body of the notification, the email body
-        /// or the text message.
+        /// The message body of the notification.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -230,8 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter GCMMessage_Body
         /// <summary>
         /// <para>
-        /// The message body of the notification, the email body
-        /// or the text message.
+        /// The message body of the notification.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -1040,6 +1021,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String GCMMessage_Title { get; set; }
         #endregion
         
+        #region Parameter SendUsersMessageRequest_TraceId
+        /// <summary>
+        /// <para>
+        /// A unique ID that you can use to trace a message.
+        /// This ID is visible to recipients.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SendUsersMessageRequest_TraceId { get; set; }
+        #endregion
+        
         #region Parameter ADMMessage_Url
         /// <summary>
         /// <para>
@@ -1407,6 +1399,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                     context.SendUsersMessageRequest_MessageConfiguration_SMSMessage_Substitutions.Add((String)hashKey, valueSet);
                 }
             }
+            context.SendUsersMessageRequest_TraceId = this.SendUsersMessageRequest_TraceId;
             if (this.SendUsersMessageRequest_User != null)
             {
                 context.SendUsersMessageRequest_Users = new Dictionary<System.String, Amazon.Pinpoint.Model.EndpointSendConfiguration>(StringComparer.Ordinal);
@@ -1447,6 +1440,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestSendUsersMessageRequest_sendUsersMessageRequest_Context != null)
             {
                 request.SendUsersMessageRequest.Context = requestSendUsersMessageRequest_sendUsersMessageRequest_Context;
+                requestSendUsersMessageRequestIsNull = false;
+            }
+            System.String requestSendUsersMessageRequest_sendUsersMessageRequest_TraceId = null;
+            if (cmdletContext.SendUsersMessageRequest_TraceId != null)
+            {
+                requestSendUsersMessageRequest_sendUsersMessageRequest_TraceId = cmdletContext.SendUsersMessageRequest_TraceId;
+            }
+            if (requestSendUsersMessageRequest_sendUsersMessageRequest_TraceId != null)
+            {
+                request.SendUsersMessageRequest.TraceId = requestSendUsersMessageRequest_sendUsersMessageRequest_TraceId;
                 requestSendUsersMessageRequestIsNull = false;
             }
             Dictionary<System.String, Amazon.Pinpoint.Model.EndpointSendConfiguration> requestSendUsersMessageRequest_sendUsersMessageRequest_User = null;
@@ -2519,6 +2522,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String SendUsersMessageRequest_MessageConfiguration_SMSMessage_OriginationNumber { get; set; }
             public System.String SendUsersMessageRequest_MessageConfiguration_SMSMessage_SenderId { get; set; }
             public Dictionary<System.String, List<System.String>> SendUsersMessageRequest_MessageConfiguration_SMSMessage_Substitutions { get; set; }
+            public System.String SendUsersMessageRequest_TraceId { get; set; }
             public Dictionary<System.String, Amazon.Pinpoint.Model.EndpointSendConfiguration> SendUsersMessageRequest_Users { get; set; }
         }
         

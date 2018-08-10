@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// this endpoint. The address varies by channel. For mobile push channels, use the token
         /// provided by the push notification service, such as the APNs device token or the FCM
         /// registration token. For the SMS channel, use a phone number in E.164 format, such
-        /// as +1206XXX5550100. For the email channel, use an email address.
+        /// as +12065550100. For the email channel, use an email address.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -119,8 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Location_Country
         /// <summary>
         /// <para>
-        /// Country according to ISO 3166-1 Alpha-2 codes.
-        /// For example, US.
+        /// The two-letter code for the country or region
+        /// of the endpoint. Specified as an ISO 3166-1 Alpha-2 code, such as "US" for the United
+        /// States.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -131,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter EndpointRequest_EffectiveDate
         /// <summary>
         /// <para>
-        /// The last time the endpoint was updated.
-        /// Provided in ISO 8601 format.
+        /// The date and time when the endpoint was
+        /// updated, shown in ISO 8601 format.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -162,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Location_Latitude
         /// <summary>
         /// <para>
-        /// The latitude of the endpoint location. Rounded
-        /// to one decimal (Roughly corresponding to a mile).
+        /// The latitude of the endpoint location, rounded
+        /// to one decimal place.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -187,8 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Location_Longitude
         /// <summary>
         /// <para>
-        /// The longitude of the endpoint location. Rounded
-        /// to one decimal (Roughly corresponding to a mile).
+        /// The longitude of the endpoint location, rounded
+        /// to one decimal place.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -199,7 +200,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Demographic_Make
         /// <summary>
         /// <para>
-        /// The endpoint make, such as such as Apple or Samsung.
+        /// The manufacturer of the endpoint device, such as
+        /// Apple or Samsung.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -222,7 +224,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Demographic_Model
         /// <summary>
         /// <para>
-        /// The endpoint model, such as iPhone.
+        /// The model name or number of the endpoint device,
+        /// such as iPhone.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -233,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Demographic_ModelVersion
         /// <summary>
         /// <para>
-        /// The endpoint model version.
+        /// The model version of the endpoint device.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -256,7 +259,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Demographic_Platform
         /// <summary>
         /// <para>
-        /// The endpoint platform, such as ios or android.
+        /// The platform of the endpoint device, such as
+        /// iOS or Android.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -267,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Demographic_PlatformVersion
         /// <summary>
         /// <para>
-        /// The endpoint platform version.
+        /// The platform version of the endpoint device.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -290,7 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// The region of the endpoint location. For example,
-        /// corresponds to a state in US.
+        /// in the United States, this corresponds to a state.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -324,13 +328,13 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter User_UserAttribute
         /// <summary>
         /// <para>
-        /// Custom attributes that describe an end
-        /// user by associating a name with an array of values. For example, an attribute named
-        /// "interests" might have the values ["science", "politics", "travel"]. You can use these
-        /// attributes as selection criteria when you create a segment of users to engage with
-        /// a messaging campaign.The following characters are not recommended in attribute names:
-        /// # : ? \ /. The Amazon Pinpoint console does not display attributes that include these
-        /// characters in the name. This limitation does not apply to attribute values.
+        /// Custom attributes that describe the user
+        /// by associating a name with an array of values. For example, an attribute named "interests"
+        /// might have the following values: ["science", "politics", "travel"]. You can use these
+        /// attributes as selection criteria when you create segments.The Amazon Pinpoint console
+        /// can't display attribute names that include the following characters: hash/pound sign
+        /// (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this
+        /// reason, you should avoid using these characters in the names of custom attributes.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

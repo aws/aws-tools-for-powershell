@@ -97,7 +97,7 @@
       <HintPath>..\..\packages\AWSSDK.CostExplorer.3.3.6.3\lib\net35\AWSSDK.CostExplorer.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DAX">
-      <HintPath>..\..\packages\AWSSDK.DAX.3.3.0.18\lib\net35\AWSSDK.DAX.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.DAX.3.3.1\lib\net35\AWSSDK.DAX.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.FMS">
       <HintPath>..\..\packages\AWSSDK.FMS.3.3.0.9\lib\net35\AWSSDK.FMS.dll</HintPath>
@@ -157,7 +157,7 @@
       <HintPath>..\..\packages\AWSSDK.OpsWorksCM.3.3.4.15\lib\net35\AWSSDK.OpsWorksCM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeBuild">
-      <HintPath>..\..\packages\AWSSDK.CodeBuild.3.3.13.2\lib\net35\AWSSDK.CodeBuild.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CodeBuild.3.3.14\lib\net35\AWSSDK.CodeBuild.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lightsail">
       <HintPath>..\..\packages\AWSSDK.Lightsail.3.3.5.13\lib\net35\AWSSDK.Lightsail.dll</HintPath>
@@ -166,7 +166,7 @@
       <HintPath>..\..\packages\AWSSDK.Organizations.3.3.8.11\lib\net35\AWSSDK.Organizations.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Pinpoint">
-      <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.8.3\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.9\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Pricing">
       <HintPath>..\..\packages\AWSSDK.Pricing.3.3.0.13\lib\net35\AWSSDK.Pricing.dll</HintPath>
@@ -190,7 +190,7 @@
       <HintPath>..\..\packages\AWSSDK.SageMakerRuntime.3.3.0.12\lib\net35\AWSSDK.SageMakerRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SecretsManager">
-      <HintPath>..\..\packages\AWSSDK.SecretsManager.3.3.1.5\lib\net35\AWSSDK.SecretsManager.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SecretsManager.3.3.2\lib\net35\AWSSDK.SecretsManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ServerlessApplicationRepository">
       <HintPath>..\..\packages\AWSSDK.ServerlessApplicationRepository.3.3.2.3\lib\net35\AWSSDK.ServerlessApplicationRepository.dll</HintPath>
@@ -247,7 +247,7 @@
       <HintPath>..\..\packages\AWSSDK.Snowball.3.3.3.3\lib\net35\AWSSDK.Snowball.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleSystemsManagement">
-      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.27.1\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.29\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleNotificationService">
       <HintPath>..\..\packages\AWSSDK.SimpleNotificationService.3.3.1.6\lib\net35\AWSSDK.SimpleNotificationService.dll</HintPath>
@@ -274,7 +274,7 @@
       <HintPath>..\..\packages\AWSSDK.Redshift.3.3.6.2\lib\net35\AWSSDK.Redshift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RDS">
-      <HintPath>..\..\packages\AWSSDK.RDS.3.3.26.5\lib\net35\AWSSDK.RDS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.RDS.3.3.27\lib\net35\AWSSDK.RDS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OpsWorks">
       <HintPath>..\..\packages\AWSSDK.OpsWorks.3.3.3.13\lib\net35\AWSSDK.OpsWorks.dll</HintPath>
@@ -337,13 +337,13 @@
       <HintPath>..\..\packages\AWSSDK.ElastiCache.3.3.5.13\lib\net35\AWSSDK.ElastiCache.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECS">
-      <HintPath>..\..\packages\AWSSDK.ECS.3.3.16.2\lib\net35\AWSSDK.ECS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ECS.3.3.17\lib\net35\AWSSDK.ECS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECR">
       <HintPath>..\..\packages\AWSSDK.ECR.3.3.3.15\lib\net35\AWSSDK.ECR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EC2">
-      <HintPath>..\..\packages\AWSSDK.EC2.3.3.57.2\lib\net35\AWSSDK.EC2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.EC2.3.3.58\lib\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.12\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
@@ -385,7 +385,7 @@
       <HintPath>..\..\packages\AWSSDK.CodeCommit.3.3.4.12\lib\net35\AWSSDK.CodeCommit.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatchLogs">
-      <HintPath>..\..\packages\AWSSDK.CloudWatchLogs.3.3.4.15\lib\net35\AWSSDK.CloudWatchLogs.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudWatchLogs.3.3.5\lib\net35\AWSSDK.CloudWatchLogs.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatchEvents">
       <HintPath>..\..\packages\AWSSDK.CloudWatchEvents.3.3.5.10\lib\net35\AWSSDK.CloudWatchEvents.dll</HintPath>

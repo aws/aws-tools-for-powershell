@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter AwsvpcConfiguration_AssignPublicIp
         /// <summary>
         /// <para>
-        /// <para>Whether the task's elastic network interface receives a public IP address.</para>
+        /// <para>Whether the task's elastic network interface receives a public IP address. The default
+        /// value is <code>DISABLED</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

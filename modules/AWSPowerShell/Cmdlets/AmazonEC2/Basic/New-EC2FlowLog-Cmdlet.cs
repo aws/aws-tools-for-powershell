@@ -28,17 +28,20 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates one or more flow logs to capture IP traffic for a specific network interface,
-    /// subnet, or VPC. Flow logs are delivered to a specified log group in Amazon CloudWatch
-    /// Logs. If you specify a VPC or subnet in the request, a log stream is created in CloudWatch
-    /// Logs for each network interface in the subnet or VPC. Log streams can include information
-    /// about accepted and rejected traffic to a network interface. You can view the data
-    /// in your log streams using Amazon CloudWatch Logs.
+    /// Creates one or more flow logs to capture information about IP traffic for a specific
+    /// network interface, subnet, or VPC. 
     /// 
     ///  
     /// <para>
-    /// In your request, you must also specify an IAM role that has permission to publish
-    /// logs to CloudWatch Logs.
+    /// Flow log data for a monitored network interface is recorded as flow log records, which
+    /// are log events consisting of fields that describe the traffic flow. For more information,
+    /// see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html#flow-log-records">Flow
+    /// Log Records</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// </para><para>
+    /// When publishing to CloudWatch Logs, flow log records are published to a log group,
+    /// and each network interface has a unique log stream in the log group. When publishing
+    /// to Amazon S3, flow log records for all of the monitored network interfaces are published
+    /// to a single log file object that is stored in the specified bucket.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html">VPC
     /// Flow Logs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
@@ -56,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
-        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
         /// to Ensure Idempotency</a>.</para>
         /// </para>
         /// </summary>
@@ -68,17 +71,48 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DeliverLogsPermissionArn
         /// <summary>
         /// <para>
-        /// <para>The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group.</para>
+        /// <para>The ARN for the IAM role that's used to post flow logs to a log group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeliverLogsPermissionArn { get; set; }
         #endregion
         
+        #region Parameter LogDestination
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the destination to which the flow log data is to be published. Flow log
+        /// data can be published to an CloudWatch Logs log group or an Amazon S3 bucket. The
+        /// value specified for this parameter depends on the value specified for LogDestinationType.</para><para>If LogDestinationType is not specified or <code>cloud-watch-logs</code>, specify the
+        /// Amazon Resource Name (ARN) of the CloudWatch Logs log group.</para><para>If LogDestinationType is <code>s3</code>, specify the ARN of the Amazon S3 bucket.
+        /// You can also specify a subfolder in the bucket. To specify a subfolder in the bucket,
+        /// use the following ARN format: <code>bucket_ARN/subfolder_name/</code>. For example,
+        /// to specify a subfolder named <code>my-logs</code> in a bucket named <code>my-bucket</code>,
+        /// use the following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String LogDestination { get; set; }
+        #endregion
+        
+        #region Parameter LogDestinationType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the type of destination to which the flow log data is to be published. Flow
+        /// log data can be published to CloudWatch Logs or Amazon S3. To publish flow log data
+        /// to CloudWatch Logs, specify <code>cloud-watch-logs</code>. To publish flow log data
+        /// to Amazon S3, specify <code>s3</code>.</para><para>Default: <code>cloud-watch-logs</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.LogDestinationType")]
+        public Amazon.EC2.LogDestinationType LogDestinationType { get; set; }
+        #endregion
+        
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the CloudWatch log group.</para>
+        /// <para>The name of the log group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -149,6 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             context.ClientToken = this.ClientToken;
             context.DeliverLogsPermissionArn = this.DeliverLogsPermissionArn;
+            context.LogDestination = this.LogDestination;
+            context.LogDestinationType = this.LogDestinationType;
             context.LogGroupName = this.LogGroupName;
             if (this.ResourceId != null)
             {
@@ -179,6 +215,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DeliverLogsPermissionArn != null)
             {
                 request.DeliverLogsPermissionArn = cmdletContext.DeliverLogsPermissionArn;
+            }
+            if (cmdletContext.LogDestination != null)
+            {
+                request.LogDestination = cmdletContext.LogDestination;
+            }
+            if (cmdletContext.LogDestinationType != null)
+            {
+                request.LogDestinationType = cmdletContext.LogDestinationType;
             }
             if (cmdletContext.LogGroupName != null)
             {
@@ -262,6 +306,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String ClientToken { get; set; }
             public System.String DeliverLogsPermissionArn { get; set; }
+            public System.String LogDestination { get; set; }
+            public Amazon.EC2.LogDestinationType LogDestinationType { get; set; }
             public System.String LogGroupName { get; set; }
             public List<System.String> ResourceIds { get; set; }
             public Amazon.EC2.FlowLogsResourceType ResourceType { get; set; }

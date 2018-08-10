@@ -52,6 +52,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class RestoreRDSDBClusterFromSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        #region Parameter ScalingConfiguration_AutoPause
+        /// <summary>
+        /// <para>
+        /// <para>A value that specifies whether to allow or disallow automatic pause for an Aurora
+        /// DB cluster in <code>serverless</code> DB engine mode. A DB cluster can be paused only
+        /// when it's idle (it has no connections).</para><note><para>If a DB cluster is paused for more than seven days, the DB cluster might be backed
+        /// up with a snapshot. In this case, the DB cluster is restored when there is a request
+        /// to connect to it. </para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean ScalingConfiguration_AutoPause { get; set; }
+        #endregion
+        
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
@@ -109,7 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnableCloudwatchLogsExport
         /// <summary>
         /// <para>
-        /// <para>The list of logs that the restored DB cluster is to export to CloudWatch Logs.</para>
+        /// <para>The list of logs that the restored DB cluster is to export to CloudWatch Logs. The
+        /// values in the list depend on the DB engine being used. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational Database
+        /// Service User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -136,6 +153,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Engine { get; set; }
+        #endregion
+        
+        #region Parameter EngineMode
+        /// <summary>
+        /// <para>
+        /// <para>The DB engine mode of the DB cluster, either <code>provisioned</code> or <code>serverless</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String EngineMode { get; set; }
         #endregion
         
         #region Parameter EngineVersion
@@ -166,6 +193,30 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter ScalingConfiguration_MaxCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The maximum capacity for an Aurora DB cluster in <code>serverless</code> DB engine
+        /// mode.</para><para>Valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>,
+        /// <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</para><para>The maximum capacity must be greater than or equal to the minimum capacity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ScalingConfiguration_MaxCapacity { get; set; }
+        #endregion
+        
+        #region Parameter ScalingConfiguration_MinCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The minimum capacity for an Aurora DB cluster in <code>serverless</code> DB engine
+        /// mode.</para><para>Valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>,
+        /// <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</para><para>The minimum capacity must be less than or equal to the maximum capacity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ScalingConfiguration_MinCapacity { get; set; }
+        #endregion
+        
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
@@ -184,6 +235,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Port { get; set; }
+        #endregion
+        
+        #region Parameter ScalingConfiguration_SecondsUntilAutoPause
+        /// <summary>
+        /// <para>
+        /// <para>The time, in seconds, before an Aurora DB cluster in <code>serverless</code> mode
+        /// is paused.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ScalingConfiguration_SecondsUntilAutoPause { get; set; }
         #endregion
         
         #region Parameter SnapshotIdentifier
@@ -264,11 +326,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
                 context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.Engine = this.Engine;
+            context.EngineMode = this.EngineMode;
             context.EngineVersion = this.EngineVersion;
             context.KmsKeyId = this.KmsKeyId;
             context.OptionGroupName = this.OptionGroupName;
             if (ParameterWasBound("Port"))
                 context.Port = this.Port;
+            if (ParameterWasBound("ScalingConfiguration_AutoPause"))
+                context.ScalingConfiguration_AutoPause = this.ScalingConfiguration_AutoPause;
+            if (ParameterWasBound("ScalingConfiguration_MaxCapacity"))
+                context.ScalingConfiguration_MaxCapacity = this.ScalingConfiguration_MaxCapacity;
+            if (ParameterWasBound("ScalingConfiguration_MinCapacity"))
+                context.ScalingConfiguration_MinCapacity = this.ScalingConfiguration_MinCapacity;
+            if (ParameterWasBound("ScalingConfiguration_SecondsUntilAutoPause"))
+                context.ScalingConfiguration_SecondsUntilAutoPause = this.ScalingConfiguration_SecondsUntilAutoPause;
             context.SnapshotIdentifier = this.SnapshotIdentifier;
             if (this.Tag != null)
             {
@@ -326,6 +397,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.Engine = cmdletContext.Engine;
             }
+            if (cmdletContext.EngineMode != null)
+            {
+                request.EngineMode = cmdletContext.EngineMode;
+            }
             if (cmdletContext.EngineVersion != null)
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
@@ -341,6 +416,55 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.Port != null)
             {
                 request.Port = cmdletContext.Port.Value;
+            }
+            
+             // populate ScalingConfiguration
+            bool requestScalingConfigurationIsNull = true;
+            request.ScalingConfiguration = new Amazon.RDS.Model.ScalingConfiguration();
+            System.Boolean? requestScalingConfiguration_scalingConfiguration_AutoPause = null;
+            if (cmdletContext.ScalingConfiguration_AutoPause != null)
+            {
+                requestScalingConfiguration_scalingConfiguration_AutoPause = cmdletContext.ScalingConfiguration_AutoPause.Value;
+            }
+            if (requestScalingConfiguration_scalingConfiguration_AutoPause != null)
+            {
+                request.ScalingConfiguration.AutoPause = requestScalingConfiguration_scalingConfiguration_AutoPause.Value;
+                requestScalingConfigurationIsNull = false;
+            }
+            System.Int32? requestScalingConfiguration_scalingConfiguration_MaxCapacity = null;
+            if (cmdletContext.ScalingConfiguration_MaxCapacity != null)
+            {
+                requestScalingConfiguration_scalingConfiguration_MaxCapacity = cmdletContext.ScalingConfiguration_MaxCapacity.Value;
+            }
+            if (requestScalingConfiguration_scalingConfiguration_MaxCapacity != null)
+            {
+                request.ScalingConfiguration.MaxCapacity = requestScalingConfiguration_scalingConfiguration_MaxCapacity.Value;
+                requestScalingConfigurationIsNull = false;
+            }
+            System.Int32? requestScalingConfiguration_scalingConfiguration_MinCapacity = null;
+            if (cmdletContext.ScalingConfiguration_MinCapacity != null)
+            {
+                requestScalingConfiguration_scalingConfiguration_MinCapacity = cmdletContext.ScalingConfiguration_MinCapacity.Value;
+            }
+            if (requestScalingConfiguration_scalingConfiguration_MinCapacity != null)
+            {
+                request.ScalingConfiguration.MinCapacity = requestScalingConfiguration_scalingConfiguration_MinCapacity.Value;
+                requestScalingConfigurationIsNull = false;
+            }
+            System.Int32? requestScalingConfiguration_scalingConfiguration_SecondsUntilAutoPause = null;
+            if (cmdletContext.ScalingConfiguration_SecondsUntilAutoPause != null)
+            {
+                requestScalingConfiguration_scalingConfiguration_SecondsUntilAutoPause = cmdletContext.ScalingConfiguration_SecondsUntilAutoPause.Value;
+            }
+            if (requestScalingConfiguration_scalingConfiguration_SecondsUntilAutoPause != null)
+            {
+                request.ScalingConfiguration.SecondsUntilAutoPause = requestScalingConfiguration_scalingConfiguration_SecondsUntilAutoPause.Value;
+                requestScalingConfigurationIsNull = false;
+            }
+             // determine if request.ScalingConfiguration should be set to null
+            if (requestScalingConfigurationIsNull)
+            {
+                request.ScalingConfiguration = null;
             }
             if (cmdletContext.SnapshotIdentifier != null)
             {
@@ -426,10 +550,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public List<System.String> EnableCloudwatchLogsExports { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String Engine { get; set; }
+            public System.String EngineMode { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }
+            public System.Boolean? ScalingConfiguration_AutoPause { get; set; }
+            public System.Int32? ScalingConfiguration_MaxCapacity { get; set; }
+            public System.Int32? ScalingConfiguration_MinCapacity { get; set; }
+            public System.Int32? ScalingConfiguration_SecondsUntilAutoPause { get; set; }
             public System.String SnapshotIdentifier { get; set; }
             public List<Amazon.RDS.Model.Tag> Tags { get; set; }
             public List<System.String> VpcSecurityGroupIds { get; set; }

@@ -28,7 +28,7 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Deletes endpoints associated with an user id.
+    /// Deletes endpoints that are associated with a User ID.
     /// </summary>
     [Cmdlet("Remove", "PINUserEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Pinpoint.Model.EndpointsResponse")]

@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Deletes an egress-only Internet gateway.
+    /// Deletes an egress-only internet gateway.
     /// </summary>
     [Cmdlet("Remove", "EC2EgressOnlyInternetGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.Boolean")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter EgressOnlyInternetGatewayId
         /// <summary>
         /// <para>
-        /// <para>The ID of the egress-only Internet gateway.</para>
+        /// <para>The ID of the egress-only internet gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

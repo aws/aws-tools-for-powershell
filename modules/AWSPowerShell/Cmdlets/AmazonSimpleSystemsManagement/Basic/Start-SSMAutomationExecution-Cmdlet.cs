@@ -127,6 +127,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.Collections.Hashtable Parameter { get; set; }
         #endregion
         
+        #region Parameter TargetMap
+        /// <summary>
+        /// <para>
+        /// <para>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
+        /// cannot be specified together.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TargetMaps")]
+        public System.Collections.Hashtable[] TargetMap { get; set; }
+        #endregion
+        
         #region Parameter TargetParameterName
         /// <summary>
         /// <para>
@@ -204,6 +216,31 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     context.Parameters.Add((String)hashKey, valueSet);
                 }
             }
+            if (this.TargetMap != null)
+            {
+                context.TargetMaps = new List<Dictionary<System.String, List<System.String>>>();
+                foreach (var hashTable in this.TargetMap)
+                {
+                    var d = new Dictionary<System.String, List<System.String>>();
+                    foreach (var hashKey in hashTable.Keys)
+                    {
+                        object hashValue = hashTable[hashKey];
+                        if (hashValue == null)
+                        {
+                            d.Add((String)hashKey, null);
+                            continue;
+                        }
+                        var enumerable = SafeEnumerable(hashValue);
+                        var valueSet = new List<System.String>();
+                        foreach (var s in enumerable)
+                        {
+                            valueSet.Add((System.String)s);
+                        }
+                        d.Add((String)hashKey, valueSet);
+                    }
+                    context.TargetMaps.Add(d);
+                }
+            }
             context.TargetParameterName = this.TargetParameterName;
             if (this.Target != null)
             {
@@ -252,6 +289,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Parameters != null)
             {
                 request.Parameters = cmdletContext.Parameters;
+            }
+            if (cmdletContext.TargetMaps != null)
+            {
+                request.TargetMaps = cmdletContext.TargetMaps;
             }
             if (cmdletContext.TargetParameterName != null)
             {
@@ -332,6 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String MaxErrors { get; set; }
             public Amazon.SimpleSystemsManagement.ExecutionMode Mode { get; set; }
             public Dictionary<System.String, List<System.String>> Parameters { get; set; }
+            public List<Dictionary<System.String, List<System.String>>> TargetMaps { get; set; }
             public System.String TargetParameterName { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.Target> Targets { get; set; }
         }

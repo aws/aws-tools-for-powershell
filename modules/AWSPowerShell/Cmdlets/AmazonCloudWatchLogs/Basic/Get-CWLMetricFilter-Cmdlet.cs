@@ -66,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter MetricName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Filters results to include only those with the specified metric name. If you include
+        /// this parameter in your request, you must also include the <code>metricNamespace</code>
+        /// parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter MetricNamespace
         /// <summary>
         /// <para>
-        /// <para>The namespace of the CloudWatch metric.</para>
+        /// <para>Filters results to include only those in the specified namespace. If you include this
+        /// parameter in your request, you must also include the <code>metricName</code> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

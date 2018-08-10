@@ -47,8 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>deliver-log-status</code> - The status of the logs delivery (<code>SUCCESS</code>
-        /// | <code>FAILED</code>).</para></li><li><para><code>flow-log-id</code> - The ID of the flow log.</para></li><li><para><code>log-group-name</code> - The name of the log group.</para></li><li><para><code>resource-id</code> - The ID of the VPC, subnet, or network interface.</para></li><li><para><code>traffic-type</code> - The type of traffic (<code>ACCEPT</code> | <code>REJECT</code>
-        /// | <code>ALL</code>)</para></li></ul>
+        /// | <code>FAILED</code>).</para></li><li><para><code>log-destination-type</code> - The type of destination to which the flow log
+        /// publishes data. Possible destination types include <code>cloud-watch-logs</code> and
+        /// <code>S3</code>.</para></li><li><para><code>flow-log-id</code> - The ID of the flow log.</para></li><li><para><code>log-group-name</code> - The name of the log group.</para></li><li><para><code>resource-id</code> - The ID of the VPC, subnet, or network interface.</para></li><li><para><code>traffic-type</code> - The type of traffic (<code>ACCEPT</code> | <code>REJECT</code>
+        /// | <code>ALL</code>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -71,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The maximum number of results to return for the request in a single page. The remaining
         /// results can be seen by sending another request with the returned <code>NextToken</code>
-        /// value. This value can be between 5 and 1000; if <code>MaxResults</code> is given a
+        /// value. This value can be between 5 and 1000. If <code>MaxResults</code> is given a
         /// value larger than 1000, only 1000 results are returned. You cannot specify this parameter
         /// and the flow log IDs parameter in the same request.</para>
         /// </para>

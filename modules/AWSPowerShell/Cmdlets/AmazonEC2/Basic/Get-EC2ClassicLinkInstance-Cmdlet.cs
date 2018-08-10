@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Describes one or more of your linked EC2-Classic instances. This request only returns
-    /// information about EC2-Classic instances linked to a VPC through ClassicLink; you cannot
+    /// information about EC2-Classic instances linked to a VPC through ClassicLink. You cannot
     /// use this request to return information about other instances.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2ClassicLinkInstance")]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// For example, to find all resources that have a tag with the key <code>Owner</code>
         /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
         /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
-        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>vpc-id</code> - The ID of the VPC that the instance is linked to.</para></li></ul>
+        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>vpc-id</code> - The ID of the VPC to which the instance is linked.</para><para><code>vpc-id</code> - The ID of the VPC that the instance is linked to.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The maximum number of results to return for the request in a single page. The remaining
         /// results of the initial request can be seen by sending another request with the returned
-        /// <code>NextToken</code> value. This value can be between 5 and 1000; if <code>MaxResults</code>
+        /// <code>NextToken</code> value. This value can be between 5 and 1000. If <code>MaxResults</code>
         /// is given a value larger than 1000, only 1000 results are returned. You cannot specify
         /// this parameter and the instance IDs parameter in the same request.</para><para>Constraint: If the value is greater than 1000, we return only 1000 items.</para>
         /// </para>
