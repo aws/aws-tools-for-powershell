@@ -130,7 +130,7 @@
       <HintPath>..\..\packages\AWSSDK.MarketplaceEntitlementService.3.3.0.20\lib\net35\AWSSDK.MarketplaceEntitlementService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaConvert">
-      <HintPath>..\..\packages\AWSSDK.MediaConvert.3.3.5.2\lib\net35\AWSSDK.MediaConvert.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.MediaConvert.3.3.6\lib\net35\AWSSDK.MediaConvert.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaLive">
       <HintPath>..\..\packages\AWSSDK.MediaLive.3.3.7.5\lib\net35\AWSSDK.MediaLive.dll</HintPath>
@@ -274,7 +274,7 @@
       <HintPath>..\..\packages\AWSSDK.Redshift.3.3.6.2\lib\net35\AWSSDK.Redshift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RDS">
-      <HintPath>..\..\packages\AWSSDK.RDS.3.3.27\lib\net35\AWSSDK.RDS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.RDS.3.3.27.1\lib\net35\AWSSDK.RDS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OpsWorks">
       <HintPath>..\..\packages\AWSSDK.OpsWorks.3.3.3.13\lib\net35\AWSSDK.OpsWorks.dll</HintPath>

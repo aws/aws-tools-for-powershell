@@ -1,4 +1,4 @@
-### (2018-08-13)
+### 3.3.335.0 (2018-08-13)
   * Amazon DynamoDB
     * Updated the Get-DDBBackupsList cmdlet with new parameter -BackupType to filter the returned backups.
   * Amazon DynamoDB Accelerator (DAX)

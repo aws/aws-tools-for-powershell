@@ -45,7 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// Amazon Aurora Serverless</a> in the <i>Amazon RDS User Guide</i>.
     /// </para><important><para>
     /// If you call <code>ModifyCurrentDBClusterCapacity</code> with the default <code>TimeoutAction</code>,
-    /// connections to the DB cluster are dropped when the capacity is set.
+    /// connections that prevent Aurora Serverless from finding a scaling point might be dropped.
+    /// For more information about scaling points, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling">
+    /// Autoscaling for Aurora Serverless</a> in the <i>Amazon RDS User Guide</i>.
     /// </para></important>
     /// </summary>
     [Cmdlet("Edit", "RDSCurrentDBClusterCapacity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -93,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The action to take when the timeout is reached, either <code>ForceApplyCapacityChange</code>
-        /// or <code>RollbackCapacityChange</code>.</para><para><code>ForceApplyCapacityChange</code>, the default, drops connections to the DB cluster
-        /// and sets the capacity to the specified value as soon as possible.</para><para><code>RollbackCapacityChange</code> ignores the capacity change if a scaling point
+        /// or <code>RollbackCapacityChange</code>.</para><para><code>ForceApplyCapacityChange</code>, the default, sets the capacity to the specified
+        /// value as soon as possible.</para><para><code>RollbackCapacityChange</code> ignores the capacity change if a scaling point
         /// is not found in the timeout period.</para>
         /// </para>
         /// </summary>
