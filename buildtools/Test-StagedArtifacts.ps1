@@ -94,5 +94,20 @@ $signableFiles | ForEach-Object {
         throw "Failed to locate start of Authenticode signature, $authenticodeSignatureStart, in module file $_."
     }
 }
-
 Write-Host "...module files signing check - PASS"
+
+# validate that the change log contains the expected version header in the first line
+$modulePath = Split-Path -Path $$ModuleFile
+$changelogFile = Join-Path $modulePath "CHANGELOG.md"
+
+Write-Host "Verifying $changelogFile contains expected version details"
+$changelogHeader = Get-Content -TotalCount 1 -Path .\CHANGELOG.md
+$headerParts = $changelogHeader.Split()
+if ($headerParts[1] -eq $ExpectedVersion)
+{
+	Write-Host "...changelog file check - PASS"
+}
+else
+{
+	throw "Changelog does not appear to contain details of the new version"
+}
