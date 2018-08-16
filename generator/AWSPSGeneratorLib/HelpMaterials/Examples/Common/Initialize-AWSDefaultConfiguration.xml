@@ -14,6 +14,6 @@
   </example>
   <example>
     <code>Initialize-AWSDefaultConfiguration -Region us-west-2</code>
-    <description>If a profile named 'default' exists it is updated to assume a default region of 'us-west-2'. If the profile does not exist and the cmdlet is running on the local workstation the user is prompted to enter the AWS access and secret keys for an account. If run on an Amazon EC2 instance the instance metadata is inspected to determine if the instance was launched with a role and if so credentials are obtained from the role. A profile named 'default' is then created containing the discovered or entered credentials and region, and the current shell updated to set thenm active.</description>
+    <description>If a profile named 'default' exists it is updated to assume a default region of 'us-west-2'. If the profile does not exist and the cmdlet is running on the local workstation the user is prompted to enter the AWS access and secret keys for an account. If run on an Amazon EC2 instance the instance metadata is inspected to determine if the instance was launched with a role and if so credentials are obtained from the role. A profile named 'default' is then created containing the discovered or entered credentials and region, and the current shell updated to set them active.</description>
   </example>
 </examples>

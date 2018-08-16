@@ -7,10 +7,10 @@
   <example>
     <code>PS C:\>$groups = Get-IAMGroupForUser -UserName Theresa 
 PS C:\>foreach ($group in $groups) { Remove-IAMUserFromGroup -GroupName $group.GroupName -UserName Theresa -Force }</code>
-    <description>This example finds any groups that IAM user <code>Bob</code> is a member of and then removes the user from those groups.</description>
+    <description>This example finds any groups of which IAM user <code>Theresa</code> is a member, and then removes <code>Theresa</code> from those groups.</description>
   </example>
   <example>
-    <code>PS C:\>Get-IAMGroupForUser -UserName Bob | Remove-IAMUserFromGroup -UserName Bob -Force</code>
-    <description>This example shows another way to do the same thing as the previous example.</description>
+    <code>PS C:\>Get-IAMGroupForUser -UserName Bob | Remove-IAMUserFromGroup -UserName Bob -GroupName Testers -Force</code>
+    <description>This example shows an alternate way of removing the IAM user <code>Bob</code> from the <code>Testers</code> group.</description>
   </example>
 </examples>
