@@ -21,6 +21,13 @@
 
 .EXAMPLE
     Publish-StagedArtifactsToPSGallery -ApiKey abcde-fghi-kjlm-nopq
+	
+	Publishes both modules to the gallery.
+	
+.EXAMPLE
+    Publish-StagedArtifactsToPSGallery -ApiKey abcde-fghi-kjlm-nopq -DryRun
+	
+	Displays the file paths the script would operate on, but does not push the modules.
 #>
 
 [CmdletBinding()]
@@ -28,7 +35,10 @@ Param
 (
     [Parameter(Mandatory=$true, HelpMessage="The API key required for automated publish to the PowerShell Gallery.")]
     [ValidateNotNullOrEmpty()]
-    [string]$ApiKey
+    [string]$ApiKey,
+	
+	[Parameter()]
+	[switch]$DryRun
 )
 
 Import-Module -Name "PowerShellGet"
@@ -52,7 +62,15 @@ if (!(Test-Path $awsPowerShellCoreModuleLocation)) {
 }
 
 Write-Host "Publishing the AWS Tools for Windows PowerShell module from $awsPowerShellModuleLocation"
-Publish-Module -Path $awsPowerShellModuleLocation @commonArgs -Verbose -Force
+if (!($DryRun)) {
+	Publish-Module -Path $awsPowerShellModuleLocation @commonArgs -Verbose -Force
+} else {
+	Write-Host "-DryRun specified, skipped actual publish"
+}
 
 Write-Host "Publishing the AWS Tools for PowerShell module from $awsPowerShellCoreModuleLocation"
-Publish-Module -Path $awsPowerShellCoreModuleLocation @commonArgs -Verbose -Force
+if (!($DryRun)) {
+	Publish-Module -Path $awsPowerShellCoreModuleLocation @commonArgs -Verbose -Force
+} else {
+	Write-Host "-DryRun specified, skipped actual publish"
+}
