@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </para><para>
     /// To remove instances from the Auto Scaling group before deleting it, call <a>DetachInstances</a>
     /// with the list of instances and the option to decrement the desired capacity so that
-    /// Auto Scaling does not launch replacement instances.
+    /// Amazon EC2 Auto Scaling does not launch replacement instances.
     /// </para><para>
     /// To terminate all instances before deleting the Auto Scaling group, call <a>UpdateAutoScalingGroup</a>
     /// and set the minimum size and desired capacity of the Auto Scaling group to zero.

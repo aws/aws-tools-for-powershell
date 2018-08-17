@@ -90,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, after a scaling activity completes before another
-        /// scaling activity can start. The default is 300.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html">Auto
-        /// Scaling Cooldowns</a> in the <i>Auto Scaling User Guide</i>.</para>
+        /// scaling activity can start. The default is 300.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
+        /// Cooldowns</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -113,9 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter HealthCheckGracePeriod
         /// <summary>
         /// <para>
-        /// <para>The amount of time, in seconds, that Auto Scaling waits before checking the health
-        /// status of an EC2 instance that has come into service. The default is 0.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html">Health
-        /// Checks</a> in the <i>Auto Scaling User Guide</i>.</para>
+        /// <para>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking
+        /// the health status of an EC2 instance that has come into service. The default is 0.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
+        /// Checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>A standalone termination policy or a list of termination policies used to select the
-        /// instance to terminate. The policies are executed in the order that they are listed.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html">Controlling
+        /// instance to terminate. The policies are executed in the order that they are listed.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling
         /// Which Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto Scaling
         /// User Guide</i>.</para>
         /// </para>
@@ -238,10 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The version number, <code>$Latest</code>, or <code>$Default</code>. If the value is
-        /// <code>$Latest</code>, Auto Scaling selects the latest version of the launch template
-        /// when launching instances. If the value is <code>$Default</code>, Auto Scaling selects
-        /// the default version of the launch template when launching instances. The default value
-        /// is <code>$Default</code>.</para>
+        /// <code>$Latest</code>, Amazon EC2 Auto Scaling selects the latest version of the launch
+        /// template when launching instances. If the value is <code>$Default</code>, Amazon EC2
+        /// Auto Scaling selects the default version of the launch template when launching instances.
+        /// The default value is <code>$Default</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -253,8 +253,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The ID of the subnet, if you are launching into a VPC. You can specify several subnets
         /// in a comma-separated list.</para><para>When you specify <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>,
-        /// ensure that the subnets' Availability Zones match the values you specify for <code>AvailabilityZones</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html">Launching
-        /// Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling User Guide</i>.</para>
+        /// ensure that the subnets' Availability Zones match the values you specify for <code>AvailabilityZones</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching
+        /// Auto Scaling Instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

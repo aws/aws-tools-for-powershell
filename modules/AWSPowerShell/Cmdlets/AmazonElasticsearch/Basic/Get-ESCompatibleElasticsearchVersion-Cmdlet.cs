@@ -22,23 +22,35 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AutoScaling;
-using Amazon.AutoScaling.Model;
+using Amazon.Elasticsearch;
+using Amazon.Elasticsearch.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AS
+namespace Amazon.PowerShell.Cmdlets.ES
 {
     /// <summary>
-    /// Describes the termination policies supported by Amazon EC2 Auto Scaling.
+    /// Returns a list of upgrade compatible Elastisearch versions. You can optionally pass
+    /// a <code><a>DomainName</a></code> to get all upgrade compatible Elasticsearch versions
+    /// for that specific domain.
     /// </summary>
-    [Cmdlet("Get", "ASTerminationPolicyType")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Auto Scaling DescribeTerminationPolicyTypes API operation.", Operation = new[] {"DescribeTerminationPolicyTypes"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a collection of String objects.",
-        "The service call response (type Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "ESCompatibleElasticsearchVersion")]
+    [OutputType("Amazon.Elasticsearch.Model.CompatibleVersionsMap")]
+    [AWSCmdlet("Calls the Amazon Elasticsearch GetCompatibleElasticsearchVersions API operation.", Operation = new[] {"GetCompatibleElasticsearchVersions"})]
+    [AWSCmdletOutput("Amazon.Elasticsearch.Model.CompatibleVersionsMap",
+        "This cmdlet returns a collection of CompatibleVersionsMap objects.",
+        "The service call response (type Amazon.Elasticsearch.Model.GetCompatibleElasticsearchVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetASTerminationPolicyTypeCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class GetESCompatibleElasticsearchVersionCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String DomainName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -53,6 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.DomainName = this.DomainName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -67,8 +80,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesRequest();
+            var request = new Amazon.Elasticsearch.Model.GetCompatibleElasticsearchVersionsRequest();
             
+            if (cmdletContext.DomainName != null)
+            {
+                request.DomainName = cmdletContext.DomainName;
+            }
             
             CmdletOutput output;
             
@@ -78,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.TerminationPolicyTypes;
+                object pipelineOutput = response.CompatibleElasticsearchVersions;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -103,16 +120,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesRequest request)
+        private Amazon.Elasticsearch.Model.GetCompatibleElasticsearchVersionsResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.GetCompatibleElasticsearchVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "DescribeTerminationPolicyTypes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "GetCompatibleElasticsearchVersions");
             try
             {
                 #if DESKTOP
-                return client.DescribeTerminationPolicyTypes(request);
+                return client.GetCompatibleElasticsearchVersions(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeTerminationPolicyTypesAsync(request);
+                var task = client.GetCompatibleElasticsearchVersionsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -133,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DomainName { get; set; }
         }
         
     }

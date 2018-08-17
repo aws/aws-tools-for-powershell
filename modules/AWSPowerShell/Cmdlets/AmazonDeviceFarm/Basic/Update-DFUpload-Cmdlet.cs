@@ -22,68 +22,65 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AutoScaling;
-using Amazon.AutoScaling.Model;
+using Amazon.DeviceFarm;
+using Amazon.DeviceFarm.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AS
+namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Attaches one or more EC2 instances to the specified Auto Scaling group.
-    /// 
-    ///  
-    /// <para>
-    /// When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity
-    /// of the group by the number of instances being attached. If the number of instances
-    /// being attached plus the desired capacity of the group exceeds the maximum size of
-    /// the group, the operation fails.
-    /// </para><para>
-    /// If there is a Classic Load Balancer attached to your Auto Scaling group, the instances
-    /// are also registered with the load balancer. If there are target groups attached to
-    /// your Auto Scaling group, the instances are also registered with the target groups.
-    /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-instance-asg.html">Attach
-    /// EC2 Instances to Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User
-    /// Guide</i>.
-    /// </para>
+    /// Update an uploaded test specification (test spec).
     /// </summary>
-    [Cmdlet("Mount", "ASInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the Auto Scaling AttachInstances API operation.", Operation = new[] {"AttachInstances"}, LegacyAlias="Add-ASInstances")]
-    [AWSCmdletOutput("None or System.String",
-        "Returns the ids of the EC2 instances that were attached when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.AutoScaling.Model.AttachInstancesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "DFUpload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DeviceFarm.Model.Upload")]
+    [AWSCmdlet("Calls the AWS Device Farm UpdateUpload API operation.", Operation = new[] {"UpdateUpload"})]
+    [AWSCmdletOutput("Amazon.DeviceFarm.Model.Upload",
+        "This cmdlet returns a Upload object.",
+        "The service call response (type Amazon.DeviceFarm.Model.UpdateUploadResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class MountASInstanceCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class UpdateDFUploadCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
-        #region Parameter AutoScalingGroupName
+        #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The name of the Auto Scaling group.</para>
+        /// <para>The Amazon Resource Name (ARN) of the uploaded test spec.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public System.String AutoScalingGroupName { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Arn { get; set; }
         #endregion
         
-        #region Parameter InstanceId
+        #region Parameter ContentType
         /// <summary>
         /// <para>
-        /// <para>The IDs of the instances. You can specify up to 20 instances.</para>
+        /// <para>The upload's content type (for example, "application/x-yaml").</para>
         /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [Alias("InstanceIds")]
-        public System.String[] InstanceId { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the ids of the EC2 instances that were attached.
-        /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        public System.String ContentType { get; set; }
+        #endregion
+        
+        #region Parameter EditContent
+        /// <summary>
+        /// <para>
+        /// <para>Set to true if the YAML file has changed and needs to be updated; otherwise, set to
+        /// false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EditContent { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The upload's test spec file name. The name should not contain the '/' character. The
+        /// test spec file name must end with the <code>.yaml</code> or <code>.yml</code> file
+        /// extension.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Name { get; set; }
         #endregion
         
         #region Parameter Force
@@ -100,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InstanceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Mount-ASInstance (AttachInstances)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Arn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DFUpload (UpdateUpload)"))
             {
                 return;
             }
@@ -115,11 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.AutoScalingGroupName = this.AutoScalingGroupName;
-            if (this.InstanceId != null)
-            {
-                context.InstanceIds = new List<System.String>(this.InstanceId);
-            }
+            context.Arn = this.Arn;
+            context.ContentType = this.ContentType;
+            if (ParameterWasBound("EditContent"))
+                context.EditContent = this.EditContent;
+            context.Name = this.Name;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -134,15 +131,23 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AutoScaling.Model.AttachInstancesRequest();
+            var request = new Amazon.DeviceFarm.Model.UpdateUploadRequest();
             
-            if (cmdletContext.AutoScalingGroupName != null)
+            if (cmdletContext.Arn != null)
             {
-                request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
+                request.Arn = cmdletContext.Arn;
             }
-            if (cmdletContext.InstanceIds != null)
+            if (cmdletContext.ContentType != null)
             {
-                request.InstanceIds = cmdletContext.InstanceIds;
+                request.ContentType = cmdletContext.ContentType;
+            }
+            if (cmdletContext.EditContent != null)
+            {
+                request.EditContent = cmdletContext.EditContent.Value;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -153,9 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = cmdletContext.InstanceIds;
+                object pipelineOutput = response.Upload;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -180,16 +183,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private Amazon.AutoScaling.Model.AttachInstancesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.AttachInstancesRequest request)
+        private Amazon.DeviceFarm.Model.UpdateUploadResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.UpdateUploadRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "AttachInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "UpdateUpload");
             try
             {
                 #if DESKTOP
-                return client.AttachInstances(request);
+                return client.UpdateUpload(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AttachInstancesAsync(request);
+                var task = client.UpdateUploadAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -210,8 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AutoScalingGroupName { get; set; }
-            public List<System.String> InstanceIds { get; set; }
+            public System.String Arn { get; set; }
+            public System.String ContentType { get; set; }
+            public System.Boolean? EditContent { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

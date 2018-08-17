@@ -2655,9 +2655,12 @@ $DF_Completers = {
         }
         
         # Amazon.DeviceFarm.UploadType
-        "New-DFUpload/Type"
         {
-            $v = "ANDROID_APP","APPIUM_JAVA_JUNIT_TEST_PACKAGE","APPIUM_JAVA_TESTNG_TEST_PACKAGE","APPIUM_PYTHON_TEST_PACKAGE","APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE","APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE","APPIUM_WEB_PYTHON_TEST_PACKAGE","CALABASH_TEST_PACKAGE","EXTERNAL_DATA","INSTRUMENTATION_TEST_PACKAGE","IOS_APP","UIAUTOMATION_TEST_PACKAGE","UIAUTOMATOR_TEST_PACKAGE","WEB_APP","XCTEST_TEST_PACKAGE","XCTEST_UI_TEST_PACKAGE"
+            ($_ -eq "Get-DFUploadList/Type") -Or
+            ($_ -eq "New-DFUpload/Type")
+        }
+        {
+            $v = "ANDROID_APP","APPIUM_JAVA_JUNIT_TEST_PACKAGE","APPIUM_JAVA_JUNIT_TEST_SPEC","APPIUM_JAVA_TESTNG_TEST_PACKAGE","APPIUM_JAVA_TESTNG_TEST_SPEC","APPIUM_PYTHON_TEST_PACKAGE","APPIUM_PYTHON_TEST_SPEC","APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE","APPIUM_WEB_JAVA_JUNIT_TEST_SPEC","APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE","APPIUM_WEB_JAVA_TESTNG_TEST_SPEC","APPIUM_WEB_PYTHON_TEST_PACKAGE","APPIUM_WEB_PYTHON_TEST_SPEC","CALABASH_TEST_PACKAGE","EXTERNAL_DATA","INSTRUMENTATION_TEST_PACKAGE","INSTRUMENTATION_TEST_SPEC","IOS_APP","UIAUTOMATION_TEST_PACKAGE","UIAUTOMATOR_TEST_PACKAGE","WEB_APP","XCTEST_TEST_PACKAGE","XCTEST_UI_TEST_PACKAGE","XCTEST_UI_TEST_SPEC"
             break
         }
         
@@ -2673,7 +2676,7 @@ $DF_map = @{
     "InteractionMode"=@("New-DFRemoteAccessSession")
     "Test_Type"=@("Get-DFDevicePoolCompatibility","Submit-DFTestRun")
     "TestType"=@("Get-DFDevicePoolCompatibility")
-    "Type"=@("Get-DFArtifactList","Get-DFDevicePoolList","Get-DFNetworkProfileList","New-DFNetworkProfile","New-DFUpload","Update-DFNetworkProfile")
+    "Type"=@("Get-DFArtifactList","Get-DFDevicePoolList","Get-DFNetworkProfileList","Get-DFUploadList","New-DFNetworkProfile","New-DFUpload","Update-DFNetworkProfile")
 }
 
 _awsArgumentCompleterRegistration $DF_Completers $DF_map

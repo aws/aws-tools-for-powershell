@@ -22,68 +22,53 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AutoScaling;
-using Amazon.AutoScaling.Model;
+using Amazon.Elasticsearch;
+using Amazon.Elasticsearch.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AS
+namespace Amazon.PowerShell.Cmdlets.ES
 {
     /// <summary>
-    /// Attaches one or more EC2 instances to the specified Auto Scaling group.
-    /// 
-    ///  
-    /// <para>
-    /// When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity
-    /// of the group by the number of instances being attached. If the number of instances
-    /// being attached plus the desired capacity of the group exceeds the maximum size of
-    /// the group, the operation fails.
-    /// </para><para>
-    /// If there is a Classic Load Balancer attached to your Auto Scaling group, the instances
-    /// are also registered with the load balancer. If there are target groups attached to
-    /// your Auto Scaling group, the instances are also registered with the target groups.
-    /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-instance-asg.html">Attach
-    /// EC2 Instances to Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User
-    /// Guide</i>.
-    /// </para>
+    /// Allows you to either upgrade your domain or perform an Upgrade eligibility check to
+    /// a compatible Elasticsearch version.
     /// </summary>
-    [Cmdlet("Mount", "ASInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the Auto Scaling AttachInstances API operation.", Operation = new[] {"AttachInstances"}, LegacyAlias="Add-ASInstances")]
-    [AWSCmdletOutput("None or System.String",
-        "Returns the ids of the EC2 instances that were attached when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.AutoScaling.Model.AttachInstancesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "ESElasticsearchDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Elasticsearch.Model.UpgradeElasticsearchDomainResponse")]
+    [AWSCmdlet("Calls the Amazon Elasticsearch UpgradeElasticsearchDomain API operation.", Operation = new[] {"UpgradeElasticsearchDomain"})]
+    [AWSCmdletOutput("Amazon.Elasticsearch.Model.UpgradeElasticsearchDomainResponse",
+        "This cmdlet returns a Amazon.Elasticsearch.Model.UpgradeElasticsearchDomainResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class MountASInstanceCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class UpdateESElasticsearchDomainCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
         
-        #region Parameter AutoScalingGroupName
+        #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The name of the Auto Scaling group.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public System.String AutoScalingGroupName { get; set; }
-        #endregion
-        
-        #region Parameter InstanceId
-        /// <summary>
-        /// <para>
-        /// <para>The IDs of the instances. You can specify up to 20 instances.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [Alias("InstanceIds")]
-        public System.String[] InstanceId { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the ids of the EC2 instances that were attached.
-        /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        public System.String DomainName { get; set; }
+        #endregion
+        
+        #region Parameter PerformCheckOnly
+        /// <summary>
+        /// <para>
+        /// <para> This flag, when set to True, indicates that an Upgrade Eligibility Check needs to
+        /// be performed. This will not actually perform the Upgrade. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean PerformCheckOnly { get; set; }
+        #endregion
+        
+        #region Parameter TargetVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of Elasticsearch that you intend to upgrade the domain to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String TargetVersion { get; set; }
         #endregion
         
         #region Parameter Force
@@ -100,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InstanceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Mount-ASInstance (AttachInstances)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DomainName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-ESElasticsearchDomain (UpgradeElasticsearchDomain)"))
             {
                 return;
             }
@@ -115,11 +100,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.AutoScalingGroupName = this.AutoScalingGroupName;
-            if (this.InstanceId != null)
-            {
-                context.InstanceIds = new List<System.String>(this.InstanceId);
-            }
+            context.DomainName = this.DomainName;
+            if (ParameterWasBound("PerformCheckOnly"))
+                context.PerformCheckOnly = this.PerformCheckOnly;
+            context.TargetVersion = this.TargetVersion;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -134,15 +118,19 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AutoScaling.Model.AttachInstancesRequest();
+            var request = new Amazon.Elasticsearch.Model.UpgradeElasticsearchDomainRequest();
             
-            if (cmdletContext.AutoScalingGroupName != null)
+            if (cmdletContext.DomainName != null)
             {
-                request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
+                request.DomainName = cmdletContext.DomainName;
             }
-            if (cmdletContext.InstanceIds != null)
+            if (cmdletContext.PerformCheckOnly != null)
             {
-                request.InstanceIds = cmdletContext.InstanceIds;
+                request.PerformCheckOnly = cmdletContext.PerformCheckOnly.Value;
+            }
+            if (cmdletContext.TargetVersion != null)
+            {
+                request.TargetVersion = cmdletContext.TargetVersion;
             }
             
             CmdletOutput output;
@@ -153,9 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = cmdletContext.InstanceIds;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -180,16 +166,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private Amazon.AutoScaling.Model.AttachInstancesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.AttachInstancesRequest request)
+        private Amazon.Elasticsearch.Model.UpgradeElasticsearchDomainResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.UpgradeElasticsearchDomainRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "AttachInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "UpgradeElasticsearchDomain");
             try
             {
                 #if DESKTOP
-                return client.AttachInstances(request);
+                return client.UpgradeElasticsearchDomain(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AttachInstancesAsync(request);
+                var task = client.UpgradeElasticsearchDomainAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -210,8 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AutoScalingGroupName { get; set; }
-            public List<System.String> InstanceIds { get; set; }
+            public System.String DomainName { get; set; }
+            public System.Boolean? PerformCheckOnly { get; set; }
+            public System.String TargetVersion { get; set; }
         }
         
     }

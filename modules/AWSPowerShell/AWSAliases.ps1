@@ -254,6 +254,7 @@ Set-Alias -Name Describe-ADSAgents -Value Get-ADSAgent
 Set-Alias -Name ADS-DescribeAgents -Value Get-ADSAgent
 Set-Alias -Name Describe-ADSConfigurations -Value Get-ADSConfiguration
 Set-Alias -Name ADS-DescribeConfigurations -Value Get-ADSConfiguration
+Set-Alias -Name ADS-DescribeContinuousExports -Value Get-ADSContinuousExport
 Set-Alias -Name Describe-ADSExportConfiguration -Value Get-ADSExportConfiguration
 Set-Alias -Name ADS-DescribeExportConfigurations -Value Get-ADSExportConfiguration
 Set-Alias -Name Describe-ADSExportTask -Value Get-ADSExportTask
@@ -265,8 +266,10 @@ Set-Alias -Name ADS-ExportConfigurations -Value Get-ADSExportConfigurationsId
 Set-Alias -Name ADS-GetDiscoverySummary -Value Get-ADSDiscoverySummary
 Set-Alias -Name ADS-ListConfigurations -Value Get-ADSConfigurationList
 Set-Alias -Name ADS-ListServerNeighbors -Value Get-ADSServerNeighborList
+Set-Alias -Name ADS-StartContinuousExport -Value Start-ADSContinuousExport
 Set-Alias -Name ADS-StartDataCollectionByAgentIds -Value Start-ADSDataCollectionByAgentId
 Set-Alias -Name ADS-StartExportTask -Value Start-ADSExportTask
+Set-Alias -Name ADS-StopContinuousExport -Value Stop-ADSContinuousExport
 Set-Alias -Name ADS-StopDataCollectionByAgentIds -Value Stop-ADSDataCollectionByAgentId
 Set-Alias -Name ADS-UpdateApplication -Value Update-ADSApplication
 Set-Alias -Name APS-AssociateFleet -Value Register-APSFleet
@@ -359,6 +362,8 @@ Set-Alias -Name ATH-StopQueryExecution -Value Stop-ATHQueryExecution
 Set-Alias -Name AS-AttachInstances -Value Mount-ASInstance
 Set-Alias -Name AS-AttachLoadBalancers -Value Add-ASLoadBalancer
 Set-Alias -Name AS-AttachLoadBalancerTargetGroups -Value Add-ASLoadBalancerTargetGroup
+Set-Alias -Name AS-BatchDeleteScheduledAction -Value Remove-ASScheduledActionBatch
+Set-Alias -Name AS-BatchPutScheduledUpdateGroupAction -Value Set-ASScheduledUpdateGroupActionBatch
 Set-Alias -Name AS-CompleteLifecycleAction -Value Complete-ASLifecycleAction
 Set-Alias -Name Create-ASAutoScalingGroup -Value New-ASAutoScalingGroup
 Set-Alias -Name AS-CreateAutoScalingGroup -Value New-ASAutoScalingGroup
@@ -1649,6 +1654,7 @@ Set-Alias -Name DF-ListVPCEConfigurations -Value Get-DFVPCEConfigurationList
 Set-Alias -Name DF-PurchaseOffering -Value New-DFOfferingPurchase
 Set-Alias -Name DF-RenewOffering -Value New-DFOfferingRenewal
 Set-Alias -Name DF-ScheduleRun -Value Submit-DFTestRun
+Set-Alias -Name DF-StopJob -Value Stop-DFJob
 Set-Alias -Name DF-StopRemoteAccessSession -Value Stop-DFRemoteAccessSession
 Set-Alias -Name DF-StopRun -Value Stop-DFRun
 Set-Alias -Name DF-UpdateDeviceInstance -Value Update-DFDeviceInstance
@@ -1656,6 +1662,7 @@ Set-Alias -Name DF-UpdateDevicePool -Value Update-DFDevicePool
 Set-Alias -Name DF-UpdateInstanceProfile -Value Update-DFInstanceProfile
 Set-Alias -Name DF-UpdateNetworkProfile -Value Update-DFNetworkProfile
 Set-Alias -Name DF-UpdateProject -Value Update-DFProject
+Set-Alias -Name DF-UpdateUpload -Value Update-DFUpload
 Set-Alias -Name DF-UpdateVPCEConfiguration -Value Update-DFVPCEConfiguration
 Set-Alias -Name DC-AllocateConnectionOnInterconnect -Value Enable-DCConnectionOnInterconnect
 Set-Alias -Name Allocate-DCHostedConnection -Value New-DCHostedConnection
@@ -2622,6 +2629,9 @@ Set-Alias -Name Describe-ESInstanceTypeLimit -Value Get-ESInstanceTypeLimit
 Set-Alias -Name ES-DescribeElasticsearchInstanceTypeLimits -Value Get-ESInstanceTypeLimit
 Set-Alias -Name ES-DescribeReservedElasticsearchInstanceOfferings -Value Get-ESReservedElasticsearchInstanceOfferingList
 Set-Alias -Name ES-DescribeReservedElasticsearchInstances -Value Get-ESReservedElasticsearchInstanceList
+Set-Alias -Name ES-GetCompatibleElasticsearchVersions -Value Get-ESCompatibleElasticsearchVersion
+Set-Alias -Name ES-GetUpgradeHistory -Value Get-ESUpgradeHistory
+Set-Alias -Name ES-GetUpgradeStatus -Value Get-ESUpgradeStatus
 Set-Alias -Name ES-ListDomainNames -Value Get-ESDomainNameList
 Set-Alias -Name ES-ListElasticsearchInstanceTypes -Value Get-ESInstanceTypeList
 Set-Alias -Name ES-ListElasticsearchVersions -Value Get-ESVersionList
@@ -2629,6 +2639,7 @@ Set-Alias -Name ES-ListTags -Value Get-ESResourceTag
 Set-Alias -Name ES-PurchaseReservedElasticsearchInstanceOffering -Value New-ESReservedElasticsearchInstanceOffering
 Set-Alias -Name ES-RemoveTags -Value Remove-ESResourceTag
 Set-Alias -Name ES-UpdateElasticsearchDomainConfig -Value Update-ESDomainConfig
+Set-Alias -Name ES-UpgradeElasticsearchDomain -Value Update-ESElasticsearchDomain
 Set-Alias -Name Cancel-ETSJob -Value Stop-ETSJob
 Set-Alias -Name ETS-CancelJob -Value Stop-ETSJob
 Set-Alias -Name Create-ETSJob -Value New-ETSJob
@@ -4635,6 +4646,7 @@ Set-Alias -Name RS-PurchaseReservedNodeOffering -Value Request-RSReservedNodeOff
 Set-Alias -Name Reboot-RSCluster -Value Restart-RSCluster
 Set-Alias -Name RS-RebootCluster -Value Restart-RSCluster
 Set-Alias -Name RS-ResetClusterParameterGroup -Value Reset-RSClusterParameterGroup
+Set-Alias -Name RS-ResizeCluster -Value Set-RSClusterSize
 Set-Alias -Name RS-RestoreFromClusterSnapshot -Value Restore-RSFromClusterSnapshot
 Set-Alias -Name RS-RestoreTableFromClusterSnapshot -Value Restore-RSTableFromClusterSnapshot
 Set-Alias -Name RS-RevokeClusterSecurityGroupIngress -Value Revoke-RSClusterSecurityGroupIngress

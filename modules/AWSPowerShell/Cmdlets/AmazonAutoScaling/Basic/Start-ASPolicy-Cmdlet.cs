@@ -64,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter HonorCooldown
         /// <summary>
         /// <para>
-        /// <para>Indicates whether Auto Scaling waits for the cooldown period to complete before executing
-        /// the policy.</para><para>This parameter is not supported if the policy type is <code>StepScaling</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html">Auto
-        /// Scaling Cooldowns</a> in the <i>Auto Scaling User Guide</i>.</para>
+        /// <para>Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period to complete
+        /// before executing the policy.</para><para>This parameter is not supported if the policy type is <code>StepScaling</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
+        /// Cooldowns</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

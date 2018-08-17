@@ -28,21 +28,58 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes the termination policies supported by Amazon EC2 Auto Scaling.
+    /// Deletes one or more scheduled actions for the specified Auto Scaling group.
     /// </summary>
-    [Cmdlet("Get", "ASTerminationPolicyType")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Auto Scaling DescribeTerminationPolicyTypes API operation.", Operation = new[] {"DescribeTerminationPolicyTypes"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a collection of String objects.",
-        "The service call response (type Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "ASScheduledActionBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.AutoScaling.Model.FailedScheduledUpdateGroupActionRequest")]
+    [AWSCmdlet("Calls the Auto Scaling BatchDeleteScheduledAction API operation.", Operation = new[] {"BatchDeleteScheduledAction"})]
+    [AWSCmdletOutput("Amazon.AutoScaling.Model.FailedScheduledUpdateGroupActionRequest",
+        "This cmdlet returns a collection of FailedScheduledUpdateGroupActionRequest objects.",
+        "The service call response (type Amazon.AutoScaling.Model.BatchDeleteScheduledActionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetASTerminationPolicyTypeCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class RemoveASScheduledActionBatchCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Auto Scaling group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String AutoScalingGroupName { get; set; }
+        #endregion
+        
+        #region Parameter ScheduledActionName
+        /// <summary>
+        /// <para>
+        /// <para>The names of the scheduled actions to delete. The maximum number allowed is 50. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ScheduledActionNames")]
+        public System.String[] ScheduledActionName { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("AutoScalingGroupName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ASScheduledActionBatch (BatchDeleteScheduledAction)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -53,6 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AutoScalingGroupName = this.AutoScalingGroupName;
+            if (this.ScheduledActionName != null)
+            {
+                context.ScheduledActionNames = new List<System.String>(this.ScheduledActionName);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -67,8 +109,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesRequest();
+            var request = new Amazon.AutoScaling.Model.BatchDeleteScheduledActionRequest();
             
+            if (cmdletContext.AutoScalingGroupName != null)
+            {
+                request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
+            }
+            if (cmdletContext.ScheduledActionNames != null)
+            {
+                request.ScheduledActionNames = cmdletContext.ScheduledActionNames;
+            }
             
             CmdletOutput output;
             
@@ -78,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.TerminationPolicyTypes;
+                object pipelineOutput = response.FailedScheduledActions;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -103,16 +153,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesRequest request)
+        private Amazon.AutoScaling.Model.BatchDeleteScheduledActionResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.BatchDeleteScheduledActionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "DescribeTerminationPolicyTypes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "BatchDeleteScheduledAction");
             try
             {
                 #if DESKTOP
-                return client.DescribeTerminationPolicyTypes(request);
+                return client.BatchDeleteScheduledAction(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeTerminationPolicyTypesAsync(request);
+                var task = client.BatchDeleteScheduledActionAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -133,6 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AutoScalingGroupName { get; set; }
+            public List<System.String> ScheduledActionNames { get; set; }
         }
         
     }

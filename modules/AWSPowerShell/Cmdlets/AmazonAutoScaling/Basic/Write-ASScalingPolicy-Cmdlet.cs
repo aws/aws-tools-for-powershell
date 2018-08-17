@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The adjustment type. The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>,
-        /// and <code>PercentChangeInCapacity</code>.</para><para>This parameter is supported if the policy type is <code>SimpleScaling</code> or <code>StepScaling</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-scale-based-on-demand.html">Dynamic
-        /// Scaling</a> in the <i>Auto Scaling User Guide</i>.</para>
+        /// and <code>PercentChangeInCapacity</code>.</para><para>This parameter is supported if the policy type is <code>SimpleScaling</code> or <code>StepScaling</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html">Dynamic
+        /// Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The amount of time, in seconds, after a scaling activity completes and before the
         /// next scaling activity can start. If this parameter is not specified, the default cooldown
-        /// period for the group applies.</para><para>This parameter is supported if the policy type is <code>SimpleScaling</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html">Auto
-        /// Scaling Cooldowns</a> in the <i>Auto Scaling User Guide</i>.</para>
+        /// period for the group applies.</para><para>This parameter is supported if the policy type is <code>SimpleScaling</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
+        /// Cooldowns</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

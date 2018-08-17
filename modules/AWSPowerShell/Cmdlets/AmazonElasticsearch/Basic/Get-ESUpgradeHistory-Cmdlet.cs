@@ -22,46 +22,40 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ApplicationDiscoveryService;
-using Amazon.ApplicationDiscoveryService.Model;
+using Amazon.Elasticsearch;
+using Amazon.Elasticsearch.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ADS
+namespace Amazon.PowerShell.Cmdlets.ES
 {
     /// <summary>
-    /// <code>DescribeExportConfigurations</code> is deprecated.
-    /// 
-    ///  
-    /// <para>
-    /// Use instead <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html"><code>DescribeExportTasks</code></a>.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieves the complete history of the last 10 upgrades that were performed on the
+    /// domain.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "ADSExportConfiguration")]
-    [OutputType("Amazon.ApplicationDiscoveryService.Model.ExportInfo")]
-    [AWSCmdlet("Calls the Application Discovery Service DescribeExportConfigurations API operation.", Operation = new[] {"DescribeExportConfigurations"})]
-    [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.ExportInfo",
-        "This cmdlet returns a collection of ExportInfo objects.",
-        "The service call response (type Amazon.ApplicationDiscoveryService.Model.DescribeExportConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "ESUpgradeHistory")]
+    [OutputType("Amazon.Elasticsearch.Model.UpgradeHistory")]
+    [AWSCmdlet("Calls the Amazon Elasticsearch GetUpgradeHistory API operation.", Operation = new[] {"GetUpgradeHistory"})]
+    [AWSCmdletOutput("Amazon.Elasticsearch.Model.UpgradeHistory",
+        "This cmdlet returns a collection of UpgradeHistory objects.",
+        "The service call response (type Amazon.Elasticsearch.Model.GetUpgradeHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetADSExportConfigurationCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
+    public partial class GetESUpgradeHistoryCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
         
-        #region Parameter ExportId
+        #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>A list of continuous export ids to search for.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("ExportIds")]
-        public System.String[] ExportId { get; set; }
+        public System.String DomainName { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>A number between 1 and 100 specifying the maximum number of continuous export descriptions
-        /// returned.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -75,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token from the previous call to describe-export-tasks.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -98,10 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.ExportId != null)
-            {
-                context.ExportIds = new List<System.String>(this.ExportId);
-            }
+            context.DomainName = this.DomainName;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -120,29 +111,22 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.ApplicationDiscoveryService.Model.DescribeExportConfigurationsRequest();
-            if (cmdletContext.ExportIds != null)
+            var request = new Amazon.Elasticsearch.Model.GetUpgradeHistoryRequest();
+            if (cmdletContext.DomainName != null)
             {
-                request.ExportIds = cmdletContext.ExportIds;
+                request.DomainName = cmdletContext.DomainName;
             }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
-            int? _pageSize = 100;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
                 _nextMarker = cmdletContext.NextToken;
             }
             if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
             {
-                // The service has a maximum page size of 100. If the user has
-                // asked for more items than page max, and there is no page size
-                // configured, we rely on the service ignoring the set maximum
-                // and giving us 100 items back. If a page size is set, that will
-                // be used to configure the pagination.
-                // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
             bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
@@ -158,20 +142,6 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                         request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
                     
-                    if (AutoIterationHelpers.HasValue(_pageSize))
-                    {
-                        int correctPageSize;
-                        if (AutoIterationHelpers.IsSet(request.MaxResults))
-                        {
-                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
-                        }
-                        else
-                        {
-                            correctPageSize = _pageSize.Value;
-                        }
-                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
-                    }
-                    
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
                     
@@ -180,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.ExportsInfo;
+                        object pipelineOutput = response.UpgradeHistories;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -189,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.ExportsInfo.Count;
+                        int _receivedThisCall = response.UpgradeHistories.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -209,15 +179,6 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                     }
                     
                     ProcessOutput(output);
-                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
-                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
-                    // what's left to match the user's request.
-                    
-                    var _remainingItems = _emitLimit - _retrievedSoFar;
-                    if (_remainingItems < _pageSize)
-                    {
-                        _emitLimit = _remainingItems;
-                    }
                 } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
                 
             }
@@ -241,16 +202,16 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #region AWS Service Operation Call
         
-        private Amazon.ApplicationDiscoveryService.Model.DescribeExportConfigurationsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DescribeExportConfigurationsRequest request)
+        private Amazon.Elasticsearch.Model.GetUpgradeHistoryResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.GetUpgradeHistoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Discovery Service", "DescribeExportConfigurations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "GetUpgradeHistory");
             try
             {
                 #if DESKTOP
-                return client.DescribeExportConfigurations(request);
+                return client.GetUpgradeHistory(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeExportConfigurationsAsync(request);
+                var task = client.GetUpgradeHistoryAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -271,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> ExportIds { get; set; }
+            public System.String DomainName { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
         }

@@ -28,7 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes the notification types that are supported by Auto Scaling.
+    /// Describes the notification types that are supported by Amazon EC2 Auto Scaling.
     /// </summary>
     [Cmdlet("Get", "ASAutoScalingNotificationType")]
     [OutputType("System.String")]

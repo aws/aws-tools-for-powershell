@@ -22,27 +22,58 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AutoScaling;
-using Amazon.AutoScaling.Model;
+using Amazon.DeviceFarm;
+using Amazon.DeviceFarm.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AS
+namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Describes the termination policies supported by Amazon EC2 Auto Scaling.
+    /// Initiates a stop request for the current job. AWS Device Farm will immediately stop
+    /// the job on the device where tests have not started executing, and you will not be
+    /// billed for this device. On the device where tests have started executing, Setup Suite
+    /// and Teardown Suite tests will run to completion before stopping execution on the device.
+    /// You will be billed for Setup, Teardown, and any tests that were in progress or already
+    /// completed.
     /// </summary>
-    [Cmdlet("Get", "ASTerminationPolicyType")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Auto Scaling DescribeTerminationPolicyTypes API operation.", Operation = new[] {"DescribeTerminationPolicyTypes"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a collection of String objects.",
-        "The service call response (type Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Stop", "DFJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DeviceFarm.Model.Job")]
+    [AWSCmdlet("Calls the AWS Device Farm StopJob API operation.", Operation = new[] {"StopJob"})]
+    [AWSCmdletOutput("Amazon.DeviceFarm.Model.Job",
+        "This cmdlet returns a Job object.",
+        "The service call response (type Amazon.DeviceFarm.Model.StopJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetASTerminationPolicyTypeCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class StopDFJobCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
+        
+        #region Parameter Arn
+        /// <summary>
+        /// <para>
+        /// <para>Represents the Amazon Resource Name (ARN) of the Device Farm job you wish to stop.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Arn { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Arn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-DFJob (StopJob)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -53,6 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.Arn = this.Arn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -67,8 +99,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesRequest();
+            var request = new Amazon.DeviceFarm.Model.StopJobRequest();
             
+            if (cmdletContext.Arn != null)
+            {
+                request.Arn = cmdletContext.Arn;
+            }
             
             CmdletOutput output;
             
@@ -78,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.TerminationPolicyTypes;
+                object pipelineOutput = response.Job;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -103,16 +139,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesRequest request)
+        private Amazon.DeviceFarm.Model.StopJobResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.StopJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "DescribeTerminationPolicyTypes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "StopJob");
             try
             {
                 #if DESKTOP
-                return client.DescribeTerminationPolicyTypes(request);
+                return client.StopJob(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeTerminationPolicyTypesAsync(request);
+                var task = client.StopJobAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -133,6 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Arn { get; set; }
         }
         
     }

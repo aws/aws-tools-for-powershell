@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html">Health
-    /// Checks</a> in the <i>Auto Scaling User Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
+    /// Checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ASInstanceHealth", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The health status of the instance. Set to <code>Healthy</code> if you want the instance
         /// to remain in service. Set to <code>Unhealthy</code> if you want the instance to be
-        /// out of service. Auto Scaling will terminate and replace the unhealthy instance.</para>
+        /// out of service. Amazon EC2 Auto Scaling will terminate and replace the unhealthy instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

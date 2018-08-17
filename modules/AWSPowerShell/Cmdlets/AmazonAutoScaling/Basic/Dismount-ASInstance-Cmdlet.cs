@@ -35,15 +35,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// After the instances are detached, you can manage them independent of the Auto Scaling
     /// group.
     /// </para><para>
-    /// If you do not specify the option to decrement the desired capacity, Auto Scaling launches
-    /// instances to replace the ones that are detached.
+    /// If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto
+    /// Scaling launches instances to replace the ones that are detached.
     /// </para><para>
     /// If there is a Classic Load Balancer attached to the Auto Scaling group, the instances
     /// are deregistered from the load balancer. If there are target groups attached to the
     /// Auto Scaling group, the instances are deregistered from the target groups.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/detach-instance-asg.html">Detach
-    /// EC2 Instances from Your Auto Scaling Group</a> in the <i>Auto Scaling User Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/detach-instance-asg.html">Detach
+    /// EC2 Instances from Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User
+    /// Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Dismount", "ASInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

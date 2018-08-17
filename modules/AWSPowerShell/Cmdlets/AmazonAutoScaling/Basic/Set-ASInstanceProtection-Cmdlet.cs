@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html#instance-protection">Instance
-    /// Protection</a> in the <i>Auto Scaling User Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance
+    /// Protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ASInstanceProtection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ProtectedFromScaleIn
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the instance is protected from termination by Auto Scaling when
-        /// scaling in.</para>
+        /// <para>Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling
+        /// when scaling in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

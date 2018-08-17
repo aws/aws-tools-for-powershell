@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/schedule_time.html">Scheduled
-    /// Scaling</a> in the <i>Auto Scaling User Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled
+    /// Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ASScheduledUpdateGroupAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The time for the recurring schedule to end. Auto Scaling does not perform the action
-        /// after this time.</para>
+        /// <para>The time for the recurring schedule to end. Amazon EC2 Auto Scaling does not perform
+        /// the action after this time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -102,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Recurrence
         /// <summary>
         /// <para>
-        /// <para>The recurring schedule for this action, in Unix cron syntax format. For more information,
-        /// see <a href="http://en.wikipedia.org/wiki/Cron">Cron</a> in Wikipedia.</para>
+        /// <para>The recurring schedule for this action, in Unix cron syntax format. For more information
+        /// about this format, see <a href="http://crontab.org">Crontab</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -124,8 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only
-        /// (for example, <code>2014-06-01T00:00:00Z</code>).</para><para>If you specify <code>Recurrence</code> and <code>StartTime</code>, Auto Scaling performs
-        /// the action at this time, and then performs the action based on the specified recurrence.</para><para>If you try to schedule your action in the past, Auto Scaling returns an error message.</para>
+        /// (for example, <code>2014-06-01T00:00:00Z</code>).</para><para>If you specify <code>Recurrence</code> and <code>StartTime</code>, Amazon EC2 Auto
+        /// Scaling performs the action at this time, and then performs the action based on the
+        /// specified recurrence.</para><para>If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an
+        /// error message.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

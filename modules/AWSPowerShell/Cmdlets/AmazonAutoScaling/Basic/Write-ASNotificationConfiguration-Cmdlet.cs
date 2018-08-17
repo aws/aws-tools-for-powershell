@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <para>
     /// This configuration overwrites any existing configuration.
     /// </para><para>
-    /// For more information see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/ASGettingNotifications.html">Getting
+    /// For more information see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting
     /// SNS Notifications When Your Auto Scaling Group Scales</a> in the <i>Auto Scaling User
     /// Guide</i>.
     /// </para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The type of event that will cause the notification to be sent. For details about notification
-        /// types supported by Auto Scaling, see <a>DescribeAutoScalingNotificationTypes</a>.</para>
+        /// types supported by Amazon EC2 Auto Scaling, see <a>DescribeAutoScalingNotificationTypes</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

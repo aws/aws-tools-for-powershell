@@ -28,32 +28,18 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Attaches one or more EC2 instances to the specified Auto Scaling group.
-    /// 
-    ///  
-    /// <para>
-    /// When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity
-    /// of the group by the number of instances being attached. If the number of instances
-    /// being attached plus the desired capacity of the group exceeds the maximum size of
-    /// the group, the operation fails.
-    /// </para><para>
-    /// If there is a Classic Load Balancer attached to your Auto Scaling group, the instances
-    /// are also registered with the load balancer. If there are target groups attached to
-    /// your Auto Scaling group, the instances are also registered with the target groups.
-    /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-instance-asg.html">Attach
-    /// EC2 Instances to Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User
-    /// Guide</i>.
-    /// </para>
+    /// Creates or updates one or more scheduled scaling actions for an Auto Scaling group.
+    /// When updating a scheduled scaling action, if you leave a parameter unspecified, the
+    /// corresponding value remains unchanged.
     /// </summary>
-    [Cmdlet("Mount", "ASInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the Auto Scaling AttachInstances API operation.", Operation = new[] {"AttachInstances"}, LegacyAlias="Add-ASInstances")]
-    [AWSCmdletOutput("None or System.String",
-        "Returns the ids of the EC2 instances that were attached when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.AutoScaling.Model.AttachInstancesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Set", "ASScheduledUpdateGroupActionBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.AutoScaling.Model.FailedScheduledUpdateGroupActionRequest")]
+    [AWSCmdlet("Calls the Auto Scaling BatchPutScheduledUpdateGroupAction API operation.", Operation = new[] {"BatchPutScheduledUpdateGroupAction"})]
+    [AWSCmdletOutput("Amazon.AutoScaling.Model.FailedScheduledUpdateGroupActionRequest",
+        "This cmdlet returns a collection of FailedScheduledUpdateGroupActionRequest objects.",
+        "The service call response (type Amazon.AutoScaling.Model.BatchPutScheduledUpdateGroupActionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class MountASInstanceCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class SetASScheduledUpdateGroupActionBatchCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter AutoScalingGroupName
@@ -62,28 +48,19 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The name of the Auto Scaling group.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AutoScalingGroupName { get; set; }
         #endregion
         
-        #region Parameter InstanceId
+        #region Parameter ScheduledUpdateGroupAction
         /// <summary>
         /// <para>
-        /// <para>The IDs of the instances. You can specify up to 20 instances.</para>
+        /// <para>One or more scheduled actions. The maximum number allowed is 50. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [Alias("InstanceIds")]
-        public System.String[] InstanceId { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the ids of the EC2 instances that were attached.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        [Alias("ScheduledUpdateGroupActions")]
+        public Amazon.AutoScaling.Model.ScheduledUpdateGroupActionRequest[] ScheduledUpdateGroupAction { get; set; }
         #endregion
         
         #region Parameter Force
@@ -100,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InstanceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Mount-ASInstance (AttachInstances)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("AutoScalingGroupName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-ASScheduledUpdateGroupActionBatch (BatchPutScheduledUpdateGroupAction)"))
             {
                 return;
             }
@@ -116,9 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
             PreExecutionContextLoad(context);
             
             context.AutoScalingGroupName = this.AutoScalingGroupName;
-            if (this.InstanceId != null)
+            if (this.ScheduledUpdateGroupAction != null)
             {
-                context.InstanceIds = new List<System.String>(this.InstanceId);
+                context.ScheduledUpdateGroupActions = new List<Amazon.AutoScaling.Model.ScheduledUpdateGroupActionRequest>(this.ScheduledUpdateGroupAction);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -134,15 +111,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AutoScaling.Model.AttachInstancesRequest();
+            var request = new Amazon.AutoScaling.Model.BatchPutScheduledUpdateGroupActionRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
                 request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
             }
-            if (cmdletContext.InstanceIds != null)
+            if (cmdletContext.ScheduledUpdateGroupActions != null)
             {
-                request.InstanceIds = cmdletContext.InstanceIds;
+                request.ScheduledUpdateGroupActions = cmdletContext.ScheduledUpdateGroupActions;
             }
             
             CmdletOutput output;
@@ -153,9 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = cmdletContext.InstanceIds;
+                object pipelineOutput = response.FailedScheduledUpdateGroupActions;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -180,16 +155,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private Amazon.AutoScaling.Model.AttachInstancesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.AttachInstancesRequest request)
+        private Amazon.AutoScaling.Model.BatchPutScheduledUpdateGroupActionResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.BatchPutScheduledUpdateGroupActionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "AttachInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "BatchPutScheduledUpdateGroupAction");
             try
             {
                 #if DESKTOP
-                return client.AttachInstances(request);
+                return client.BatchPutScheduledUpdateGroupAction(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AttachInstancesAsync(request);
+                var task = client.BatchPutScheduledUpdateGroupActionAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -211,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AutoScalingGroupName { get; set; }
-            public List<System.String> InstanceIds { get; set; }
+            public List<Amazon.AutoScaling.Model.ScheduledUpdateGroupActionRequest> ScheduledUpdateGroupActions { get; set; }
         }
         
     }

@@ -191,8 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_Enabled
         /// <summary>
         /// <para>
-        /// <para>From this field, you can enable or disable the selected distribution.</para><para>If you specify <code>false</code> for <code>Enabled</code> but you specify values
-        /// for <code>Bucket</code> and <code>Prefix</code>, the values are automatically deleted.</para>
+        /// <para>From this field, you can enable or disable the selected distribution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -219,7 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DefaultCacheBehavior_FieldLevelEncryptionId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The value of <code>ID</code> for the field-level encryption configuration that you
+        /// want CloudFront to use for encrypting specific fields of data for a cache behavior
+        /// or for the default cache behavior in your distribution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -539,9 +540,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// edge locations in your price class. Viewers who are in or near regions that are excluded
         /// from your specified price class may encounter slower performance.</para><para>For more information about price classes, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html">Choosing
         /// the Price Class for a CloudFront Distribution</a> in the <i>Amazon CloudFront Developer
-        /// Guide</i>. For information about CloudFront pricing, including how price classes map
-        /// to CloudFront regions, see <a href="https://aws.amazon.com/cloudfront/pricing/">Amazon
-        /// CloudFront Pricing</a>.</para>
+        /// Guide</i>. For information about CloudFront pricing, including how price classes (such
+        /// as Price Class 100) map to CloudFront regions, see <a href="https://aws.amazon.com/cloudfront/pricing/">Amazon
+        /// CloudFront Pricing</a>. For price class information, scroll down to see the table
+        /// at the bottom of the page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -785,7 +787,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>The value of <code>ID</code> for the origin that you want CloudFront to route requests
         /// to when a request matches the path pattern either for a cache behavior or for the
-        /// default cache behavior.</para>
+        /// default cache behavior in your distribution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

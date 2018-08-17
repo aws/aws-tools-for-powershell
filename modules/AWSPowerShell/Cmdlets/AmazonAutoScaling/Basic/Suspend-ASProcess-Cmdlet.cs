@@ -28,7 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Suspends the specified Auto Scaling processes, or all processes, for the specified
+    /// Suspends the specified automatic scaling processes, or all processes, for the specified
     /// Auto Scaling group.
     /// 
     ///  
@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </para><para>
     /// To resume processes that have been suspended, use <a>ResumeProcesses</a>.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-suspend-resume-processes.html">Suspending
-    /// and Resuming Auto Scaling Processes</a> in the <i>Auto Scaling User Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending
+    /// and Resuming Scaling Processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Suspend", "ASProcess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

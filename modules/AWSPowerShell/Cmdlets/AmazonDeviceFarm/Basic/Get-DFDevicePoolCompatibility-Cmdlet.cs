@@ -245,6 +245,16 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.String Test_TestPackageArn { get; set; }
         #endregion
         
+        #region Parameter Test_TestSpecArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the YAML-formatted test specification.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Test_TestSpecArn { get; set; }
+        #endregion
+        
         #region Parameter TestType
         /// <summary>
         /// <para>
@@ -352,6 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 }
             }
             context.Test_TestPackageArn = this.Test_TestPackageArn;
+            context.Test_TestSpecArn = this.Test_TestSpecArn;
             context.Test_Type = this.Test_Type;
             context.TestType = this.TestType;
             
@@ -616,6 +627,16 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 request.Test.TestPackageArn = requestTest_test_TestPackageArn;
                 requestTestIsNull = false;
             }
+            System.String requestTest_test_TestSpecArn = null;
+            if (cmdletContext.Test_TestSpecArn != null)
+            {
+                requestTest_test_TestSpecArn = cmdletContext.Test_TestSpecArn;
+            }
+            if (requestTest_test_TestSpecArn != null)
+            {
+                request.Test.TestSpecArn = requestTest_test_TestSpecArn;
+                requestTestIsNull = false;
+            }
             Amazon.DeviceFarm.TestType requestTest_test_Type = null;
             if (cmdletContext.Test_Type != null)
             {
@@ -719,6 +740,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             public System.String Test_Filter { get; set; }
             public Dictionary<System.String, System.String> Test_Parameters { get; set; }
             public System.String Test_TestPackageArn { get; set; }
+            public System.String Test_TestSpecArn { get; set; }
             public Amazon.DeviceFarm.TestType Test_Type { get; set; }
             public Amazon.DeviceFarm.TestType TestType { get; set; }
         }

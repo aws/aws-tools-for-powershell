@@ -28,28 +28,25 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// <code>DescribeExportConfigurations</code> is deprecated.
-    /// 
-    ///  
-    /// <para>
-    /// Use instead <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html"><code>DescribeExportTasks</code></a>.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists exports as specified by ID. All continuous exports associated with your user
+    /// account can be listed if you call <code>DescribeContinuousExports</code> as is without
+    /// passing any parameters.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "ADSExportConfiguration")]
-    [OutputType("Amazon.ApplicationDiscoveryService.Model.ExportInfo")]
-    [AWSCmdlet("Calls the Application Discovery Service DescribeExportConfigurations API operation.", Operation = new[] {"DescribeExportConfigurations"})]
-    [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.ExportInfo",
-        "This cmdlet returns a collection of ExportInfo objects.",
-        "The service call response (type Amazon.ApplicationDiscoveryService.Model.DescribeExportConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "ADSContinuousExport")]
+    [OutputType("Amazon.ApplicationDiscoveryService.Model.ContinuousExportDescription")]
+    [AWSCmdlet("Calls the Application Discovery Service DescribeContinuousExports API operation.", Operation = new[] {"DescribeContinuousExports"})]
+    [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.ContinuousExportDescription",
+        "This cmdlet returns a collection of ContinuousExportDescription objects.",
+        "The service call response (type Amazon.ApplicationDiscoveryService.Model.DescribeContinuousExportsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetADSExportConfigurationCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
+    public partial class GetADSContinuousExportCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         
         #region Parameter ExportId
         /// <summary>
         /// <para>
-        /// <para>A list of continuous export ids to search for.</para>
+        /// <para>The unique IDs assigned to the exports.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -75,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token from the previous call to describe-export-tasks.</para>
+        /// <para>The token from the previous call to <code>DescribeExportTasks</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -120,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.ApplicationDiscoveryService.Model.DescribeExportConfigurationsRequest();
+            var request = new Amazon.ApplicationDiscoveryService.Model.DescribeContinuousExportsRequest();
             if (cmdletContext.ExportIds != null)
             {
                 request.ExportIds = cmdletContext.ExportIds;
@@ -180,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.ExportsInfo;
+                        object pipelineOutput = response.Descriptions;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -189,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.ExportsInfo.Count;
+                        int _receivedThisCall = response.Descriptions.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -241,16 +238,16 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #region AWS Service Operation Call
         
-        private Amazon.ApplicationDiscoveryService.Model.DescribeExportConfigurationsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DescribeExportConfigurationsRequest request)
+        private Amazon.ApplicationDiscoveryService.Model.DescribeContinuousExportsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DescribeContinuousExportsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Discovery Service", "DescribeExportConfigurations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Discovery Service", "DescribeContinuousExports");
             try
             {
                 #if DESKTOP
-                return client.DescribeExportConfigurations(request);
+                return client.DescribeContinuousExports(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeExportConfigurationsAsync(request);
+                var task = client.DescribeContinuousExportsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"

@@ -22,68 +22,74 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AutoScaling;
-using Amazon.AutoScaling.Model;
+using Amazon.Redshift;
+using Amazon.Redshift.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AS
+namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Attaches one or more EC2 instances to the specified Auto Scaling group.
-    /// 
-    ///  
-    /// <para>
-    /// When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity
-    /// of the group by the number of instances being attached. If the number of instances
-    /// being attached plus the desired capacity of the group exceeds the maximum size of
-    /// the group, the operation fails.
-    /// </para><para>
-    /// If there is a Classic Load Balancer attached to your Auto Scaling group, the instances
-    /// are also registered with the load balancer. If there are target groups attached to
-    /// your Auto Scaling group, the instances are also registered with the target groups.
-    /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-instance-asg.html">Attach
-    /// EC2 Instances to Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User
-    /// Guide</i>.
-    /// </para>
+    /// Changes the cluster's type, node type, or number of nodes.
     /// </summary>
-    [Cmdlet("Mount", "ASInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the Auto Scaling AttachInstances API operation.", Operation = new[] {"AttachInstances"}, LegacyAlias="Add-ASInstances")]
-    [AWSCmdletOutput("None or System.String",
-        "Returns the ids of the EC2 instances that were attached when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.AutoScaling.Model.AttachInstancesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Set", "RSClusterSize", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Redshift.Model.Cluster")]
+    [AWSCmdlet("Calls the Amazon Redshift ResizeCluster API operation.", Operation = new[] {"ResizeCluster"})]
+    [AWSCmdletOutput("Amazon.Redshift.Model.Cluster",
+        "This cmdlet returns a Cluster object.",
+        "The service call response (type Amazon.Redshift.Model.ResizeClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class MountASInstanceCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class SetRSClusterSizeCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
-        #region Parameter AutoScalingGroupName
+        #region Parameter Classic
         /// <summary>
         /// <para>
-        /// <para>The name of the Auto Scaling group.</para>
+        /// <para>A boolean value indicating whether the resize operation is using the classic resize
+        /// process.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public System.String AutoScalingGroupName { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.Boolean Classic { get; set; }
         #endregion
         
-        #region Parameter InstanceId
+        #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The IDs of the instances. You can specify up to 20 instances.</para>
+        /// <para>The unique identifier for the cluster to resize.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [Alias("InstanceIds")]
-        public System.String[] InstanceId { get; set; }
+        public System.String ClusterIdentifier { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter ClusterType
         /// <summary>
-        /// Returns the ids of the EC2 instances that were attached.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// <para>The new cluster type for the specified cluster.</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        public System.String ClusterType { get; set; }
+        #endregion
+        
+        #region Parameter NodeType
+        /// <summary>
+        /// <para>
+        /// <para>The new node type for the nodes you are adding.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NodeType { get; set; }
+        #endregion
+        
+        #region Parameter NumberOfNode
+        /// <summary>
+        /// <para>
+        /// <para>The new number of nodes for the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NumberOfNodes")]
+        public System.Int32 NumberOfNode { get; set; }
         #endregion
         
         #region Parameter Force
@@ -100,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InstanceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Mount-ASInstance (AttachInstances)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ClusterIdentifier", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-RSClusterSize (ResizeCluster)"))
             {
                 return;
             }
@@ -115,11 +121,13 @@ namespace Amazon.PowerShell.Cmdlets.AS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.AutoScalingGroupName = this.AutoScalingGroupName;
-            if (this.InstanceId != null)
-            {
-                context.InstanceIds = new List<System.String>(this.InstanceId);
-            }
+            if (ParameterWasBound("Classic"))
+                context.Classic = this.Classic;
+            context.ClusterIdentifier = this.ClusterIdentifier;
+            context.ClusterType = this.ClusterType;
+            context.NodeType = this.NodeType;
+            if (ParameterWasBound("NumberOfNode"))
+                context.NumberOfNodes = this.NumberOfNode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -134,15 +142,27 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AutoScaling.Model.AttachInstancesRequest();
+            var request = new Amazon.Redshift.Model.ResizeClusterRequest();
             
-            if (cmdletContext.AutoScalingGroupName != null)
+            if (cmdletContext.Classic != null)
             {
-                request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
+                request.Classic = cmdletContext.Classic.Value;
             }
-            if (cmdletContext.InstanceIds != null)
+            if (cmdletContext.ClusterIdentifier != null)
             {
-                request.InstanceIds = cmdletContext.InstanceIds;
+                request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
+            }
+            if (cmdletContext.ClusterType != null)
+            {
+                request.ClusterType = cmdletContext.ClusterType;
+            }
+            if (cmdletContext.NodeType != null)
+            {
+                request.NodeType = cmdletContext.NodeType;
+            }
+            if (cmdletContext.NumberOfNodes != null)
+            {
+                request.NumberOfNodes = cmdletContext.NumberOfNodes.Value;
             }
             
             CmdletOutput output;
@@ -153,9 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = cmdletContext.InstanceIds;
+                object pipelineOutput = response.Cluster;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -180,16 +198,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private Amazon.AutoScaling.Model.AttachInstancesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.AttachInstancesRequest request)
+        private Amazon.Redshift.Model.ResizeClusterResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.ResizeClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "AttachInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "ResizeCluster");
             try
             {
                 #if DESKTOP
-                return client.AttachInstances(request);
+                return client.ResizeCluster(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AttachInstancesAsync(request);
+                var task = client.ResizeClusterAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -210,8 +228,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AutoScalingGroupName { get; set; }
-            public List<System.String> InstanceIds { get; set; }
+            public System.Boolean? Classic { get; set; }
+            public System.String ClusterIdentifier { get; set; }
+            public System.String ClusterType { get; set; }
+            public System.String NodeType { get; set; }
+            public System.Int32? NumberOfNodes { get; set; }
         }
         
     }

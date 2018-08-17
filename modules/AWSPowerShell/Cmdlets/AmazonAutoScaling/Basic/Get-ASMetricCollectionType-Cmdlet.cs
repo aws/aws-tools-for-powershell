@@ -28,7 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes the available CloudWatch metrics for Auto Scaling.
+    /// Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.
     /// 
     ///  
     /// <para>

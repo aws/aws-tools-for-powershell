@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
     /// Retrieves a short summary of discovered assets.
+    /// 
+    ///  
+    /// <para>
+    /// This API operation takes no request parameters and is called as is at the command
+    /// prompt as shown in the example.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "ADSDiscoverySummary")]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.GetDiscoverySummaryResponse")]

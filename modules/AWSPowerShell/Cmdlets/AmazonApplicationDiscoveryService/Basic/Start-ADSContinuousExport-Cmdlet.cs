@@ -22,27 +22,42 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AutoScaling;
-using Amazon.AutoScaling.Model;
+using Amazon.ApplicationDiscoveryService;
+using Amazon.ApplicationDiscoveryService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AS
+namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Describes the termination policies supported by Amazon EC2 Auto Scaling.
+    /// Start the continuous flow of agent's discovered data into Amazon Athena.
     /// </summary>
-    [Cmdlet("Get", "ASTerminationPolicyType")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Auto Scaling DescribeTerminationPolicyTypes API operation.", Operation = new[] {"DescribeTerminationPolicyTypes"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a collection of String objects.",
-        "The service call response (type Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Start", "ADSContinuousExport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ApplicationDiscoveryService.Model.StartContinuousExportResponse")]
+    [AWSCmdlet("Calls the Application Discovery Service StartContinuousExport API operation.", Operation = new[] {"StartContinuousExport"})]
+    [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.StartContinuousExportResponse",
+        "This cmdlet returns a Amazon.ApplicationDiscoveryService.Model.StartContinuousExportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetASTerminationPolicyTypeCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class StartADSContinuousExportCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-ADSContinuousExport (StartContinuousExport)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -67,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesRequest();
+            var request = new Amazon.ApplicationDiscoveryService.Model.StartContinuousExportRequest();
             
             
             CmdletOutput output;
@@ -78,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.TerminationPolicyTypes;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -103,16 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesRequest request)
+        private Amazon.ApplicationDiscoveryService.Model.StartContinuousExportResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.StartContinuousExportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "DescribeTerminationPolicyTypes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Discovery Service", "StartContinuousExport");
             try
             {
                 #if DESKTOP
-                return client.DescribeTerminationPolicyTypes(request);
+                return client.StartContinuousExport(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeTerminationPolicyTypesAsync(request);
+                var task = client.StartContinuousExportAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"

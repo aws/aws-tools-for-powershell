@@ -310,6 +310,16 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.String Test_TestPackageArn { get; set; }
         #endregion
         
+        #region Parameter Test_TestSpecArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the YAML-formatted test specification.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Test_TestSpecArn { get; set; }
+        #endregion
+        
         #region Parameter Test_Type
         /// <summary>
         /// <para>
@@ -320,6 +330,16 @@ namespace Amazon.PowerShell.Cmdlets.DF
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.DeviceFarm.TestType")]
         public Amazon.DeviceFarm.TestType Test_Type { get; set; }
+        #endregion
+        
+        #region Parameter ExecutionConfiguration_VideoCapture
+        /// <summary>
+        /// <para>
+        /// <para>Set to true to enable video capture; otherwise, set to false. The default is true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean ExecutionConfiguration_VideoCapture { get; set; }
         #endregion
         
         #region Parameter Configuration_VpceConfigurationArn
@@ -419,6 +439,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 context.ExecutionConfiguration_JobTimeoutMinutes = this.ExecutionConfiguration_JobTimeoutMinute;
             if (ParameterWasBound("ExecutionConfiguration_SkipAppResign"))
                 context.ExecutionConfiguration_SkipAppResign = this.ExecutionConfiguration_SkipAppResign;
+            if (ParameterWasBound("ExecutionConfiguration_VideoCapture"))
+                context.ExecutionConfiguration_VideoCapture = this.ExecutionConfiguration_VideoCapture;
             context.Name = this.Name;
             context.ProjectArn = this.ProjectArn;
             context.Test_Filter = this.Test_Filter;
@@ -431,6 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 }
             }
             context.Test_TestPackageArn = this.Test_TestPackageArn;
+            context.Test_TestSpecArn = this.Test_TestSpecArn;
             context.Test_Type = this.Test_Type;
             
             // allow further manipulation of loaded context prior to processing
@@ -704,6 +727,16 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 request.ExecutionConfiguration.SkipAppResign = requestExecutionConfiguration_executionConfiguration_SkipAppResign.Value;
                 requestExecutionConfigurationIsNull = false;
             }
+            System.Boolean? requestExecutionConfiguration_executionConfiguration_VideoCapture = null;
+            if (cmdletContext.ExecutionConfiguration_VideoCapture != null)
+            {
+                requestExecutionConfiguration_executionConfiguration_VideoCapture = cmdletContext.ExecutionConfiguration_VideoCapture.Value;
+            }
+            if (requestExecutionConfiguration_executionConfiguration_VideoCapture != null)
+            {
+                request.ExecutionConfiguration.VideoCapture = requestExecutionConfiguration_executionConfiguration_VideoCapture.Value;
+                requestExecutionConfigurationIsNull = false;
+            }
              // determine if request.ExecutionConfiguration should be set to null
             if (requestExecutionConfigurationIsNull)
             {
@@ -749,6 +782,16 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (requestTest_test_TestPackageArn != null)
             {
                 request.Test.TestPackageArn = requestTest_test_TestPackageArn;
+                requestTestIsNull = false;
+            }
+            System.String requestTest_test_TestSpecArn = null;
+            if (cmdletContext.Test_TestSpecArn != null)
+            {
+                requestTest_test_TestSpecArn = cmdletContext.Test_TestSpecArn;
+            }
+            if (requestTest_test_TestSpecArn != null)
+            {
+                request.Test.TestSpecArn = requestTest_test_TestSpecArn;
                 requestTestIsNull = false;
             }
             Amazon.DeviceFarm.TestType requestTest_test_Type = null;
@@ -851,11 +894,13 @@ namespace Amazon.PowerShell.Cmdlets.DF
             public System.Boolean? ExecutionConfiguration_AppPackagesCleanup { get; set; }
             public System.Int32? ExecutionConfiguration_JobTimeoutMinutes { get; set; }
             public System.Boolean? ExecutionConfiguration_SkipAppResign { get; set; }
+            public System.Boolean? ExecutionConfiguration_VideoCapture { get; set; }
             public System.String Name { get; set; }
             public System.String ProjectArn { get; set; }
             public System.String Test_Filter { get; set; }
             public Dictionary<System.String, System.String> Test_Parameters { get; set; }
             public System.String Test_TestPackageArn { get; set; }
+            public System.String Test_TestSpecArn { get; set; }
             public Amazon.DeviceFarm.TestType Test_Type { get; set; }
         }
         

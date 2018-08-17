@@ -34,11 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <para>
     /// If you exceed your maximum limit of launch configurations, the call fails. For information
     /// about viewing this limit, see <a>DescribeAccountLimits</a>. For information about
-    /// updating this limit, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-account-limits.html">Auto
-    /// Scaling Limits</a> in the <i>Auto Scaling User Guide</i>.
+    /// updating this limit, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Auto
+    /// Scaling Limits</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/LaunchConfiguration.html">Launch
-    /// Configurations</a> in the <i>Auto Scaling User Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html">Launch
+    /// Configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ASLaunchConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>Used for groups that launch instances into a virtual private cloud (VPC). Specifies
         /// whether to assign a public IP address to each instance. For more information, see
-        /// <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html">Launching
-        /// Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling User Guide</i>.</para><para>If you specify this parameter, be sure to specify at least one subnet when you create
+        /// <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching
+        /// Auto Scaling Instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>If you specify this parameter, be sure to specify at least one subnet when you create
         /// your group.</para><para>Default: If the instance is launched into a default subnet, the default is to assign
         /// a public IP address. If the instance is launched into a nondefault subnet, the default
         /// is not to assign a public IP address.</para>
@@ -138,10 +138,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The name or the Amazon Resource Name (ARN) of the instance profile associated with
         /// the IAM role for the instance.</para><para>EC2 instances launched with an IAM role will automatically have AWS security credentials
-        /// available. You can use IAM roles with Auto Scaling to automatically enable applications
-        /// running on your EC2 instances to securely access other AWS resources. For more information,
-        /// see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/us-iam-role.html">Launch
-        /// Auto Scaling Instances with an IAM Role</a> in the <i>Auto Scaling User Guide</i>.</para>
+        /// available. You can use IAM roles with Amazon EC2 Auto Scaling to automatically enable
+        /// applications running on your EC2 instances to securely access other AWS resources.
+        /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html">Launch
+        /// Auto Scaling Instances with an IAM Role</a> in the <i>Amazon EC2 Auto Scaling User
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -165,8 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The ID of the instance to use to create the launch configuration. The new launch configuration
         /// derives attributes from the instance, with the exception of the block device mapping.</para><para>If you do not specify <code>InstanceId</code>, you must specify both <code>ImageId</code>
         /// and <code>InstanceType</code>.</para><para>To create a launch configuration with a block device mapping or override any other
-        /// instance attributes, specify them as part of the same request.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/create-lc-with-instanceID.html">Create
-        /// a Launch Configuration Using an EC2 Instance</a> in the <i>Auto Scaling User Guide</i>.</para>
+        /// instance attributes, specify them as part of the same request.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/create-lc-with-instanceID.html">Create
+        /// a Launch Configuration Using an EC2 Instance</a> in the <i>Amazon EC2 Auto Scaling
+        /// User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,8 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// runs on single-tenant hardware and can only be launched into a VPC.</para><para>You must set the value of this parameter to <code>dedicated</code> if want to launch
         /// Dedicated Instances into a shared tenancy VPC (VPC with instance placement tenancy
         /// attribute set to <code>default</code>).</para><para>If you specify this parameter, be sure to specify at least one subnet when you create
-        /// your group.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html">Launching
-        /// Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling User Guide</i>.</para><para>Valid values: <code>default</code> | <code>dedicated</code></para>
+        /// your group.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching
+        /// Auto Scaling Instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>Valid values: <code>default</code> | <code>dedicated</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -262,8 +264,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The maximum hourly price to be paid for any Spot Instance launched to fulfill the
         /// request. Spot Instances are launched when the price you specify exceeds the current
-        /// Spot market price. For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/US-SpotInstances.html">Launching
-        /// Spot Instances in Your Auto Scaling Group</a> in the <i>Auto Scaling User Guide</i>.</para>
+        /// Spot market price. For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html">Launching
+        /// Spot Instances in Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

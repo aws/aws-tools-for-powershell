@@ -37,11 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// group:
     /// </para><ol><li><para>
     /// (Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke
-    /// your Lambda function when Auto Scaling launches or terminates instances.
+    /// your Lambda function when Amazon EC2 Auto Scaling launches or terminates instances.
     /// </para></li><li><para>
     /// (Optional) Create a notification target and an IAM role. The target can be either
-    /// an Amazon SQS queue or an Amazon SNS topic. The role allows Auto Scaling to publish
-    /// lifecycle notifications to the target.
+    /// an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling
+    /// to publish lifecycle notifications to the target.
     /// </para></li><li><para>
     /// Create the lifecycle hook. Specify whether the hook is used when the instances launch
     /// or terminate.
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// in a pending state.</b></para></li><li><para>
     /// If you finish before the timeout period ends, complete the lifecycle action.
     /// </para></li></ol><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html">Auto
-    /// Scaling Lifecycle</a> in the <i>Auto Scaling User Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto
+    /// Scaling Lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ASLifecycleActionHeartbeat", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>A token that uniquely identifies a specific lifecycle action associated with an instance.
-        /// Auto Scaling sends this token to the notification target you specified when you created
-        /// the lifecycle hook.</para>
+        /// Amazon EC2 Auto Scaling sends this token to the notification target you specified
+        /// when you created the lifecycle hook.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

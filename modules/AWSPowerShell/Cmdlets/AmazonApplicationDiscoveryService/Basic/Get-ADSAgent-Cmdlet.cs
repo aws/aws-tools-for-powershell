@@ -28,8 +28,9 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Lists agents or the Connector by ID or lists all agents/Connectors associated with
-    /// your user account if you did not specify an ID.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists agents or connectors as specified by ID or other filters. All agents/connectors
+    /// associated with your user account can be listed if you call <code>DescribeAgents</code>
+    /// as is without passing any parameters.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ADSAgent")]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.AgentInfo")]

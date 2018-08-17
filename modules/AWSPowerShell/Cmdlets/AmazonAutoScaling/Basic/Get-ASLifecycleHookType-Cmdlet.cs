@@ -29,6 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// Describes the available types of lifecycle hooks.
+    /// 
+    ///  
+    /// <para>
+    /// The following hook types are supported:
+    /// </para><ul><li><para>
+    /// autoscaling:EC2_INSTANCE_LAUNCHING
+    /// </para></li><li><para>
+    /// autoscaling:EC2_INSTANCE_TERMINATING
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "ASLifecycleHookType")]
     [OutputType("System.String")]

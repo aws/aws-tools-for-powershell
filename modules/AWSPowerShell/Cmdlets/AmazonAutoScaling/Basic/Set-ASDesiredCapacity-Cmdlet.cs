@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// For more information about desired capacity, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/WhatIsAutoScaling.html">What
-    /// Is Auto Scaling?</a> in the <i>Auto Scaling User Guide</i>.
+    /// For more information about desired capacity, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/WhatIsAutoScaling.html">What
+    /// Is Amazon EC2 Auto Scaling?</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ASDesiredCapacity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -69,9 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter HonorCooldown
         /// <summary>
         /// <para>
-        /// <para>Indicates whether Auto Scaling waits for the cooldown period to complete before initiating
-        /// a scaling activity to set your Auto Scaling group to its new capacity. By default,
-        /// Auto Scaling does not honor the cooldown period during manual scaling activities.</para>
+        /// <para>Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period to complete
+        /// before initiating a scaling activity to set your Auto Scaling group to its new capacity.
+        /// By default, Amazon EC2 Auto Scaling does not honor the cooldown period during manual
+        /// scaling activities.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
