@@ -1,3 +1,17 @@
+### 3.3.340.0 (2018-08-21)
+  * Application Discovery Service
+    * Added cmdlets to support the service's new Continuous Export APIs. Continuous Export APIs allow you to analyze your on-premises server inventory data, including system performance and network dependencies, in Amazon Athena. The new cmdlets are Get-ADSContinousExport (DescribeContinuousExports API), Start-ADSContinuousExport (StartContinuousExport API) and Stop-ADSContinuousExport (StopContinuousExport API).
+  * Auto Scaling
+    * Added cmdlets to support new batch operations for creating/updating and deleting scheduled scaling actions. The new cmdlets are Remove-ASScheduledActionBatch (BatchDeleteScheduledAction API) and Set-ASScheduledUpdateGroupActionBatch (BatchPutScheduledUpdateGroupAction API).
+  * AWS Device Farm
+    * Added and updated cmdlets to support running tests in a custom environment with live logs/video streaming, full test features parity and reduction in overall test execution time. The new cmdlets are Stop-DFJob (StopJob API) and Update-DFUpload (UpdateUpload API).
+  * AWS Elasticsearch
+    *  Added support for no downtime, in-place upgrade for Elasticsearch version 5.1 and above. The new cmdlets are Get-ESCompatibleElasticsearchVersion (GetCompatibleElasticsearchVersions API), Get-ESUpgradeHistory (GetUpgradeHistory API), Get-ESUpgradeStatus (GetUpgradeStatus API) and Update-ESElasticsearchDomain (UpgradeElasticsearchDomain API).
+  * Amazon Redshift
+    * Added cmdlet Set-RSClusterSize to support the new ResizeCluster API. With the new ResizeCluster action, your cluster is available for read and write operations within minutes.
+  * Amazon SageMaker
+    * Updated cmdlets to support new service feature allowing lifecycle configurations to be associated and disassociated.
+
 ### 3.3.335.0 (2018-08-13)
   * Amazon DynamoDB
     * Updated the Get-DDBBackupsList cmdlet with new parameter -BackupType to filter the returned backups.
