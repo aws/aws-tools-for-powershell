@@ -249,8 +249,8 @@
 	
 	<Target Name="copy-postbuild-scripts">
 		<ItemGroup>
-			<PostBuildScripts Include="$(RootPath)\buildtools\Test-StagedArtifact.ps1" /> 
-			<PostBuildScripts Include="$(RootPath)\buildtools\Publish-StagedArtifactsToPSGallery.ps1" /> 
+			<PostBuildScripts Include="$(RootPath)\buildtools\Confirm-StagedArtifact.ps1" /> 
+			<PostBuildScripts Include="$(RootPath)\buildtools\Publish-StagedArtifact.ps1" /> 
 		</ItemGroup>
 		
 		<Copy SourceFiles="@(PostBuildScripts)" DestinationFolder="$(RootPath)\Deployment" />
