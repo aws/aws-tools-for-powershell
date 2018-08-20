@@ -25,10 +25,11 @@ ResourceType                           : EC2Instance</code>
         <description>This example shows details of each of your instances.</description>
     </example>
 	<example>
-	<code>PS C:\>$Filters = @{
-     Key="AgentVersion"
-     Values="2.2.800.0"
-   }
+		<code>
+PS C:\>$Filters = @{
+    Key="AgentVersion"
+    Values="2.2.800.0"
+}
 Get-SSMInstanceInformation -Region us-east-1 -Filter $Filters
 
 ActivationId                           : 
@@ -70,14 +71,15 @@ PlatformType                           : Windows
 PlatformVersion                        : 10.0.14393
 RegistrationDate                       : 1/1/0001 12:00:00 AM
 ResourceType                           : EC2Instance
-
-<description>This example shows how to use the -Filter parameter to filter results to only those AWS Systems Manager instances in region <code>us-east-1</code> with an <code>AgentVersion</code> of <code>2.2.800.0</code>. You can find a list of valid -Filter key values in the InstanceInformation API reference topic (https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformation.html#systemsmanager-Type-InstanceInformation-ActivationId).</description>
+		</code>
+		<description>This example shows how to use the -Filter parameter to filter results to only those AWS Systems Manager instances in region <code>us-east-1</code> with an <code>AgentVersion</code> of <code>2.2.800.0</code>. You can find a list of valid -Filter key values in the InstanceInformation API reference topic (https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformation.html#systemsmanager-Type-InstanceInformation-ActivationId).</description>
 	</example>
 	<example>
-	<code>$Filters = @{
+		<code>
+$Filters = @{
    Key="PlatformTypes"
    ValueSet=("Windows","Linux")
- }
+}
 Get-SSMInstanceInformation -Region us-east-1 -InstanceInformationFilterList $Filters
 
 ActivationId                           : 
@@ -118,7 +120,8 @@ PlatformName                           : Microsoft Windows Server 2016 Datacente
 PlatformType                           : Windows
 PlatformVersion                        : 10.0.14393
 RegistrationDate                       : 1/1/0001 12:00:00 AM
-ResourceType                           : EC2Instance</code>
-<description>This example shows how to use the -InstanceInformationFilterList parameter to filter results to only those AWS Systems Manager instances in region <code>us-east-1</code> with <code>PlatformTypes</code> of <code>Windows</code> or <code>Linux</code>. You can find a list of valid -InstanceInformationFilterList key values in the InstanceInformationFilter API reference topic (https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformationFilter.html).</description>
+ResourceType                           : EC2Instance
+		</code>
+		<description>This example shows how to use the -InstanceInformationFilterList parameter to filter results to only those AWS Systems Manager instances in region <code>us-east-1</code> with <code>PlatformTypes</code> of <code>Windows</code> or <code>Linux</code>. You can find a list of valid -InstanceInformationFilterList key values in the InstanceInformationFilter API reference topic (https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformationFilter.html).</description>
 	</example>
 </examples>
