@@ -34,7 +34,8 @@ PS C:\> $params = @{
 
 PS C:\> Edit-R53ResourceRecordSet @params
         </code>
-        <description>This example creates an A record for www.example.com and changes the A record for test.example.com from 192.0.2.3 to 192.0.2.1.<br/><br/>See the <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/api-change-resource-record-sets-example-basic.html">Amazon Route 53</a> documentation for more details. You can use the Get-R53Change cmdlet to poll to determine when the changes are complete.</description>
+        <description>This example creates an A record for www.example.com and changes the A record for test.example.com from 192.0.2.3 to 192.0.2.1. 
+		Note that values for changes TXT-type records must be in double quotes.<br/><br/>See the <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/api-change-resource-record-sets-example-basic.html">Amazon Route 53</a> documentation for more details. You can use the Get-R53Change cmdlet to poll to determine when the changes are complete.</description>
     </example>
 	<example>
 		<code>

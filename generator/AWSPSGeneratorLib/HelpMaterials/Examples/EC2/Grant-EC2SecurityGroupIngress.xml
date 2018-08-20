@@ -65,7 +65,7 @@ PS C:\> $IpPermission.IpProtocol = "tcp"
 PS C:\> $IpPermission.ToPort = 22
 PS C:\> $IpPermission.FromPort = 22
 PS C:\> $IpPermission.Ipv4Ranges = $IpRange
-PS C:\> Grant-EC2SecurityGroupIngress -GroupId sg-1234abcd -IpPermission $IpRange 	
+PS C:\> Grant-EC2SecurityGroupIngress -GroupId sg-1234abcd -IpPermission $IpPermission 	
 	</code>
 	<description>This example adds the CIDR 5.5.5.5/32 to the Ingress rules of security Group sg-1234abcd for TCP port 22 traffic with a description.</description>
   </example>
