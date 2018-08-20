@@ -18,7 +18,7 @@
 Param (
     # The expected version of the module. This will be verified against
     # the module manifest and the running binary.
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$true, Position=0)]
     [string]$ExpectedVersion
 )
 
@@ -30,20 +30,22 @@ $modulesToTest = @(
 $authenticodeSignatureStart = 'SIG # Begin signature block'
 
 function _validateModule([string]$modulePath) {
-    Write-Host "Validating module at $modulePath"
+    Write-Host "Validating module $modulePath"
 
-    $manifestName = Get-ChildItem -Path $modulePath\*.psd1 | Select-Object -ExpandProperty Name
-
-    $manifestPath = Join-Path $modulePath $manifestName
+    $manifestPath = (Get-ChildItem -Path "$modulePath\*.psd1").FullName
     Write-Host "Verifying version in manifest $manifestPath"
-    $manifest = ConvertFrom-Json $manifestPath
-    if ($manifest.Version -eq $ExpectedVersion)
+
+    $manifest = Test-ModuleManifest $manifestPath
+	$manifestVersion = $manifest.Version.ToString()
+	Write-Host "Found version $manifestVersion"
+
+    if ($manifestVersion -eq $ExpectedVersion)
     {
         Write-Host "...version check - PASS"
     }
     else
     {
-        throw "Manifest has version $($manifest.Version), not expected version $ExpectedVersion"
+        throw "Manifest has version $manifestVersion, not expected version $ExpectedVersion"
     }
 
     Write-Host "Verifying module files are Authenticode-signed"
