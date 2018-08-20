@@ -29,27 +29,32 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Creates a model in Amazon SageMaker. In the request, you name the model and describe
-    /// one or more containers. For each container, you specify the docker image containing
+    /// a primary container. For the primary container, you specify the docker image containing
     /// inference code, artifacts (from prior training), and custom environment map that the
-    /// inference code uses when you deploy the model into production. 
+    /// inference code uses when you deploy the model for predictions.
     /// 
     ///  
     /// <para>
-    /// Use this API to create a model only if you want to use Amazon SageMaker hosting services.
-    /// To host your model, you create an endpoint configuration with the <code>CreateEndpointConfig</code>
-    /// API, and then create an endpoint with the <code>CreateEndpoint</code> API. 
+    /// Use this API to create a model if you want to use Amazon SageMaker hosting services
+    /// or run a batch transform job.
     /// </para><para>
-    /// Amazon SageMaker then deploys all of the containers that you defined for the model
-    /// in the hosting environment. 
+    /// To host your model, you create an endpoint configuration with the <code>CreateEndpointConfig</code>
+    /// API, and then create an endpoint with the <code>CreateEndpoint</code> API. Amazon
+    /// SageMaker then deploys all of the containers that you defined for the model in the
+    /// hosting environment. 
+    /// </para><para>
+    /// To run a batch transform using your model, you start a job with the <code>CreateTransformJob</code>
+    /// API. Amazon SageMaker uses your model and your dataset to get inferences which are
+    /// then saved to a specified S3 location.
     /// </para><para>
     /// In the <code>CreateModel</code> request, you must define a container with the <code>PrimaryContainer</code>
-    /// parameter. 
+    /// parameter.
     /// </para><para>
     /// In the request, you also provide an IAM role that Amazon SageMaker can assume to access
-    /// model artifacts and docker image for deployment on ML compute hosting instances. In
-    /// addition, you also use the IAM role to manage permissions the inference code needs.
-    /// For example, if the inference code access any other AWS resources, you grant necessary
-    /// permissions via this role.
+    /// model artifacts and docker image for deployment on ML compute hosting instances or
+    /// for batch transform jobs. In addition, you also use the IAM role to manage permissions
+    /// the inference code needs. For example, if the inference code access any other AWS
+    /// resources, you grant necessary permissions via this role.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SMModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -66,8 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to
-        /// access model artifacts and docker image for deployment on ML compute instances. Deploying
-        /// on ML compute instances is part of model hosting. For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
+        /// access model artifacts and docker image for deployment on ML compute instances or
+        /// for batch transform jobs. Deploying on ML compute instances is part of model hosting.
+        /// For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
         /// SageMaker Roles</a>. </para><note><para>To be able to pass this role to Amazon SageMaker, the caller of this API must have
         /// the <code>iam:PassRole</code> permission.</para></note>
         /// </para>
@@ -91,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The location of the primary docker image containing inference code, associated artifacts,
         /// and custom environment map that the inference code uses when the model is deployed
-        /// into production. </para>
+        /// for predictions. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

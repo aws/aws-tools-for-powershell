@@ -40,9 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// If you cancel a rotation that is in progress, it can leave the <code>VersionStage</code>
     /// labels in an unexpected state. Depending on what step of the rotation was in progress,
     /// you might need to remove the staging label <code>AWSPENDING</code> from the partially
-    /// created version, specified by the <code>SecretVersionId</code> response value. You
-    /// should also evaluate the partially rotated new version to see if it should be deleted,
-    /// which you can do by removing all staging labels from the new version's <code>VersionStage</code>
+    /// created version, specified by the <code>VersionId</code> response value. You should
+    /// also evaluate the partially rotated new version to see if it should be deleted, which
+    /// you can do by removing all staging labels from the new version's <code>VersionStage</code>
     /// field.
     /// </para></note><para>
     /// To successfully start a rotation, the staging label <code>AWSPENDING</code> must be

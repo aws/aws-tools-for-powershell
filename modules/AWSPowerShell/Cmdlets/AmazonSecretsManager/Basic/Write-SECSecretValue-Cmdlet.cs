@@ -50,11 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// then Secrets Manager also automatically moves the staging label <code>AWSPREVIOUS</code>
     /// to the version that <code>AWSCURRENT</code> was removed from.
     /// </para></li><li><para>
-    /// This operation is idempotent. If a version with a <code>SecretVersionId</code> with
-    /// the same value as the <code>ClientRequestToken</code> parameter already exists and
-    /// you specify the same secret data, the operation succeeds but does nothing. However,
-    /// if the secret data is different, then the operation fails because you cannot modify
-    /// an existing version; you can only create new ones.
+    /// This operation is idempotent. If a version with a <code>VersionId</code> with the
+    /// same value as the <code>ClientRequestToken</code> parameter already exists and you
+    /// specify the same secret data, the operation succeeds but does nothing. However, if
+    /// the secret data is different, then the operation fails because you cannot modify an
+    /// existing version; you can only create new ones.
     /// </para></li></ul><note><ul><li><para>
     /// If you call an operation that needs to encrypt or decrypt the <code>SecretString</code>
     /// or <code>SecretBinary</code> for a secret in the same account as the calling user
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// request is ignored (the operation is idempotent). </para></li><li><para>If a version with this value already exists and that version's <code>SecretString</code>
         /// and <code>SecretBinary</code> values are different from those in the request then
         /// the request fails because you cannot modify an existing secret version. You can only
-        /// create new versions to store new secret values.</para></li></ul><para>This value becomes the <code>SecretVersionId</code> of the new version.</para>
+        /// create new versions to store new secret values.</para></li></ul><para>This value becomes the <code>VersionId</code> of the new version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

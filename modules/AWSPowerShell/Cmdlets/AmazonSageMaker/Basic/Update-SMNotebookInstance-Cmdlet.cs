@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class UpdateSMNotebookInstanceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        #region Parameter DisassociateLifecycleConfig
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>true</code> to remove the notebook instance lifecycle configuration currently
+        /// associated with the notebook instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DisassociateLifecycleConfig { get; set; }
+        #endregion
+        
         #region Parameter InstanceType
         /// <summary>
         /// <para>
@@ -51,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.SageMaker.InstanceType")]
         public Amazon.SageMaker.InstanceType InstanceType { get; set; }
+        #endregion
+        
+        #region Parameter LifecycleConfigName
+        /// <summary>
+        /// <para>
+        /// <para>The name of a lifecycle configuration to associate with the notebook instance. For
+        /// information about lifestyle configurations, see <a>notebook-lifecycle-config</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String LifecycleConfigName { get; set; }
         #endregion
         
         #region Parameter NotebookInstanceName
@@ -114,7 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("DisassociateLifecycleConfig"))
+                context.DisassociateLifecycleConfig = this.DisassociateLifecycleConfig;
             context.InstanceType = this.InstanceType;
+            context.LifecycleConfigName = this.LifecycleConfigName;
             context.NotebookInstanceName = this.NotebookInstanceName;
             context.RoleArn = this.RoleArn;
             
@@ -133,9 +158,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.UpdateNotebookInstanceRequest();
             
+            if (cmdletContext.DisassociateLifecycleConfig != null)
+            {
+                request.DisassociateLifecycleConfig = cmdletContext.DisassociateLifecycleConfig.Value;
+            }
             if (cmdletContext.InstanceType != null)
             {
                 request.InstanceType = cmdletContext.InstanceType;
+            }
+            if (cmdletContext.LifecycleConfigName != null)
+            {
+                request.LifecycleConfigName = cmdletContext.LifecycleConfigName;
             }
             if (cmdletContext.NotebookInstanceName != null)
             {
@@ -211,7 +244,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DisassociateLifecycleConfig { get; set; }
             public Amazon.SageMaker.InstanceType InstanceType { get; set; }
+            public System.String LifecycleConfigName { get; set; }
             public System.String NotebookInstanceName { get; set; }
             public System.String RoleArn { get; set; }
         }

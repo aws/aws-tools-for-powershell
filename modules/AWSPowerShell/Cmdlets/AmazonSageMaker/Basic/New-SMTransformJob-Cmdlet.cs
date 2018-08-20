@@ -40,7 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// </para><ul><li><para><code>TransformJobName</code> - Identifies the transform job. The name must be unique
     /// within an AWS Region in an AWS account.
     /// </para></li><li><para><code>ModelName</code> - Identifies the model to use. <code>ModelName</code> must
-    /// be the name of an existing Amazon SageMaker model within an AWS Region in an AWS account.
+    /// be the name of an existing Amazon SageMaker model in the same AWS Region and AWS account.
+    /// For information on creating a model, see <a>CreateModel</a>.
     /// </para></li><li><para><code>TransformInput</code> - Describes the dataset to be transformed and the Amazon
     /// S3 location where it is stored.
     /// </para></li><li><para><code>TransformOutput</code> - Identifies the Amazon S3 location where you want Amazon
@@ -95,7 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>Determines the number of records included in a single mini-batch. <code>SingleRecord</code>
         /// means only one record is used per mini-batch. <code>MultiRecord</code> means a mini-batch
         /// is set to contain as many records that can fit within the <code>MaxPayloadInMB</code>
-        /// limit.</para>
+        /// limit.</para><para>Batch transform will automatically split your input data into whatever payload size
+        /// is specified if you set <code>SplitType</code> to <code>Line</code> and <code>BatchStrategy</code>
+        /// to <code>MultiRecord</code>. There's no need to split the dataset into smaller files
+        /// or to use larger payload sizes unless the records in your dataset are very large.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

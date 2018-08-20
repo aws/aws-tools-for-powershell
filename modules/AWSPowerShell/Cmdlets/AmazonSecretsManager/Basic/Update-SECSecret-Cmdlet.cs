@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// store binary data as part of the version of a secret, you must use either the AWS
     /// CLI or one of the AWS SDKs.
     /// </para></note><ul><li><para>
-    /// If a version with a <code>SecretVersionId</code> with the same value as the <code>ClientRequestToken</code>
+    /// If a version with a <code>VersionId</code> with the same value as the <code>ClientRequestToken</code>
     /// parameter already exists, the operation results in an error. You cannot modify an
     /// existing version, you can only create a new version.
     /// </para></li><li><para>
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// and <code>SecretBinary</code> values are the same as those in the request then the
         /// request is ignored (the operation is idempotent). </para></li><li><para>If a version with this value already exists and that version's <code>SecretString</code>
         /// and <code>SecretBinary</code> values are different from the request then an error
-        /// occurs because you cannot modify an existing secret value.</para></li></ul><para>This value becomes the <code>SecretVersionId</code> of the new version.</para>
+        /// occurs because you cannot modify an existing secret value.</para></li></ul><para>This value becomes the <code>VersionId</code> of the new version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

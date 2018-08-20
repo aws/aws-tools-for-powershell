@@ -75,9 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter DeleteWithNoRecovery
         /// <summary>
         /// <para>
-        /// <para>(Optional) Specifies that the secret is to be deleted immediately without any recovery
-        /// window. You cannot use both this parameter and the <code>RecoveryWindowInDays</code>
-        /// parameter in the same API call.</para><para>An asynchronous background process performs the actual deletion, so there can be a
+        /// <para>(Optional) Specifies that the secret is to be deleted without any recovery window.
+        /// You can't use both this parameter and the <code>RecoveryWindowInDays</code> parameter
+        /// in the same API call.</para><para>An asynchronous background process performs the actual deletion, so there can be a
         /// short delay before the operation completes. If you write code to delete and then immediately
         /// recreate a secret with the same name, ensure that your code includes appropriate back
         /// off and retry logic.</para><important><para>Use this parameter with caution. This parameter causes the operation to skip the normal
@@ -94,7 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>(Optional) Specifies the number of days that Secrets Manager waits before it can delete
-        /// the secret.</para><para>This value can range from 7 to 30 days. The default value is 30.</para>
+        /// the secret. You can't use both this parameter and the <code>ForceDeleteWithoutRecovery</code>
+        /// parameter in the same API call.</para><para>This value can range from 7 to 30 days. The default value is 30.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

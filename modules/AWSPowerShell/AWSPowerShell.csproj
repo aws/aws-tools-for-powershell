@@ -184,13 +184,13 @@
       <HintPath>..\..\packages\AWSSDK.ResourceGroupsTaggingAPI.3.3.1.20\lib\net35\AWSSDK.ResourceGroupsTaggingAPI.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SageMaker">
-      <HintPath>..\..\packages\AWSSDK.SageMaker.3.3.10.2\lib\net35\AWSSDK.SageMaker.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SageMaker.3.3.11\lib\net35\AWSSDK.SageMaker.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SageMakerRuntime">
       <HintPath>..\..\packages\AWSSDK.SageMakerRuntime.3.3.0.14\lib\net35\AWSSDK.SageMakerRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SecretsManager">
-      <HintPath>..\..\packages\AWSSDK.SecretsManager.3.3.2.2\lib\net35\AWSSDK.SecretsManager.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SecretsManager.3.3.2.3\lib\net35\AWSSDK.SecretsManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ServerlessApplicationRepository">
       <HintPath>..\..\packages\AWSSDK.ServerlessApplicationRepository.3.3.2.5\lib\net35\AWSSDK.ServerlessApplicationRepository.dll</HintPath>

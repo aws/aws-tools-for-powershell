@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// request is ignored (the operation is idempotent).</para></li><li><para>If a version with this value already exists and that version's <code>SecretString</code>
         /// and <code>SecretBinary</code> values are different from those in the request then
         /// the request fails because you cannot modify an existing version. Instead, use <a>PutSecretValue</a>
-        /// to create a new version.</para></li></ul><para>This value becomes the <code>SecretVersionId</code> of the new version.</para>
+        /// to create a new version.</para></li></ul><para>This value becomes the <code>VersionId</code> of the new version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
