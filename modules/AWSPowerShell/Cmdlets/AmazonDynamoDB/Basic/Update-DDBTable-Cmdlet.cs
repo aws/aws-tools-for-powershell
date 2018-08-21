@@ -73,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public Amazon.DynamoDBv2.Model.AttributeDefinition[] AttributeDefinition { get; set; }
         #endregion
         
+        #region Parameter SSESpecification_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether server-side encryption is enabled (true) or disabled (false) on
+        /// the table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean SSESpecification_Enabled { get; set; }
+        #endregion
+        
         #region Parameter GlobalSecondaryIndexUpdate
         /// <summary>
         /// <para>
@@ -87,6 +98,19 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate[] GlobalSecondaryIndexUpdate { get; set; }
         #endregion
         
+        #region Parameter SSESpecification_KMSMasterKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The KMS Master Key (CMK) which should be used for the KMS encryption. To specify a
+        /// CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that
+        /// you should only provide this parameter if the key is different from the default DynamoDB
+        /// KMS Master Key alias/aws/dynamodb.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SSESpecification_KMSMasterKeyId { get; set; }
+        #endregion
+        
         #region Parameter ReadCapacity
         /// <summary>
         /// <para>
@@ -98,6 +122,18 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         [System.Management.Automation.Parameter]
         [Alias("ProvisionedThroughput_ReadCapacityUnits")]
         public System.Int64 ReadCapacity { get; set; }
+        #endregion
+        
+        #region Parameter SSESpecification_SSEType
+        /// <summary>
+        /// <para>
+        /// <para>Server-side encryption type:</para><ul><li><para><code>AES256</code> - Server-side encryption which uses the AES256 algorithm.</para></li><li><para><code>KMS</code> - Server-side encryption which uses AWS Key Management Service.
+        /// (default)</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DynamoDBv2.SSEType")]
+        public Amazon.DynamoDBv2.SSEType SSESpecification_SSEType { get; set; }
         #endregion
         
         #region Parameter StreamSpecification_StreamEnabled
@@ -191,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 context.ReadCapacity = this.ReadCapacity;
             if (ParameterWasBound("WriteCapacity"))
                 context.WriteCapacity = this.WriteCapacity;
+            if (ParameterWasBound("SSESpecification_Enabled"))
+                context.SSESpecification_Enabled = this.SSESpecification_Enabled;
+            context.SSESpecification_KMSMasterKeyId = this.SSESpecification_KMSMasterKeyId;
+            context.SSESpecification_SSEType = this.SSESpecification_SSEType;
             if (ParameterWasBound("StreamSpecification_StreamEnabled"))
                 context.StreamSpecification_StreamEnabled = this.StreamSpecification_StreamEnabled;
             context.StreamSpecification_StreamViewType = this.StreamSpecification_StreamViewType;
@@ -247,6 +287,45 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (requestProvisionedThroughputIsNull)
             {
                 request.ProvisionedThroughput = null;
+            }
+            
+             // populate SSESpecification
+            bool requestSSESpecificationIsNull = true;
+            request.SSESpecification = new Amazon.DynamoDBv2.Model.SSESpecification();
+            System.Boolean? requestSSESpecification_sSESpecification_Enabled = null;
+            if (cmdletContext.SSESpecification_Enabled != null)
+            {
+                requestSSESpecification_sSESpecification_Enabled = cmdletContext.SSESpecification_Enabled.Value;
+            }
+            if (requestSSESpecification_sSESpecification_Enabled != null)
+            {
+                request.SSESpecification.Enabled = requestSSESpecification_sSESpecification_Enabled.Value;
+                requestSSESpecificationIsNull = false;
+            }
+            System.String requestSSESpecification_sSESpecification_KMSMasterKeyId = null;
+            if (cmdletContext.SSESpecification_KMSMasterKeyId != null)
+            {
+                requestSSESpecification_sSESpecification_KMSMasterKeyId = cmdletContext.SSESpecification_KMSMasterKeyId;
+            }
+            if (requestSSESpecification_sSESpecification_KMSMasterKeyId != null)
+            {
+                request.SSESpecification.KMSMasterKeyId = requestSSESpecification_sSESpecification_KMSMasterKeyId;
+                requestSSESpecificationIsNull = false;
+            }
+            Amazon.DynamoDBv2.SSEType requestSSESpecification_sSESpecification_SSEType = null;
+            if (cmdletContext.SSESpecification_SSEType != null)
+            {
+                requestSSESpecification_sSESpecification_SSEType = cmdletContext.SSESpecification_SSEType;
+            }
+            if (requestSSESpecification_sSESpecification_SSEType != null)
+            {
+                request.SSESpecification.SSEType = requestSSESpecification_sSESpecification_SSEType;
+                requestSSESpecificationIsNull = false;
+            }
+             // determine if request.SSESpecification should be set to null
+            if (requestSSESpecificationIsNull)
+            {
+                request.SSESpecification = null;
             }
             
              // populate StreamSpecification
@@ -349,6 +428,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate> GlobalSecondaryIndexUpdates { get; set; }
             public System.Int64? ReadCapacity { get; set; }
             public System.Int64? WriteCapacity { get; set; }
+            public System.Boolean? SSESpecification_Enabled { get; set; }
+            public System.String SSESpecification_KMSMasterKeyId { get; set; }
+            public Amazon.DynamoDBv2.SSEType SSESpecification_SSEType { get; set; }
             public System.Boolean? StreamSpecification_StreamEnabled { get; set; }
             public Amazon.DynamoDBv2.StreamViewType StreamSpecification_StreamViewType { get; set; }
             public System.String TableName { get; set; }

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter BackupType
         /// <summary>
         /// <para>
-        /// <para>The backups from the table specified by BackupType are listed.</para><para>Where BackupType can be:</para><ul><li><para><code>USER</code> - On demand backup created by you.</para></li><li><para><code>SYSTEM</code> - On demand backup automatically created by DynamoDB.</para></li><li><para><code>ALL</code> - All types of on demand backups (USER and SYSTEM).</para></li></ul>
+        /// <para>The backups from the table specified by <code>BackupType</code> are listed.</para><para>Where <code>BackupType</code> can be:</para><ul><li><para><code>USER</code> - On-demand backup created by you.</para></li><li><para><code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</para></li><li><para><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter TableName
         /// <summary>
         /// <para>
-        /// <para>The backups from the table specified by TableName are listed. </para>
+        /// <para>The backups from the table specified by <code>TableName</code> are listed. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

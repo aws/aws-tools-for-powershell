@@ -50,7 +50,7 @@
 		"AWSSDK.DeviceFarm": "3.3.8",
 		"AWSSDK.DirectConnect": "3.3.6.4",
 		"AWSSDK.DirectoryService": "3.3.5.8",
-		"AWSSDK.DynamoDBv2": "3.3.12.2",
+		"AWSSDK.DynamoDBv2": "3.3.13",
 		"AWSSDK.EC2": "3.3.58.2",
 		"AWSSDK.ECR": "3.3.3.17",
 		"AWSSDK.ECS": "3.3.17.2",

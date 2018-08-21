@@ -2834,6 +2834,13 @@ $DDB_Completers = {
             break
         }
         
+        # Amazon.DynamoDBv2.SSEType
+        "Update-DDBTable/SSESpecification_SSEType"
+        {
+            $v = "AES256","KMS"
+            break
+        }
+        
         # Amazon.DynamoDBv2.StreamViewType
         "Update-DDBTable/StreamSpecification_StreamViewType"
         {
@@ -2855,6 +2862,7 @@ $DDB_map = @{
     "KeyType"=@("Add-DDBKeySchema")
     "ProjectionType"=@("Add-DDBIndexSchema")
     "RangeKeyDataType"=@("Add-DDBIndexSchema")
+    "SSESpecification_SSEType"=@("Update-DDBTable")
     "StreamSpecification_StreamViewType"=@("Update-DDBTable")
 }
 
