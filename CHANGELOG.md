@@ -1,4 +1,4 @@
-### 3.3.341.0 (2018-08-22)
+### 3.3.343.0 (2018-08-23)
   * Application Discovery Service
     * Added cmdlets to support the service's new Continuous Export APIs. Continuous Export APIs allow you to analyze your on-premises server inventory data, including system performance and network dependencies, in Amazon Athena. The new cmdlets are Get-ADSContinousExport (DescribeContinuousExports API), Start-ADSContinuousExport (StartContinuousExport API) and Stop-ADSContinuousExport (StopContinuousExport API).
   * Auto Scaling

@@ -34,6 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// 
     ///  
     /// <para>
+    /// Templates aren't associated with any environment. The <code>EnvironmentName</code>
+    /// response element is always <code>null</code>.
+    /// </para><para>
     /// Related Topics
     /// </para><ul><li><para><a>DescribeConfigurationOptions</a></para></li><li><para><a>DescribeConfigurationSettings</a></para></li><li><para><a>ListAvailableSolutionStacks</a></para></li></ul>
     /// </summary>
