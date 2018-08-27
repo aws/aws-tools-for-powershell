@@ -23,6 +23,7 @@ using System.Management.Automation;
 
 using Amazon.Util;
 using Microsoft.PowerShell.Commands;
+using System.Net;
 
 namespace Amazon.PowerShell.Common
 {
@@ -93,7 +94,12 @@ namespace Amazon.PowerShell.Common
         {
             base.ProcessRecord();
 
-            var ranges = AWSPublicIpAddressRanges.Load();
+            IWebProxy proxy = null;
+#if DESKTOP
+            var settings = ProxySettings.GetSettings(this);
+            proxy = settings.GetWebProxy();
+#endif
+            var ranges = AWSPublicIpAddressRanges.Load(proxy);
 
             if (OutputServiceKeys.IsPresent)
                 WriteObject(ranges.ServiceKeys, true);
