@@ -242,6 +242,14 @@ namespace AWSPowerShellGenerator
                 HasValue = true,
                 Parse = (arguments, argValue) => arguments.ParsedOptions.Edition = argValue,
                 HelpText = "The edition (desktop or coreclr) that we are building additional content (help etc) for. This affects the location where we output the built module as well as #ifdef statements for specific environment targetting in the cmdlet source code."
+            },
+            new ArgDeclaration
+            {
+                OptionName = "skipcmdletgeneration",
+                ShortName = "scg",
+                HasValue = true,
+                Parse = (arguments, argValue) => arguments.ParsedOptions.SkipCmdletGeneration = bool.Parse(argValue),
+                HelpText = "If true (it defaults to false), skips reflecting over the service client to generate cmdlets. Set true to perform test builds against new SDK releases without having to update the service models."
             }
         };
 

@@ -43,6 +43,9 @@
         
         <!-- default to build break if we see unconfigured sdk client operations -->
         <BreakOnUnknownOperations Condition="'$(BreakOnUnknownOp)' == ''">true</BreakOnUnknownOperations>
+
+        <!-- set to true to build without reflecting over the service client to generate cmdlets -->
+        <SkipCmdletGeneration Condition="'$(SkipCmdletGeneration)'==''">false</SkipCmdletGeneration>
         
         <!-- default location for artifacts consolidation -->
         <Deployment Condition="'$(Deployment)'==''">$(RootPath)\Deployment</Deployment>
@@ -84,7 +87,7 @@
     
 	<Target Name="create-cmdlets" DependsOnTargets="build-generator;get-references">
 		<Message Text="Generating cmdlets for all services"/>
-		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t cmdlets -al $(CmdletAnalysisLog) -bu $(BreakOnUnknownOperations)" />
+		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t cmdlets -al $(CmdletAnalysisLog) -bu $(BreakOnUnknownOperations) -scg $(SkipCmdletGeneration)" />
 	</Target>
 
 	<Target Name="build-modules" DependsOnTargets="build-desktop-module;build-netcore-module" />

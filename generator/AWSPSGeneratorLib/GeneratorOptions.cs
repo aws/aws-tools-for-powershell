@@ -64,6 +64,14 @@ namespace AWSPowerShellGenerator
         public string[] Services { get; set; }
 
         /// <summary>
+        /// Setting this to true is equivalent to setting SkipCmdletGeneration to true in
+        /// all ConfigModels for each service. If specified, allows us to skip reflecting
+        /// over the service client to generate cmdlets but still process other data in 
+        /// the config (eg legacy aliases). 
+        /// </summary>
+        public bool SkipCmdletGeneration { get; set; }
+
+        /// <summary>
         /// The root folder location containing the generator and artifacts. Subpaths to the various 
         /// components, service generation configurations and deployment artifacts will be inferred 
         /// from this location.
@@ -161,6 +169,7 @@ namespace AWSPowerShellGenerator
             BreakOnUnknownOperationError = true;
             AnalysisLog = string.Empty; // no logging by default
             Services = null; // process all
+            SkipCmdletGeneration = false;
 
             // to support F5-and-go (to test generator changes), set cmdlet gen to be the 
             // default task in debug builds.
@@ -187,6 +196,7 @@ namespace AWSPowerShellGenerator
             RootPath = rhs.RootPath;
             CNNorth1RegionDocsDomain = rhs.CNNorth1RegionDocsDomain;
             Edition = rhs.Edition;
+            SkipCmdletGeneration = rhs.SkipCmdletGeneration;
         }
     }
 }

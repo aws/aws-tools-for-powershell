@@ -360,6 +360,15 @@ namespace AWSPowerShellGenerator.Generators
                         || (Options.Services.Length != 0
                                 && Options.Services.Contains(configModel.ServiceNounPrefix, StringComparer.InvariantCultureIgnoreCase)))
                 {
+                    if (Options.SkipCmdletGeneration)
+                    {
+#if !DEBUG
+                        Logger.LogError("SkipCmdletGeneration is supported only in Debug builds");
+                        return;
+#endif
+                        configModel.SkipCmdletGeneration = true;
+                    }
+
                     // hold some state to model under work so we can make use of
                     // static helpers
                     CurrentModel = configModel;
@@ -423,9 +432,9 @@ namespace AWSPowerShellGenerator.Generators
             }
         }
 
-        #endregion
+#endregion
 
-        #region Private client methods
+#region Private client methods
 
         private void GenerateClientAndCmdlets(ConfigModel configModel)
         {
@@ -848,9 +857,9 @@ namespace AWSPowerShellGenerator.Generators
             return version;
         }
 
-        #endregion
+#endregion
 
-        #region Private cmdlet methods
+#region Private cmdlet methods
 
         /// <summary>
         /// Analyzes the supplied method to determine the cmdlet that should be generated
@@ -997,10 +1006,10 @@ namespace AWSPowerShellGenerator.Generators
             return false;
         }
 
-        #endregion
+#endregion
 
 
-        #region Misc/config methods
+#region Misc/config methods
 
         /// <summary>
         /// Creates the generated output folder for the service, cleaning any existing
@@ -1075,6 +1084,6 @@ namespace AWSPowerShellGenerator.Generators
             }
         }
 
-        #endregion
+#endregion
     }
 }
