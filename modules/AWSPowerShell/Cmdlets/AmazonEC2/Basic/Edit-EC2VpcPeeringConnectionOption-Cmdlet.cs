@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>If true, enables outbound communication from an EC2-Classic instance that's linked
-        /// to a local VPC via ClassicLink to instances in a peer VPC.</para>
+        /// to a local VPC using ClassicLink to instances in a peer VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>If true, enables outbound communication from an EC2-Classic instance that's linked
-        /// to a local VPC via ClassicLink to instances in a peer VPC.</para>
+        /// to a local VPC using ClassicLink to instances in a peer VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>If true, enables outbound communication from instances in a local VPC to an EC2-Classic
-        /// instance that's linked to a peer VPC via ClassicLink.</para>
+        /// instance that's linked to a peer VPC using ClassicLink.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>If true, enables outbound communication from instances in a local VPC to an EC2-Classic
-        /// instance that's linked to a peer VPC via ClassicLink.</para>
+        /// instance that's linked to a peer VPC using ClassicLink.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

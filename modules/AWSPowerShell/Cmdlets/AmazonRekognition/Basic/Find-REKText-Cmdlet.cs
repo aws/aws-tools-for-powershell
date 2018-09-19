@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// To determine whether a <code>TextDetection</code> element is a line of text or a word,
     /// use the <code>TextDetection</code> object <code>Type</code> field. 
     /// </para><para>
-    /// To be detected, text must be within +/- 30 degrees orientation of the horizontal axis.
+    /// To be detected, text must be within +/- 90 degrees orientation of the horizontal axis.
     /// </para><para>
     /// For more information, see DetectText in the Amazon Rekognition Developer Guide.
     /// </para>

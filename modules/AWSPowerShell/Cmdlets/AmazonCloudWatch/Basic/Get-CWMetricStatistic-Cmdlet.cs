@@ -52,6 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// </para></li><li><para>
     /// The Min and the Max values of the statistic set are equal.
     /// </para></li></ul><para>
+    /// Percentile statistics are not available for metrics when any of the metric values
+    /// are negative numbers.
+    /// </para><para>
     /// Amazon CloudWatch retains metric data as follows:
     /// </para><ul><li><para>
     /// Data points with a period of less than 60 seconds are available for 3 hours. These
@@ -121,7 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>The percentile statistics. Specify values between p0.0 and p100. When calling <code>GetMetricStatistics</code>,
         /// you must specify either <code>Statistics</code> or <code>ExtendedStatistics</code>,
-        /// but not both.</para>
+        /// but not both. Percentile statistics are not available for metrics when any of the
+        /// metric values are negative numbers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

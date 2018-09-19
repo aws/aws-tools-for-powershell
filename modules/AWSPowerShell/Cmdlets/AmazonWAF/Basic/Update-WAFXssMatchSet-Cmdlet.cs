@@ -35,9 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// the array. To change a <code>XssMatchTuple</code>, you delete the existing object
     /// and add a new one.
     /// </para></li><li><para><code>FieldToMatch</code>: The part of web requests that you want AWS WAF to inspect
-    /// and, if you want AWS WAF to inspect a header, the name of the header.
+    /// and, if you want AWS WAF to inspect a header or custom query parameter, the name of
+    /// the header or parameter.
     /// </para></li><li><para><code>TextTransformation</code>: Which text transformation, if any, to perform on
     /// the web request before inspecting the request for cross-site scripting attacks.
+    /// </para><para>
+    /// You can only specify a single type of TextTransformation.
     /// </para></li></ul><para>
     /// You use <code>XssMatchSet</code> objects to specify which CloudFront requests you
     /// want to allow, block, or count. For example, if you're receiving requests that contain

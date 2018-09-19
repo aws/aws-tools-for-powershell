@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// by using backup files. You can create a backup of your on-premises database, store
     /// it on Amazon Simple Storage Service (Amazon S3), and then restore the backup file
     /// onto a new Amazon RDS DB instance running MySQL. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html">Importing
-    /// Data into an Amazon RDS MySQL DB Instance</a>.
+    /// Data into an Amazon RDS MySQL DB Instance</a> in the <i>Amazon RDS User Guide.</i>
     /// </summary>
     [Cmdlet("Restore", "RDSDBInstanceFromS3", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBInstance")]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The Availability Zone that the DB instance is created in. For information about AWS
         /// Regions and Availability Zones, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
-        /// and Availability Zones</a>. </para><para>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region. </para><para> Example: <code>us-east-1d</code></para><para>Constraint: The AvailabilityZone parameter can't be specified if the MultiAZ parameter
+        /// and Availability Zones</a> in the <i>Amazon RDS User Guide.</i></para><para>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region. </para><para> Example: <code>us-east-1d</code></para><para>Constraint: The AvailabilityZone parameter can't be specified if the MultiAZ parameter
         /// is set to <code>true</code>. The specified Availability Zone must be in the same AWS
         /// Region as the current endpoint. </para>
         /// </para>
@@ -176,8 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The list of logs that the restored DB instance is to export to CloudWatch Logs. The
         /// values in the list depend on the DB engine being used. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-        /// Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational Database
-        /// Service User Guide</i>.</para>
+        /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -236,7 +235,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The amount of Provisioned IOPS (input/output operations per second) to allocate initially
         /// for the DB instance. For information about valid Iops values, see see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
-        /// RDS Provisioned IOPS Storage to Improve Performance</a>. </para>
+        /// RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User
+        /// Guide.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -309,7 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon
         /// CloudWatch Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>.
         /// For information on creating a monitoring role, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling">Setting
-        /// Up and Enabling Enhanced Monitoring</a>. </para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
+        /// Up and Enabling Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i></para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
         /// a <code>MonitoringRoleArn</code> value. </para>
         /// </para>
         /// </summary>
@@ -377,7 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The time range each day during which automated backups are created if automated backups
         /// are enabled. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">The
-        /// Backup Window</a>. </para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// Backup Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -389,7 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The time range each week during which system maintenance can occur, in Universal Coordinated
         /// Time (UTC). For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance">Amazon
-        /// RDS Maintenance Window</a>. </para><para>Constraints:</para><ul><li><para>Must be in the format <code>ddd:hh24:mi-ddd:hh24:mi</code>.</para></li><li><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred backup window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// RDS Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <code>ddd:hh24:mi-ddd:hh24:mi</code>.</para></li><li><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred backup window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -498,7 +498,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A list of tags to associate with this DB instance. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging
-        /// Amazon RDS Resources</a>. </para>
+        /// Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

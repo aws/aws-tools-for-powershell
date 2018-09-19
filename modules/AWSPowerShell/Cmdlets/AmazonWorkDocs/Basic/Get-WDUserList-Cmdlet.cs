@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     [AWSCmdletOutput("Amazon.WorkDocs.Model.User",
         "This cmdlet returns a collection of User objects.",
         "The service call response (type Amazon.WorkDocs.Model.DescribeUsersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String), TotalNumberOfUsers (type System.Int64)"
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public partial class GetWDUserListCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
@@ -274,7 +274,6 @@ namespace Amazon.PowerShell.Cmdlets.WD
                         object pipelineOutput = response.Users;
                         notes = new Dictionary<string, object>();
                         notes["Marker"] = response.Marker;
-                        notes["TotalNumberOfUsers"] = response.TotalNumberOfUsers;
                         output = new CmdletOutput
                         {
                             PipelineOutput = pipelineOutput,

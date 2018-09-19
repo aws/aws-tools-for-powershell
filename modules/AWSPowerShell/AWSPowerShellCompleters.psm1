@@ -1597,6 +1597,20 @@ $CB_Completers = {
             break
         }
         
+        # Amazon.CodeBuild.LogsConfigStatusType
+        {
+            ($_ -eq "New-CBProject/LogsConfig_CloudWatchLogs_Status") -Or
+            ($_ -eq "Update-CBProject/LogsConfig_CloudWatchLogs_Status") -Or
+            ($_ -eq "New-CBProject/LogsConfig_S3Logs_Status") -Or
+            ($_ -eq "Update-CBProject/LogsConfig_S3Logs_Status") -Or
+            ($_ -eq "Start-CBBuild/LogsConfigOverride_CloudWatchLogs_Status") -Or
+            ($_ -eq "Start-CBBuild/LogsConfigOverride_S3Logs_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+        
         # Amazon.CodeBuild.ProjectSortByType
         "Get-CBProjectList/SortBy"
         {
@@ -1633,7 +1647,7 @@ $CB_Completers = {
             ($_ -eq "Start-CBBuild/SourceTypeOverride")
         }
         {
-            $v = "BITBUCKET","CODECOMMIT","CODEPIPELINE","GITHUB","GITHUB_ENTERPRISE","S3"
+            $v = "BITBUCKET","CODECOMMIT","CODEPIPELINE","GITHUB","GITHUB_ENTERPRISE","NO_SOURCE","S3"
             break
         }
         
@@ -1657,6 +1671,10 @@ $CB_map = @{
     "Environment_ComputeType"=@("New-CBProject","Update-CBProject")
     "Environment_Type"=@("New-CBProject","Update-CBProject")
     "EnvironmentTypeOverride"=@("Start-CBBuild")
+    "LogsConfig_CloudWatchLogs_Status"=@("New-CBProject","Update-CBProject")
+    "LogsConfig_S3Logs_Status"=@("New-CBProject","Update-CBProject")
+    "LogsConfigOverride_CloudWatchLogs_Status"=@("Start-CBBuild")
+    "LogsConfigOverride_S3Logs_Status"=@("Start-CBBuild")
     "SortBy"=@("Get-CBProjectList")
     "SortOrder"=@("Get-CBBuildIdList","Get-CBBuildIdListForProject","Get-CBProjectList")
     "Source_Auth_Type"=@("New-CBProject","Update-CBProject")
@@ -3074,7 +3092,7 @@ $EC2_Completers = {
             ($_ -eq "Request-EC2SpotInstance/LaunchSpecification_InstanceType")
         }
         {
-            $v = "c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.18xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","c5d.18xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.large","m5.xlarge","m5d.12xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.large","m5d.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.metal","r5.xlarge","r5d.12xlarge","r5d.16xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.8xlarge","r5d.large","r5d.metal","r5d.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","t3.2xlarge","t3.large","t3.medium","t3.micro","t3.nano","t3.small","t3.xlarge","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge","z1d.12xlarge","z1d.2xlarge","z1d.3xlarge","z1d.6xlarge","z1d.large","z1d.xlarge"
+            $v = "c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.18xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","c5d.18xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","f1.4xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.large","m5.xlarge","m5d.12xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.large","m5d.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.metal","r5.xlarge","r5d.12xlarge","r5d.16xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.8xlarge","r5d.large","r5d.metal","r5d.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","t3.2xlarge","t3.large","t3.medium","t3.micro","t3.nano","t3.small","t3.xlarge","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge","z1d.12xlarge","z1d.2xlarge","z1d.3xlarge","z1d.6xlarge","z1d.large","z1d.xlarge"
             break
         }
         
@@ -3729,6 +3747,27 @@ $GLUE_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Glue.CatalogEncryptionMode
+        "Set-GLUEDataCatalogEncryptionSetting/DataCatalogEncryptionSettings_EncryptionAtRest_CatalogEncryptionMode"
+        {
+            $v = "DISABLED","SSE-KMS"
+            break
+        }
+        
+        # Amazon.Glue.CloudWatchEncryptionMode
+        "New-GLUESecurityConfiguration/EncryptionConfiguration_CloudWatchEncryption_CloudWatchEncryptionMode"
+        {
+            $v = "DISABLED","SSE-KMS"
+            break
+        }
+        
+        # Amazon.Glue.JobBookmarksEncryptionMode
+        "New-GLUESecurityConfiguration/EncryptionConfiguration_JobBookmarksEncryption_JobBookmarksEncryptionMode"
+        {
+            $v = "CSE-KMS","DISABLED"
+            break
+        }
+        
         # Amazon.Glue.Language
         {
             ($_ -eq "Get-GLUEPlan/Language") -Or
@@ -3754,6 +3793,9 @@ $GLUE_Completers = {
 }
 
 $GLUE_map = @{
+    "DataCatalogEncryptionSettings_EncryptionAtRest_CatalogEncryptionMode"=@("Set-GLUEDataCatalogEncryptionSetting")
+    "EncryptionConfiguration_CloudWatchEncryption_CloudWatchEncryptionMode"=@("New-GLUESecurityConfiguration")
+    "EncryptionConfiguration_JobBookmarksEncryption_JobBookmarksEncryptionMode"=@("New-GLUESecurityConfiguration")
     "Language"=@("Get-GLUEPlan","New-GLUEScript")
     "Type"=@("New-GLUETrigger")
 }
@@ -4421,6 +4463,13 @@ $IOT_Completers = {
             break
         }
         
+        # Amazon.IoT.ThingGroupIndexingMode
+        "Update-IOTIndexingConfiguration/ThingGroupIndexingConfiguration_ThingGroupIndexingMode"
+        {
+            $v = "OFF","ON"
+            break
+        }
+        
         # Amazon.IoT.ThingIndexingMode
         "Update-IOTIndexingConfiguration/ThingIndexingConfiguration_ThingIndexingMode"
         {
@@ -4451,6 +4500,7 @@ $IOT_map = @{
     "TargetType"=@("Get-IOTV2LoggingLevelsList","Remove-IOTV2LoggingLevel")
     "TaskStatus"=@("Get-IOTTaskList")
     "TaskType"=@("Get-IOTTaskList")
+    "ThingGroupIndexingConfiguration_ThingGroupIndexingMode"=@("Update-IOTIndexingConfiguration")
     "ThingIndexingConfiguration_ThingIndexingMode"=@("Update-IOTIndexingConfiguration")
     "TopicRulePayload_ErrorAction_DynamoDB_HashKeyType"=@("New-IOTTopicRule","Set-IOTTopicRule")
     "TopicRulePayload_ErrorAction_DynamoDB_RangeKeyType"=@("New-IOTTopicRule","Set-IOTTopicRule")
@@ -5002,6 +5052,20 @@ $EMC_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MediaConvert.BillingTagsSource
+        "New-EMCJob/BillingTagsSource"
+        {
+            $v = "JOB_TEMPLATE","PRESET","QUEUE"
+            break
+        }
+        
+        # Amazon.MediaConvert.DescribeEndpointsMode
+        "Get-EMCEndpoint/Mode"
+        {
+            $v = "DEFAULT","GET_ONLY"
+            break
+        }
+        
         # Amazon.MediaConvert.JobStatus
         "Get-EMCJobList/Status"
         {
@@ -5057,7 +5121,9 @@ $EMC_Completers = {
 }
 
 $EMC_map = @{
+    "BillingTagsSource"=@("New-EMCJob")
     "ListBy"=@("Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList")
+    "Mode"=@("Get-EMCEndpoint")
     "Order"=@("Get-EMCJobList","Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList")
     "Status"=@("Get-EMCJobList","Update-EMCQueue")
 }
@@ -5777,7 +5843,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/LanguageCode")
         }
         {
-            $v = "cy-GB","da-DK","de-DE","en-AU","en-GB","en-GB-WLS","en-IN","en-US","es-ES","es-US","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR"
+            $v = "cmn-CN","cy-GB","da-DK","de-DE","en-AU","en-GB","en-GB-WLS","en-IN","en-US","es-ES","es-US","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR"
             break
         }
         
@@ -5814,7 +5880,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
         }
         {
-            $v = "Aditi","Amy","Astrid","Brian","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Dora","Emma","Enrique","Ewa","Filiz","Geraint","Giorgio","Gwyneth","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Karl","Kendra","Kimberly","Lea","Liv","Lotte","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Miguel","Mizuki","Naja","Nicole","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Takumi","Tatyana","Vicki","Vitoria"
+            $v = "Aditi","Amy","Astrid","Brian","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Dora","Emma","Enrique","Ewa","Filiz","Geraint","Giorgio","Gwyneth","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Karl","Kendra","Kimberly","Lea","Liv","Lotte","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Miguel","Mizuki","Naja","Nicole","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Takumi","Tatyana","Vicki","Vitoria","Zhiyu"
             break
         }
         
@@ -5938,6 +6004,13 @@ $REK_Completers = {
             break
         }
         
+        # Amazon.Rekognition.QualityFilter
+        "Add-REKDetectedFacesToCollection/QualityFilter"
+        {
+            $v = "AUTO","NONE"
+            break
+        }
+        
     }
     
     $v |
@@ -5947,6 +6020,7 @@ $REK_Completers = {
 
 $REK_map = @{
     "FaceAttributes"=@("Start-REKFaceDetection")
+    "QualityFilter"=@("Add-REKDetectedFacesToCollection")
     "SortBy"=@("Get-REKCelebrityRecognition","Get-REKContentModeration","Get-REKFaceSearch","Get-REKLabelDetection","Get-REKPersonTracking")
 }
 
@@ -6351,7 +6425,7 @@ $SM_Completers = {
         # Amazon.SageMaker.EndpointStatus
         "Get-SMEndpointList/StatusEquals"
         {
-            $v = "Creating","Deleting","Failed","InService","OutOfService","RollingBack","Updating"
+            $v = "Creating","Deleting","Failed","InService","OutOfService","RollingBack","SystemUpdating","Updating"
             break
         }
         
@@ -6951,7 +7025,7 @@ $SSM_Completers = {
         # Amazon.SimpleSystemsManagement.DocumentType
         "New-SSMDocument/DocumentType"
         {
-            $v = "Automation","Command","Policy"
+            $v = "Automation","Command","Policy","Session"
             break
         }
         
@@ -7040,6 +7114,13 @@ $SSM_Completers = {
             break
         }
         
+        # Amazon.SimpleSystemsManagement.SessionState
+        "Get-SSMSession/State"
+        {
+            $v = "Active","History"
+            break
+        }
+        
         # Amazon.SimpleSystemsManagement.SignalType
         "Send-SSMAutomationSignal/SignalType"
         {
@@ -7075,6 +7156,7 @@ $SSM_map = @{
     "S3Destination_SyncFormat"=@("New-SSMResourceDataSync")
     "SchemaDeleteOption"=@("Remove-SSMInventory")
     "SignalType"=@("Send-SSMAutomationSignal")
+    "State"=@("Get-SSMSession")
     "TaskInvocationParameters_RunCommand_DocumentHashType"=@("Register-SSMTaskWithMaintenanceWindow","Update-SSMMaintenanceWindowTask")
     "TaskInvocationParameters_RunCommand_NotificationConfig_NotificationType"=@("Register-SSMTaskWithMaintenanceWindow","Update-SSMMaintenanceWindowTask")
     "TaskType"=@("Register-SSMTaskWithMaintenanceWindow")

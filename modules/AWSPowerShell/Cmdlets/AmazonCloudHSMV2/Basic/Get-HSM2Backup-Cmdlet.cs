@@ -54,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         /// <summary>
         /// <para>
         /// <para>One or more filters to limit the items returned in the response.</para><para>Use the <code>backupIds</code> filter to return only the specified backups. Specify
-        /// backups by their backup identifier (ID).</para><para>Use the <code>clusterIds</code> filter to return only the backups for the specified
+        /// backups by their backup identifier (ID).</para><para>Use the <code>sourceBackupIds</code> filter to return only the backups created from
+        /// a source backup. The <code>sourceBackupID</code> of a source backup is returned by
+        /// the <a>CopyBackupToRegion</a> operation.</para><para>Use the <code>clusterIds</code> filter to return only the backups for the specified
         /// clusters. Specify clusters by their cluster identifier (ID).</para><para>Use the <code>states</code> filter to return only backups that match the specified
         /// state.</para>
         /// </para>

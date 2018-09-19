@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// You can create up to 20 load balancers per region per account. You can request an
     /// increase for the number of load balancers for your account. For more information,
     /// see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits
-    /// for Your Classic Load Balancer</a> in the <i>Classic Load Balancer Guide</i>.
+    /// for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ELBLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// <summary>
         /// <para>
         /// <para>The listeners.</para><para>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners
-        /// for Your Classic Load Balancer</a> in the <i>Classic Load Balancer Guide</i>.</para>
+        /// for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// <summary>
         /// <para>
         /// <para>A list of tags to assign to the load balancer.</para><para>For more information about tagging your load balancer, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html">Tag
-        /// Your Classic Load Balancer</a> in the <i>Classic Load Balancer Guide</i>.</para>
+        /// Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

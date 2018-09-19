@@ -34,9 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// 
     ///  
     /// <para>
+    /// If the cluster is not in the <i>available</i> state, <code>ListTagsForResource</code>
+    /// returns an error.
+    /// </para><para>
     /// You can have a maximum of 50 cost allocation tags on an ElastiCache resource. For
-    /// more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/BestPractices.html">Using
-    /// Cost Allocation Tags in Amazon ElastiCache</a>.
+    /// more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Tagging.html">Monitoring
+    /// Costs with Tags</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "ECTag")]

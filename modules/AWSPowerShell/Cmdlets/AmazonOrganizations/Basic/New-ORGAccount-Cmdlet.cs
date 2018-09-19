@@ -30,25 +30,30 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// <summary>
     /// Creates an AWS account that is automatically a member of the organization whose credentials
     /// made the request. This is an asynchronous request that AWS performs in the background.
-    /// If you want to check the status of the request later, you need the <code>OperationId</code>
-    /// response element from this operation to provide as a parameter to the <a>DescribeCreateAccountStatus</a>
-    /// operation.
+    /// Because <code>CreateAccount</code> operates asynchronously, it can return a successful
+    /// completion message even though account initialization might still be in progress.
+    /// You might need to wait a few minutes before you can successfully access the account.
+    /// To check the status of the request, do one of the following:
     /// 
-    ///  
-    /// <para>
-    /// The user who calls the API for an invitation to join must have the <code>organizations:CreateAccount</code>
-    /// permission. If you enabled all features in the organization, then the user must also
-    /// have the <code>iam:CreateServiceLinkedRole</code> permission so that Organizations
-    /// can create the required service-linked role named <i>OrgsServiceLinkedRoleName</i>.
-    /// For more information, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integration_services.html#orgs_integration_service-linked-roles">AWS
+    ///  <ul><li><para>
+    /// Use the <code>OperationId</code> response element from this operation to provide as
+    /// a parameter to the <a>DescribeCreateAccountStatus</a> operation.
+    /// </para></li><li><para>
+    /// Check the AWS CloudTrail log for the <code>CreateAccountResult</code> event. For information
+    /// on using AWS CloudTrail with Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html">Monitoring
+    /// the Activity in Your Organization</a> in the <i>AWS Organizations User Guide</i>.
+    /// </para></li></ul><para>
+    /// The user who calls the API to create an account must have the <code>organizations:CreateAccount</code>
+    /// permission. If you enabled all features in the organization, AWS Organizations will
+    /// create the required service-linked role named <code>AWSServiceRoleForOrganizations</code>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs">AWS
     /// Organizations and Service-Linked Roles</a> in the <i>AWS Organizations User Guide</i>.
     /// </para><para>
-    /// The user in the master account who calls this API must also have the <code>iam:CreateRole</code>
-    /// permission because AWS Organizations preconfigures the new member account with a role
-    /// (named <code>OrganizationAccountAccessRole</code> by default) that grants users in
-    /// the master account administrator permissions in the new member account. Principals
-    /// in the master account can assume the role. AWS Organizations clones the company name
-    /// and address information for the new account from the organization's master account.
+    /// AWS Organizations preconfigures the new member account with a role (named <code>OrganizationAccountAccessRole</code>
+    /// by default) that grants users in the master account administrator permissions in the
+    /// new member account. Principals in the master account can assume the role. AWS Organizations
+    /// clones the company name and address information for the new account from the organization's
+    /// master account.
     /// </para><para>
     /// This operation can be called only from the organization's master account.
     /// </para><para>
@@ -57,28 +62,26 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </para><important><ul><li><para>
     /// When you create an account in an organization using the AWS Organizations console,
     /// API, or CLI commands, the information required for the account to operate as a standalone
-    /// account, such as a payment method and signing the End User Licence Agreement (EULA)
+    /// account, such as a payment method and signing the end user license agreement (EULA)
     /// is <i>not</i> automatically collected. If you must remove an account from your organization
     /// later, you can do so only after you provide the missing information. Follow the steps
     /// at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">
-    /// To leave an organization when all required account information has not yet been provided</a>
-    /// in the <i>AWS Organizations User Guide</i>.
+    /// To leave an organization as a member account</a> in the <i>AWS Organizations User
+    /// Guide</i>.
     /// </para></li><li><para>
     /// If you get an exception that indicates that you exceeded your account limits for the
-    /// organization or that the operation failed because your organization is still initializing,
-    /// wait one hour and then try again. If the error persists after an hour, then contact
-    /// <a href="https://console.aws.amazon.com/support/home#/">AWS Customer Support</a>.
+    /// organization, contact <a href="https://console.aws.amazon.com/support/home#/">AWS
+    /// Support</a>.
     /// </para></li><li><para>
-    /// Because <code>CreateAccount</code> operates asynchronously, it can return a successful
-    /// completion message even though account initialization might still be in progress.
-    /// You might need to wait a few minutes before you can successfully access the account.
-    /// 
+    /// If you get an exception that indicates that the operation failed because your organization
+    /// is still initializing, wait one hour and then try again. If the error persists, contact
+    /// <a href="https://console.aws.amazon.com/support/home#/">AWS Support</a>.
     /// </para></li></ul></important><note><para>
     /// When you create a member account with this operation, you can choose whether to create
     /// the account with the <b>IAM User and Role Access to Billing Information</b> switch
     /// enabled. If you enable it, IAM users and roles that have appropriate permissions can
-    /// view billing information for the account. If you disable this, then only the account
-    /// root user can access billing information. For information about how to disable this
+    /// view billing information for the account. If you disable it, only the account root
+    /// user can access billing information. For information about how to disable this switch
     /// for an account, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html">Granting
     /// Access to Your Billing Information and Tools</a>.
     /// </para></note>
@@ -108,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <para>
         /// <para>The email address of the owner to assign to the new member account. This email address
         /// must not already be associated with another AWS account. You must use a valid email
-        /// address to complete account creation. You cannot access the root user of the account
+        /// address to complete account creation. You can't access the root user of the account
         /// or remove an account that was created with an invalid email address.</para>
         /// </para>
         /// </summary>
@@ -121,11 +124,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <para>
         /// <para>If set to <code>ALLOW</code>, the new account enables IAM users to access account
         /// billing information <i>if</i> they have the required permissions. If set to <code>DENY</code>,
-        /// then only the root user of the new account can access account billing information.
-        /// For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating
+        /// only the root user of the new account can access account billing information. For
+        /// more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating
         /// Access to the Billing and Cost Management Console</a> in the <i>AWS Billing and Cost
-        /// Management User Guide</i>.</para><para>If you do not specify this parameter, the value defaults to ALLOW, and IAM users and
-        /// roles with the required permissions can access billing information for the new account.</para>
+        /// Management User Guide</i>.</para><para>If you don't specify this parameter, the value defaults to <code>ALLOW</code>, and
+        /// IAM users and roles with the required permissions can access billing information for
+        /// the new account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -136,10 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter RoleName
         /// <summary>
         /// <para>
-        /// <para>(Optional)</para><para>The name of an IAM role that Organizations automatically preconfigures in the new
-        /// member account. This role trusts the master account, allowing users in the master
+        /// <para>(Optional)</para><para>The name of an IAM role that AWS Organizations automatically preconfigures in the
+        /// new member account. This role trusts the master account, allowing users in the master
         /// account to assume the role, as permitted by the master account administrator. The
-        /// role has administrator permissions in the new member account.</para><para>If you do not specify this parameter, the role name defaults to <code>OrganizationAccountAccessRole</code>.</para><para>For more information about how to use this role to access the member account, see
+        /// role has administrator permissions in the new member account.</para><para>If you don't specify this parameter, the role name defaults to <code>OrganizationAccountAccessRole</code>.</para><para>For more information about how to use this role to access the member account, see
         /// <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role">Accessing
         /// and Administering the Member Accounts in Your Organization</a> in the <i>AWS Organizations
         /// User Guide</i>, and steps 2 and 3 in <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html">Tutorial:

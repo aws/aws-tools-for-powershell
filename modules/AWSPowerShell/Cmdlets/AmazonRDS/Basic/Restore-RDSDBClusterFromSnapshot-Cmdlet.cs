@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// DB cluster restore point with the same configuration as the original source DB cluster,
     /// except that the new DB cluster is created with the default security group.
     /// </para><para>
-    /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
-    /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
+    /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para>
     /// </summary>
     [Cmdlet("Restore", "RDSDBClusterFromSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBCluster")]
@@ -124,9 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The list of logs that the restored DB cluster is to export to CloudWatch Logs. The
-        /// values in the list depend on the DB engine being used. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-        /// Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational Database
-        /// Service User Guide</i>.</para>
+        /// values in the list depend on the DB engine being used. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Aurora User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -158,7 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineMode
         /// <summary>
         /// <para>
-        /// <para>The DB engine mode of the DB cluster, either <code>provisioned</code> or <code>serverless</code>.</para>
+        /// <para>The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
+        /// or <code>parallelquery</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

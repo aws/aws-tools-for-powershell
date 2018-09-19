@@ -29,6 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Deletes multiple tables at once.
+    /// 
+    ///  <note><para>
+    /// After completing this operation, you will no longer have access to the table versions
+    /// and partitions that belong to the deleted table. AWS Glue deletes these "orphaned"
+    /// resources asynchronously in a timely manner, at the discretion of the service.
+    /// </para><para>
+    /// To ensure immediate deletion of all related resources, before calling <code>BatchDeleteTable</code>,
+    /// use <code>DeleteTableVersion</code> or <code>BatchDeleteTableVersion</code>, and <code>DeletePartition</code>
+    /// or <code>BatchDeletePartition</code>, to delete any resources that belong to the table.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "GLUETableBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Glue.Model.TableError")]

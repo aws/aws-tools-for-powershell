@@ -310,6 +310,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String TransformJobName { get; set; }
         #endregion
         
+        #region Parameter TransformResources_VolumeKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker
+        /// uses to encrypt data on the storage volume attached to the ML compute instance(s)
+        /// that run the batch transform job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String TransformResources_VolumeKmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -370,6 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (ParameterWasBound("TransformResources_InstanceCount"))
                 context.TransformResources_InstanceCount = this.TransformResources_InstanceCount;
             context.TransformResources_InstanceType = this.TransformResources_InstanceType;
+            context.TransformResources_VolumeKmsKeyId = this.TransformResources_VolumeKmsKeyId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -576,6 +589,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.TransformResources.InstanceType = requestTransformResources_transformResources_InstanceType;
                 requestTransformResourcesIsNull = false;
             }
+            System.String requestTransformResources_transformResources_VolumeKmsKeyId = null;
+            if (cmdletContext.TransformResources_VolumeKmsKeyId != null)
+            {
+                requestTransformResources_transformResources_VolumeKmsKeyId = cmdletContext.TransformResources_VolumeKmsKeyId;
+            }
+            if (requestTransformResources_transformResources_VolumeKmsKeyId != null)
+            {
+                request.TransformResources.VolumeKmsKeyId = requestTransformResources_transformResources_VolumeKmsKeyId;
+                requestTransformResourcesIsNull = false;
+            }
              // determine if request.TransformResources should be set to null
             if (requestTransformResourcesIsNull)
             {
@@ -663,6 +686,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String TransformOutput_S3OutputPath { get; set; }
             public System.Int32? TransformResources_InstanceCount { get; set; }
             public Amazon.SageMaker.TransformInstanceType TransformResources_InstanceType { get; set; }
+            public System.String TransformResources_VolumeKmsKeyId { get; set; }
         }
         
     }

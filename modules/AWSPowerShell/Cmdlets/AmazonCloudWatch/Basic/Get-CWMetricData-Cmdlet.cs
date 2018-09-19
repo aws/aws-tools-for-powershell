@@ -42,6 +42,26 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// Calls to the <code>GetMetricData</code> API have a different pricing structure than
     /// calls to <code>GetMetricStatistics</code>. For more information about pricing, see
     /// <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.
+    /// </para><para>
+    /// Amazon CloudWatch retains metric data as follows:
+    /// </para><ul><li><para>
+    /// Data points with a period of less than 60 seconds are available for 3 hours. These
+    /// data points are high-resolution metrics and are available only for custom metrics
+    /// that have been defined with a <code>StorageResolution</code> of 1.
+    /// </para></li><li><para>
+    /// Data points with a period of 60 seconds (1-minute) are available for 15 days.
+    /// </para></li><li><para>
+    /// Data points with a period of 300 seconds (5-minute) are available for 63 days.
+    /// </para></li><li><para>
+    /// Data points with a period of 3600 seconds (1 hour) are available for 455 days (15
+    /// months).
+    /// </para></li></ul><para>
+    /// Data points that are initially published with a shorter period are aggregated together
+    /// for long-term storage. For example, if you collect data using a period of 1 minute,
+    /// the data remains available for 15 days with 1-minute resolution. After 15 days, this
+    /// data is still available, but is aggregated and retrievable only with a resolution
+    /// of 5 minutes. After 63 days, the data is further aggregated and is available with
+    /// a resolution of 1 hour.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CWMetricData")]
@@ -58,7 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The time stamp indicating the latest data to be returned.</para>
+        /// <para>The time stamp indicating the latest data to be returned.</para><para>For better performance, specify <code>StartTime</code> and <code>EndTime</code> values
+        /// that align with the value of the metric's <code>Period</code> and sync up with the
+        /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
+        /// is 5 minutes, specifying 12:05 or 12:30 as <code>EndTime</code> can get a faster response
+        /// from CloudWatch then setting 12:07 or 12:29 as the <code>EndTime</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -108,7 +132,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The time stamp indicating the earliest data to be returned.</para>
+        /// <para>The time stamp indicating the earliest data to be returned.</para><para>For better performance, specify <code>StartTime</code> and <code>EndTime</code> values
+        /// that align with the value of the metric's <code>Period</code> and sync up with the
+        /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
+        /// is 5 minutes, specifying 12:05 or 12:30 as <code>StartTime</code> can get a faster
+        /// response from CloudWatch then setting 12:07 or 12:29 as the <code>StartTime</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

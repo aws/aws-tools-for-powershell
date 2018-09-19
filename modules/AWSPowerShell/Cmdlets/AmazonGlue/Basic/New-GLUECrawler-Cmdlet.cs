@@ -59,12 +59,25 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>Crawler configuration information. This versioned JSON string allows users to specify
-        /// aspects of a crawler's behavior. For more information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring
-        /// a Crawler</a>.</para>
+        /// aspects of a Crawler's behavior.</para><para>You can use this field to force partitions to inherit metadata such as classification,
+        /// input format, output format, serde information, and schema from their parent table,
+        /// rather than detect this information separately for each partition. Use the following
+        /// JSON string to specify that behavior:</para><para>Example: <code>'{ "Version": 1.0, "CrawlerOutput": { "Partitions": { "AddOrUpdateBehavior":
+        /// "InheritFromTable" } } }'</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Configuration { get; set; }
+        #endregion
+        
+        #region Parameter CrawlerSecurityConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The name of the SecurityConfiguration structure to be used by this Crawler.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CrawlerSecurityConfiguration { get; set; }
         #endregion
         
         #region Parameter DatabaseName
@@ -193,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Classifiers = new List<System.String>(this.Classifier);
             }
             context.Configuration = this.Configuration;
+            context.CrawlerSecurityConfiguration = this.CrawlerSecurityConfiguration;
             context.DatabaseName = this.DatabaseName;
             context.Description = this.Description;
             context.Name = this.Name;
@@ -224,6 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Configuration != null)
             {
                 request.Configuration = cmdletContext.Configuration;
+            }
+            if (cmdletContext.CrawlerSecurityConfiguration != null)
+            {
+                request.CrawlerSecurityConfiguration = cmdletContext.CrawlerSecurityConfiguration;
             }
             if (cmdletContext.DatabaseName != null)
             {
@@ -325,6 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public List<System.String> Classifiers { get; set; }
             public System.String Configuration { get; set; }
+            public System.String CrawlerSecurityConfiguration { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }

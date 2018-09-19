@@ -496,7 +496,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "Mode"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {

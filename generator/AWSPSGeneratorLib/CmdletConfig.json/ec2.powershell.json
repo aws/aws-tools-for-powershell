@@ -8159,7 +8159,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NetworkInterfaces",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
+        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",

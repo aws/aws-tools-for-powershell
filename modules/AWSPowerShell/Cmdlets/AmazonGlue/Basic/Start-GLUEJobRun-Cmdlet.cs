@@ -101,10 +101,22 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.Int32 NotificationProperty_NotifyDelayAfter { get; set; }
         #endregion
         
+        #region Parameter SecurityConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The name of the SecurityConfiguration structure to be used with this job run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SecurityConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Timeout
         /// <summary>
         /// <para>
-        /// <para>The job run timeout in minutes. It overrides the timeout value of the job.</para>
+        /// <para>The JobRun timeout in minutes. This is the maximum time that a job run can consume
+        /// resources before it is terminated and enters <code>TIMEOUT</code> status. The default
+        /// is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -154,6 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.JobRunId = this.JobRunId;
             if (ParameterWasBound("NotificationProperty_NotifyDelayAfter"))
                 context.NotificationProperty_NotifyDelayAfter = this.NotificationProperty_NotifyDelayAfter;
+            context.SecurityConfiguration = this.SecurityConfiguration;
             if (ParameterWasBound("Timeout"))
                 context.Timeout = this.Timeout;
             
@@ -206,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestNotificationPropertyIsNull)
             {
                 request.NotificationProperty = null;
+            }
+            if (cmdletContext.SecurityConfiguration != null)
+            {
+                request.SecurityConfiguration = cmdletContext.SecurityConfiguration;
             }
             if (cmdletContext.Timeout != null)
             {
@@ -280,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String JobName { get; set; }
             public System.String JobRunId { get; set; }
             public System.Int32? NotificationProperty_NotifyDelayAfter { get; set; }
+            public System.String SecurityConfiguration { get; set; }
             public System.Int32? Timeout { get; set; }
         }
         

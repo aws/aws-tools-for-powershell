@@ -165,10 +165,22 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String Role { get; set; }
         #endregion
         
+        #region Parameter SecurityConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The name of the SecurityConfiguration structure to be used with this job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SecurityConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Timeout
         /// <summary>
         /// <para>
-        /// <para>The job timeout in minutes. The default is 2880 minutes (48 hours).</para>
+        /// <para>The job timeout in minutes. This is the maximum time that a job run can consume resources
+        /// before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880
+        /// minutes (48 hours).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -229,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (ParameterWasBound("NotificationProperty_NotifyDelayAfter"))
                 context.NotificationProperty_NotifyDelayAfter = this.NotificationProperty_NotifyDelayAfter;
             context.Role = this.Role;
+            context.SecurityConfiguration = this.SecurityConfiguration;
             if (ParameterWasBound("Timeout"))
                 context.Timeout = this.Timeout;
             
@@ -336,6 +349,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             {
                 request.Role = cmdletContext.Role;
             }
+            if (cmdletContext.SecurityConfiguration != null)
+            {
+                request.SecurityConfiguration = cmdletContext.SecurityConfiguration;
+            }
             if (cmdletContext.Timeout != null)
             {
                 request.Timeout = cmdletContext.Timeout.Value;
@@ -415,6 +432,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String Name { get; set; }
             public System.Int32? NotificationProperty_NotifyDelayAfter { get; set; }
             public System.String Role { get; set; }
+            public System.String SecurityConfiguration { get; set; }
             public System.Int32? Timeout { get; set; }
         }
         

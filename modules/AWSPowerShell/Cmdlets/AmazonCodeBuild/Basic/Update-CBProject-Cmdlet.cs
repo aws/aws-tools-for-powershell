@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public partial class UpdateCBProjectCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
+        #region Parameter Artifacts_ArtifactIdentifier
+        /// <summary>
+        /// <para>
+        /// <para> An identifier for this artifact definition. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Artifacts_ArtifactIdentifier { get; set; }
+        #endregion
+        
         #region Parameter BadgeEnabled
         /// <summary>
         /// <para>
@@ -138,6 +148,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.Int32 Source_GitCloneDepth { get; set; }
         #endregion
         
+        #region Parameter CloudWatchLogs_GroupName
+        /// <summary>
+        /// <para>
+        /// <para> The group name of the Amazon CloudWatch Logs. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
+        /// with Log Groups and Log Streams</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("LogsConfig_CloudWatchLogs_GroupName")]
+        public System.String CloudWatchLogs_GroupName { get; set; }
+        #endregion
+        
         #region Parameter Environment_Image
         /// <summary>
         /// <para>
@@ -179,6 +201,20 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Cache_Location { get; set; }
+        #endregion
+        
+        #region Parameter S3Logs_Location
+        /// <summary>
+        /// <para>
+        /// <para> The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket
+        /// name is <code>my-bucket</code>, and your path prefix is <code>build-log</code>, then
+        /// acceptable formats are <code>my-bucket/build-log</code> or <code>aws:s3:::my-bucket/build-log</code>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("LogsConfig_S3Logs_Location")]
+        public System.String S3Logs_Location { get; set; }
         #endregion
         
         #region Parameter Source_Location
@@ -357,6 +393,28 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String Auth_Resource { get; set; }
         #endregion
         
+        #region Parameter SecondaryArtifact
+        /// <summary>
+        /// <para>
+        /// <para> An array of <code>ProjectSource</code> objects. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("SecondaryArtifacts")]
+        public Amazon.CodeBuild.Model.ProjectArtifacts[] SecondaryArtifact { get; set; }
+        #endregion
+        
+        #region Parameter SecondarySource
+        /// <summary>
+        /// <para>
+        /// <para> An array of <code>ProjectSource</code> objects. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("SecondarySources")]
+        public Amazon.CodeBuild.Model.ProjectSource[] SecondarySource { get; set; }
+        #endregion
+        
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
@@ -377,6 +435,54 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ServiceRole { get; set; }
+        #endregion
+        
+        #region Parameter Source_SourceIdentifier
+        /// <summary>
+        /// <para>
+        /// <para> An identifier for this project source. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Source_SourceIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLogs_Status
+        /// <summary>
+        /// <para>
+        /// <para>The current status of the Amazon CloudWatch Logs for a build project. Valid values
+        /// are:</para><ul><li><para><code>ENABLED</code>: Amazon CloudWatch Logs are enabled for this build project.</para></li><li><para><code>DISABLED</code>: Amazon CloudWatch Logs are not enabled for this build project.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("LogsConfig_CloudWatchLogs_Status")]
+        [AWSConstantClassSource("Amazon.CodeBuild.LogsConfigStatusType")]
+        public Amazon.CodeBuild.LogsConfigStatusType CloudWatchLogs_Status { get; set; }
+        #endregion
+        
+        #region Parameter S3Logs_Status
+        /// <summary>
+        /// <para>
+        /// <para>The current status of the S3 build logs. Valid values are:</para><ul><li><para><code>ENABLED</code>: S3 build logs are enabled for this build project.</para></li><li><para><code>DISABLED</code>: S3 build logs are not enabled for this build project.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("LogsConfig_S3Logs_Status")]
+        [AWSConstantClassSource("Amazon.CodeBuild.LogsConfigStatusType")]
+        public Amazon.CodeBuild.LogsConfigStatusType S3Logs_Status { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLogs_StreamName
+        /// <summary>
+        /// <para>
+        /// <para> The prefix of the stream name of the Amazon CloudWatch Logs. For more information,
+        /// see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
+        /// with Log Groups and Log Streams</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("LogsConfig_CloudWatchLogs_StreamName")]
+        public System.String CloudWatchLogs_StreamName { get; set; }
         #endregion
         
         #region Parameter VpcConfig_Subnet
@@ -466,7 +572,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>The type of repository that contains the source code to be built. Valid values include:</para><ul><li><para><code>BITBUCKET</code>: The source code is in a Bitbucket repository.</para></li><li><para><code>CODECOMMIT</code>: The source code is in an AWS CodeCommit repository.</para></li><li><para><code>CODEPIPELINE</code>: The source code settings are specified in the source action
-        /// of a pipeline in AWS CodePipeline.</para></li><li><para><code>GITHUB</code>: The source code is in a GitHub repository.</para></li><li><para><code>S3</code>: The source code is in an Amazon Simple Storage Service (Amazon S3)
+        /// of a pipeline in AWS CodePipeline.</para></li><li><para><code>GITHUB</code>: The source code is in a GitHub repository.</para></li><li><para><code>NO_SOURCE</code>: The project does not have input source code.</para></li><li><para><code>S3</code>: The source code is in an Amazon Simple Storage Service (Amazon S3)
         /// input bucket.</para></li></ul>
         /// </para>
         /// </summary>
@@ -514,6 +620,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.Artifacts_ArtifactIdentifier = this.Artifacts_ArtifactIdentifier;
             if (ParameterWasBound("Artifacts_EncryptionDisabled"))
                 context.Artifacts_EncryptionDisabled = this.Artifacts_EncryptionDisabled;
             context.Artifacts_Location = this.Artifacts_Location;
@@ -540,7 +647,20 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (ParameterWasBound("Environment_PrivilegedMode"))
                 context.Environment_PrivilegedMode = this.Environment_PrivilegedMode;
             context.Environment_Type = this.Environment_Type;
+            context.LogsConfig_CloudWatchLogs_GroupName = this.CloudWatchLogs_GroupName;
+            context.LogsConfig_CloudWatchLogs_Status = this.CloudWatchLogs_Status;
+            context.LogsConfig_CloudWatchLogs_StreamName = this.CloudWatchLogs_StreamName;
+            context.LogsConfig_S3Logs_Location = this.S3Logs_Location;
+            context.LogsConfig_S3Logs_Status = this.S3Logs_Status;
             context.Name = this.Name;
+            if (this.SecondaryArtifact != null)
+            {
+                context.SecondaryArtifacts = new List<Amazon.CodeBuild.Model.ProjectArtifacts>(this.SecondaryArtifact);
+            }
+            if (this.SecondarySource != null)
+            {
+                context.SecondarySources = new List<Amazon.CodeBuild.Model.ProjectSource>(this.SecondarySource);
+            }
             context.ServiceRole = this.ServiceRole;
             context.Source_Auth_Resource = this.Auth_Resource;
             context.Source_Auth_Type = this.Auth_Type;
@@ -552,6 +672,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.Source_Location = this.Source_Location;
             if (ParameterWasBound("Source_ReportBuildStatus"))
                 context.Source_ReportBuildStatus = this.Source_ReportBuildStatus;
+            context.Source_SourceIdentifier = this.Source_SourceIdentifier;
             context.Source_Type = this.Source_Type;
             if (this.Tag != null)
             {
@@ -588,6 +709,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
              // populate Artifacts
             bool requestArtifactsIsNull = true;
             request.Artifacts = new Amazon.CodeBuild.Model.ProjectArtifacts();
+            System.String requestArtifacts_artifacts_ArtifactIdentifier = null;
+            if (cmdletContext.Artifacts_ArtifactIdentifier != null)
+            {
+                requestArtifacts_artifacts_ArtifactIdentifier = cmdletContext.Artifacts_ArtifactIdentifier;
+            }
+            if (requestArtifacts_artifacts_ArtifactIdentifier != null)
+            {
+                request.Artifacts.ArtifactIdentifier = requestArtifacts_artifacts_ArtifactIdentifier;
+                requestArtifactsIsNull = false;
+            }
             System.Boolean? requestArtifacts_artifacts_EncryptionDisabled = null;
             if (cmdletContext.Artifacts_EncryptionDisabled != null)
             {
@@ -783,9 +914,106 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 request.Environment = null;
             }
+            
+             // populate LogsConfig
+            bool requestLogsConfigIsNull = true;
+            request.LogsConfig = new Amazon.CodeBuild.Model.LogsConfig();
+            Amazon.CodeBuild.Model.S3LogsConfig requestLogsConfig_logsConfig_S3Logs = null;
+            
+             // populate S3Logs
+            bool requestLogsConfig_logsConfig_S3LogsIsNull = true;
+            requestLogsConfig_logsConfig_S3Logs = new Amazon.CodeBuild.Model.S3LogsConfig();
+            System.String requestLogsConfig_logsConfig_S3Logs_s3Logs_Location = null;
+            if (cmdletContext.LogsConfig_S3Logs_Location != null)
+            {
+                requestLogsConfig_logsConfig_S3Logs_s3Logs_Location = cmdletContext.LogsConfig_S3Logs_Location;
+            }
+            if (requestLogsConfig_logsConfig_S3Logs_s3Logs_Location != null)
+            {
+                requestLogsConfig_logsConfig_S3Logs.Location = requestLogsConfig_logsConfig_S3Logs_s3Logs_Location;
+                requestLogsConfig_logsConfig_S3LogsIsNull = false;
+            }
+            Amazon.CodeBuild.LogsConfigStatusType requestLogsConfig_logsConfig_S3Logs_s3Logs_Status = null;
+            if (cmdletContext.LogsConfig_S3Logs_Status != null)
+            {
+                requestLogsConfig_logsConfig_S3Logs_s3Logs_Status = cmdletContext.LogsConfig_S3Logs_Status;
+            }
+            if (requestLogsConfig_logsConfig_S3Logs_s3Logs_Status != null)
+            {
+                requestLogsConfig_logsConfig_S3Logs.Status = requestLogsConfig_logsConfig_S3Logs_s3Logs_Status;
+                requestLogsConfig_logsConfig_S3LogsIsNull = false;
+            }
+             // determine if requestLogsConfig_logsConfig_S3Logs should be set to null
+            if (requestLogsConfig_logsConfig_S3LogsIsNull)
+            {
+                requestLogsConfig_logsConfig_S3Logs = null;
+            }
+            if (requestLogsConfig_logsConfig_S3Logs != null)
+            {
+                request.LogsConfig.S3Logs = requestLogsConfig_logsConfig_S3Logs;
+                requestLogsConfigIsNull = false;
+            }
+            Amazon.CodeBuild.Model.CloudWatchLogsConfig requestLogsConfig_logsConfig_CloudWatchLogs = null;
+            
+             // populate CloudWatchLogs
+            bool requestLogsConfig_logsConfig_CloudWatchLogsIsNull = true;
+            requestLogsConfig_logsConfig_CloudWatchLogs = new Amazon.CodeBuild.Model.CloudWatchLogsConfig();
+            System.String requestLogsConfig_logsConfig_CloudWatchLogs_cloudWatchLogs_GroupName = null;
+            if (cmdletContext.LogsConfig_CloudWatchLogs_GroupName != null)
+            {
+                requestLogsConfig_logsConfig_CloudWatchLogs_cloudWatchLogs_GroupName = cmdletContext.LogsConfig_CloudWatchLogs_GroupName;
+            }
+            if (requestLogsConfig_logsConfig_CloudWatchLogs_cloudWatchLogs_GroupName != null)
+            {
+                requestLogsConfig_logsConfig_CloudWatchLogs.GroupName = requestLogsConfig_logsConfig_CloudWatchLogs_cloudWatchLogs_GroupName;
+                requestLogsConfig_logsConfig_CloudWatchLogsIsNull = false;
+            }
+            Amazon.CodeBuild.LogsConfigStatusType requestLogsConfig_logsConfig_CloudWatchLogs_cloudWatchLogs_Status = null;
+            if (cmdletContext.LogsConfig_CloudWatchLogs_Status != null)
+            {
+                requestLogsConfig_logsConfig_CloudWatchLogs_cloudWatchLogs_Status = cmdletContext.LogsConfig_CloudWatchLogs_Status;
+            }
+            if (requestLogsConfig_logsConfig_CloudWatchLogs_cloudWatchLogs_Status != null)
+            {
+                requestLogsConfig_logsConfig_CloudWatchLogs.Status = requestLogsConfig_logsConfig_CloudWatchLogs_cloudWatchLogs_Status;
+                requestLogsConfig_logsConfig_CloudWatchLogsIsNull = false;
+            }
+            System.String requestLogsConfig_logsConfig_CloudWatchLogs_cloudWatchLogs_StreamName = null;
+            if (cmdletContext.LogsConfig_CloudWatchLogs_StreamName != null)
+            {
+                requestLogsConfig_logsConfig_CloudWatchLogs_cloudWatchLogs_StreamName = cmdletContext.LogsConfig_CloudWatchLogs_StreamName;
+            }
+            if (requestLogsConfig_logsConfig_CloudWatchLogs_cloudWatchLogs_StreamName != null)
+            {
+                requestLogsConfig_logsConfig_CloudWatchLogs.StreamName = requestLogsConfig_logsConfig_CloudWatchLogs_cloudWatchLogs_StreamName;
+                requestLogsConfig_logsConfig_CloudWatchLogsIsNull = false;
+            }
+             // determine if requestLogsConfig_logsConfig_CloudWatchLogs should be set to null
+            if (requestLogsConfig_logsConfig_CloudWatchLogsIsNull)
+            {
+                requestLogsConfig_logsConfig_CloudWatchLogs = null;
+            }
+            if (requestLogsConfig_logsConfig_CloudWatchLogs != null)
+            {
+                request.LogsConfig.CloudWatchLogs = requestLogsConfig_logsConfig_CloudWatchLogs;
+                requestLogsConfigIsNull = false;
+            }
+             // determine if request.LogsConfig should be set to null
+            if (requestLogsConfigIsNull)
+            {
+                request.LogsConfig = null;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.SecondaryArtifacts != null)
+            {
+                request.SecondaryArtifacts = cmdletContext.SecondaryArtifacts;
+            }
+            if (cmdletContext.SecondarySources != null)
+            {
+                request.SecondarySources = cmdletContext.SecondarySources;
             }
             if (cmdletContext.ServiceRole != null)
             {
@@ -843,6 +1071,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestSource_source_ReportBuildStatus != null)
             {
                 request.Source.ReportBuildStatus = requestSource_source_ReportBuildStatus.Value;
+                requestSourceIsNull = false;
+            }
+            System.String requestSource_source_SourceIdentifier = null;
+            if (cmdletContext.Source_SourceIdentifier != null)
+            {
+                requestSource_source_SourceIdentifier = cmdletContext.Source_SourceIdentifier;
+            }
+            if (requestSource_source_SourceIdentifier != null)
+            {
+                request.Source.SourceIdentifier = requestSource_source_SourceIdentifier;
                 requestSourceIsNull = false;
             }
             Amazon.CodeBuild.SourceType requestSource_source_Type = null;
@@ -1006,6 +1244,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Artifacts_ArtifactIdentifier { get; set; }
             public System.Boolean? Artifacts_EncryptionDisabled { get; set; }
             public System.String Artifacts_Location { get; set; }
             public System.String Artifacts_Name { get; set; }
@@ -1025,7 +1264,14 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String Environment_Image { get; set; }
             public System.Boolean? Environment_PrivilegedMode { get; set; }
             public Amazon.CodeBuild.EnvironmentType Environment_Type { get; set; }
+            public System.String LogsConfig_CloudWatchLogs_GroupName { get; set; }
+            public Amazon.CodeBuild.LogsConfigStatusType LogsConfig_CloudWatchLogs_Status { get; set; }
+            public System.String LogsConfig_CloudWatchLogs_StreamName { get; set; }
+            public System.String LogsConfig_S3Logs_Location { get; set; }
+            public Amazon.CodeBuild.LogsConfigStatusType LogsConfig_S3Logs_Status { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.CodeBuild.Model.ProjectArtifacts> SecondaryArtifacts { get; set; }
+            public List<Amazon.CodeBuild.Model.ProjectSource> SecondarySources { get; set; }
             public System.String ServiceRole { get; set; }
             public System.String Source_Auth_Resource { get; set; }
             public Amazon.CodeBuild.SourceAuthType Source_Auth_Type { get; set; }
@@ -1034,6 +1280,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.Boolean? Source_InsecureSsl { get; set; }
             public System.String Source_Location { get; set; }
             public System.Boolean? Source_ReportBuildStatus { get; set; }
+            public System.String Source_SourceIdentifier { get; set; }
             public Amazon.CodeBuild.SourceType Source_Type { get; set; }
             public List<Amazon.CodeBuild.Model.Tag> Tags { get; set; }
             public System.Int32? TimeoutInMinutes { get; set; }

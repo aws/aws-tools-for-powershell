@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter AwsvpcConfiguration_Subnet
         /// <summary>
         /// <para>
-        /// <para>The subnets associated with the task or service. There is a limit of 10 subnets able
+        /// <para>The subnets associated with the task or service. There is a limit of 16 subnets able
         /// to be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
         /// </para>
         /// </summary>

@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class UpdateIOTIndexingConfigurationCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        #region Parameter ThingGroupIndexingConfiguration_ThingGroupIndexingMode
+        /// <summary>
+        /// <para>
+        /// <para>Thing group indexing mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.IoT.ThingGroupIndexingMode")]
+        public Amazon.IoT.ThingGroupIndexingMode ThingGroupIndexingConfiguration_ThingGroupIndexingMode { get; set; }
+        #endregion
+        
         #region Parameter ThingIndexingConfiguration_ThingIndexingMode
         /// <summary>
         /// <para>
@@ -89,6 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ThingGroupIndexingConfiguration_ThingGroupIndexingMode = this.ThingGroupIndexingConfiguration_ThingGroupIndexingMode;
             context.ThingIndexingConfiguration_ThingIndexingMode = this.ThingIndexingConfiguration_ThingIndexingMode;
             
             // allow further manipulation of loaded context prior to processing
@@ -106,6 +118,25 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request
             var request = new Amazon.IoT.Model.UpdateIndexingConfigurationRequest();
             
+            
+             // populate ThingGroupIndexingConfiguration
+            bool requestThingGroupIndexingConfigurationIsNull = true;
+            request.ThingGroupIndexingConfiguration = new Amazon.IoT.Model.ThingGroupIndexingConfiguration();
+            Amazon.IoT.ThingGroupIndexingMode requestThingGroupIndexingConfiguration_thingGroupIndexingConfiguration_ThingGroupIndexingMode = null;
+            if (cmdletContext.ThingGroupIndexingConfiguration_ThingGroupIndexingMode != null)
+            {
+                requestThingGroupIndexingConfiguration_thingGroupIndexingConfiguration_ThingGroupIndexingMode = cmdletContext.ThingGroupIndexingConfiguration_ThingGroupIndexingMode;
+            }
+            if (requestThingGroupIndexingConfiguration_thingGroupIndexingConfiguration_ThingGroupIndexingMode != null)
+            {
+                request.ThingGroupIndexingConfiguration.ThingGroupIndexingMode = requestThingGroupIndexingConfiguration_thingGroupIndexingConfiguration_ThingGroupIndexingMode;
+                requestThingGroupIndexingConfigurationIsNull = false;
+            }
+             // determine if request.ThingGroupIndexingConfiguration should be set to null
+            if (requestThingGroupIndexingConfigurationIsNull)
+            {
+                request.ThingGroupIndexingConfiguration = null;
+            }
             
              // populate ThingIndexingConfiguration
             bool requestThingIndexingConfigurationIsNull = true;
@@ -191,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.IoT.ThingGroupIndexingMode ThingGroupIndexingConfiguration_ThingGroupIndexingMode { get; set; }
             public Amazon.IoT.ThingIndexingMode ThingIndexingConfiguration_ThingIndexingMode { get; set; }
         }
         

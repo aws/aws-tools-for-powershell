@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     public partial class GetEMCEndpointCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {
         
+        #region Parameter Mode
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [AWSConstantClassSource("Amazon.MediaConvert.DescribeEndpointsMode")]
+        public Amazon.MediaConvert.DescribeEndpointsMode Mode { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -86,6 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
+            context.Mode = this.Mode;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -103,6 +115,10 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             
             // create request and set iteration invariants
             var request = new Amazon.MediaConvert.Model.DescribeEndpointsRequest();
+            if (cmdletContext.Mode != null)
+            {
+                request.Mode = cmdletContext.Mode;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
@@ -250,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         internal partial class CmdletContext : ExecutorContext
         {
             public int? MaxResults { get; set; }
+            public Amazon.MediaConvert.DescribeEndpointsMode Mode { get; set; }
             public System.String NextToken { get; set; }
         }
         

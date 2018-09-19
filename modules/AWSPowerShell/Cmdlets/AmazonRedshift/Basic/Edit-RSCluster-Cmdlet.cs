@@ -156,6 +156,20 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String ElasticIp { get; set; }
         #endregion
         
+        #region Parameter Encrypted
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the cluster is encrypted. If the cluster is encrypted and you provide
+        /// a value for the <code>KmsKeyId</code> parameter, we will encrypt the cluster with
+        /// the provided <code>KmsKeyId</code>. If you don't provide a <code>KmsKeyId</code>,
+        /// we will encrypt with the default key. In the China region we will use legacy encryption
+        /// if you specify that the cluster is encrypted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Encrypted { get; set; }
+        #endregion
+        
         #region Parameter EnhancedVpcRouting
         /// <summary>
         /// <para>
@@ -189,6 +203,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String HsmConfigurationIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The AWS Key Management Service (KMS) key ID of the encryption key that you want to
+        /// use to encrypt data in the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KmsKeyId { get; set; }
         #endregion
         
         #region Parameter MaintenanceTrackName
@@ -341,10 +366,13 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ClusterType = this.ClusterType;
             context.ClusterVersion = this.ClusterVersion;
             context.ElasticIp = this.ElasticIp;
+            if (ParameterWasBound("Encrypted"))
+                context.Encrypted = this.Encrypted;
             if (ParameterWasBound("EnhancedVpcRouting"))
                 context.EnhancedVpcRouting = this.EnhancedVpcRouting;
             context.HsmClientCertificateIdentifier = this.HsmClientCertificateIdentifier;
             context.HsmConfigurationIdentifier = this.HsmConfigurationIdentifier;
+            context.KmsKeyId = this.KmsKeyId;
             context.MaintenanceTrackName = this.MaintenanceTrackName;
             context.MasterUserPassword = this.MasterUserPassword;
             context.NewClusterIdentifier = this.NewClusterIdentifier;
@@ -406,6 +434,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 request.ElasticIp = cmdletContext.ElasticIp;
             }
+            if (cmdletContext.Encrypted != null)
+            {
+                request.Encrypted = cmdletContext.Encrypted.Value;
+            }
             if (cmdletContext.EnhancedVpcRouting != null)
             {
                 request.EnhancedVpcRouting = cmdletContext.EnhancedVpcRouting.Value;
@@ -417,6 +449,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.HsmConfigurationIdentifier != null)
             {
                 request.HsmConfigurationIdentifier = cmdletContext.HsmConfigurationIdentifier;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             if (cmdletContext.MaintenanceTrackName != null)
             {
@@ -522,9 +558,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String ClusterType { get; set; }
             public System.String ClusterVersion { get; set; }
             public System.String ElasticIp { get; set; }
+            public System.Boolean? Encrypted { get; set; }
             public System.Boolean? EnhancedVpcRouting { get; set; }
             public System.String HsmClientCertificateIdentifier { get; set; }
             public System.String HsmConfigurationIdentifier { get; set; }
+            public System.String KmsKeyId { get; set; }
             public System.String MaintenanceTrackName { get; set; }
             public System.String MasterUserPassword { get; set; }
             public System.String NewClusterIdentifier { get; set; }

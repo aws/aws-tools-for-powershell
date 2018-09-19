@@ -28,7 +28,7 @@ using Amazon.CloudHSMV2.Model;
 namespace Amazon.PowerShell.Cmdlets.HSM2
 {
     /// <summary>
-    
+    /// Copy an AWS CloudHSM cluster backup to a different region.
     /// </summary>
     [Cmdlet("Copy", "HSM2BackupToRegion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudHSMV2.Model.DestinationBackup")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         #region Parameter BackupId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the backup that will be copied to the destination region. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         #region Parameter DestinationRegion
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The AWS region that will contain your copied CloudHSM cluster backup.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

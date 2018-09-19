@@ -29,8 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
     /// Deletes the organization. You can delete an organization only by using credentials
-    /// from the master account. The organization must be empty of member accounts, organizational
-    /// units (OUs), and policies.
+    /// from the master account. The organization must be empty of member accounts.
     /// </summary>
     [Cmdlet("Remove", "ORGOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

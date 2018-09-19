@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public partial class StartCBBuildCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
+        #region Parameter ArtifactsOverride_ArtifactIdentifier
+        /// <summary>
+        /// <para>
+        /// <para> An identifier for this artifact definition. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ArtifactsOverride_ArtifactIdentifier { get; set; }
+        #endregion
+        
         #region Parameter BuildspecOverride
         /// <summary>
         /// <para>
@@ -119,6 +129,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.Int32 GitCloneDepthOverride { get; set; }
         #endregion
         
+        #region Parameter CloudWatchLogs_GroupName
+        /// <summary>
+        /// <para>
+        /// <para> The group name of the Amazon CloudWatch Logs. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
+        /// with Log Groups and Log Streams</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("LogsConfigOverride_CloudWatchLogs_GroupName")]
+        public System.String CloudWatchLogs_GroupName { get; set; }
+        #endregion
+        
         #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
@@ -177,6 +199,20 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CacheOverride_Location { get; set; }
+        #endregion
+        
+        #region Parameter S3Logs_Location
+        /// <summary>
+        /// <para>
+        /// <para> The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket
+        /// name is <code>my-bucket</code>, and your path prefix is <code>build-log</code>, then
+        /// acceptable formats are <code>my-bucket/build-log</code> or <code>aws:s3:::my-bucket/build-log</code>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("LogsConfigOverride_S3Logs_Location")]
+        public System.String S3Logs_Location { get; set; }
         #endregion
         
         #region Parameter ArtifactsOverride_Name
@@ -309,6 +345,37 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String SourceAuthOverride_Resource { get; set; }
         #endregion
         
+        #region Parameter SecondaryArtifactsOverride
+        /// <summary>
+        /// <para>
+        /// <para> An array of <code>ProjectArtifacts</code> objects. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.CodeBuild.Model.ProjectArtifacts[] SecondaryArtifactsOverride { get; set; }
+        #endregion
+        
+        #region Parameter SecondarySourcesOverride
+        /// <summary>
+        /// <para>
+        /// <para> An array of <code>ProjectSource</code> objects. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.CodeBuild.Model.ProjectSource[] SecondarySourcesOverride { get; set; }
+        #endregion
+        
+        #region Parameter SecondarySourcesVersionOverride
+        /// <summary>
+        /// <para>
+        /// <para> An array of <code>ProjectSourceVersion</code> objects that specify one or more versions
+        /// of the project's secondary sources to be used for this build only. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.CodeBuild.Model.ProjectSourceVersion[] SecondarySourcesVersionOverride { get; set; }
+        #endregion
+        
         #region Parameter ServiceRoleOverride
         /// <summary>
         /// <para>
@@ -335,7 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>A source input type for this build that overrides the source input defined in the
-        /// build project</para>
+        /// build project.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -360,6 +427,44 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SourceVersion { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLogs_Status
+        /// <summary>
+        /// <para>
+        /// <para>The current status of the Amazon CloudWatch Logs for a build project. Valid values
+        /// are:</para><ul><li><para><code>ENABLED</code>: Amazon CloudWatch Logs are enabled for this build project.</para></li><li><para><code>DISABLED</code>: Amazon CloudWatch Logs are not enabled for this build project.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("LogsConfigOverride_CloudWatchLogs_Status")]
+        [AWSConstantClassSource("Amazon.CodeBuild.LogsConfigStatusType")]
+        public Amazon.CodeBuild.LogsConfigStatusType CloudWatchLogs_Status { get; set; }
+        #endregion
+        
+        #region Parameter S3Logs_Status
+        /// <summary>
+        /// <para>
+        /// <para>The current status of the S3 build logs. Valid values are:</para><ul><li><para><code>ENABLED</code>: S3 build logs are enabled for this build project.</para></li><li><para><code>DISABLED</code>: S3 build logs are not enabled for this build project.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("LogsConfigOverride_S3Logs_Status")]
+        [AWSConstantClassSource("Amazon.CodeBuild.LogsConfigStatusType")]
+        public Amazon.CodeBuild.LogsConfigStatusType S3Logs_Status { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLogs_StreamName
+        /// <summary>
+        /// <para>
+        /// <para> The prefix of the stream name of the Amazon CloudWatch Logs. For more information,
+        /// see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
+        /// with Log Groups and Log Streams</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("LogsConfigOverride_CloudWatchLogs_StreamName")]
+        public System.String CloudWatchLogs_StreamName { get; set; }
         #endregion
         
         #region Parameter TimeoutInMinutesOverride
@@ -438,6 +543,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ArtifactsOverride_ArtifactIdentifier = this.ArtifactsOverride_ArtifactIdentifier;
             if (ParameterWasBound("ArtifactsOverride_EncryptionDisabled"))
                 context.ArtifactsOverride_EncryptionDisabled = this.ArtifactsOverride_EncryptionDisabled;
             context.ArtifactsOverride_Location = this.ArtifactsOverride_Location;
@@ -464,11 +570,28 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.ImageOverride = this.ImageOverride;
             if (ParameterWasBound("InsecureSslOverride"))
                 context.InsecureSslOverride = this.InsecureSslOverride;
+            context.LogsConfigOverride_CloudWatchLogs_GroupName = this.CloudWatchLogs_GroupName;
+            context.LogsConfigOverride_CloudWatchLogs_Status = this.CloudWatchLogs_Status;
+            context.LogsConfigOverride_CloudWatchLogs_StreamName = this.CloudWatchLogs_StreamName;
+            context.LogsConfigOverride_S3Logs_Location = this.S3Logs_Location;
+            context.LogsConfigOverride_S3Logs_Status = this.S3Logs_Status;
             if (ParameterWasBound("PrivilegedModeOverride"))
                 context.PrivilegedModeOverride = this.PrivilegedModeOverride;
             context.ProjectName = this.ProjectName;
             if (ParameterWasBound("ReportBuildStatusOverride"))
                 context.ReportBuildStatusOverride = this.ReportBuildStatusOverride;
+            if (this.SecondaryArtifactsOverride != null)
+            {
+                context.SecondaryArtifactsOverride = new List<Amazon.CodeBuild.Model.ProjectArtifacts>(this.SecondaryArtifactsOverride);
+            }
+            if (this.SecondarySourcesOverride != null)
+            {
+                context.SecondarySourcesOverride = new List<Amazon.CodeBuild.Model.ProjectSource>(this.SecondarySourcesOverride);
+            }
+            if (this.SecondarySourcesVersionOverride != null)
+            {
+                context.SecondarySourcesVersionOverride = new List<Amazon.CodeBuild.Model.ProjectSourceVersion>(this.SecondarySourcesVersionOverride);
+            }
             context.ServiceRoleOverride = this.ServiceRoleOverride;
             context.SourceAuthOverride_Resource = this.SourceAuthOverride_Resource;
             context.SourceAuthOverride_Type = this.SourceAuthOverride_Type;
@@ -497,6 +620,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
              // populate ArtifactsOverride
             bool requestArtifactsOverrideIsNull = true;
             request.ArtifactsOverride = new Amazon.CodeBuild.Model.ProjectArtifacts();
+            System.String requestArtifactsOverride_artifactsOverride_ArtifactIdentifier = null;
+            if (cmdletContext.ArtifactsOverride_ArtifactIdentifier != null)
+            {
+                requestArtifactsOverride_artifactsOverride_ArtifactIdentifier = cmdletContext.ArtifactsOverride_ArtifactIdentifier;
+            }
+            if (requestArtifactsOverride_artifactsOverride_ArtifactIdentifier != null)
+            {
+                request.ArtifactsOverride.ArtifactIdentifier = requestArtifactsOverride_artifactsOverride_ArtifactIdentifier;
+                requestArtifactsOverrideIsNull = false;
+            }
             System.Boolean? requestArtifactsOverride_artifactsOverride_EncryptionDisabled = null;
             if (cmdletContext.ArtifactsOverride_EncryptionDisabled != null)
             {
@@ -647,6 +780,95 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 request.InsecureSslOverride = cmdletContext.InsecureSslOverride.Value;
             }
+            
+             // populate LogsConfigOverride
+            bool requestLogsConfigOverrideIsNull = true;
+            request.LogsConfigOverride = new Amazon.CodeBuild.Model.LogsConfig();
+            Amazon.CodeBuild.Model.S3LogsConfig requestLogsConfigOverride_logsConfigOverride_S3Logs = null;
+            
+             // populate S3Logs
+            bool requestLogsConfigOverride_logsConfigOverride_S3LogsIsNull = true;
+            requestLogsConfigOverride_logsConfigOverride_S3Logs = new Amazon.CodeBuild.Model.S3LogsConfig();
+            System.String requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Location = null;
+            if (cmdletContext.LogsConfigOverride_S3Logs_Location != null)
+            {
+                requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Location = cmdletContext.LogsConfigOverride_S3Logs_Location;
+            }
+            if (requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Location != null)
+            {
+                requestLogsConfigOverride_logsConfigOverride_S3Logs.Location = requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Location;
+                requestLogsConfigOverride_logsConfigOverride_S3LogsIsNull = false;
+            }
+            Amazon.CodeBuild.LogsConfigStatusType requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Status = null;
+            if (cmdletContext.LogsConfigOverride_S3Logs_Status != null)
+            {
+                requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Status = cmdletContext.LogsConfigOverride_S3Logs_Status;
+            }
+            if (requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Status != null)
+            {
+                requestLogsConfigOverride_logsConfigOverride_S3Logs.Status = requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Status;
+                requestLogsConfigOverride_logsConfigOverride_S3LogsIsNull = false;
+            }
+             // determine if requestLogsConfigOverride_logsConfigOverride_S3Logs should be set to null
+            if (requestLogsConfigOverride_logsConfigOverride_S3LogsIsNull)
+            {
+                requestLogsConfigOverride_logsConfigOverride_S3Logs = null;
+            }
+            if (requestLogsConfigOverride_logsConfigOverride_S3Logs != null)
+            {
+                request.LogsConfigOverride.S3Logs = requestLogsConfigOverride_logsConfigOverride_S3Logs;
+                requestLogsConfigOverrideIsNull = false;
+            }
+            Amazon.CodeBuild.Model.CloudWatchLogsConfig requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs = null;
+            
+             // populate CloudWatchLogs
+            bool requestLogsConfigOverride_logsConfigOverride_CloudWatchLogsIsNull = true;
+            requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs = new Amazon.CodeBuild.Model.CloudWatchLogsConfig();
+            System.String requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs_cloudWatchLogs_GroupName = null;
+            if (cmdletContext.LogsConfigOverride_CloudWatchLogs_GroupName != null)
+            {
+                requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs_cloudWatchLogs_GroupName = cmdletContext.LogsConfigOverride_CloudWatchLogs_GroupName;
+            }
+            if (requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs_cloudWatchLogs_GroupName != null)
+            {
+                requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs.GroupName = requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs_cloudWatchLogs_GroupName;
+                requestLogsConfigOverride_logsConfigOverride_CloudWatchLogsIsNull = false;
+            }
+            Amazon.CodeBuild.LogsConfigStatusType requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs_cloudWatchLogs_Status = null;
+            if (cmdletContext.LogsConfigOverride_CloudWatchLogs_Status != null)
+            {
+                requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs_cloudWatchLogs_Status = cmdletContext.LogsConfigOverride_CloudWatchLogs_Status;
+            }
+            if (requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs_cloudWatchLogs_Status != null)
+            {
+                requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs.Status = requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs_cloudWatchLogs_Status;
+                requestLogsConfigOverride_logsConfigOverride_CloudWatchLogsIsNull = false;
+            }
+            System.String requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs_cloudWatchLogs_StreamName = null;
+            if (cmdletContext.LogsConfigOverride_CloudWatchLogs_StreamName != null)
+            {
+                requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs_cloudWatchLogs_StreamName = cmdletContext.LogsConfigOverride_CloudWatchLogs_StreamName;
+            }
+            if (requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs_cloudWatchLogs_StreamName != null)
+            {
+                requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs.StreamName = requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs_cloudWatchLogs_StreamName;
+                requestLogsConfigOverride_logsConfigOverride_CloudWatchLogsIsNull = false;
+            }
+             // determine if requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs should be set to null
+            if (requestLogsConfigOverride_logsConfigOverride_CloudWatchLogsIsNull)
+            {
+                requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs = null;
+            }
+            if (requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs != null)
+            {
+                request.LogsConfigOverride.CloudWatchLogs = requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs;
+                requestLogsConfigOverrideIsNull = false;
+            }
+             // determine if request.LogsConfigOverride should be set to null
+            if (requestLogsConfigOverrideIsNull)
+            {
+                request.LogsConfigOverride = null;
+            }
             if (cmdletContext.PrivilegedModeOverride != null)
             {
                 request.PrivilegedModeOverride = cmdletContext.PrivilegedModeOverride.Value;
@@ -658,6 +880,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (cmdletContext.ReportBuildStatusOverride != null)
             {
                 request.ReportBuildStatusOverride = cmdletContext.ReportBuildStatusOverride.Value;
+            }
+            if (cmdletContext.SecondaryArtifactsOverride != null)
+            {
+                request.SecondaryArtifactsOverride = cmdletContext.SecondaryArtifactsOverride;
+            }
+            if (cmdletContext.SecondarySourcesOverride != null)
+            {
+                request.SecondarySourcesOverride = cmdletContext.SecondarySourcesOverride;
+            }
+            if (cmdletContext.SecondarySourcesVersionOverride != null)
+            {
+                request.SecondarySourcesVersionOverride = cmdletContext.SecondarySourcesVersionOverride;
             }
             if (cmdletContext.ServiceRoleOverride != null)
             {
@@ -772,6 +1006,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ArtifactsOverride_ArtifactIdentifier { get; set; }
             public System.Boolean? ArtifactsOverride_EncryptionDisabled { get; set; }
             public System.String ArtifactsOverride_Location { get; set; }
             public System.String ArtifactsOverride_Name { get; set; }
@@ -791,9 +1026,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String IdempotencyToken { get; set; }
             public System.String ImageOverride { get; set; }
             public System.Boolean? InsecureSslOverride { get; set; }
+            public System.String LogsConfigOverride_CloudWatchLogs_GroupName { get; set; }
+            public Amazon.CodeBuild.LogsConfigStatusType LogsConfigOverride_CloudWatchLogs_Status { get; set; }
+            public System.String LogsConfigOverride_CloudWatchLogs_StreamName { get; set; }
+            public System.String LogsConfigOverride_S3Logs_Location { get; set; }
+            public Amazon.CodeBuild.LogsConfigStatusType LogsConfigOverride_S3Logs_Status { get; set; }
             public System.Boolean? PrivilegedModeOverride { get; set; }
             public System.String ProjectName { get; set; }
             public System.Boolean? ReportBuildStatusOverride { get; set; }
+            public List<Amazon.CodeBuild.Model.ProjectArtifacts> SecondaryArtifactsOverride { get; set; }
+            public List<Amazon.CodeBuild.Model.ProjectSource> SecondarySourcesOverride { get; set; }
+            public List<Amazon.CodeBuild.Model.ProjectSourceVersion> SecondarySourcesVersionOverride { get; set; }
             public System.String ServiceRoleOverride { get; set; }
             public System.String SourceAuthOverride_Resource { get; set; }
             public Amazon.CodeBuild.SourceAuthType SourceAuthOverride_Type { get; set; }

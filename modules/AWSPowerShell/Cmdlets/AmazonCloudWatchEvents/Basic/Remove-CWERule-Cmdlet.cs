@@ -32,11 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// 
     ///  
     /// <para>
-    /// You must remove all targets from a rule using <a>RemoveTargets</a> before you can
-    /// delete the rule.
+    /// Before you can delete the rule, you must remove all targets, using <a>RemoveTargets</a>.
     /// </para><para>
     /// When you delete a rule, incoming events might continue to match to the deleted rule.
-    /// Please allow a short period of time for changes to take effect.
+    /// Allow a short period of time for changes to take effect.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CWERule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

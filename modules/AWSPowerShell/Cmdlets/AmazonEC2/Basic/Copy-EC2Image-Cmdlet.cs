@@ -33,6 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
+    /// Copies of encrypted backing snapshots for the AMI are encrypted. Copies of unencrypted
+    /// backing snapshots remain unencrypted, unless you set <code>Encrypted</code> during
+    /// the copy operation. You cannot create an unencrypted copy of an encrypted backing
+    /// snapshot.
+    /// </para><para>
     /// For more information about the prerequisites and limits when copying an AMI, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copying
     /// an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
@@ -73,8 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Specifies whether the destination snapshots of the copied image should be encrypted.
-        /// The default CMK for EBS is used unless a non-default AWS Key Management Service (AWS
-        /// KMS) CMK is specified with <code>KmsKeyId</code>. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+        /// You can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted
+        /// copy of an encrypted snapshot. The default CMK for EBS is used unless you specify
+        /// a non-default AWS Key Management Service (AWS KMS) CMK using <code>KmsKeyId</code>.
+        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
         /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>

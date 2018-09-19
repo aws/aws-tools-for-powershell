@@ -40,8 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// 
     /// </para><para>
     /// For more information about rebooting, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RebootInstance.html">Rebooting
-    /// a DB Instance</a>. 
-    /// </para>
+    /// a DB Instance</a> in the <i>Amazon RDS User Guide.</i></para>
     /// </summary>
     [Cmdlet("Restart", "RDSDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBInstance")]

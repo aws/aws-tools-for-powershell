@@ -28,7 +28,8 @@ using Amazon.CodeCommit.Model;
 namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
-    /// Adds or updates a file in an AWS CodeCommit repository.
+    /// Adds or updates a file in a branch in an AWS CodeCommit repository, and generates
+    /// a commit for the addition in the specified branch.
     /// </summary>
     [Cmdlet("Write", "CCFile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeCommit.Model.PutFileResponse")]
@@ -42,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter BranchName
         /// <summary>
         /// <para>
-        /// <para>The name of the branch where you want to add or update the file.</para>
+        /// <para>The name of the branch where you want to add or update the file. If this is an empty
+        /// repository, this branch will be created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -118,8 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <summary>
         /// <para>
         /// <para>The full commit ID of the head commit in the branch where you want to add or update
-        /// the file. If the commit ID does not match the ID of the head commit at the time of
-        /// the operation, an error will occur, and the file will not be added or updated.</para>
+        /// the file. If this is an empty repository, no commit ID is required. If this is not
+        /// an empty repository, a commit ID is required. </para><para>The commit ID must match the ID of the head commit at the time of the operation, or
+        /// an error will occur, and the file will not be added or updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The maximum number of results to return for the request in a single page. The remaining
         /// results can be seen by sending another request with the returned <code>nextToken</code>
-        /// value. This value can be between 5 and 500.If <code>maxResults</code> is given a larger
-        /// value than 500, you receive an error.</para>
+        /// value. This value can be between 5 and 500. If <code>maxResults</code> is given a
+        /// larger value than 500, you receive an error.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// and your DB instance uses a nondefault option group. If your source DB instance uses
         /// Transparent Data Encryption for Oracle or Microsoft SQL Server, you must specify this
         /// option when copying across AWS Regions. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options">Option
-        /// Group Considerations</a>. </para>
+        /// Group Considerations</a> in the <i>Amazon RDS User Guide.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

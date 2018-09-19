@@ -152,6 +152,16 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.Boolean CognitoOptions_Enabled { get; set; }
         #endregion
         
+        #region Parameter NodeToNodeEncryptionOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specify true to enable node-to-node encryption.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean NodeToNodeEncryptionOptions_Enabled { get; set; }
+        #endregion
+        
         #region Parameter EncryptionAtRestOption
         /// <summary>
         /// <para>
@@ -361,6 +371,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
                     context.LogPublishingOptions.Add((String)hashKey, (LogPublishingOption)(this.LogPublishingOption[hashKey]));
                 }
             }
+            if (ParameterWasBound("NodeToNodeEncryptionOptions_Enabled"))
+                context.NodeToNodeEncryptionOptions_Enabled = this.NodeToNodeEncryptionOptions_Enabled;
             if (ParameterWasBound("SnapshotOptions_AutomatedSnapshotStartHour"))
                 context.SnapshotOptions_AutomatedSnapshotStartHour = this.SnapshotOptions_AutomatedSnapshotStartHour;
             if (this.VPCOptions_SecurityGroupId != null)
@@ -579,6 +591,25 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 request.LogPublishingOptions = cmdletContext.LogPublishingOptions;
             }
             
+             // populate NodeToNodeEncryptionOptions
+            bool requestNodeToNodeEncryptionOptionsIsNull = true;
+            request.NodeToNodeEncryptionOptions = new Amazon.Elasticsearch.Model.NodeToNodeEncryptionOptions();
+            System.Boolean? requestNodeToNodeEncryptionOptions_nodeToNodeEncryptionOptions_Enabled = null;
+            if (cmdletContext.NodeToNodeEncryptionOptions_Enabled != null)
+            {
+                requestNodeToNodeEncryptionOptions_nodeToNodeEncryptionOptions_Enabled = cmdletContext.NodeToNodeEncryptionOptions_Enabled.Value;
+            }
+            if (requestNodeToNodeEncryptionOptions_nodeToNodeEncryptionOptions_Enabled != null)
+            {
+                request.NodeToNodeEncryptionOptions.Enabled = requestNodeToNodeEncryptionOptions_nodeToNodeEncryptionOptions_Enabled.Value;
+                requestNodeToNodeEncryptionOptionsIsNull = false;
+            }
+             // determine if request.NodeToNodeEncryptionOptions should be set to null
+            if (requestNodeToNodeEncryptionOptionsIsNull)
+            {
+                request.NodeToNodeEncryptionOptions = null;
+            }
+            
              // populate SnapshotOptions
             bool requestSnapshotOptionsIsNull = true;
             request.SnapshotOptions = new Amazon.Elasticsearch.Model.SnapshotOptions();
@@ -710,6 +741,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             public System.String ElasticsearchVersion { get; set; }
             public Amazon.Elasticsearch.Model.EncryptionAtRestOptions EncryptionAtRestOptions { get; set; }
             public Dictionary<System.String, Amazon.Elasticsearch.Model.LogPublishingOption> LogPublishingOptions { get; set; }
+            public System.Boolean? NodeToNodeEncryptionOptions_Enabled { get; set; }
             public System.Int32? SnapshotOptions_AutomatedSnapshotStartHour { get; set; }
             public List<System.String> VPCOptions_SecurityGroupIds { get; set; }
             public List<System.String> VPCOptions_SubnetIds { get; set; }

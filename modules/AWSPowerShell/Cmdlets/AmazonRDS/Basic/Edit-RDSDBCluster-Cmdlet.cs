@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <summary>
     /// Modify a setting for an Amazon Aurora DB cluster. You can change one or more database
     /// configuration parameters by specifying these parameters and the new values in the
-    /// request. For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
-    /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i>
+    /// request. For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
     /// </summary>
     [Cmdlet("Edit", "RDSDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBCluster")]
@@ -49,10 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>A value that specifies whether the modifications in this request and any pending modifications
         /// are asynchronously applied as soon as possible, regardless of the <code>PreferredMaintenanceWindow</code>
         /// setting for the DB cluster. If this parameter is set to <code>false</code>, changes
-        /// to the DB cluster are applied during the next maintenance window.</para><para>The <code>ApplyImmediately</code> parameter only affects the <code>NewDBClusterIdentifier</code>
-        /// and <code>MasterUserPassword</code> values. If you set the <code>ApplyImmediately</code>
-        /// parameter value to false, then changes to the <code>NewDBClusterIdentifier</code>
-        /// and <code>MasterUserPassword</code> values are applied during the next maintenance
+        /// to the DB cluster are applied during the next maintenance window.</para><para>The <code>ApplyImmediately</code> parameter only affects the <code>EnableIAMDatabaseAuthentication</code>,
+        /// <code>MasterUserPassword</code>, and <code>NewDBClusterIdentifier</code> values. If
+        /// you set the <code>ApplyImmediately</code> parameter value to false, then changes to
+        /// the <code>EnableIAMDatabaseAuthentication</code>, <code>MasterUserPassword</code>,
+        /// and <code>NewDBClusterIdentifier</code> values are applied during the next maintenance
         /// window. All other changes are applied immediately, regardless of the value of the
         /// <code>ApplyImmediately</code> parameter.</para><para>Default: <code>false</code></para>
         /// </para>
@@ -240,8 +241,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The daily time range during which automated backups are created if automated backups
         /// are enabled, using the <code>BackupRetentionPeriod</code> parameter. </para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region. To see the time blocks available, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-        /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// for each AWS Region. To see the time blocks available, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
+        /// Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora
+        /// User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -254,8 +256,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
         /// Time (UTC).</para><para>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each AWS Region, occurring on a random day of the week. To see the time blocks
-        /// available, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-        /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para><para>Constraints: Minimum 30-minute window.</para>
+        /// available, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
+        /// Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora
+        /// User Guide.</i></para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

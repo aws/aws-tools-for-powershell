@@ -31,11 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// Gets the search configuration.
     /// </summary>
     [Cmdlet("Get", "IOTIndexingConfiguration")]
-    [OutputType("Amazon.IoT.Model.ThingIndexingConfiguration")]
+    [OutputType("Amazon.IoT.Model.GetIndexingConfigurationResponse")]
     [AWSCmdlet("Calls the AWS IoT GetIndexingConfiguration API operation.", Operation = new[] {"GetIndexingConfiguration"})]
-    [AWSCmdletOutput("Amazon.IoT.Model.ThingIndexingConfiguration",
-        "This cmdlet returns a ThingIndexingConfiguration object.",
-        "The service call response (type Amazon.IoT.Model.GetIndexingConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.IoT.Model.GetIndexingConfigurationResponse",
+        "This cmdlet returns a Amazon.IoT.Model.GetIndexingConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetIOTIndexingConfigurationCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -78,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ThingIndexingConfiguration;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

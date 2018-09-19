@@ -38,11 +38,14 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// Amazon Rekognition uses feature vectors when performing face match and search operations
     /// using the and operations.
     /// </para><para>
+    /// To get the number of faces in a collection, call . 
+    /// </para><para>
     /// If you are using version 1.0 of the face detection model, <code>IndexFaces</code>
     /// indexes the 15 largest faces in the input image. Later versions of the face detection
     /// model index the 100 largest faces in the input image. To determine which version of
-    /// the model you are using, check the the value of <code>FaceModelVersion</code> in the
-    /// response from <code>IndexFaces</code>. 
+    /// the model you are using, call and supply the collection ID. You also get the model
+    /// version from the value of <code>FaceModelVersion</code> in the response from <code>IndexFaces</code>.
+    /// 
     /// </para><para>
     /// For more information, see Model Versioning in the Amazon Rekognition Developer Guide.
     /// </para><para>
@@ -50,19 +53,50 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// Amazon Rekognition associates this ID with all faces that it detects. When you call
     /// the operation, the response returns the external ID. You can use this external image
     /// ID to create a client-side index to associate the faces with each image. You can then
-    /// use the index to find all faces in an image. 
+    /// use the index to find all faces in an image.
     /// </para><para>
-    /// In response, the operation returns an array of metadata for all detected faces. This
-    /// includes, the bounding box of the detected face, confidence value (indicating the
-    /// bounding box contains a face), a face ID assigned by the service for each face that
-    /// is detected and stored, and an image ID assigned by the service for the input image.
-    /// If you request all facial attributes (using the <code>detectionAttributes</code> parameter,
+    /// You can specify the maximum number of faces to index with the <code>MaxFaces</code>
+    /// input parameter. This is useful when you want to index the largest faces in an image,
+    /// and you don't want to index other faces detected in the image.
+    /// </para><para>
+    /// The <code>QualityFilter</code> input parameter allows you to filter out detected faces
+    /// that don’t meet the required quality bar chosen by Amazon Rekognition. The quality
+    /// bar is based on a variety of common use cases.
+    /// </para><para>
+    /// In response, the operation returns an array of metadata for all detected faces, <code>FaceRecords</code>.
+    /// This includes: 
+    /// </para><ul><li><para>
+    /// The bounding box, <code>BoundingBox</code>, of the detected face. 
+    /// </para></li><li><para>
+    /// A confidence value, <code>Confidence</code>, indicating the confidence that the bounding
+    /// box contains a face.
+    /// </para></li><li><para>
+    /// A face ID, <code>faceId</code>, assigned by the service for each face that is detected
+    /// and stored.
+    /// </para></li><li><para>
+    /// An image ID, <code>ImageId</code>, assigned by the service for the input image.
+    /// </para></li></ul><para>
+    /// If you request all facial attributes (using the <code>detectionAttributes</code> parameter),
     /// Amazon Rekognition returns detailed facial attributes such as facial landmarks (for
-    /// example, location of eye and mount) and other facial attributes such gender. If you
+    /// example, location of eye and mouth) and other facial attributes such gender. If you
     /// provide the same image, specify the same collection, and use the same external ID
     /// in the <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate
     /// face metadata.
     /// </para><para>
+    /// Information about faces detected in an image, but not indexed, is returned in an array
+    /// of objects, <code>UnindexedFaces</code>. Faces are not indexed for reasons such as:
+    /// </para><ul><li><para>
+    /// The face is too blurry.
+    /// </para></li><li><para>
+    /// The image is too dark.
+    /// </para></li><li><para>
+    /// The face has an extreme pose.
+    /// </para></li><li><para>
+    /// The face is too small.
+    /// </para></li><li><para>
+    /// The number of faces detected exceeds the value of the <code>MaxFaces</code> request
+    /// parameter.
+    /// </para></li></ul><para>
     /// For more information, see Adding Faces to a Collection in the Amazon Rekognition Developer
     /// Guide.
     /// </para><para>
@@ -142,6 +176,25 @@ namespace Amazon.PowerShell.Cmdlets.REK
         public System.String ExternalImageId { get; set; }
         #endregion
         
+        #region Parameter MaxFace
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of faces to index. The value of <code>MaxFaces</code> must be greater
+        /// than or equal to 1. <code>IndexFaces</code> returns no more that 100 detected faces
+        /// in an image, even if you specify a larger value for <code>MaxFaces</code>.</para><para>If <code>IndexFaces</code> detects more faces than the value of <code>MaxFaces</code>,
+        /// the faces with the lowest quality are filtered out first. If there are still more
+        /// faces than the value of <code>MaxFaces</code>, the faces with the smallest bounding
+        /// boxes are filtered out (up to the number needed to satisfy the value of <code>MaxFaces</code>).
+        /// Information about the unindexed faces is available in the <code>UnindexedFaces</code>
+        /// array. </para><para>The faces returned by <code>IndexFaces</code> are sorted, in descending order, by
+        /// the largest face bounding box size, to the smallest.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxFaces")]
+        public System.Int32 MaxFace { get; set; }
+        #endregion
+        
         #region Parameter ImageName
         /// <summary>
         /// <para>
@@ -150,6 +203,24 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ImageName { get; set; }
+        #endregion
+        
+        #region Parameter QualityFilter
+        /// <summary>
+        /// <para>
+        /// <para>Specifies how much filtering is done to identify faces detected with low quality.
+        /// Filtered faces are not indexed. If you specify <code>AUTO</code>, filtering prioritizes
+        /// the identification of faces that don’t meet the required quality bar chosen by Amazon
+        /// Rekognition. The quality bar is based on a variety of common use cases. Low quality
+        /// detections can arise for a number of reasons. For example, an object misidentified
+        /// as a face, a face that is too blurry, or a face with a pose that is too extreme to
+        /// use. If you specify <code>NONE</code>, no filtering is performed. The default value
+        /// is NONE.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Rekognition.QualityFilter")]
+        public Amazon.Rekognition.QualityFilter QualityFilter { get; set; }
         #endregion
         
         #region Parameter ImageVersion
@@ -201,6 +272,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
             context.ImageBucket = this.ImageBucket;
             context.ImageName = this.ImageName;
             context.ImageVersion = this.ImageVersion;
+            if (ParameterWasBound("MaxFace"))
+                context.MaxFaces = this.MaxFace;
+            context.QualityFilter = this.QualityFilter;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -298,6 +372,14 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 {
                     request.Image = null;
                 }
+                if (cmdletContext.MaxFaces != null)
+                {
+                    request.MaxFaces = cmdletContext.MaxFaces.Value;
+                }
+                if (cmdletContext.QualityFilter != null)
+                {
+                    request.QualityFilter = cmdletContext.QualityFilter;
+                }
                 
                 CmdletOutput output;
                 
@@ -377,6 +459,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
             public System.String ImageBucket { get; set; }
             public System.String ImageName { get; set; }
             public System.String ImageVersion { get; set; }
+            public System.Int32? MaxFaces { get; set; }
+            public Amazon.Rekognition.QualityFilter QualityFilter { get; set; }
         }
         
     }

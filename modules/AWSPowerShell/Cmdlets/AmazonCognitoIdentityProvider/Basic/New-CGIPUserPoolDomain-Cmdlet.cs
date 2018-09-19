@@ -31,14 +31,25 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// Creates a new domain for a user pool.
     /// </summary>
     [Cmdlet("New", "CGIPUserPoolDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
+    [OutputType("System.String")]
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider CreateUserPoolDomain API operation.", Operation = new[] {"CreateUserPoolDomain"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Domain parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.CreateUserPoolDomainResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.CreateUserPoolDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class NewCGIPUserPoolDomainCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
+        
+        #region Parameter CustomDomainConfig_CertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You
+        /// use this certificate for the subdomain of your custom domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CustomDomainConfig_CertificateArn { get; set; }
+        #endregion
         
         #region Parameter Domain
         /// <summary>
@@ -60,15 +71,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String UserPoolId { get; set; }
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the Domain parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -83,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("UserPoolId", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Domain", MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CGIPUserPoolDomain (CreateUserPoolDomain)"))
             {
                 return;
@@ -98,6 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.CustomDomainConfig_CertificateArn = this.CustomDomainConfig_CertificateArn;
             context.Domain = this.Domain;
             context.UserPoolId = this.UserPoolId;
             
@@ -116,6 +119,25 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // create request
             var request = new Amazon.CognitoIdentityProvider.Model.CreateUserPoolDomainRequest();
             
+            
+             // populate CustomDomainConfig
+            bool requestCustomDomainConfigIsNull = true;
+            request.CustomDomainConfig = new Amazon.CognitoIdentityProvider.Model.CustomDomainConfigType();
+            System.String requestCustomDomainConfig_customDomainConfig_CertificateArn = null;
+            if (cmdletContext.CustomDomainConfig_CertificateArn != null)
+            {
+                requestCustomDomainConfig_customDomainConfig_CertificateArn = cmdletContext.CustomDomainConfig_CertificateArn;
+            }
+            if (requestCustomDomainConfig_customDomainConfig_CertificateArn != null)
+            {
+                request.CustomDomainConfig.CertificateArn = requestCustomDomainConfig_customDomainConfig_CertificateArn;
+                requestCustomDomainConfigIsNull = false;
+            }
+             // determine if request.CustomDomainConfig should be set to null
+            if (requestCustomDomainConfigIsNull)
+            {
+                request.CustomDomainConfig = null;
+            }
             if (cmdletContext.Domain != null)
             {
                 request.Domain = cmdletContext.Domain;
@@ -133,9 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.Domain;
+                object pipelineOutput = response.CloudFrontDomain;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -190,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CustomDomainConfig_CertificateArn { get; set; }
             public System.String Domain { get; set; }
             public System.String UserPoolId { get; set; }
         }

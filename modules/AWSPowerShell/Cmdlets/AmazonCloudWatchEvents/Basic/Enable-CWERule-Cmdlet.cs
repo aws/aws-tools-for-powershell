@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     ///  
     /// <para>
     /// When you enable a rule, incoming events might not immediately start matching to a
-    /// newly enabled rule. Please allow a short period of time for changes to take effect.
+    /// newly enabled rule. Allow a short period of time for changes to take effect.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "CWERule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

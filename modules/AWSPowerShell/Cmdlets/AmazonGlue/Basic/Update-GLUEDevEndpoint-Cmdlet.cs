@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter DeletePublicKey
         /// <summary>
         /// <para>
-        /// <para>The list of public keys to be deleted from the DevEndpoint. </para>
+        /// <para>The list of public keys to be deleted from the DevEndpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,13 +28,13 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modifies the credit option for CPU usage on a running or stopped T2 instance. The
-    /// credit options are <code>standard</code> and <code>unlimited</code>.
+    /// Modifies the credit option for CPU usage on a running or stopped T2 or T3 instance.
+    /// The credit options are <code>standard</code> and <code>unlimited</code>.
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-instances.html">T2
-    /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+    /// Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2InstanceCreditSpecification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

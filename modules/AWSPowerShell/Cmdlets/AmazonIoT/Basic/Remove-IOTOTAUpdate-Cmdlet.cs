@@ -40,6 +40,28 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class RemoveIOTOTAUpdateCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        #region Parameter DeleteStream
+        /// <summary>
+        /// <para>
+        /// <para>Specifies if the stream associated with an OTA update should be deleted when the OTA
+        /// update is deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DeleteStream { get; set; }
+        #endregion
+        
+        #region Parameter ForceDeleteAWSJob
+        /// <summary>
+        /// <para>
+        /// <para>Specifies if the AWS Job associated with the OTA update should be deleted with the
+        /// OTA update is deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean ForceDeleteAWSJob { get; set; }
+        #endregion
+        
         #region Parameter OtaUpdateId
         /// <summary>
         /// <para>
@@ -88,6 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("DeleteStream"))
+                context.DeleteStream = this.DeleteStream;
+            if (ParameterWasBound("ForceDeleteAWSJob"))
+                context.ForceDeleteAWSJob = this.ForceDeleteAWSJob;
             context.OtaUpdateId = this.OtaUpdateId;
             
             // allow further manipulation of loaded context prior to processing
@@ -105,6 +131,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request
             var request = new Amazon.IoT.Model.DeleteOTAUpdateRequest();
             
+            if (cmdletContext.DeleteStream != null)
+            {
+                request.DeleteStream = cmdletContext.DeleteStream.Value;
+            }
+            if (cmdletContext.ForceDeleteAWSJob != null)
+            {
+                request.ForceDeleteAWSJob = cmdletContext.ForceDeleteAWSJob.Value;
+            }
             if (cmdletContext.OtaUpdateId != null)
             {
                 request.OtaUpdateId = cmdletContext.OtaUpdateId;
@@ -175,6 +209,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DeleteStream { get; set; }
+            public System.Boolean? ForceDeleteAWSJob { get; set; }
             public System.String OtaUpdateId { get; set; }
         }
         

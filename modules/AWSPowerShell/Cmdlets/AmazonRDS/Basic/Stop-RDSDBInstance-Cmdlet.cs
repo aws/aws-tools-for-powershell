@@ -28,14 +28,17 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Stops a DB instance. When you stop a DB instance, Amazon RDS retains the DB instance's
-    /// metadata, including its endpoint, DB parameter group, and option group membership.
-    /// Amazon RDS also retains the transaction logs so you can do a point-in-time restore
-    /// if necessary. For more information, see Stopping and Starting a DB instance in the
-    /// AWS RDS user guide. 
+    /// Stops an Amazon RDS DB instance. When you stop a DB instance, Amazon RDS retains
+    /// the DB instance's metadata, including its endpoint, DB parameter group, and option
+    /// group membership. Amazon RDS also retains the transaction logs so you can do a point-in-time
+    /// restore if necessary. 
     /// 
-    ///  <note><para>
-    /// This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.
+    ///  
+    /// <para>
+    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html">
+    /// Stopping an Amazon RDS DB Instance Temporarily</a> in the <i>Amazon RDS User Guide.</i></para><note><para>
+    ///  This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora clusters,
+    /// use <a>StopDBCluster</a> instead. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Stop", "RDSDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

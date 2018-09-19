@@ -41,9 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// of IP addresses from <code>192.0.2.0</code> to <code>192.0.2.255</code>) or <code>192.0.2.44/32</code>
     /// (for the individual IP address <code>192.0.2.44</code>). 
     /// </para></li></ul><para>
-    /// AWS WAF supports /8, /16, /24, and /32 IP address ranges for IPv4, and /24, /32, /48,
-    /// /56, /64 and /128 for IPv6. For more information about CIDR notation, see the Wikipedia
-    /// entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless
+    /// AWS WAF supports IPv4 address ranges: /8 and any range between /16 through /32. AWS
+    /// WAF supports IPv6 address ranges: /16, /24, /32, /48, /56, /64, and /128. For more
+    /// information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless
     /// Inter-Domain Routing</a>.
     /// </para><para>
     /// IPv6 addresses can be represented using any of the following formats:
@@ -75,6 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// When you update an <code>IPSet</code>, you specify the IP addresses that you want
     /// to add and/or the IP addresses that you want to delete. If you want to change an IP
     /// address, you delete the existing IP address and add the new one.
+    /// </para><para>
+    /// You can insert a maximum of 1000 addresses in a single request.
     /// </para><para>
     /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
     /// see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
@@ -116,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         /// <summary>
         /// <para>
         /// <para>An array of <code>IPSetUpdate</code> objects that you want to insert into or delete
-        /// from an <a>IPSet</a>. For more information, see the applicable data types:</para><ul><li><para><a>IPSetUpdate</a>: Contains <code>Action</code> and <code>IPSetDescriptor</code></para></li><li><para><a>IPSetDescriptor</a>: Contains <code>Type</code> and <code>Value</code></para></li></ul>
+        /// from an <a>IPSet</a>. For more information, see the applicable data types:</para><ul><li><para><a>IPSetUpdate</a>: Contains <code>Action</code> and <code>IPSetDescriptor</code></para></li><li><para><a>IPSetDescriptor</a>: Contains <code>Type</code> and <code>Value</code></para></li></ul><para>You can insert a maximum of 1000 addresses in a single request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

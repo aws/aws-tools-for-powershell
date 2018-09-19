@@ -45,13 +45,21 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// addresses or domains, or to email addresses associated with the Amazon SES Mailbox
     /// Simulator. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying
     /// Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></para></li><li><para>
-    /// The total size of the message, including attachments, must be less than 10 MB.
+    /// The maximum message size is 10 MB.
     /// </para></li><li><para>
     /// Each <code>Destination</code> parameter must include at least one recipient email
     /// address. The recipient address can be a To: address, a CC: address, or a BCC: address.
     /// If a recipient email address is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>),
     /// the entire message will be rejected, even if the message contains other recipients
     /// that are valid.
+    /// </para></li><li><para>
+    /// The message may not include more than 50 recipients, across the To:, CC: and BCC:
+    /// fields. If you need to send an email message to a larger audience, you can divide
+    /// your recipient list into groups of 50 or fewer, and then call the <code>SendBulkTemplatedEmail</code>
+    /// operation several times to send the message to each group.
+    /// </para></li><li><para>
+    /// The number of destinations you can contact in a single call to the API may be limited
+    /// by your account's maximum sending rate.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Send", "SESBulkTemplatedEmail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

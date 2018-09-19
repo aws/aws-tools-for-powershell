@@ -35,11 +35,20 @@ namespace Amazon.PowerShell.Cmdlets.SMR
     ///  
     /// <para>
     /// For an overview of Amazon SageMaker, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How
-    /// It Works</a></para><para>
-    ///  Amazon SageMaker strips all POST headers except those supported by the API. Amazon
+    /// It Works</a>. 
+    /// </para><para>
+    /// Amazon SageMaker strips all POST headers except those supported by the API. Amazon
     /// SageMaker might add additional headers. You should not rely on the behavior of headers
     /// outside those enumerated in the request syntax. 
-    /// </para>
+    /// </para><para>
+    /// Cals to <code>InvokeEndpoint</code> are authenticated by using AWS Signature Version
+    /// 4. For information, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating
+    /// Requests (AWS Signature Version 4)</a> in the <i>Amazon S3 API Reference</i>.
+    /// </para><note><para>
+    /// Endpoints are scoped to an individual account, and are not public. The URL does not
+    /// contain the account ID, but Amazon SageMaker determines the account ID from the authentication
+    /// token that is supplied by the caller.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Invoke", "SMREndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SageMakerRuntime.Model.InvokeEndpointResponse")]
@@ -64,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         /// <summary>
         /// <para>
         /// <para>Provides input data, in the format specified in the <code>ContentType</code> request
-        /// header. Amazon SageMaker passes all of the data in the body to the model. </para>
+        /// header. Amazon SageMaker passes all of the data in the body to the model. </para><para>For information about the format of the request body, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common
+        /// Data Formats—Inference</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -79,6 +89,17 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ContentType { get; set; }
+        #endregion
+        
+        #region Parameter CustomAttribute
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("CustomAttributes")]
+        public System.String CustomAttribute { get; set; }
         #endregion
         
         #region Parameter EndpointName
@@ -125,6 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             context.Accept = this.Accept;
             context.Body = this.Body;
             context.ContentType = this.ContentType;
+            context.CustomAttributes = this.CustomAttribute;
             context.EndpointName = this.EndpointName;
             
             // allow further manipulation of loaded context prior to processing
@@ -158,6 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.SMR
                 if (cmdletContext.ContentType != null)
                 {
                     request.ContentType = cmdletContext.ContentType;
+                }
+                if (cmdletContext.CustomAttributes != null)
+                {
+                    request.CustomAttributes = cmdletContext.CustomAttributes;
                 }
                 if (cmdletContext.EndpointName != null)
                 {
@@ -238,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             public System.String Accept { get; set; }
             public byte[] Body { get; set; }
             public System.String ContentType { get; set; }
+            public System.String CustomAttributes { get; set; }
             public System.String EndpointName { get; set; }
         }
         

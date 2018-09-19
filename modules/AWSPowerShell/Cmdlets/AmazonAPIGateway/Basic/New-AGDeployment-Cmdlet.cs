@@ -127,6 +127,16 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.Collections.Hashtable CanarySettings_StageVariableOverride { get; set; }
         #endregion
         
+        #region Parameter TracingEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether active tracing with X-ray is enabled for the <a>Stage</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean TracingEnabled { get; set; }
+        #endregion
+        
         #region Parameter CanarySettings_UseStageCache
         /// <summary>
         /// <para>
@@ -199,6 +209,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
             context.RestApiId = this.RestApiId;
             context.StageDescription = this.StageDescription;
             context.StageName = this.StageName;
+            if (ParameterWasBound("TracingEnabled"))
+                context.TracingEnabled = this.TracingEnabled;
             if (this.Variable != null)
             {
                 context.Variables = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -286,6 +298,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             {
                 request.StageName = cmdletContext.StageName;
             }
+            if (cmdletContext.TracingEnabled != null)
+            {
+                request.TracingEnabled = cmdletContext.TracingEnabled.Value;
+            }
             if (cmdletContext.Variables != null)
             {
                 request.Variables = cmdletContext.Variables;
@@ -363,6 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String RestApiId { get; set; }
             public System.String StageDescription { get; set; }
             public System.String StageName { get; set; }
+            public System.Boolean? TracingEnabled { get; set; }
             public Dictionary<System.String, System.String> Variables { get; set; }
         }
         

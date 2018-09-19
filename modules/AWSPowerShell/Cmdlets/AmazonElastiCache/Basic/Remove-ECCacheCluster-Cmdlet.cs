@@ -38,10 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// This operation cannot be used to delete a cluster that is the last read replica of
     /// a replication group or node group (shard) that has Multi-AZ mode enabled or a cluster
     /// from a Redis (cluster mode enabled) replication group.
-    /// </para><important><para>
-    /// Due to current limitations on Redis (cluster mode disabled), this operation or parameter
-    /// is not supported on Redis (cluster mode enabled) replication groups.
-    /// </para></important>
+    /// </para><para>
+    /// This operation is not valid for Redis (cluster mode enabled) clusters.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "ECCacheCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ElastiCache.Model.CacheCluster")]

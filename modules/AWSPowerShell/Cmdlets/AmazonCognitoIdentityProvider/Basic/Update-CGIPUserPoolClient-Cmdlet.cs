@@ -28,7 +28,9 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Allows the developer to update the specified user pool client and password policy.
+    /// Updates the specified user pool app client with the specified attributes. If you don't
+    /// provide a value for an attribute, it will be set to the default value. You can get
+    /// a list of the current user pool app client settings with .
     /// </summary>
     [Cmdlet("Update", "CGIPUserPoolClient", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.UserPoolClientType")]
@@ -90,8 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter CallbackURLs
         /// <summary>
         /// <para>
-        /// <para>A list of allowed redirect (callback) URLs for the identity providers.</para><para>A redirect URI must:</para><ul><li><para>Be an absolute URI.</para></li><li><para>Be registered with the authorization server.</para></li><li><para>Not use HTTP without TLS (i.e. use HTTPS instead of HTTP).</para></li><li><para>Not include a fragment component.</para></li></ul><para>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection
-        /// Endpoint</a>.</para>
+        /// <para>A list of allowed redirect (callback) URLs for the identity providers.</para><para>A redirect URI must:</para><ul><li><para>Be an absolute URI.</para></li><li><para>Be registered with the authorization server.</para></li><li><para>Not include a fragment component.</para></li></ul><para>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection
+        /// Endpoint</a>.</para><para>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes
+        /// only.</para><para>App callback URLs such as myapp://example are also supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -121,8 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DefaultRedirectURI
         /// <summary>
         /// <para>
-        /// <para>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</para><para>A redirect URI must:</para><ul><li><para>Be an absolute URI.</para></li><li><para>Be registered with the authorization server.</para></li><li><para>Not use HTTP without TLS (i.e. use HTTPS instead of HTTP).</para></li><li><para>Not include a fragment component.</para></li></ul><para>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection
-        /// Endpoint</a>.</para>
+        /// <para>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</para><para>A redirect URI must:</para><ul><li><para>Be an absolute URI.</para></li><li><para>Be registered with the authorization server.</para></li><li><para>Not include a fragment component.</para></li></ul><para>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection
+        /// Endpoint</a>.</para><para>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes
+        /// only.</para><para>App callback URLs such as myapp://example are also supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

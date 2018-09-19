@@ -28,16 +28,20 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the credit option for CPU usage of one or more of your T2 instances. The
-    /// credit options are <code>standard</code> and <code>unlimited</code>.
+    /// Describes the credit option for CPU usage of one or more of your T2 or T3 instances.
+    /// The credit options are <code>standard</code> and <code>unlimited</code>.
     /// 
     ///  
     /// <para>
-    /// If you do not specify an instance ID, Amazon EC2 returns only the T2 instances with
-    /// the <code>unlimited</code> credit option. If you specify one or more instance IDs,
-    /// Amazon EC2 returns the credit option (<code>standard</code> or <code>unlimited</code>)
-    /// of those instances. If you specify an instance ID that is not valid, such as an instance
-    /// that is not a T2 instance, an error is returned.
+    /// If you do not specify an instance ID, Amazon EC2 returns T2 and T3 instances with
+    /// the <code>unlimited</code> credit option, as well as instances that were previously
+    /// configured as T2 or T3 with the <code>unlimited</code> credit option. For example,
+    /// if you resize a T2 instance, while it is configured as <code>unlimited</code>, to
+    /// an M4 instance, Amazon EC2 returns the M4 instance.
+    /// </para><para>
+    /// If you specify one or more instance IDs, Amazon EC2 returns the credit option (<code>standard</code>
+    /// or <code>unlimited</code>) of those instances. If you specify an instance ID that
+    /// is not valid, such as an instance that is not a T2 or T3 instance, an error is returned.
     /// </para><para>
     /// Recently terminated instances might appear in the returned results. This interval
     /// is usually less than one hour.
@@ -46,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// IDs in the affected zone, or do not specify any instance IDs at all, the call fails.
     /// If you specify only instance IDs in an unaffected zone, the call works normally.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-instances.html">T2
-    /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+    /// Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2CreditSpecification")]

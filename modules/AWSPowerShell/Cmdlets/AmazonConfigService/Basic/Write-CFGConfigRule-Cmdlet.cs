@@ -151,6 +151,17 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public Amazon.ConfigService.ConfigRuleState ConfigRule_ConfigRuleState { get; set; }
         #endregion
         
+        #region Parameter ConfigRule_CreatedBy
+        /// <summary>
+        /// <para>
+        /// <para>Service principal name of the service that created the rule.</para><note><para>The field is populated only if the service linked rule is created by a service. The
+        /// field is empty if you create your own rule.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ConfigRule_CreatedBy { get; set; }
+        #endregion
+        
         #region Parameter ConfigRule_Description
         /// <summary>
         /// <para>
@@ -292,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             context.ConfigRule_ConfigRuleId = this.ConfigRule_ConfigRuleId;
             context.ConfigRule_ConfigRuleName = this.ConfigRule_ConfigRuleName;
             context.ConfigRule_ConfigRuleState = this.ConfigRule_ConfigRuleState;
+            context.ConfigRule_CreatedBy = this.ConfigRule_CreatedBy;
             context.ConfigRule_Description = this.ConfigRule_Description;
             context.ConfigRule_InputParameters = this.ConfigRule_InputParameter;
             context.ConfigRule_MaximumExecutionFrequency = this.ConfigRule_MaximumExecutionFrequency;
@@ -366,6 +378,16 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestConfigRule_configRule_ConfigRuleState != null)
             {
                 request.ConfigRule.ConfigRuleState = requestConfigRule_configRule_ConfigRuleState;
+                requestConfigRuleIsNull = false;
+            }
+            System.String requestConfigRule_configRule_CreatedBy = null;
+            if (cmdletContext.ConfigRule_CreatedBy != null)
+            {
+                requestConfigRule_configRule_CreatedBy = cmdletContext.ConfigRule_CreatedBy;
+            }
+            if (requestConfigRule_configRule_CreatedBy != null)
+            {
+                request.ConfigRule.CreatedBy = requestConfigRule_configRule_CreatedBy;
                 requestConfigRuleIsNull = false;
             }
             System.String requestConfigRule_configRule_Description = null;
@@ -573,6 +595,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             public System.String ConfigRule_ConfigRuleId { get; set; }
             public System.String ConfigRule_ConfigRuleName { get; set; }
             public Amazon.ConfigService.ConfigRuleState ConfigRule_ConfigRuleState { get; set; }
+            public System.String ConfigRule_CreatedBy { get; set; }
             public System.String ConfigRule_Description { get; set; }
             public System.String ConfigRule_InputParameters { get; set; }
             public Amazon.ConfigService.MaximumExecutionFrequency ConfigRule_MaximumExecutionFrequency { get; set; }

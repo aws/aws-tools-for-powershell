@@ -32,11 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     /// Manager as the AWS Firewall Manager administrator.
     /// </summary>
     [Cmdlet("Get", "FMSAdminAccount")]
-    [OutputType("System.String")]
+    [OutputType("Amazon.FMS.Model.GetAdminAccountResponse")]
     [AWSCmdlet("Calls the Firewall Management Service GetAdminAccount API operation.", Operation = new[] {"GetAdminAccount"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.FMS.Model.GetAdminAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.FMS.Model.GetAdminAccountResponse",
+        "This cmdlet returns a Amazon.FMS.Model.GetAdminAccountResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetFMSAdminAccountCmdlet : AmazonFMSClientCmdlet, IExecutor
     {
@@ -79,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.AdminAccount;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

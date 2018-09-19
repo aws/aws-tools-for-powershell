@@ -74,10 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>To receive a paginated response, use this parameter to specify the maximum number
-        /// of results to be returned with a single call. If the number of available results exceeds
-        /// this maximum, the response includes a <code>NextToken</code> value that you can assign
-        /// to the <code>NextToken</code> request parameter to get the next set of results. </para>
+        /// <para>This is not currently implemented for <code>DescribeBackups</code> requests.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -91,14 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>NextToken is a string that is returned in some command responses. It indicates that
-        /// not all entries have been returned, and that you must run at least one more request
-        /// to get remaining items. To get remaining results, call <code>DescribeBackups</code>
-        /// again, and assign the token from the previous results as the value of the <code>nextToken</code>
-        /// parameter. If there are no more results, the response object's <code>nextToken</code>
-        /// parameter value is <code>null</code>. Setting a <code>nextToken</code> value that
-        /// was not returned in your previous results causes an <code>InvalidNextTokenException</code>
-        /// to occur.</para>
+        /// <para>This is not currently implemented for <code>DescribeBackups</code> requests.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

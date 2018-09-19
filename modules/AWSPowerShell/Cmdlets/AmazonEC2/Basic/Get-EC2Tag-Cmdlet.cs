@@ -50,14 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>key</code> - The tag key.</para></li><li><para><code>resource-id</code> - The resource ID.</para></li><li><para><code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dhcp-options</code>
-        /// | <code>elastic-ip</code> | <code>fleet</code> | <code>fpga-image</code> | <code>image</code>
-        /// | <code>instance</code> | <code>internet-gateway</code> | <code>launch-template</code>
+        /// <para>One or more filters.</para><ul><li><para><code>key</code> - The tag key.</para></li><li><para><code>resource-id</code> - The ID of the resource.</para></li><li><para><code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dedicated-host</code>
+        /// | <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> | <code>fpga-image</code>
+        /// | <code>image</code> | <code>instance</code> | <code>internet-gateway</code> | <code>launch-template</code>
         /// | <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code>
         /// | <code>reserved-instances</code> | <code>route-table</code> | <code>security-group</code>
         /// | <code>snapshot</code> | <code>spot-instances-request</code> | <code>subnet</code>
         /// | <code>volume</code> | <code>vpc</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code>
-        /// | <code>vpn-gateway</code>).</para></li><li><para><code>value</code> - The tag value.</para></li></ul>
+        /// | <code>vpn-gateway</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example,
+        /// specify "tag:Owner" for the filter name and "TeamA" for the filter value to find resources
+        /// with the tag "Owner=TeamA".</para></li><li><para><code>value</code> - The tag value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

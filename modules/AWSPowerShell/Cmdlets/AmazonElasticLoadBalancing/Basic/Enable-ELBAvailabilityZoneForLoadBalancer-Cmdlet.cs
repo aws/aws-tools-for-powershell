@@ -29,15 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB
 {
     /// <summary>
     /// Adds the specified Availability Zones to the set of Availability Zones for the specified
-    /// load balancer.
+    /// load balancer in EC2-Classic or a default VPC.
     /// 
     ///  
     /// <para>
-    /// The load balancer evenly distributes requests across all its registered Availability
-    /// Zones that contain instances.
+    /// For load balancers in a non-default VPC, use <a>AttachLoadBalancerToSubnets</a>.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add
-    /// or Remove Availability Zones</a> in the <i>Classic Load Balancer Guide</i>.
+    /// The load balancer evenly distributes requests across all its registered Availability
+    /// Zones that contain instances. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add
+    /// or Remove Availability Zones</a> in the <i>Classic Load Balancers Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "ELBAvailabilityZoneForLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

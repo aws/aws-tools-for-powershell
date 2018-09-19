@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     ///  
     /// <para>
     /// For an overview on tagging an Amazon RDS resource, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging
-    /// Amazon RDS Resources</a>.
+    /// Amazon RDS Resources</a> in the <i>Amazon RDS User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "RDSTagForResource")]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name
         /// (ARN). For information about creating an ARN, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-        /// Constructing an RDS Amazon Resource Name (ARN)</a>.</para>
+        /// Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

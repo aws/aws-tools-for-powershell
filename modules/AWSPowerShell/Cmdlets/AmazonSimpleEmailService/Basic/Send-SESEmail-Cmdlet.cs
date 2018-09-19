@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// addresses or domains, or to email addresses associated with the Amazon SES Mailbox
     /// Simulator. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying
     /// Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></para></li><li><para>
-    /// The total size of the message, including attachments, must be smaller than 10 MB.
+    /// The maximum message size is 10 MB.
     /// </para></li><li><para>
     /// The message must include at least one recipient email address. The recipient address
     /// can be a To: address, a CC: address, or a BCC: address. If a recipient email address

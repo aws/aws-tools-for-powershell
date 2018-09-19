@@ -931,6 +931,7 @@ Set-Alias -Name CW-EnableAlarmActions -Value Enable-CWAlarmAction
 Set-Alias -Name CW-GetDashboard -Value Get-CWDashboard
 Set-Alias -Name CW-GetMetricData -Value Get-CWMetricData
 Set-Alias -Name CW-GetMetricStatistics -Value Get-CWMetricStatistic
+Set-Alias -Name CW-GetMetricWidgetImage -Value Get-CWMetricWidgetImage
 Set-Alias -Name List-CWDashboardList -Value Get-CWDashboardList
 Set-Alias -Name CW-ListDashboards -Value Get-CWDashboardList
 Set-Alias -Name Put-CWDashboard -Value Write-CWDashboard
@@ -1751,6 +1752,7 @@ Set-Alias -Name Create-DSConditionalForwarder -Value New-DSConditionalForwarder
 Set-Alias -Name DS-CreateConditionalForwarder -Value New-DSConditionalForwarder
 Set-Alias -Name Create-DSDirectory -Value New-DSDirectory
 Set-Alias -Name DS-CreateDirectory -Value New-DSDirectory
+Set-Alias -Name DS-CreateLogSubscription -Value New-DSLogSubscription
 Set-Alias -Name Create-DSMicrosoftAD -Value New-DSMicrosoftAD
 Set-Alias -Name DS-CreateMicrosoftAD -Value New-DSMicrosoftAD
 Set-Alias -Name Create-DSSnapshot -Value New-DSSnapshot
@@ -1761,6 +1763,7 @@ Set-Alias -Name Delete-DSConditionalForwarder -Value Remove-DSConditionalForward
 Set-Alias -Name DS-DeleteConditionalForwarder -Value Remove-DSConditionalForwarder
 Set-Alias -Name Delete-DSDirectory -Value Remove-DSDirectory
 Set-Alias -Name DS-DeleteDirectory -Value Remove-DSDirectory
+Set-Alias -Name DS-DeleteLogSubscription -Value Remove-DSLogSubscription
 Set-Alias -Name Delete-DSSnapshot -Value Remove-DSSnapshot
 Set-Alias -Name DS-DeleteSnapshot -Value Remove-DSSnapshot
 Set-Alias -Name Delete-DSTrust -Value Remove-DSTrust
@@ -1784,6 +1787,7 @@ Set-Alias -Name DS-EnableSso -Value Enable-DSSso
 Set-Alias -Name DS-GetDirectoryLimits -Value Get-DSDirectoryLimit
 Set-Alias -Name DS-GetSnapshotLimits -Value Get-DSSnapshotLimit
 Set-Alias -Name DS-ListIpRoutes -Value Get-DSIpRouteList
+Set-Alias -Name DS-ListLogSubscriptions -Value Get-DSLogSubscriptionList
 Set-Alias -Name DS-ListSchemaExtensions -Value Get-DSSchemaExtension
 Set-Alias -Name DS-ListTagsForResource -Value Get-DSResourceTag
 Set-Alias -Name DS-RegisterEventTopic -Value Register-DSEventTopic
@@ -1803,6 +1807,7 @@ Set-Alias -Name Delete-DDBTable -Value Remove-DDBTable
 Set-Alias -Name DDB-DeleteTable -Value Remove-DDBTable
 Set-Alias -Name DDB-DescribeBackup -Value Get-DDBBackup
 Set-Alias -Name DDB-DescribeContinuousBackups -Value Get-DDBContinuousBackup
+Set-Alias -Name DDB-DescribeEndpoints -Value Get-DDBEndpoint
 Set-Alias -Name DDB-DescribeGlobalTable -Value Get-DDBGlobalTable
 Set-Alias -Name DDB-DescribeGlobalTableSettings -Value Get-DDBGlobalTableSetting
 Set-Alias -Name Describe-DDBProvisionLimit -Value Get-DDBProvisionLimit
@@ -2391,6 +2396,7 @@ Set-Alias -Name Create-ECReplicationGroup -Value New-ECReplicationGroup
 Set-Alias -Name EC-CreateReplicationGroup -Value New-ECReplicationGroup
 Set-Alias -Name Create-ECSnapshot -Value New-ECSnapshot
 Set-Alias -Name EC-CreateSnapshot -Value New-ECSnapshot
+Set-Alias -Name EC-DecreaseReplicaCount -Value Request-ECReplicaCountDecrease
 Set-Alias -Name Delete-ECCacheCluster -Value Remove-ECCacheCluster
 Set-Alias -Name EC-DeleteCacheCluster -Value Remove-ECCacheCluster
 Set-Alias -Name Delete-ECCacheParameterGroup -Value Remove-ECCacheParameterGroup
@@ -2427,6 +2433,7 @@ Set-Alias -Name Describe-ECReservedCacheNodesOfferings -Value Get-ECReservedCach
 Set-Alias -Name EC-DescribeReservedCacheNodesOfferings -Value Get-ECReservedCacheNodesOffering
 Set-Alias -Name Describe-ECSnapshot -Value Get-ECSnapshot
 Set-Alias -Name EC-DescribeSnapshots -Value Get-ECSnapshot
+Set-Alias -Name EC-IncreaseReplicaCount -Value Request-ECReplicaCountIncrease
 Set-Alias -Name EC-ListAllowedNodeTypeModifications -Value Get-ECAllowedNodeTypeModification
 Set-Alias -Name EC-ListTagsForResource -Value Get-ECTag
 Set-Alias -Name Modify-ECCacheCluster -Value Edit-ECCacheCluster
@@ -2675,6 +2682,7 @@ Set-Alias -Name FMS-GetComplianceDetail -Value Get-FMSComplianceDetail
 Set-Alias -Name FMS-GetNotificationChannel -Value Get-FMSNotificationChannel
 Set-Alias -Name FMS-GetPolicy -Value Get-FMSPolicy
 Set-Alias -Name FMS-ListComplianceStatus -Value Get-FMSComplianceStatusList
+Set-Alias -Name FMS-ListMemberAccounts -Value Get-FMSMemberAccountList
 Set-Alias -Name FMS-ListPolicies -Value Get-FMSPolicyList
 Set-Alias -Name FMS-PutNotificationChannel -Value Write-FMSNotificationChannel
 Set-Alias -Name FMS-PutPolicy -Value Set-FMSPolicy
@@ -2693,6 +2701,7 @@ Set-Alias -Name GLUE-CreateDevEndpoint -Value New-GLUEDevEndpoint
 Set-Alias -Name GLUE-CreateJob -Value New-GLUEJob
 Set-Alias -Name GLUE-CreatePartition -Value New-GLUEPartition
 Set-Alias -Name GLUE-CreateScript -Value New-GLUEScript
+Set-Alias -Name GLUE-CreateSecurityConfiguration -Value New-GLUESecurityConfiguration
 Set-Alias -Name GLUE-CreateTable -Value New-GLUETable
 Set-Alias -Name GLUE-CreateTrigger -Value New-GLUETrigger
 Set-Alias -Name GLUE-CreateUserDefinedFunction -Value New-GLUEUserDefinedFunction
@@ -2703,6 +2712,7 @@ Set-Alias -Name GLUE-DeleteDatabase -Value Remove-GLUEDatabase
 Set-Alias -Name GLUE-DeleteDevEndpoint -Value Remove-GLUEDevEndpoint
 Set-Alias -Name GLUE-DeleteJob -Value Remove-GLUEJob
 Set-Alias -Name GLUE-DeletePartition -Value Remove-GLUEPartition
+Set-Alias -Name GLUE-DeleteSecurityConfiguration -Value Remove-GLUESecurityConfiguration
 Set-Alias -Name GLUE-DeleteTable -Value Remove-GLUETable
 Set-Alias -Name GLUE-DeleteTableVersion -Value Remove-GLUETableVersion
 Set-Alias -Name GLUE-DeleteTrigger -Value Remove-GLUETrigger
@@ -2728,6 +2738,8 @@ Set-Alias -Name GLUE-GetMapping -Value Get-GLUEMapping
 Set-Alias -Name GLUE-GetPartition -Value Get-GLUEPartition
 Set-Alias -Name GLUE-GetPartitions -Value Get-GLUEPartitionList
 Set-Alias -Name GLUE-GetPlan -Value Get-GLUEPlan
+Set-Alias -Name GLUE-GetSecurityConfiguration -Value Get-GLUESecurityConfiguration
+Set-Alias -Name GLUE-GetSecurityConfigurations -Value Get-GLUESecurityConfigurationList
 Set-Alias -Name GLUE-GetTable -Value Get-GLUETable
 Set-Alias -Name GLUE-GetTables -Value Get-GLUETableList
 Set-Alias -Name GLUE-GetTableVersion -Value Get-GLUETableVersion
@@ -2737,6 +2749,7 @@ Set-Alias -Name GLUE-GetTriggers -Value Get-GLUETriggerList
 Set-Alias -Name GLUE-GetUserDefinedFunction -Value Get-GLUEUserDefinedFunction
 Set-Alias -Name GLUE-GetUserDefinedFunctions -Value Get-GLUEUserDefinedFunctionList
 Set-Alias -Name GLUE-ImportCatalogToGlue -Value Import-GLUECatalog
+Set-Alias -Name GLUE-PutDataCatalogEncryptionSettings -Value Set-GLUEDataCatalogEncryptionSetting
 Set-Alias -Name GLUE-ResetJobBookmark -Value Reset-GLUEJobBookmark
 Set-Alias -Name GLUE-StartCrawler -Value Start-GLUECrawler
 Set-Alias -Name GLUE-StartCrawlerSchedule -Value Start-GLUECrawlerSchedule
@@ -3069,6 +3082,7 @@ Set-Alias -Name Create-HSM2Cluster -Value New-HSM2Cluster
 Set-Alias -Name HSM2-CreateCluster -Value New-HSM2Cluster
 Set-Alias -Name Create-HSM2Hsm -Value New-HSM2Hsm
 Set-Alias -Name HSM2-CreateHsm -Value New-HSM2Hsm
+Set-Alias -Name HSM2-DeleteBackup -Value Remove-HSM2Backup
 Set-Alias -Name Delete-HSM2Cluster -Value Remove-HSM2Cluster
 Set-Alias -Name HSM2-DeleteCluster -Value Remove-HSM2Cluster
 Set-Alias -Name Delete-HSM2Hsm -Value Remove-HSM2Hsm
@@ -3079,6 +3093,7 @@ Set-Alias -Name Describe-HSM2Cluster -Value Get-HSM2Cluster
 Set-Alias -Name HSM2-DescribeClusters -Value Get-HSM2Cluster
 Set-Alias -Name HSM2-InitializeCluster -Value Initialize-HSM2Cluster
 Set-Alias -Name HSM2-ListTags -Value Get-HSM2ResourceTag
+Set-Alias -Name HSM2-RestoreBackup -Value Restore-HSM2Backup
 Set-Alias -Name HSM2-TagResource -Value Add-HSM2ResourceTag
 Set-Alias -Name HSM2-UntagResource -Value Remove-HSM2ResourceTag
 Set-Alias -Name IAM-AddClientIDToOpenIDConnectProvider -Value Add-IAMClientIDToOpenIDConnectProvider
@@ -3866,6 +3881,7 @@ Set-Alias -Name EMC-UntagResource -Value Remove-EMCResourceTag
 Set-Alias -Name EMC-UpdateJobTemplate -Value Update-EMCJobTemplate
 Set-Alias -Name EMC-UpdatePreset -Value Update-EMCPreset
 Set-Alias -Name EMC-UpdateQueue -Value Update-EMCQueue
+Set-Alias -Name EML-BatchUpdateSchedule -Value Update-EMLScheduleBatch
 Set-Alias -Name Create-EMLChannel -Value New-EMLChannel
 Set-Alias -Name EML-CreateChannel -Value New-EMLChannel
 Set-Alias -Name Create-EMLInput -Value New-EMLInput
@@ -3887,6 +3903,7 @@ Set-Alias -Name Describe-EMLInputSecurityGroup -Value Get-EMLInputSecurityGroup
 Set-Alias -Name EML-DescribeInputSecurityGroup -Value Get-EMLInputSecurityGroup
 Set-Alias -Name EML-DescribeOffering -Value Get-EMLOffering
 Set-Alias -Name EML-DescribeReservation -Value Get-EMLReservation
+Set-Alias -Name EML-DescribeSchedule -Value Get-EMLSchedule
 Set-Alias -Name EML-ListChannels -Value Get-EMLChannelList
 Set-Alias -Name EML-ListInputs -Value Get-EMLInputList
 Set-Alias -Name EML-ListInputSecurityGroups -Value Get-EMLInputSecurityGroupList
@@ -3913,6 +3930,7 @@ Set-Alias -Name EMP-DescribeOriginEndpoint -Value Get-EMPOriginEndpoint
 Set-Alias -Name EMP-ListChannels -Value Get-EMPChannelList
 Set-Alias -Name EMP-ListOriginEndpoints -Value Get-EMPOriginEndpointList
 Set-Alias -Name EMP-RotateChannelCredentials -Value Invoke-EMPChannelCredentialRotation
+Set-Alias -Name EMP-RotateIngestEndpointCredentials -Value Invoke-EMPIngestEndpointCredentialRotation
 Set-Alias -Name EMP-UpdateChannel -Value Update-EMPChannel
 Set-Alias -Name EMP-UpdateOriginEndpoint -Value Update-EMPOriginEndpoint
 Set-Alias -Name Create-EMSContainer -Value New-EMSContainer
@@ -4530,7 +4548,9 @@ Set-Alias -Name RDS-RestoreDBInstanceFromDBSnapshot -Value Restore-RDSDBInstance
 Set-Alias -Name RDS-RestoreDBInstanceFromS3 -Value Restore-RDSDBInstanceFromS3
 Set-Alias -Name RDS-RestoreDBInstanceToPointInTime -Value Restore-RDSDBInstanceToPointInTime
 Set-Alias -Name RDS-RevokeDBSecurityGroupIngress -Value Revoke-RDSDBSecurityGroupIngress
+Set-Alias -Name RDS-StartDBCluster -Value Start-RDSDBCluster
 Set-Alias -Name RDS-StartDBInstance -Value Start-RDSDBInstance
+Set-Alias -Name RDS-StopDBCluster -Value Stop-RDSDBCluster
 Set-Alias -Name RDS-StopDBInstance -Value Stop-RDSDBInstance
 Set-Alias -Name RS-AcceptReservedNodeExchange -Value Switch-RSReservedNode
 Set-Alias -Name Authorize-RSClusterSecurityGroupIngress -Value Approve-RSClusterSecurityGroupIngress
@@ -4662,6 +4682,7 @@ Set-Alias -Name REK-DeleteCollection -Value Remove-REKCollection
 Set-Alias -Name Delete-REKFace -Value Remove-REKFace
 Set-Alias -Name REK-DeleteFaces -Value Remove-REKFace
 Set-Alias -Name REK-DeleteStreamProcessor -Value Remove-REKStreamProcessor
+Set-Alias -Name REK-DescribeCollection -Value Get-REKCollection
 Set-Alias -Name REK-DescribeStreamProcessor -Value Get-REKStreamProcessor
 Set-Alias -Name REK-DetectFaces -Value Find-REKFace
 Set-Alias -Name REK-DetectLabels -Value Find-REKLabel
@@ -5442,8 +5463,10 @@ Set-Alias -Name Describe-SSMPatchGroup -Value Get-SSMPatchGroup
 Set-Alias -Name SSM-DescribePatchGroups -Value Get-SSMPatchGroup
 Set-Alias -Name Describe-SSMPatchGroupState -Value Get-SSMPatchGroupState
 Set-Alias -Name SSM-DescribePatchGroupState -Value Get-SSMPatchGroupState
+Set-Alias -Name SSM-DescribeSessions -Value Get-SSMSession
 Set-Alias -Name SSM-GetAutomationExecution -Value Get-SSMAutomationExecution
 Set-Alias -Name SSM-GetCommandInvocation -Value Get-SSMCommandInvocationDetail
+Set-Alias -Name SSM-GetConnectionStatus -Value Get-SSMConnectionStatus
 Set-Alias -Name SSM-GetDefaultPatchBaseline -Value Get-SSMDefaultPatchBaseline
 Set-Alias -Name SSM-GetDeployablePatchSnapshotForInstance -Value Get-SSMDeployablePatchSnapshotForInstance
 Set-Alias -Name SSM-GetDocument -Value Get-SSMDocument
@@ -5492,11 +5515,14 @@ Set-Alias -Name SSM-RegisterPatchBaselineForPatchGroup -Value Register-SSMPatchB
 Set-Alias -Name SSM-RegisterTargetWithMaintenanceWindow -Value Register-SSMTargetWithMaintenanceWindow
 Set-Alias -Name SSM-RegisterTaskWithMaintenanceWindow -Value Register-SSMTaskWithMaintenanceWindow
 Set-Alias -Name SSM-RemoveTagsFromResource -Value Remove-SSMResourceTag
+Set-Alias -Name SSM-ResumeSession -Value Resume-SSMSession
 Set-Alias -Name SSM-SendAutomationSignal -Value Send-SSMAutomationSignal
 Set-Alias -Name SSM-SendCommand -Value Send-SSMCommand
 Set-Alias -Name SSM-StartAssociationsOnce -Value Start-SSMAssociationsOnce
 Set-Alias -Name SSM-StartAutomationExecution -Value Start-SSMAutomationExecution
+Set-Alias -Name SSM-StartSession -Value Start-SSMSession
 Set-Alias -Name SSM-StopAutomationExecution -Value Stop-SSMAutomationExecution
+Set-Alias -Name SSM-TerminateSession -Value Stop-SSMSession
 Set-Alias -Name SSM-UpdateAssociation -Value Update-SSMAssociation
 Set-Alias -Name SSM-UpdateAssociationStatus -Value Update-SSMAssociationStatus
 Set-Alias -Name SSM-UpdateDocument -Value Update-SSMDocument
@@ -5665,6 +5691,7 @@ Set-Alias -Name Delete-WAFGeoMatchSet -Value Remove-WAFGeoMatchSet
 Set-Alias -Name WAF-DeleteGeoMatchSet -Value Remove-WAFGeoMatchSet
 Set-Alias -Name Delete-WAFIPSet -Value Remove-WAFIPSet
 Set-Alias -Name WAF-DeleteIPSet -Value Remove-WAFIPSet
+Set-Alias -Name WAF-DeleteLoggingConfiguration -Value Remove-WAFLoggingConfiguration
 Set-Alias -Name WAF-DeletePermissionPolicy -Value Remove-WAFPermissionPolicy
 Set-Alias -Name Delete-WAFRateBasedRule -Value Remove-WAFRateBasedRule
 Set-Alias -Name WAF-DeleteRateBasedRule -Value Remove-WAFRateBasedRule
@@ -5688,6 +5715,7 @@ Set-Alias -Name WAF-GetChangeToken -Value Get-WAFChangeToken
 Set-Alias -Name WAF-GetChangeTokenStatus -Value Get-WAFChangeTokenStatus
 Set-Alias -Name WAF-GetGeoMatchSet -Value Get-WAFGeoMatchSet
 Set-Alias -Name WAF-GetIPSet -Value Get-WAFIPSet
+Set-Alias -Name WAF-GetLoggingConfiguration -Value Get-WAFLoggingConfiguration
 Set-Alias -Name WAF-GetPermissionPolicy -Value Get-WAFPermissionPolicy
 Set-Alias -Name WAF-GetRateBasedRule -Value Get-WAFRateBasedRule
 Set-Alias -Name WAF-GetRateBasedRuleManagedKeys -Value Get-WAFRateBasedRuleManagedKey
@@ -5707,6 +5735,7 @@ Set-Alias -Name List-WAFGeoMatchSetList -Value Get-WAFGeoMatchSetList
 Set-Alias -Name WAF-ListGeoMatchSets -Value Get-WAFGeoMatchSetList
 Set-Alias -Name List-WAFIPSetList -Value Get-WAFIPSetList
 Set-Alias -Name WAF-ListIPSets -Value Get-WAFIPSetList
+Set-Alias -Name WAF-ListLoggingConfigurations -Value Get-WAFLoggingConfigurationList
 Set-Alias -Name List-WAFRateBasedRuleList -Value Get-WAFRateBasedRuleList
 Set-Alias -Name WAF-ListRateBasedRules -Value Get-WAFRateBasedRuleList
 Set-Alias -Name List-WAFRegexMatchSetList -Value Get-WAFRegexMatchSetList
@@ -5725,6 +5754,7 @@ Set-Alias -Name List-WAFWebACLList -Value Get-WAFWebACLList
 Set-Alias -Name WAF-ListWebACLs -Value Get-WAFWebACLList
 Set-Alias -Name List-WAFXssMatchSetList -Value Get-WAFXssMatchSetList
 Set-Alias -Name WAF-ListXssMatchSets -Value Get-WAFXssMatchSetList
+Set-Alias -Name WAF-PutLoggingConfiguration -Value Write-WAFLoggingConfiguration
 Set-Alias -Name WAF-PutPermissionPolicy -Value Write-WAFPermissionPolicy
 Set-Alias -Name WAF-UpdateByteMatchSet -Value Update-WAFByteMatchSet
 Set-Alias -Name WAF-UpdateGeoMatchSet -Value Update-WAFGeoMatchSet
@@ -5768,6 +5798,7 @@ Set-Alias -Name Delete-WAFRGeoMatchSet -Value Remove-WAFRGeoMatchSet
 Set-Alias -Name WAFR-DeleteGeoMatchSet -Value Remove-WAFRGeoMatchSet
 Set-Alias -Name Delete-WAFRIPSet -Value Remove-WAFRIPSet
 Set-Alias -Name WAFR-DeleteIPSet -Value Remove-WAFRIPSet
+Set-Alias -Name WAFR-DeleteLoggingConfiguration -Value Remove-WAFRLoggingConfiguration
 Set-Alias -Name WAFR-DeletePermissionPolicy -Value Remove-WAFRPermissionPolicy
 Set-Alias -Name Delete-WAFRRateBasedRule -Value Remove-WAFRRateBasedRule
 Set-Alias -Name WAFR-DeleteRateBasedRule -Value Remove-WAFRRateBasedRule
@@ -5792,6 +5823,7 @@ Set-Alias -Name WAFR-GetChangeToken -Value Get-WAFRChangeToken
 Set-Alias -Name WAFR-GetChangeTokenStatus -Value Get-WAFRChangeTokenStatus
 Set-Alias -Name WAFR-GetGeoMatchSet -Value Get-WAFRGeoMatchSet
 Set-Alias -Name WAFR-GetIPSet -Value Get-WAFRIPSet
+Set-Alias -Name WAFR-GetLoggingConfiguration -Value Get-WAFRLoggingConfiguration
 Set-Alias -Name WAFR-GetPermissionPolicy -Value Get-WAFRPermissionPolicy
 Set-Alias -Name WAFR-GetRateBasedRule -Value Get-WAFRRateBasedRule
 Set-Alias -Name WAFR-GetRateBasedRuleManagedKeys -Value Get-WAFRRateBasedRuleManagedKey
@@ -5812,6 +5844,7 @@ Set-Alias -Name List-WAFRGeoMatchSetList -Value Get-WAFRGeoMatchSetList
 Set-Alias -Name WAFR-ListGeoMatchSets -Value Get-WAFRGeoMatchSetList
 Set-Alias -Name List-WAFRIPSetList -Value Get-WAFRIPSetList
 Set-Alias -Name WAFR-ListIPSets -Value Get-WAFRIPSetList
+Set-Alias -Name WAFR-ListLoggingConfigurations -Value Get-WAFRLoggingConfigurationList
 Set-Alias -Name List-WAFRRateBasedRuleList -Value Get-WAFRRateBasedRuleList
 Set-Alias -Name WAFR-ListRateBasedRules -Value Get-WAFRRateBasedRuleList
 Set-Alias -Name List-WAFRRegexMatchSetList -Value Get-WAFRRegexMatchSetList
@@ -5832,6 +5865,7 @@ Set-Alias -Name List-WAFRWebACLList -Value Get-WAFRWebACLList
 Set-Alias -Name WAFR-ListWebACLs -Value Get-WAFRWebACLList
 Set-Alias -Name List-WAFRXssMatchSetList -Value Get-WAFRXssMatchSetList
 Set-Alias -Name WAFR-ListXssMatchSets -Value Get-WAFRXssMatchSetList
+Set-Alias -Name WAFR-PutLoggingConfiguration -Value Write-WAFRLoggingConfiguration
 Set-Alias -Name WAFR-PutPermissionPolicy -Value Write-WAFRPermissionPolicy
 Set-Alias -Name WAFR-UpdateByteMatchSet -Value Update-WAFRByteMatchSet
 Set-Alias -Name WAFR-UpdateGeoMatchSet -Value Update-WAFRGeoMatchSet
@@ -5966,7 +6000,12 @@ Set-Alias -Name WM-ResetPassword -Value Reset-WMPassword
 Set-Alias -Name WM-UpdatePrimaryEmailAddress -Value Update-WMPrimaryEmailAddress
 Set-Alias -Name WM-UpdateResource -Value Update-WMResource
 Set-Alias -Name XR-BatchGetTraces -Value Get-XRTraceBatch
+Set-Alias -Name XR-CreateSamplingRule -Value New-XRSamplingRule
+Set-Alias -Name XR-DeleteSamplingRule -Value Remove-XRSamplingRule
 Set-Alias -Name XR-GetEncryptionConfig -Value Get-XREncryptionConfig
+Set-Alias -Name XR-GetSamplingRules -Value Get-XRSamplingRule
+Set-Alias -Name XR-GetSamplingStatisticSummaries -Value Get-XRSamplingStatisticSummary
+Set-Alias -Name XR-GetSamplingTargets -Value Get-XRSamplingTarget
 Set-Alias -Name XR-GetServiceGraph -Value Get-XRServiceGraph
 Set-Alias -Name XR-GetTraceGraph -Value Get-XRTraceGraph
 Set-Alias -Name XR-GetTraceSummaries -Value Get-XRTraceSummary
@@ -5975,4 +6014,5 @@ Set-Alias -Name Put-XRTelemetryRecord -Value Write-XRTelemetryRecord
 Set-Alias -Name XR-PutTelemetryRecords -Value Write-XRTelemetryRecord
 Set-Alias -Name Put-XRTraceSegment -Value Write-XRTraceSegment
 Set-Alias -Name XR-PutTraceSegments -Value Write-XRTraceSegment
+Set-Alias -Name XR-UpdateSamplingRule -Value Update-XRSamplingRule
 

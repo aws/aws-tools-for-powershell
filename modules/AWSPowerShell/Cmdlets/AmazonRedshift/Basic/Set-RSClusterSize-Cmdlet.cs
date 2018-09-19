@@ -28,7 +28,27 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Changes the cluster's type, node type, or number of nodes.
+    /// Changes the size of the cluster. You can change the cluster's type, or change the
+    /// number or type of nodes. The default behavior is to use the elastic resize method.
+    /// With an elastic resize your cluster is avaialble for read and write operations more
+    /// quickly than with the classic resize method. 
+    /// 
+    ///  
+    /// <para>
+    /// Elastic resize operations have the following restrictions:
+    /// </para><ul><li><para>
+    /// You can only resize clusters of the following types:
+    /// </para><ul><li><para>
+    /// dc2.large
+    /// </para></li><li><para>
+    /// dc2.8xlarge
+    /// </para></li><li><para>
+    /// ds2.xlarge
+    /// </para></li><li><para>
+    /// ds2.8xlarge
+    /// </para></li></ul></li><li><para>
+    /// The type of nodes you add must match the node type for the cluster.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Set", "RSClusterSize", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.Cluster")]
@@ -44,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>A boolean value indicating whether the resize operation is using the classic resize
-        /// process.</para>
+        /// process. If you don't provide this parameter or set the value to <code>false</code>
+        /// the resize type is elastic. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

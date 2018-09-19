@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     ///  
     /// <para>
     /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups">Security
-    /// Groups for Load Balancers in a VPC</a> in the <i>Classic Load Balancer Guide</i>.
+    /// Groups for Load Balancers in a VPC</a> in the <i>Classic Load Balancers Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Join", "ELBSecurityGroupToLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

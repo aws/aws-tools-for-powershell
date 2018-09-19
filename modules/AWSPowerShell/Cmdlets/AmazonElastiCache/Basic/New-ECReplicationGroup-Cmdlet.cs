@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// cannot alter a Redis (cluster mode enabled) replication group after it has been created.
     /// However, if you need to increase or decrease the number of node groups (console: shards),
     /// you can avail yourself of ElastiCache for Redis' enhanced backup and restore. For
-    /// more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/backups-restoring.html">Restoring
+    /// more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-restoring.html">Restoring
     /// From a Backup with Cluster Resizing</a> in the <i>ElastiCache User Guide</i>.
     /// </para><note><para>
     /// This operation is valid for Redis only.
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>A flag that enables encryption at rest when set to <code>true</code>.</para><para>You cannot modify the value of <code>AtRestEncryptionEnabled</code> after the replication
         /// group is created. To enable encryption at rest on a replication group you must set
         /// <code>AtRestEncryptionEnabled</code> to <code>true</code> when you create the replication
-        /// group. </para><note><para>This parameter is valid only if the <code>Engine</code> parameter is <code>redis</code>
-        /// and the cluster is being created in an Amazon VPC.</para></note><para>Default: <code>false</code></para>
+        /// group. </para><para><b>Required:</b> Only available when creating a replication group in an Amazon VPC
+        /// using redis version <code>3.2.6</code> or <code>4.x</code>.</para><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -81,8 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter AuthToken
         /// <summary>
         /// <para>
-        /// <para><b>Reserved parameter.</b> The password used to access a password protected server.</para><para>This parameter is valid only if:</para><ul><li><para>The parameter <code>TransitEncryptionEnabled</code> was set to <code>true</code> when
-        /// the cluster was created.</para></li><li><para>The line <code>requirepass</code> was added to the database configuration file.</para></li></ul><para>Password constraints:</para><ul><li><para>Must be only printable ASCII characters.</para></li><li><para>Must be at least 16 characters and no more than 128 characters in length.</para></li><li><para>Cannot contain any of the following characters: '/', '"', or '@'. </para></li></ul><para>For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a>
+        /// <para><b>Reserved parameter.</b> The password used to access a password protected server.</para><para><code>AuthToken</code> can be specified only on replication groups where <code>TransitEncryptionEnabled</code>
+        /// is <code>true</code>.</para><important><para>For HIPAA compliance, you must specify <code>TransitEncryptionEnabled</code> as <code>true</code>,
+        /// an <code>AuthToken</code>, and a <code>CacheSubnetGroup</code>.</para></important><para>Password constraints:</para><ul><li><para>Must be only printable ASCII characters.</para></li><li><para>Must be at least 16 characters and no more than 128 characters in length.</para></li><li><para>Cannot contain any of the following characters: '/', '"', or '@'. </para></li></ul><para>For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a>
         /// at http://redis.io/commands/AUTH.</para>
         /// </para>
         /// </summary>
@@ -122,12 +123,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code></para><para><b>M4 node types:</b><code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
         /// <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>, <code>cache.m4.10xlarge</code></para></li><li><para>Previous generation: (not recommended)</para><para><b>T1 node types:</b><code>cache.t1.micro</code></para><para><b>M1 node types:</b><code>cache.m1.small</code>, <code>cache.m1.medium</code>,
         /// <code>cache.m1.large</code>, <code>cache.m1.xlarge</code></para></li></ul></li><li><para>Compute optimized:</para><ul><li><para>Previous generation: (not recommended)</para><para><b>C1 node types:</b><code>cache.c1.xlarge</code></para></li></ul></li><li><para>Memory optimized:</para><ul><li><para>Current generation: </para><para><b>R3 node types:</b><code>cache.r3.large</code>, <code>cache.r3.xlarge</code>,
-        /// <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code></para></li><li><para>Previous generation: (not recommended)</para><para><b>M2 node types:</b><code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
+        /// <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code></para><para><b>R4 node types;</b><code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
+        /// <code>cache.r4.2xlarge</code>, <code>cache.r4.4xlarge</code>, <code>cache.r4.8xlarge</code>,
+        /// <code>cache.r4.16xlarge</code></para></li><li><para>Previous generation: (not recommended)</para><para><b>M2 node types:</b><code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
         /// <code>cache.m2.4xlarge</code></para></li></ul></li></ul><para><b>Notes:</b></para><ul><li><para>All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).</para></li><li><para>Redis (cluster mode disabled): Redis backup/restore is not supported on T1 and T2
-        /// instances. </para></li><li><para>Redis (cluster mode enabled): Backup/restore is not supported on T1 instances.</para></li><li><para>Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances.</para></li></ul><para>For a complete listing of node types and specifications, see <a href="http://aws.amazon.com/elasticache/details">Amazon
-        /// ElastiCache Product Features and Details</a> and either <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific">Cache
-        /// Node Type-Specific Parameters for Memcached</a> or <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific">Cache
-        /// Node Type-Specific Parameters for Redis</a>.</para>
+        /// instances. </para></li><li><para>Redis (cluster mode enabled): Backup/restore is not supported on T1 instances.</para></li><li><para>Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances.</para></li></ul><para>For a complete listing of node types and specifications, see:</para><ul><li><para><a href="http://aws.amazon.com/elasticache/details">Amazon ElastiCache Product Features
+        /// and Details</a></para></li><li><para><a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/ParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific">Cache
+        /// Node Type-Specific Parameters for Memcached</a></para></li><li><para><a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific">Cache
+        /// Node Type-Specific Parameters for Redis</a></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -163,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The name of the cache subnet group to be used for the replication group.</para><important><para>If you're going to launch your cluster in an Amazon VPC, you need to create a subnet
-        /// group before you start creating a cluster. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SubnetGroups.html">Subnets
+        /// group before you start creating a cluster. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html">Subnets
         /// and Subnet Groups</a>.</para></important>
         /// </para>
         /// </summary>
@@ -186,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The version number of the cache engine to be used for the clusters in this replication
         /// group. To view the supported cache engine versions, use the <code>DescribeCacheEngineVersions</code>
-        /// operation.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement">Selecting
+        /// operation.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
         /// a Cache Engine and Version</a>) in the <i>ElastiCache User Guide</i>, but you cannot
         /// downgrade to an earlier engine version. If you want to use an earlier engine version,
         /// you must delete the existing cluster or replication group and create it anew with
@@ -201,9 +204,12 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A list of node group (shard) configuration options. Each node group (shard) configuration
-        /// has the following: Slots, PrimaryAvailabilityZone, ReplicaAvailabilityZones, ReplicaCount.</para><para>If you're creating a Redis (cluster mode disabled) or a Redis (cluster mode enabled)
+        /// has the following members: <code>PrimaryAvailabilityZone</code>, <code>ReplicaAvailabilityZones</code>,
+        /// <code>ReplicaCount</code>, and <code>Slots</code>.</para><para>If you're creating a Redis (cluster mode disabled) or a Redis (cluster mode enabled)
         /// replication group, you can use this parameter to individually configure each node
-        /// group (shard), or you can omit this parameter.</para>
+        /// group (shard), or you can omit this parameter. However, when seeding a Redis (cluster
+        /// mode enabled) cluster from a S3 rdb file, you must configure each node group (shard)
+        /// using this parameter because you must specify the slots for each node group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -228,8 +234,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// use <code>ReplicasPerNodeGroup</code> instead.</para><para>If <code>AutomaticFailoverEnabled</code> is <code>true</code>, the value of this parameter
         /// must be at least 2. If <code>AutomaticFailoverEnabled</code> is <code>false</code>
         /// you can omit this parameter (it will default to 1), or you can explicitly set it to
-        /// a value between 2 and 6.</para><para>The maximum permitted value for <code>NumCacheClusters</code> is 6 (primary plus 5
-        /// replicas).</para>
+        /// a value between 2 and 6.</para><para>The maximum permitted value for <code>NumCacheClusters</code> is 6 (1 primary plus
+        /// 5 replicas).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -401,7 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A list of cost allocation tags to be added to this resource. A tag is a key-value
-        /// pair. A tag key does not have to be accompanied by a tag value.</para>
+        /// pair.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -415,8 +421,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>A flag that enables in-transit encryption when set to <code>true</code>.</para><para>You cannot modify the value of <code>TransitEncryptionEnabled</code> after the cluster
         /// is created. To enable in-transit encryption on a cluster you must set <code>TransitEncryptionEnabled</code>
         /// to <code>true</code> when you create a cluster.</para><para>This parameter is valid only if the <code>Engine</code> parameter is <code>redis</code>,
-        /// the <code>EngineVersion</code> parameter is <code>3.2.4</code> or later, and the cluster
-        /// is being created in an Amazon VPC.</para><para>If you enable in-transit encryption, you must also specify a value for <code>CacheSubnetGroup</code>.</para><para>Default: <code>false</code></para>
+        /// the <code>EngineVersion</code> parameter is <code>3.2.6</code> or <code>4.x</code>,
+        /// and the cluster is being created in an Amazon VPC.</para><para>If you enable in-transit encryption, you must also specify a value for <code>CacheSubnetGroup</code>.</para><para><b>Required:</b> Only available when creating a replication group in an Amazon VPC
+        /// using redis version <code>3.2.6</code> or <code>4.x</code>.</para><para>Default: <code>false</code></para><important><para>For HIPAA compliance, you must specify <code>TransitEncryptionEnabled</code> as <code>true</code>,
+        /// an <code>AuthToken</code>, and a <code>CacheSubnetGroup</code>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

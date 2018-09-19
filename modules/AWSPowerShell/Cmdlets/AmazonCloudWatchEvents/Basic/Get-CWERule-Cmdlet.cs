@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// <summary>
     /// Lists your Amazon CloudWatch Events rules. You can either list all the rules or you
     /// can provide a prefix to match to the rule names.
+    /// 
+    ///  
+    /// <para>
+    /// ListRules does not list the targets of a rule. To see the targets associated with
+    /// a rule, use <a>ListTargetsByRule</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "CWERule")]
     [OutputType("Amazon.CloudWatchEvents.Model.Rule")]

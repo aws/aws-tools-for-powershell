@@ -30,10 +30,16 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// <summary>
     /// Modifies the settings for a replication group.
     /// 
-    ///  <important><para>
-    /// Due to current limitations on Redis (cluster mode disabled), this operation or parameter
-    /// is not supported on Redis (cluster mode enabled) replication groups.
-    /// </para></important><note><para>
+    ///  
+    /// <para>
+    /// For Redis (cluster mode enabled) clusters, this operation cannot be used to change
+    /// a cluster's node type or engine version. For more information, see:
+    /// </para><ul><li><para><a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html">Scaling
+    /// for Amazon ElastiCache for Redis—Redis (cluster mode enabled)</a> in the ElastiCache
+    /// User Guide
+    /// </para></li><li><para><a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html">ModifyReplicationGroupShardConfiguration</a>
+    /// in the ElastiCache API Reference
+    /// </para></li></ul><note><para>
     /// This operation is valid for Redis only.
     /// </para></note>
     /// </summary>
@@ -121,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The upgraded version of the cache engine to be run on the clusters in the replication
-        /// group.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement">Selecting
+        /// group.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
         /// a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version.
         /// If you want to use an earlier engine version, you must delete the existing replication
         /// group and create it anew with the earlier engine version. </para>
@@ -134,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter NodeGroupId
         /// <summary>
         /// <para>
-        /// <para>The name of the Node Group (called shard in the console).</para>
+        /// <para>Deprecated. This parameter is not used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

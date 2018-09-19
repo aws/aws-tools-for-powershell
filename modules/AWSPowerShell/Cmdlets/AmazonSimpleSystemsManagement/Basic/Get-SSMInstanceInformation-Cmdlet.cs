@@ -66,7 +66,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceInformationFilterList
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Use a filter to return a more specific list of instances.</para>
+        /// <para>This is a legacy method. We recommend that you don't use this method. Instead, use
+        /// the <a>InstanceInformationFilter</a> action. The <code>InstanceInformationFilter</code>
+        /// action enables you to return instance information by using tags that are specified
+        /// as a key-value mapping. </para><para>If you do use this method, then you can't use the <code>InstanceInformationFilter</code>
+        /// action. Using this method and the <code>InstanceInformationFilter</code> action causes
+        /// an exception error. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

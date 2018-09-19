@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// 
     ///  
     /// <para>
-    /// For more information on backtracking, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Managing.Backtrack.html">
-    /// Backtracking an Aurora DB Cluster</a> in the <i>Amazon RDS User Guide.</i></para>
+    /// For more information on backtracking, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html">
+    /// Backtracking an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide.</i></para>
     /// </summary>
     [Cmdlet("Reset", "RDSDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.BacktrackDBClusterResponse")]

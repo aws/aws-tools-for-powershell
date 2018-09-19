@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// before checking its length. Note that transformations of the request body are not
     /// supported because the AWS resource forwards only the first <code>8192</code> bytes
     /// of your request to AWS WAF.
+    /// </para><para>
+    /// You can only specify a single type of TextTransformation.
     /// </para></li><li><para>
     /// A <code>ComparisonOperator</code> used for evaluating the selected part of the request
     /// against the specified <code>Size</code>, such as equals, greater than, less than,

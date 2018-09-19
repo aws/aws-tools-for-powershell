@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// console</a> or the <a>DescribeDBClusterParameters</a> command to verify that your
     /// DB cluster parameter group has been created or modified.
     /// </para></important><para>
-    /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
-    /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
+    /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para>
     /// </summary>
     [Cmdlet("New", "RDSDBClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBClusterParameterGroup")]

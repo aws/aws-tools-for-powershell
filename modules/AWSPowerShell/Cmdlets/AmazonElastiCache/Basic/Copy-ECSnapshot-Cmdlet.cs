@@ -55,9 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The Amazon S3 bucket to which the snapshot is exported. This parameter is used only
         /// when exporting a snapshot for external access.</para><para>When using this parameter to export a snapshot, be sure Amazon ElastiCache has the
-        /// needed permissions to this S3 bucket. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Snapshots.Exporting.html#Snapshots.Exporting.GrantAccess">Step
+        /// needed permissions to this S3 bucket. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Snapshots.Exporting.html#Snapshots.Exporting.GrantAccess">Step
         /// 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the <i>Amazon ElastiCache
-        /// User Guide</i>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Snapshots.Exporting.html">Exporting
+        /// User Guide</i>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Snapshots.Exporting.html">Exporting
         /// a Snapshot</a> in the <i>Amazon ElastiCache User Guide</i>.</para>
         /// </para>
         /// </summary>

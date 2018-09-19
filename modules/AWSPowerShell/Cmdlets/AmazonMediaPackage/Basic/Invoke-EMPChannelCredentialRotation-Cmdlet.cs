@@ -28,7 +28,8 @@ using Amazon.MediaPackage.Model;
 namespace Amazon.PowerShell.Cmdlets.EMP
 {
     /// <summary>
-    /// Changes the Channel ingest username and password.
+    /// Changes the Channel's first IngestEndpoint's username and password. WARNING - This
+    /// API is deprecated. Please use RotateIngestEndpointCredentials instead
     /// </summary>
     [Cmdlet("Invoke", "EMPChannelCredentialRotation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaPackage.Model.RotateChannelCredentialsResponse")]

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// To enable multiple AWS accounts to put events to your default event bus, run <code>PutPermission</code>
     /// once for each of these accounts.
     /// </para><para>
-    /// The permission policy on the default event bus cannot exceed 10KB in size.
+    /// The permission policy on the default event bus cannot exceed 10 KB in size.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWEPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

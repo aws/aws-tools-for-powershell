@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// Creates a cluster. All nodes in the cluster run the same protocol-compliant cache
     /// engine software, either Memcached or Redis.
     /// 
-    ///  <important><para>
-    /// Due to current limitations on Redis (cluster mode disabled), this operation or parameter
-    /// is not supported on Redis (cluster mode enabled) replication groups.
-    /// </para></important>
+    ///  
+    /// <para>
+    /// This operation is not supported for Redis (cluster mode enabled) clusters.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "ECCacheCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.CacheCluster")]
@@ -49,8 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter AuthToken
         /// <summary>
         /// <para>
-        /// <para><b>Reserved parameter.</b> The password used to access a password protected server.</para><para>This parameter is valid only if:</para><ul><li><para>The parameter <code>TransitEncryptionEnabled</code> was set to <code>true</code> when
-        /// the cluster was created.</para></li><li><para>The line <code>requirepass</code> was added to the database configuration file.</para></li></ul><para>Password constraints:</para><ul><li><para>Must be only printable ASCII characters.</para></li><li><para>Must be at least 16 characters and no more than 128 characters in length.</para></li><li><para>Cannot contain any of the following characters: '/', '"', or '@'. </para></li></ul><para>For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a>
+        /// <para><b>Reserved parameter.</b> The password used to access a password protected server.</para><para>Password constraints:</para><ul><li><para>Must be only printable ASCII characters.</para></li><li><para>Must be at least 16 characters and no more than 128 characters in length.</para></li><li><para>Cannot contain any of the following characters: '/', '"', or '@'. </para></li></ul><para>For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a>
         /// at http://redis.io/commands/AUTH.</para>
         /// </para>
         /// </summary>
@@ -100,12 +99,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code></para><para><b>M4 node types:</b><code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
         /// <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>, <code>cache.m4.10xlarge</code></para></li><li><para>Previous generation: (not recommended)</para><para><b>T1 node types:</b><code>cache.t1.micro</code></para><para><b>M1 node types:</b><code>cache.m1.small</code>, <code>cache.m1.medium</code>,
         /// <code>cache.m1.large</code>, <code>cache.m1.xlarge</code></para></li></ul></li><li><para>Compute optimized:</para><ul><li><para>Previous generation: (not recommended)</para><para><b>C1 node types:</b><code>cache.c1.xlarge</code></para></li></ul></li><li><para>Memory optimized:</para><ul><li><para>Current generation: </para><para><b>R3 node types:</b><code>cache.r3.large</code>, <code>cache.r3.xlarge</code>,
-        /// <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code></para></li><li><para>Previous generation: (not recommended)</para><para><b>M2 node types:</b><code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
+        /// <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code></para><para><b>R4 node types;</b><code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
+        /// <code>cache.r4.2xlarge</code>, <code>cache.r4.4xlarge</code>, <code>cache.r4.8xlarge</code>,
+        /// <code>cache.r4.16xlarge</code></para></li><li><para>Previous generation: (not recommended)</para><para><b>M2 node types:</b><code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
         /// <code>cache.m2.4xlarge</code></para></li></ul></li></ul><para><b>Notes:</b></para><ul><li><para>All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).</para></li><li><para>Redis (cluster mode disabled): Redis backup/restore is not supported on T1 and T2
-        /// instances. </para></li><li><para>Redis (cluster mode enabled): Backup/restore is not supported on T1 instances.</para></li><li><para>Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances.</para></li></ul><para>For a complete listing of node types and specifications, see <a href="http://aws.amazon.com/elasticache/details">Amazon
-        /// ElastiCache Product Features and Details</a> and either <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific">Cache
-        /// Node Type-Specific Parameters for Memcached</a> or <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific">Cache
-        /// Node Type-Specific Parameters for Redis</a>.</para>
+        /// instances. </para></li><li><para>Redis (cluster mode enabled): Backup/restore is not supported on T1 instances.</para></li><li><para>Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances.</para></li></ul><para>For a complete listing of node types and specifications, see:</para><ul><li><para><a href="http://aws.amazon.com/elasticache/details">Amazon ElastiCache Product Features
+        /// and Details</a></para></li><li><para><a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/ParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific">Cache
+        /// Node Type-Specific Parameters for Memcached</a></para></li><li><para><a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific">Cache
+        /// Node Type-Specific Parameters for Redis</a></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -142,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The name of the subnet group to be used for the cluster.</para><para>Use this parameter only when you are creating a cluster in an Amazon Virtual Private
         /// Cloud (Amazon VPC).</para><important><para>If you're going to launch your cluster in an Amazon VPC, you need to create a subnet
-        /// group before you start creating a cluster. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SubnetGroups.html">Subnets
+        /// group before you start creating a cluster. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html">Subnets
         /// and Subnet Groups</a>.</para></important>
         /// </para>
         /// </summary>
@@ -164,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The version number of the cache engine to be used for this cluster. To view the supported
-        /// cache engine versions, use the DescribeCacheEngineVersions operation.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement">Selecting
+        /// cache engine versions, use the DescribeCacheEngineVersions operation.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
         /// a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version.
         /// If you want to use an earlier engine version, you must delete the existing cluster
         /// or replication group and create it anew with the earlier engine version. </para>
@@ -252,8 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ReplicationGroupId
         /// <summary>
         /// <para>
-        /// <important><para>Due to current limitations on Redis (cluster mode disabled), this operation or parameter
-        /// is not supported on Redis (cluster mode enabled) replication groups.</para></important><para>The ID of the replication group to which this cluster should belong. If this parameter
+        /// <para>The ID of the replication group to which this cluster should belong. If this parameter
         /// is specified, the cluster is added to the specified replication group as a read replica;
         /// otherwise, the cluster is a standalone primary that is not part of any replication
         /// group.</para><para>If the specified replication group is Multi-AZ enabled and the Availability Zone is
@@ -308,7 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The number of days for which ElastiCache retains automatic snapshots before deleting
         /// them. For example, if you set <code>SnapshotRetentionLimit</code> to 5, a snapshot
-        /// taken today is retained for 5 days before being deleted.</para><note><para>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</para></note><para>Default: 0 (i.e., automatic backups are disabled for this cluster).</para>
+        /// taken today is retained for 5 days before being deleted.</para><note><para>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</para></note><para>Default: 0 (i.e., automatic backups are disabled for this cache cluster).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// Creates a new DB instance that acts as a Read Replica for an existing source DB instance.
     /// You can create a Read Replica for a DB instance running MySQL, MariaDB, or PostgreSQL.
     /// For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working
-    /// with PostgreSQL, MySQL, and MariaDB Read Replicas</a>. 
+    /// with PostgreSQL, MySQL, and MariaDB Read Replicas</a> in the <i>Amazon RDS User Guide</i>.
+    /// 
     /// 
     ///  
     /// <para>
@@ -134,8 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The list of logs that the new DB instance is to export to CloudWatch Logs. The values
         /// in the list depend on the DB engine being used. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
-        /// Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational Database
-        /// Service User Guide</i>.</para>
+        /// Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon RDS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -158,8 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>True to enable Performance Insights for the read replica, and otherwise false. </para><para>For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using
-        /// Amazon Performance Insights</a> in the <i>Amazon Relational Database Service User
-        /// Guide</i>. </para>
+        /// Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -214,7 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon
         /// CloudWatch Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>.
         /// For information on creating a monitoring role, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
-        /// create an IAM role for Amazon RDS Enhanced Monitoring</a>.</para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
+        /// create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User
+        /// Guide</i>.</para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
         /// a <code>MonitoringRoleArn</code> value.</para>
         /// </para>
         /// </summary>
@@ -348,7 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// period must be greater than 0.</para></li><li><para>If the source DB instance is in the same AWS Region as the Read Replica, specify a
         /// valid DB instance identifier.</para></li><li><para>If the source DB instance is in a different AWS Region than the Read Replica, specify
         /// a valid DB instance ARN. For more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-        /// Constructing a Amazon RDS Amazon Resource Name (ARN)</a>.</para></li></ul>
+        /// Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

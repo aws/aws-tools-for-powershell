@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
     /// Describes the specified rule.
+    /// 
+    ///  
+    /// <para>
+    /// DescribeRule does not list the targets of a rule. To see the targets associated with
+    /// a rule, use <a>ListTargetsByRule</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "CWERuleDetail")]
     [OutputType("Amazon.CloudWatchEvents.Model.DescribeRuleResponse")]

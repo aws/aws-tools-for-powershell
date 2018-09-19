@@ -77,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.POL
         /// <summary>
         /// <para>
         /// <para> The format in which the returned output will be encoded. For audio stream, this will
-        /// be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </para>
+        /// be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </para><para>When pcm is used, the content returned is audio/pcm in a signed 16-bit, 1 channel
+        /// (mono), little-endian format. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

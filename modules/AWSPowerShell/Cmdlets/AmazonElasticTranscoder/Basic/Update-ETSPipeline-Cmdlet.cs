@@ -50,11 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter AwsKmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.</para><para>If you use either <code>S3</code> or <code>S3-AWS-KMS</code> as your <code>Encryption:Mode</code>,
+        /// <para>The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.</para><para>If you use either <code>s3</code> or <code>s3-aws-kms</code> as your <code>Encryption:Mode</code>,
         /// you don't need to provide a key with your job because a default key, known as an AWS-KMS
         /// key, is created for you automatically. You need to provide an AWS-KMS key only if
         /// you want to use a non-default AWS-KMS key, or if you are using an <code>Encryption:Mode</code>
-        /// of <code>AES-PKCS7</code>, <code>AES-CTR</code>, or <code>AES-GCM</code>.</para>
+        /// of <code>aes-cbc-pkcs7</code>, <code>aes-ctr</code>, or <code>aes-gcm</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

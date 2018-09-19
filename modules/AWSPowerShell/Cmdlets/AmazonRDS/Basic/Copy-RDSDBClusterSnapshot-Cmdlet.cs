@@ -78,11 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// cluster snapshot is in "copying" status.
     /// </para><para>
     /// For more information on copying encrypted DB cluster snapshots from one AWS Region
-    /// to another, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBClusterSnapshot.CrossRegion">
-    /// Copying a DB Cluster Snapshot in the Same Account, Either in the Same Region or Across
-    /// Regions</a> in the <i>Amazon RDS User Guide.</i></para><para>
-    /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
-    /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
+    /// to another, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html">
+    /// Copying a Snapshot</a> in the <i>Amazon Aurora User Guide.</i></para><para>
+    /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para>
     /// </summary>
     [Cmdlet("Copy", "RDSDBClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBClusterSnapshot")]
@@ -159,8 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The identifier of the DB cluster snapshot to copy. This parameter is not case-sensitive.</para><para>You can't copy an encrypted, shared DB cluster snapshot from one AWS Region to another.</para><para>Constraints:</para><ul><li><para>Must specify a valid system snapshot in the "available" state.</para></li><li><para>If the source snapshot is in the same AWS Region as the copy, specify a valid DB snapshot
         /// identifier.</para></li><li><para>If the source snapshot is in a different AWS Region than the copy, specify a valid
-        /// DB cluster snapshot ARN. For more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
-        /// Copying a DB Snapshot or DB Cluster Snapshot</a>.</para></li></ul><para>Example: <code>my-cluster-snapshot1</code></para>
+        /// DB cluster snapshot ARN. For more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions">
+        /// Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i></para></li></ul><para>Example: <code>my-cluster-snapshot1</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

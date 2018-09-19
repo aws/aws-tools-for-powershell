@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// 
     ///  
     /// <para>
-    /// You can have up to 500 dashboards per account. All dashboards in your account are
-    /// global, not region-specific.
+    /// There is no limit to the number of dashboards in your account. All dashboards in your
+    /// account are global, not region-specific.
     /// </para><para>
     /// A simple way to create a dashboard using <code>PutDashboard</code> is to copy an existing
     /// dashboard. To copy an existing dashboard using the console, you can load the dashboard

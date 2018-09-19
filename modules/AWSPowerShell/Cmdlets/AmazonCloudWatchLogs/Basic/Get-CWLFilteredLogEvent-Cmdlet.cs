@@ -62,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter FilterPattern
         /// <summary>
         /// <para>
-        /// <para>The filter pattern to use. If not provided, all the events are matched.</para>
+        /// <para>The filter pattern to use. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter
+        /// and Pattern Syntax</a>.</para><para>If not provided, all the events are matched.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -85,17 +86,34 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the log group.</para>
+        /// <para>The name of the log group to search.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LogGroupName { get; set; }
         #endregion
         
+        #region Parameter LogStreamNamePrefix
+        /// <summary>
+        /// <para>
+        /// <para>Filters the results to include only events from log streams that have names starting
+        /// with this prefix.</para><para>If you specify a value for both <code>logStreamNamePrefix</code> and <code>logStreamNames</code>,
+        /// but the value for <code>logStreamNamePrefix</code> does not match any log stream names
+        /// specified in <code>logStreamNames</code>, the action returns an <code>InvalidParameterException</code>
+        /// error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String LogStreamNamePrefix { get; set; }
+        #endregion
+        
         #region Parameter LogStreamName
         /// <summary>
         /// <para>
-        /// <para>Optional list of log stream names.</para>
+        /// <para>Filters the results to only logs from the log streams in this list.</para><para>If you specify a value for both <code>logStreamNamePrefix</code> and <code>logStreamNames</code>,
+        /// but the value for <code>logStreamNamePrefix</code> does not match any log stream names
+        /// specified in <code>logStreamNames</code>, the action returns an <code>InvalidParameterException</code>
+        /// error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,6 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.LogGroupName = this.LogGroupName;
+            context.LogStreamNamePrefix = this.LogStreamNamePrefix;
             if (this.LogStreamName != null)
             {
                 context.LogStreamNames = new List<System.String>(this.LogStreamName);
@@ -205,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.LogGroupName != null)
             {
                 request.LogGroupName = cmdletContext.LogGroupName;
+            }
+            if (cmdletContext.LogStreamNamePrefix != null)
+            {
+                request.LogStreamNamePrefix = cmdletContext.LogStreamNamePrefix;
             }
             if (cmdletContext.LogStreamNames != null)
             {
@@ -287,6 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             public System.Boolean? Interleaved { get; set; }
             public System.Int32? Limit { get; set; }
             public System.String LogGroupName { get; set; }
+            public System.String LogStreamNamePrefix { get; set; }
             public List<System.String> LogStreamNames { get; set; }
             public System.String NextToken { get; set; }
             public System.Int64? StartTime { get; set; }

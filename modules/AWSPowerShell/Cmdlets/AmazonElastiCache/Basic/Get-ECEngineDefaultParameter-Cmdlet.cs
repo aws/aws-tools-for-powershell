@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The name of the cache parameter group family.</para><para>Valid values are: <code>memcached1.4</code> | <code>redis2.6</code> | <code>redis2.8</code>
-        /// | <code>redis3.2</code></para>
+        /// | <code>redis3.2</code> | <code>redis4.0</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

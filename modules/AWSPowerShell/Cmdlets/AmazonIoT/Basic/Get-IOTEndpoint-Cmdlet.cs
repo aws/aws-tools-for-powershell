@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter EndpointType
         /// <summary>
         /// <para>
-        /// <para>The endpoint type.</para>
+        /// <para>The endpoint type (such as <code>iot:Data</code>, <code>iot:CredentialProvider</code>
+        /// and <code>iot:Jobs</code>). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

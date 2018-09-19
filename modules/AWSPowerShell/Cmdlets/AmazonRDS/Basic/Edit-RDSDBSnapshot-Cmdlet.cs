@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The option group to identify with the upgraded DB snapshot. </para><para>You can specify this parameter when you upgrade an Oracle DB snapshot. The same option
         /// group considerations apply when upgrading a DB snapshot as when upgrading a DB instance.
         /// For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG">Option
-        /// Group Considerations</a>. </para>
+        /// Group Considerations</a> in the <i>Amazon RDS User Guide.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

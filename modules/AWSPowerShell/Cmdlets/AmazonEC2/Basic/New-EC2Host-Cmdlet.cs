@@ -97,6 +97,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32 Quantity { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the Dedicated Host during creation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -132,6 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.InstanceType = this.InstanceType;
             if (ParameterWasBound("Quantity"))
                 context.Quantity = this.Quantity;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecifications = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -167,6 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Quantity != null)
             {
                 request.Quantity = cmdletContext.Quantity.Value;
+            }
+            if (cmdletContext.TagSpecifications != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecifications;
             }
             
             CmdletOutput output;
@@ -237,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String ClientToken { get; set; }
             public System.String InstanceType { get; set; }
             public System.Int32? Quantity { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecifications { get; set; }
         }
         
     }

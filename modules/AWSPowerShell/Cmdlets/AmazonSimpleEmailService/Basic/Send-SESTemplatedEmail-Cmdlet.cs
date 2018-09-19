@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// addresses or domains, or to email addresses associated with the Amazon SES Mailbox
     /// Simulator. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying
     /// Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></para></li><li><para>
-    /// The total size of the message, including attachments, must be less than 10 MB.
+    /// The maximum message size is 10 MB.
     /// </para></li><li><para>
     /// Calls to the <code>SendTemplatedEmail</code> operation may only include one <code>Destination</code>
     /// parameter. A destination is a set of recipients who will receive the same version

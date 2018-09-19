@@ -28,15 +28,8 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Performs horizontal scaling on a Redis (cluster mode enabled) cluster with no downtime.
-    /// Requires Redis engine version 3.2.10 or newer. For information on upgrading your engine
-    /// to a newer version, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/VersionManagement.html">Upgrading
-    /// Engine Versions</a> in the Amazon ElastiCache User Guide.
-    /// 
-    ///  
-    /// <para>
-    /// For more information on ElastiCache for Redis online horizontal scaling, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/redis-cluster-resharding-online.html">ElastiCache
-    /// for Redis Horizontal Scaling</a></para>
+    /// Modifies a replication group's shards (node groups) by allowing you to add shards,
+    /// remove shards, or rebalance the keyspaces among exisiting shards.
     /// </summary>
     [Cmdlet("Edit", "ECReplicationGroupShardConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.ReplicationGroup")]
@@ -74,12 +67,26 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>If the value of <code>NodeGroupCount</code> is less than the current number of node
-        /// groups (shards), <code>NodeGroupsToRemove</code> is a required list of node group
-        /// ids to remove from the cluster.</para>
+        /// groups (shards), the <code>NodeGroupsToRemove</code> or <code>NodeGroupsToRetain</code>
+        /// is a required list of node group ids to remove from or retain in the cluster.</para><para>ElastiCache for Redis will attempt to remove all node groups listed by <code>NodeGroupsToRemove</code>
+        /// from the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] NodeGroupsToRemove { get; set; }
+        #endregion
+        
+        #region Parameter NodeGroupsToRetain
+        /// <summary>
+        /// <para>
+        /// <para>If the value of <code>NodeGroupCount</code> is less than the current number of node
+        /// groups (shards), the <code>NodeGroupsToRemove</code> or <code>NodeGroupsToRetain</code>
+        /// is a required list of node group ids to remove from or retain in the cluster.</para><para>ElastiCache for Redis will attempt to remove all node groups except those listed by
+        /// <code>NodeGroupsToRetain</code> from the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] NodeGroupsToRetain { get; set; }
         #endregion
         
         #region Parameter ReplicationGroupId
@@ -145,6 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 context.NodeGroupsToRemove = new List<System.String>(this.NodeGroupsToRemove);
             }
+            if (this.NodeGroupsToRetain != null)
+            {
+                context.NodeGroupsToRetain = new List<System.String>(this.NodeGroupsToRetain);
+            }
             context.ReplicationGroupId = this.ReplicationGroupId;
             if (this.ReshardingConfiguration != null)
             {
@@ -177,6 +188,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.NodeGroupsToRemove != null)
             {
                 request.NodeGroupsToRemove = cmdletContext.NodeGroupsToRemove;
+            }
+            if (cmdletContext.NodeGroupsToRetain != null)
+            {
+                request.NodeGroupsToRetain = cmdletContext.NodeGroupsToRetain;
             }
             if (cmdletContext.ReplicationGroupId != null)
             {
@@ -253,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.Boolean? ApplyImmediately { get; set; }
             public System.Int32? NodeGroupCount { get; set; }
             public List<System.String> NodeGroupsToRemove { get; set; }
+            public List<System.String> NodeGroupsToRetain { get; set; }
             public System.String ReplicationGroupId { get; set; }
             public List<Amazon.ElastiCache.Model.ReshardingConfiguration> ReshardingConfiguration { get; set; }
         }

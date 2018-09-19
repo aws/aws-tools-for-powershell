@@ -2035,8 +2035,8 @@
       "noun": "UserPoolDomain",
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
-        "output": "Void",
-        "outputMemberSelector": "",
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "CloudFrontDomain",
         "outputMemberWrapper": "",
         "passThru": {}
       },
@@ -2058,16 +2058,16 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Domain"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPoolDomain",
         "confirmImpactSetting": "Medium",
         "generateIterationCode": "false",
         "iterationPattern": "Pattern2",
-        "passThruSource": "Auto-assigned from pipeline parameter: Domain",
-        "passThruTypeName": "System.String",
-        "requiresPassThruGeneration": "true",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [],
           "requestMember": "NextToken",
@@ -2078,9 +2078,9 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
-          "targetParameterName": "UserPoolId"
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "Domain"
         },
         "memoryStreamParameters": []
       }

@@ -449,11 +449,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>
         /// <para>The specific server-side encryption mode that you want Elastic Transcoder to use when
         /// decrypting your input files or encrypting your output files. Elastic Transcoder supports
-        /// the following options:</para><ul><li><para><b>S3:</b> Amazon S3 creates and manages the keys used for encrypting your files.</para></li><li><para><b>S3-AWS-KMS:</b> Amazon S3 calls the Amazon Key Management Service, which creates
-        /// and manages the keys that are used for encrypting your files. If you specify <code>S3-AWS-KMS</code>
+        /// the following options:</para><ul><li><para><b>s3:</b> Amazon S3 creates and manages the keys used for encrypting your files.</para></li><li><para><b>s3-aws-kms:</b> Amazon S3 calls the Amazon Key Management Service, which creates
+        /// and manages the keys that are used for encrypting your files. If you specify <code>s3-aws-kms</code>
         /// and you don't want to use the default key, you must add the AWS-KMS key that you want
-        /// to use to your pipeline.</para></li><li><para><b>AES-CBC-PKCS7:</b> A padded cipher-block mode of operation originally used for
-        /// HLS files.</para></li><li><para><b>AES-CTR:</b> AES Counter Mode.</para></li><li><para><b>AES-GCM:</b> AES Galois Counter Mode, a mode of operation that is an authenticated
+        /// to use to your pipeline.</para></li><li><para><b>aes-cbc-pkcs7:</b> A padded cipher-block mode of operation originally used for
+        /// HLS files.</para></li><li><para><b>aes-ctr:</b> AES Counter Mode.</para></li><li><para><b>aes-gcm:</b> AES Galois Counter Mode, a mode of operation that is an authenticated
         /// encryption format, meaning that a file, key, or initialization vector that has been
         /// tampered with fails the decryption process.</para></li></ul><para>For all three AES options, you must provide the following settings, which must be
         /// base64-encoded:</para><ul><li><para><b>Key</b></para></li><li><para><b>Key MD5</b></para></li><li><para><b>Initialization Vector</b></para></li></ul><important><para>For the AES modes, your private encryption keys and your unencrypted data are never
@@ -471,11 +471,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>
         /// <para>The specific server-side encryption mode that you want Elastic Transcoder to use when
         /// decrypting your input files or encrypting your output files. Elastic Transcoder supports
-        /// the following options:</para><ul><li><para><b>S3:</b> Amazon S3 creates and manages the keys used for encrypting your files.</para></li><li><para><b>S3-AWS-KMS:</b> Amazon S3 calls the Amazon Key Management Service, which creates
-        /// and manages the keys that are used for encrypting your files. If you specify <code>S3-AWS-KMS</code>
+        /// the following options:</para><ul><li><para><b>s3:</b> Amazon S3 creates and manages the keys used for encrypting your files.</para></li><li><para><b>s3-aws-kms:</b> Amazon S3 calls the Amazon Key Management Service, which creates
+        /// and manages the keys that are used for encrypting your files. If you specify <code>s3-aws-kms</code>
         /// and you don't want to use the default key, you must add the AWS-KMS key that you want
-        /// to use to your pipeline.</para></li><li><para><b>AES-CBC-PKCS7:</b> A padded cipher-block mode of operation originally used for
-        /// HLS files.</para></li><li><para><b>AES-CTR:</b> AES Counter Mode.</para></li><li><para><b>AES-GCM:</b> AES Galois Counter Mode, a mode of operation that is an authenticated
+        /// to use to your pipeline.</para></li><li><para><b>aes-cbc-pkcs7:</b> A padded cipher-block mode of operation originally used for
+        /// HLS files.</para></li><li><para><b>aes-ctr:</b> AES Counter Mode.</para></li><li><para><b>aes-gcm:</b> AES Galois Counter Mode, a mode of operation that is an authenticated
         /// encryption format, meaning that a file, key, or initialization vector that has been
         /// tampered with fails the decryption process.</para></li></ul><para>For all three AES options, you must provide the following settings, which must be
         /// base64-encoded:</para><ul><li><para><b>Key</b></para></li><li><para><b>Key MD5</b></para></li><li><para><b>Initialization Vector</b></para></li></ul><important><para>For the AES modes, your private encryption keys and your unencrypted data are never
@@ -493,11 +493,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>
         /// <para>The specific server-side encryption mode that you want Elastic Transcoder to use when
         /// decrypting your input files or encrypting your output files. Elastic Transcoder supports
-        /// the following options:</para><ul><li><para><b>S3:</b> Amazon S3 creates and manages the keys used for encrypting your files.</para></li><li><para><b>S3-AWS-KMS:</b> Amazon S3 calls the Amazon Key Management Service, which creates
-        /// and manages the keys that are used for encrypting your files. If you specify <code>S3-AWS-KMS</code>
+        /// the following options:</para><ul><li><para><b>s3:</b> Amazon S3 creates and manages the keys used for encrypting your files.</para></li><li><para><b>s3-aws-kms:</b> Amazon S3 calls the Amazon Key Management Service, which creates
+        /// and manages the keys that are used for encrypting your files. If you specify <code>s3-aws-kms</code>
         /// and you don't want to use the default key, you must add the AWS-KMS key that you want
-        /// to use to your pipeline.</para></li><li><para><b>AES-CBC-PKCS7:</b> A padded cipher-block mode of operation originally used for
-        /// HLS files.</para></li><li><para><b>AES-CTR:</b> AES Counter Mode.</para></li><li><para><b>AES-GCM:</b> AES Galois Counter Mode, a mode of operation that is an authenticated
+        /// to use to your pipeline.</para></li><li><para><b>aes-cbc-pkcs7:</b> A padded cipher-block mode of operation originally used for
+        /// HLS files.</para></li><li><para><b>aes-ctr:</b> AES Counter Mode.</para></li><li><para><b>aes-gcm:</b> AES Galois Counter Mode, a mode of operation that is an authenticated
         /// encryption format, meaning that a file, key, or initialization vector that has been
         /// tampered with fails the decryption process.</para></li></ul><para>For all three AES options, you must provide the following settings, which must be
         /// base64-encoded:</para><ul><li><para><b>Key</b></para></li><li><para><b>Key MD5</b></para></li><li><para><b>Initialization Vector</b></para></li></ul><important><para>For the AES modes, your private encryption keys and your unencrypted data are never

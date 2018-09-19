@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// <para>
     /// The load balancer evenly distributes requests across all registered subnets. For more
     /// information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html">Add
-    /// or Remove Subnets for Your Load Balancer in a VPC</a> in the <i>Classic Load Balancer
+    /// or Remove Subnets for Your Load Balancer in a VPC</a> in the <i>Classic Load Balancers
     /// Guide</i>.
     /// </para>
     /// </summary>

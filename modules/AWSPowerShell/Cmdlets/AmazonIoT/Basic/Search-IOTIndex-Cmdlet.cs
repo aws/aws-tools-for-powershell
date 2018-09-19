@@ -31,12 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// The query search index.
     /// </summary>
     [Cmdlet("Search", "IOTIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.IoT.Model.ThingDocument")]
+    [OutputType("Amazon.IoT.Model.SearchIndexResponse")]
     [AWSCmdlet("Calls the AWS IoT SearchIndex API operation.", Operation = new[] {"SearchIndex"})]
-    [AWSCmdletOutput("Amazon.IoT.Model.ThingDocument",
-        "This cmdlet returns a collection of ThingDocument objects.",
-        "The service call response (type Amazon.IoT.Model.SearchIndexResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
+    [AWSCmdletOutput("Amazon.IoT.Model.SearchIndexResponse",
+        "This cmdlet returns a Amazon.IoT.Model.SearchIndexResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class SearchIOTIndexCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -176,9 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Things;
-                notes = new Dictionary<string, object>();
-                notes["NextToken"] = response.NextToken;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

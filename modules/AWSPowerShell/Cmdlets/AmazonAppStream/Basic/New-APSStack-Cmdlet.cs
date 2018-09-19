@@ -61,6 +61,17 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String DisplayName { get; set; }
         #endregion
         
+        #region Parameter ApplicationSettings_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables or disables persistent application settings for users during their streaming
+        /// sessions. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean ApplicationSettings_Enabled { get; set; }
+        #endregion
+        
         #region Parameter FeedbackURL
         /// <summary>
         /// <para>
@@ -90,6 +101,18 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RedirectURL { get; set; }
+        #endregion
+        
+        #region Parameter ApplicationSettings_SettingsGroup
+        /// <summary>
+        /// <para>
+        /// <para>The path prefix for the S3 bucket where users’ persistent application settings are
+        /// stored. You can allow the same persistent application settings to be used across multiple
+        /// stacks by specifying the same settings group for each stack. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ApplicationSettings_SettingsGroup { get; set; }
         #endregion
         
         #region Parameter StorageConnector
@@ -144,6 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("ApplicationSettings_Enabled"))
+                context.ApplicationSettings_Enabled = this.ApplicationSettings_Enabled;
+            context.ApplicationSettings_SettingsGroup = this.ApplicationSettings_SettingsGroup;
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             context.FeedbackURL = this.FeedbackURL;
@@ -173,6 +199,35 @@ namespace Amazon.PowerShell.Cmdlets.APS
             // create request
             var request = new Amazon.AppStream.Model.CreateStackRequest();
             
+            
+             // populate ApplicationSettings
+            bool requestApplicationSettingsIsNull = true;
+            request.ApplicationSettings = new Amazon.AppStream.Model.ApplicationSettings();
+            System.Boolean? requestApplicationSettings_applicationSettings_Enabled = null;
+            if (cmdletContext.ApplicationSettings_Enabled != null)
+            {
+                requestApplicationSettings_applicationSettings_Enabled = cmdletContext.ApplicationSettings_Enabled.Value;
+            }
+            if (requestApplicationSettings_applicationSettings_Enabled != null)
+            {
+                request.ApplicationSettings.Enabled = requestApplicationSettings_applicationSettings_Enabled.Value;
+                requestApplicationSettingsIsNull = false;
+            }
+            System.String requestApplicationSettings_applicationSettings_SettingsGroup = null;
+            if (cmdletContext.ApplicationSettings_SettingsGroup != null)
+            {
+                requestApplicationSettings_applicationSettings_SettingsGroup = cmdletContext.ApplicationSettings_SettingsGroup;
+            }
+            if (requestApplicationSettings_applicationSettings_SettingsGroup != null)
+            {
+                request.ApplicationSettings.SettingsGroup = requestApplicationSettings_applicationSettings_SettingsGroup;
+                requestApplicationSettingsIsNull = false;
+            }
+             // determine if request.ApplicationSettings should be set to null
+            if (requestApplicationSettingsIsNull)
+            {
+                request.ApplicationSettings = null;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -265,6 +320,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? ApplicationSettings_Enabled { get; set; }
+            public System.String ApplicationSettings_SettingsGroup { get; set; }
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.String FeedbackURL { get; set; }

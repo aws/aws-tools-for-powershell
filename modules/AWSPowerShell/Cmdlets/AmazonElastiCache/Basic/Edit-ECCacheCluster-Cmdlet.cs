@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// nodes in different Availability Zones. If <code>cross-az</code> is specified, existing
         /// Memcached nodes remain in their current Availability Zone.</para><para>Only newly created nodes are located in different Availability Zones. For instructions
         /// on how to move existing Memcached nodes to different Availability Zones, see the <b>Availability
-        /// Zone Considerations</b> section of <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNode.Memcached.html">Cache
+        /// Zone Considerations</b> section of <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNode.Memcached.html">Cache
         /// Node Considerations for Memcached</a>.</para></note>
         /// </para>
         /// </summary>
@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The upgraded version of the cache engine to be run on the cache nodes.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement">Selecting
+        /// <para>The upgraded version of the cache engine to be run on the cache nodes.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
         /// a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version.
         /// If you want to use an earlier engine version, you must delete the existing cluster
         /// and create it anew with the earlier engine version. </para>
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// to the number of current nodes.</para><para>If <code>cross-az</code> is specified, existing Memcached nodes remain in their current
         /// Availability Zone. Only newly created nodes can be located in different Availability
         /// Zones. For guidance on how to move existing Memcached nodes to different Availability
-        /// Zones, see the <b>Availability Zone Considerations</b> section of <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNode.Memcached.html">Cache
+        /// Zones, see the <b>Availability Zone Considerations</b> section of <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNode.Memcached.html">Cache
         /// Node Considerations for Memcached</a>.</para><para><b>Impact of new add/remove requests upon pending requests</b></para><ul><li><para>Scenario-1</para><ul><li><para>Pending Action: Delete</para></li><li><para>New Request: Delete</para></li><li><para>Result: The new delete, pending or immediate, replaces the pending delete.</para></li></ul></li><li><para>Scenario-2</para><ul><li><para>Pending Action: Delete</para></li><li><para>New Request: Create</para></li><li><para>Result: The new create, pending or immediate, replaces the pending delete.</para></li></ul></li><li><para>Scenario-3</para><ul><li><para>Pending Action: Create</para></li><li><para>New Request: Delete</para></li><li><para>Result: The new delete, pending or immediate, replaces the pending create.</para></li></ul></li><li><para>Scenario-4</para><ul><li><para>Pending Action: Create</para></li><li><para>New Request: Create</para></li><li><para>Result: The new create is added to the pending create.</para><important><para><b>Important:</b> If the new create request is <b>Apply Immediately - Yes</b>, all
         /// creates are performed immediately. If the new create request is <b>Apply Immediately
         /// - No</b>, all creates are pending.</para></important></li></ul></li></ul>

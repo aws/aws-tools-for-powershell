@@ -120,6 +120,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter SecurityConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The name of the SecurityConfiguration structure to be used with this DevEndpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SecurityConfiguration { get; set; }
+        #endregion
+        
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
@@ -181,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.PublicKeyList = new List<System.String>(this.PublicKeyList);
             }
             context.RoleArn = this.RoleArn;
+            context.SecurityConfiguration = this.SecurityConfiguration;
             if (this.SecurityGroupId != null)
             {
                 context.SecurityGroupIds = new List<System.String>(this.SecurityGroupId);
@@ -229,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
+            }
+            if (cmdletContext.SecurityConfiguration != null)
+            {
+                request.SecurityConfiguration = cmdletContext.SecurityConfiguration;
             }
             if (cmdletContext.SecurityGroupIds != null)
             {
@@ -309,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String PublicKey { get; set; }
             public List<System.String> PublicKeyList { get; set; }
             public System.String RoleArn { get; set; }
+            public System.String SecurityConfiguration { get; set; }
             public List<System.String> SecurityGroupIds { get; set; }
             public System.String SubnetId { get; set; }
         }

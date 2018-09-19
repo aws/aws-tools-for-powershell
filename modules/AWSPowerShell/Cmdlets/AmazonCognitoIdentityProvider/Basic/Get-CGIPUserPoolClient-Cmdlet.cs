@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
     /// Client method for returning the configuration information and metadata of the specified
-    /// user pool client.
+    /// user pool app client.
     /// </summary>
     [Cmdlet("Get", "CGIPUserPoolClient")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.UserPoolClientType")]

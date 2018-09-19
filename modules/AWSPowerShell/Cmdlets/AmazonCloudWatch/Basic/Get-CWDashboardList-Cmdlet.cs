@@ -30,7 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// <summary>
     /// Returns a list of the dashboards for your account. If you include <code>DashboardNamePrefix</code>,
     /// only those dashboards with names starting with the prefix are listed. Otherwise, all
-    /// dashboards in your account are listed.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// dashboards in your account are listed. 
+    /// 
+    ///  
+    /// <para><code>ListDashboards</code> returns up to 1000 results on one page. If there are
+    /// more than 1000 dashboards, you can call <code>ListDashboards</code> again and include
+    /// the value you received for <code>NextToken</code> in the first call, to receive the
+    /// next 1000 results.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CWDashboardList")]
     [OutputType("Amazon.CloudWatch.Model.DashboardEntry")]

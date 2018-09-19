@@ -71,6 +71,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public Amazon.IoT.Model.OTAUpdateFile[] File { get; set; }
         #endregion
         
+        #region Parameter AwsJobExecutionsRolloutConfig_MaximumPerMinute
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of OTA update job executions started per minute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 AwsJobExecutionsRolloutConfig_MaximumPerMinute { get; set; }
+        #endregion
+        
         #region Parameter OtaUpdateId
         /// <summary>
         /// <para>
@@ -155,6 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                     context.AdditionalParameters.Add((String)hashKey, (String)(this.AdditionalParameter[hashKey]));
                 }
             }
+            if (ParameterWasBound("AwsJobExecutionsRolloutConfig_MaximumPerMinute"))
+                context.AwsJobExecutionsRolloutConfig_MaximumPerMinute = this.AwsJobExecutionsRolloutConfig_MaximumPerMinute;
             context.Description = this.Description;
             if (this.File != null)
             {
@@ -186,6 +198,25 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.AdditionalParameters != null)
             {
                 request.AdditionalParameters = cmdletContext.AdditionalParameters;
+            }
+            
+             // populate AwsJobExecutionsRolloutConfig
+            bool requestAwsJobExecutionsRolloutConfigIsNull = true;
+            request.AwsJobExecutionsRolloutConfig = new Amazon.IoT.Model.AwsJobExecutionsRolloutConfig();
+            System.Int32? requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_MaximumPerMinute = null;
+            if (cmdletContext.AwsJobExecutionsRolloutConfig_MaximumPerMinute != null)
+            {
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_MaximumPerMinute = cmdletContext.AwsJobExecutionsRolloutConfig_MaximumPerMinute.Value;
+            }
+            if (requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_MaximumPerMinute != null)
+            {
+                request.AwsJobExecutionsRolloutConfig.MaximumPerMinute = requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_MaximumPerMinute.Value;
+                requestAwsJobExecutionsRolloutConfigIsNull = false;
+            }
+             // determine if request.AwsJobExecutionsRolloutConfig should be set to null
+            if (requestAwsJobExecutionsRolloutConfigIsNull)
+            {
+                request.AwsJobExecutionsRolloutConfig = null;
             }
             if (cmdletContext.Description != null)
             {
@@ -276,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> AdditionalParameters { get; set; }
+            public System.Int32? AwsJobExecutionsRolloutConfig_MaximumPerMinute { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.IoT.Model.OTAUpdateFile> Files { get; set; }
             public System.String OtaUpdateId { get; set; }

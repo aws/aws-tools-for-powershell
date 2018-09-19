@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation",
         "This cmdlet returns a collection of Operation objects.",
         "The service call response (type Amazon.Lightsail.Model.GetOperationsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageCount (type System.String), NextPageToken (type System.String)"
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageToken (type System.String)"
     )]
     public partial class GetLSOperationListForResourceCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
@@ -129,7 +129,6 @@ namespace Amazon.PowerShell.Cmdlets.LS
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Operations;
                         notes = new Dictionary<string, object>();
-                        notes["NextPageCount"] = response.NextPageCount;
                         notes["NextPageToken"] = response.NextPageToken;
                         output = new CmdletOutput
                         {

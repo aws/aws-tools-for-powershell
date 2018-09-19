@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     public partial class NewEMCJobCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {
         
+        #region Parameter BillingTagsSource
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.MediaConvert.BillingTagsSource")]
+        public Amazon.MediaConvert.BillingTagsSource BillingTagsSource { get; set; }
+        #endregion
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
@@ -137,6 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.BillingTagsSource = this.BillingTagsSource;
             context.ClientRequestToken = this.ClientRequestToken;
             context.JobTemplate = this.JobTemplate;
             context.Queue = this.Queue;
@@ -166,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             // create request
             var request = new Amazon.MediaConvert.Model.CreateJobRequest();
             
+            if (cmdletContext.BillingTagsSource != null)
+            {
+                request.BillingTagsSource = cmdletContext.BillingTagsSource;
+            }
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
@@ -254,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.MediaConvert.BillingTagsSource BillingTagsSource { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String JobTemplate { get; set; }
             public System.String Queue { get; set; }

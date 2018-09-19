@@ -29,10 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB
 {
     /// <summary>
     /// Removes the specified Availability Zones from the set of Availability Zones for the
-    /// specified load balancer.
+    /// specified load balancer in EC2-Classic or a default VPC.
     /// 
     ///  
     /// <para>
+    /// For load balancers in a non-default VPC, use <a>DetachLoadBalancerFromSubnets</a>.
+    /// </para><para>
     /// There must be at least one Availability Zone registered with a load balancer at all
     /// times. After an Availability Zone is removed, all instances registered with the load
     /// balancer that are in the removed Availability Zone go into the <code>OutOfService</code>
@@ -40,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// Availability Zones.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add
-    /// or Remove Availability Zones</a> in the <i>Classic Load Balancer Guide</i>.
+    /// or Remove Availability Zones</a> in the <i>Classic Load Balancers Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Disable", "ELBAvailabilityZoneForLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

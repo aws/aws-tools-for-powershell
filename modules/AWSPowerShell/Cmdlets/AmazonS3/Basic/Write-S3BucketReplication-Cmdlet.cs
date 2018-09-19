@@ -29,6 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Creates a new replication configuration (or replaces an existing one, if present).
+    /// For more information, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region
+    /// Replication (CRR)</a> in the Amazon S3 Developer Guide.
     /// </summary>
     [Cmdlet("Write", "S3BucketReplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -63,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Configuration_Rule
         /// <summary>
         /// <para>
-        /// Replication rules
+        /// Container for information about a particular replication rule.
+        /// Replication configuration must have at least one rule and can contain up to 1,000 rules.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

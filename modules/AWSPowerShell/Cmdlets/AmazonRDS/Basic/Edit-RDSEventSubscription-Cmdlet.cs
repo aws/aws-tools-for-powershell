@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     ///  
     /// <para>
     /// You can see a list of the event categories for a given SourceType in the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Events</a>
-    /// topic in the Amazon RDS User Guide or by using the <b>DescribeEventCategories</b>
+    /// topic in the <i>Amazon RDS User Guide</i> or by using the <b>DescribeEventCategories</b>
     /// action.
     /// </para>
     /// </summary>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> A list of event categories for a SourceType that you want to subscribe to. You can
         /// see a list of the categories for a given SourceType in the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Events</a>
-        /// topic in the Amazon RDS User Guide or by using the <b>DescribeEventCategories</b>
+        /// topic in the <i>Amazon RDS User Guide</i> or by using the <b>DescribeEventCategories</b>
         /// action. </para>
         /// </para>
         /// </summary>

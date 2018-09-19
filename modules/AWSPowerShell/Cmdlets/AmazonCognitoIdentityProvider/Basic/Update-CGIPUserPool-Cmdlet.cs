@@ -28,7 +28,9 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Updates the specified user pool with the specified attributes.
+    /// Updates the specified user pool with the specified attributes. If you don't provide
+    /// a value for an attribute, it will be set to the default value. You can get a list
+    /// of the current user pool settings with .
     /// </summary>
     [Cmdlet("Update", "CGIPUserPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

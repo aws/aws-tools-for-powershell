@@ -1,3 +1,47 @@
+### 3.3.365.0 (2018-09-21)
+  * Get-AWSPublicIpAddressRange has been changed to honor proxy configurations provided through Set-AWSProxy.
+  * Amazon Firewall Management Service
+    * [Breaking Change] The response data from the service's GetAdminAccount API has been extended to emit both the administrator account and the status of the account. The output from the corresponding Get-FMSAdminAccount cmdlet has therefore been changed to emit the service response to the pipeline. To keep the original behavior your scripts need to be changed to use _(Get-FMSAdminAccount).AdminAccount_ in place of _Get-FMSAdminAccount_.
+    * Added cmdlet Get-FMSMemberAccountLis which allows to get all the member accounts belonging to a certain Fire Wall Manager admin account. 
+  * Amazon IOT
+    * [Breaking Change] The response data from the service's GetIndexingConfiguration API has been extended to emit both the index configuration and the thing indexing configuration. The output from the corresponding Get-IOTIndexingConfiguration cmdlet has therefore been changed to emit the service response to the pipeline. To keep the original behavior your scripts need to be changed to use _(Get-IOTIndexingConfiguration).ThingIndexingConfiguration_ in place of _Get-IOTIndexingConfiguration_.
+    * [Breaking Change] The response data from the service's SearchIndex API has been extended to emit both the things and the thing groups that match the search query. The output from the corresponding Search-IOTIndex cmdlet has therefore been changed to emit the service
+ response to the pipeline. To keep the original behavior your scripts need to be changed to use _(Search-IOTIndex).Things_ in place of _Search-IOTIndex_.
+    * Updated cmdlet New-IOTOTAUpdate to allow specifying maximum number of OTA update job executions started per minute.
+    * Updated cmdlet Update-IOTIndexingConfiguration to allow specifying the thing group indexing mode.
+  * Amazon Cloud HSM V2
+    * Added cmdlets Remove-HSM2Backup and Restore-HSM2Backup allowing to delete or restore a specified AWS CloudHSM backup.
+  * Amazon CloudWatch
+    * Added cmdlet Get-MetricWidgetImage which provides the ability to request png image snapshots of metric widgets.
+  * Amazon Cognito Identity Provider
+    * Updated cmdlet New-CGIPUserPoolDomain adding support for creating custom domains for our hosted UI for User Pools.
+  * Amazon Directory Service
+    * Added cmdlets New-DSLogSubscription, Remove-DSLogSubscription and Get-DSLogSubscriptionList. Customers can now opt in to have Windows security event logs from the domain controllers forwarded to a log group in their account.
+  * Amazon DynamoDB
+    * Added cmdlet Get-DDBEndpoint.
+  * Amazon ElastiCache
+    * Added cmdlets Request-ECReplicaCountDecrease and Request-ECReplicaCountIncrease which allow adding and removing read-replicas from any cluster with no cluster downtime.
+  * Amazon Elemental MediaLive
+    * Added cmdlets Update-EMLScheduleBatch and Get-EMLSchedule allowing scheduling actions for SCTE-35 message insertion and for static image overlays.
+  * Amazon Elemental MediaPackage
+    * Added cmdlet Invoke-EMPIngestEndpointCredentialRotation allowing to rotate the IngestEndpoint's username and password.
+  * Amazon Glue
+    * Added cmdlets New-GLUESecurityConfiguration, Remove-GLUESecurityConfiguration, Get-GLUESecurityConfiguration and Get-GLUESecurityConfigurationList for creating, updating, reading and deleting Data Catalog resource-based policies.
+    * Updated cmdlets New-GLUECrawler, New-GLUEJob and New-GLUEDevEndpoint to allow specifying Encryption settings for Glue crawlers, ETL jobs, and development endpoints.
+  * Amazon Rekognition
+    * Added cmdlet Get-REKCollection allowing to get information about an existing face collection.
+    * Updated cmdlet Add-REKDetectedFacesToCollection introducing a MaxFaces parameter and a QualityFilter parameter that allows you to automatically filter out detected faces that are deemed to be of low quality by Amazon Rekognition.
+  * Amazon Relational Database Service
+    * Added cmdlets Start-RDSDBCluster, Stop-RDSDBCluster. Stopping and starting Amazon Aurora clusters helps you manage costs for development and test environments. You can temporarily stop all the DB instances in your cluster, instead of setting up and tearing down all the DB instances each time that you use the cluster.
+  * Amazon Systems Manager
+    * Added cmdlets Get-SSMSession, Get-SSMConnectionStatus, Resume-SSMSession, Start-SSMSession and Stop-SSMSession. Session Manager is a fully managed AWS Systems Manager capability that provides interactive one-click access to Amazon EC2 Linux and Windows instances.
+  * Amazon WAF
+    * Added cmdlets Remove-WAFLoggingConfiguration, Get-WAFLoggingConfiguration, Get-WAFLoggingConfigurationList and Write-WAFLoggingConfiguration to provide access to all the logs of requests that are inspected by a WAF WebACL.
+  * Amazon WAF Regional
+    * Added cmdlets Remove-WAFRLoggingConfiguration, Get-WAFRLoggingConfiguration, Get-WAFRLoggingConfigurationList and Write-WAFRLoggingConfiguration to provide access to all the logs of requests that are inspected by a WAF WebACL.
+  * Amazon X-Ray
+    * Added cmdlets to support managing sampling rules
+
 ### 3.3.343.0 (2018-08-23)
   * Application Discovery Service
     * Added cmdlets to support the service's new Continuous Export APIs. Continuous Export APIs allow you to analyze your on-premises server inventory data, including system performance and network dependencies, in Amazon Athena. The new cmdlets are Get-ADSContinousExport (DescribeContinuousExports API), Start-ADSContinuousExport (StartContinuousExport API) and Stop-ADSContinuousExport (StopContinuousExport API).
