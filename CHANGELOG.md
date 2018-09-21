@@ -2,7 +2,7 @@
   * Get-AWSPublicIpAddressRange has been changed to honor proxy configurations provided through Set-AWSProxy.
   * Amazon Firewall Management Service
     * [Breaking Change] The response data from the service's GetAdminAccount API has been extended to emit both the administrator account and the status of the account. The output from the corresponding Get-FMSAdminAccount cmdlet has therefore been changed to emit the service response to the pipeline. To keep the original behavior your scripts need to be changed to use _(Get-FMSAdminAccount).AdminAccount_ in place of _Get-FMSAdminAccount_.
-    * Added cmdlet Get-FMSMemberAccountLis which allows to get all the member accounts belonging to a certain Fire Wall Manager admin account. 
+    * Added cmdlet Get-FMSMemberAccountList which allows to get all the member accounts belonging to a certain Fire Wall Manager admin account. 
   * Amazon IOT
     * [Breaking Change] The response data from the service's GetIndexingConfiguration API has been extended to emit both the index configuration and the thing indexing configuration. The output from the corresponding Get-IOTIndexingConfiguration cmdlet has therefore been changed to emit the service response to the pipeline. To keep the original behavior your scripts need to be changed to use _(Get-IOTIndexingConfiguration).ThingIndexingConfiguration_ in place of _Get-IOTIndexingConfiguration_.
     * [Breaking Change] The response data from the service's SearchIndex API has been extended to emit both the things and the thing groups that match the search query. The output from the corresponding Search-IOTIndex cmdlet has therefore been changed to emit the service
@@ -12,7 +12,7 @@
   * Amazon Cloud HSM V2
     * Added cmdlets Remove-HSM2Backup and Restore-HSM2Backup allowing to delete or restore a specified AWS CloudHSM backup.
   * Amazon CloudWatch
-    * Added cmdlet Get-MetricWidgetImage which provides the ability to request png image snapshots of metric widgets.
+    * Added cmdlet Get-CWMetricWidgetImage which provides the ability to request png image snapshots of metric widgets.
   * Amazon Cognito Identity Provider
     * Updated cmdlet New-CGIPUserPoolDomain adding support for creating custom domains for our hosted UI for User Pools.
   * Amazon Directory Service
