@@ -351,10 +351,6 @@
             <PrivateKeyException Include="DocDeployment\docs\items\Get-IAMSigningCertificate.html" />
             <PrivateKeyException Include="DocDeployment\docs\items\Publish-IAMSigningCertificate.html" />
 			
-            <PrivateKeyException Include="Include\sdk\Models\acm\acm-2015-12-08.normal.json" />
-            <PrivateKeyException Include="Include\sdk\Models\ec2\ec2-2014-02-01.normal.json" />
-            <PrivateKeyException Include="Include\sdk\Models\iam\iam-2010-05-08.normal.json" />
-			
         </ItemGroup>
         
         <ItemGroup>
@@ -378,11 +374,16 @@
             <FileException Include="Deployment\AWSPowerShell.NetCore\AWSAliases.ps1" />
         </ItemGroup>
         
+        <ItemGroup>
+	          <FolderException Include="Include\sdk\models"/>
+	      </ItemGroup>
+        
         <KeyScannerTask 
             Folder="$(MSBuildProjectDirectory)\.."
             FilePattern="**"
             PrivateKeyExceptions="@(PrivateKeyException)"
             FileExceptions="@(FileException)"
+            FolderExceptions="@(FolderException)"
             ParallelScan="true"
             />
     </Target>
