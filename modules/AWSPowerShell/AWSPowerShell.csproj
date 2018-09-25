@@ -1,475 +1,206 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Edition Condition=" '$(Edition)' == '' ">DESKTOP</Edition>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\solutions\</SolutionDir>
-  </PropertyGroup>
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{241136F3-DE04-4AFD-A7F3-31E26B9D5C00}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <TargetFrameworks>net35;netstandard2.0</TargetFrameworks>
     <RootNamespace>Amazon.PowerShell</RootNamespace>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\solutions\</SolutionDir>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>1591,1574,1570,1587</NoWarn>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>aws-powershell.snk</AssemblyOriginatorKeyFile>
+    <OutputPath>bin\$(Configuration)\$(Edition)\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='net35'">
+    <Edition Condition=" '$(Edition)' == '' ">DESKTOP</Edition>
     <AssemblyName>AWSPowerShell</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-    <RestorePackages>true</RestorePackages>
+    <DocumentationFile>$(OutputPath)\AWSPowerShell.XML</DocumentationFile>
+    <!-- workaround per https://github.com/Microsoft/msbuild/issues/1333 -->
+    <FrameworkPathOverride>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v3.5\Profile\Client</FrameworkPathOverride>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <Edition Condition=" '$(Edition)' == '' ">CORECLR</Edition>
+    <AssemblyName>AWSPowerShell.NetCore</AssemblyName>
+    <DocumentationFile>$(OutputPath)\AWSPowerShell.NetCore.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)|$(TargetFramework)'=='Debug|AnyCPU|net35'">
+    <DefineConstants>TRACE;DEBUG;$(Edition)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)|$(TargetFramework)'=='Release|AnyCPU|net35'">
+    <DefineConstants>TRACE;$(Edition)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)|$(TargetFramework)'=='Debug|AnyCPU|netstandard2.0'">
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_0;$(Edition)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)|$(TargetFramework)'=='Release|AnyCPU|netstandard2.0'">
+    <DefineConstants>TRACE;NETSTANDARD;NETSTANDARD2_0;$(Edition)</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <BaseIntermediateOutputPath>obj\Debug\$(Edition)\</BaseIntermediateOutputPath>
-    <OutputPath>bin\Debug\$(Edition)\</OutputPath>
-    <DefineConstants>$(Edition);DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <NoWarn>1591,1574,1570,1587</NoWarn>
-    <DocumentationFile>$(OutputPath)\AWSPowerShell.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <BaseIntermediateOutputPath>obj\Release\$(Edition)\</BaseIntermediateOutputPath>
-    <OutputPath>bin\Release\$(Edition)\</OutputPath>
-    <DefineConstants>$(Edition);TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>$(OutputPath)\AWSPowerShell.XML</DocumentationFile>
-    <NoWarn>1591,1574,1570,1587</NoWarn>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>aws-powershell.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\thirdparty\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ACMPCA">
-      <HintPath>..\..\packages\AWSSDK.ACMPCA.3.3.1.10\lib\net35\AWSSDK.ACMPCA.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.AlexaForBusiness">
-      <HintPath>..\..\packages\AWSSDK.AlexaForBusiness.3.3.5.10\lib\net35\AWSSDK.AlexaForBusiness.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.AppStream">
-      <HintPath>..\..\packages\AWSSDK.AppStream.3.3.18.2\lib\net35\AWSSDK.AppStream.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.AppSync">
-      <HintPath>..\..\packages\AWSSDK.AppSync.3.3.3.8\lib\net35\AWSSDK.AppSync.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Athena">
-      <HintPath>..\..\packages\AWSSDK.Athena.3.3.0.23\lib\net35\AWSSDK.Athena.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.AWSHealth">
-      <HintPath>..\..\packages\AWSSDK.AWSHealth.3.3.1.5\lib\net35\AWSSDK.AWSHealth.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Batch">
-      <HintPath>..\..\packages\AWSSDK.Batch.3.3.5.14\lib\net35\AWSSDK.Batch.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Cloud9">
-      <HintPath>..\..\packages\AWSSDK.Cloud9.3.3.0.18\lib\net35\AWSSDK.Cloud9.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CloudDirectory">
-      <HintPath>..\..\packages\AWSSDK.CloudDirectory.3.3.9.10\lib\net35\AWSSDK.CloudDirectory.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CloudHSMV2">
-      <HintPath>..\..\packages\AWSSDK.CloudHSMV2.3.3.3\lib\net35\AWSSDK.CloudHSMV2.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CodeStar">
-      <HintPath>..\..\packages\AWSSDK.CodeStar.3.3.1.20\lib\net35\AWSSDK.CodeStar.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Comprehend">
-      <HintPath>..\..\packages\AWSSDK.Comprehend.3.3.2.8\lib\net35\AWSSDK.Comprehend.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CostAndUsageReport">
-      <HintPath>..\..\packages\AWSSDK.CostAndUsageReport.3.3.0.34\lib\net35\AWSSDK.CostAndUsageReport.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CostExplorer">
-      <HintPath>..\..\packages\AWSSDK.CostExplorer.3.3.6.8\lib\net35\AWSSDK.CostExplorer.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.DAX">
-      <HintPath>..\..\packages\AWSSDK.DAX.3.3.1.5\lib\net35\AWSSDK.DAX.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.FMS">
-      <HintPath>..\..\packages\AWSSDK.FMS.3.3.1\lib\net35\AWSSDK.FMS.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Glue">
-      <HintPath>..\..\packages\AWSSDK.Glue.3.3.13.2\lib\net35\AWSSDK.Glue.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Greengrass">
-      <HintPath>..\..\packages\AWSSDK.Greengrass.3.3.3.15\lib\net35\AWSSDK.Greengrass.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.GuardDuty">
-      <HintPath>..\..\packages\AWSSDK.GuardDuty.3.3.4.12\lib\net35\AWSSDK.GuardDuty.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.IoTJobsDataPlane">
-      <HintPath>..\..\packages\AWSSDK.IoTJobsDataPlane.3.3.0.17\lib\net35\AWSSDK.IoTJobsDataPlane.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.KinesisVideo">
-      <HintPath>..\..\packages\AWSSDK.KinesisVideo.3.3.1.8\lib\net35\AWSSDK.KinesisVideo.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.KinesisVideoMedia">
-      <HintPath>..\..\packages\AWSSDK.KinesisVideoMedia.3.3.0.17\lib\net35\AWSSDK.KinesisVideoMedia.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Lex">
-      <HintPath>..\..\packages\AWSSDK.Lex.3.3.3.17\lib\net35\AWSSDK.Lex.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.LexModelBuildingService">
-      <HintPath>..\..\packages\AWSSDK.LexModelBuildingService.3.3.7.3\lib\net35\AWSSDK.LexModelBuildingService.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.MarketplaceEntitlementService">
-      <HintPath>..\..\packages\AWSSDK.MarketplaceEntitlementService.3.3.0.25\lib\net35\AWSSDK.MarketplaceEntitlementService.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.MediaConvert">
-      <HintPath>..\..\packages\AWSSDK.MediaConvert.3.3.8.1\lib\net35\AWSSDK.MediaConvert.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.MediaLive">
-      <HintPath>..\..\packages\AWSSDK.MediaLive.3.3.9.2\lib\net35\AWSSDK.MediaLive.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.MediaPackage">
-      <HintPath>..\..\packages\AWSSDK.MediaPackage.3.3.4.2\lib\net35\AWSSDK.MediaPackage.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.MediaStore">
-      <HintPath>..\..\packages\AWSSDK.MediaStore.3.3.1.17\lib\net35\AWSSDK.MediaStore.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.MediaStoreData">
-      <HintPath>..\..\packages\AWSSDK.MediaStoreData.3.3.0.18\lib\net35\AWSSDK.MediaStoreData.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.MigrationHub">
-      <HintPath>..\..\packages\AWSSDK.MigrationHub.3.3.1.17\lib\net35\AWSSDK.MigrationHub.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.MQ">
-      <HintPath>..\..\packages\AWSSDK.MQ.3.3.1.7\lib\net35\AWSSDK.MQ.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.MTurk">
-      <HintPath>..\..\packages\AWSSDK.MTurk.3.3.3.2\lib\net35\AWSSDK.MTurk.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.OpsWorksCM">
-      <HintPath>..\..\packages\AWSSDK.OpsWorksCM.3.3.5.3\lib\net35\AWSSDK.OpsWorksCM.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CodeBuild">
-      <HintPath>..\..\packages\AWSSDK.CodeBuild.3.3.16\lib\net35\AWSSDK.CodeBuild.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Lightsail">
-      <HintPath>..\..\packages\AWSSDK.Lightsail.3.3.6.2\lib\net35\AWSSDK.Lightsail.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Organizations">
-      <HintPath>..\..\packages\AWSSDK.Organizations.3.3.9\lib\net35\AWSSDK.Organizations.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Pinpoint">
-      <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.9.5\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Pricing">
-      <HintPath>..\..\packages\AWSSDK.Pricing.3.3.0.18\lib\net35\AWSSDK.Pricing.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Rekognition">
-      <HintPath>..\..\packages\AWSSDK.Rekognition.3.3.11\lib\net35\AWSSDK.Rekognition.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Polly">
-      <HintPath>..\..\packages\AWSSDK.Polly.3.3.8\lib\net35\AWSSDK.Polly.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ResourceGroups">
-      <HintPath>..\..\packages\AWSSDK.ResourceGroups.3.3.1.6\lib\net35\AWSSDK.ResourceGroups.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ResourceGroupsTaggingAPI">
-      <HintPath>..\..\packages\AWSSDK.ResourceGroupsTaggingAPI.3.3.1.23\lib\net35\AWSSDK.ResourceGroupsTaggingAPI.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.SageMaker">
-      <HintPath>..\..\packages\AWSSDK.SageMaker.3.3.12.2\lib\net35\AWSSDK.SageMaker.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.SageMakerRuntime">
-      <HintPath>..\..\packages\AWSSDK.SageMakerRuntime.3.3.1.2\lib\net35\AWSSDK.SageMakerRuntime.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.SecretsManager">
-      <HintPath>..\..\packages\AWSSDK.SecretsManager.3.3.2.7\lib\net35\AWSSDK.SecretsManager.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ServerlessApplicationRepository">
-      <HintPath>..\..\packages\AWSSDK.ServerlessApplicationRepository.3.3.2.8\lib\net35\AWSSDK.ServerlessApplicationRepository.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ServiceDiscovery">
-      <HintPath>..\..\packages\AWSSDK.ServiceDiscovery.3.3.2.16\lib\net35\AWSSDK.ServiceDiscovery.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.SimpleWorkflow">
-      <HintPath>..\..\packages\AWSSDK.SimpleWorkflow.3.3.0.41\lib\net35\AWSSDK.SimpleWorkflow.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.TranscribeService">
-      <HintPath>..\..\packages\AWSSDK.TranscribeService.3.3.3.7\lib\net35\AWSSDK.TranscribeService.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Translate">
-      <HintPath>..\..\packages\AWSSDK.Translate.3.3.1.14\lib\net35\AWSSDK.Translate.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.WAFRegional">
-      <HintPath>..\..\packages\AWSSDK.WAFRegional.3.3.5.2\lib\net35\AWSSDK.WAFRegional.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.WorkDocs">
-      <HintPath>..\..\packages\AWSSDK.WorkDocs.3.3.5.2\lib\net35\AWSSDK.WorkDocs.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.WorkMail">
-      <HintPath>..\..\packages\AWSSDK.WorkMail.3.3.1.14\lib\net35\AWSSDK.WorkMail.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.XRay">
-      <HintPath>..\..\packages\AWSSDK.XRay.3.3.3.2\lib\net35\AWSSDK.XRay.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ServerMigrationService">
-      <HintPath>..\..\packages\AWSSDK.ServerMigrationService.3.3.0.39\lib\net35\AWSSDK.ServerMigrationService.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Budgets">
-      <HintPath>..\..\packages\AWSSDK.Budgets.3.3.9.12\lib\net35\AWSSDK.Budgets.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.StepFunctions">
-      <HintPath>..\..\packages\AWSSDK.StepFunctions.3.3.2.17\lib\net35\AWSSDK.StepFunctions.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Shield">
-      <HintPath>..\..\packages\AWSSDK.Shield.3.3.3.2\lib\net35\AWSSDK.Shield.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.WorkSpaces">
-      <HintPath>..\..\packages\AWSSDK.WorkSpaces.3.3.2.12\lib\net35\AWSSDK.WorkSpaces.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.WAF">
-      <HintPath>..\..\packages\AWSSDK.WAF.3.3.6.2\lib\net35\AWSSDK.WAF.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.StorageGateway">
-      <HintPath>..\..\packages\AWSSDK.StorageGateway.3.3.10.7\lib\net35\AWSSDK.StorageGateway.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.SQS">
-      <HintPath>..\..\packages\AWSSDK.SQS.3.3.3.19\lib\net35\AWSSDK.SQS.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Snowball">
-      <HintPath>..\..\packages\AWSSDK.Snowball.3.3.4.3\lib\net35\AWSSDK.Snowball.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.SimpleSystemsManagement">
-      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.31\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.SimpleNotificationService">
-      <HintPath>..\..\packages\AWSSDK.SimpleNotificationService.3.3.1.11\lib\net35\AWSSDK.SimpleNotificationService.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.SimpleEmail">
-      <HintPath>..\..\packages\AWSSDK.SimpleEmail.3.3.6.20\lib\net35\AWSSDK.SimpleEmail.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ServiceCatalog">
-      <HintPath>..\..\packages\AWSSDK.ServiceCatalog.3.3.10.11\lib\net35\AWSSDK.ServiceCatalog.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.SecurityToken">
-      <HintPath>..\..\packages\AWSSDK.SecurityToken.3.3.4.15\lib\net35\AWSSDK.SecurityToken.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.S3">
-      <HintPath>..\..\packages\AWSSDK.S3.3.3.24\lib\net35\AWSSDK.S3.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Route53Domains">
-      <HintPath>..\..\packages\AWSSDK.Route53Domains.3.3.3.2\lib\net35\AWSSDK.Route53Domains.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Route53">
-      <HintPath>..\..\packages\AWSSDK.Route53.3.3.16.2\lib\net35\AWSSDK.Route53.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Redshift">
-      <HintPath>..\..\packages\AWSSDK.Redshift.3.3.8\lib\net35\AWSSDK.Redshift.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.RDS">
-      <HintPath>..\..\packages\AWSSDK.RDS.3.3.28\lib\net35\AWSSDK.RDS.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.OpsWorks">
-      <HintPath>..\..\packages\AWSSDK.OpsWorks.3.3.3.18\lib\net35\AWSSDK.OpsWorks.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.MachineLearning">
-      <HintPath>..\..\packages\AWSSDK.MachineLearning.3.3.0.40\lib\net35\AWSSDK.MachineLearning.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Lambda">
-      <HintPath>..\..\packages\AWSSDK.Lambda.3.3.16.2\lib\net35\AWSSDK.Lambda.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.KinesisFirehose">
-      <HintPath>..\..\packages\AWSSDK.KinesisFirehose.3.3.6.2\lib\net35\AWSSDK.KinesisFirehose.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.KinesisAnalytics">
-      <HintPath>..\..\packages\AWSSDK.KinesisAnalytics.3.3.4.17\lib\net35\AWSSDK.KinesisAnalytics.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Kinesis">
-      <HintPath>..\..\packages\AWSSDK.Kinesis.3.3.6.6\lib\net35\AWSSDK.Kinesis.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.KeyManagementService">
-      <HintPath>..\..\packages\AWSSDK.KeyManagementService.3.3.6.7\lib\net35\AWSSDK.KeyManagementService.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.IoT">
-      <HintPath>..\..\packages\AWSSDK.IoT.3.3.18.2\lib\net35\AWSSDK.IoT.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Inspector">
-      <HintPath>..\..\packages\AWSSDK.Inspector.3.3.7.7\lib\net35\AWSSDK.Inspector.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ImportExport">
-      <HintPath>..\..\packages\AWSSDK.ImportExport.3.3.0.41\lib\net35\AWSSDK.ImportExport.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.IdentityManagement">
-      <HintPath>..\..\packages\AWSSDK.IdentityManagement.3.3.7.8\lib\net35\AWSSDK.IdentityManagement.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.GameLift">
-      <HintPath>..\..\packages\AWSSDK.GameLift.3.3.12.12\lib\net35\AWSSDK.GameLift.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ElasticTranscoder">
-      <HintPath>..\..\packages\AWSSDK.ElasticTranscoder.3.3.3\lib\net35\AWSSDK.ElasticTranscoder.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Elasticsearch">
-      <HintPath>..\..\packages\AWSSDK.Elasticsearch.3.3.9\lib\net35\AWSSDK.Elasticsearch.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ElasticMapReduce">
-      <HintPath>..\..\packages\AWSSDK.ElasticMapReduce.3.3.6.2\lib\net35\AWSSDK.ElasticMapReduce.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ElasticLoadBalancingV2">
-      <HintPath>..\..\packages\AWSSDK.ElasticLoadBalancingV2.3.3.10.7\lib\net35\AWSSDK.ElasticLoadBalancingV2.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ElasticLoadBalancing">
-      <HintPath>..\..\packages\AWSSDK.ElasticLoadBalancing.3.3.3.2\lib\net35\AWSSDK.ElasticLoadBalancing.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ElasticFileSystem">
-      <HintPath>..\..\packages\AWSSDK.ElasticFileSystem.3.3.2.8\lib\net35\AWSSDK.ElasticFileSystem.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ElasticBeanstalk">
-      <HintPath>..\..\packages\AWSSDK.ElasticBeanstalk.3.3.10.3\lib\net35\AWSSDK.ElasticBeanstalk.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ElastiCache">
-      <HintPath>..\..\packages\AWSSDK.ElastiCache.3.3.6\lib\net35\AWSSDK.ElastiCache.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ECS">
-      <HintPath>..\..\packages\AWSSDK.ECS.3.3.18\lib\net35\AWSSDK.ECS.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ECR">
-      <HintPath>..\..\packages\AWSSDK.ECR.3.3.3.20\lib\net35\AWSSDK.ECR.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.EC2">
-      <HintPath>..\..\packages\AWSSDK.EC2.3.3.62\lib\net35\AWSSDK.EC2.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.DynamoDBv2">
-      <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.14.2\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.DirectoryService">
-      <HintPath>..\..\packages\AWSSDK.DirectoryService.3.3.6\lib\net35\AWSSDK.DirectoryService.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.DirectConnect">
-      <HintPath>..\..\packages\AWSSDK.DirectConnect.3.3.7.2\lib\net35\AWSSDK.DirectConnect.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.DeviceFarm">
-      <HintPath>..\..\packages\AWSSDK.DeviceFarm.3.3.8.3\lib\net35\AWSSDK.DeviceFarm.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.DataPipeline">
-      <HintPath>..\..\packages\AWSSDK.DataPipeline.3.3.0.40\lib\net35\AWSSDK.DataPipeline.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.DatabaseMigrationService">
-      <HintPath>..\..\packages\AWSSDK.DatabaseMigrationService.3.3.9.2\lib\net35\AWSSDK.DatabaseMigrationService.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Core">
-      <HintPath>..\..\packages\AWSSDK.Core.3.3.25.3\lib\net35\AWSSDK.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ConfigService">
-      <HintPath>..\..\packages\AWSSDK.ConfigService.3.3.20.1\lib\net35\AWSSDK.ConfigService.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CognitoIdentityProvider">
-      <HintPath>..\..\packages\AWSSDK.CognitoIdentityProvider.3.3.11.3\lib\net35\AWSSDK.CognitoIdentityProvider.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CognitoIdentity">
-      <HintPath>..\..\packages\AWSSDK.CognitoIdentity.3.3.2.34\lib\net35\AWSSDK.CognitoIdentity.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CodePipeline">
-      <HintPath>..\..\packages\AWSSDK.CodePipeline.3.3.5.9\lib\net35\AWSSDK.CodePipeline.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CodeDeploy">
-      <HintPath>..\..\packages\AWSSDK.CodeDeploy.3.3.11.2\lib\net35\AWSSDK.CodeDeploy.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CodeCommit">
-      <HintPath>..\..\packages\AWSSDK.CodeCommit.3.3.5.1\lib\net35\AWSSDK.CodeCommit.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CloudWatchLogs">
-      <HintPath>..\..\packages\AWSSDK.CloudWatchLogs.3.3.6.1\lib\net35\AWSSDK.CloudWatchLogs.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CloudWatchEvents">
-      <HintPath>..\..\packages\AWSSDK.CloudWatchEvents.3.3.6.3\lib\net35\AWSSDK.CloudWatchEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CloudWatch">
-      <HintPath>..\..\packages\AWSSDK.CloudWatch.3.3.8\lib\net35\AWSSDK.CloudWatch.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CloudTrail">
-      <HintPath>..\..\packages\AWSSDK.CloudTrail.3.3.2.2\lib\net35\AWSSDK.CloudTrail.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CloudSearchDomain">
-      <HintPath>..\..\packages\AWSSDK.CloudSearchDomain.3.3.0.40\lib\net35\AWSSDK.CloudSearchDomain.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CloudSearch">
-      <HintPath>..\..\packages\AWSSDK.CloudSearch.3.3.0.40\lib\net35\AWSSDK.CloudSearch.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CloudHSM">
-      <HintPath>..\..\packages\AWSSDK.CloudHSM.3.3.0.42\lib\net35\AWSSDK.CloudHSM.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CloudFront">
-      <HintPath>..\..\packages\AWSSDK.CloudFront.3.3.10.2\lib\net35\AWSSDK.CloudFront.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CloudFormation">
-      <HintPath>..\..\packages\AWSSDK.CloudFormation.3.3.11.12\lib\net35\AWSSDK.CloudFormation.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CertificateManager">
-      <HintPath>..\..\packages\AWSSDK.CertificateManager.3.3.5.15\lib\net35\AWSSDK.CertificateManager.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.AWSSupport">
-      <HintPath>..\..\packages\AWSSDK.AWSSupport.3.3.0.40\lib\net35\AWSSDK.AWSSupport.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.AWSMarketplaceMetering">
-      <HintPath>..\..\packages\AWSSDK.AWSMarketplaceMetering.3.3.1.38\lib\net35\AWSSDK.AWSMarketplaceMetering.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.AWSMarketplaceCommerceAnalytics">
-      <HintPath>..\..\packages\AWSSDK.AWSMarketplaceCommerceAnalytics.3.3.3.32\lib\net35\AWSSDK.AWSMarketplaceCommerceAnalytics.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.AutoScaling">
-      <HintPath>..\..\packages\AWSSDK.AutoScaling.3.3.6.2\lib\net35\AWSSDK.AutoScaling.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ApplicationDiscoveryService">
-      <HintPath>..\..\packages\AWSSDK.ApplicationDiscoveryService.3.3.5.2\lib\net35\AWSSDK.ApplicationDiscoveryService.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ApplicationAutoScaling">
-      <HintPath>..\..\packages\AWSSDK.ApplicationAutoScaling.3.3.10.9\lib\net35\AWSSDK.ApplicationAutoScaling.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.APIGateway">
-      <HintPath>..\..\packages\AWSSDK.APIGateway.3.3.20.1\lib\net35\AWSSDK.APIGateway.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
+    <PackageReference Include="AWSSDK.ACMPCA" Version="3.3.1.10" />
+    <PackageReference Include="AWSSDK.XRay" Version="3.3.3.2" />
+    <PackageReference Include="AWSSDK.WorkSpaces" Version="3.3.2.12" />
+    <PackageReference Include="AWSSDK.WorkMail" Version="3.3.1.14" />
+    <PackageReference Include="AWSSDK.WorkDocs" Version="3.3.5.2" />
+    <PackageReference Include="AWSSDK.WAFRegional" Version="3.3.5.2" />
+    <PackageReference Include="AWSSDK.WAF" Version="3.3.6.2" />
+    <PackageReference Include="AWSSDK.Translate" Version="3.3.1.14" />
+    <PackageReference Include="AWSSDK.TranscribeService" Version="3.3.3.7" />
+    <PackageReference Include="AWSSDK.StorageGateway" Version="3.3.10.7" />
+    <PackageReference Include="AWSSDK.StepFunctions" Version="3.3.2.17" />
+    <PackageReference Include="AWSSDK.SQS" Version="3.3.3.19" />
+    <PackageReference Include="AWSSDK.Snowball" Version="3.3.4.3" />
+    <PackageReference Include="AWSSDK.SimpleWorkflow" Version="3.3.0.41" />
+    <PackageReference Include="AWSSDK.SimpleSystemsManagement" Version="3.3.31" />
+    <PackageReference Include="AWSSDK.SimpleNotificationService" Version="3.3.1.11" />
+    <PackageReference Include="AWSSDK.SimpleEmail" Version="3.3.6.20" />
+    <PackageReference Include="AWSSDK.Shield" Version="3.3.3.2" />
+    <PackageReference Include="AWSSDK.ServiceDiscovery" Version="3.3.2.16" />
+    <PackageReference Include="AWSSDK.ServiceCatalog" Version="3.3.10.11" />
+    <PackageReference Include="AWSSDK.ServerMigrationService" Version="3.3.0.39" />
+    <PackageReference Include="AWSSDK.ServerlessApplicationRepository" Version="3.3.2.8" />
+    <PackageReference Include="AWSSDK.SecurityToken" Version="3.3.4.15" />
+    <PackageReference Include="AWSSDK.SecretsManager" Version="3.3.2.7" />
+    <PackageReference Include="AWSSDK.SageMakerRuntime" Version="3.3.1.2" />
+    <PackageReference Include="AWSSDK.SageMaker" Version="3.3.12.2" />
+    <PackageReference Include="AWSSDK.S3" Version="3.3.24" />
+    <PackageReference Include="AWSSDK.Route53Domains" Version="3.3.3.2" />
+    <PackageReference Include="AWSSDK.Route53" Version="3.3.16.2" />
+    <PackageReference Include="AWSSDK.ResourceGroupsTaggingAPI" Version="3.3.1.23" />
+    <PackageReference Include="AWSSDK.ResourceGroups" Version="3.3.1.6" />
+    <PackageReference Include="AWSSDK.Rekognition" Version="3.3.11" />
+    <PackageReference Include="AWSSDK.Redshift" Version="3.3.8" />
+    <PackageReference Include="AWSSDK.RDS" Version="3.3.28" />
+    <PackageReference Include="AWSSDK.Pricing" Version="3.3.0.18" />
+    <PackageReference Include="AWSSDK.Polly" Version="3.3.8" />
+    <PackageReference Include="AWSSDK.Pinpoint" Version="3.3.9.5" />
+    <PackageReference Include="AWSSDK.Organizations" Version="3.3.9" />
+    <PackageReference Include="AWSSDK.OpsWorksCM" Version="3.3.5.3" />
+    <PackageReference Include="AWSSDK.OpsWorks" Version="3.3.3.18" />
+    <PackageReference Include="AWSSDK.MTurk" Version="3.3.3.2" />
+    <PackageReference Include="AWSSDK.MQ" Version="3.3.1.7" />
+    <PackageReference Include="AWSSDK.MigrationHub" Version="3.3.1.17" />
+    <PackageReference Include="AWSSDK.MediaStoreData" Version="3.3.0.18" />
+    <PackageReference Include="AWSSDK.MediaStore" Version="3.3.1.17" />
+    <PackageReference Include="AWSSDK.MediaPackage" Version="3.3.4.2" />
+    <PackageReference Include="AWSSDK.MediaLive" Version="3.3.9.2" />
+    <PackageReference Include="AWSSDK.MediaConvert" Version="3.3.8.1" />
+    <PackageReference Include="AWSSDK.MarketplaceEntitlementService" Version="3.3.0.25" />
+    <PackageReference Include="AWSSDK.MachineLearning" Version="3.3.0.40" />
+    <PackageReference Include="AWSSDK.Lightsail" Version="3.3.6.2" />
+    <PackageReference Include="AWSSDK.LexModelBuildingService" Version="3.3.7.3" />
+    <PackageReference Include="AWSSDK.Lex" Version="3.3.3.17" />
+    <PackageReference Include="AWSSDK.Lambda" Version="3.3.16.2" />
+    <PackageReference Include="AWSSDK.KinesisVideoMedia" Version="3.3.0.17" />
+    <PackageReference Include="AWSSDK.KinesisVideo" Version="3.3.1.8" />
+    <PackageReference Include="AWSSDK.KinesisFirehose" Version="3.3.6.2" />
+    <PackageReference Include="AWSSDK.KinesisAnalytics" Version="3.3.4.17" />
+    <PackageReference Include="AWSSDK.Kinesis" Version="3.3.6.6" />
+    <PackageReference Include="AWSSDK.KeyManagementService" Version="3.3.6.7" />
+    <PackageReference Include="AWSSDK.IoTJobsDataPlane" Version="3.3.0.17" />
+    <PackageReference Include="AWSSDK.IoT" Version="3.3.18.2" />
+    <PackageReference Include="AWSSDK.Inspector" Version="3.3.7.7" />
+    <PackageReference Include="AWSSDK.ImportExport" Version="3.3.0.41" />
+    <PackageReference Include="AWSSDK.IdentityManagement" Version="3.3.7.8" />
+    <PackageReference Include="AWSSDK.GuardDuty" Version="3.3.4.12" />
+    <PackageReference Include="AWSSDK.Greengrass" Version="3.3.3.15" />
+    <PackageReference Include="AWSSDK.Glue" Version="3.3.13.2" />
+    <PackageReference Include="AWSSDK.GameLift" Version="3.3.12.12" />
+    <PackageReference Include="AWSSDK.FMS" Version="3.3.1" />
+    <PackageReference Include="AWSSDK.ElasticTranscoder" Version="3.3.3" />
+    <PackageReference Include="AWSSDK.Elasticsearch" Version="3.3.9" />
+    <PackageReference Include="AWSSDK.ElasticMapReduce" Version="3.3.6.2" />
+    <PackageReference Include="AWSSDK.ElasticLoadBalancingV2" Version="3.3.10.7" />
+    <PackageReference Include="AWSSDK.ElasticLoadBalancing" Version="3.3.3.2" />
+    <PackageReference Include="AWSSDK.ElasticFileSystem" Version="3.3.2.8" />
+    <PackageReference Include="AWSSDK.ElasticBeanstalk" Version="3.3.10.3" />
+    <PackageReference Include="AWSSDK.ElastiCache" Version="3.3.6" />
+    <PackageReference Include="AWSSDK.ECS" Version="3.3.18" />
+    <PackageReference Include="AWSSDK.ECR" Version="3.3.3.20" />
+    <PackageReference Include="AWSSDK.EC2" Version="3.3.62" />
+    <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.3.14.2" />
+    <PackageReference Include="AWSSDK.DirectoryService" Version="3.3.6" />
+    <PackageReference Include="AWSSDK.DirectConnect" Version="3.3.7.2" />
+    <PackageReference Include="AWSSDK.DeviceFarm" Version="3.3.8.3" />
+    <PackageReference Include="AWSSDK.DAX" Version="3.3.1.5" />
+    <PackageReference Include="AWSSDK.DataPipeline" Version="3.3.0.40" />
+    <PackageReference Include="AWSSDK.DatabaseMigrationService" Version="3.3.9.2" />
+    <PackageReference Include="AWSSDK.CostExplorer" Version="3.3.6.8" />
+    <PackageReference Include="AWSSDK.CostAndUsageReport" Version="3.3.0.34" />
+    <PackageReference Include="AWSSDK.Core" Version="3.3.25.3" />
+    <PackageReference Include="AWSSDK.ConfigService" Version="3.3.20.1" />
+    <PackageReference Include="AWSSDK.Comprehend" Version="3.3.2.8" />
+    <PackageReference Include="AWSSDK.CognitoIdentityProvider" Version="3.3.11.3" />
+    <PackageReference Include="AWSSDK.CognitoIdentity" Version="3.3.2.34" />
+    <PackageReference Include="AWSSDK.CodeStar" Version="3.3.1.20" />
+    <PackageReference Include="AWSSDK.CodePipeline" Version="3.3.5.9" />
+    <PackageReference Include="AWSSDK.CodeDeploy" Version="3.3.11.2" />
+    <PackageReference Include="AWSSDK.CodeCommit" Version="3.3.5.1" />
+    <PackageReference Include="AWSSDK.CodeBuild" Version="3.3.16" />
+    <PackageReference Include="AWSSDK.CloudWatchLogs" Version="3.3.6.1" />
+    <PackageReference Include="AWSSDK.CloudWatchEvents" Version="3.3.6.3" />
+    <PackageReference Include="AWSSDK.CloudWatch" Version="3.3.8" />
+    <PackageReference Include="AWSSDK.CloudTrail" Version="3.3.2.2" />
+    <PackageReference Include="AWSSDK.CloudSearchDomain" Version="3.3.0.40" />
+    <PackageReference Include="AWSSDK.CloudSearch" Version="3.3.0.40" />
+    <PackageReference Include="AWSSDK.CloudHSMV2" Version="3.3.3" />
+    <PackageReference Include="AWSSDK.CloudHSM" Version="3.3.0.42" />
+    <PackageReference Include="AWSSDK.CloudFront" Version="3.3.10.2" />
+    <PackageReference Include="AWSSDK.CloudFormation" Version="3.3.11.12" />
+    <PackageReference Include="AWSSDK.CloudDirectory" Version="3.3.9.10" />
+    <PackageReference Include="AWSSDK.Cloud9" Version="3.3.0.18" />
+    <PackageReference Include="AWSSDK.CertificateManager" Version="3.3.5.15" />
+    <PackageReference Include="AWSSDK.Budgets" Version="3.3.9.12" />
+    <PackageReference Include="AWSSDK.Batch" Version="3.3.5.14" />
+    <PackageReference Include="AWSSDK.AWSSupport" Version="3.3.0.40" />
+    <PackageReference Include="AWSSDK.AWSMarketplaceMetering" Version="3.3.1.38" />
+    <PackageReference Include="AWSSDK.AWSMarketplaceCommerceAnalytics" Version="3.3.3.32" />
+    <PackageReference Include="AWSSDK.AWSHealth" Version="3.3.1.5" />
+    <PackageReference Include="AWSSDK.AutoScaling" Version="3.3.6.2" />
+    <PackageReference Include="AWSSDK.Athena" Version="3.3.0.23" />
+    <PackageReference Include="AWSSDK.AppSync" Version="3.3.3.8" />
+    <PackageReference Include="AWSSDK.AppStream" Version="3.3.18.2" />
+    <PackageReference Include="AWSSDK.ApplicationDiscoveryService" Version="3.3.5.2" />
+    <PackageReference Include="AWSSDK.ApplicationAutoScaling" Version="3.3.10.9" />
+    <PackageReference Include="AWSSDK.APIGateway" Version="3.3.20.1" />
+    <PackageReference Include="AWSSDK.AlexaForBusiness" Version="3.3.5.10" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'=='net35'">
     <Reference Include="System.Management.Automation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\thirdparty\System.Management.Automation.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Common\*.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\*" />
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <PackageReference Include="System.Management.Automation" Version="6.0.4" />
+    <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
   </ItemGroup>
   <ItemGroup>
     <None Include="aws-powershell.snk" />
     <None Include="AWSPowerShell.TypeExtensions.ps1xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="packages.AWSPowerShell.config" />
   </ItemGroup>
   <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -142,6 +142,19 @@ namespace AWSPowerShellGenerator
             throw new InvalidOperationException("Unknown edition - " + Edition);
         }
 
+        public string TargetFramework
+        {
+            get {
+                if (Edition.Equals("coreclr", StringComparison.OrdinalIgnoreCase))
+                    return "netstandard2.0";
+
+            if (Edition.Equals("desktop", StringComparison.OrdinalIgnoreCase))
+                    return "net35";
+
+                throw new InvalidOperationException("Unknown edition - " + Edition);
+            }
+        }
+
         /// <summary>
         /// Internal helper used by the generator to determine if a given
         /// generation task should be run.

@@ -27,6 +27,8 @@ namespace AWSPowerShellGenerator.Utils
         public string SdkAssembliesFolder { get; set; }
 
         public const string SDKAssemblyNamePrefix = "AWSSDK.";
+        public const string DotNetPlatformNet35 = "net35";
+        public const string DotNetPlatformNetStandard20 = "netstandard2.0";
 
         /// <summary>
         /// Loads the assembly and ndoc data for the given assembly basename using the
@@ -79,10 +81,8 @@ namespace AWSPowerShellGenerator.Utils
 
         struct DotNetPlatformAndArtifacts
         {
-            public string DotNetPlatform { get; set; }
             public string ProjectFile { get; set; }
             public string ModuleManifestFile { get; set; }
-            public string NugetPackagesFile { get; set; }
         }
 
         /// <summary>
@@ -104,26 +104,16 @@ namespace AWSPowerShellGenerator.Utils
             {
                 new DotNetPlatformAndArtifacts
                 {
-                    DotNetPlatform = "net35",
-                    ProjectFile = Path.Combine(moduleRootFolder, CmdletGenerator.AWSPowerShellDesktopProjectFilename),
-                    ModuleManifestFile = Path.Combine(moduleRootFolder, CmdletGenerator.AWSPowerShellDesktopModuleManifestFilename),
-                    NugetPackagesFile = Path.Combine(moduleRootFolder, "packages.AWSPowerShell.config")
-                },
-                new DotNetPlatformAndArtifacts
-                {
-                    DotNetPlatform = "netstandard1.3",
-                    ProjectFile = Path.Combine(moduleRootFolder, "project.json"),
-                    ModuleManifestFile = Path.Combine(moduleRootFolder, CmdletGenerator.AWSPowerShellNetCoreModuleManifestFilename),
-                    NugetPackagesFile = Path.Combine(moduleRootFolder, "packages.AWSPowerShell.NetCore.config")
+                    ProjectFile = Path.Combine(moduleRootFolder, CmdletGenerator.AWSPowerShellProjectFilename),
+                    ModuleManifestFile = Path.Combine(moduleRootFolder, CmdletGenerator.AWSPowerShellDesktopModuleManifestFilename)
                 }
             };
 
             foreach (var p in projectFiles)
             {
-                UpdateProjectReferences(p.ProjectFile, p.DotNetPlatform);
+                UpdateProjectReferences(p.ProjectFile);
                 UpdateManifestRequiredAssemblies(p.ModuleManifestFile);
                 UpdateManifestAliasExports(p.ModuleManifestFile, legacyAliases);
-                UpdateNugetPackageConfig(p.NugetPackagesFile, p.DotNetPlatform);
             }
         }
 
@@ -197,21 +187,7 @@ namespace AWSPowerShellGenerator.Utils
         /// for every SDK assembly that we inspected during generation. 
         /// </summary>
         /// <param name="projectFile">The project file to update</param>
-        /// <param name="platformStandard">The moniker to the .NET platform that will be present in the hint paths, eg net35, netstandard1.5</param>
-        private void UpdateProjectReferences(string projectFile, string platformStandard)
-        {
-            if (projectFile.EndsWith("project.json", StringComparison.OrdinalIgnoreCase))
-                UpdateProjectJsonFormatReferences(projectFile, platformStandard);
-            else
-                UpdateCsprojFormatReferences(projectFile, platformStandard);
-        }
-
-        /// <summary>
-        /// Updates sdk assembly references for a normal .csproj style project file.
-        /// </summary>
-        /// <param name="projectFile"></param>
-        /// <param name="platformStandard"></param>
-        private void UpdateCsprojFormatReferences(string projectFile, string platformStandard)
+        private void UpdateProjectReferences(string projectFile)
         {
             Console.WriteLine("...checking {0} project file for updated/new SDK nuget references", projectFile);
             var project = new XmlDocument();
@@ -220,7 +196,7 @@ namespace AWSPowerShellGenerator.Utils
             // helps to keep references in some defined order in the project file
             var usedSdkAssemblies = new SortedSet<string>(Assemblies.Keys);
 
-            var assemblyReferences = project.GetElementsByTagName("Reference");
+            var assemblyReferences = project.GetElementsByTagName("PackageReference");
             foreach (var assemblyReference in assemblyReferences)
             {
                 var xn = assemblyReference as XmlNode;
@@ -234,20 +210,10 @@ namespace AWSPowerShellGenerator.Utils
 
                 if (usedSdkAssemblies.Contains(assemblyName))
                 {
-                    // for simplicy, always update the hintpath of existing assemblies
                     var version = GetNugetPackageVersionForAssembly(assemblyName);
-                    var children = xn.ChildNodes;
-                    foreach (XmlNode c in children)
-                    {
-                        if (c.Name.Equals("HintPath", StringComparison.OrdinalIgnoreCase))
-                        {
-                            c.InnerText = string.Format(@"..\..\packages\{0}.{1}\lib\{2}\{0}.dll",
-                                                        assemblyName,
-                                                        version,
-                                                        platformStandard);
-                            break;
-                        }
-                    }
+
+                    // for simplicy, always update the hintpath of existing assemblies
+                    xn.Attributes["Version"].Value = version;
 
                     usedSdkAssemblies.Remove(assemblyName);
                 }
@@ -265,7 +231,7 @@ namespace AWSPowerShellGenerator.Utils
                     Console.WriteLine(".........adding {0}", assembly);
 
                     // create reference node for the new service
-                    var referenceNode = CreateReferenceNode(project, platformStandard, assembly);
+                    var referenceNode = CreatePackageReferenceNode(project, assembly);
                     var newIncludeAttribute = referenceNode.Attributes["Include"].Value;
 
                     var childToInsertAfter = FindInsertionPoint(parentGroup, newIncludeAttribute);
@@ -274,41 +240,6 @@ namespace AWSPowerShellGenerator.Utils
             }
 
             project.Save(projectFile);
-        }
-
-        private void UpdateProjectJsonFormatReferences(string projectFile, string platformStandard)
-        {
-            const string DependenciesStartMarker = "\"sdkdependencies_start_marker\": \"\",";
-
-            // sdk references exist in the first dependencies section
-            var existingProjectFile = File.ReadAllText(projectFile);
-            var sdkDependenciesStart = existingProjectFile.IndexOf(DependenciesStartMarker);
-            if (sdkDependenciesStart < 0)
-                throw new Exception("Unable to locate sdk dependencies marker key in project file " + projectFile);
-
-            var sdkDependenciesEnd = existingProjectFile.IndexOf("},", sdkDependenciesStart);
-
-            var dependencies = new StringBuilder();
-            foreach (var assemblyName in Assemblies.Keys)
-            {
-                if (dependencies.Length > 0)
-                    dependencies.AppendLine();
-
-                dependencies.AppendFormat("\t\t\"{0}\": \"{1}\",",
-                                          assemblyName,
-                                          GetNugetPackageVersionForAssembly(assemblyName)
-                                          );
-            }
-
-            var newProjectFile = existingProjectFile.Substring(0, sdkDependenciesStart + DependenciesStartMarker.Length)
-                                    + "\r\n"
-                                    + "\t\"dependencies\": {\r\n"
-                                    + dependencies.ToString().TrimEnd(',')
-                                    + "\r\n"
-                                    + " \t},"
-                                    + existingProjectFile.Substring(sdkDependenciesEnd + 2);
-
-            WriteIfChanged(projectFile, existingProjectFile, newProjectFile);
         }
 
         private static XmlNode FindInsertionPoint(XmlNode parentGroup, string newIncludeAttribute)
@@ -333,22 +264,21 @@ namespace AWSPowerShellGenerator.Utils
             return childToInsertAfter;
         }
 
-        private XmlElement CreateReferenceNode(XmlDocument project, string platformStandard, string assembly)
+        private XmlElement CreatePackageReferenceNode(XmlDocument project, string assembly)
         {
             // pass doc namespace to avoid empty xmlns attributing on the elements
-            var referenceNode = project.CreateElement("Reference", project.DocumentElement.NamespaceURI);
+            var referenceNode = project.CreateElement("PackageReference", project.DocumentElement.NamespaceURI);
 
             var xa = project.CreateAttribute("Include");
             xa.Value = assembly;
             referenceNode.Attributes.Append(xa);
 
-            // locate the nuget package we'll build from, which is currently under Include\sdk\nuget;
-            // at module build time it is restored to the packages folder
-            var nugetPackage = LocateNugetPackageForAssembly(assembly);
-                  
-            var hintNode = project.CreateElement("HintPath", project.DocumentElement.NamespaceURI);
-            hintNode.InnerText = string.Format(@"..\..\packages\{0}\lib\{1}\{2}.dll", nugetPackage, platformStandard, assembly);
-            referenceNode.AppendChild(hintNode);
+            var version = GetNugetPackageVersionForAssembly(assembly);
+
+            var xb = project.CreateAttribute("Version");
+            xb.Value = version;
+            referenceNode.Attributes.Append(xb);
+
             return referenceNode;
         }
 
@@ -466,38 +396,6 @@ namespace AWSPowerShellGenerator.Utils
                                 + manifestContent.Substring(keyEnd);
 
             WriteIfChanged(moduleManifestFile, manifestContent, newManifest);
-        }
-
-        /// <summary>
-        /// Updates the Nuget packages config file with required sdk assemblies for the
-        /// given platform.
-        /// </summary>
-        /// <param name="configFile"></param>
-        /// <param name="platformStandard"></param>
-        private void UpdateNugetPackageConfig(string configFile, string platformStandard)
-        {
-            // simpler to replace the file, which contains only sdk assemblies at this time
-            var newConfigBuilder = new StringBuilder();
-
-            newConfigBuilder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
-            newConfigBuilder.AppendLine("<packages>");
-
-            foreach (var assemblyName in Assemblies.Keys)
-            {
-                newConfigBuilder.AppendFormat("  <package id=\"{0}\" version=\"{1}\" targetFramework=\"{2}\" />",
-                                           assemblyName,
-                                           GetNugetPackageVersionForAssembly(assemblyName),
-                                           platformStandard
-                                           );
-                newConfigBuilder.AppendLine();
-            }
-            newConfigBuilder.AppendLine("</packages>");
-            newConfigBuilder.AppendLine();
-
-            var newConfig = newConfigBuilder.ToString();
-            var existingConfig = File.ReadAllText(configFile);
-
-            WriteIfChanged(configFile, existingConfig, newConfig);
         }
 
         private void WriteIfChanged(string fileName, string oldContent, string newContent)

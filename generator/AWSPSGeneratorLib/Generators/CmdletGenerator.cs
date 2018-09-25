@@ -123,8 +123,7 @@ namespace AWSPowerShellGenerator.Generators
         public const string ArgumentCompleterScriptFileSuffix = "ArgumentCompleters.ps1";
         public const string GeneratedCmdletsFoldername = "Basic";
 
-        public const string AWSPowerShellDesktopProjectFilename = "AWSPowerShell.csproj";
-        public const string AWSPowerShellNetCoreProjectFilename = "AWSPowerShell.NetCore.csproj";
+        public const string AWSPowerShellProjectFilename = "AWSPowerShell.csproj";
 
         public const string AWSPowerShellDesktopModuleManifestFilename = "AWSPowerShell.psd1";
         public const string AWSPowerShellNetCoreModuleManifestFilename = "AWSPowerShell.NetCore.psd1";

@@ -62,7 +62,7 @@ namespace AWSPowerShellGenerator
 #else
             var configuration = "Release";
 #endif
-            BinSubFolder = string.Format("bin\\{0}\\{1}\\", configuration, options.Edition);
+            BinSubFolder = string.Format("bin\\{0}\\{1}\\", configuration, options.TargetFramework);
 
             var fqRootPath = Path.GetFullPath(options.RootPath);
 

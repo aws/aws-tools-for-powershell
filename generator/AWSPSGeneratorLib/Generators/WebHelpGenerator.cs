@@ -648,7 +648,7 @@ namespace AWSPowerShellGenerator.Generators
             Console.WriteLine("Copying Web Help DocSet Static Resources");
 
             var sourceLocation = Directory.GetParent(typeof(PsHelpGenerator).Assembly.Location).FullName;
-            IOUtils.DirectoryCopy(Path.Combine(sourceLocation, @"..\..\..\AWSPSGeneratorLib\HelpMaterials\WebHelp\StaticContent"), webFilesRoot, true);
+            IOUtils.DirectoryCopy(Path.Combine(sourceLocation, @"..\..\..\..\AWSPSGeneratorLib\HelpMaterials\WebHelp\StaticContent"), webFilesRoot, true);
         }
 
         private void CopyCommonParametersFile()
