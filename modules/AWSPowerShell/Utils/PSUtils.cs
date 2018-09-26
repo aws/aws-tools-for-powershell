@@ -26,6 +26,7 @@ using System.Management.Automation;
 
 namespace Amazon.PowerShell.Utils
 {
+#if DESKTOP
     public static class PSUtils
     {
         public static void UpdateProgress(int activityId, string activity, string status)
@@ -50,4 +51,5 @@ namespace Amazon.PowerShell.Utils
             }
         }
     }
+#endif
 }

@@ -5,9 +5,10 @@
 @{
 
 # Script module or binary module file associated with this manifest
-ModuleToProcess = 'AWSPowerShell.NetCore.dll'
+RootModule = 'AWSPowerShell.NetCore.dll'
 
-CompatiblePSEditions = @('Core')
+# We are not including CompatiblePSEditions because it is not compatible with older PowerShell versions
+# CompatiblePSEditions = @('Core', 'Desktop')
 
 # Version number of this module.
 ModuleVersion = '3.3.183.1'
@@ -28,7 +29,7 @@ Copyright = 'Copyright 2012-2018 Amazon.com, Inc. or its affiliates. All Rights 
 Description = 'The AWS Tools for PowerShell Core lets developers and administrators manage their AWS services from the PowerShell Core scripting environment.'
 
 # Minimum version of the PowerShell engine required by this module
-PowerShellVersion = '5.1'
+PowerShellVersion = '3.0'
 
 # Name of the PowerShell host required by this module
 PowerShellHostName = ''
@@ -206,6 +207,7 @@ RequiredAssemblies = @(
   "AWSSDK.SQS.dll",
   "AWSSDK.StepFunctions.dll",
   "AWSSDK.StorageGateway.dll",
+  "AWSSDK.Textract.dll",
   "AWSSDK.TranscribeService.dll",
   "AWSSDK.Transfer.dll",
   "AWSSDK.Translate.dll",

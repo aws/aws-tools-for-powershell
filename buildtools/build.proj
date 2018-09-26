@@ -175,7 +175,7 @@
         <Message Text="Consolidating CoreCLR edition artifacts from $(BuildSourceFolder) to $(NetCoreDeploymentArtifacts)"/>
 
         <ItemGroup>
-            <NetCoreSDKAssemblies Include="$(SDKNuGetFolder)\..\ExtractedNuGet\netstandard1.3\AWSSDK.*.dll" />
+            <NetCoreSDKAssemblies Include="$(SDKNuGetFolder)\..\ExtractedNuGet\netstandard2.0\AWSSDK.*.dll" />
         </ItemGroup>
 
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.NetCore.psd1" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>

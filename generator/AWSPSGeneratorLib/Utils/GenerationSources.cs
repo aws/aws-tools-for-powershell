@@ -30,9 +30,9 @@ namespace AWSPowerShellGenerator.Utils
         public const string SDKAssemblyNamePrefix = "AWSSDK.";
         public const string ExtractedNugetFolderName = "ExtractedNuGet";
         public const string DotNetPlatformNet35 = "net35";
-        public const string DotNetPlatformNetStandard13 = "netstandard1.3";
+        public const string DotNetPlatformNetStandard20 = "netstandard2.0";
 
-        private static string[] PlatformsToExtractLibrariesFor = new string[] { DotNetPlatformNet35, DotNetPlatformNetStandard13 };
+        private static string[] PlatformsToExtractLibrariesFor = new string[] { DotNetPlatformNet35, DotNetPlatformNetStandard20 };
 
         /// <summary>
         /// Loads the assembly and ndoc data for the given assembly basename using the
@@ -223,10 +223,6 @@ namespace AWSPowerShellGenerator.Utils
                     continue;
 
                 var platform = match.Groups[1].Value;
-                if (platform == "netstandard2.0")
-                {
-                    platform = "netstandard1.3";
-                }
 
                 var sdkReferences = itemGroup.ChildNodes
                     .OfType<XmlNode>()
