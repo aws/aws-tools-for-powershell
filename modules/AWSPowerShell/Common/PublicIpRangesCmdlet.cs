@@ -94,11 +94,8 @@ namespace Amazon.PowerShell.Common
         {
             base.ProcessRecord();
 
-            IWebProxy proxy = null;
-#if DESKTOP
             var settings = ProxySettings.GetSettings(this);
-            proxy = settings.GetWebProxy();
-#endif
+            var proxy = settings.GetWebProxy();
             var ranges = AWSPublicIpAddressRanges.Load(proxy);
 
             if (OutputServiceKeys.IsPresent)

@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Management.Automation;
+using System.Net;
 using System.Reflection;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
@@ -35,20 +36,12 @@ namespace Amazon.PowerShell.Utils
 
         public static void PopulateConfig(PSCmdlet cmdlet, ClientConfig clientConfig)
         {
-#if DESKTOP
             var proxySettings = ProxySettings.GetSettings(cmdlet);
-            if (proxySettings != null && proxySettings.UseProxy)
+            var proxy = proxySettings.GetWebProxy();
+            if (proxy != null)
             {
-                clientConfig.ProxyHost = proxySettings.Hostname;
-                clientConfig.ProxyPort = proxySettings.Port;
-                clientConfig.ProxyCredentials = proxySettings.Credentials;
-
-                if (proxySettings.BypassList != null)
-                    clientConfig.ProxyBypassList = new List<string>(proxySettings.BypassList);
-                if (proxySettings.BypassOnLocal.HasValue)
-                    clientConfig.ProxyBypassOnLocal = proxySettings.BypassOnLocal.Value;
+                clientConfig.SetWebProxy(proxy);
             }
-#endif
         }
 
         public static void SetAWSPowerShellUserAgent(System.Version hostVersion)
