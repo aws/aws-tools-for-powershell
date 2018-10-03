@@ -3,7 +3,7 @@
 	<example>
 		<code>PS C:\> $publickey=[Io.File]::ReadAllText("C:\Users\TestUser\.ssh\id_rsa.pub")
 PS C:\> $pkbase64 = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($publickey))
-PS C:\> Import-EC2KeyPair -KeyName Example-user-key -PublicKeyMaterial $publickey
+PS C:\> Import-EC2KeyPair -KeyName Example-user-key -PublicKeyMaterial $pkbase64
 
 
 KeyFingerprint                                  KeyName

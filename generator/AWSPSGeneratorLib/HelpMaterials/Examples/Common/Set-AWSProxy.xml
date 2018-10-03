@@ -12,4 +12,16 @@
     <code>Set-AWSProxy -Hostname localhost -Port 8888 -Credential ([System.Net.CredentialCache]::DefaultCredentials)</code>
     <description>This command configures a proxy with default credentials. The -Credentials parameter can be used for any credentials object that implements the ICredentials interface.</description>
   </example>
+  <example>
+    <code>Set-AWSProxy -Hostname https://proxy.testserver.com -Port 80 -BypassList 169.254.169.250;169.254.169.251;169.254.169.254</code>
+    <description>This command configures a proxy at https://proxy.testserver.com that uses port number 80. The -BypassList parameter is added to show that IP addresses 169.254.169.250, 169.254.169.251, and 169.254.169.254 do not use the proxy. Note that because your bypass list includes only IP addresses and not FQDNs, quotation marks around the IP address values are not needed. You can use semicolons as a delimiter between IP addresses that you want to bypass.</description>
+  </example>
+   <example>
+    <code>Set-AWSProxy -Port 8888 -Hostname 127.0.0.1 -BypassList @("127.0.0.1", "ip-ranges.amazonaws.com")</code>
+    <description>This command configures a proxy that uses port number 8888. The -BypassList parameter is added to show that IP address 127.0.0.1, and AWS-based IP addresses, do not use the proxy. Note that because you have a mixture of an IP address and an FQDN, enclose values that you want to bypass in quotation marks as shown in the example, and use a comma as a delimiter. This example formats the values as an array, but you can also format them without parens:  Set-AWSProxy -Port 8888 -Hostname 127.0.0.1 -BypassList "127.0.0.1", "ip-ranges.amazonaws.com"</description>
+  </example>
+  <example>
+    <code>Set-AWSProxy -Port 8888 -Hostname 127.0.0.1 -BypassList "127.0.0.1";"ip-ranges.amazonaws.com"</code>
+    <description>As in the preceding example, this command configures a proxy that uses port number 8888. The -BypassList parameter is added to show that IP address 127.0.0.1, and AWS-based IP addresses, do not use the proxy. Note that because you have a mixture of an IP address and an FQDN, enclose values that you want to bypass in quotation marks as shown in the example. This example, unlike the preceding example, uses semicolons, which are accepted as a delimiter between the quotation-enclosed proxy values. This example formats the BypassList values without the parentheses-enclosed array.</description>
+  </example>
 </examples>

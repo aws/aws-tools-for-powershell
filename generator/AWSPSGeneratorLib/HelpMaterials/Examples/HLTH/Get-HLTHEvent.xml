@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Get-HLTHEvent -Region us-east-1 -Filter_Region "eu-west-2","us-west-2" -Filter_StartTime @{from="3/14/2019 6:30:00AM";to="3/15/2019 5:00:00PM"} -Filter_EndTime @{from="3/21/2019 7:00:00AM";to="3/21/2019 5:00:00PM"}
+
+Arn               : arn:aws:health:us-west-2::event/RDS/AWS_RDS_HARDWARE_MAINTENANCE_SCHEDULED/AWS_RDS_HARDWARE_MAINTENANCE_SCHEDULED_USW2_20190314_20190321
+AvailabilityZone  : 
+EndTime           : 3/21/2019 2:00:00 PM
+EventTypeCategory : scheduledChange
+EventTypeCode     : AWS_RDS_HARDWARE_MAINTENANCE_SCHEDULED
+LastUpdatedTime   : 2/28/2019 2:26:07 PM
+Region            : us-west-2
+Service           : RDS
+StartTime         : 3/14/2019 2:00:00 PM
+StatusCode        : open</code>
+    <description>This command returns events from AWS Personal Health Dashboard. The user adds the -Region parameter to see events available to the service in the US East (N. Virginia) Region, but the -Filter_Region parameter filters for events that are logged in the EU (London) and US West (Oregon) Regions (eu-west-2 and us-west-2). The -Filter_StartTime parameter filters for a range of times that events can start, while the -Filter_EndTime parameter filters for a range of times that events can end. The result is a scheduled maintenance event for RDS that starts within the specified -Filter_StartTime range, and ends within the scheduled -Filter_EndTime range.</description>
+  </example>
+</examples>

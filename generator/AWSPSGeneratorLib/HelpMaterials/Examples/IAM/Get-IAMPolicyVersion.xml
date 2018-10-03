@@ -9,7 +9,7 @@ CreateDate             Document                                        IsDefault
 2/12/2015 9:39:53 AM   %7B%0A%20%20%22Version%22%3A%20%222012-10...    True                 v2
 
 PS C:\>[System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
-PS C:\>$policy = [System.Web.HttpUtility]::UrlDecode($results.PolicyDocument)
+PS C:\>$policy = [System.Web.HttpUtility]::UrlDecode($results.Document)
 PS C:\>$policy
 {
   "Version": "2012-10-17",
