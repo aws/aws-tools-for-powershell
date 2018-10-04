@@ -834,6 +834,7 @@ namespace Amazon.PowerShell.Common
 
     internal static class CredentialProfileOptionsExtractor
     {
+#pragma warning disable CS0618 //A class was marked with the Obsolete attribute
         private static HashSet<Type> PassThroughExtractTypes = new HashSet<Type>
         {
             typeof(InstanceProfileAWSCredentials),
@@ -856,6 +857,7 @@ namespace Amazon.PowerShell.Common
             typeof(EnvironmentVariablesAWSCredentials)
 #endif
         };
+#pragma warning restore CS0618 //A class was marked with the Obsolete attribute
 
         public static CredentialProfileOptions ExtractProfileOptions(AWSCredentials credentials)
         {

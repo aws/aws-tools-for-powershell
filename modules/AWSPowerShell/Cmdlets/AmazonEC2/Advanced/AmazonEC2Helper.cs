@@ -291,7 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                             input.InstanceMarketOptions.SpotOptions.InstanceInterruptionBehavior,
                         MaxPrice = input.InstanceMarketOptions.SpotOptions.MaxPrice,
                         SpotInstanceType = input.InstanceMarketOptions.SpotOptions.SpotInstanceType,
-                        ValidUntil = input.InstanceMarketOptions.SpotOptions.ValidUntil
+                        ValidUntilUtc = input.InstanceMarketOptions.SpotOptions.ValidUntil
                     }
                 };
             }

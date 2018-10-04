@@ -190,7 +190,9 @@ namespace Amazon.PowerShell.Common
         {
 #if DESKTOP
             SAMLCredentialCallbackState callbackState = null;
+#pragma warning disable CS0618 //A class was marked with the Obsolete attribute
             var legacyFederatedCredentials = currentCredentials.Credentials as StoredProfileFederatedCredentials;
+#pragma warning restore CS0618 //A class was marked with the Obsolete attribute
             var federatedCredentials = currentCredentials.Credentials as FederatedAWSCredentials;
 
             if (legacyFederatedCredentials != null)

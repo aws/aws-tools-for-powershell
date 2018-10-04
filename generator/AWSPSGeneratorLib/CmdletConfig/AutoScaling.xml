@@ -152,7 +152,12 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeScheduledActions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
+          <Params>
+            <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="EndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." ExclusiveParameters="UtcEndTime" />
+            <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="StartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." ExclusiveParameters="UtcStartTime" />
+          </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeTags" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Filters" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
@@ -194,7 +199,14 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="PutScheduledUpdateGroupAction" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ScheduledActionName;StartTime;EndTime" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
+          <Params>
+            <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="EndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." ExclusiveParameters="UtcEndTime" />
+            <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="StartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." ExclusiveParameters="UtcStartTime" />
+            <Param Name="TimeUtc" NewName="UtcTime" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="Time" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcTime instead." ExclusiveParameters="UtcTime" />
+          </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="RecordLifecycleActionHeartbeat" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />

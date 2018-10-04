@@ -218,7 +218,12 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFleet" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Fleet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LaunchTemplateConfigs" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
+          <Params>
+            <Param Name="ValidFromUtc" NewName="UtcValidFrom" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="ValidFrom" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcValidFrom instead." ExclusiveParameters="UtcValidFrom" />
+            <Param Name="ValidUntilUtc" NewName="UtcValidUntil" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="ValidUntil" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcValidUntil instead." ExclusiveParameters="UtcValidUntil" />
+          </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFlowLogs" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="FlowLog" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="New-EC2FlowLogs">
             <Params />
@@ -474,7 +479,10 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeFleetHistory" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FleetHistory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="LastEvaluatedTime;FleetId;StartTime" RemapMemoryStreamParameters="true">
-            <Params />
+          <Params>
+            <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="StartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." ExclusiveParameters="UtcStartTime" />
+          </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeFleetInstances" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FleetInstanceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="FleetId" RemapMemoryStreamParameters="true">
             <Params />
@@ -595,10 +603,20 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeScheduledInstanceAvailability" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
+          <Params>
+            <Param Name="FirstSlotStartTimeRange_EarliestTimeUtc" NewName="FirstSlotStartTimeRange_UtcEarliestTime" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="FirstSlotStartTimeRange_EarliestTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use FirstSlotStartTimeRange_UtcEarliestTime instead." ExclusiveParameters="FirstSlotStartTimeRange_UtcEarliestTime" />
+            <Param Name="FirstSlotStartTimeRange_LatestTimeUtc" NewName="FirstSlotStartTimeRange_UtcLatestTime" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="FirstSlotStartTimeRange_LatestTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use FirstSlotStartTimeRange_UtcLatestTime instead." ExclusiveParameters="FirstSlotStartTimeRange_UtcLatestTime" />
+          </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeScheduledInstances" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ScheduledInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
+          <Params>
+            <Param Name="SlotStartTimeRange_EarliestTimeUtc" NewName="SlotStartTimeRange_UtcEarliestTime" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="SlotStartTimeRange_EarliestTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use SlotStartTimeRange_UtcEarliestTime instead." ExclusiveParameters="SlotStartTimeRange_UtcEarliestTime" />
+            <Param Name="SlotStartTimeRange_LatestTimeUtc" NewName="SlotStartTimeRange_UtcLatestTime" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="SlotStartTimeRange_LatestTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use SlotStartTimeRange_UtcLatestTime instead." ExclusiveParameters="SlotStartTimeRange_UtcLatestTime" />
+          </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeSecurityGroupReferences" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="SecurityGroupReference" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
@@ -620,7 +638,10 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeSpotFleetRequestHistory" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SpotFleetRequestId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
+          <Params>
+            <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="StartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." ExclusiveParameters="UtcStartTime" />
+          </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeSpotFleetRequests" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="SpotFleetRequest" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SpotFleetRequestId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
@@ -629,7 +650,12 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeSpotPriceHistory" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
+          <Params>
+            <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="EndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." ExclusiveParameters="UtcEndTime" />
+            <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="StartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." ExclusiveParameters="UtcStartTime" />
+          </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeStaleSecurityGroups" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="StaleSecurityGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VpcId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
@@ -766,7 +792,12 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ImportImage" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
+          <Params>
+            <Param Name="ClientData_UploadEndUtc" NewName="ClientData_UtcUploadEnd" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="ClientData_UploadEnd" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use ClientData_UtcUploadEnd instead." ExclusiveParameters="ClientData_UtcUploadEnd" />
+            <Param Name="ClientData_UploadStartUtc" NewName="ClientData_UtcUploadStart" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="ClientData_UploadStart" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use ClientData_UtcUploadStart instead." ExclusiveParameters="ClientData_UtcUploadStart" />
+          </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="ImportInstance" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
@@ -778,6 +809,10 @@
             <Params>
                 <Param Name="DiskContainer_UserBucket_S3Bucket" NewName="DiskContainer_S3Bucket" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
                 <Param Name="DiskContainer_UserBucket_S3Key" NewName="DiskContainer_S3Key" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
+                <Param Name="ClientData_UploadEndUtc" NewName="ClientData_UtcUploadEnd" AutoRename="true" AutoApplyAlias="false" />
+                <Param Name="ClientData_UploadEnd" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use ClientData_UtcUploadEnd instead." ExclusiveParameters="ClientData_UtcUploadEnd" />
+                <Param Name="ClientData_UploadStartUtc" NewName="ClientData_UtcUploadStart" AutoRename="true" AutoApplyAlias="false" />
+                <Param Name="ClientData_UploadStart" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use ClientData_UtcUploadStart instead." ExclusiveParameters="ClientData_UtcUploadStart" />
             </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="ImportVolume" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -915,13 +950,27 @@
         <ServiceOperation MethodName="ReportInstanceStatus" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Status;StartTime;EndTime;ReasonCodes;Description" PipelineParameter="Instances" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
                 <Param Name="Instances" NewName="Instance" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="InstanceId" AutoConvert="None" />
+                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoRename="true" AutoApplyAlias="false" />
+                <Param Name="EndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." ExclusiveParameters="UtcEndTime" />
+                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoRename="true" AutoApplyAlias="false" />
+                <Param Name="StartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." ExclusiveParameters="UtcStartTime" />
             </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="RequestSpotFleet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SpotFleetRequestConfig_SpotPrice" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
+            <Params>
+                <Param Name="SpotFleetRequestConfig_ValidFromUtc" NewName="SpotFleetRequestConfig_UtcValidFrom" AutoRename="true" AutoApplyAlias="false" />
+                <Param Name="SpotFleetRequestConfig_ValidFrom" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use SpotFleetRequestConfig_UtcValidFrom instead." ExclusiveParameters="SpotFleetRequestConfig_UtcValidFrom" />
+                <Param Name="SpotFleetRequestConfig_ValidUntilUtc" NewName="SpotFleetRequestConfig_UtcValidUntil" AutoRename="true" AutoApplyAlias="false" />
+                <Param Name="SpotFleetRequestConfig_ValidUntil" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use SpotFleetRequestConfig_UtcValidUntil instead." ExclusiveParameters="SpotFleetRequestConfig_UtcValidUntil" />
+            </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="RequestSpotInstances" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SpotPrice" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
+          <Params>
+            <Param Name="ValidFromUtc" NewName="UtcValidFrom" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="ValidFrom" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcValidFrom instead." ExclusiveParameters="UtcValidFrom" />
+            <Param Name="ValidUntilUtc" NewName="UtcValidUntil" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="ValidUntil" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcValidUntil instead." ExclusiveParameters="UtcValidUntil" />
+          </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="ResetFpgaImageAttribute" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Attribute" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />

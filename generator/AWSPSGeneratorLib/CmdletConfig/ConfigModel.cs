@@ -1286,6 +1286,40 @@ namespace AWSPowerShellGenerator.CmdletConfig
             }
         }
 
+        /// <summary>
+        /// If specified, contains a set of one or more parameters, ;-delimited, that cannot
+        /// be used together with the current one.
+        /// </summary>
+        [XmlAttribute(AttributeName = "ExclusiveParameters")]
+        public string ExclusiveParametersList = string.Empty;
+
+        private HashSet<string> _exclusiveParametersSet;
+
+        /// <summary>
+        /// The processed set of parameters that are not allowed when the current one is
+        /// specified. This is used when emitting code.
+        /// </summary>
+        [XmlIgnore]
+        public HashSet<string> ExclusiveParameters
+        {
+            get
+            {
+                if (_exclusiveParametersSet == null)
+                {
+                    _exclusiveParametersSet = new HashSet<string>(StringComparer.Ordinal);
+                    if (!string.IsNullOrEmpty(ExclusiveParametersList))
+                    {
+                        foreach (var a in ExclusiveParametersList.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries))
+                        {
+                            _exclusiveParametersSet.Add(a);
+                        }
+                    }
+                }
+
+                return _exclusiveParametersSet;
+            }
+        }
+
         public enum AutoConversion
         {
             None = 0,
@@ -1298,6 +1332,12 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// </summary>
         [XmlAttribute]
         public AutoConversion AutoConvert { get; set; }
+
+        /// <summary>
+        /// If set, this message is used for the Obsolete attribute.
+        /// </summary>
+        [XmlAttribute]
+        public string ReplacementObsoleteMessage { get; set; }
     }
 
     public class AliasSet

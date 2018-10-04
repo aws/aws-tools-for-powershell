@@ -35,6 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     /// read access to the input and output buckets, and tries to send a test notification
     /// to Amazon SNS topics that you specify.
     /// </para>
+    /// <br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Test", "ETSRole")]
     [OutputType("Amazon.ElasticTranscoder.Model.TestRoleResponse")]
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.TestRoleResponse",
         "This cmdlet returns a Amazon.ElasticTranscoder.Model.TestRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [Obsolete("This API is deprecated and will be removed in a future release.")]
     public partial class TestETSRoleCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
         

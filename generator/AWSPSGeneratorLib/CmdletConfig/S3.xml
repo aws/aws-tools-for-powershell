@@ -160,7 +160,12 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="GetObjectMetadata" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Key" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
+          <Params>
+            <Param Name="ModifiedSinceDateUtc" NewName="UtcModifiedSinceDate" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="ModifiedSinceDate" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcModifiedSinceDate instead." ExclusiveParameters="UtcModifiedSinceDate" />
+            <Param Name="UnmodifiedSinceDateUtc" NewName="UtcUnmodifiedSinceDate" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="UnmodifiedSinceDate" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcUnmodifiedSinceDate instead." ExclusiveParameters="UtcUnmodifiedSinceDate" />
+          </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="GetObjectTagging" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ObjectTagSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Key" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />

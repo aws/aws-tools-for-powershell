@@ -29,6 +29,8 @@ namespace AWSPowerShellGenerator.Generators
 
         public Type DeclaringType { get; private set; }
         public Type PropertyType { get; private set; }
+        public String DeprecationMessage { get; private set; }
+        public bool IsDeprecated { get { return DeprecationMessage != null; }  }
 
         /// <summary>
         /// <para>
@@ -354,6 +356,7 @@ namespace AWSPowerShellGenerator.Generators
             PropertyType = propertyInfo.PropertyType;
             PropertyTypeName = propertyTypeName;
             DeclaringType = propertyInfo.DeclaringType;
+            DeprecationMessage = propertyInfo.GetCustomAttributes(typeof(ObsoleteAttribute), false).Cast<ObsoleteAttribute>().FirstOrDefault()?.Message;
 
             CollectionType = collectionType;
             GenericCollectionTypes = genericCollectionTypes;

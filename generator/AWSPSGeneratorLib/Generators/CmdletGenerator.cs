@@ -361,11 +361,12 @@ namespace AWSPowerShellGenerator.Generators
                 {
                     if (Options.SkipCmdletGeneration)
                     {
-#if !DEBUG
+#if DEBUG
+                        configModel.SkipCmdletGeneration = true;
+#else
                         Logger.LogError("SkipCmdletGeneration is supported only in Debug builds");
                         return;
 #endif
-                        configModel.SkipCmdletGeneration = true;
                     }
 
                     // hold some state to model under work so we can make use of

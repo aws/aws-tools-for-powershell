@@ -1,6 +1,10 @@
 ﻿using System;
+using System.CodeDom;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Security;
 using System.Text;
 using System.Xml;
@@ -70,6 +74,9 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             if (MethodAnalysis.GenerateIterationCode)
                 methodDocumentation += "<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.";
 
+            if (GetOperationObsoleteMessage(methodInfo) != null)
+                methodDocumentation += "<br/><br/>This operation is deprecated.";
+
             var commentedTypeDocumentation = DocumentationUtils.CommentDocumentation(methodDocumentation);
 
             var requiresSupportsShouldProcess = MethodAnalysis.SupportsShouldProcessInspectionResult != null;
@@ -106,6 +113,8 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
                 // the AWSCmdlet* attribs are used for help generation
                 WriteAWSCmdletAttributes(writer);
+
+                WriteObsoleteOperationAttribute(writer, methodInfo);
 
                 writer.WriteLine("public partial class {0}{1}Cmdlet : {2}Cmdlet, IExecutor",
                                         Operation.SelectedVerb,
@@ -227,7 +236,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     writer.WriteLine("#endregion");
                     writer.WriteLine();
 
-                    WriteAWSServiceOperationCall(writer);
+                    WriteAWSServiceOperationCall(writer, methodInfo);
 
                     writer.WriteLine();
                     WriteContextClass(writer, MethodAnalysis.AnalyzedParameters);
@@ -244,7 +253,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         /// method (synchronous is not available) and await the response.
         /// </summary>
         /// <param name="writer"></param>
-        private void WriteAWSServiceOperationCall(IndentedTextWriter writer)
+        private void WriteAWSServiceOperationCall(IndentedTextWriter writer, MethodInfo methodInfo)
         {
             writer.WriteLine("#region AWS Service Operation Call");
             writer.WriteLine();
@@ -261,7 +270,6 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
                 writer.WriteLine("try");
                 writer.OpenRegion();
-
                     writer.WriteLine("#if DESKTOP");
 
                     writer.WriteLine("return client.{0}(request);", MethodAnalysis.CurrentOperation.MethodName);
@@ -277,8 +285,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     writer.WriteLine("        #error \"Unknown build edition\"");
             
                     writer.WriteLine("#endif");
-
-                writer.CloseRegion();
+            writer.CloseRegion();
                 writer.WriteLine("catch (AmazonServiceException exc)");
                 writer.OpenRegion();
                     writer.WriteLine("var webException = exc.InnerException as System.Net.WebException;");
@@ -311,6 +318,20 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 sb.AppendFormat("\"{0}\"", t);
             }
             writer.WriteLine("[OutputType({0})]", sb);
+        }
+
+        private static void WriteObsoleteOperationAttribute(IndentedTextWriter writer, MethodInfo methodInfo)
+        {
+            var obsoleteMessage = GetOperationObsoleteMessage(methodInfo);
+            if (obsoleteMessage != null)
+            {
+                writer.WriteLine("[System.ObsoleteAttribute({0})]", EscapeString(obsoleteMessage));
+            }
+        }
+
+        private static String GetOperationObsoleteMessage(MethodInfo methodInfo)
+        {
+            return methodInfo.GetCustomAttributes(typeof(ObsoleteAttribute), false).Cast<ObsoleteAttribute>().FirstOrDefault()?.Message;
         }
 
         private void WriteAWSCmdletAttributes(IndentedTextWriter writer)
@@ -453,7 +474,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 paramDoc +=
                     "\r\n<para>The cmdlet will automatically convert the supplied parameter value to Base64 before supplying to the service.</para>";
             }
-
+            if (property.IsDeprecated)
+            {
+                paramDoc += "\r\n<para>This parameter is deprecated.</para>";
+            }
             writer.WriteLine(DocumentationUtils.CommentDocumentation(paramDoc));
             WriteParamProperty(writer, property, param, ref usedPositionalCount);
         }
@@ -752,6 +776,22 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             else
                 writer.WriteLine("[System.Management.Automation.Parameter]");
 
+            var deprecationMessage = paramCustomization?.ReplacementObsoleteMessage ?? property.DeprecationMessage;
+
+            if (property.IsDeprecated)
+                writer.WriteLine("[System.ObsoleteAttribute({0})]", EscapeString(deprecationMessage));
+        }
+
+        private static string EscapeString(string originalString)
+        {
+            using (var writer = new StringWriter())
+            {
+                using (var provider = CodeDomProvider.CreateProvider("CSharp"))
+                {
+                    provider.GenerateCodeFromExpression(new CodePrimitiveExpression(originalString), writer, null);
+                    return writer.ToString();
+                }
+            }
         }
 
         private static void WriteExecuteCall(IndentedTextWriter writer)
@@ -784,6 +824,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 var customEmitter = FindCustomEmitterForParam(property);
                 if (customEmitter == null)
                 {
+                    if (property.IsDeprecated)
+                    {
+                        writer.WriteLine("#pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute");
+                    }
                     if (property.CollectionType == SimplePropertyInfo.PropertyCollectionType.NoCollection || property.GenericCollectionTypes == null)
                     {
                         // checking to see if a value type parameter was bound allows us to employ
@@ -995,6 +1039,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                 break;
                         }
                     }
+                    if (property.IsDeprecated)
+                    {
+                        writer.WriteLine("#pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute");
+                    }
                 }
                 else
                 {
@@ -1019,6 +1067,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             // are emitted as nullable types.
             foreach (var property in properties.Where(property => !OperationAnalyzer.IsExcludedParameter(property.AnalyzedName, ServiceConfig, Operation)))
             {
+                if (property.IsDeprecated)
+                {
+                    writer.WriteLine("[System.ObsoleteAttribute]");
+                }
                 writer.WriteLine("public {0}{1} {2} {{ get; set; }}", 
                                   GetPropertyTypeToEmit(property), 
                                   property.UseParameterValueOnlyIfBound ? "?" : "",
@@ -1586,10 +1638,12 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.CloseRegion("};");
         }
 
-        private void WriteContextObjectPopulation(IndentedTextWriter writer, OperationAnalyzer operationAnalyzer, SimplePropertyInfo property, string variableName)
+        private void WriteContextObjectPopulation(IndentedTextWriter writer, OperationAnalyzer operationAnalyzer, SimplePropertyInfo property, string variableName, Boolean nestedProperty = false)
         {
             if (property.Children.Count == 0)
             {
+                var paramCustomization = MethodAnalysis.GetParameterCustomization(property.AnalyzedName);
+
                 if (operationAnalyzer.IsExcludedParameter(property.AnalyzedName))
                     return;
 
@@ -1598,9 +1652,28 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 if (autoIteration != null && !autoIteration.ExclusionSet.Contains(operationAnalyzer.CurrentOperation.MethodName))
                     isEmitLimiter = autoIteration.IsEmitLimit(property.Name);
 
+                if (!nestedProperty && property.IsDeprecated)
+                {
+                    writer.WriteLine("#pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute");
+                }
                 writer.WriteLine("if (cmdletContext.{0} != null)", property.ContextParameterName);
                 writer.OpenRegion();
                 {
+                    if (paramCustomization != null)
+                    {
+                        foreach (var exclusiveParameter in paramCustomization.ExclusiveParameters)
+                        {
+                            writer.WriteLine("if (cmdletContext.{0} != null)", exclusiveParameter);
+                            writer.OpenRegion();
+                            {
+                                
+                                writer.WriteLine("throw new ArgumentException(\"Parameters {0} and {1} are mutually exclusive.\");",
+                                    property.ContextParameterName, exclusiveParameter);
+                            }
+                            writer.CloseRegion();
+                        }
+                    }
+
                     if (isEmitLimiter)
                     {
                         writer.WriteLine("{0} = AutoIterationHelpers.ConvertEmitLimitToServiceType{1}(cmdletContext.{2}.Value);",
@@ -1622,6 +1695,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     }
                 }
                 writer.CloseRegion();
+                if (!nestedProperty && property.IsDeprecated)
+                {
+                    writer.WriteLine("#pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute");
+                }
             }
             else
             {
@@ -1637,13 +1714,18 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
                 foreach (var child in property.Children.OrderBy(c => c.Children.Count))
                 {
+                    if (child.IsDeprecated)
+                    {
+                        writer.WriteLine("#pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute");
+                    }
+
                     var childVariableName = usableVariableName + "_" + OperationAnalyzer.ToLowerCamelCase(child.CmdletParameterName);
 
                     writer.WriteLine("{0}{1} {2} = null;",
                                      operationAnalyzer.GetValidTypeName(child.PropertyType),
                                      child.UseParameterValueOnlyIfBound ? "?" : "",
                                      childVariableName);
-                    WriteContextObjectPopulation(writer, operationAnalyzer, child, childVariableName);
+                    WriteContextObjectPopulation(writer, operationAnalyzer, child, childVariableName, true);
 
                     writer.WriteLine("if ({0} != null)", childVariableName);
                     writer.OpenRegion();
@@ -1651,6 +1733,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                      variableName, child.Name, childVariableName);
                     writer.WriteLine("{0}IsNull = false;", usableVariableName);
                     writer.CloseRegion();
+
+                    if (child.IsDeprecated)
+                    {
+                        writer.WriteLine("#pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute");
+                    }
                 }
 
                 writer.WriteLine(" // determine if {0} should be set to null", variableName);

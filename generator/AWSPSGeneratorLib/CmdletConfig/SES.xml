@@ -170,7 +170,10 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="SendBounce" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BounceSender" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BouncedRecipientInfoList" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
+          <Params>
+            <Param Name="MessageDsn_ArrivalDateUtc" NewName="MessageDsn_UtcArrivalDate" AutoRename="true" AutoApplyAlias="false" />
+            <Param Name="MessageDsn_ArrivalDate" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use MessageDsn_UtcArrivalDate instead." ExclusiveParameters="MessageDsn_UtcArrivalDate" />
+          </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="SendBulkTemplatedEmail" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Source" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TemplateData" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
