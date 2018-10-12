@@ -28,9 +28,9 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Deletes a direct connect gateway. You must first delete all virtual interfaces that
-    /// are attached to the direct connect gateway and disassociate all virtual private gateways
-    /// that are associated with the direct connect gateway.
+    /// Deletes the specified Direct Connect gateway. You must first delete all virtual interfaces
+    /// that are attached to the Direct Connect gateway and disassociate all virtual private
+    /// gateways that are associated with the Direct Connect gateway.
     /// </summary>
     [Cmdlet("Remove", "DCGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DirectConnect.Model.DirectConnectGateway")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter DirectConnectGatewayId
         /// <summary>
         /// <para>
-        /// <para>The ID of the direct connect gateway.</para><para>Example: "abcd1234-dcba-5678-be23-cdef9876ab45"</para><para>Default: None</para>
+        /// <para>The ID of the Direct Connect gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

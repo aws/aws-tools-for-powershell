@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter VPC_VPCRegion
         /// <summary>
         /// <para>
-        /// <para>(Private hosted zones only) The region in which you created an Amazon VPC.</para>
+        /// <para>(Private hosted zones only) The region that an Amazon VPC was created in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

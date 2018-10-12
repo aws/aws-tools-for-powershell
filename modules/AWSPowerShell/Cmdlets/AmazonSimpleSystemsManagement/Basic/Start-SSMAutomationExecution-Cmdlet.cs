@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The name of the parameter used as the target resource for the rate-controlled execution.
-        /// Required if you specify Targets.</para>
+        /// Required if you specify targets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

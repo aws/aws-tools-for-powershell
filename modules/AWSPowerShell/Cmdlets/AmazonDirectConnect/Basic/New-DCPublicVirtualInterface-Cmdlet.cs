@@ -28,15 +28,15 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Creates a new public virtual interface. A virtual interface is the VLAN that transports
+    /// Creates a public virtual interface. A virtual interface is the VLAN that transports
     /// AWS Direct Connect traffic. A public virtual interface supports sending traffic to
-    /// public services of AWS such as Amazon Simple Storage Service (Amazon S3).
+    /// public services of AWS such as Amazon S3.
     /// 
     ///  
     /// <para>
-    /// When creating an IPv6 public virtual interface (addressFamily is 'ipv6'), the customer
-    /// and amazon address fields should be left blank to use auto-assigned IPv6 space. Custom
-    /// IPv6 Addresses are currently not supported.
+    /// When creating an IPv6 public virtual interface (<code>addressFamily</code> is <code>ipv6</code>),
+    /// leave the <code>customer</code> and <code>amazon</code> address fields blank to use
+    /// auto-assigned IPv6 space. Custom IPv6 addresses are not supported.
     /// </para>
     /// </summary>
     [Cmdlet("New", "DCPublicVirtualInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPublicVirtualInterface_AddressFamily
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The address family for the BGP peer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPublicVirtualInterface_AmazonAddress
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The IP address assigned to the Amazon interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPublicVirtualInterface_Asn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPublicVirtualInterface_AuthKey
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The authentication key for BGP configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPublicVirtualInterface_CustomerAddress
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The IP address assigned to the customer interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -112,7 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPublicVirtualInterface_RouteFilterPrefix
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The routes to be advertised to the AWS network in this Region. Applies to public virtual
+        /// interfaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -123,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPublicVirtualInterface_VirtualInterfaceName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the virtual interface assigned by the customer network.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -133,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPublicVirtualInterface_Vlan
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the VLAN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

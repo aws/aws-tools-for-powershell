@@ -174,6 +174,63 @@
         "memoryStreamParameters": []
       }
     },
+    "CancelMaintenanceWindowExecution": {
+      "verb": "Stop",
+      "noun": "MaintenanceWindowExecution",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "WindowExecutionId",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "WindowExecutionId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "MaintenanceWindowExecution",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 50,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "WindowExecutionId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "CreateActivation": {
       "verb": "New",
       "noun": "Activation",
@@ -2443,6 +2500,106 @@
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
           "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DescribeMaintenanceWindowSchedule": {
+      "verb": "Get",
+      "noun": "MaintenanceWindowSchedule",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ScheduledWindowExecutions",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "MaintenanceWindowSchedule",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 50,
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DescribeMaintenanceWindowsForTarget": {
+      "verb": "Get",
+      "noun": "MaintenanceWindowsForTarget",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "WindowIdentities",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "MaintenanceWindowsForTarget",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "ListInventoryEntries"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []

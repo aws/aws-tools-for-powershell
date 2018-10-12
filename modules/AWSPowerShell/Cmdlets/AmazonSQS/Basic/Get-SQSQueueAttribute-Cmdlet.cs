@@ -33,11 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     ///  <note><para>
     /// To determine whether a queue is <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>,
     /// you can check whether <code>QueueName</code> ends with the <code>.fifo</code> suffix.
-    /// </para></note><note><para>
+    /// </para></note><para>
     /// Some actions take lists of parameters. These lists are specified using the <code>param.n</code>
     /// notation. Values of <code>n</code> are integers starting from 1. For example, a parameter
     /// list with two elements looks like this:
-    /// </para><para><code>&amp;Attribute.1=this</code></para><para><code>&amp;Attribute.2=that</code></para></note>
+    /// </para><para><code>&amp;Attribute.1=first</code></para><para><code>&amp;Attribute.2=second</code></para>
     /// </summary>
     [Cmdlet("Get", "SQSQueueAttribute")]
     [OutputType("Amazon.SQS.Model.GetQueueAttributesResponse")]
@@ -52,15 +52,14 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <summary>
         /// <para>
         /// <para>A list of attributes for which to retrieve information.</para><note><para>In the future, new attributes might be added. If you write code that calls this action,
-        /// we recommend that you structure your code so that it can handle new attributes gracefully.</para></note><para>The following attributes are supported:</para><ul><li><para><code>All</code> - Returns all values. </para></li><li><para><code>ApproximateNumberOfMessages</code> - Returns the approximate number of visible
-        /// messages in a queue. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-resources-required-process-messages.html">Resources
-        /// Required to Process Messages</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
-        /// </para></li><li><para><code>ApproximateNumberOfMessagesDelayed</code> - Returns the approximate number
-        /// of messages that are waiting to be added to the queue. </para></li><li><para><code>ApproximateNumberOfMessagesNotVisible</code> - Returns the approximate number
-        /// of messages that have not timed-out and aren't deleted. For more information, see
-        /// <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-resources-required-process-messages.html">Resources
-        /// Required to Process Messages</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
-        /// </para></li><li><para><code>CreatedTimestamp</code> - Returns the time when the queue was created in seconds
+        /// we recommend that you structure your code so that it can handle new attributes gracefully.</para></note><para>The following attributes are supported:</para><ul><li><para><code>All</code> - Returns all values. </para></li><li><para><code>ApproximateNumberOfMessages</code> - Returns the approximate number of messages
+        /// available for retrieval from the queue.</para></li><li><para><code>ApproximateNumberOfMessagesDelayed</code> - Returns the approximate number
+        /// of messages in the queue that are delayed and not available for reading immediately.
+        /// This can happen when the queue is configured as a delay queue or when a message has
+        /// been sent with a delay parameter.</para></li><li><para><code>ApproximateNumberOfMessagesNotVisible</code> - Returns the approximate number
+        /// of messages that are in flight. Messages are considered to be <i>in flight</i> if
+        /// they have been sent to a client but have not yet been deleted or have not yet reached
+        /// the end of their visibility window. </para></li><li><para><code>CreatedTimestamp</code> - Returns the time when the queue was created in seconds
         /// (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a>).</para></li><li><para><code>DelaySeconds</code> - Returns the default delay on the queue in seconds.</para></li><li><para><code>LastModifiedTimestamp</code> - Returns the time when the queue was last changed
         /// in seconds (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a>).</para></li><li><para><code>MaximumMessageSize</code> - Returns the limit of how many bytes a message can
         /// contain before Amazon SQS rejects it.</para></li><li><para><code>MessageRetentionPeriod</code> - Returns the length of time, in seconds, for
@@ -72,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// Guide</i>. </para><ul><li><para><code>deadLetterTargetArn</code> - The Amazon Resource Name (ARN) of the dead-letter
         /// queue to which Amazon SQS moves messages after the value of <code>maxReceiveCount</code>
         /// is exceeded.</para></li><li><para><code>maxReceiveCount</code> - The number of times a message is delivered to the
-        /// source queue before being moved to the dead-letter queue.</para></li></ul></li><li><para><code>VisibilityTimeout</code> - Returns the visibility timeout for the queue. For
+        /// source queue before being moved to the dead-letter queue. When the <code>ReceiveCount</code>
+        /// for a message exceeds the <code>maxReceiveCount</code> for a queue, Amazon SQS moves
+        /// the message to the dead-letter-queue.</para></li></ul></li><li><para><code>VisibilityTimeout</code> - Returns the visibility timeout for the queue. For
         /// more information about the visibility timeout, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
         /// Timeout</a> in the <i>Amazon Simple Queue Service Developer Guide</i>. </para></li></ul><para>The following attributes apply only to <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</para><ul><li><para><code>KmsMasterKeyId</code> - Returns the ID of an AWS-managed customer master key
         /// (CMK) for Amazon SQS or a custom CMK. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key
@@ -96,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of the Amazon SQS queue whose attribute information is retrieved.</para><para>Queue URLs are case-sensitive.</para>
+        /// <para>The URL of the Amazon SQS queue whose attribute information is retrieved.</para><para>Queue URLs and names are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

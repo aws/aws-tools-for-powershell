@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// 
     ///  
     /// <para><b>Note:</b> This API is deprecated. Please use <a>DetachPolicy</a> instead.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "IOTPrincipalPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -41,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.IoT.Model.DetachPrincipalPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Deprecated in favor of DetachPolicy.")]
     public partial class RemoveIOTPrincipalPolicyCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         

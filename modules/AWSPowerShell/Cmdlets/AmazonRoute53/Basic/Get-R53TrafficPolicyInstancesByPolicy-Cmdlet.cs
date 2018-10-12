@@ -37,9 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// that are specified in the traffic policy definition. For more information, see the
     /// <code>State</code> response element.
     /// </para></note><para>
-    /// Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot
-    /// of traffic policy instances, you can use the <code>MaxItems</code> parameter to list
-    /// them in groups of up to 100.
+    /// Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic
+    /// policy instances, you can use the <code>MaxItems</code> parameter to list them in
+    /// groups of up to 100.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "R53TrafficPolicyInstancesByPolicy")]

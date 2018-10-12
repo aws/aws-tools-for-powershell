@@ -28,17 +28,19 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Creates a new BGP peer on a specified virtual interface. The BGP peer cannot be in
-    /// the same address family (IPv4/IPv6) of an existing BGP peer on the virtual interface.
+    /// Creates a BGP peer on the specified virtual interface.
     /// 
     ///  
     /// <para>
+    /// The BGP peer cannot be in the same address family (IPv4/IPv6) of an existing BGP peer
+    /// on the virtual interface.
+    /// </para><para>
     /// You must create a BGP peer for the corresponding address family in order to access
     /// AWS resources that also use that address family.
     /// </para><para>
-    /// When creating a IPv6 BGP peer, the Amazon address and customer address fields must
-    /// be left blank. IPv6 addresses are automatically assigned from Amazon's pool of IPv6
-    /// addresses; you cannot specify custom IPv6 addresses.
+    /// When creating a IPv6 BGP peer, omit the Amazon address and customer address. IPv6
+    /// addresses are automatically assigned from the Amazon pool of IPv6 addresses; you cannot
+    /// specify custom IPv6 addresses.
     /// </para><para>
     /// For a public virtual interface, the Autonomous System Number (ASN) must be private
     /// or already whitelisted for the virtual interface.
@@ -57,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewBGPPeer_AddressFamily
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The address family for the BGP peer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -68,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewBGPPeer_AmazonAddress
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The IP address assigned to the Amazon interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -78,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewBGPPeer_Asn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewBGPPeer_AuthKey
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The authentication key for BGP configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewBGPPeer_CustomerAddress
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The IP address assigned to the customer interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -108,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter VirtualInterfaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the virtual interface on which the BGP peer will be provisioned.</para><para>Example: dxvif-456abc78</para><para>Default: None</para>
+        /// <para>The ID of the virtual interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

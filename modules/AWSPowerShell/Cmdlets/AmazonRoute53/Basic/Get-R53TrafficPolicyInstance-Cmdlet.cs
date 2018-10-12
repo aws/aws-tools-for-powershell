@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// that are specified in the traffic policy definition. For more information, see the
     /// <code>State</code> response element.
     /// </para></note><note><para>
-    /// In the Amazon Route 53 console, traffic policy instances are known as policy records.
+    /// In the Route 53 console, traffic policy instances are known as policy records.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "R53TrafficPolicyInstance")]

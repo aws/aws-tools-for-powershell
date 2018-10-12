@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     ///  
     /// <para>
     /// Use instead <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html"><code>DescribeExportTasks</code></a>.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "ADSExportConfiguration")]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.ExportInfo")]
@@ -43,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         "The service call response (type Amazon.ApplicationDiscoveryService.Model.DescribeExportConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
+    [System.ObsoleteAttribute("Deprecated in favor of DescribeExportTasks.")]
     public partial class GetADSExportConfigurationCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         

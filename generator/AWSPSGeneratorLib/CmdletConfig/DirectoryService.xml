@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>ds</C2jFilename>
     <SourceGenerationRoot>AmazonDirectoryService</SourceGenerationRoot>
@@ -20,6 +20,9 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AcceptSharedDirectory" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Confirm" Noun="SharedDirectory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SharedDirectoryId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="AddIpRoutes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="IpRoute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Add-DSIpRoutes">
             <Params />
         </ServiceOperation>
@@ -86,6 +89,9 @@
         <ServiceOperation MethodName="DescribeEventTopics" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EventTopic" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TopicName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSharedDirectories" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SharedDirectory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OwnerDirectoryId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeSnapshots" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Snapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
@@ -125,6 +131,9 @@
         <ServiceOperation MethodName="RegisterEventTopic" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TopicName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="RejectSharedDirectory" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Deny" Noun="SharedDirectory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SharedDirectoryId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="RemoveIpRoutes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="IpRoute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Remove-DSIpRoutes">
             <Params />
         </ServiceOperation>
@@ -137,7 +146,13 @@
         <ServiceOperation MethodName="RestoreFromSnapshot" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="ShareDirectory" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="DirectoryShare" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartSchemaExtension" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UnshareDirectory" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="DirectoryShare" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConditionalForwarder" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -147,6 +162,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRadius" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTrust" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Trust" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TrustId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TrustId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="VerifyTrust" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Approve" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TrustId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

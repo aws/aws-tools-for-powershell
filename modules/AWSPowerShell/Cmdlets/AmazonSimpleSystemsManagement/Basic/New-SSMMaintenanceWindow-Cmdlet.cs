@@ -96,6 +96,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.Int32 Duration { get; set; }
         #endregion
         
+        #region Parameter EndDate
+        /// <summary>
+        /// <para>
+        /// <para>The date and time, in ISO-8601 Extended format, for when you want the Maintenance
+        /// Window to become inactive. EndDate allows you to set a date and time in the future
+        /// when the Maintenance Window will no longer run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String EndDate { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -114,6 +126,31 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Schedule { get; set; }
+        #endregion
+        
+        #region Parameter ScheduleTimezone
+        /// <summary>
+        /// <para>
+        /// <para>The time zone that the scheduled Maintenance Window executions are based on, in Internet
+        /// Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC",
+        /// or "Asia/Seoul". For more information, see the <a href="https://www.iana.org/time-zones">Time
+        /// Zone Database</a> on the IANA website.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ScheduleTimezone { get; set; }
+        #endregion
+        
+        #region Parameter StartDate
+        /// <summary>
+        /// <para>
+        /// <para>The date and time, in ISO-8601 Extended format, for when you want the Maintenance
+        /// Window to become active. StartDate allows you to delay activation of the Maintenance
+        /// Window until the specified future date.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String StartDate { get; set; }
         #endregion
         
         #region Parameter Force
@@ -153,8 +190,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             context.Description = this.Description;
             if (ParameterWasBound("Duration"))
                 context.Duration = this.Duration;
+            context.EndDate = this.EndDate;
             context.Name = this.Name;
             context.Schedule = this.Schedule;
+            context.ScheduleTimezone = this.ScheduleTimezone;
+            context.StartDate = this.StartDate;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -191,6 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.Duration = cmdletContext.Duration.Value;
             }
+            if (cmdletContext.EndDate != null)
+            {
+                request.EndDate = cmdletContext.EndDate;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -198,6 +242,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Schedule != null)
             {
                 request.Schedule = cmdletContext.Schedule;
+            }
+            if (cmdletContext.ScheduleTimezone != null)
+            {
+                request.ScheduleTimezone = cmdletContext.ScheduleTimezone;
+            }
+            if (cmdletContext.StartDate != null)
+            {
+                request.StartDate = cmdletContext.StartDate;
             }
             
             CmdletOutput output;
@@ -268,8 +320,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.Int32? Cutoff { get; set; }
             public System.String Description { get; set; }
             public System.Int32? Duration { get; set; }
+            public System.String EndDate { get; set; }
             public System.String Name { get; set; }
             public System.String Schedule { get; set; }
+            public System.String ScheduleTimezone { get; set; }
+            public System.String StartDate { get; set; }
         }
         
     }

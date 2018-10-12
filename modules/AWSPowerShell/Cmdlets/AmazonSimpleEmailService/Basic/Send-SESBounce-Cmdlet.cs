@@ -55,12 +55,31 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter MessageDsn_ArrivalDate
         /// <summary>
         /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use ArrivalDateUtc instead. Setting either ArrivalDate
+        /// or ArrivalDateUtc results in both ArrivalDate and ArrivalDateUtc being assigned, the
+        /// latest assignment to either one of the two property is reflected in the value of both.
+        /// ArrivalDate is provided for backwards compatibility only and assigning a non-Utc DateTime
+        /// to it results in the wrong timestamp being passed to the service.</para><para>When the message was received by the reporting mail transfer agent (MTA), in <a href="https://www.ietf.org/rfc/rfc0822.txt">RFC
+        /// 822</a> date-time format.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use MessageDsn_UtcArrivalDate instead.")]
+        public System.DateTime MessageDsn_ArrivalDate { get; set; }
+        #endregion
+        
+        #region Parameter MessageDsn_UtcArrivalDate
+        /// <summary>
+        /// <para>
         /// <para>When the message was received by the reporting mail transfer agent (MTA), in <a href="https://www.ietf.org/rfc/rfc0822.txt">RFC
         /// 822</a> date-time format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime MessageDsn_ArrivalDate { get; set; }
+        public System.DateTime MessageDsn_UtcArrivalDate { get; set; }
         #endregion
         
         #region Parameter BouncedRecipientInfoList
@@ -180,13 +199,17 @@ namespace Amazon.PowerShell.Cmdlets.SES
             context.BounceSender = this.BounceSender;
             context.BounceSenderArn = this.BounceSenderArn;
             context.Explanation = this.Explanation;
-            if (ParameterWasBound("MessageDsn_ArrivalDate"))
-                context.MessageDsn_ArrivalDate = this.MessageDsn_ArrivalDate;
+            if (ParameterWasBound("MessageDsn_UtcArrivalDate"))
+                context.MessageDsn_UtcArrivalDate = this.MessageDsn_UtcArrivalDate;
             if (this.MessageDsn_ExtensionField != null)
             {
                 context.MessageDsn_ExtensionFields = new List<Amazon.SimpleEmail.Model.ExtensionField>(this.MessageDsn_ExtensionField);
             }
             context.MessageDsn_ReportingMta = this.MessageDsn_ReportingMta;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound("MessageDsn_ArrivalDate"))
+                context.MessageDsn_ArrivalDate = this.MessageDsn_ArrivalDate;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.OriginalMessageId = this.OriginalMessageId;
             
             // allow further manipulation of loaded context prior to processing
@@ -224,14 +247,14 @@ namespace Amazon.PowerShell.Cmdlets.SES
              // populate MessageDsn
             bool requestMessageDsnIsNull = true;
             request.MessageDsn = new Amazon.SimpleEmail.Model.MessageDsn();
-            System.DateTime? requestMessageDsn_messageDsn_ArrivalDate = null;
-            if (cmdletContext.MessageDsn_ArrivalDate != null)
+            System.DateTime? requestMessageDsn_messageDsn_UtcArrivalDate = null;
+            if (cmdletContext.MessageDsn_UtcArrivalDate != null)
             {
-                requestMessageDsn_messageDsn_ArrivalDate = cmdletContext.MessageDsn_ArrivalDate.Value;
+                requestMessageDsn_messageDsn_UtcArrivalDate = cmdletContext.MessageDsn_UtcArrivalDate.Value;
             }
-            if (requestMessageDsn_messageDsn_ArrivalDate != null)
+            if (requestMessageDsn_messageDsn_UtcArrivalDate != null)
             {
-                request.MessageDsn.ArrivalDate = requestMessageDsn_messageDsn_ArrivalDate.Value;
+                request.MessageDsn.ArrivalDateUtc = requestMessageDsn_messageDsn_UtcArrivalDate.Value;
                 requestMessageDsnIsNull = false;
             }
             List<Amazon.SimpleEmail.Model.ExtensionField> requestMessageDsn_messageDsn_ExtensionField = null;
@@ -254,6 +277,22 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 request.MessageDsn.ReportingMta = requestMessageDsn_messageDsn_ReportingMta;
                 requestMessageDsnIsNull = false;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            System.DateTime? requestMessageDsn_messageDsn_ArrivalDate = null;
+            if (cmdletContext.MessageDsn_ArrivalDate != null)
+            {
+                if (cmdletContext.MessageDsn_UtcArrivalDate != null)
+                {
+                    throw new ArgumentException("Parameters MessageDsn_ArrivalDate and MessageDsn_UtcArrivalDate are mutually exclusive.");
+                }
+                requestMessageDsn_messageDsn_ArrivalDate = cmdletContext.MessageDsn_ArrivalDate.Value;
+            }
+            if (requestMessageDsn_messageDsn_ArrivalDate != null)
+            {
+                request.MessageDsn.ArrivalDate = requestMessageDsn_messageDsn_ArrivalDate.Value;
+                requestMessageDsnIsNull = false;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
              // determine if request.MessageDsn should be set to null
             if (requestMessageDsnIsNull)
             {
@@ -331,9 +370,11 @@ namespace Amazon.PowerShell.Cmdlets.SES
             public System.String BounceSender { get; set; }
             public System.String BounceSenderArn { get; set; }
             public System.String Explanation { get; set; }
-            public System.DateTime? MessageDsn_ArrivalDate { get; set; }
+            public System.DateTime? MessageDsn_UtcArrivalDate { get; set; }
             public List<Amazon.SimpleEmail.Model.ExtensionField> MessageDsn_ExtensionFields { get; set; }
             public System.String MessageDsn_ReportingMta { get; set; }
+            [System.ObsoleteAttribute]
+            public System.DateTime? MessageDsn_ArrivalDate { get; set; }
             public System.String OriginalMessageId { get; set; }
         }
         

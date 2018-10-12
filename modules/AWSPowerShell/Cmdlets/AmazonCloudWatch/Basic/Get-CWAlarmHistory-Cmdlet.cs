@@ -61,11 +61,29 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter EndDate
         /// <summary>
         /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use EndDateUtc instead. Setting either EndDate or EndDateUtc
+        /// results in both EndDate and EndDateUtc being assigned, the latest assignment to either
+        /// one of the two property is reflected in the value of both. EndDate is provided for
+        /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
+        /// wrong timestamp being passed to the service.</para><para>The ending date to retrieve alarm history.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 3)]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcEndDate instead.")]
+        public System.DateTime EndDate { get; set; }
+        #endregion
+        
+        #region Parameter UtcEndDate
+        /// <summary>
+        /// <para>
         /// <para>The ending date to retrieve alarm history.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 3)]
-        public System.DateTime EndDate { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.DateTime UtcEndDate { get; set; }
         #endregion
         
         #region Parameter HistoryItemType
@@ -82,11 +100,29 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter StartDate
         /// <summary>
         /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use StartDateUtc instead. Setting either StartDate or
+        /// StartDateUtc results in both StartDate and StartDateUtc being assigned, the latest
+        /// assignment to either one of the two property is reflected in the value of both. StartDate
+        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
+        /// results in the wrong timestamp being passed to the service.</para><para>The starting date to retrieve alarm history.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 2)]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcStartDate instead.")]
+        public System.DateTime StartDate { get; set; }
+        #endregion
+        
+        #region Parameter UtcStartDate
+        /// <summary>
+        /// <para>
         /// <para>The starting date to retrieve alarm history.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
-        public System.DateTime StartDate { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.DateTime UtcStartDate { get; set; }
         #endregion
         
         #region Parameter MaxRecord
@@ -130,14 +166,22 @@ namespace Amazon.PowerShell.Cmdlets.CW
             PreExecutionContextLoad(context);
             
             context.AlarmName = this.AlarmName;
-            if (ParameterWasBound("EndDate"))
-                context.EndDate = this.EndDate;
+            if (ParameterWasBound("UtcEndDate"))
+                context.UtcEndDate = this.UtcEndDate;
             context.HistoryItemType = this.HistoryItemType;
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
             context.NextToken = this.NextToken;
+            if (ParameterWasBound("UtcStartDate"))
+                context.UtcStartDate = this.UtcStartDate;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound("EndDate"))
+                context.EndDate = this.EndDate;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("StartDate"))
                 context.StartDate = this.StartDate;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -158,18 +202,38 @@ namespace Amazon.PowerShell.Cmdlets.CW
             {
                 request.AlarmName = cmdletContext.AlarmName;
             }
-            if (cmdletContext.EndDate != null)
+            if (cmdletContext.UtcEndDate != null)
             {
-                request.EndDate = cmdletContext.EndDate.Value;
+                request.EndDateUtc = cmdletContext.UtcEndDate.Value;
             }
             if (cmdletContext.HistoryItemType != null)
             {
                 request.HistoryItemType = cmdletContext.HistoryItemType;
             }
+            if (cmdletContext.UtcStartDate != null)
+            {
+                request.StartDateUtc = cmdletContext.UtcStartDate.Value;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.EndDate != null)
+            {
+                if (cmdletContext.UtcEndDate != null)
+                {
+                    throw new ArgumentException("Parameters EndDate and UtcEndDate are mutually exclusive.");
+                }
+                request.EndDate = cmdletContext.EndDate.Value;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.StartDate != null)
             {
+                if (cmdletContext.UtcStartDate != null)
+                {
+                    throw new ArgumentException("Parameters StartDate and UtcStartDate are mutually exclusive.");
+                }
                 request.StartDate = cmdletContext.StartDate.Value;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
@@ -287,10 +351,14 @@ namespace Amazon.PowerShell.Cmdlets.CW
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AlarmName { get; set; }
-            public System.DateTime? EndDate { get; set; }
+            public System.DateTime? UtcEndDate { get; set; }
             public Amazon.CloudWatch.HistoryItemType HistoryItemType { get; set; }
             public int? MaxRecords { get; set; }
             public System.String NextToken { get; set; }
+            public System.DateTime? UtcStartDate { get; set; }
+            [System.ObsoleteAttribute]
+            public System.DateTime? EndDate { get; set; }
+            [System.ObsoleteAttribute]
             public System.DateTime? StartDate { get; set; }
         }
         

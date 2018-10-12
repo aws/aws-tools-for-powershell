@@ -28,15 +28,16 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Disassociates a VPC from a Amazon Route 53 private hosted zone. 
+    /// Disassociates a VPC from a Amazon Route 53 private hosted zone. Note the following:
     /// 
-    ///  <note><para>
+    ///  <ul><li><para>
     /// You can't disassociate the last VPC from a private hosted zone.
-    /// </para></note><important><para>
-    /// You can't disassociate a VPC from a private hosted zone when only one VPC is associated
-    /// with the hosted zone. You also can't convert a private hosted zone into a public hosted
-    /// zone.
-    /// </para></important>
+    /// </para></li><li><para>
+    /// You can't convert a private hosted zone into a public hosted zone.
+    /// </para></li><li><para>
+    /// You can submit a <code>DisassociateVPCFromHostedZone</code> request using either the
+    /// account that created the hosted zone or the account that created the VPC.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Unregister", "R53VPCFromHostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.ChangeInfo")]
@@ -82,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter VPC_VPCRegion
         /// <summary>
         /// <para>
-        /// <para>(Private hosted zones only) The region in which you created an Amazon VPC.</para>
+        /// <para>(Private hosted zones only) The region that an Amazon VPC was created in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

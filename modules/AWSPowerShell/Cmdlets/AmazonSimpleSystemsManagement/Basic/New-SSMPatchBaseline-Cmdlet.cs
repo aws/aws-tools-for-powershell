@@ -161,6 +161,23 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String[] RejectedPatch { get; set; }
         #endregion
         
+        #region Parameter RejectedPatchesAction
+        /// <summary>
+        /// <para>
+        /// <para>The action for Patch Manager to take on patches included in the RejectedPackages list.</para><ul><li><para><b>ALLOW_AS_DEPENDENCY</b>: A package in the Rejected patches list is installed only
+        /// if it is a dependency of another package. It is considered compliant with the patch
+        /// baseline, and its status is reported as <i>InstalledOther</i>. This is the default
+        /// action if no option is specified.</para></li><li><para><b>BLOCK</b>: Packages in the RejectedPatches list, and packages that include them
+        /// as dependencies, are not installed under any circumstances. If a package was installed
+        /// before it was added to the Rejected patches list, it is considered non-compliant with
+        /// the patch baseline, and its status is reported as <i>InstalledRejected</i>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.PatchAction")]
+        public Amazon.SimpleSystemsManagement.PatchAction RejectedPatchesAction { get; set; }
+        #endregion
+        
         #region Parameter Source
         /// <summary>
         /// <para>
@@ -225,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 context.RejectedPatches = new List<System.String>(this.RejectedPatch);
             }
+            context.RejectedPatchesAction = this.RejectedPatchesAction;
             if (this.Source != null)
             {
                 context.Sources = new List<Amazon.SimpleSystemsManagement.Model.PatchSource>(this.Source);
@@ -315,6 +333,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.RejectedPatches = cmdletContext.RejectedPatches;
             }
+            if (cmdletContext.RejectedPatchesAction != null)
+            {
+                request.RejectedPatchesAction = cmdletContext.RejectedPatchesAction;
+            }
             if (cmdletContext.Sources != null)
             {
                 request.Sources = cmdletContext.Sources;
@@ -393,6 +415,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String Name { get; set; }
             public Amazon.SimpleSystemsManagement.OperatingSystem OperatingSystem { get; set; }
             public List<System.String> RejectedPatches { get; set; }
+            public Amazon.SimpleSystemsManagement.PatchAction RejectedPatchesAction { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.PatchSource> Sources { get; set; }
         }
         

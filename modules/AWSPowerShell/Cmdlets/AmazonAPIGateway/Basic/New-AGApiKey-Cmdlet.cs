@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// <summary>
     /// Create an <a>ApiKey</a> resource. 
     /// 
-    ///  <div class="seeAlso"><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html">AWS
+    ///  <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html">AWS
     /// CLI</a></div>
     /// </summary>
     [Cmdlet("New", "AGApiKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
                         }
                         
-                        _nextMarker = response.NextToken;
+                        _nextMarker = response.NextMarker;
                         
                         _retrievedSoFar += _receivedThisCall;
                         if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))

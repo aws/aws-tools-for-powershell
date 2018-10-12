@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the option group to describe. Cannot be supplied together with EngineName
+        /// <para>The name of the option group to describe. Can't be supplied together with EngineName
         /// or MajorEngineVersion.</para>
         /// </para>
         /// </summary>

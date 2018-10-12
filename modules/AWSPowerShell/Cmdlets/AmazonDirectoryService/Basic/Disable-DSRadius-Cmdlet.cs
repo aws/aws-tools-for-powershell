@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
     /// Disables multi-factor authentication (MFA) with the Remote Authentication Dial In
-    /// User Service (RADIUS) server for an AD Connector directory.
+    /// User Service (RADIUS) server for an AD Connector or Microsoft AD directory.
     /// </summary>
     [Cmdlet("Disable", "DSRadius", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

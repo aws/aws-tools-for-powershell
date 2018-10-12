@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     ///  
     /// <para>
     /// A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location
-    /// and the customer.
+    /// and the customer network.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "DCVirtualInterface")]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter VirtualInterfaceId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the virtual interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

@@ -31,15 +31,29 @@ namespace Amazon.PowerShell.Cmdlets.RG
     /// Returns a list of existing resource groups in your account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RGGroupList")]
-    [OutputType("Amazon.ResourceGroups.Model.Group")]
+    [OutputType("Amazon.ResourceGroups.Model.GroupIdentifier")]
     [AWSCmdlet("Calls the AWS Resource Groups ListGroups API operation.", Operation = new[] {"ListGroups"})]
-    [AWSCmdletOutput("Amazon.ResourceGroups.Model.Group",
-        "This cmdlet returns a collection of Group objects.",
+    [AWSCmdletOutput("Amazon.ResourceGroups.Model.GroupIdentifier",
+        "This cmdlet returns a collection of GroupIdentifier objects.",
         "The service call response (type Amazon.ResourceGroups.Model.ListGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public partial class GetRGGroupListCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>Filters, formatted as GroupFilter objects, that you want to apply to a ListGroups
+        /// operation.</para><ul><li><para><code>group-type</code> - Filter groups by resource type. Specify up to five group
+        /// types in the format AWS::ServiceCode::ResourceType. For example, AWS::EC2::Instance,
+        /// or AWS::S3::Bucket.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [Alias("Filters")]
+        public Amazon.ResourceGroups.Model.GroupFilter[] Filter { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -84,6 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.Filter != null)
+            {
+                context.Filters = new List<Amazon.ResourceGroups.Model.GroupFilter>(this.Filter);
+            }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -103,6 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
             
             // create request and set iteration invariants
             var request = new Amazon.ResourceGroups.Model.ListGroupsRequest();
+            if (cmdletContext.Filters != null)
+            {
+                request.Filters = cmdletContext.Filters;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
@@ -158,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Groups;
+                        object pipelineOutput = response.GroupIdentifiers;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -167,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Groups.Count;
+                        int _receivedThisCall = response.GroupIdentifiers.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -249,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.ResourceGroups.Model.GroupFilter> Filters { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
         }

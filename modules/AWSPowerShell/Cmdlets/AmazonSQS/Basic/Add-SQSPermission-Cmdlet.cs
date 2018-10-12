@@ -35,17 +35,26 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// <para>
     /// When you create a queue, you have full control access rights for the queue. Only you,
     /// the owner of the queue, can grant or deny permissions to the queue. For more information
-    /// about these permissions, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html">Shared
-    /// Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
+    /// about these permissions, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue">Allow
+    /// Developers to Write Messages to a Shared Queue</a> in the <i>Amazon Simple Queue Service
+    /// Developer Guide</i>.
     /// </para><note><para><code>AddPermission</code> writes an Amazon-SQS-generated policy. If you want to
     /// write your own policy, use <code><a>SetQueueAttributes</a></code> to upload your
-    /// policy. For more information about writing your own policy, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AccessPolicyLanguage.html">Using
-    /// The Access Policy Language</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
+    /// policy. For more information about writing your own policy, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html">Using
+    /// Custom Policies with the Amazon SQS Access Policy Language</a> in the <i>Amazon Simple
+    /// Queue Service Developer Guide</i>.
     /// </para><para>
+    /// An Amazon SQS policy can have a maximum of 7 actions.
+    /// </para></note><para>
     /// Some actions take lists of parameters. These lists are specified using the <code>param.n</code>
     /// notation. Values of <code>n</code> are integers starting from 1. For example, a parameter
     /// list with two elements looks like this:
-    /// </para><para><code>&amp;Attribute.1=this</code></para><para><code>&amp;Attribute.2=that</code></para></note>
+    /// </para><para><code>&amp;Attribute.1=first</code></para><para><code>&amp;Attribute.2=second</code></para><note><para>
+    /// Cross-account permissions don't apply to this action. For more information, see see
+    /// <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
+    /// Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue
+    /// Service Developer Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Add", "SQSPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -60,9 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter Action
         /// <summary>
         /// <para>
-        /// <para>The action the client wants to allow for the specified principal. The following values
-        /// are valid:</para><ul><li><para><code>*</code></para></li><li><para><code>ChangeMessageVisibility</code></para></li><li><para><code>DeleteMessage</code></para></li><li><para><code>GetQueueAttributes</code></para></li><li><para><code>GetQueueUrl</code></para></li><li><para><code>ReceiveMessage</code></para></li><li><para><code>SendMessage</code></para></li></ul><para>For more information about these actions, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes">Understanding
-        /// Permissions</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para><para>Specifying <code>SendMessage</code>, <code>DeleteMessage</code>, or <code>ChangeMessageVisibility</code>
+        /// <para>The action the client wants to allow for the specified principal. Valid values: the
+        /// name of any action or <code>*</code>.</para><para>For more information about these actions, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html">Overview
+        /// of Managing Access Permissions to Your Amazon Simple Queue Service Resource</a> in
+        /// the <i>Amazon Simple Queue Service Developer Guide</i>.</para><para>Specifying <code>SendMessage</code>, <code>DeleteMessage</code>, or <code>ChangeMessageVisibility</code>
         /// for <code>ActionName.n</code> also grants permissions for the corresponding batch
         /// versions of those actions: <code>SendMessageBatch</code>, <code>DeleteMessageBatch</code>,
         /// and <code>ChangeMessageVisibilityBatch</code>.</para>
@@ -79,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <para>The AWS account number of the <a href="http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principal</a>
         /// who is given permission. The principal must have an AWS account, but does not need
         /// to be signed up for Amazon SQS. For information about locating the AWS account identification,
-        /// see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AWSCredentials.html">Your
+        /// see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication">Your
         /// AWS Identifiers</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -103,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of the Amazon SQS queue to which permissions are added.</para><para>Queue URLs are case-sensitive.</para>
+        /// <para>The URL of the Amazon SQS queue to which permissions are added.</para><para>Queue URLs and names are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

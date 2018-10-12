@@ -28,13 +28,13 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Adds the specified tags to the specified Direct Connect resource. Each Direct Connect
-    /// resource can have a maximum of 50 tags.
+    /// Adds the specified tags to the specified AWS Direct Connect resource. Each resource
+    /// can have a maximum of 50 tags.
     /// 
     ///  
     /// <para>
     /// Each tag consists of a key and an optional value. If a tag with the same key is already
-    /// associated with the Direct Connect resource, this action updates its value.
+    /// associated with the resource, this action updates its value.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "DCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Direct Connect resource.</para><para>Example: arn:aws:directconnect:us-east-1:123456789012:dxcon/dxcon-fg5678gh</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The list of tags to add.</para>
+        /// <para>The tags to add.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

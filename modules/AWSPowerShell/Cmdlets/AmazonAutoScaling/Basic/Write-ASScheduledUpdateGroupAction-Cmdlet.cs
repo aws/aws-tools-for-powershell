@@ -71,12 +71,31 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter EndTime
         /// <summary>
         /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use EndTimeUtc instead. Setting either EndTime or EndTimeUtc
+        /// results in both EndTime and EndTimeUtc being assigned, the latest assignment to either
+        /// one of the two property is reflected in the value of both. EndTime is provided for
+        /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
+        /// wrong timestamp being passed to the service.</para><para>The time for the recurring schedule to end. Amazon EC2 Auto Scaling does not perform
+        /// the action after this time.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 3)]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcEndTime instead.")]
+        public System.DateTime EndTime { get; set; }
+        #endregion
+        
+        #region Parameter UtcEndTime
+        /// <summary>
+        /// <para>
         /// <para>The time for the recurring schedule to end. Amazon EC2 Auto Scaling does not perform
         /// the action after this time.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 3)]
-        public System.DateTime EndTime { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.DateTime UtcEndTime { get; set; }
         #endregion
         
         #region Parameter MaxSize
@@ -123,6 +142,28 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter StartTime
         /// <summary>
         /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use StartTimeUtc instead. Setting either StartTime or
+        /// StartTimeUtc results in both StartTime and StartTimeUtc being assigned, the latest
+        /// assignment to either one of the two property is reflected in the value of both. StartTime
+        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
+        /// results in the wrong timestamp being passed to the service.</para><para>The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only
+        /// (for example, <code>2014-06-01T00:00:00Z</code>).</para><para>If you specify <code>Recurrence</code> and <code>StartTime</code>, Amazon EC2 Auto
+        /// Scaling performs the action at this time, and then performs the action based on the
+        /// specified recurrence.</para><para>If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an
+        /// error message.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 2)]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcStartTime instead.")]
+        public System.DateTime StartTime { get; set; }
+        #endregion
+        
+        #region Parameter UtcStartTime
+        /// <summary>
+        /// <para>
         /// <para>The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only
         /// (for example, <code>2014-06-01T00:00:00Z</code>).</para><para>If you specify <code>Recurrence</code> and <code>StartTime</code>, Amazon EC2 Auto
         /// Scaling performs the action at this time, and then performs the action based on the
@@ -130,18 +171,36 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// error message.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
-        public System.DateTime StartTime { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.DateTime UtcStartTime { get; set; }
         #endregion
         
         #region Parameter Time
+        /// <summary>
+        /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use TimeUtc instead. Setting either Time or TimeUtc results
+        /// in both Time and TimeUtc being assigned, the latest assignment to either one of the
+        /// two property is reflected in the value of both. Time is provided for backwards compatibility
+        /// only and assigning a non-Utc DateTime to it results in the wrong timestamp being passed
+        /// to the service.</para><para>This parameter is deprecated.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcTime instead.")]
+        public System.DateTime Time { get; set; }
+        #endregion
+        
+        #region Parameter UtcTime
         /// <summary>
         /// <para>
         /// <para>This parameter is deprecated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime Time { get; set; }
+        public System.DateTime UtcTime { get; set; }
         #endregion
         
         #region Parameter PassThru
@@ -185,18 +244,30 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (ParameterWasBound("DesiredCapacity"))
                 context.DesiredCapacity = this.DesiredCapacity;
-            if (ParameterWasBound("EndTime"))
-                context.EndTime = this.EndTime;
+            if (ParameterWasBound("UtcEndTime"))
+                context.UtcEndTime = this.UtcEndTime;
             if (ParameterWasBound("MaxSize"))
                 context.MaxSize = this.MaxSize;
             if (ParameterWasBound("MinSize"))
                 context.MinSize = this.MinSize;
             context.Recurrence = this.Recurrence;
             context.ScheduledActionName = this.ScheduledActionName;
+            if (ParameterWasBound("UtcStartTime"))
+                context.UtcStartTime = this.UtcStartTime;
+            if (ParameterWasBound("UtcTime"))
+                context.UtcTime = this.UtcTime;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound("EndTime"))
+                context.EndTime = this.EndTime;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("StartTime"))
                 context.StartTime = this.StartTime;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("Time"))
                 context.Time = this.Time;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -221,9 +292,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 request.DesiredCapacity = cmdletContext.DesiredCapacity.Value;
             }
-            if (cmdletContext.EndTime != null)
+            if (cmdletContext.UtcEndTime != null)
             {
-                request.EndTime = cmdletContext.EndTime.Value;
+                request.EndTimeUtc = cmdletContext.UtcEndTime.Value;
             }
             if (cmdletContext.MaxSize != null)
             {
@@ -241,14 +312,44 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 request.ScheduledActionName = cmdletContext.ScheduledActionName;
             }
+            if (cmdletContext.UtcStartTime != null)
+            {
+                request.StartTimeUtc = cmdletContext.UtcStartTime.Value;
+            }
+            if (cmdletContext.UtcTime != null)
+            {
+                request.TimeUtc = cmdletContext.UtcTime.Value;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.EndTime != null)
+            {
+                if (cmdletContext.UtcEndTime != null)
+                {
+                    throw new ArgumentException("Parameters EndTime and UtcEndTime are mutually exclusive.");
+                }
+                request.EndTime = cmdletContext.EndTime.Value;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.StartTime != null)
             {
+                if (cmdletContext.UtcStartTime != null)
+                {
+                    throw new ArgumentException("Parameters StartTime and UtcStartTime are mutually exclusive.");
+                }
                 request.StartTime = cmdletContext.StartTime.Value;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Time != null)
             {
+                if (cmdletContext.UtcTime != null)
+                {
+                    throw new ArgumentException("Parameters Time and UtcTime are mutually exclusive.");
+                }
                 request.Time = cmdletContext.Time.Value;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -317,12 +418,18 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             public System.String AutoScalingGroupName { get; set; }
             public System.Int32? DesiredCapacity { get; set; }
-            public System.DateTime? EndTime { get; set; }
+            public System.DateTime? UtcEndTime { get; set; }
             public System.Int32? MaxSize { get; set; }
             public System.Int32? MinSize { get; set; }
             public System.String Recurrence { get; set; }
             public System.String ScheduledActionName { get; set; }
+            public System.DateTime? UtcStartTime { get; set; }
+            public System.DateTime? UtcTime { get; set; }
+            [System.ObsoleteAttribute]
+            public System.DateTime? EndTime { get; set; }
+            [System.ObsoleteAttribute]
             public System.DateTime? StartTime { get; set; }
+            [System.ObsoleteAttribute]
             public System.DateTime? Time { get; set; }
         }
         

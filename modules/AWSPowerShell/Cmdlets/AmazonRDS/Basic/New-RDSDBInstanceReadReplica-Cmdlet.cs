@@ -130,6 +130,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBSubnetGroupName { get; set; }
         #endregion
         
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if the DB instance should have deletion protection enabled. The database
+        /// can't be deleted when this value is set to true. The default is false. For more information,
+        /// see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+        /// Deleting a DB Instance</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DeletionProtection { get; set; }
+        #endregion
+        
         #region Parameter EnableCloudwatchLogsExport
         /// <summary>
         /// <para>
@@ -441,6 +454,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBInstanceClass = this.DBInstanceClass;
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            if (ParameterWasBound("DeletionProtection"))
+                context.DeletionProtection = this.DeletionProtection;
             if (this.EnableCloudwatchLogsExport != null)
             {
                 context.EnableCloudwatchLogsExports = new List<System.String>(this.EnableCloudwatchLogsExport);
@@ -521,6 +536,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection.Value;
             }
             if (cmdletContext.EnableCloudwatchLogsExports != null)
             {
@@ -669,6 +688,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBInstanceClass { get; set; }
             public System.String DBInstanceIdentifier { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public System.Boolean? DeletionProtection { get; set; }
             public List<System.String> EnableCloudwatchLogsExports { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.Boolean? EnablePerformanceInsights { get; set; }

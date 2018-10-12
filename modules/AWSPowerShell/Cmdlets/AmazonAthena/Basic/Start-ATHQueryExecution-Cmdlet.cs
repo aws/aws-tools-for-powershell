@@ -99,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter ResultConfiguration_OutputLocation
         /// <summary>
         /// <para>
-        /// <para>The location in S3 where query results are stored.</para>
+        /// <para>The location in Amazon S3 where your query results are stored, such as <code>s3://path/to/query/bucket/</code>.
+        /// For more information, see <a href="http://docs.aws.amazon.com/athena/latest/ug/querying.html">Queries
+        /// and Query Result Files. </a></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

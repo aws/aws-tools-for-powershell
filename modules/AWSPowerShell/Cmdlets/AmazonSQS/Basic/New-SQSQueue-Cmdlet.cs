@@ -38,9 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     ///  You can't change the queue type after you create it and you can't convert an existing
     /// standard queue into a FIFO queue. You must either create a new FIFO queue for your
     /// application or delete your existing standard queue and recreate it as a FIFO queue.
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-moving">
-    /// Moving From a Standard Queue to a FIFO Queue</a> in the <i>Amazon Simple Queue Service
-    /// Developer Guide</i>. 
+    /// For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-moving">Moving
+    /// From a Standard Queue to a FIFO Queue</a> in the <i>Amazon Simple Queue Service Developer
+    /// Guide</i>. 
     /// </para></note></li><li><para>
     /// If you don't provide a value for an attribute, the queue is created with the default
     /// value for the attribute.
@@ -61,11 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// </para></li><li><para>
     /// If the queue name, attribute names, or attribute values don't match an existing queue,
     /// <code>CreateQueue</code> returns an error.
-    /// </para></li></ul><note><para>
+    /// </para></li></ul><para>
     /// Some actions take lists of parameters. These lists are specified using the <code>param.n</code>
     /// notation. Values of <code>n</code> are integers starting from 1. For example, a parameter
     /// list with two elements looks like this:
-    /// </para><para><code>&amp;Attribute.1=this</code></para><para><code>&amp;Attribute.2=that</code></para></note>
+    /// </para><para><code>&amp;Attribute.1=first</code></para><para><code>&amp;Attribute.2=second</code></para><note><para>
+    /// Cross-account permissions don't apply to this action. For more information, see see
+    /// <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
+    /// Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue
+    /// Service Developer Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "SQSQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -83,25 +88,27 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <para>A map of attributes with their corresponding values.</para><para>The following lists the names, descriptions, and values of the special request parameters
         /// that the <code>CreateQueue</code> action uses:</para><ul><li><para><code>DelaySeconds</code> - The length of time, in seconds, for which the delivery
         /// of all messages in the queue is delayed. Valid values: An integer from 0 to 900 seconds
-        /// (15 minutes). The default is 0 (zero). </para></li><li><para><code>MaximumMessageSize</code> - The limit of how many bytes a message can contain
+        /// (15 minutes). Default: 0. </para></li><li><para><code>MaximumMessageSize</code> - The limit of how many bytes a message can contain
         /// before Amazon SQS rejects it. Valid values: An integer from 1,024 bytes (1 KiB) to
-        /// 262,144 bytes (256 KiB). The default is 262,144 (256 KiB). </para></li><li><para><code>MessageRetentionPeriod</code> - The length of time, in seconds, for which Amazon
+        /// 262,144 bytes (256 KiB). Default: 262,144 (256 KiB). </para></li><li><para><code>MessageRetentionPeriod</code> - The length of time, in seconds, for which Amazon
         /// SQS retains a message. Valid values: An integer from 60 seconds (1 minute) to 1,209,600
-        /// seconds (14 days). The default is 345,600 (4 days). </para></li><li><para><code>Policy</code> - The queue's policy. A valid AWS policy. For more information
+        /// seconds (14 days). Default: 345,600 (4 days). </para></li><li><para><code>Policy</code> - The queue's policy. A valid AWS policy. For more information
         /// about policy structure, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html">Overview
         /// of AWS IAM Policies</a> in the <i>Amazon IAM User Guide</i>. </para></li><li><para><code>ReceiveMessageWaitTimeSeconds</code> - The length of time, in seconds, for
         /// which a <code><a>ReceiveMessage</a></code> action waits for a message to arrive.
-        /// Valid values: An integer from 0 to 20 (seconds). The default is 0 (zero). </para></li><li><para><code>RedrivePolicy</code> - The string that includes the parameters for the dead-letter
+        /// Valid values: An integer from 0 to 20 (seconds). Default: 0. </para></li><li><para><code>RedrivePolicy</code> - The string that includes the parameters for the dead-letter
         /// queue functionality of the source queue. For more information about the redrive policy
         /// and dead-letter queues, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">Using
         /// Amazon SQS Dead-Letter Queues</a> in the <i>Amazon Simple Queue Service Developer
         /// Guide</i>. </para><ul><li><para><code>deadLetterTargetArn</code> - The Amazon Resource Name (ARN) of the dead-letter
         /// queue to which Amazon SQS moves messages after the value of <code>maxReceiveCount</code>
         /// is exceeded.</para></li><li><para><code>maxReceiveCount</code> - The number of times a message is delivered to the
-        /// source queue before being moved to the dead-letter queue.</para></li></ul><note><para>The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter
-        /// queue of a standard queue must also be a standard queue.</para></note></li><li><para><code>VisibilityTimeout</code> - The visibility timeout for the queue. Valid values:
-        /// An integer from 0 to 43,200 (12 hours). The default is 30. For more information about
-        /// the visibility timeout, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
+        /// source queue before being moved to the dead-letter queue. When the <code>ReceiveCount</code>
+        /// for a message exceeds the <code>maxReceiveCount</code> for a queue, Amazon SQS moves
+        /// the message to the dead-letter-queue.</para></li></ul><note><para>The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter
+        /// queue of a standard queue must also be a standard queue.</para></note></li><li><para><code>VisibilityTimeout</code> - The visibility timeout for the queue, in seconds.
+        /// Valid values: An integer from 0 to 43,200 (12 hours). Default: 30. For more information
+        /// about the visibility timeout, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
         /// Timeout</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para></li></ul><para>The following attributes apply only to <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</para><ul><li><para><code>KmsMasterKeyId</code> - The ID of an AWS-managed customer master key (CMK)
         /// for Amazon SQS or a custom CMK. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key
         /// Terms</a>. While the alias of the AWS-managed CMK for Amazon SQS is always <code>alias/aws/sqs</code>,
@@ -110,10 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// in the <i>AWS Key Management Service API Reference</i>. </para></li><li><para><code>KmsDataKeyReusePeriodSeconds</code> - The length of time, in seconds, for which
         /// Amazon SQS can reuse a <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys">data
         /// key</a> to encrypt or decrypt messages before calling AWS KMS again. An integer representing
-        /// seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default
-        /// is 300 (5 minutes). A shorter time period provides better security but results in
-        /// more calls to KMS which might incur charges after Free Tier. For more information,
-        /// see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How
+        /// seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). Default: 300
+        /// (5 minutes). A shorter time period provides better security but results in more calls
+        /// to KMS which might incur charges after Free Tier. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How
         /// Does the Data Key Reuse Period Work?</a>. </para></li></ul><para>The following attributes apply only to <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO
         /// (first-in-first-out) queues</a>:</para><ul><li><para><code>FifoQueue</code> - Designates a queue as FIFO. Valid values: <code>true</code>,
         /// <code>false</code>. You can provide this attribute only during queue creation. You
@@ -131,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// one copy of the message is delivered.</para></li><li><para>If you send one message with <code>ContentBasedDeduplication</code> enabled and then
         /// another message with a <code>MessageDeduplicationId</code> that is the same as the
         /// one generated for the first <code>MessageDeduplicationId</code>, the two messages
-        /// are treated as duplicates and only one copy of the message is delivered. </para></li></ul></li></ul><para>Any other valid special request parameters (such as the following) are ignored:</para><ul><li><para><code>ApproximateNumberOfMessages</code></para></li><li><para><code>ApproximateNumberOfMessagesDelayed</code></para></li><li><para><code>ApproximateNumberOfMessagesNotVisible</code></para></li><li><para><code>CreatedTimestamp</code></para></li><li><para><code>LastModifiedTimestamp</code></para></li><li><para><code>QueueArn</code></para></li></ul>
+        /// are treated as duplicates and only one copy of the message is delivered. </para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -142,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueName
         /// <summary>
         /// <para>
-        /// <para>The name of the new queue. The following limits apply to this name:</para><ul><li><para>A queue name can have up to 80 characters.</para></li><li><para>Valid values: alphanumeric characters, hyphens (<code>-</code>), and underscores (<code>_</code>).</para></li><li><para>A FIFO queue name must end with the <code>.fifo</code> suffix.</para></li></ul><para>Queue names are case-sensitive.</para>
+        /// <para>The name of the new queue. The following limits apply to this name:</para><ul><li><para>A queue name can have up to 80 characters.</para></li><li><para>Valid values: alphanumeric characters, hyphens (<code>-</code>), and underscores (<code>_</code>).</para></li><li><para>A FIFO queue name must end with the <code>.fifo</code> suffix.</para></li></ul><para>Queue URLs and names are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter State
         /// <summary>
         /// <para>
-        /// <para>The session status to retrieve a list of sessions for. For example, "active".</para>
+        /// <para>The session status to retrieve a list of sessions for. For example, "Active".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

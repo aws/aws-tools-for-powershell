@@ -32,11 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// The information returned for your event selectors includes the following:
     /// 
     ///  <ul><li><para>
-    /// The S3 objects that you are logging for data events.
+    /// If your event selector includes read-only events, write-only events, or all events.
+    /// This applies to both management events and data events.
     /// </para></li><li><para>
     /// If your event selector includes management events.
     /// </para></li><li><para>
-    /// If your event selector includes read-only events, write-only events, or all. 
+    /// If your event selector includes data events, the Amazon S3 objects or AWS Lambda functions
+    /// that you are logging for data events.
     /// </para></li></ul><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging
     /// Data and Management Events for Trails </a> in the <i>AWS CloudTrail User Guide</i>.
@@ -57,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <para>Specifies the name of the trail or trail ARN. If you specify a trail name, the string
         /// must meet the following requirements:</para><ul><li><para>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_),
         /// or dashes (-)</para></li><li><para>Start with a letter or number, and end with a letter or number</para></li><li><para>Be between 3 and 128 characters</para></li><li><para>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code>
-        /// and <code>my--namespace</code> are invalid.</para></li><li><para>Not be in IP address format (for example, 192.168.5.4)</para></li></ul><para>If you specify a trail ARN, it must be in the format:</para><para><code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code></para>
+        /// and <code>my--namespace</code> are not valid.</para></li><li><para>Not be in IP address format (for example, 192.168.5.4)</para></li></ul><para>If you specify a trail ARN, it must be in the format:</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

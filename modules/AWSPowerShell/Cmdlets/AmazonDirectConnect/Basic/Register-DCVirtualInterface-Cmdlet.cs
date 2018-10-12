@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// Associates a virtual interface with a specified link aggregation group (LAG) or connection.
     /// Connectivity to AWS is temporarily interrupted as the virtual interface is being migrated.
     /// If the target connection or LAG has an associated virtual interface with a conflicting
-    /// VLAN number or a conflicting IP address, the operation fails. 
+    /// VLAN number or a conflicting IP address, the operation fails.
     /// 
     ///  
     /// <para>
@@ -39,10 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// LAG; hosted connections must be migrated along with their virtual interfaces using
     /// <a>AssociateHostedConnection</a>.
     /// </para><para>
-    /// In order to reassociate a virtual interface to a new connection or LAG, the requester
-    /// must own either the virtual interface itself or the connection to which the virtual
-    /// interface is currently associated. Additionally, the requester must own the connection
-    /// or LAG to which the virtual interface will be newly associated.
+    /// To reassociate a virtual interface to a new connection or LAG, the requester must
+    /// own either the virtual interface itself or the connection to which the virtual interface
+    /// is currently associated. Additionally, the requester must own the connection or LAG
+    /// for the association.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "DCVirtualInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the LAG or connection with which to associate the virtual interface.</para><para>Example: dxlag-abc123 or dxcon-abc123</para><para>Default: None</para>
+        /// <para>The ID of the LAG or connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter VirtualInterfaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the virtual interface.</para><para>Example: dxvif-123dfg56</para><para>Default: None</para>
+        /// <para>The ID of the virtual interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

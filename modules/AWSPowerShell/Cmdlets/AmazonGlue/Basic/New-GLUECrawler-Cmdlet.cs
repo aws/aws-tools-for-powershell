@@ -59,11 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>Crawler configuration information. This versioned JSON string allows users to specify
-        /// aspects of a Crawler's behavior.</para><para>You can use this field to force partitions to inherit metadata such as classification,
-        /// input format, output format, serde information, and schema from their parent table,
-        /// rather than detect this information separately for each partition. Use the following
-        /// JSON string to specify that behavior:</para><para>Example: <code>'{ "Version": 1.0, "CrawlerOutput": { "Partitions": { "AddOrUpdateBehavior":
-        /// "InheritFromTable" } } }'</code></para>
+        /// aspects of a crawler's behavior. For more information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring
+        /// a Crawler</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

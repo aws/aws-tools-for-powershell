@@ -28,12 +28,13 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Returns a list of all direct connect gateway and virtual interface (VIF) attachments.
-    /// Either a direct connect gateway ID or a VIF ID must be provided in the request. If
-    /// a direct connect gateway ID is provided, the response returns all VIFs attached to
-    /// the direct connect gateway. If a VIF ID is provided, the response returns all direct
-    /// connect gateways attached to the VIF. If both are provided, the response only returns
-    /// the attachment that matches both the direct connect gateway and the VIF.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the attachments between your Direct Connect gateways and virtual interfaces.
+    /// You must specify a Direct Connect gateway, a virtual interface, or both. If you specify
+    /// a Direct Connect gateway, the response contains all virtual interfaces attached to
+    /// the Direct Connect gateway. If you specify a virtual interface, the response contains
+    /// all Direct Connect gateways attached to the virtual interface. If you specify both,
+    /// the response contains the attachment between the Direct Connect gateway and the virtual
+    /// interface.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "DCGatewayAttachment")]
     [OutputType("Amazon.DirectConnect.Model.DirectConnectGatewayAttachment")]
@@ -49,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter DirectConnectGatewayId
         /// <summary>
         /// <para>
-        /// <para>The ID of the direct connect gateway.</para><para>Example: "abcd1234-dcba-5678-be23-cdef9876ab45"</para><para>Default: None</para>
+        /// <para>The ID of the Direct Connect gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -59,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter VirtualInterfaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the virtual interface.</para><para>Example: "dxvif-abc123ef"</para><para>Default: None</para>
+        /// <para>The ID of the virtual interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of direct connect gateway attachments to return per page.</para><para>Example: 15</para><para>Default: None</para>
+        /// <para>The maximum number of attachments to return per page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -83,8 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token provided in the previous describe result to retrieve the next page of the
-        /// result.</para><para>Default: None</para>
+        /// <para>The token provided in the previous call to retrieve the next page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

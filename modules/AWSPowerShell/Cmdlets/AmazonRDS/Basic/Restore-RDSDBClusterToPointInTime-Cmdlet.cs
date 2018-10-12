@@ -68,11 +68,23 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The name of the new DB cluster to be created.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// <para>The name of the new DB cluster to be created.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DBClusterIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter DBClusterParameterGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the DB cluster parameter group to associate with this DB cluster. If this
+        /// argument is omitted, the default DB cluster parameter group for the specified engine
+        /// is used.</para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DB cluster parameter group.</para></li><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DBClusterParameterGroupName { get; set; }
         #endregion
         
         #region Parameter DBSubnetGroupName
@@ -83,6 +95,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBSubnetGroupName { get; set; }
+        #endregion
+        
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if the DB cluster should have deletion protection enabled. The database
+        /// can't be deleted when this value is set to true. The default is false. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DeletionProtection { get; set; }
         #endregion
         
         #region Parameter EnableCloudwatchLogsExport
@@ -118,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// key used to encrypt the new DB cluster, then you can use the KMS key alias instead
         /// of the ARN for the KMS encryption key.</para><para>You can restore to a new DB cluster and encrypt the new DB cluster with a KMS key
         /// that is different than the KMS key used to encrypt the source DB cluster. The new
-        /// DB cluster is encrypted with the KMS key identified by the <code>KmsKeyId</code> parameter.</para><para>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following
-        /// will occur:</para><ul><li><para>If the DB cluster is encrypted, then the restored DB cluster is encrypted using the
+        /// DB cluster is encrypted with the KMS key identified by the <code>KmsKeyId</code> parameter.</para><para>If you don't specify a value for the <code>KmsKeyId</code> parameter, then the following
+        /// occurs:</para><ul><li><para>If the DB cluster is encrypted, then the restored DB cluster is encrypted using the
         /// KMS key that was used to encrypt the source DB cluster.</para></li><li><para>If the DB cluster is not encrypted, then the restored DB cluster is not encrypted.</para></li></ul><para>If <code>DBClusterIdentifier</code> refers to a DB cluster that is not encrypted,
         /// then the restore request is rejected.</para>
         /// </para>
@@ -151,11 +174,29 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter RestoreToTime
         /// <summary>
         /// <para>
-        /// <para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Must be specified if <code>UseLatestRestorableTime</code> parameter is not provided</para></li><li><para>Cannot be specified if <code>UseLatestRestorableTime</code> parameter is true</para></li><li><para>Cannot be specified if <code>RestoreType</code> parameter is <code>copy-on-write</code></para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use RestoreToTimeUtc instead. Setting either RestoreToTime
+        /// or RestoreToTimeUtc results in both RestoreToTime and RestoreToTimeUtc being assigned,
+        /// the latest assignment to either one of the two property is reflected in the value
+        /// of both. RestoreToTime is provided for backwards compatibility only and assigning
+        /// a non-Utc DateTime to it results in the wrong timestamp being passed to the service.</para><para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Must be specified if <code>UseLatestRestorableTime</code> parameter is not provided</para></li><li><para>Can't be specified if <code>UseLatestRestorableTime</code> parameter is true</para></li><li><para>Can't be specified if <code>RestoreType</code> parameter is <code>copy-on-write</code></para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcRestoreToTime instead.")]
+        public System.DateTime RestoreToTime { get; set; }
+        #endregion
+        
+        #region Parameter UtcRestoreToTime
+        /// <summary>
+        /// <para>
+        /// <para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Must be specified if <code>UseLatestRestorableTime</code> parameter is not provided</para></li><li><para>Can't be specified if <code>UseLatestRestorableTime</code> parameter is true</para></li><li><para>Can't be specified if <code>RestoreType</code> parameter is <code>copy-on-write</code></para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime RestoreToTime { get; set; }
+        public System.DateTime UtcRestoreToTime { get; set; }
         #endregion
         
         #region Parameter RestoreType
@@ -197,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that is set to <code>true</code> to restore the DB cluster to the latest restorable
-        /// backup time, and <code>false</code> otherwise. </para><para>Default: <code>false</code></para><para>Constraints: Cannot be specified if <code>RestoreToTime</code> parameter is provided.</para>
+        /// backup time, and <code>false</code> otherwise. </para><para>Default: <code>false</code></para><para>Constraints: Can't be specified if <code>RestoreToTime</code> parameter is provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -247,7 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (ParameterWasBound("BacktrackWindow"))
                 context.BacktrackWindow = this.BacktrackWindow;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
+            context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            if (ParameterWasBound("DeletionProtection"))
+                context.DeletionProtection = this.DeletionProtection;
             if (this.EnableCloudwatchLogsExport != null)
             {
                 context.EnableCloudwatchLogsExports = new List<System.String>(this.EnableCloudwatchLogsExport);
@@ -258,8 +302,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.OptionGroupName = this.OptionGroupName;
             if (ParameterWasBound("Port"))
                 context.Port = this.Port;
-            if (ParameterWasBound("RestoreToTime"))
-                context.RestoreToTime = this.RestoreToTime;
+            if (ParameterWasBound("UtcRestoreToTime"))
+                context.UtcRestoreToTime = this.UtcRestoreToTime;
             context.RestoreType = this.RestoreType;
             context.SourceDBClusterIdentifier = this.SourceDBClusterIdentifier;
             if (this.Tag != null)
@@ -272,6 +316,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound("RestoreToTime"))
+                context.RestoreToTime = this.RestoreToTime;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -296,9 +344,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
             }
+            if (cmdletContext.DBClusterParameterGroupName != null)
+            {
+                request.DBClusterParameterGroupName = cmdletContext.DBClusterParameterGroupName;
+            }
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection.Value;
             }
             if (cmdletContext.EnableCloudwatchLogsExports != null)
             {
@@ -320,9 +376,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.Port = cmdletContext.Port.Value;
             }
-            if (cmdletContext.RestoreToTime != null)
+            if (cmdletContext.UtcRestoreToTime != null)
             {
-                request.RestoreToTime = cmdletContext.RestoreToTime.Value;
+                request.RestoreToTimeUtc = cmdletContext.UtcRestoreToTime.Value;
             }
             if (cmdletContext.RestoreType != null)
             {
@@ -344,6 +400,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.VpcSecurityGroupIds = cmdletContext.VpcSecurityGroupIds;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.RestoreToTime != null)
+            {
+                if (cmdletContext.UtcRestoreToTime != null)
+                {
+                    throw new ArgumentException("Parameters RestoreToTime and UtcRestoreToTime are mutually exclusive.");
+                }
+                request.RestoreToTime = cmdletContext.RestoreToTime.Value;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -410,18 +476,22 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             public System.Int64? BacktrackWindow { get; set; }
             public System.String DBClusterIdentifier { get; set; }
+            public System.String DBClusterParameterGroupName { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public System.Boolean? DeletionProtection { get; set; }
             public List<System.String> EnableCloudwatchLogsExports { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }
-            public System.DateTime? RestoreToTime { get; set; }
+            public System.DateTime? UtcRestoreToTime { get; set; }
             public System.String RestoreType { get; set; }
             public System.String SourceDBClusterIdentifier { get; set; }
             public List<Amazon.RDS.Model.Tag> Tags { get; set; }
             public System.Boolean? UseLatestRestorableTime { get; set; }
             public List<System.String> VpcSecurityGroupIds { get; set; }
+            [System.ObsoleteAttribute]
+            public System.DateTime? RestoreToTime { get; set; }
         }
         
     }

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// <summary>
     /// Describe an existing <a>Authorizers</a> resource.
     /// 
-    ///  <div class="seeAlso"><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html">AWS
+    ///  <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html">AWS
     /// CLI</a></div><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "AGAuthorizerList")]

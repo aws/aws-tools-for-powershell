@@ -28,7 +28,8 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Starts an asynchronous job to transcribe speech to text.
+    /// Starts an asynchronous job to transcribe speech to text. Note that en-AU, en-UK, and
+    /// fr-CA languages are in preview and are only available to whitelisted customers.
     /// </summary>
     [Cmdlet("Start", "TRSTranscriptionJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.TranscriptionJob")]

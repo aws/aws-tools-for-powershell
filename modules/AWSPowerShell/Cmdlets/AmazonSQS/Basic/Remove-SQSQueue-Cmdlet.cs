@@ -40,8 +40,13 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// the message you sent no longer exist.
     /// </para><para>
     /// When you delete a queue, you must wait at least 60 seconds before creating a queue
-    /// with the same name. 
-    /// </para>
+    /// with the same name.
+    /// </para><note><para>
+    /// Cross-account permissions don't apply to this action. For more information, see see
+    /// <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
+    /// Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue
+    /// Service Developer Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "SQSQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -56,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of the Amazon SQS queue to delete.</para><para>Queue URLs are case-sensitive.</para>
+        /// <para>The URL of the Amazon SQS queue to delete.</para><para>Queue URLs and names are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -81,6 +81,24 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.Int64 PresignedUrlConfig_ExpiresInSec { get; set; }
         #endregion
         
+        #region Parameter TimeoutConfig_InProgressTimeoutInMinute
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the amount of time, in minutes, this device has to finish execution of this
+        /// job. A timer is started, or restarted, whenever this job's execution status is specified
+        /// as <code>IN_PROGRESS</code> with this field populated. If the job execution status
+        /// is not set to a terminal state before the timer expires, or before another job execution
+        /// status update is sent with this field populated, the status will be automatically
+        /// set to <code>TIMED_OUT</code>. Note that setting/resetting this timer has no effect
+        /// on the job execution timeout timer which may have been specified when the job was
+        /// created (<code>CreateJobExecution</code> using the field <code>timeoutConfig</code>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TimeoutConfig_InProgressTimeoutInMinutes")]
+        public System.Int64 TimeoutConfig_InProgressTimeoutInMinute { get; set; }
+        #endregion
+        
         #region Parameter JobId
         /// <summary>
         /// <para>
@@ -184,6 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.Targets = new List<System.String>(this.Target);
             }
             context.TargetSelection = this.TargetSelection;
+            if (ParameterWasBound("TimeoutConfig_InProgressTimeoutInMinute"))
+                context.TimeoutConfig_InProgressTimeoutInMinutes = this.TimeoutConfig_InProgressTimeoutInMinute;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -273,6 +293,25 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 request.TargetSelection = cmdletContext.TargetSelection;
             }
             
+             // populate TimeoutConfig
+            bool requestTimeoutConfigIsNull = true;
+            request.TimeoutConfig = new Amazon.IoT.Model.TimeoutConfig();
+            System.Int64? requestTimeoutConfig_timeoutConfig_InProgressTimeoutInMinute = null;
+            if (cmdletContext.TimeoutConfig_InProgressTimeoutInMinutes != null)
+            {
+                requestTimeoutConfig_timeoutConfig_InProgressTimeoutInMinute = cmdletContext.TimeoutConfig_InProgressTimeoutInMinutes.Value;
+            }
+            if (requestTimeoutConfig_timeoutConfig_InProgressTimeoutInMinute != null)
+            {
+                request.TimeoutConfig.InProgressTimeoutInMinutes = requestTimeoutConfig_timeoutConfig_InProgressTimeoutInMinute.Value;
+                requestTimeoutConfigIsNull = false;
+            }
+             // determine if request.TimeoutConfig should be set to null
+            if (requestTimeoutConfigIsNull)
+            {
+                request.TimeoutConfig = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -345,6 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String PresignedUrlConfig_RoleArn { get; set; }
             public List<System.String> Targets { get; set; }
             public Amazon.IoT.TargetSelection TargetSelection { get; set; }
+            public System.Int64? TimeoutConfig_InProgressTimeoutInMinutes { get; set; }
         }
         
     }

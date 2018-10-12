@@ -59,7 +59,16 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>Specifies the secret containing the version that you want to retrieve. You can specify
-        /// either the Amazon Resource Name (ARN) or the friendly name of the secret.</para>
+        /// either the Amazon Resource Name (ARN) or the friendly name of the secret.</para><note><para>If you specify an ARN, we generally recommend that you specify a complete ARN. You
+        /// can specify a partial ARN too—for example, if you don’t include the final hyphen and
+        /// six random characters that Secrets Manager adds at the end of the ARN when you created
+        /// the secret. A partial ARN match can work as long as it uniquely matches only one secret.
+        /// However, if your secret has a name that ends in a hyphen followed by six characters
+        /// (before Secrets Manager adds the hyphen and six characters to the ARN) and you try
+        /// to use that as a partial ARN, then those characters cause Secrets Manager to assume
+        /// that you’re specifying a complete ARN. This confusion can cause unexpected results.
+        /// To avoid this situation, we recommend that you don’t create secret names that end
+        /// with a hyphen followed by six characters.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -28,12 +28,7 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Returns a list of interconnects owned by the AWS account.
-    /// 
-    ///  
-    /// <para>
-    /// If an interconnect ID is provided, it will only return this particular interconnect.
-    /// </para>
+    /// Lists the interconnects owned by the AWS account or only the specified interconnect.
     /// </summary>
     [Cmdlet("Get", "DCInterconnect")]
     [OutputType("Amazon.DirectConnect.Model.Interconnect")]
@@ -48,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter InterconnectId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the interconnect.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

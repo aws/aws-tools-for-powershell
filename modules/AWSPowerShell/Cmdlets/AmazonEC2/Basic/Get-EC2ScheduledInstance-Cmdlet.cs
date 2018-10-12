@@ -44,11 +44,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SlotStartTimeRange_EarliestTime
         /// <summary>
         /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use EarliestTimeUtc instead. Setting either EarliestTime
+        /// or EarliestTimeUtc results in both EarliestTime and EarliestTimeUtc being assigned,
+        /// the latest assignment to either one of the two property is reflected in the value
+        /// of both. EarliestTime is provided for backwards compatibility only and assigning a
+        /// non-Utc DateTime to it results in the wrong timestamp being passed to the service.</para><para>The earliest date and time, in UTC, for the Scheduled Instance to start.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use SlotStartTimeRange_UtcEarliestTime instead.")]
+        public System.DateTime SlotStartTimeRange_EarliestTime { get; set; }
+        #endregion
+        
+        #region Parameter SlotStartTimeRange_UtcEarliestTime
+        /// <summary>
+        /// <para>
         /// <para>The earliest date and time, in UTC, for the Scheduled Instance to start.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime SlotStartTimeRange_EarliestTime { get; set; }
+        public System.DateTime SlotStartTimeRange_UtcEarliestTime { get; set; }
         #endregion
         
         #region Parameter Filter
@@ -66,11 +84,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SlotStartTimeRange_LatestTime
         /// <summary>
         /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use LatestTimeUtc instead. Setting either LatestTime or
+        /// LatestTimeUtc results in both LatestTime and LatestTimeUtc being assigned, the latest
+        /// assignment to either one of the two property is reflected in the value of both. LatestTime
+        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
+        /// results in the wrong timestamp being passed to the service.</para><para>The latest date and time, in UTC, for the Scheduled Instance to start.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use SlotStartTimeRange_UtcLatestTime instead.")]
+        public System.DateTime SlotStartTimeRange_LatestTime { get; set; }
+        #endregion
+        
+        #region Parameter SlotStartTimeRange_UtcLatestTime
+        /// <summary>
+        /// <para>
         /// <para>The latest date and time, in UTC, for the Scheduled Instance to start.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime SlotStartTimeRange_LatestTime { get; set; }
+        public System.DateTime SlotStartTimeRange_UtcLatestTime { get; set; }
         #endregion
         
         #region Parameter ScheduledInstanceId
@@ -137,10 +173,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.ScheduledInstanceIds = new List<System.String>(this.ScheduledInstanceId);
             }
+            if (ParameterWasBound("SlotStartTimeRange_UtcEarliestTime"))
+                context.SlotStartTimeRange_UtcEarliestTime = this.SlotStartTimeRange_UtcEarliestTime;
+            if (ParameterWasBound("SlotStartTimeRange_UtcLatestTime"))
+                context.SlotStartTimeRange_UtcLatestTime = this.SlotStartTimeRange_UtcLatestTime;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("SlotStartTimeRange_EarliestTime"))
                 context.SlotStartTimeRange_EarliestTime = this.SlotStartTimeRange_EarliestTime;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("SlotStartTimeRange_LatestTime"))
                 context.SlotStartTimeRange_LatestTime = this.SlotStartTimeRange_LatestTime;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -169,9 +213,34 @@ namespace Amazon.PowerShell.Cmdlets.EC2
              // populate SlotStartTimeRange
             bool requestSlotStartTimeRangeIsNull = true;
             request.SlotStartTimeRange = new Amazon.EC2.Model.SlotStartTimeRangeRequest();
+            System.DateTime? requestSlotStartTimeRange_slotStartTimeRange_UtcEarliestTime = null;
+            if (cmdletContext.SlotStartTimeRange_UtcEarliestTime != null)
+            {
+                requestSlotStartTimeRange_slotStartTimeRange_UtcEarliestTime = cmdletContext.SlotStartTimeRange_UtcEarliestTime.Value;
+            }
+            if (requestSlotStartTimeRange_slotStartTimeRange_UtcEarliestTime != null)
+            {
+                request.SlotStartTimeRange.EarliestTimeUtc = requestSlotStartTimeRange_slotStartTimeRange_UtcEarliestTime.Value;
+                requestSlotStartTimeRangeIsNull = false;
+            }
+            System.DateTime? requestSlotStartTimeRange_slotStartTimeRange_UtcLatestTime = null;
+            if (cmdletContext.SlotStartTimeRange_UtcLatestTime != null)
+            {
+                requestSlotStartTimeRange_slotStartTimeRange_UtcLatestTime = cmdletContext.SlotStartTimeRange_UtcLatestTime.Value;
+            }
+            if (requestSlotStartTimeRange_slotStartTimeRange_UtcLatestTime != null)
+            {
+                request.SlotStartTimeRange.LatestTimeUtc = requestSlotStartTimeRange_slotStartTimeRange_UtcLatestTime.Value;
+                requestSlotStartTimeRangeIsNull = false;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.DateTime? requestSlotStartTimeRange_slotStartTimeRange_EarliestTime = null;
             if (cmdletContext.SlotStartTimeRange_EarliestTime != null)
             {
+                if (cmdletContext.SlotStartTimeRange_UtcEarliestTime != null)
+                {
+                    throw new ArgumentException("Parameters SlotStartTimeRange_EarliestTime and SlotStartTimeRange_UtcEarliestTime are mutually exclusive.");
+                }
                 requestSlotStartTimeRange_slotStartTimeRange_EarliestTime = cmdletContext.SlotStartTimeRange_EarliestTime.Value;
             }
             if (requestSlotStartTimeRange_slotStartTimeRange_EarliestTime != null)
@@ -179,9 +248,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.SlotStartTimeRange.EarliestTime = requestSlotStartTimeRange_slotStartTimeRange_EarliestTime.Value;
                 requestSlotStartTimeRangeIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.DateTime? requestSlotStartTimeRange_slotStartTimeRange_LatestTime = null;
             if (cmdletContext.SlotStartTimeRange_LatestTime != null)
             {
+                if (cmdletContext.SlotStartTimeRange_UtcLatestTime != null)
+                {
+                    throw new ArgumentException("Parameters SlotStartTimeRange_LatestTime and SlotStartTimeRange_UtcLatestTime are mutually exclusive.");
+                }
                 requestSlotStartTimeRange_slotStartTimeRange_LatestTime = cmdletContext.SlotStartTimeRange_LatestTime.Value;
             }
             if (requestSlotStartTimeRange_slotStartTimeRange_LatestTime != null)
@@ -189,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.SlotStartTimeRange.LatestTime = requestSlotStartTimeRange_slotStartTimeRange_LatestTime.Value;
                 requestSlotStartTimeRangeIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
              // determine if request.SlotStartTimeRange should be set to null
             if (requestSlotStartTimeRangeIsNull)
             {
@@ -314,7 +390,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
             public List<System.String> ScheduledInstanceIds { get; set; }
+            public System.DateTime? SlotStartTimeRange_UtcEarliestTime { get; set; }
+            public System.DateTime? SlotStartTimeRange_UtcLatestTime { get; set; }
+            [System.ObsoleteAttribute]
             public System.DateTime? SlotStartTimeRange_EarliestTime { get; set; }
+            [System.ObsoleteAttribute]
             public System.DateTime? SlotStartTimeRange_LatestTime { get; set; }
         }
         

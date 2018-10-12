@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
     /// Returns a list of all valid regions for Amazon Lightsail. Use the <code>include availability
-    /// zones</code> parameter to also return the availability zones in a region.
+    /// zones</code> parameter to also return the Availability Zones in a region.
     /// </summary>
     [Cmdlet("Get", "LSRegionList")]
     [OutputType("Amazon.Lightsail.Model.Region")]
@@ -53,6 +53,19 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.Boolean IncludeAvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter IncludeRelationalDatabaseAvailabilityZone
+        /// <summary>
+        /// <para>
+        /// <para>&gt;A Boolean value indicating whether to also include Availability Zones for databases
+        /// in your get regions request. Availability Zones are indicated with a letter (e.g.,
+        /// <code>us-east-2a</code>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("IncludeRelationalDatabaseAvailabilityZones")]
+        public System.Boolean IncludeRelationalDatabaseAvailabilityZone { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -68,6 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
             
             if (ParameterWasBound("IncludeAvailabilityZone"))
                 context.IncludeAvailabilityZones = this.IncludeAvailabilityZone;
+            if (ParameterWasBound("IncludeRelationalDatabaseAvailabilityZone"))
+                context.IncludeRelationalDatabaseAvailabilityZones = this.IncludeRelationalDatabaseAvailabilityZone;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -87,6 +102,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (cmdletContext.IncludeAvailabilityZones != null)
             {
                 request.IncludeAvailabilityZones = cmdletContext.IncludeAvailabilityZones.Value;
+            }
+            if (cmdletContext.IncludeRelationalDatabaseAvailabilityZones != null)
+            {
+                request.IncludeRelationalDatabaseAvailabilityZones = cmdletContext.IncludeRelationalDatabaseAvailabilityZones.Value;
             }
             
             CmdletOutput output;
@@ -153,6 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? IncludeAvailabilityZones { get; set; }
+            public System.Boolean? IncludeRelationalDatabaseAvailabilityZones { get; set; }
         }
         
     }

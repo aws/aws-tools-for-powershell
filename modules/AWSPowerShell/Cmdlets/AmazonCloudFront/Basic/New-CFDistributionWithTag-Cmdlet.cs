@@ -85,8 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>This field has been deprecated. Use one of the following fields instead:</para><ul><li><para><a>ViewerCertificate$ACMCertificateArn</a></para></li><li><para><a>ViewerCertificate$IAMCertificateId</a></para></li><li><para><a>ViewerCertificate$CloudFrontDefaultCertificate</a></para></li></ul>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This field has been deprecated. Use one of the following fields instead: ACMCerti" +
+            "ficateArn, IAMCertificateId or CloudFrontDefaultCertificate.")]
         [Alias("DistributionConfigWithTags_DistributionConfig_ViewerCertificate_Certificate")]
         public System.String ViewerCertificate_Certificate { get; set; }
         #endregion
@@ -96,8 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>This field has been deprecated. Use one of the following fields instead:</para><ul><li><para><a>ViewerCertificate$ACMCertificateArn</a></para></li><li><para><a>ViewerCertificate$IAMCertificateId</a></para></li><li><para><a>ViewerCertificate$CloudFrontDefaultCertificate</a></para></li></ul>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This field has been deprecated. Use one of the following fields instead: ACMCerti" +
+            "ficateArn, IAMCertificateId or CloudFrontDefaultCertificate.")]
         [Alias("DistributionConfigWithTags_DistributionConfig_ViewerCertificate_CertificateSource")]
         [AWSConstantClassSource("Amazon.CloudFront.CertificateSource")]
         public Amazon.CloudFront.CertificateSource ViewerCertificate_CertificateSource { get; set; }
@@ -993,8 +999,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 context.DistributionConfigWithTags_DistributionConfig_Restrictions_GeoRestriction_Quantity = this.GeoRestriction_Quantity;
             context.DistributionConfigWithTags_DistributionConfig_Restrictions_GeoRestriction_RestrictionType = this.GeoRestriction_RestrictionType;
             context.DistributionConfigWithTags_DistributionConfig_ViewerCertificate_ACMCertificateArn = this.ViewerCertificate_ACMCertificateArn;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DistributionConfigWithTags_DistributionConfig_ViewerCertificate_Certificate = this.ViewerCertificate_Certificate;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DistributionConfigWithTags_DistributionConfig_ViewerCertificate_CertificateSource = this.ViewerCertificate_CertificateSource;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("ViewerCertificate_CloudFrontDefaultCertificate"))
                 context.DistributionConfigWithTags_DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate = this.ViewerCertificate_CloudFrontDefaultCertificate;
             context.DistributionConfigWithTags_DistributionConfig_ViewerCertificate_IAMCertificateId = this.ViewerCertificate_IAMCertificateId;
@@ -1405,6 +1415,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificate.ACMCertificateArn = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificate_viewerCertificate_ACMCertificateArn;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificateIsNull = false;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.String requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificate_viewerCertificate_Certificate = null;
             if (cmdletContext.DistributionConfigWithTags_DistributionConfig_ViewerCertificate_Certificate != null)
             {
@@ -1415,6 +1426,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificate.Certificate = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificate_viewerCertificate_Certificate;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificateIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             Amazon.CloudFront.CertificateSource requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificate_viewerCertificate_CertificateSource = null;
             if (cmdletContext.DistributionConfigWithTags_DistributionConfig_ViewerCertificate_CertificateSource != null)
             {
@@ -1425,6 +1438,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificate.CertificateSource = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificate_viewerCertificate_CertificateSource;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificateIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Boolean? requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerCertificate_viewerCertificate_CloudFrontDefaultCertificate = null;
             if (cmdletContext.DistributionConfigWithTags_DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate != null)
             {
@@ -2002,7 +2016,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.Int32? DistributionConfigWithTags_DistributionConfig_Restrictions_GeoRestriction_Quantity { get; set; }
             public Amazon.CloudFront.GeoRestrictionType DistributionConfigWithTags_DistributionConfig_Restrictions_GeoRestriction_RestrictionType { get; set; }
             public System.String DistributionConfigWithTags_DistributionConfig_ViewerCertificate_ACMCertificateArn { get; set; }
+            [System.ObsoleteAttribute]
             public System.String DistributionConfigWithTags_DistributionConfig_ViewerCertificate_Certificate { get; set; }
+            [System.ObsoleteAttribute]
             public Amazon.CloudFront.CertificateSource DistributionConfigWithTags_DistributionConfig_ViewerCertificate_CertificateSource { get; set; }
             public System.Boolean? DistributionConfigWithTags_DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate { get; set; }
             public System.String DistributionConfigWithTags_DistributionConfig_ViewerCertificate_IAMCertificateId { get; set; }

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of a dead-letter queue.</para><para>Queue URLs are case-sensitive.</para>
+        /// <para>The URL of a dead-letter queue.</para><para>Queue URLs and names are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

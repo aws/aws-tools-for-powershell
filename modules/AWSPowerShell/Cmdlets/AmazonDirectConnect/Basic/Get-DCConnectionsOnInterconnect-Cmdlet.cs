@@ -28,14 +28,14 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Deprecated in favor of <a>DescribeHostedConnections</a>.
+    /// Deprecated. Use <a>DescribeHostedConnections</a> instead.
     /// 
     ///  
     /// <para>
-    /// Returns a list of connections that have been provisioned on the given interconnect.
+    /// Lists the connections that have been provisioned on the specified interconnect.
     /// </para><note><para>
-    /// This is intended for use by AWS Direct Connect partners only.
-    /// </para></note>
+    /// Intended for use by AWS Direct Connect partners only.
+    /// </para></note><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "DCConnectionsOnInterconnect")]
     [OutputType("Amazon.DirectConnect.Model.Connection")]
@@ -44,13 +44,14 @@ namespace Amazon.PowerShell.Cmdlets.DC
         "This cmdlet returns a collection of Connection objects.",
         "The service call response (type Amazon.DirectConnect.Model.DescribeConnectionsOnInterconnectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Deprecated in favor of DescribeHostedConnections.")]
     public partial class GetDCConnectionsOnInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
         #region Parameter InterconnectId
         /// <summary>
         /// <para>
-        /// <para>ID of the interconnect on which a list of connection is provisioned.</para><para>Example: dxcon-abc123</para><para>Default: None</para>
+        /// <para>The ID of the interconnect.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -52,6 +52,16 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.Boolean Activate { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// The idempotency token for the create request.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter DetectorId
         /// <summary>
         /// <para>
@@ -127,6 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             
             if (ParameterWasBound("Activate"))
                 context.Activate = this.Activate;
+            context.ClientToken = this.ClientToken;
             context.DetectorId = this.DetectorId;
             context.Format = this.Format;
             context.Location = this.Location;
@@ -150,6 +161,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
             if (cmdletContext.Activate != null)
             {
                 request.Activate = cmdletContext.Activate.Value;
+            }
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
             }
             if (cmdletContext.DetectorId != null)
             {
@@ -232,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? Activate { get; set; }
+            public System.String ClientToken { get; set; }
             public System.String DetectorId { get; set; }
             public Amazon.GuardDuty.ThreatIntelSetFormat Format { get; set; }
             public System.String Location { get; set; }

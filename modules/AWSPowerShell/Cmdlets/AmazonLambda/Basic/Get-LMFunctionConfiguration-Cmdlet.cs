@@ -56,11 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>The name of the Lambda function for which you want to retrieve the configuration information.</para><para> You can specify a function name (for example, <code>Thumbnail</code>) or you can
-        /// specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>).
-        /// AWS Lambda also allows you to specify a partial ARN (for example, <code>account-id:Thumbnail</code>).
-        /// Note that the length constraint applies only to the ARN. If you specify only the function
-        /// name, it is limited to 64 characters in length. </para>
+        /// Amazon.Lambda.Model.GetFunctionConfigurationRequest.FunctionName
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -70,11 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Qualifier
         /// <summary>
         /// <para>
-        /// <para>Using this optional parameter you can specify a function version or an alias name.
-        /// If you specify function version, the API uses qualified function ARN and returns information
-        /// about the specific function version. If you specify an alias name, the API uses the
-        /// alias ARN and returns information about the function version to which the alias points.</para><para>If you don't specify this parameter, the API uses unqualified function ARN, and returns
-        /// information about the <code>$LATEST</code> function version.</para>
+        /// <para>Specify a version or alias to get details about a published version of the function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

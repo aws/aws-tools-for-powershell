@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>directconnect</C2jFilename>
     <SourceGenerationRoot>AmazonDirectConnect</SourceGenerationRoot>
@@ -159,6 +159,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLag" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LagId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVirtualInterfaceAttributes" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="VirtualInterfaceAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="virtualInterfaceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

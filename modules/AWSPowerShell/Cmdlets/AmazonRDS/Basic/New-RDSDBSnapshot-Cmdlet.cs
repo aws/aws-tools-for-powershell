@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the DB snapshot.</para><para>Constraints:</para><ul><li><para>Cannot be null, empty, or blank</para></li><li><para>Must contain from 1 to 255 letters, numbers, or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-snapshot-id</code></para>
+        /// <para>The identifier for the DB snapshot.</para><para>Constraints:</para><ul><li><para>Can't be null, empty, or blank</para></li><li><para>Must contain from 1 to 255 letters, numbers, or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-snapshot-id</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

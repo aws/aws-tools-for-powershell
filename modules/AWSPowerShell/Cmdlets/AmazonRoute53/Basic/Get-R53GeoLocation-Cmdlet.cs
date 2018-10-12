@@ -34,13 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
     ///  
     /// <para>
     /// Use the following syntax to determine whether a continent is supported for geolocation:
-    /// </para><para><code>GET /2013-04-01/geolocation?ContinentCode=<i>two-letter abbreviation for a
+    /// </para><para><code>GET /2013-04-01/geolocation?continentcode=<i>two-letter abbreviation for a
     /// continent</i></code></para><para>
     /// Use the following syntax to determine whether a country is supported for geolocation:
-    /// </para><para><code>GET /2013-04-01/geolocation?CountryCode=<i>two-character country code</i></code></para><para>
+    /// </para><para><code>GET /2013-04-01/geolocation?countrycode=<i>two-character country code</i></code></para><para>
     /// Use the following syntax to determine whether a subdivision of a country is supported
     /// for geolocation:
-    /// </para><para><code>GET /2013-04-01/geolocation?CountryCode=<i>two-character country code</i>&amp;SubdivisionCode=<i>subdivision
+    /// </para><para><code>GET /2013-04-01/geolocation?countrycode=<i>two-character country code</i>&amp;subdivisioncode=<i>subdivision
     /// code</i></code></para>
     /// </summary>
     [Cmdlet("Get", "R53GeoLocation")]
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>Amazon Route 53 uses the one- to three-letter subdivision codes that are specified
         /// in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO standard 3166-1
-        /// alpha-2</a>. Amazon Route 53 doesn't support subdivision codes for all countries.
-        /// If you specify <code>SubdivisionCode</code>, you must also specify <code>CountryCode</code>.
+        /// alpha-2</a>. Route 53 doesn't support subdivision codes for all countries. If you
+        /// specify <code>subdivisioncode</code>, you must also specify <code>countrycode</code>.
         /// </para>
         /// </para>
         /// </summary>

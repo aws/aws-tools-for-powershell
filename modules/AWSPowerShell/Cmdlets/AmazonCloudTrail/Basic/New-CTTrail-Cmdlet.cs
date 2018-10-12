@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <para>
         /// <para>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value
         /// can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully
-        /// specified ARN to a key, or a globally unique identifier.</para><para>Examples:</para><ul><li><para>alias/MyAliasName</para></li><li><para>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</para></li><li><para>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</para></li><li><para>12345678-1234-1234-1234-123456789012</para></li></ul>
+        /// specified ARN to a key, or a globally unique identifier.</para><para>Examples:</para><ul><li><para>alias/MyAliasName</para></li><li><para>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</para></li><li><para>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</para></li><li><para>12345678-1234-1234-1234-123456789012</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -52,9 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>Lambda function name for which the alias is created. Note that the length constraint
-        /// applies only to the ARN. If you specify only the function name, it is limited to 64
-        /// characters in length.</para>
+        /// Amazon.Lambda.Model.ListAliasesRequest.FunctionName
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

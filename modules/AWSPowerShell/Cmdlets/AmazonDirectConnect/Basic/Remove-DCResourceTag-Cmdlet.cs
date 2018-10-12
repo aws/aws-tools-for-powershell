@@ -28,7 +28,7 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Removes one or more tags from the specified Direct Connect resource.
+    /// Removes one or more tags from the specified AWS Direct Connect resource.
     /// </summary>
     [Cmdlet("Remove", "DCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Direct Connect resource.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The list of tag keys to remove.</para>
+        /// <para>The tag keys of the tags to remove.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

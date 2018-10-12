@@ -2699,8 +2699,8 @@
       "noun": "CacheRefresh",
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
-        "output": "DefaultSingleMember",
-        "outputMemberSelector": "FileShareARN",
+        "output": "Response",
+        "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
@@ -2741,7 +2741,7 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
+          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "FileShareARN"
         },

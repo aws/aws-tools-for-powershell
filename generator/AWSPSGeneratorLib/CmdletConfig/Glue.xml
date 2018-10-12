@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>glue</C2jFilename>
     <SourceGenerationRoot>AmazonGlue</SourceGenerationRoot>
@@ -55,7 +55,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDevEndpoint" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DevEndpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EndpointName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PublicKey" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
-                <Param Name="PublicKeys" NewName="PublicKeyList" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" AutoConvert="None" />
+                <Param Name="PublicKeys" NewName="PublicKeyList" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" ExclusiveParameters="" AutoConvert="None" />
             </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="CreateJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Job" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Command" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -98,6 +98,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DeletePartition" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Partition" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TableName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourcePolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourcePolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PolicyHashCondition" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteSecurityConfiguration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="SecurityConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -145,6 +148,9 @@
         <ServiceOperation MethodName="GetDatabases" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DatabaseList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CatalogId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDataCatalogEncryptionSettings" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DataCatalogEncryptionSetting" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CatalogId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDataflowGraph" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DataflowGraph" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PythonScript" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
@@ -176,6 +182,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="GetPlan" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Plan" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Source" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcePolicy" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourcePolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSecurityConfiguration" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SecurityConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -212,6 +221,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="PutDataCatalogEncryptionSettings" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="DataCatalogEncryptionSetting" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CatalogId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CatalogId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResourcePolicy" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="ResourcePolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PolicyInJson" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ResetJobBookmark" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Reset" Noun="JobBookmark" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

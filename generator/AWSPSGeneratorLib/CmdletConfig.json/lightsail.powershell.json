@@ -964,6 +964,168 @@
         "memoryStreamParameters": []
       }
     },
+    "CreateRelationalDatabase": {
+      "verb": "New",
+      "noun": "RelationalDatabase",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Operations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RelationalDatabaseName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "RelationalDatabaseName"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabase",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "RelationalDatabaseName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "CreateRelationalDatabaseFromSnapshot": {
+      "verb": "New",
+      "noun": "RelationalDatabaseFromSnapshot",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Operations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RelationalDatabaseName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "RelationalDatabaseName"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabaseFromSnapshot",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "RelationalDatabaseName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "CreateRelationalDatabaseSnapshot": {
+      "verb": "New",
+      "noun": "RelationalDatabaseSnapshot",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Operations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RelationalDatabaseSnapshotName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "RelationalDatabaseSnapshotName"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabaseSnapshot",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "RelationalDatabaseSnapshotName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "DeleteDisk": {
       "verb": "Remove",
       "noun": "Disk",
@@ -1455,6 +1617,114 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "CertificateName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DeleteRelationalDatabase": {
+      "verb": "Remove",
+      "noun": "RelationalDatabase",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Operations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RelationalDatabaseName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "RelationalDatabaseName"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabase",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "RelationalDatabaseName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DeleteRelationalDatabaseSnapshot": {
+      "verb": "Remove",
+      "noun": "RelationalDatabaseSnapshot",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Operations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RelationalDatabaseSnapshotName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabaseSnapshot",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "RelationalDatabaseSnapshotName"
         },
         "memoryStreamParameters": []
       }
@@ -2976,6 +3246,586 @@
         "memoryStreamParameters": []
       }
     },
+    "GetRelationalDatabase": {
+      "verb": "Get",
+      "noun": "RelationalDatabase",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "RelationalDatabase",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RelationalDatabaseName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabase",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetRelationalDatabaseBlueprints": {
+      "verb": "Get",
+      "noun": "RelationalDatabaseBlueprint",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Blueprints",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabaseBlueprints",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetRelationalDatabaseBundles": {
+      "verb": "Get",
+      "noun": "RelationalDatabaseBundle",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Bundles",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabaseBundles",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetRelationalDatabaseEvents": {
+      "verb": "Get",
+      "noun": "RelationalDatabaseEvent",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "RelationalDatabaseEvents",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RelationalDatabaseName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabaseEvents",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetRelationalDatabaseLogEvents": {
+      "verb": "Get",
+      "noun": "RelationalDatabaseLogEvent",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RelationalDatabaseName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabaseLogEvents",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetRelationalDatabaseLogStreams": {
+      "verb": "Get",
+      "noun": "RelationalDatabaseLogStream",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "LogStreams",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RelationalDatabaseName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabaseLogStreams",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetRelationalDatabaseMasterUserPassword": {
+      "verb": "Get",
+      "noun": "RelationalDatabaseMasterUserPassword",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RelationalDatabaseName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabaseMasterUserPassword",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetRelationalDatabaseMetricData": {
+      "verb": "Get",
+      "noun": "RelationalDatabaseMetricData",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "MetricName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabaseMetricData",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetRelationalDatabaseParameters": {
+      "verb": "Get",
+      "noun": "RelationalDatabaseParameter",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Parameters",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RelationalDatabaseName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabaseParameters",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetRelationalDatabases": {
+      "verb": "Get",
+      "noun": "RelationalDatabaseList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "RelationalDatabases",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabases",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetRelationalDatabaseSnapshot": {
+      "verb": "Get",
+      "noun": "RelationalDatabaseSnapshot",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "RelationalDatabaseSnapshot",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RelationalDatabaseSnapshotName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabaseSnapshot",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetRelationalDatabaseSnapshots": {
+      "verb": "Get",
+      "noun": "RelationalDatabaseSnapshotList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "RelationalDatabaseSnapshots",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabaseSnapshots",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "GetStaticIp": {
       "verb": "Get",
       "noun": "StaticIp",
@@ -3387,6 +4237,60 @@
         "memoryStreamParameters": []
       }
     },
+    "RebootRelationalDatabase": {
+      "verb": "Restart",
+      "noun": "RelationalDatabase",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Operations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RelationalDatabaseName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabase",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "RelationalDatabaseName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "ReleaseStaticIp": {
       "verb": "Remove",
       "noun": "StaticIp",
@@ -3495,6 +4399,60 @@
         "memoryStreamParameters": []
       }
     },
+    "StartRelationalDatabase": {
+      "verb": "Start",
+      "noun": "RelationalDatabase",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Operations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RelationalDatabaseName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabase",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "RelationalDatabaseName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "StopInstance": {
       "verb": "Stop",
       "noun": "Instance",
@@ -3554,6 +4512,60 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "StopRelationalDatabase": {
+      "verb": "Stop",
+      "noun": "RelationalDatabase",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Operations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RelationalDatabaseName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "RelationalDatabaseName"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabase",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "RelationalDatabaseName"
         },
         "memoryStreamParameters": []
       }
@@ -3714,6 +4726,114 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LoadBalancerName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "UpdateRelationalDatabase": {
+      "verb": "Update",
+      "noun": "RelationalDatabase",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Operations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RelationalDatabaseName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabase",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "RelationalDatabaseName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "UpdateRelationalDatabaseParameters": {
+      "verb": "Update",
+      "noun": "RelationalDatabaseParameter",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Operations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RelationalDatabaseName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RelationalDatabaseParameters",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "RelationalDatabaseName"
         },
         "memoryStreamParameters": []
       }

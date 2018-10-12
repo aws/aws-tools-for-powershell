@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// 
     ///  
     /// <para>
-    /// Before you call <i>CreateDirectory</i>, ensure that all of the required permissions
+    /// Before you call <code>CreateDirectory</code>, ensure that all of the required permissions
     /// have been explicitly granted through a policy. For details about what permissions
-    /// are required to run the <i>CreateDirectory</i> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
+    /// are required to run the <code>CreateDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
     /// Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.
     /// </para>
     /// </summary>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// <summary>
         /// <para>
         /// <para>The password for the directory administrator. The directory creation process creates
-        /// a directory administrator account with the username <code>Administrator</code> and
+        /// a directory administrator account with the user name <code>Administrator</code> and
         /// this password.</para>
         /// </para>
         /// </summary>

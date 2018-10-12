@@ -35,10 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
     ///  If the source image contains multiple faces, the service detects the largest face
     /// and compares it with each face detected in the target image. 
     /// </para></note><para>
-    /// You pass the input and target images either as base64-encoded image bytes or as a
-    /// references to images in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon
-    /// Rekognition operations, passing image bytes is not supported. The image must be either
-    /// a PNG or JPEG formatted file. 
+    /// You pass the input and target images either as base64-encoded image bytes or as references
+    /// to images in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition
+    /// operations, passing image bytes isn't supported. The image must be formatted as a
+    /// PNG or JPEG file. 
     /// </para><para>
     /// In response, the operation returns an array of face matches ordered by similarity
     /// score in descending order. For each face match, the response provides a bounding box

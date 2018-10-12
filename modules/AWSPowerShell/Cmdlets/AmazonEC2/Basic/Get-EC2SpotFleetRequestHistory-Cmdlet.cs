@@ -59,11 +59,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter StartTime
         /// <summary>
         /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use StartTimeUtc instead. Setting either StartTime or
+        /// StartTimeUtc results in both StartTime and StartTimeUtc being assigned, the latest
+        /// assignment to either one of the two property is reflected in the value of both. StartTime
+        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
+        /// results in the wrong timestamp being passed to the service.</para><para>The starting date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcStartTime instead.")]
+        public System.DateTime StartTime { get; set; }
+        #endregion
+        
+        #region Parameter UtcStartTime
+        /// <summary>
+        /// <para>
         /// <para>The starting date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime StartTime { get; set; }
+        public System.DateTime UtcStartTime { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -123,8 +141,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
             context.SpotFleetRequestId = this.SpotFleetRequestId;
+            if (ParameterWasBound("UtcStartTime"))
+                context.UtcStartTime = this.UtcStartTime;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("StartTime"))
                 context.StartTime = this.StartTime;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -157,10 +179,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.SpotFleetRequestId = cmdletContext.SpotFleetRequestId;
             }
+            if (cmdletContext.UtcStartTime != null)
+            {
+                request.StartTimeUtc = cmdletContext.UtcStartTime.Value;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.StartTime != null)
             {
+                if (cmdletContext.UtcStartTime != null)
+                {
+                    throw new ArgumentException("Parameters StartTime and UtcStartTime are mutually exclusive.");
+                }
                 request.StartTime = cmdletContext.StartTime.Value;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -229,6 +261,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? MaxResults { get; set; }
             public System.String NextToken { get; set; }
             public System.String SpotFleetRequestId { get; set; }
+            public System.DateTime? UtcStartTime { get; set; }
+            [System.ObsoleteAttribute]
             public System.DateTime? StartTime { get; set; }
         }
         

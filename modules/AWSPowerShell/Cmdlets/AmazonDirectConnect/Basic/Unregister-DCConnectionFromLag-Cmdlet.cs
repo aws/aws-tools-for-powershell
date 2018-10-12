@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// 
     ///  
     /// <para>
-    /// If disassociating the connection will cause the LAG to fall below its setting for
+    /// If disassociating the connection would cause the LAG to fall below its setting for
     /// minimum number of operational connections, the request fails, except when it's the
     /// last member of the LAG. If all connections are disassociated, the LAG continues to
     /// exist as an empty LAG with no physical connections. 
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the connection to disassociate from the LAG.</para><para>Example: dxcon-abc123</para><para>Default: None</para>
+        /// <para>The ID of the connection. For example, dxcon-abc123.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter LagId
         /// <summary>
         /// <para>
-        /// <para>The ID of the LAG.</para><para>Example: dxlag-abc123</para><para>Default: None</para>
+        /// <para>The ID of the LAG. For example, dxlag-abc123.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

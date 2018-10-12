@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para> The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket
         /// name is <code>my-bucket</code>, and your path prefix is <code>build-log</code>, then
-        /// acceptable formats are <code>my-bucket/build-log</code> or <code>aws:s3:::my-bucket/build-log</code>.
+        /// acceptable formats are <code>my-bucket/build-log</code> or <code>arn:aws:s3:::my-bucket/build-log</code>.
         /// </para>
         /// </para>
         /// </summary>

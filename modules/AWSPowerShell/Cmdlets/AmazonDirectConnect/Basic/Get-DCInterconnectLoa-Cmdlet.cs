@@ -28,18 +28,18 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Deprecated in favor of <a>DescribeLoa</a>.
+    /// Deprecated. Use <a>DescribeLoa</a> instead.
     /// 
     ///  
     /// <para>
-    /// Returns the LOA-CFA for an Interconnect.
+    /// Gets the LOA-CFA for the specified interconnect.
     /// </para><para>
     /// The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document
     /// that is used when establishing your cross connect to AWS at the colocation facility.
     /// For more information, see <a href="http://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting
-    /// Cross Connects at AWS Direct Connect Locations</a> in the AWS Direct Connect user
-    /// guide.
-    /// </para>
+    /// Cross Connects at AWS Direct Connect Locations</a> in the <i>AWS Direct Connect User
+    /// Guide</i>.
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "DCInterconnectLoa")]
     [OutputType("Amazon.DirectConnect.Model.Loa")]
@@ -48,13 +48,14 @@ namespace Amazon.PowerShell.Cmdlets.DC
         "This cmdlet returns a Loa object.",
         "The service call response (type Amazon.DirectConnect.Model.DescribeInterconnectLoaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Deprecated in favor of DescribeLoa.")]
     public partial class GetDCInterconnectLoaCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
         #region Parameter InterconnectId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the interconnect.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -64,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter LoaContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// <para>
         /// <para>The name of the service provider who establishes connectivity on your behalf. If you
         /// supply this parameter, the LOA-CFA lists the provider name alongside your company
-        /// name as the requester of the cross connect.</para><para>Default: None</para>
+        /// name as the requester of the cross connect.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

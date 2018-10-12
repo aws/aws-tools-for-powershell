@@ -28,15 +28,15 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Returns the LOA-CFA for a connection, interconnect, or link aggregation group (LAG).
+    /// Gets the LOA-CFA for a connection, interconnect, or link aggregation group (LAG).
     /// 
     ///  
     /// <para>
     /// The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document
     /// that is used when establishing your cross connect to AWS at the colocation facility.
     /// For more information, see <a href="http://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting
-    /// Cross Connects at AWS Direct Connect Locations</a> in the AWS Direct Connect user
-    /// guide.
+    /// Cross Connects at AWS Direct Connect Locations</a> in the <i>AWS Direct Connect User
+    /// Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "DCLoa")]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of a connection, LAG, or interconnect for which to get the LOA-CFA information.</para><para>Example: dxcon-abc123 or dxlag-abc123</para><para>Default: None</para>
+        /// <para>The ID of a connection, LAG, or interconnect.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -61,8 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter LoaContentType
         /// <summary>
         /// <para>
-        /// <para>A standard media type indicating the content type of the LOA-CFA document. Currently,
-        /// the only supported value is "application/pdf".</para><para>Default: application/pdf</para>
+        /// <para>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// <summary>
         /// <para>
         /// <para>The name of the service provider who establishes connectivity on your behalf. If you
-        /// supply this parameter, the LOA-CFA lists the provider name alongside your company
-        /// name as the requester of the cross connect.</para><para>Default: None</para>
+        /// specify this parameter, the LOA-CFA lists the provider name alongside your company
+        /// name as the requester of the cross connect.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

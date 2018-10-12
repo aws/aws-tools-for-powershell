@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>Provides the list of EC2 Availability Zones that instances in the restored DB cluster
-        /// can be created in.</para>
+        /// <para>Provides the list of Amazon EC2 Availability Zones that instances in the restored
+        /// DB cluster can be created in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -103,28 +103,52 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the DB cluster to create from the DB snapshot or DB cluster snapshot.
-        /// This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-snapshot-id</code></para>
+        /// This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-snapshot-id</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DBClusterIdentifier { get; set; }
         #endregion
         
+        #region Parameter DBClusterParameterGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the DB cluster parameter group to associate with this DB cluster. If this
+        /// argument is omitted, the default DB cluster parameter group for the specified engine
+        /// is used.</para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing default DB cluster parameter group.</para></li><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DBClusterParameterGroupName { get; set; }
+        #endregion
+        
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB subnet group to use for the new DB cluster.</para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <code>mySubnetgroup</code></para>
+        /// <para>The name of the DB subnet group to use for the new DB cluster.</para><para>Constraints: If supplied, must match the name of an existing DB subnet group.</para><para>Example: <code>mySubnetgroup</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBSubnetGroupName { get; set; }
         #endregion
         
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if the DB cluster should have deletion protection enabled. The database
+        /// can't be deleted when this value is set to true. The default is false. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DeletionProtection { get; set; }
+        #endregion
+        
         #region Parameter EnableCloudwatchLogsExport
         /// <summary>
         /// <para>
-        /// <para>The list of logs that the restored DB cluster is to export to CloudWatch Logs. The
-        /// values in the list depend on the DB engine being used. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// <para>The list of logs that the restored DB cluster is to export to Amazon CloudWatch Logs.
+        /// The values in the list depend on the DB engine being used. For more information, see
+        /// <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Aurora User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -182,8 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// snapshot or DB cluster snapshot.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
         /// If you are restoring a DB cluster with the same AWS account that owns the KMS encryption
         /// key used to encrypt the new DB cluster, then you can use the KMS key alias instead
-        /// of the ARN for the KMS encryption key.</para><para>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following
-        /// will occur:</para><ul><li><para>If the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is encrypted,
+        /// of the ARN for the KMS encryption key.</para><para>If you don't specify a value for the <code>KmsKeyId</code> parameter, then the following
+        /// occurs:</para><ul><li><para>If the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is encrypted,
         /// then the restored DB cluster is encrypted using the KMS key that was used to encrypt
         /// the DB snapshot or DB cluster snapshot.</para></li><li><para>If the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is not
         /// encrypted, then the restored DB cluster is not encrypted.</para></li></ul>
@@ -230,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the new DB cluster accepts connections.</para><para>Constraints: Value must be <code>1150-65535</code></para><para>Default: The same port as the original DB cluster.</para>
+        /// <para>The port number on which the new DB cluster accepts connections.</para><para>Constraints: This value must be <code>1150-65535</code></para><para>Default: The same port as the original DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -318,7 +342,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.BacktrackWindow = this.BacktrackWindow;
             context.DatabaseName = this.DatabaseName;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
+            context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            if (ParameterWasBound("DeletionProtection"))
+                context.DeletionProtection = this.DeletionProtection;
             if (this.EnableCloudwatchLogsExport != null)
             {
                 context.EnableCloudwatchLogsExports = new List<System.String>(this.EnableCloudwatchLogsExport);
@@ -381,9 +408,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
             }
+            if (cmdletContext.DBClusterParameterGroupName != null)
+            {
+                request.DBClusterParameterGroupName = cmdletContext.DBClusterParameterGroupName;
+            }
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection.Value;
             }
             if (cmdletContext.EnableCloudwatchLogsExports != null)
             {
@@ -546,7 +581,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int64? BacktrackWindow { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String DBClusterIdentifier { get; set; }
+            public System.String DBClusterParameterGroupName { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public System.Boolean? DeletionProtection { get; set; }
             public List<System.String> EnableCloudwatchLogsExports { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String Engine { get; set; }

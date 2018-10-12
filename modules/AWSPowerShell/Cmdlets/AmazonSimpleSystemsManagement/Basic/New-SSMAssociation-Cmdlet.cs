@@ -82,6 +82,42 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String InstanceId { get; set; }
         #endregion
         
+        #region Parameter MaxConcurrency
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of targets allowed to run the association at the same time. You
+        /// can specify a number, for example 10, or a percentage of the target set, for example
+        /// 10%. The default value is 100%, which means all targets run the association at the
+        /// same time.</para><para>If a new instance starts and attempts to execute an association while Systems Manager
+        /// is executing MaxConcurrency associations, the association is allowed to run. During
+        /// the next association interval, the new instance will process its association within
+        /// the limit specified for MaxConcurrency.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MaxConcurrency { get; set; }
+        #endregion
+        
+        #region Parameter MaxError
+        /// <summary>
+        /// <para>
+        /// <para>The number of errors that are allowed before the system stops sending requests to
+        /// run the association on additional targets. You can specify either an absolute number
+        /// of errors, for example 10, or a percentage of the target set, for example 10%. If
+        /// you specify 3, for example, the system stops sending requests when the fourth error
+        /// is received. If you specify 0, then the system stops sending requests after the first
+        /// error is returned. If you run an association on 50 instances and set MaxError to 10%,
+        /// then the system stops sending the request when the sixth error is received.</para><para>Executions that are already running an association when MaxErrors is reached are allowed
+        /// to complete, but some of these executions may fail as well. If you need to ensure
+        /// that there won't be more than max-errors failed executions, set MaxConcurrency to
+        /// 1 so that executions proceed one at a time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxErrors")]
+        public System.String MaxError { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -190,6 +226,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             context.AssociationName = this.AssociationName;
             context.DocumentVersion = this.DocumentVersion;
             context.InstanceId = this.InstanceId;
+            context.MaxConcurrency = this.MaxConcurrency;
+            context.MaxErrors = this.MaxError;
             context.Name = this.Name;
             context.OutputLocation_S3Location_OutputS3BucketName = this.S3Location_OutputS3BucketName;
             context.OutputLocation_S3Location_OutputS3KeyPrefix = this.S3Location_OutputS3KeyPrefix;
@@ -246,6 +284,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.MaxConcurrency != null)
+            {
+                request.MaxConcurrency = cmdletContext.MaxConcurrency;
+            }
+            if (cmdletContext.MaxErrors != null)
+            {
+                request.MaxErrors = cmdletContext.MaxErrors;
             }
             if (cmdletContext.Name != null)
             {
@@ -384,6 +430,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String AssociationName { get; set; }
             public System.String DocumentVersion { get; set; }
             public System.String InstanceId { get; set; }
+            public System.String MaxConcurrency { get; set; }
+            public System.String MaxErrors { get; set; }
             public System.String Name { get; set; }
             public System.String OutputLocation_S3Location_OutputS3BucketName { get; set; }
             public System.String OutputLocation_S3Location_OutputS3KeyPrefix { get; set; }

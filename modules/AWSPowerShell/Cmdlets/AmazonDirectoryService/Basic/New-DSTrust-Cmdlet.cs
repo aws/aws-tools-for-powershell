@@ -29,15 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
     /// AWS Directory Service for Microsoft Active Directory allows you to configure trust
-    /// relationships. For example, you can establish a trust between your Microsoft AD in
-    /// the AWS cloud, and your existing on-premises Microsoft Active Directory. This would
+    /// relationships. For example, you can establish a trust between your AWS Managed Microsoft
+    /// AD directory, and your existing on-premises Microsoft Active Directory. This would
     /// allow you to provide users and groups access to resources in either domain, with a
     /// single set of credentials.
     /// 
     ///  
     /// <para>
     /// This action initiates the creation of the AWS side of a trust relationship between
-    /// a Microsoft AD in the AWS cloud and an external domain.
+    /// an AWS Managed Microsoft AD directory and an external domain. You can create either
+    /// a forest trust or an external trust.
     /// </para>
     /// </summary>
     [Cmdlet("New", "DSTrust", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -64,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The Directory ID of the Microsoft AD in the AWS cloud for which to establish the trust
-        /// relationship.</para>
+        /// <para>The Directory ID of the AWS Managed Microsoft AD directory for which to establish
+        /// the trust relationship.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -81,6 +82,17 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RemoteDomainName { get; set; }
+        #endregion
+        
+        #region Parameter SelectiveAuth
+        /// <summary>
+        /// <para>
+        /// <para>Optional parameter to enable selective authentication for the trust.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DirectoryService.SelectiveAuth")]
+        public Amazon.DirectoryService.SelectiveAuth SelectiveAuth { get; set; }
         #endregion
         
         #region Parameter TrustDirection
@@ -108,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter TrustType
         /// <summary>
         /// <para>
-        /// <para>The trust relationship type.</para>
+        /// <para>The trust relationship type. <code>Forest</code> is the default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -151,6 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             }
             context.DirectoryId = this.DirectoryId;
             context.RemoteDomainName = this.RemoteDomainName;
+            context.SelectiveAuth = this.SelectiveAuth;
             context.TrustDirection = this.TrustDirection;
             context.TrustPassword = this.TrustPassword;
             context.TrustType = this.TrustType;
@@ -181,6 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
             if (cmdletContext.RemoteDomainName != null)
             {
                 request.RemoteDomainName = cmdletContext.RemoteDomainName;
+            }
+            if (cmdletContext.SelectiveAuth != null)
+            {
+                request.SelectiveAuth = cmdletContext.SelectiveAuth;
             }
             if (cmdletContext.TrustDirection != null)
             {
@@ -261,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             public List<System.String> ConditionalForwarderIpAddrs { get; set; }
             public System.String DirectoryId { get; set; }
             public System.String RemoteDomainName { get; set; }
+            public Amazon.DirectoryService.SelectiveAuth SelectiveAuth { get; set; }
             public Amazon.DirectoryService.TrustDirection TrustDirection { get; set; }
             public System.String TrustPassword { get; set; }
             public Amazon.DirectoryService.TrustType TrustType { get; set; }

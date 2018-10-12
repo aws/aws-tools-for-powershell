@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// 
     ///  
     /// <para>
-    /// Before you call <i>ConnectDirectory</i>, ensure that all of the required permissions
+    /// Before you call <code>ConnectDirectory</code>, ensure that all of the required permissions
     /// have been explicitly granted through a policy. For details about what permissions
-    /// are required to run the <i>ConnectDirectory</i> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
+    /// are required to run the <code>ConnectDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
     /// Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.
     /// </para>
     /// </summary>
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter ConnectSettings_CustomerUserName
         /// <summary>
         /// <para>
-        /// <para>The username of an account in the on-premises directory that is used to connect to
-        /// the directory. This account must have the following privileges:</para><ul><li><para>Read users and groups</para></li><li><para>Create computer objects</para></li><li><para>Join computers to the domain</para></li></ul>
+        /// <para>The user name of an account in the on-premises directory that is used to connect to
+        /// the directory. This account must have the following permissions:</para><ul><li><para>Read users and groups</para></li><li><para>Create computer objects</para></li><li><para>Join computers to the domain</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The fully-qualified name of the on-premises directory, such as <code>corp.example.com</code>.</para>
+        /// <para>The fully qualified name of the on-premises directory, such as <code>corp.example.com</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

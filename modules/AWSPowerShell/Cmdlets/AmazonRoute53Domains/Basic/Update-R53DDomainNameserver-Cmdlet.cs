@@ -64,8 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <para>
         /// <para>The authorization key for .fi domains</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This property is deprecated")]
         public System.String FIAuthKey { get; set; }
         #endregion
         
@@ -110,7 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             PreExecutionContextLoad(context);
             
             context.DomainName = this.DomainName;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.FIAuthKey = this.FIAuthKey;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Nameserver != null)
             {
                 context.Nameservers = new List<Amazon.Route53Domains.Model.Nameserver>(this.Nameserver);
@@ -135,10 +139,12 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             {
                 request.DomainName = cmdletContext.DomainName;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.FIAuthKey != null)
             {
                 request.FIAuthKey = cmdletContext.FIAuthKey;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Nameservers != null)
             {
                 request.Nameservers = cmdletContext.Nameservers;
@@ -208,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DomainName { get; set; }
+            [System.ObsoleteAttribute]
             public System.String FIAuthKey { get; set; }
             public List<Amazon.Route53Domains.Model.Nameserver> Nameservers { get; set; }
         }

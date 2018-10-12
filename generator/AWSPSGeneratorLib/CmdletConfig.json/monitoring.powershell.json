@@ -161,7 +161,40 @@
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "parameterCustomizations": [],
+      "parameterCustomizations": [
+        {
+          "originalName": "EndDateUtc",
+          "replacementName": "UtcEndDate",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "EndDate",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "StartDateUtc",
+          "replacementName": "UtcStartDate",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "StartDate",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        }
+      ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [
@@ -466,7 +499,40 @@
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "parameterCustomizations": [],
+      "parameterCustomizations": [
+        {
+          "originalName": "EndTimeUtc",
+          "replacementName": "UtcEndTime",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "EndTime",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "StartTimeUtc",
+          "replacementName": "UtcStartTime",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "StartTime",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        }
+      ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
@@ -513,7 +579,40 @@
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "parameterCustomizations": [],
+      "parameterCustomizations": [
+        {
+          "originalName": "EndTimeUtc",
+          "replacementName": "UtcEndTime",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "EndTime",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "StartTimeUtc",
+          "replacementName": "UtcStartTime",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "StartTime",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        }
+      ],
       "legacySettings": {
         "alias": "Get-CWMetricStatistics",
         "positionalParameters": [

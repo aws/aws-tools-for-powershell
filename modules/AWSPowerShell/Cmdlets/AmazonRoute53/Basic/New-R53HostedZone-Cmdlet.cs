@@ -28,12 +28,14 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Creates a new public hosted zone, which you use to specify how the Domain Name System
-    /// (DNS) routes traffic on the Internet for a domain, such as example.com, and its subdomains.
-    /// 
+    /// Creates a new public or private hosted zone. You create records in a public hosted
+    /// zone to define how you want to route traffic on the internet for a domain, such as
+    /// example.com, and its subdomains (apex.example.com, acme.example.com). You create records
+    /// in a private hosted zone to define how you want to route traffic for a domain and
+    /// its subdomains within one or more Amazon Virtual Private Clouds (Amazon VPCs). 
     /// 
     ///  <important><para>
-    /// You can't convert a public hosted zones to a private hosted zone or vice versa. Instead,
+    /// You can't convert a public hosted zone to a private hosted zone or vice versa. Instead,
     /// you must create a new hosted zone with the same name and create new resource record
     /// sets.
     /// </para></important><para>
@@ -42,27 +44,28 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </para><para>
     /// Note the following:
     /// </para><ul><li><para>
-    /// You can't create a hosted zone for a top-level domain (TLD).
+    /// You can't create a hosted zone for a top-level domain (TLD) such as .com.
     /// </para></li><li><para>
-    /// Amazon Route 53 automatically creates a default SOA record and four NS records for
-    /// the zone. For more information about SOA and NS records, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html">NS
-    /// and SOA Records that Amazon Route 53 Creates for a Hosted Zone</a> in the <i>Amazon
-    /// Route 53 Developer Guide</i>.
+    /// For public hosted zones, Amazon Route 53 automatically creates a default SOA record
+    /// and four NS records for the zone. For more information about SOA and NS records, see
+    /// <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html">NS
+    /// and SOA Records that Route 53 Creates for a Hosted Zone</a> in the <i>Amazon Route
+    /// 53 Developer Guide</i>.
     /// </para><para>
-    /// If you want to use the same name servers for multiple hosted zones, you can optionally
-    /// associate a reusable delegation set with the hosted zone. See the <code>DelegationSetId</code>
+    /// If you want to use the same name servers for multiple public hosted zones, you can
+    /// optionally associate a reusable delegation set with the hosted zone. See the <code>DelegationSetId</code>
     /// element.
     /// </para></li><li><para>
-    /// If your domain is registered with a registrar other than Amazon Route 53, you must
-    /// update the name servers with your registrar to make Amazon Route 53 your DNS service.
-    /// For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/creating-migrating.html">Configuring
-    /// Amazon Route 53 as your DNS Service</a> in the <i>Amazon Route 53 Developer Guide</i>.
-    /// 
+    /// If your domain is registered with a registrar other than Route 53, you must update
+    /// the name servers with your registrar to make Route 53 the DNS service for the domain.
+    /// For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html">Migrating
+    /// DNS Service for an Existing Domain to Amazon Route 53</a> in the <i>Amazon Route 53
+    /// Developer Guide</i>. 
     /// </para></li></ul><para>
     /// When you submit a <code>CreateHostedZone</code> request, the initial status of the
-    /// hosted zone is <code>PENDING</code>. This means that the NS and SOA records are not
-    /// yet available on all Amazon Route 53 DNS servers. When the NS and SOA records are
-    /// available, the status of the zone changes to <code>INSYNC</code>.
+    /// hosted zone is <code>PENDING</code>. For public hosted zones, this means that the
+    /// NS and SOA records are not yet available on all Route 53 DNS servers. When the NS
+    /// and SOA records are available, the status of the zone changes to <code>INSYNC</code>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "R53HostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -113,13 +116,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the domain. For resource record types that include a domain name, specify
-        /// a fully qualified domain name, for example, <i>www.example.com</i>. The trailing dot
-        /// is optional; Amazon Route 53 assumes that the domain name is fully qualified. This
-        /// means that Amazon Route 53 treats <i>www.example.com</i> (without a trailing dot)
-        /// and <i>www.example.com.</i> (with a trailing dot) as identical.</para><para>If you're creating a public hosted zone, this is the name you have registered with
+        /// <para>The name of the domain. Specify a fully qualified domain name, for example, <i>www.example.com</i>.
+        /// The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully
+        /// qualified. This means that Route 53 treats <i>www.example.com</i> (without a trailing
+        /// dot) and <i>www.example.com.</i> (with a trailing dot) as identical.</para><para>If you're creating a public hosted zone, this is the name you have registered with
         /// your DNS registrar. If your domain name is registered with a registrar other than
-        /// Amazon Route 53, change the name servers for your domain to the set of <code>NameServers</code>
+        /// Route 53, change the name servers for your domain to the set of <code>NameServers</code>
         /// that <code>CreateHostedZone</code> returns in <code>DelegationSet</code>.</para>
         /// </para>
         /// </summary>
@@ -150,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter VPC_VPCRegion
         /// <summary>
         /// <para>
-        /// <para>(Private hosted zones only) The region in which you created an Amazon VPC.</para>
+        /// <para>(Private hosted zones only) The region that an Amazon VPC was created in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

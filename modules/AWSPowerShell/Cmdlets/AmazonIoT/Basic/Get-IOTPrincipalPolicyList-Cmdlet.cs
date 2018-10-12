@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// 
     ///  
     /// <para><b>Note:</b> This API is deprecated. Please use <a>ListAttachedPolicies</a> instead.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "IOTPrincipalPolicyList")]
     [OutputType("Amazon.IoT.Model.Policy")]
@@ -44,6 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         "The service call response (type Amazon.IoT.Model.ListPrincipalPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String)"
     )]
+    [System.ObsoleteAttribute("Deprecated in favor of ListAttachedPolicies.")]
     public partial class GetIOTPrincipalPolicyListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         

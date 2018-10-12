@@ -120,6 +120,24 @@ namespace Amazon.PowerShell.Cmdlets.IOTJ
         public System.Collections.Hashtable StatusDetail { get; set; }
         #endregion
         
+        #region Parameter StepTimeoutInMinute
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the amount of time this device has to finish execution of this job. If the
+        /// job execution status is not set to a terminal state before this timer expires, or
+        /// before the timer is reset (by again calling <code>UpdateJobExecution</code>, setting
+        /// the status to <code>IN_PROGRESS</code> and specifying a new timeout value in this
+        /// field) the job execution status will be automatically set to <code>TIMED_OUT</code>.
+        /// Note that setting or resetting this timeout has no effect on that job execution timeout
+        /// which may have been specified when the job was created (<code>CreateJob</code> using
+        /// field <code>timeoutConfig</code>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("StepTimeoutInMinutes")]
+        public System.Int64 StepTimeoutInMinute { get; set; }
+        #endregion
+        
         #region Parameter ThingName
         /// <summary>
         /// <para>
@@ -177,6 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTJ
                     context.StatusDetails.Add((String)hashKey, (String)(this.StatusDetail[hashKey]));
                 }
             }
+            if (ParameterWasBound("StepTimeoutInMinute"))
+                context.StepTimeoutInMinutes = this.StepTimeoutInMinute;
             context.ThingName = this.ThingName;
             
             // allow further manipulation of loaded context prior to processing
@@ -221,6 +241,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTJ
             if (cmdletContext.StatusDetails != null)
             {
                 request.StatusDetails = cmdletContext.StatusDetails;
+            }
+            if (cmdletContext.StepTimeoutInMinutes != null)
+            {
+                request.StepTimeoutInMinutes = cmdletContext.StepTimeoutInMinutes.Value;
             }
             if (cmdletContext.ThingName != null)
             {
@@ -297,6 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTJ
             public System.String JobId { get; set; }
             public Amazon.IoTJobsDataPlane.JobExecutionStatus Status { get; set; }
             public Dictionary<System.String, System.String> StatusDetails { get; set; }
+            public System.Int64? StepTimeoutInMinutes { get; set; }
             public System.String ThingName { get; set; }
         }
         

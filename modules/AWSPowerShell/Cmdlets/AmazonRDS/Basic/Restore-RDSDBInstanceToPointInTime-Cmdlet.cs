@@ -112,6 +112,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBName { get; set; }
         #endregion
         
+        #region Parameter DBParameterGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the DB parameter group to associate with this DB instance. If this argument
+        /// is omitted, the default DBParameterGroup for the specified engine is used.</para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DBParameterGroup.</para></li><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DBParameterGroupName { get; set; }
+        #endregion
+        
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
@@ -120,6 +131,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBSubnetGroupName { get; set; }
+        #endregion
+        
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if the DB instance should have deletion protection enabled. The database
+        /// can't be deleted when this value is set to true. The default is false. For more information,
+        /// see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+        /// Deleting a DB Instance</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DeletionProtection { get; set; }
         #endregion
         
         #region Parameter Domain
@@ -260,11 +284,29 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter RestoreTime
         /// <summary>
         /// <para>
-        /// <para>The date and time to restore from.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Cannot be specified if UseLatestRestorableTime parameter is true</para></li></ul><para>Example: <code>2009-09-07T23:45:00Z</code></para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use RestoreTimeUtc instead. Setting either RestoreTime
+        /// or RestoreTimeUtc results in both RestoreTime and RestoreTimeUtc being assigned, the
+        /// latest assignment to either one of the two property is reflected in the value of both.
+        /// RestoreTime is provided for backwards compatibility only and assigning a non-Utc DateTime
+        /// to it results in the wrong timestamp being passed to the service.</para><para>The date and time to restore from.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Can't be specified if UseLatestRestorableTime parameter is true</para></li></ul><para>Example: <code>2009-09-07T23:45:00Z</code></para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcRestoreTime instead.")]
+        public System.DateTime RestoreTime { get; set; }
+        #endregion
+        
+        #region Parameter UtcRestoreTime
+        /// <summary>
+        /// <para>
+        /// <para>The date and time to restore from.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Can't be specified if UseLatestRestorableTime parameter is true</para></li></ul><para>Example: <code>2009-09-07T23:45:00Z</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime RestoreTime { get; set; }
+        public System.DateTime UtcRestoreTime { get; set; }
         #endregion
         
         #region Parameter SourceDBInstanceIdentifier
@@ -303,7 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter TargetDBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The name of the new DB instance to be created.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// <para>The name of the new DB instance to be created.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -346,7 +388,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> Specifies whether (<code>true</code>) or not (<code>false</code>) the DB instance
-        /// is restored from the latest backup time. </para><para>Default: <code>false</code></para><para>Constraints: Cannot be specified if RestoreTime parameter is provided.</para>
+        /// is restored from the latest backup time. </para><para>Default: <code>false</code></para><para>Constraints: Can't be specified if RestoreTime parameter is provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -389,7 +431,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DBInstanceClass = this.DBInstanceClass;
             context.DBName = this.DBName;
+            context.DBParameterGroupName = this.DBParameterGroupName;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            if (ParameterWasBound("DeletionProtection"))
+                context.DeletionProtection = this.DeletionProtection;
             context.Domain = this.Domain;
             context.DomainIAMRoleName = this.DomainIAMRoleName;
             if (this.EnableCloudwatchLogsExport != null)
@@ -413,8 +458,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             if (ParameterWasBound("PubliclyAccessible"))
                 context.PubliclyAccessible = this.PubliclyAccessible;
-            if (ParameterWasBound("RestoreTime"))
-                context.RestoreTime = this.RestoreTime;
+            if (ParameterWasBound("UtcRestoreTime"))
+                context.UtcRestoreTime = this.UtcRestoreTime;
             context.SourceDBInstanceIdentifier = this.SourceDBInstanceIdentifier;
             context.StorageType = this.StorageType;
             if (this.Tag != null)
@@ -428,6 +473,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.UseDefaultProcessorFeatures = this.UseDefaultProcessorFeature;
             if (ParameterWasBound("UseLatestRestorableTime"))
                 context.UseLatestRestorableTime = this.UseLatestRestorableTime;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound("RestoreTime"))
+                context.RestoreTime = this.RestoreTime;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -464,9 +513,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.DBName = cmdletContext.DBName;
             }
+            if (cmdletContext.DBParameterGroupName != null)
+            {
+                request.DBParameterGroupName = cmdletContext.DBParameterGroupName;
+            }
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection.Value;
             }
             if (cmdletContext.Domain != null)
             {
@@ -516,9 +573,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
             }
-            if (cmdletContext.RestoreTime != null)
+            if (cmdletContext.UtcRestoreTime != null)
             {
-                request.RestoreTime = cmdletContext.RestoreTime.Value;
+                request.RestoreTimeUtc = cmdletContext.UtcRestoreTime.Value;
             }
             if (cmdletContext.SourceDBInstanceIdentifier != null)
             {
@@ -552,6 +609,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.UseLatestRestorableTime = cmdletContext.UseLatestRestorableTime.Value;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.RestoreTime != null)
+            {
+                if (cmdletContext.UtcRestoreTime != null)
+                {
+                    throw new ArgumentException("Parameters RestoreTime and UtcRestoreTime are mutually exclusive.");
+                }
+                request.RestoreTime = cmdletContext.RestoreTime.Value;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -621,7 +688,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String DBInstanceClass { get; set; }
             public System.String DBName { get; set; }
+            public System.String DBParameterGroupName { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public System.Boolean? DeletionProtection { get; set; }
             public System.String Domain { get; set; }
             public System.String DomainIAMRoleName { get; set; }
             public List<System.String> EnableCloudwatchLogsExports { get; set; }
@@ -634,7 +703,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? Port { get; set; }
             public List<Amazon.RDS.Model.ProcessorFeature> ProcessorFeatures { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
-            public System.DateTime? RestoreTime { get; set; }
+            public System.DateTime? UtcRestoreTime { get; set; }
             public System.String SourceDBInstanceIdentifier { get; set; }
             public System.String StorageType { get; set; }
             public List<Amazon.RDS.Model.Tag> Tags { get; set; }
@@ -643,6 +712,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String TdeCredentialPassword { get; set; }
             public System.Boolean? UseDefaultProcessorFeatures { get; set; }
             public System.Boolean? UseLatestRestorableTime { get; set; }
+            [System.ObsoleteAttribute]
+            public System.DateTime? RestoreTime { get; set; }
         }
         
     }

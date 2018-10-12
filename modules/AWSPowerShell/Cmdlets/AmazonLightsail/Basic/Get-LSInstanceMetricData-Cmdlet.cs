@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Period
         /// <summary>
         /// <para>
-        /// <para>The time period for which you are requesting data.</para>
+        /// <para>The granularity, in seconds, of the returned data points.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

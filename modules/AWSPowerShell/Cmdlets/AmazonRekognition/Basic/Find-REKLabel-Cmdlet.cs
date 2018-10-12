@@ -41,14 +41,14 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// see StartLabelDetection in the Amazon Rekognition Developer Guide.
     /// </para></note><para>
     /// You pass the input image as base64-encoded image bytes or as a reference to an image
-    /// in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon Rekognition operations,
+    /// in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations,
     /// passing image bytes is not supported. The image must be either a PNG or JPEG formatted
     /// file. 
     /// </para><para>
     ///  For each object, scene, and concept the API returns one or more labels. Each label
     /// provides the object name, and the level of confidence that the image contains the
     /// object. For example, suppose the input image has a lighthouse, the sea, and a rock.
-    /// The response will include all three labels, one for each object. 
+    /// The response includes all three labels, one for each object. 
     /// </para><para><code>{Name: lighthouse, Confidence: 98.4629}</code></para><para><code>{Name: rock,Confidence: 79.2097}</code></para><para><code> {Name: sea,Confidence: 75.061}</code></para><para>
     /// In the preceding example, the operation returns one label for each of the three objects.
     /// The operation can also return multiple labels for the same object in the image. For

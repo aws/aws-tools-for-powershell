@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Body
         /// <summary>
         /// <para>
-        /// <para>The payload of the POST request to import API keys. For the payload format, see <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html">API
+        /// <para>The payload of the POST request to import API keys. For the payload format, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html">API
         /// Key File Format</a>.</para>
         /// </para>
         /// </summary>

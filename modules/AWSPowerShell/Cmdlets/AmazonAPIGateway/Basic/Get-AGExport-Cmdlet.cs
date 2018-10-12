@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>The content-type of the export, for example <code>application/json</code>. Currently
         /// <code>application/json</code> and <code>application/yaml</code> are supported for
-        /// <code>exportType</code> of <code>swagger</code>. This should be specified in the <code>Accept</code>
-        /// header for direct API requests.</para>
+        /// <code>exportType</code> of<code>oas30</code> and <code>swagger</code>. This should
+        /// be specified in the <code>Accept</code> header for direct API requests.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -56,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ExportType
         /// <summary>
         /// <para>
-        /// <para>[Required] The type of export. Currently only 'swagger' is supported.</para>
+        /// <para>[Required] The type of export. Acceptable values are 'oas30' for OpenAPI 3.0.x and
+        /// 'swagger' for Swagger/OpenAPI 2.0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -67,12 +68,12 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A key-value map of query string parameters that specify properties of the export,
-        /// depending on the requested <code>exportType</code>. For <code>exportType</code><code>swagger</code>,
-        /// any combination of the following parameters are supported: <code>extensions='integrations'</code>
-        /// or <code>extensions='apigateway'</code> will export the API with x-amazon-apigateway-integration
-        /// extensions. <code>extensions='authorizers'</code> will export the API with x-amazon-apigateway-authorizer
-        /// extensions. <code>postman</code> will export the API with Postman extensions, allowing
-        /// for import to the Postman tool</para>
+        /// depending on the requested <code>exportType</code>. For <code>exportType</code><code>oas30</code>
+        /// and <code>swagger</code>, any combination of the following parameters are supported:
+        /// <code>extensions='integrations'</code> or <code>extensions='apigateway'</code> will
+        /// export the API with x-amazon-apigateway-integration extensions. <code>extensions='authorizers'</code>
+        /// will export the API with x-amazon-apigateway-authorizer extensions. <code>postman</code>
+        /// will export the API with Postman extensions, allowing for import to the Postman tool</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

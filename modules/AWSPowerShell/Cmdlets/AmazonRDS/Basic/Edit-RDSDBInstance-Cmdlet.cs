@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// for this request. If you change the parameter from one non-zero value to another non-zero
         /// value, the change is asynchronously applied as soon as possible.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The retention period for automated backups is managed by the DB cluster.
         /// For more information, see <a>ModifyDBCluster</a>.</para><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6</para></li><li><para>Can be specified for a PostgreSQL Read Replica only if the source is running PostgreSQL
-        /// 9.3.5</para></li><li><para>Cannot be set to 0 if the DB instance is a source to Read Replicas</para></li></ul>
+        /// 9.3.5</para></li><li><para>Can't be set to 0 if the DB instance is a source to Read Replicas</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -222,6 +222,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBSubnetGroupName { get; set; }
+        #endregion
+        
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if the DB instance has deletion protection enabled. The database can't be
+        /// deleted when this value is set to true. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+        /// Deleting a DB Instance</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DeletionProtection { get; set; }
         #endregion
         
         #region Parameter CloudwatchLogsExportConfiguration_DisableLogType
@@ -414,7 +426,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// you change the DB instance identifier, an instance reboot will occur immediately if
         /// you set <code>Apply Immediately</code> to true, or will occur during the next maintenance
         /// window if <code>Apply Immediately</code> to false. This value is stored as a lowercase
-        /// string. </para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>mydbinstance</code></para>
+        /// string. </para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>mydbinstance</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -662,6 +674,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.DBSecurityGroups = new List<System.String>(this.DBSecurityGroup);
             }
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            if (ParameterWasBound("DeletionProtection"))
+                context.DeletionProtection = this.DeletionProtection;
             context.Domain = this.Domain;
             context.DomainIAMRoleName = this.DomainIAMRoleName;
             if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
@@ -798,6 +812,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection.Value;
             }
             if (cmdletContext.Domain != null)
             {
@@ -978,6 +996,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? DBPortNumber { get; set; }
             public List<System.String> DBSecurityGroups { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public System.Boolean? DeletionProtection { get; set; }
             public System.String Domain { get; set; }
             public System.String DomainIAMRoleName { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }

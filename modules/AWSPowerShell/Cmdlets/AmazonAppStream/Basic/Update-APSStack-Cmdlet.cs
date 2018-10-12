@@ -55,8 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <para>
         /// <para>Deletes the storage connectors currently enabled for the stack.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This property is deprecated")]
         [Alias("DeleteStorageConnectors")]
         public System.Boolean DeleteStorageConnector { get; set; }
         #endregion
@@ -194,8 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 context.AttributesToDelete = new List<System.String>(this.AttributesToDelete);
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("DeleteStorageConnector"))
                 context.DeleteStorageConnectors = this.DeleteStorageConnector;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             context.FeedbackURL = this.FeedbackURL;
@@ -258,10 +262,12 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 request.AttributesToDelete = cmdletContext.AttributesToDelete;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.DeleteStorageConnectors != null)
             {
                 request.DeleteStorageConnectors = cmdletContext.DeleteStorageConnectors.Value;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -357,6 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.Boolean? ApplicationSettings_Enabled { get; set; }
             public System.String ApplicationSettings_SettingsGroup { get; set; }
             public List<System.String> AttributesToDelete { get; set; }
+            [System.ObsoleteAttribute]
             public System.Boolean? DeleteStorageConnectors { get; set; }
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }

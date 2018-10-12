@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>[Required] The new documentation content map of the targeted API entity. Enclosed
-        /// key-value pairs are API-specific, but only Swagger-compliant key-value pairs can be
+        /// key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be
         /// exported and, hence, published.</para>
         /// </para>
         /// </summary>

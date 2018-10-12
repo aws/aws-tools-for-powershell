@@ -28,7 +28,8 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Deletes the association between a direct connect gateway and a virtual private gateway.
+    /// Deletes the association between the specified Direct Connect gateway and virtual private
+    /// gateway.
     /// </summary>
     [Cmdlet("Remove", "DCGatewayAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DirectConnect.Model.DirectConnectGatewayAssociation")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter DirectConnectGatewayId
         /// <summary>
         /// <para>
-        /// <para>The ID of the direct connect gateway.</para><para>Example: "abcd1234-dcba-5678-be23-cdef9876ab45"</para><para>Default: None</para>
+        /// <para>The ID of the Direct Connect gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter VirtualGatewayId
         /// <summary>
         /// <para>
-        /// <para>The ID of the virtual private gateway.</para><para>Example: "vgw-abc123ef"</para><para>Default: None</para>
+        /// <para>The ID of the virtual private gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

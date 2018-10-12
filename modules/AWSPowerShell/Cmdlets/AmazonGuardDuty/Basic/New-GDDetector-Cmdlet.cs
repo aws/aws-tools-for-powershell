@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.GD
     public partial class NewGDDetectorCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// The idempotency token for the create request.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Enable
         /// <summary>
         /// <para>
@@ -51,6 +61,18 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.Boolean Enable { get; set; }
+        #endregion
+        
+        #region Parameter FindingPublishingFrequency
+        /// <summary>
+        /// <para>
+        /// A enum value that specifies
+        /// how frequently customer got Finding updates published.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.GuardDuty.FindingPublishingFrequency")]
+        public Amazon.GuardDuty.FindingPublishingFrequency FindingPublishingFrequency { get; set; }
         #endregion
         
         #region Parameter Force
@@ -82,8 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ClientToken = this.ClientToken;
             if (ParameterWasBound("Enable"))
                 context.Enable = this.Enable;
+            context.FindingPublishingFrequency = this.FindingPublishingFrequency;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -100,9 +124,17 @@ namespace Amazon.PowerShell.Cmdlets.GD
             // create request
             var request = new Amazon.GuardDuty.Model.CreateDetectorRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.Enable != null)
             {
                 request.Enable = cmdletContext.Enable.Value;
+            }
+            if (cmdletContext.FindingPublishingFrequency != null)
+            {
+                request.FindingPublishingFrequency = cmdletContext.FindingPublishingFrequency;
             }
             
             CmdletOutput output;
@@ -168,7 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.Boolean? Enable { get; set; }
+            public Amazon.GuardDuty.FindingPublishingFrequency FindingPublishingFrequency { get; set; }
         }
         
     }

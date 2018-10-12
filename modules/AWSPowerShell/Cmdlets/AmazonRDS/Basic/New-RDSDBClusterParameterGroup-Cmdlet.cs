@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB cluster parameter group.</para><para>Constraints:</para><ul><li><para>Must match the name of an existing DBClusterParameterGroup.</para></li></ul><note><para>This value is stored as a lowercase string.</para></note>
+        /// <para>The name of the DB cluster parameter group.</para><para>Constraints:</para><ul><li><para>Must match the name of an existing DB cluster parameter group.</para></li></ul><note><para>This value is stored as a lowercase string.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

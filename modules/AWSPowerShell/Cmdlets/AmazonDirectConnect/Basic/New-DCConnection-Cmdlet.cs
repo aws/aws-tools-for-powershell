@@ -28,24 +28,21 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Creates a new connection between the customer network and a specific AWS Direct Connect
+    /// Creates a connection between a customer network and a specific AWS Direct Connect
     /// location.
     /// 
     ///  
     /// <para>
     /// A connection links your internal network to an AWS Direct Connect location over a
-    /// standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable. One end of the cable
-    /// is connected to your router, the other to an AWS Direct Connect router. An AWS Direct
-    /// Connect location provides access to Amazon Web Services in the region it is associated
-    /// with. You can establish connections with AWS Direct Connect locations in multiple
-    /// regions, but a connection in one region does not provide connectivity to other regions.
+    /// standard Ethernet fiber-optic cable. One end of the cable is connected to your router,
+    /// the other to an AWS Direct Connect router.
     /// </para><para>
-    /// To find the locations for your region, use <a>DescribeLocations</a>.
+    /// To find the locations for your Region, use <a>DescribeLocations</a>.
     /// </para><para>
     /// You can automatically add the new connection to a link aggregation group (LAG) by
     /// specifying a LAG ID in the request. This ensures that the new connection is allocated
     /// on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are
-    /// no available ports on the endpoint, the request fails and no connection will be created.
+    /// no available ports on the endpoint, the request fails and no connection is created.
     /// </para>
     /// </summary>
     [Cmdlet("New", "DCConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter Bandwidth
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The bandwidth of the connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -70,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -80,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter LagId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the LAG.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -90,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter Location
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The location of the connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

@@ -28,8 +28,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// List all versions of a function. For information about the versioning feature, see
-    /// <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
+    /// Lists all versions of a function. For information about versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
     /// Lambda Function Versioning and Aliases</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "LMVersionsByFunction")]
@@ -46,12 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>Function name whose versions to list. You can specify a function name (for example,
-        /// <code>Thumbnail</code>) or you can specify Amazon Resource Name (ARN) of the function
-        /// (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>).
-        /// AWS Lambda also allows you to specify a partial ARN (for example, <code>account-id:Thumbnail</code>).
-        /// Note that the length constraint applies only to the ARN. If you specify only the function
-        /// name, it is limited to 64 characters in length. </para>
+        /// Amazon.Lambda.Model.ListVersionsByFunctionRequest.FunctionName
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -49,10 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>The Lambda function name for which the alias is created. Deleting an alias does not
-        /// delete the function version to which it is pointing. Note that the length constraint
-        /// applies only to the ARN. If you specify only the function name, it is limited to 64
-        /// characters in length.</para>
+        /// Amazon.Lambda.Model.DeleteAliasRequest.FunctionName
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

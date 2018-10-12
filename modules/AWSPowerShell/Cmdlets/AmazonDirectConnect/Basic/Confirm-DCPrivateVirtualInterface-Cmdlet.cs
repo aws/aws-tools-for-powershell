@@ -28,13 +28,13 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Accept ownership of a private virtual interface created by another customer.
+    /// Accepts ownership of a private virtual interface created by another AWS account.
     /// 
     ///  
     /// <para>
-    /// After the virtual interface owner calls this function, the virtual interface will
-    /// be created and attached to the given virtual private gateway or direct connect gateway,
-    /// and will be available for handling traffic.
+    /// After the virtual interface owner makes this call, the virtual interface is created
+    /// and attached to the specified virtual private gateway or Direct Connect gateway, and
+    /// is made available to handle traffic.
     /// </para>
     /// </summary>
     [Cmdlet("Confirm", "DCPrivateVirtualInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,8 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter DirectConnectGatewayId
         /// <summary>
         /// <para>
-        /// <para>ID of the direct connect gateway that will be attached to the virtual interface.</para><para> A direct connect gateway can be managed via the AWS Direct Connect console or the
-        /// <a>CreateDirectConnectGateway</a> action.</para><para>Default: None</para>
+        /// <para>The ID of the Direct Connect gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -61,9 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter VirtualGatewayId
         /// <summary>
         /// <para>
-        /// <para>ID of the virtual private gateway that will be attached to the virtual interface.</para><para> A virtual private gateway can be managed via the Amazon Virtual Private Cloud (VPC)
-        /// console or the <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html">EC2
-        /// CreateVpnGateway</a> action.</para><para>Default: None</para>
+        /// <para>The ID of the virtual private gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -73,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter VirtualInterfaceId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the virtual interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

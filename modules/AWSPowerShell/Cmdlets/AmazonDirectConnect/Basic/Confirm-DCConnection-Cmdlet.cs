@@ -28,13 +28,12 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Confirm the creation of a hosted connection on an interconnect.
+    /// Confirms the creation of the specified hosted connection on an interconnect.
     /// 
     ///  
     /// <para>
-    /// Upon creation, the hosted connection is initially in the 'Ordering' state, and will
-    /// remain in this state until the owner calls ConfirmConnection to confirm creation of
-    /// the hosted connection.
+    /// Upon creation, the hosted connection is initially in the <code>Ordering</code> state,
+    /// and remains in this state until the owner confirms creation of the hosted connection.
     /// </para>
     /// </summary>
     [Cmdlet("Confirm", "DCConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the hosted connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

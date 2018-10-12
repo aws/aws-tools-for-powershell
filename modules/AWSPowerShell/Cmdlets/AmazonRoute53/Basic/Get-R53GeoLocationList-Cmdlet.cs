@@ -28,7 +28,7 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Retrieves a list of supported geo locations.
+    /// Retrieves a list of supported geographic locations.
     /// 
     ///  
     /// <para>
@@ -51,11 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>The code for the continent with which you want to start listing locations that Amazon
-        /// Route 53 supports for geolocation. If Amazon Route 53 has already returned a page
-        /// or more of results, if <code>IsTruncated</code> is true, and if <code>NextContinentCode</code>
-        /// from the previous response has a value, enter that value in <code>StartContinentCode</code>
-        /// to return the next page of results.</para><para>Include <code>StartContinentCode</code> only if you want to list continents. Don't
-        /// include <code>StartContinentCode</code> when you're listing countries or countries
+        /// Route 53 supports for geolocation. If Route 53 has already returned a page or more
+        /// of results, if <code>IsTruncated</code> is true, and if <code>NextContinentCode</code>
+        /// from the previous response has a value, enter that value in <code>startcontinentcode</code>
+        /// to return the next page of results.</para><para>Include <code>startcontinentcode</code> only if you want to list continents. Don't
+        /// include <code>startcontinentcode</code> when you're listing countries or countries
         /// with their subdivisions.</para>
         /// </para>
         /// </summary>
@@ -67,10 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>The code for the country with which you want to start listing locations that Amazon
-        /// Route 53 supports for geolocation. If Amazon Route 53 has already returned a page
-        /// or more of results, if <code>IsTruncated</code> is <code>true</code>, and if <code>NextCountryCode</code>
-        /// from the previous response has a value, enter that value in <code>StartCountryCode</code>
-        /// to return the next page of results.</para><para>Amazon Route 53 uses the two-letter country codes that are specified in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO
+        /// Route 53 supports for geolocation. If Route 53 has already returned a page or more
+        /// of results, if <code>IsTruncated</code> is <code>true</code>, and if <code>NextCountryCode</code>
+        /// from the previous response has a value, enter that value in <code>startcountrycode</code>
+        /// to return the next page of results.</para><para>Route 53 uses the two-letter country codes that are specified in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO
         /// standard 3166-1 alpha-2</a>.</para>
         /// </para>
         /// </summary>
@@ -82,12 +82,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>The code for the subdivision (for example, state or province) with which you want
-        /// to start listing locations that Amazon Route 53 supports for geolocation. If Amazon
-        /// Route 53 has already returned a page or more of results, if <code>IsTruncated</code>
-        /// is <code>true</code>, and if <code>NextSubdivisionCode</code> from the previous response
-        /// has a value, enter that value in <code>StartSubdivisionCode</code> to return the next
-        /// page of results.</para><para>To list subdivisions of a country, you must include both <code>StartCountryCode</code>
-        /// and <code>StartSubdivisionCode</code>.</para>
+        /// to start listing locations that Amazon Route 53 supports for geolocation. If Route
+        /// 53 has already returned a page or more of results, if <code>IsTruncated</code> is
+        /// <code>true</code>, and if <code>NextSubdivisionCode</code> from the previous response
+        /// has a value, enter that value in <code>startsubdivisioncode</code> to return the next
+        /// page of results.</para><para>To list subdivisions of a country, you must include both <code>startcountrycode</code>
+        /// and <code>startsubdivisioncode</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>(Optional) The maximum number of geolocations to be included in the response body
-        /// for this request. If more than <code>MaxItems</code> geolocations remain to be listed,
+        /// for this request. If more than <code>maxitems</code> geolocations remain to be listed,
         /// then the value of the <code>IsTruncated</code> element in the response is <code>true</code>.</para>
         /// </para>
         /// <para>

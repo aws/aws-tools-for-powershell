@@ -330,8 +330,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>
         /// <para>[Deprecated] The destination in Amazon S3. You can specify only one destination.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This property is deprecated. Use ExtendedS3DestinationConfiguration instead.")]
         public Amazon.KinesisFirehose.Model.S3DestinationConfiguration S3DestinationConfiguration { get; set; }
         #endregion
         
@@ -429,7 +431,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.KinesisStreamSourceConfiguration_KinesisStreamARN = this.KinesisStreamSourceConfiguration_KinesisStreamARN;
             context.KinesisStreamSourceConfiguration_RoleARN = this.KinesisStreamSourceConfiguration_RoleARN;
             context.RedshiftDestinationConfiguration = this.RedshiftDestinationConfiguration;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.S3DestinationConfiguration = this.S3DestinationConfiguration;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SplunkDestinationConfiguration = this.SplunkDestinationConfiguration;
             
             // allow further manipulation of loaded context prior to processing
@@ -711,10 +715,12 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             {
                 request.RedshiftDestinationConfiguration = cmdletContext.RedshiftDestinationConfiguration;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.S3DestinationConfiguration != null)
             {
                 request.S3DestinationConfiguration = cmdletContext.S3DestinationConfiguration;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.SplunkDestinationConfiguration != null)
             {
                 request.SplunkDestinationConfiguration = cmdletContext.SplunkDestinationConfiguration;
@@ -804,6 +810,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             public System.String KinesisStreamSourceConfiguration_KinesisStreamARN { get; set; }
             public System.String KinesisStreamSourceConfiguration_RoleARN { get; set; }
             public Amazon.KinesisFirehose.Model.RedshiftDestinationConfiguration RedshiftDestinationConfiguration { get; set; }
+            [System.ObsoleteAttribute]
             public Amazon.KinesisFirehose.Model.S3DestinationConfiguration S3DestinationConfiguration { get; set; }
             public Amazon.KinesisFirehose.Model.SplunkDestinationConfiguration SplunkDestinationConfiguration { get; set; }
         }

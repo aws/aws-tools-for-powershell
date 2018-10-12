@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The number of days for which automated backups are retained. Setting this parameter
         /// to a positive number enables backups. Setting this parameter to 0 disables automated
         /// backups.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The retention period for automated backups is managed by the DB cluster.
-        /// For more information, see <a>CreateDBCluster</a>.</para><para>Default: 1</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Cannot be set to 0 if the DB instance is a source to Read Replicas</para></li></ul>
+        /// For more information, see <a>CreateDBCluster</a>.</para><para>Default: 1</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Can't be set to 0 if the DB instance is a source to Read Replicas</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>mydbinstance</code></para>
+        /// <para>The DB instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>mydbinstance</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -151,13 +151,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The meaning of this parameter differs according to the database engine you use.</para><para>Type: String</para><para><b>MySQL</b></para><para>The name of the database to create when the DB instance is created. If this parameter
-        /// is not specified, no database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 letters or numbers.</para></li><li><para>Cannot be a word reserved by the specified database engine</para></li></ul><para><b>MariaDB</b></para><para>The name of the database to create when the DB instance is created. If this parameter
-        /// is not specified, no database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 letters or numbers.</para></li><li><para>Cannot be a word reserved by the specified database engine</para></li></ul><para><b>PostgreSQL</b></para><para>The name of the database to create when the DB instance is created. If this parameter
+        /// is not specified, no database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 letters or numbers.</para></li><li><para>Can't be a word reserved by the specified database engine</para></li></ul><para><b>MariaDB</b></para><para>The name of the database to create when the DB instance is created. If this parameter
+        /// is not specified, no database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 letters or numbers.</para></li><li><para>Can't be a word reserved by the specified database engine</para></li></ul><para><b>PostgreSQL</b></para><para>The name of the database to create when the DB instance is created. If this parameter
         /// is not specified, the default "postgres" database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 63 letters, numbers, or underscores.</para></li><li><para>Must begin with a letter or an underscore. Subsequent characters can be letters, underscores,
-        /// or digits (0-9).</para></li><li><para>Cannot be a word reserved by the specified database engine</para></li></ul><para><b>Oracle</b></para><para>The Oracle System ID (SID) of the created DB instance. If you specify <code>null</code>,
+        /// or digits (0-9).</para></li><li><para>Can't be a word reserved by the specified database engine</para></li></ul><para><b>Oracle</b></para><para>The Oracle System ID (SID) of the created DB instance. If you specify <code>null</code>,
         /// the default value <code>ORCL</code> is used. You can't specify the string NULL, or
-        /// any other reserved word, for <code>DBName</code>. </para><para>Default: <code>ORCL</code></para><para>Constraints:</para><ul><li><para>Cannot be longer than 8 characters</para></li></ul><para><b>SQL Server</b></para><para>Not applicable. Must be null.</para><para><b>Amazon Aurora</b></para><para>The name of the database to create when the primary instance of the DB cluster is
-        /// created. If this parameter is not specified, no database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 letters or numbers.</para></li><li><para>Cannot be a word reserved by the specified database engine</para></li></ul>
+        /// any other reserved word, for <code>DBName</code>. </para><para>Default: <code>ORCL</code></para><para>Constraints:</para><ul><li><para>Can't be longer than 8 characters</para></li></ul><para><b>SQL Server</b></para><para>Not applicable. Must be null.</para><para><b>Amazon Aurora</b></para><para>The name of the database to create when the primary instance of the DB cluster is
+        /// created. If this parameter is not specified, no database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 letters or numbers.</para></li><li><para>Can't be a word reserved by the specified database engine</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the DB parameter group to associate with this DB instance. If this argument
-        /// is omitted, the default DBParameterGroup for the specified engine is used.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// is omitted, the default DBParameterGroup for the specified engine is used.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,6 +194,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBSubnetGroupName { get; set; }
+        #endregion
+        
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if the DB instance should have deletion protection enabled. The database
+        /// can't be deleted when this value is set to true. The default is false. For more information,
+        /// see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+        /// Deleting a DB Instance</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DeletionProtection { get; set; }
         #endregion
         
         #region Parameter Domain
@@ -291,9 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// allocated for the DB instance. For information about valid Iops values, see see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
         /// RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User
         /// Guide</i>. </para><para>Constraints: Must be a multiple between 1 and 50 of the storage amount for the DB
-        /// instance. Must also be an integer multiple of 1000. For example, if the size of your
-        /// DB instance is 500 GiB, then your <code>Iops</code> value can be 2000, 3000, 4000,
-        /// or 5000. </para>
+        /// instance. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -332,7 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name for the master user.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The name for the master user is managed by the DB cluster. For more
-        /// information, see <a>CreateDBCluster</a>. </para><para><b>MariaDB</b></para><para>Constraints:</para><ul><li><para>Required for MariaDB.</para></li><li><para>Must be 1 to 16 letters or numbers.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para><b>Microsoft SQL Server</b></para><para>Constraints:</para><ul><li><para>Required for SQL Server.</para></li><li><para>Must be 1 to 128 letters or numbers.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para><b>MySQL</b></para><para>Constraints:</para><ul><li><para>Required for MySQL.</para></li><li><para>Must be 1 to 16 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para><b>Oracle</b></para><para>Constraints:</para><ul><li><para>Required for Oracle.</para></li><li><para>Must be 1 to 30 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para><b>PostgreSQL</b></para><para>Constraints:</para><ul><li><para>Required for PostgreSQL.</para></li><li><para>Must be 1 to 63 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul>
+        /// information, see <a>CreateDBCluster</a>. </para><para><b>MariaDB</b></para><para>Constraints:</para><ul><li><para>Required for MariaDB.</para></li><li><para>Must be 1 to 16 letters or numbers.</para></li><li><para>Can't be a reserved word for the chosen database engine.</para></li></ul><para><b>Microsoft SQL Server</b></para><para>Constraints:</para><ul><li><para>Required for SQL Server.</para></li><li><para>Must be 1 to 128 letters or numbers.</para></li><li><para>The first character must be a letter.</para></li><li><para>Can't be a reserved word for the chosen database engine.</para></li></ul><para><b>MySQL</b></para><para>Constraints:</para><ul><li><para>Required for MySQL.</para></li><li><para>Must be 1 to 16 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't be a reserved word for the chosen database engine.</para></li></ul><para><b>Oracle</b></para><para>Constraints:</para><ul><li><para>Required for Oracle.</para></li><li><para>Must be 1 to 30 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't be a reserved word for the chosen database engine.</para></li></ul><para><b>PostgreSQL</b></para><para>Constraints:</para><ul><li><para>Required for PostgreSQL.</para></li><li><para>Must be 1 to 63 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't be a reserved word for the chosen database engine.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -639,6 +650,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.DBSecurityGroups = new List<System.String>(this.DBSecurityGroup);
             }
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            if (ParameterWasBound("DeletionProtection"))
+                context.DeletionProtection = this.DeletionProtection;
             context.Domain = this.Domain;
             context.DomainIAMRoleName = this.DomainIAMRoleName;
             if (this.EnableCloudwatchLogsExport != null)
@@ -759,6 +772,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection.Value;
             }
             if (cmdletContext.Domain != null)
             {
@@ -961,6 +978,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBParameterGroupName { get; set; }
             public List<System.String> DBSecurityGroups { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public System.Boolean? DeletionProtection { get; set; }
             public System.String Domain { get; set; }
             public System.String DomainIAMRoleName { get; set; }
             public List<System.String> EnableCloudwatchLogsExports { get; set; }

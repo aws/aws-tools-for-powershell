@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token to use to retrieve the next page of results. If this value is
-        /// empty, only the first page is retrieved.</para>
+        /// <para>The pagination token to use to retrieve the next page of results for this operation.
+        /// If this value is null, it retrieves the first page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

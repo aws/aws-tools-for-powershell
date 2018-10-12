@@ -142,8 +142,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>Deprecated. This parameter is not used.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This field is deprecated and is no longer used.")]
         public System.String NodeGroupId { get; set; }
         #endregion
         
@@ -304,7 +306,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 context.CacheSecurityGroupNames = new List<System.String>(this.CacheSecurityGroupName);
             }
             context.EngineVersion = this.EngineVersion;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.NodeGroupId = this.NodeGroupId;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.NotificationTopicArn = this.NotificationTopicArn;
             context.NotificationTopicStatus = this.NotificationTopicStatus;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
@@ -363,10 +367,12 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.NodeGroupId != null)
             {
                 request.NodeGroupId = cmdletContext.NodeGroupId;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.NotificationTopicArn != null)
             {
                 request.NotificationTopicArn = cmdletContext.NotificationTopicArn;
@@ -478,6 +484,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String CacheParameterGroupName { get; set; }
             public List<System.String> CacheSecurityGroupNames { get; set; }
             public System.String EngineVersion { get; set; }
+            [System.ObsoleteAttribute]
             public System.String NodeGroupId { get; set; }
             public System.String NotificationTopicArn { get; set; }
             public System.String NotificationTopicStatus { get; set; }

@@ -533,7 +533,15 @@ $APS_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.AppStream.AuthenticationType
-        "Get-APSSessionList/AuthenticationType"
+        {
+            ($_ -eq "Disable-APSUser/AuthenticationType") -Or
+            ($_ -eq "Enable-APSUser/AuthenticationType") -Or
+            ($_ -eq "Get-APSSessionList/AuthenticationType") -Or
+            ($_ -eq "Get-APSUser/AuthenticationType") -Or
+            ($_ -eq "Get-APSUserStackAssociation/AuthenticationType") -Or
+            ($_ -eq "New-APSUser/AuthenticationType") -Or
+            ($_ -eq "Remove-APSUser/AuthenticationType")
+        }
         {
             $v = "API","SAML","USERPOOL"
             break
@@ -543,6 +551,13 @@ $APS_Completers = {
         "New-APSFleet/FleetType"
         {
             $v = "ALWAYS_ON","ON_DEMAND"
+            break
+        }
+        
+        # Amazon.AppStream.MessageAction
+        "New-APSUser/MessageAction"
+        {
+            $v = "RESEND","SUPPRESS"
             break
         }
         
@@ -561,8 +576,9 @@ $APS_Completers = {
 }
 
 $APS_map = @{
-    "AuthenticationType"=@("Get-APSSessionList")
+    "AuthenticationType"=@("Disable-APSUser","Enable-APSUser","Get-APSSessionList","Get-APSUser","Get-APSUserStackAssociation","New-APSUser","Remove-APSUser")
     "FleetType"=@("New-APSFleet")
+    "MessageAction"=@("New-APSUser")
     "Type"=@("Get-APSImageList")
 }
 
@@ -2186,7 +2202,7 @@ $COMP_Completers = {
             ($_ -eq "Start-COMPSentimentDetectionJob/LanguageCode")
         }
         {
-            $v = "en","es"
+            $v = "de","en","es","fr","it","pt"
             break
         }
         
@@ -2196,7 +2212,7 @@ $COMP_Completers = {
             ($_ -eq "Find-COMPSyntaxBatch/LanguageCode")
         }
         {
-            $v = "en"
+            $v = "de","en","es","fr","it","pt"
             break
         }
         
@@ -2782,6 +2798,33 @@ $DS_Completers = {
             break
         }
         
+        # Amazon.DirectoryService.SelectiveAuth
+        {
+            ($_ -eq "New-DSTrust/SelectiveAuth") -Or
+            ($_ -eq "Update-DSTrust/SelectiveAuth")
+        }
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+        
+        # Amazon.DirectoryService.ShareMethod
+        "Enable-DSDirectoryShare/ShareMethod"
+        {
+            $v = "HANDSHAKE","ORGANIZATIONS"
+            break
+        }
+        
+        # Amazon.DirectoryService.TargetType
+        {
+            ($_ -eq "Enable-DSDirectoryShare/ShareTarget_Type") -Or
+            ($_ -eq "Disable-DSDirectoryShare/UnshareTarget_Type")
+        }
+        {
+            $v = "ACCOUNT"
+            break
+        }
+        
         # Amazon.DirectoryService.TrustDirection
         "New-DSTrust/TrustDirection"
         {
@@ -2792,7 +2835,7 @@ $DS_Completers = {
         # Amazon.DirectoryService.TrustType
         "New-DSTrust/TrustType"
         {
-            $v = "Forest"
+            $v = "External","Forest"
             break
         }
         
@@ -2806,9 +2849,13 @@ $DS_Completers = {
 $DS_map = @{
     "Edition"=@("New-DSMicrosoftAD")
     "RadiusSettings_AuthenticationProtocol"=@("Enable-DSRadius","Update-DSRadius")
+    "SelectiveAuth"=@("New-DSTrust","Update-DSTrust")
+    "ShareMethod"=@("Enable-DSDirectoryShare")
+    "ShareTarget_Type"=@("Enable-DSDirectoryShare")
     "Size"=@("Connect-DSDirectory","New-DSDirectory")
     "TrustDirection"=@("New-DSTrust")
     "TrustType"=@("New-DSTrust")
+    "UnshareTarget_Type"=@("Disable-DSDirectoryShare")
 }
 
 _awsArgumentCompleterRegistration $DS_Completers $DS_map
@@ -3092,7 +3139,7 @@ $EC2_Completers = {
             ($_ -eq "Request-EC2SpotInstance/LaunchSpecification_InstanceType")
         }
         {
-            $v = "c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.18xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","c5d.18xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","f1.4xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.large","m5.xlarge","m5d.12xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.large","m5d.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.metal","r5.xlarge","r5d.12xlarge","r5d.16xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.8xlarge","r5d.large","r5d.metal","r5d.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","t3.2xlarge","t3.large","t3.medium","t3.micro","t3.nano","t3.small","t3.xlarge","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge","z1d.12xlarge","z1d.2xlarge","z1d.3xlarge","z1d.6xlarge","z1d.large","z1d.xlarge"
+            $v = "c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.18xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","c5d.18xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","f1.4xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","g3s.xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.large","m5.xlarge","m5d.12xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.large","m5d.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.metal","r5.xlarge","r5d.12xlarge","r5d.16xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.8xlarge","r5d.large","r5d.metal","r5d.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","t3.2xlarge","t3.large","t3.medium","t3.micro","t3.nano","t3.small","t3.xlarge","u-12tb1.metal","u-6tb1.metal","u-9tb1.metal","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge","z1d.12xlarge","z1d.2xlarge","z1d.3xlarge","z1d.6xlarge","z1d.large","z1d.xlarge"
             break
         }
         
@@ -3761,6 +3808,13 @@ $GLUE_Completers = {
             break
         }
         
+        # Amazon.Glue.ExistCondition
+        "Set-GLUEResourcePolicy/PolicyExistsCondition"
+        {
+            $v = "MUST_EXIST","NONE","NOT_EXIST"
+            break
+        }
+        
         # Amazon.Glue.JobBookmarksEncryptionMode
         "New-GLUESecurityConfiguration/EncryptionConfiguration_JobBookmarksEncryption_JobBookmarksEncryptionMode"
         {
@@ -3797,6 +3851,7 @@ $GLUE_map = @{
     "EncryptionConfiguration_CloudWatchEncryption_CloudWatchEncryptionMode"=@("New-GLUESecurityConfiguration")
     "EncryptionConfiguration_JobBookmarksEncryption_JobBookmarksEncryptionMode"=@("New-GLUESecurityConfiguration")
     "Language"=@("Get-GLUEPlan","New-GLUEScript")
+    "PolicyExistsCondition"=@("Set-GLUEResourcePolicy")
     "Type"=@("New-GLUETrigger")
 }
 
@@ -4021,6 +4076,16 @@ $GD_Completers = {
             break
         }
         
+        # Amazon.GuardDuty.FindingPublishingFrequency
+        {
+            ($_ -eq "New-GDDetector/FindingPublishingFrequency") -Or
+            ($_ -eq "Update-GDDetector/FindingPublishingFrequency")
+        }
+        {
+            $v = "FIFTEEN_MINUTES","ONE_HOUR","SIX_HOURS"
+            break
+        }
+        
         # Amazon.GuardDuty.IpSetFormat
         "New-GDIPSet/Format"
         {
@@ -4045,6 +4110,7 @@ $GD_Completers = {
 $GD_map = @{
     "Action"=@("New-GDFilter","Update-GDFilter")
     "Feedback"=@("Update-GDFindingFeedback")
+    "FindingPublishingFrequency"=@("New-GDDetector","Update-GDDetector")
     "Format"=@("New-GDIPSet","New-GDThreatIntelSet")
 }
 
@@ -4388,7 +4454,7 @@ $IOT_Completers = {
             ($_ -eq "Get-IOTJobExecutionsForThingList/Status")
         }
         {
-            $v = "CANCELED","FAILED","IN_PROGRESS","QUEUED","REJECTED","REMOVED","SUCCEEDED"
+            $v = "CANCELED","FAILED","IN_PROGRESS","QUEUED","REJECTED","REMOVED","SUCCEEDED","TIMED_OUT"
             break
         }
         
@@ -4520,7 +4586,7 @@ $IOTJ_Completers = {
         # Amazon.IoTJobsDataPlane.JobExecutionStatus
         "Update-IOTJJobExecution/Status"
         {
-            $v = "CANCELED","FAILED","IN_PROGRESS","QUEUED","REJECTED","REMOVED","SUCCEEDED"
+            $v = "CANCELED","FAILED","IN_PROGRESS","QUEUED","REJECTED","REMOVED","SUCCEEDED","TIMED_OUT"
             break
         }
         
@@ -4977,7 +5043,8 @@ $LS_Completers = {
         # Amazon.Lightsail.MetricUnit
         {
             ($_ -eq "Get-LSInstanceMetricData/Unit") -Or
-            ($_ -eq "Get-LSLoadBalancerMetricData/Unit")
+            ($_ -eq "Get-LSLoadBalancerMetricData/Unit") -Or
+            ($_ -eq "Get-LSRelationalDatabaseMetricData/Unit")
         }
         {
             $v = "Bits","Bits/Second","Bytes","Bytes/Second","Count","Count/Second","Gigabits","Gigabits/Second","Gigabytes","Gigabytes/Second","Kilobits","Kilobits/Second","Kilobytes","Kilobytes/Second","Megabits","Megabits/Second","Megabytes","Megabytes/Second","Microseconds","Milliseconds","None","Percent","Seconds","Terabits","Terabits/Second","Terabytes","Terabytes/Second"
@@ -4994,6 +5061,20 @@ $LS_Completers = {
             break
         }
         
+        # Amazon.Lightsail.RelationalDatabaseMetricName
+        "Get-LSRelationalDatabaseMetricData/MetricName"
+        {
+            $v = "CPUUtilization","DatabaseConnections","DiskQueueDepth","FreeStorageSpace","NetworkReceiveThroughput","NetworkTransmitThroughput"
+            break
+        }
+        
+        # Amazon.Lightsail.RelationalDatabasePasswordVersion
+        "Get-LSRelationalDatabaseMasterUserPassword/PasswordVersion"
+        {
+            $v = "CURRENT","PENDING","PREVIOUS"
+            break
+        }
+        
     }
     
     $v |
@@ -5003,10 +5084,11 @@ $LS_Completers = {
 
 $LS_map = @{
     "AttributeName"=@("Update-LSLoadBalancerAttribute")
-    "MetricName"=@("Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData")
+    "MetricName"=@("Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
+    "PasswordVersion"=@("Get-LSRelationalDatabaseMasterUserPassword")
     "PortInfo_Protocol"=@("Close-LSInstancePublicPort","Open-LSInstancePublicPort")
     "Protocol"=@("Get-LSInstanceAccessDetail")
-    "Unit"=@("Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData")
+    "Unit"=@("Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
 }
 
 _awsArgumentCompleterRegistration $LS_Completers $LS_map
@@ -5059,6 +5141,16 @@ $EMC_Completers = {
             break
         }
         
+        # Amazon.MediaConvert.Commitment
+        {
+            ($_ -eq "New-EMCQueue/ReservationPlanSettings_Commitment") -Or
+            ($_ -eq "Update-EMCQueue/ReservationPlanSettings_Commitment")
+        }
+        {
+            $v = "ONE_YEAR"
+            break
+        }
+        
         # Amazon.MediaConvert.DescribeEndpointsMode
         "Get-EMCEndpoint/Mode"
         {
@@ -5099,6 +5191,13 @@ $EMC_Completers = {
             break
         }
         
+        # Amazon.MediaConvert.PricingPlan
+        "New-EMCQueue/PricingPlan"
+        {
+            $v = "ON_DEMAND","RESERVED"
+            break
+        }
+        
         # Amazon.MediaConvert.QueueListBy
         "Get-EMCQueueList/ListBy"
         {
@@ -5110,6 +5209,16 @@ $EMC_Completers = {
         "Update-EMCQueue/Status"
         {
             $v = "ACTIVE","PAUSED"
+            break
+        }
+        
+        # Amazon.MediaConvert.RenewalType
+        {
+            ($_ -eq "New-EMCQueue/ReservationPlanSettings_RenewalType") -Or
+            ($_ -eq "Update-EMCQueue/ReservationPlanSettings_RenewalType")
+        }
+        {
+            $v = "AUTO_RENEW","EXPIRE"
             break
         }
         
@@ -5125,6 +5234,9 @@ $EMC_map = @{
     "ListBy"=@("Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList")
     "Mode"=@("Get-EMCEndpoint")
     "Order"=@("Get-EMCJobList","Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList")
+    "PricingPlan"=@("New-EMCQueue")
+    "ReservationPlanSettings_Commitment"=@("New-EMCQueue","Update-EMCQueue")
+    "ReservationPlanSettings_RenewalType"=@("New-EMCQueue","Update-EMCQueue")
     "Status"=@("Get-EMCJobList","Update-EMCQueue")
 }
 
@@ -6694,6 +6806,13 @@ $SC_Completers = {
             break
         }
         
+        # Amazon.ServiceCatalog.ServiceActionDefinitionType
+        "New-SCServiceAction/DefinitionType"
+        {
+            $v = "SSM_AUTOMATION"
+            break
+        }
+        
         # Amazon.ServiceCatalog.SortOrder
         {
             ($_ -eq "Find-SCProduct/SortOrder") -Or
@@ -6714,6 +6833,7 @@ $SC_Completers = {
 
 $SC_map = @{
     "AccessLevelFilter_Key"=@("Find-SCProvisionedProduct","Get-SCProvisionedProduct","Get-SCProvisionedProductPlanList","Get-SCRecordHistory")
+    "DefinitionType"=@("New-SCServiceAction")
     "Parameters_Type"=@("New-SCProvisioningArtifact")
     "PlanType"=@("New-SCProvisionedProductPlan")
     "PortfolioShareType"=@("Get-SCAcceptedPortfolioSharesList")
@@ -7044,7 +7164,11 @@ $SSM_Completers = {
         }
         
         # Amazon.SimpleSystemsManagement.MaintenanceWindowResourceType
-        "Register-SSMTargetWithMaintenanceWindow/ResourceType"
+        {
+            ($_ -eq "Get-SSMMaintenanceWindowSchedule/ResourceType") -Or
+            ($_ -eq "Get-SSMMaintenanceWindowsForTarget/ResourceType") -Or
+            ($_ -eq "Register-SSMTargetWithMaintenanceWindow/ResourceType")
+        }
         {
             $v = "INSTANCE"
             break
@@ -7083,6 +7207,16 @@ $SSM_Completers = {
         "Write-SSMParameter/Type"
         {
             $v = "SecureString","String","StringList"
+            break
+        }
+        
+        # Amazon.SimpleSystemsManagement.PatchAction
+        {
+            ($_ -eq "New-SSMPatchBaseline/RejectedPatchesAction") -Or
+            ($_ -eq "Update-SSMPatchBaseline/RejectedPatchesAction")
+        }
+        {
+            $v = "ALLOW_AS_DEPENDENCY","BLOCK"
             break
         }
         
@@ -7152,7 +7286,8 @@ $SSM_map = @{
     "NotificationConfig_NotificationType"=@("Send-SSMCommand")
     "OperatingSystem"=@("Get-SSMDefaultPatchBaseline","Get-SSMPatchBaselineForPatchGroup","New-SSMPatchBaseline")
     "PermissionType"=@("Edit-SSMDocumentPermission","Get-SSMDocumentPermission")
-    "ResourceType"=@("Add-SSMResourceTag","Get-SSMResourceTag","Register-SSMTargetWithMaintenanceWindow","Remove-SSMResourceTag")
+    "RejectedPatchesAction"=@("New-SSMPatchBaseline","Update-SSMPatchBaseline")
+    "ResourceType"=@("Add-SSMResourceTag","Get-SSMMaintenanceWindowSchedule","Get-SSMMaintenanceWindowsForTarget","Get-SSMResourceTag","Register-SSMTargetWithMaintenanceWindow","Remove-SSMResourceTag")
     "S3Destination_SyncFormat"=@("New-SSMResourceDataSync")
     "SchemaDeleteOption"=@("Remove-SSMInventory")
     "SignalType"=@("Send-SSMAutomationSignal")
@@ -7211,7 +7346,7 @@ $TRS_Completers = {
             ($_ -eq "Update-TRSVocabulary/LanguageCode")
         }
         {
-            $v = "en-US","es-US"
+            $v = "en-AU","en-UK","en-US","es-US","fr-CA"
             break
         }
         
@@ -7484,7 +7619,7 @@ $WKS_Completers = {
         # Amazon.WorkSpaces.Compute
         "Edit-WKSWorkspaceProperty/WorkspaceProperties_ComputeTypeName"
         {
-            $v = "GRAPHICS","PERFORMANCE","POWER","STANDARD","VALUE"
+            $v = "GRAPHICS","GRAPHICSPRO","PERFORMANCE","POWER","POWERPRO","STANDARD","VALUE"
             break
         }
         

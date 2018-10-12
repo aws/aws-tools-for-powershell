@@ -51,11 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// </para></important><para>
     /// If you don't specify the <code>DelaySeconds</code> parameter for an entry, Amazon
     /// SQS uses the default value for the queue.
-    /// </para><note><para>
+    /// </para><para>
     /// Some actions take lists of parameters. These lists are specified using the <code>param.n</code>
     /// notation. Values of <code>n</code> are integers starting from 1. For example, a parameter
     /// list with two elements looks like this:
-    /// </para><para><code>&amp;Attribute.1=this</code></para><para><code>&amp;Attribute.2=that</code></para></note>
+    /// </para><para><code>&amp;Attribute.1=first</code></para><para><code>&amp;Attribute.2=second</code></para>
     /// </summary>
     [Cmdlet("Send", "SQSMessageBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SQS.Model.SendMessageBatchResponse")]
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of the Amazon SQS queue to which batched messages are sent.</para><para>Queue URLs are case-sensitive.</para>
+        /// <para>The URL of the Amazon SQS queue to which batched messages are sent.</para><para>Queue URLs and names are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

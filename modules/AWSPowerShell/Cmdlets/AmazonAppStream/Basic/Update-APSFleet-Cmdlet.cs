@@ -63,8 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <para>
         /// <para>Deletes the VPC association for the specified fleet.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This property is deprecated")]
         public System.Boolean DeleteVpcConfig { get; set; }
         #endregion
         
@@ -252,8 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             }
             if (ParameterWasBound("ComputeCapacity_DesiredInstance"))
                 context.ComputeCapacity_DesiredInstances = this.ComputeCapacity_DesiredInstance;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("DeleteVpcConfig"))
                 context.DeleteVpcConfig = this.DeleteVpcConfig;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
             if (ParameterWasBound("DisconnectTimeoutInSecond"))
                 context.DisconnectTimeoutInSeconds = this.DisconnectTimeoutInSecond;
@@ -315,10 +319,12 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 request.ComputeCapacity = null;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.DeleteVpcConfig != null)
             {
                 request.DeleteVpcConfig = cmdletContext.DeleteVpcConfig.Value;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -479,6 +485,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         {
             public List<System.String> AttributesToDelete { get; set; }
             public System.Int32? ComputeCapacity_DesiredInstances { get; set; }
+            [System.ObsoleteAttribute]
             public System.Boolean? DeleteVpcConfig { get; set; }
             public System.String Description { get; set; }
             public System.Int32? DisconnectTimeoutInSeconds { get; set; }

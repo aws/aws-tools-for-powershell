@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>transcribe</C2jFilename>
     <SourceGenerationRoot>AmazonTranscribe</SourceGenerationRoot>
@@ -23,6 +23,9 @@
     <PipelineByNameProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateVocabulary" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Vocabulary" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTranscriptionJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="TranscriptionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteVocabulary" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Vocabulary" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VocabularyName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

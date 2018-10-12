@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// Simulate the execution of an <a>Authorizer</a> in your <a>RestApi</a> with headers,
     /// parameters, and an incoming request body.
     /// 
-    ///  <div class="seeAlso"><a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html">Enable
+    ///  <div class="seeAlso"><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html">Enable
     /// custom authorizers</a></div>
     /// </summary>
     [Cmdlet("Test", "AGInvokeAuthorizer")]
@@ -71,6 +71,19 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Body { get; set; }
+        #endregion
+        
+        #region Parameter MultiValueHeader
+        /// <summary>
+        /// <para>
+        /// <para>[Optional] The headers as a map from string to list of values to simulate an incoming
+        /// invocation request. This is where the incoming authorization token, or identity source,
+        /// may be specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MultiValueHeaders")]
+        public System.Collections.Hashtable MultiValueHeader { get; set; }
         #endregion
         
         #region Parameter PathWithQueryString
@@ -148,6 +161,26 @@ namespace Amazon.PowerShell.Cmdlets.AG
                     context.Headers.Add((String)hashKey, (String)(this.Header[hashKey]));
                 }
             }
+            if (this.MultiValueHeader != null)
+            {
+                context.MultiValueHeaders = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.MultiValueHeader.Keys)
+                {
+                    object hashValue = this.MultiValueHeader[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.MultiValueHeaders.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((String)s);
+                    }
+                    context.MultiValueHeaders.Add((String)hashKey, valueSet);
+                }
+            }
             context.PathWithQueryString = this.PathWithQueryString;
             context.RestApiId = this.RestApiId;
             if (this.StageVariable != null)
@@ -189,6 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.Headers != null)
             {
                 request.Headers = cmdletContext.Headers;
+            }
+            if (cmdletContext.MultiValueHeaders != null)
+            {
+                request.MultiValueHeaders = cmdletContext.MultiValueHeaders;
             }
             if (cmdletContext.PathWithQueryString != null)
             {
@@ -270,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String AuthorizerId { get; set; }
             public System.String Body { get; set; }
             public Dictionary<System.String, System.String> Headers { get; set; }
+            public Dictionary<System.String, List<System.String>> MultiValueHeaders { get; set; }
             public System.String PathWithQueryString { get; set; }
             public System.String RestApiId { get; set; }
             public Dictionary<System.String, System.String> StageVariables { get; set; }

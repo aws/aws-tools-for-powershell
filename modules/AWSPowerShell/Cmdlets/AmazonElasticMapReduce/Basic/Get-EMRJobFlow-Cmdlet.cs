@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     ///  Job flows created within the last two months that are in one of the following states:
     /// <code>RUNNING</code>, <code>WAITING</code>, <code>SHUTTING_DOWN</code>, <code>STARTING</code></para></li></ul><para>
     /// Amazon EMR can return a maximum of 512 job flow descriptions.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "EMRJobFlow")]
     [OutputType("Amazon.ElasticMapReduce.Model.JobFlowDetail")]
@@ -58,6 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         "This cmdlet returns a collection of JobFlowDetail objects.",
         "The service call response (type Amazon.ElasticMapReduce.Model.DescribeJobFlowsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This API is deprecated and will eventually be removed. We recommend that you use " +
+        "ListClusters, DescribeCluster, ListSteps, ListInstanceGroups and ListBootstrapAc" +
+        "tions instead.")]
     public partial class GetEMRJobFlowCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         

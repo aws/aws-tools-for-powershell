@@ -86,12 +86,32 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ModifiedSinceDate
         /// <summary>
         /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use ModifiedSinceDateUtc instead. Setting either ModifiedSinceDate or
+        /// ModifiedSinceDateUtc results in both ModifiedSinceDate and ModifiedSinceDateUtc being assigned,
+        /// the latest assignment to either one of the two property is reflected in the value of both.
+        /// ModifiedSinceDate is provided for backwards compatibility only and assigning a non-Utc DateTime
+        /// to it results in the wrong timestamp being passed to the service.</para>
+        /// Returns the object only if it has been modified since the specified time, 
+        /// otherwise returns a PreconditionFailed.
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcModifiedSinceDate instead.")]
+        public System.DateTime ModifiedSinceDate { get; set; }
+        #endregion
+        
+        #region Parameter UtcModifiedSinceDate
+        /// <summary>
+        /// <para>
         /// Returns the object only if it has been modified since the specified time, 
         /// otherwise returns a PreconditionFailed.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime ModifiedSinceDate { get; set; }
+        public System.DateTime UtcModifiedSinceDate { get; set; }
         #endregion
         
         #region Parameter PartNumber
@@ -157,12 +177,32 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter UnmodifiedSinceDate
         /// <summary>
         /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use UnmodifiedSinceDateUtc instead. Setting either UnmodifiedSinceDate or
+        /// UnmodifiedSinceDateUtc results in both UnmodifiedSinceDate and UnmodifiedSinceDateUtc being assigned,
+        /// the latest assignment to either one of the two property is reflected in the value of both.
+        /// UnmodifiedSinceDate is provided for backwards compatibility only and assigning a non-Utc DateTime
+        /// to it results in the wrong timestamp being passed to the service.</para>
+        /// Returns the object only if it has not been modified since the specified time, 
+        /// otherwise returns a PreconditionFailed.
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcUnmodifiedSinceDate instead.")]
+        public System.DateTime UnmodifiedSinceDate { get; set; }
+        #endregion
+        
+        #region Parameter UtcUnmodifiedSinceDate
+        /// <summary>
+        /// <para>
         /// Returns the object only if it has not been modified since the specified time, 
         /// otherwise returns a PreconditionFailed.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime UnmodifiedSinceDate { get; set; }
+        public System.DateTime UtcUnmodifiedSinceDate { get; set; }
         #endregion
         
         #region Parameter VersionId
@@ -211,11 +251,19 @@ namespace Amazon.PowerShell.Cmdlets.S3
             
             context.BucketName = this.BucketName;
             context.EtagToMatch = this.EtagToMatch;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("ModifiedSinceDate"))
                 context.ModifiedSinceDate = this.ModifiedSinceDate;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound("UtcModifiedSinceDate"))
+                context.UtcModifiedSinceDate = this.UtcModifiedSinceDate;
             context.EtagToNotMatch = this.EtagToNotMatch;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("UnmodifiedSinceDate"))
                 context.UnmodifiedSinceDate = this.UnmodifiedSinceDate;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound("UtcUnmodifiedSinceDate"))
+                context.UtcUnmodifiedSinceDate = this.UtcUnmodifiedSinceDate;
             context.Key = this.Key;
             context.VersionId = this.VersionId;
             context.ServerSideEncryptionCustomerMethod = this.ServerSideEncryptionCustomerMethod;
@@ -248,17 +296,37 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.EtagToMatch = cmdletContext.EtagToMatch;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ModifiedSinceDate != null)
             {
+                if (cmdletContext.UtcModifiedSinceDate != null)
+                {
+                    throw new ArgumentException("Parameters ModifiedSinceDate and UtcModifiedSinceDate are mutually exclusive.");
+                }
                 request.ModifiedSinceDate = cmdletContext.ModifiedSinceDate.Value;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.UtcModifiedSinceDate != null)
+            {
+                request.ModifiedSinceDateUtc = cmdletContext.UtcModifiedSinceDate.Value;
             }
             if (cmdletContext.EtagToNotMatch != null)
             {
                 request.EtagToNotMatch = cmdletContext.EtagToNotMatch;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.UnmodifiedSinceDate != null)
             {
+                if (cmdletContext.UtcUnmodifiedSinceDate != null)
+                {
+                    throw new ArgumentException("Parameters UnmodifiedSinceDate and UtcUnmodifiedSinceDate are mutually exclusive.");
+                }
                 request.UnmodifiedSinceDate = cmdletContext.UnmodifiedSinceDate.Value;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.UtcUnmodifiedSinceDate != null)
+            {
+                request.UnmodifiedSinceDateUtc = cmdletContext.UtcUnmodifiedSinceDate.Value;
             }
             if (cmdletContext.Key != null)
             {
@@ -354,9 +422,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String BucketName { get; set; }
             public System.String EtagToMatch { get; set; }
+            [System.ObsoleteAttribute]
             public System.DateTime? ModifiedSinceDate { get; set; }
+            public System.DateTime? UtcModifiedSinceDate { get; set; }
             public System.String EtagToNotMatch { get; set; }
+            [System.ObsoleteAttribute]
             public System.DateTime? UnmodifiedSinceDate { get; set; }
+            public System.DateTime? UtcUnmodifiedSinceDate { get; set; }
             public System.String Key { get; set; }
             public System.String VersionId { get; set; }
             public Amazon.S3.ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }

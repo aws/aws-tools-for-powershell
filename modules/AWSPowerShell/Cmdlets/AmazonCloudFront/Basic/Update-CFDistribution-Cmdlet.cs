@@ -28,31 +28,50 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Updates the configuration for a web distribution. Perform the following steps.
+    /// Updates the configuration for a web distribution. 
     /// 
-    ///  
-    /// <para>
-    /// For information about updating a distribution using the CloudFront console, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating-console.html">Creating
-    /// or Updating a Web Distribution Using the CloudFront Console </a> in the <i>Amazon
-    /// CloudFront Developer Guide</i>.
+    ///  <important><para>
+    /// When you update a distribution, there are more required fields than when you create
+    /// a distribution. When you update your distribution by using this API action, follow
+    /// the steps here to get the current configuration and then make your updates, to make
+    /// sure that you include all of the required fields. To view a summary, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-overview-required-fields.html">Required
+    /// Fields for Create Distribution and Update Distribution</a> in the <i>Amazon CloudFront
+    /// Developer Guide</i>.
+    /// </para></important><para>
+    /// The update process includes getting the current distribution configuration, updating
+    /// the XML document that is returned to make your changes, and then submitting an <code>UpdateDistribution</code>
+    /// request to make the updates.
+    /// </para><para>
+    /// For information about updating a distribution using the CloudFront console instead,
+    /// see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating-console.html">Creating
+    /// a Distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.
     /// </para><para><b>To update a web distribution using the CloudFront API</b></para><ol><li><para>
     /// Submit a <a>GetDistributionConfig</a> request to get the current configuration and
     /// an <code>Etag</code> header for the distribution.
     /// </para><note><para>
-    /// If you update the distribution again, you need to get a new <code>Etag</code> header.
+    /// If you update the distribution again, you must get a new <code>Etag</code> header.
     /// </para></note></li><li><para>
     /// Update the XML document that was returned in the response to your <code>GetDistributionConfig</code>
-    /// request to include the desired changes. You can't change the value of <code>CallerReference</code>.
-    /// If you try to change this value, CloudFront returns an <code>IllegalUpdate</code>
-    /// error. Note that you must strip out the ETag parameter that is returned.
+    /// request to include your changes. 
     /// </para><important><para>
+    /// When you edit the XML file, be aware of the following:
+    /// </para><ul><li><para>
+    /// You must strip out the ETag parameter that is returned.
+    /// </para></li><li><para>
+    /// Additional fields are required when you update a distribution. There may be fields
+    /// included in the XML file for features that you haven't configured for your distribution.
+    /// This is expected and required to successfully update the distribution.
+    /// </para></li><li><para>
+    /// You can't change the value of <code>CallerReference</code>. If you try to change this
+    /// value, CloudFront returns an <code>IllegalUpdate</code> error. 
+    /// </para></li><li><para>
     /// The new configuration replaces the existing configuration; the values that you specify
-    /// in an <code>UpdateDistribution</code> request are not merged into the existing configuration.
+    /// in an <code>UpdateDistribution</code> request are not merged into your existing configuration.
     /// When you add, delete, or replace values in an element that allows multiple values
     /// (for example, <code>CNAME</code>), you must specify all of the values that you want
     /// to appear in the updated distribution. In addition, you must update the corresponding
     /// <code>Quantity</code> element.
-    /// </para></important></li><li><para>
+    /// </para></li></ul></important></li><li><para>
     /// Submit an <code>UpdateDistribution</code> request to update the configuration for
     /// your distribution:
     /// </para><ul><li><para>
@@ -68,16 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// </para></li><li><para>
     /// Optional: Submit a <a>GetDistribution</a> request to confirm that your changes have
     /// propagated. When propagation is complete, the value of <code>Status</code> is <code>Deployed</code>.
-    /// </para><important><para>
-    /// Beginning with the 2012-05-05 version of the CloudFront API, we made substantial changes
-    /// to the format of the XML document that you include in the request body when you create
-    /// or update a distribution. With previous versions of the API, we discovered that it
-    /// was too easy to accidentally delete one or more values for an element that accepts
-    /// multiple values, for example, CNAMEs and trusted signers. Our changes for the 2012-05-05
-    /// release are intended to prevent these accidental deletions and to notify you when
-    /// there's a mismatch between the number of values you say you're specifying in the <code>Quantity</code>
-    /// element and the number of values you're actually specifying.
-    /// </para></important></li></ol>
+    /// </para></li></ol>
     /// </summary>
     [Cmdlet("Update", "CFDistribution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudFront.Model.Distribution")]
@@ -135,8 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>This field has been deprecated. Use one of the following fields instead:</para><ul><li><para><a>ViewerCertificate$ACMCertificateArn</a></para></li><li><para><a>ViewerCertificate$IAMCertificateId</a></para></li><li><para><a>ViewerCertificate$CloudFrontDefaultCertificate</a></para></li></ul>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This field has been deprecated. Use one of the following fields instead: ACMCerti" +
+            "ficateArn, IAMCertificateId or CloudFrontDefaultCertificate.")]
         [Alias("DistributionConfig_ViewerCertificate_Certificate")]
         public System.String ViewerCertificate_Certificate { get; set; }
         #endregion
@@ -146,8 +159,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>This field has been deprecated. Use one of the following fields instead:</para><ul><li><para><a>ViewerCertificate$ACMCertificateArn</a></para></li><li><para><a>ViewerCertificate$IAMCertificateId</a></para></li><li><para><a>ViewerCertificate$CloudFrontDefaultCertificate</a></para></li></ul>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This field has been deprecated. Use one of the following fields instead: ACMCerti" +
+            "ficateArn, IAMCertificateId or CloudFrontDefaultCertificate.")]
         [Alias("DistributionConfig_ViewerCertificate_CertificateSource")]
         [AWSConstantClassSource("Amazon.CloudFront.CertificateSource")]
         public Amazon.CloudFront.CertificateSource ViewerCertificate_CertificateSource { get; set; }
@@ -1046,8 +1062,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 context.DistributionConfig_Restrictions_GeoRestriction_Quantity = this.GeoRestriction_Quantity;
             context.DistributionConfig_Restrictions_GeoRestriction_RestrictionType = this.GeoRestriction_RestrictionType;
             context.DistributionConfig_ViewerCertificate_ACMCertificateArn = this.ViewerCertificate_ACMCertificateArn;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DistributionConfig_ViewerCertificate_Certificate = this.ViewerCertificate_Certificate;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DistributionConfig_ViewerCertificate_CertificateSource = this.ViewerCertificate_CertificateSource;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("ViewerCertificate_CloudFrontDefaultCertificate"))
                 context.DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate = this.ViewerCertificate_CloudFrontDefaultCertificate;
             context.DistributionConfig_ViewerCertificate_IAMCertificateId = this.ViewerCertificate_IAMCertificateId;
@@ -1426,6 +1446,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_ViewerCertificate.ACMCertificateArn = requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_ACMCertificateArn;
                 requestDistributionConfig_distributionConfig_ViewerCertificateIsNull = false;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.String requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_Certificate = null;
             if (cmdletContext.DistributionConfig_ViewerCertificate_Certificate != null)
             {
@@ -1436,6 +1457,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_ViewerCertificate.Certificate = requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_Certificate;
                 requestDistributionConfig_distributionConfig_ViewerCertificateIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             Amazon.CloudFront.CertificateSource requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_CertificateSource = null;
             if (cmdletContext.DistributionConfig_ViewerCertificate_CertificateSource != null)
             {
@@ -1446,6 +1469,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_ViewerCertificate.CertificateSource = requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_CertificateSource;
                 requestDistributionConfig_distributionConfig_ViewerCertificateIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Boolean? requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_CloudFrontDefaultCertificate = null;
             if (cmdletContext.DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate != null)
             {
@@ -2023,7 +2047,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.Int32? DistributionConfig_Restrictions_GeoRestriction_Quantity { get; set; }
             public Amazon.CloudFront.GeoRestrictionType DistributionConfig_Restrictions_GeoRestriction_RestrictionType { get; set; }
             public System.String DistributionConfig_ViewerCertificate_ACMCertificateArn { get; set; }
+            [System.ObsoleteAttribute]
             public System.String DistributionConfig_ViewerCertificate_Certificate { get; set; }
+            [System.ObsoleteAttribute]
             public Amazon.CloudFront.CertificateSource DistributionConfig_ViewerCertificate_CertificateSource { get; set; }
             public System.Boolean? DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate { get; set; }
             public System.String DistributionConfig_ViewerCertificate_IAMCertificateId { get; set; }

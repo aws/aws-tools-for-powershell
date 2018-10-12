@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// 
     ///  
     /// <para>
-    /// This action verifies a trust relationship between your Microsoft AD in the AWS cloud
+    /// This action verifies a trust relationship between your AWS Managed Microsoft AD directory
     /// and an external domain.
     /// </para>
     /// </summary>

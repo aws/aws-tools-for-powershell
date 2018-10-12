@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The DB cluster snapshot identifier of the new DB cluster snapshot created when <code>SkipFinalSnapshot</code>
         /// is set to <code>false</code>. </para><note><para> Specifying this parameter and also setting the <code>SkipFinalShapshot</code> parameter
-        /// to true results in an error. </para></note><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// to true results in an error. </para></note><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

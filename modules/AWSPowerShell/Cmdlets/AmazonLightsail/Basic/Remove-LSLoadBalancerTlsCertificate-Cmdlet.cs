@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>When <code>true</code>, forces the deletion of an SSL/TLS certificate.</para><para>There can be two certificates associated with a Lightsail load balancer: the primary
-        /// and the backup. The force parameter is required when the primary SSL/TLS certificate
-        /// is in use by an instance attached to the load balancer.</para>
+        /// and the backup. The <code>force</code> parameter is required when the primary SSL/TLS
+        /// certificate is in use by an instance attached to the load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

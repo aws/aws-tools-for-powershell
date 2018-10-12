@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Use a filter to return a more specific list of instances.</para>
+        /// <para>One or more filters. Use a filter to return a more specific list of instances. You
+        /// can filter on Amazon EC2 tag. Specify tags by using a key-value mapping.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

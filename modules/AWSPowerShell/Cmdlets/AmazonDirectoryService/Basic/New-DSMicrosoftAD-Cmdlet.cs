@@ -28,7 +28,7 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Creates a Microsoft AD in the AWS cloud.
+    /// Creates an AWS Managed Microsoft AD directory.
     /// 
     ///  
     /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Edition
         /// <summary>
         /// <para>
-        /// <para>AWS Microsoft AD is available in two editions: Standard and Enterprise. Enterprise
+        /// <para>AWS Managed Microsoft AD is available in two editions: Standard and Enterprise. Enterprise
         /// is the default.</para>
         /// </para>
         /// </summary>

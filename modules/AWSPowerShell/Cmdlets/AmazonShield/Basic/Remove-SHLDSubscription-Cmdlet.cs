@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     /// <summary>
     /// Removes AWS Shield Advanced from an account. AWS Shield Advanced requires a 1-year
     /// subscription commitment. You cannot delete a subscription prior to the completion
-    /// of that commitment.
+    /// of that commitment.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "SHLDSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.Shield.Model.DeleteSubscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Use UpdateSubscription operation to disable automatic subscription renewal instea" +
+        "d.")]
     public partial class RemoveSHLDSubscriptionCmdlet : AmazonShieldClientCmdlet, IExecutor
     {
         

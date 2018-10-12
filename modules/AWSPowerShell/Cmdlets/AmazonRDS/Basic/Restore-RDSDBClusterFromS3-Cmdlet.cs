@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the DB cluster to create from the source data in the Amazon S3 bucket.
-        /// This parameter is isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster1</code></para>
+        /// This parameter is isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster1</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -129,6 +129,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBSubnetGroupName { get; set; }
+        #endregion
+        
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if the DB cluster should have deletion protection enabled. The database
+        /// can't be deleted when this value is set to true. The default is false. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DeletionProtection { get; set; }
         #endregion
         
         #region Parameter EnableCloudwatchLogsExport
@@ -194,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MasterUsername
         /// <summary>
         /// <para>
-        /// <para>The name of the master user for the restored DB cluster.</para><para>Constraints:</para><ul><li><para>Must be 1 to 16 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul>
+        /// <para>The name of the master user for the restored DB cluster.</para><para>Constraints:</para><ul><li><para>Must be 1 to 16 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't be a reserved word for the chosen database engine.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -390,6 +401,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            if (ParameterWasBound("DeletionProtection"))
+                context.DeletionProtection = this.DeletionProtection;
             if (this.EnableCloudwatchLogsExport != null)
             {
                 context.EnableCloudwatchLogsExports = new List<System.String>(this.EnableCloudwatchLogsExport);
@@ -468,6 +481,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection.Value;
             }
             if (cmdletContext.EnableCloudwatchLogsExports != null)
             {
@@ -617,6 +634,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public System.Boolean? DeletionProtection { get; set; }
             public List<System.String> EnableCloudwatchLogsExports { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String Engine { get; set; }

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB cluster parameter group.</para><para>Constraints:</para><ul><li><para>Must be the name of an existing DB cluster parameter group.</para></li><li><para>You can't delete a default DB cluster parameter group.</para></li><li><para>Cannot be associated with any DB clusters.</para></li></ul>
+        /// <para>The name of the DB cluster parameter group.</para><para>Constraints:</para><ul><li><para>Must be the name of an existing DB cluster parameter group.</para></li><li><para>You can't delete a default DB cluster parameter group.</para></li><li><para>Can't be associated with any DB clusters.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

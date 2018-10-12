@@ -55,9 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionVersion
         /// <summary>
         /// <para>
-        /// <para>Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource
-        /// Names) will be returned.</para><para>Valid value:</para><para><code>ALL</code>: Will return all versions, including <code>$LATEST</code> which
-        /// will have fully qualified ARNs (Amazon Resource Names).</para>
+        /// <para>Set to <code>ALL</code> to list all published versions. If not specified, only the
+        /// latest unpublished version ARN is returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -68,10 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MasterRegion
         /// <summary>
         /// <para>
-        /// <para>Optional string. If not specified, will return only regular function versions (i.e.,
-        /// non-replicated versions).</para><para>Valid values are:</para><para>The region from which the functions are replicated. For example, if you specify <code>us-east-1</code>,
-        /// only functions replicated from that region will be returned.</para><para><code>ALL</code>: Will return all functions from any region. If specified, you also
-        /// must specify a valid FunctionVersion parameter.</para>
+        /// <para>Specify a region (e.g. <code>us-east-2</code>) to only list functions that were created
+        /// in that region, or <code>ALL</code> to include functions replicated from any region.
+        /// If specified, you also must specify the <code>FunctionVersion</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -97,7 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>Optional integer. Specifies the maximum number of AWS Lambda functions to return in
-        /// response. This parameter value must be greater than 0.</para>
+        /// response. This parameter value must be greater than 0. The absolute maximum of AWS
+        /// Lambda functions that can be returned is 50.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -28,16 +28,15 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Creates a new link aggregation group (LAG) with the specified number of bundled physical
+    /// Creates a link aggregation group (LAG) with the specified number of bundled physical
     /// connections between the customer network and a specific AWS Direct Connect location.
     /// A LAG is a logical interface that uses the Link Aggregation Control Protocol (LACP)
-    /// to aggregate multiple 1 gigabit or 10 gigabit interfaces, allowing you to treat them
-    /// as a single interface.
+    /// to aggregate multiple interfaces, enabling you to treat them as a single interface.
     /// 
     ///  
     /// <para>
-    /// All connections in a LAG must use the same bandwidth (for example, 10 Gbps), and must
-    /// terminate at the same AWS Direct Connect endpoint.
+    /// All connections in a LAG must use the same bandwidth and must terminate at the same
+    /// AWS Direct Connect endpoint.
     /// </para><para>
     /// You can have up to 10 connections per LAG. Regardless of this limit, if you request
     /// more connections for the LAG than AWS Direct Connect can allocate on a single endpoint,
@@ -68,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of an existing connection to migrate to the LAG.</para><para>Default: None</para>
+        /// <para>The ID of an existing connection to migrate to the LAG.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -78,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionsBandwidth
         /// <summary>
         /// <para>
-        /// <para>The bandwidth of the individual physical connections bundled by the LAG.</para><para>Default: None</para><para>Available values: 1Gbps, 10Gbps</para>
+        /// <para>The bandwidth of the individual physical connections bundled by the LAG. The possible
+        /// values are 1Gbps and 10Gbps.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter LagName
         /// <summary>
         /// <para>
-        /// <para>The name of the LAG.</para><para>Example: "<code>3x10G LAG to AWS</code>"</para><para>Default: None</para>
+        /// <para>The name of the LAG.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter Location
         /// <summary>
         /// <para>
-        /// <para>The AWS Direct Connect location in which the LAG should be allocated.</para><para>Example: EqSV5</para><para>Default: None</para>
+        /// <para>The location for the LAG.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NumberOfConnection
         /// <summary>
         /// <para>
-        /// <para>The number of physical connections initially provisioned and bundled by the LAG.</para><para>Default: None</para>
+        /// <para>The number of physical connections initially provisioned and bundled by the LAG.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

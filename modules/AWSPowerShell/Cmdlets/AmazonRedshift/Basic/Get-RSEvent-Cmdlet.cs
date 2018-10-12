@@ -59,13 +59,33 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter EndTime
         /// <summary>
         /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use EndTimeUtc instead. Setting either EndTime or EndTimeUtc
+        /// results in both EndTime and EndTimeUtc being assigned, the latest assignment to either
+        /// one of the two property is reflected in the value of both. EndTime is provided for
+        /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
+        /// wrong timestamp being passed to the service.</para><para>The end of the time interval for which to retrieve events, specified in ISO 8601 format.
+        /// For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
+        /// Wikipedia page.</a></para><para>Example: <code>2009-07-08T18:00Z</code></para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcEndTime instead.")]
+        public System.DateTime EndTime { get; set; }
+        #endregion
+        
+        #region Parameter UtcEndTime
+        /// <summary>
+        /// <para>
         /// <para>The end of the time interval for which to retrieve events, specified in ISO 8601 format.
         /// For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
         /// Wikipedia page.</a></para><para>Example: <code>2009-07-08T18:00Z</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime EndTime { get; set; }
+        public System.DateTime UtcEndTime { get; set; }
         #endregion
         
         #region Parameter SourceIdentifier
@@ -97,13 +117,33 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter StartTime
         /// <summary>
         /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use StartTimeUtc instead. Setting either StartTime or
+        /// StartTimeUtc results in both StartTime and StartTimeUtc being assigned, the latest
+        /// assignment to either one of the two property is reflected in the value of both. StartTime
+        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
+        /// results in the wrong timestamp being passed to the service.</para><para>The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
+        /// For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
+        /// Wikipedia page.</a></para><para>Example: <code>2009-07-08T18:00Z</code></para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcStartTime instead.")]
+        public System.DateTime StartTime { get; set; }
+        #endregion
+        
+        #region Parameter UtcStartTime
+        /// <summary>
+        /// <para>
         /// <para>The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
         /// For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
         /// Wikipedia page.</a></para><para>Example: <code>2009-07-08T18:00Z</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime StartTime { get; set; }
+        public System.DateTime UtcStartTime { get; set; }
         #endregion
         
         #region Parameter Marker
@@ -156,15 +196,23 @@ namespace Amazon.PowerShell.Cmdlets.RS
             
             if (ParameterWasBound("Duration"))
                 context.Duration = this.Duration;
-            if (ParameterWasBound("EndTime"))
-                context.EndTime = this.EndTime;
+            if (ParameterWasBound("UtcEndTime"))
+                context.UtcEndTime = this.UtcEndTime;
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
             context.SourceIdentifier = this.SourceIdentifier;
             context.SourceType = this.SourceType;
+            if (ParameterWasBound("UtcStartTime"))
+                context.UtcStartTime = this.UtcStartTime;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound("EndTime"))
+                context.EndTime = this.EndTime;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("StartTime"))
                 context.StartTime = this.StartTime;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -185,9 +233,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 request.Duration = cmdletContext.Duration.Value;
             }
-            if (cmdletContext.EndTime != null)
+            if (cmdletContext.UtcEndTime != null)
             {
-                request.EndTime = cmdletContext.EndTime.Value;
+                request.EndTimeUtc = cmdletContext.UtcEndTime.Value;
             }
             if (cmdletContext.SourceIdentifier != null)
             {
@@ -197,10 +245,30 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 request.SourceType = cmdletContext.SourceType;
             }
+            if (cmdletContext.UtcStartTime != null)
+            {
+                request.StartTimeUtc = cmdletContext.UtcStartTime.Value;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.EndTime != null)
+            {
+                if (cmdletContext.UtcEndTime != null)
+                {
+                    throw new ArgumentException("Parameters EndTime and UtcEndTime are mutually exclusive.");
+                }
+                request.EndTime = cmdletContext.EndTime.Value;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.StartTime != null)
             {
+                if (cmdletContext.UtcStartTime != null)
+                {
+                    throw new ArgumentException("Parameters StartTime and UtcStartTime are mutually exclusive.");
+                }
                 request.StartTime = cmdletContext.StartTime.Value;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
@@ -348,11 +416,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? Duration { get; set; }
-            public System.DateTime? EndTime { get; set; }
+            public System.DateTime? UtcEndTime { get; set; }
             public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
             public System.String SourceIdentifier { get; set; }
             public Amazon.Redshift.SourceType SourceType { get; set; }
+            public System.DateTime? UtcStartTime { get; set; }
+            [System.ObsoleteAttribute]
+            public System.DateTime? EndTime { get; set; }
+            [System.ObsoleteAttribute]
             public System.DateTime? StartTime { get; set; }
         }
         

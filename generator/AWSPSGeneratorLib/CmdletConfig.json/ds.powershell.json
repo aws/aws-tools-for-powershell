@@ -31,6 +31,60 @@
   "supportsShouldProcessVerbs": [],
   "verbMaps": {},
   "serviceOperations": {
+    "AcceptSharedDirectory": {
+      "verb": "Confirm",
+      "noun": "SharedDirectory",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "SharedDirectory",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "SharedDirectoryId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "SharedDirectory",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "Limit",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "SharedDirectoryId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "AddIpRoutes": {
       "verb": "Add",
       "noun": "IpRoute",
@@ -1205,6 +1259,55 @@
         "memoryStreamParameters": []
       }
     },
+    "DescribeSharedDirectories": {
+      "verb": "Get",
+      "noun": "SharedDirectory",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "SharedDirectories",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "OwnerDirectoryId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "SharedDirectories",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "Limit",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "DescribeSnapshots": {
       "verb": "Get",
       "noun": "Snapshot",
@@ -1865,6 +1968,60 @@
         "memoryStreamParameters": []
       }
     },
+    "RejectSharedDirectory": {
+      "verb": "Deny",
+      "noun": "SharedDirectory",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "SharedDirectoryId",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "SharedDirectoryId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "SharedDirectory",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "Limit",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "SharedDirectoryId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "RemoveIpRoutes": {
       "verb": "Remove",
       "noun": "IpRoute",
@@ -2083,6 +2240,60 @@
         "memoryStreamParameters": []
       }
     },
+    "ShareDirectory": {
+      "verb": "Enable",
+      "noun": "DirectoryShare",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "SharedDirectoryId",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "DirectoryId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "DirectoryId"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Directory",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "Limit",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "DirectoryId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "StartSchemaExtension": {
       "verb": "Start",
       "noun": "SchemaExtension",
@@ -2132,6 +2343,60 @@
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
+          "targetParameterName": "DirectoryId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "UnshareDirectory": {
+      "verb": "Disable",
+      "noun": "DirectoryShare",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "SharedDirectoryId",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "DirectoryId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "DirectoryId"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Directory",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "Limit",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DirectoryId"
         },
         "memoryStreamParameters": []
@@ -2295,6 +2560,60 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DirectoryId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "UpdateTrust": {
+      "verb": "Update",
+      "noun": "Trust",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "TrustId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "TrustId"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Trust",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "Limit",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "TrustId"
         },
         "memoryStreamParameters": []
       }

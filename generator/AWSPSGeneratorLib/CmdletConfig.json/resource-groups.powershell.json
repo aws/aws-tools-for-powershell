@@ -396,7 +396,7 @@
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
-        "outputMemberSelector": "Groups",
+        "outputMemberSelector": "GroupIdentifiers",
         "outputMemberWrapper": "",
         "passThru": {}
       },
@@ -409,7 +409,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "Filters"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {

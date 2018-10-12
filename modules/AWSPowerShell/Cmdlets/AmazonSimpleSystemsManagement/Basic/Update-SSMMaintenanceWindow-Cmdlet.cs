@@ -92,6 +92,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.Boolean Enabled { get; set; }
         #endregion
         
+        #region Parameter EndDate
+        /// <summary>
+        /// <para>
+        /// <para>The date and time, in ISO-8601 Extended format, for when you want the Maintenance
+        /// Window to become inactive. EndDate allows you to set a date and time in the future
+        /// when the Maintenance Window will no longer run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String EndDate { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -122,6 +134,32 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Schedule { get; set; }
+        #endregion
+        
+        #region Parameter ScheduleTimezone
+        /// <summary>
+        /// <para>
+        /// <para>The time zone that the scheduled Maintenance Window executions are based on, in Internet
+        /// Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC",
+        /// or "Asia/Seoul". For more information, see the <a href="https://www.iana.org/time-zones">Time
+        /// Zone Database</a> on the IANA website.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ScheduleTimezone { get; set; }
+        #endregion
+        
+        #region Parameter StartDate
+        /// <summary>
+        /// <para>
+        /// <para>The time zone that the scheduled Maintenance Window executions are based on, in Internet
+        /// Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC",
+        /// or "Asia/Seoul". For more information, see the <a href="https://www.iana.org/time-zones">Time
+        /// Zone Database</a> on the IANA website.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String StartDate { get; set; }
         #endregion
         
         #region Parameter WindowId
@@ -172,10 +210,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.Duration = this.Duration;
             if (ParameterWasBound("Enabled"))
                 context.Enabled = this.Enabled;
+            context.EndDate = this.EndDate;
             context.Name = this.Name;
             if (ParameterWasBound("Replace"))
                 context.Replace = this.Replace;
             context.Schedule = this.Schedule;
+            context.ScheduleTimezone = this.ScheduleTimezone;
+            context.StartDate = this.StartDate;
             context.WindowId = this.WindowId;
             
             // allow further manipulation of loaded context prior to processing
@@ -213,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.Enabled = cmdletContext.Enabled.Value;
             }
+            if (cmdletContext.EndDate != null)
+            {
+                request.EndDate = cmdletContext.EndDate;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -224,6 +269,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Schedule != null)
             {
                 request.Schedule = cmdletContext.Schedule;
+            }
+            if (cmdletContext.ScheduleTimezone != null)
+            {
+                request.ScheduleTimezone = cmdletContext.ScheduleTimezone;
+            }
+            if (cmdletContext.StartDate != null)
+            {
+                request.StartDate = cmdletContext.StartDate;
             }
             if (cmdletContext.WindowId != null)
             {
@@ -298,9 +351,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String Description { get; set; }
             public System.Int32? Duration { get; set; }
             public System.Boolean? Enabled { get; set; }
+            public System.String EndDate { get; set; }
             public System.String Name { get; set; }
             public System.Boolean? Replace { get; set; }
             public System.String Schedule { get; set; }
+            public System.String ScheduleTimezone { get; set; }
+            public System.String StartDate { get; set; }
             public System.String WindowId { get; set; }
         }
         

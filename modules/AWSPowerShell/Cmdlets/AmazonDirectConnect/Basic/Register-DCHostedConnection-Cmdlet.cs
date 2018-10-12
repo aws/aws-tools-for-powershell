@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// being migrated.
     /// 
     ///  <note><para>
-    /// This is intended for use by AWS Direct Connect partners only.
+    /// Intended for use by AWS Direct Connect partners only.
     /// </para></note>
     /// </summary>
     [Cmdlet("Register", "DCHostedConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the hosted connection.</para><para>Example: dxcon-abc123</para><para>Default: None</para>
+        /// <para>The ID of the hosted connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ParentConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the interconnect or the LAG.</para><para>Example: dxcon-abc123 or dxlag-abc123</para><para>Default: None</para>
+        /// <para>The ID of the interconnect or the LAG.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

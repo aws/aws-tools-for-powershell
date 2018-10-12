@@ -31,14 +31,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// Refreshes the cache for the specified file share. This operation finds objects in
     /// the Amazon S3 bucket that were added, removed or replaced since the gateway last listed
     /// the bucket's contents and cached the results. This operation is only supported in
-    /// the file gateway type.
+    /// the file gateway type. You can subscribe to be notified through an Amazon CloudWatch
+    /// event when your RefreshCache operation completes. For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification">Getting
+    /// Notified About File Operations</a>.
     /// </summary>
     [Cmdlet("Invoke", "SGCacheRefresh", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
+    [OutputType("Amazon.StorageGateway.Model.RefreshCacheResponse")]
     [AWSCmdlet("Calls the AWS Storage Gateway RefreshCache API operation.", Operation = new[] {"RefreshCache"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.StorageGateway.Model.RefreshCacheResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.StorageGateway.Model.RefreshCacheResponse",
+        "This cmdlet returns a Amazon.StorageGateway.Model.RefreshCacheResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class InvokeSGCacheRefreshCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
@@ -51,6 +52,31 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String FileShareARN { get; set; }
+        #endregion
+        
+        #region Parameter FolderList
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] FolderList { get; set; }
+        #endregion
+        
+        #region Parameter Recursive
+        /// <summary>
+        /// <para>
+        /// <para>A value that specifies whether to recursively refresh folders in the cache. The refresh
+        /// includes folders that were in the cache the last time the gateway listed the folder's
+        /// contents. If this value set to "true", each folder that is listed in <code>FolderList</code>
+        /// is recursively updated. Otherwise, subfolders listed in <code>FolderList</code> are
+        /// not refreshed. Only objects that are in folders listed directly under <code>FolderList</code>
+        /// are found and used for the update. The default is "true".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Recursive { get; set; }
         #endregion
         
         #region Parameter Force
@@ -83,6 +109,12 @@ namespace Amazon.PowerShell.Cmdlets.SG
             PreExecutionContextLoad(context);
             
             context.FileShareARN = this.FileShareARN;
+            if (this.FolderList != null)
+            {
+                context.FolderList = new List<System.String>(this.FolderList);
+            }
+            if (ParameterWasBound("Recursive"))
+                context.Recursive = this.Recursive;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -103,6 +135,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 request.FileShareARN = cmdletContext.FileShareARN;
             }
+            if (cmdletContext.FolderList != null)
+            {
+                request.FolderList = cmdletContext.FolderList;
+            }
+            if (cmdletContext.Recursive != null)
+            {
+                request.Recursive = cmdletContext.Recursive.Value;
+            }
             
             CmdletOutput output;
             
@@ -112,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.FileShareARN;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -168,6 +208,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String FileShareARN { get; set; }
+            public List<System.String> FolderList { get; set; }
+            public System.Boolean? Recursive { get; set; }
         }
         
     }

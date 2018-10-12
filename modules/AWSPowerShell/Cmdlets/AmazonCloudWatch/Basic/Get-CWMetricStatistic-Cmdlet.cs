@@ -111,12 +111,31 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter EndTime
         /// <summary>
         /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use EndTimeUtc instead. Setting either EndTime or EndTimeUtc
+        /// results in both EndTime and EndTimeUtc being assigned, the latest assignment to either
+        /// one of the two property is reflected in the value of both. EndTime is provided for
+        /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
+        /// wrong timestamp being passed to the service.</para><para>The time stamp that determines the last data point to return.</para><para>The value specified is exclusive; results include data points up to the specified
+        /// time stamp. The time stamp must be in ISO 8601 UTC format (for example, 2016-10-10T23:00:00Z).</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcEndTime instead.")]
+        public System.DateTime EndTime { get; set; }
+        #endregion
+        
+        #region Parameter UtcEndTime
+        /// <summary>
+        /// <para>
         /// <para>The time stamp that determines the last data point to return.</para><para>The value specified is exclusive; results include data points up to the specified
         /// time stamp. The time stamp must be in ISO 8601 UTC format (for example, 2016-10-10T23:00:00Z).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime EndTime { get; set; }
+        public System.DateTime UtcEndTime { get; set; }
         #endregion
         
         #region Parameter ExtendedStatistic
@@ -173,6 +192,35 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter StartTime
         /// <summary>
         /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use StartTimeUtc instead. Setting either StartTime or
+        /// StartTimeUtc results in both StartTime and StartTimeUtc being assigned, the latest
+        /// assignment to either one of the two property is reflected in the value of both. StartTime
+        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
+        /// results in the wrong timestamp being passed to the service.</para><para>The time stamp that determines the first data point to return. Start times are evaluated
+        /// relative to the time that CloudWatch receives the request.</para><para>The value specified is inclusive; results include data points with the specified time
+        /// stamp. The time stamp must be in ISO 8601 UTC format (for example, 2016-10-03T23:00:00Z).</para><para>CloudWatch rounds the specified time stamp as follows:</para><ul><li><para>Start time less than 15 days ago - Round down to the nearest whole minute. For example,
+        /// 12:32:34 is rounded down to 12:32:00.</para></li><li><para>Start time between 15 and 63 days ago - Round down to the nearest 5-minute clock interval.
+        /// For example, 12:32:34 is rounded down to 12:30:00.</para></li><li><para>Start time greater than 63 days ago - Round down to the nearest 1-hour clock interval.
+        /// For example, 12:32:34 is rounded down to 12:00:00.</para></li></ul><para>If you set <code>Period</code> to 5, 10, or 30, the start time of your request is
+        /// rounded down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions
+        /// of a minute. For example, if you make a query at (HH:mm:ss) 01:05:23 for the previous
+        /// 10-second period, the start time of your request is rounded down and you receive data
+        /// from 01:05:10 to 01:05:20. If you make a query at 15:07:17 for the previous 5 minutes
+        /// of data, using a period of 5 seconds, you receive data timestamped between 15:02:15
+        /// and 15:07:15. </para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcStartTime instead.")]
+        public System.DateTime StartTime { get; set; }
+        #endregion
+        
+        #region Parameter UtcStartTime
+        /// <summary>
+        /// <para>
         /// <para>The time stamp that determines the first data point to return. Start times are evaluated
         /// relative to the time that CloudWatch receives the request.</para><para>The value specified is inclusive; results include data points with the specified time
         /// stamp. The time stamp must be in ISO 8601 UTC format (for example, 2016-10-03T23:00:00Z).</para><para>CloudWatch rounds the specified time stamp as follows:</para><ul><li><para>Start time less than 15 days ago - Round down to the nearest whole minute. For example,
@@ -188,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime StartTime { get; set; }
+        public System.DateTime UtcStartTime { get; set; }
         #endregion
         
         #region Parameter Statistic
@@ -234,8 +282,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
             {
                 context.Dimensions = new List<Amazon.CloudWatch.Model.Dimension>(this.Dimension);
             }
-            if (ParameterWasBound("EndTime"))
-                context.EndTime = this.EndTime;
+            if (ParameterWasBound("UtcEndTime"))
+                context.UtcEndTime = this.UtcEndTime;
             if (this.ExtendedStatistic != null)
             {
                 context.ExtendedStatistics = new List<System.String>(this.ExtendedStatistic);
@@ -244,13 +292,21 @@ namespace Amazon.PowerShell.Cmdlets.CW
             context.Namespace = this.Namespace;
             if (ParameterWasBound("Period"))
                 context.Period = this.Period;
-            if (ParameterWasBound("StartTime"))
-                context.StartTime = this.StartTime;
+            if (ParameterWasBound("UtcStartTime"))
+                context.UtcStartTime = this.UtcStartTime;
             if (this.Statistic != null)
             {
                 context.Statistics = new List<System.String>(this.Statistic);
             }
             context.Unit = this.Unit;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound("EndTime"))
+                context.EndTime = this.EndTime;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound("StartTime"))
+                context.StartTime = this.StartTime;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -271,9 +327,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
             {
                 request.Dimensions = cmdletContext.Dimensions;
             }
-            if (cmdletContext.EndTime != null)
+            if (cmdletContext.UtcEndTime != null)
             {
-                request.EndTime = cmdletContext.EndTime.Value;
+                request.EndTimeUtc = cmdletContext.UtcEndTime.Value;
             }
             if (cmdletContext.ExtendedStatistics != null)
             {
@@ -291,9 +347,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
             {
                 request.Period = cmdletContext.Period.Value;
             }
-            if (cmdletContext.StartTime != null)
+            if (cmdletContext.UtcStartTime != null)
             {
-                request.StartTime = cmdletContext.StartTime.Value;
+                request.StartTimeUtc = cmdletContext.UtcStartTime.Value;
             }
             if (cmdletContext.Statistics != null)
             {
@@ -303,6 +359,26 @@ namespace Amazon.PowerShell.Cmdlets.CW
             {
                 request.Unit = cmdletContext.Unit;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.EndTime != null)
+            {
+                if (cmdletContext.UtcEndTime != null)
+                {
+                    throw new ArgumentException("Parameters EndTime and UtcEndTime are mutually exclusive.");
+                }
+                request.EndTime = cmdletContext.EndTime.Value;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.StartTime != null)
+            {
+                if (cmdletContext.UtcStartTime != null)
+                {
+                    throw new ArgumentException("Parameters StartTime and UtcStartTime are mutually exclusive.");
+                }
+                request.StartTime = cmdletContext.StartTime.Value;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -368,14 +444,18 @@ namespace Amazon.PowerShell.Cmdlets.CW
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.CloudWatch.Model.Dimension> Dimensions { get; set; }
-            public System.DateTime? EndTime { get; set; }
+            public System.DateTime? UtcEndTime { get; set; }
             public List<System.String> ExtendedStatistics { get; set; }
             public System.String MetricName { get; set; }
             public System.String Namespace { get; set; }
             public System.Int32? Period { get; set; }
-            public System.DateTime? StartTime { get; set; }
+            public System.DateTime? UtcStartTime { get; set; }
             public List<System.String> Statistics { get; set; }
             public Amazon.CloudWatch.StandardUnit Unit { get; set; }
+            [System.ObsoleteAttribute]
+            public System.DateTime? EndTime { get; set; }
+            [System.ObsoleteAttribute]
+            public System.DateTime? StartTime { get; set; }
         }
         
     }

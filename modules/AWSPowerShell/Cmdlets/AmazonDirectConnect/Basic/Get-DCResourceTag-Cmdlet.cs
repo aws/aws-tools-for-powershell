@@ -28,7 +28,7 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Describes the tags associated with the specified Direct Connect resources.
+    /// Describes the tags associated with the specified AWS Direct Connect resources.
     /// </summary>
     [Cmdlet("Get", "DCResourceTag")]
     [OutputType("Amazon.DirectConnect.Model.ResourceTag")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) of the Direct Connect resources.</para>
+        /// <para>The Amazon Resource Names (ARNs) of the resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

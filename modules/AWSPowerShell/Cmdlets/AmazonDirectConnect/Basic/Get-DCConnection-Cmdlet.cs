@@ -28,12 +28,7 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Displays all connections in this region.
-    /// 
-    ///  
-    /// <para>
-    /// If a connection ID is provided, the call returns only that particular connection.
-    /// </para>
+    /// Displays the specified connection or all connections in this Region.
     /// </summary>
     [Cmdlet("Get", "DCConnection")]
     [OutputType("Amazon.DirectConnect.Model.Connection")]
@@ -48,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

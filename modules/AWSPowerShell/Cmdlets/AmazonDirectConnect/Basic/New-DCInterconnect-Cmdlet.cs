@@ -28,31 +28,29 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Creates a new interconnect between a AWS Direct Connect partner's network and a specific
+    /// Creates an interconnect between an AWS Direct Connect partner's network and a specific
     /// AWS Direct Connect location.
     /// 
     ///  
     /// <para>
     /// An interconnect is a connection which is capable of hosting other connections. The
-    /// AWS Direct Connect partner can use an interconnect to provide sub-1Gbps AWS Direct
-    /// Connect service to tier 2 customers who do not have their own connections. Like a
-    /// standard connection, an interconnect links the AWS Direct Connect partner's network
-    /// to an AWS Direct Connect location over a standard 1 Gbps or 10 Gbps Ethernet fiber-optic
-    /// cable. One end is connected to the partner's router, the other to an AWS Direct Connect
-    /// router.
+    /// partner can use an interconnect to provide sub-1Gbps AWS Direct Connect service to
+    /// tier 2 customers who do not have their own connections. Like a standard connection,
+    /// an interconnect links the partner's network to an AWS Direct Connect location over
+    /// a standard Ethernet fiber-optic cable. One end is connected to the partner's router,
+    /// the other to an AWS Direct Connect router.
     /// </para><para>
     /// You can automatically add the new interconnect to a link aggregation group (LAG) by
     /// specifying a LAG ID in the request. This ensures that the new interconnect is allocated
     /// on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are
-    /// no available ports on the endpoint, the request fails and no interconnect will be
-    /// created.
+    /// no available ports on the endpoint, the request fails and no interconnect is created.
     /// </para><para>
     /// For each end customer, the AWS Direct Connect partner provisions a connection on their
-    /// interconnect by calling AllocateConnectionOnInterconnect. The end customer can then
-    /// connect to AWS resources by creating a virtual interface on their connection, using
-    /// the VLAN assigned to them by the AWS Direct Connect partner.
+    /// interconnect by calling <a>AllocateConnectionOnInterconnect</a>. The end customer
+    /// can then connect to AWS resources by creating a virtual interface on their connection,
+    /// using the VLAN assigned to them by the partner.
     /// </para><note><para>
-    /// This is intended for use by AWS Direct Connect partners only.
+    /// Intended for use by AWS Direct Connect partners only.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "DCInterconnect", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -67,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter Bandwidth
         /// <summary>
         /// <para>
-        /// <para>The port bandwidth</para><para>Example: 1Gbps</para><para>Default: None</para><para>Available values: 1Gbps,10Gbps</para>
+        /// <para>The port bandwidth, in Gbps. The possible values are 1 and 10.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -77,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter InterconnectName
         /// <summary>
         /// <para>
-        /// <para>The name of the interconnect.</para><para>Example: "<i>1G Interconnect to AWS</i>"</para><para>Default: None</para>
+        /// <para>The name of the interconnect.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -87,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter LagId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the LAG.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -97,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter Location
         /// <summary>
         /// <para>
-        /// <para>Where the interconnect is located</para><para>Example: EqSV5</para><para>Default: None</para>
+        /// <para>The location of the interconnect.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

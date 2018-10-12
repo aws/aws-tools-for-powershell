@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
 {
     /// <summary>
     /// Changes the Channel's first IngestEndpoint's username and password. WARNING - This
-    /// API is deprecated. Please use RotateIngestEndpointCredentials instead
+    /// API is deprecated. Please use RotateIngestEndpointCredentials instead<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Invoke", "EMPChannelCredentialRotation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaPackage.Model.RotateChannelCredentialsResponse")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     [AWSCmdletOutput("Amazon.MediaPackage.Model.RotateChannelCredentialsResponse",
         "This cmdlet returns a Amazon.MediaPackage.Model.RotateChannelCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This API is deprecated. Please use RotateIngestEndpointCredentials instead")]
     public partial class InvokeEMPChannelCredentialRotationCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
     {
         

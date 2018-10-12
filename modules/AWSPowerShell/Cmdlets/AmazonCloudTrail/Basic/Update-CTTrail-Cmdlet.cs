@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <para>
         /// <para>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value
         /// can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully
-        /// specified ARN to a key, or a globally unique identifier.</para><para>Examples:</para><ul><li><para>alias/MyAliasName</para></li><li><para>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</para></li><li><para>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</para></li><li><para>12345678-1234-1234-1234-123456789012</para></li></ul>
+        /// specified ARN to a key, or a globally unique identifier.</para><para>Examples:</para><ul><li><para>alias/MyAliasName</para></li><li><para>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</para></li><li><para>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</para></li><li><para>12345678-1234-1234-1234-123456789012</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <para>Specifies the name of the trail or trail ARN. If <code>Name</code> is a trail name,
         /// the string must meet the following requirements:</para><ul><li><para>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_),
         /// or dashes (-)</para></li><li><para>Start with a letter or number, and end with a letter or number</para></li><li><para>Be between 3 and 128 characters</para></li><li><para>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code>
-        /// and <code>my--namespace</code> are invalid.</para></li><li><para>Not be in IP address format (for example, 192.168.5.4)</para></li></ul><para>If <code>Name</code> is a trail ARN, it must be in the format:</para><para><code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code></para>
+        /// and <code>my--namespace</code> are invalid.</para></li><li><para>Not be in IP address format (for example, 192.168.5.4)</para></li></ul><para>If <code>Name</code> is a trail ARN, it must be in the format:</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

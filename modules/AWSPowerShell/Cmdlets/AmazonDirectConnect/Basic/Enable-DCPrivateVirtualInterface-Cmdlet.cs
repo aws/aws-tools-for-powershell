@@ -28,13 +28,13 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Provisions a private virtual interface to be owned by another AWS customer.
+    /// Provisions a private virtual interface to be owned by the specified AWS account.
     /// 
     ///  
     /// <para>
-    /// Virtual interfaces created using this action must be confirmed by the virtual interface
-    /// owner by using the <a>ConfirmPrivateVirtualInterface</a> action. Until then, the virtual
-    /// interface will be in 'Confirming' state, and will not be available for handling traffic.
+    /// Virtual interfaces created using this action must be confirmed by the owner using
+    /// <a>ConfirmPrivateVirtualInterface</a>. Until then, the virtual interface is in the
+    /// <code>Confirming</code> state and is not available to handle traffic.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "DCPrivateVirtualInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPrivateVirtualInterfaceAllocation_AddressFamily
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The address family for the BGP peer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPrivateVirtualInterfaceAllocation_AmazonAddress
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The IP address assigned to the Amazon interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPrivateVirtualInterfaceAllocation_Asn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPrivateVirtualInterfaceAllocation_AuthKey
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The authentication key for BGP configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para>The connection ID on which the private virtual interface is provisioned.</para><para>Default: None</para>
+        /// <para>The ID of the connection on which the private virtual interface is provisioned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -100,17 +100,28 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPrivateVirtualInterfaceAllocation_CustomerAddress
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The IP address assigned to the customer interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NewPrivateVirtualInterfaceAllocation_CustomerAddress { get; set; }
         #endregion
         
+        #region Parameter NewPrivateVirtualInterfaceAllocation_Mtu
+        /// <summary>
+        /// <para>
+        /// <para>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001.
+        /// The default value is 1500.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 NewPrivateVirtualInterfaceAllocation_Mtu { get; set; }
+        #endregion
+        
         #region Parameter OwnerAccount
         /// <summary>
         /// <para>
-        /// <para>The AWS account that will own the new private virtual interface.</para><para>Default: None</para>
+        /// <para>The ID of the AWS account that owns the virtual private interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -120,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPrivateVirtualInterfaceAllocation_VirtualInterfaceName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the virtual interface assigned by the customer network.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -130,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPrivateVirtualInterfaceAllocation_Vlan
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the VLAN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -173,6 +184,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 context.NewPrivateVirtualInterfaceAllocation_Asn = this.NewPrivateVirtualInterfaceAllocation_Asn;
             context.NewPrivateVirtualInterfaceAllocation_AuthKey = this.NewPrivateVirtualInterfaceAllocation_AuthKey;
             context.NewPrivateVirtualInterfaceAllocation_CustomerAddress = this.NewPrivateVirtualInterfaceAllocation_CustomerAddress;
+            if (ParameterWasBound("NewPrivateVirtualInterfaceAllocation_Mtu"))
+                context.NewPrivateVirtualInterfaceAllocation_Mtu = this.NewPrivateVirtualInterfaceAllocation_Mtu;
             context.NewPrivateVirtualInterfaceAllocation_VirtualInterfaceName = this.NewPrivateVirtualInterfaceAllocation_VirtualInterfaceName;
             if (ParameterWasBound("NewPrivateVirtualInterfaceAllocation_Vlan"))
                 context.NewPrivateVirtualInterfaceAllocation_Vlan = this.NewPrivateVirtualInterfaceAllocation_Vlan;
@@ -249,6 +262,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_CustomerAddress != null)
             {
                 request.NewPrivateVirtualInterfaceAllocation.CustomerAddress = requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_CustomerAddress;
+                requestNewPrivateVirtualInterfaceAllocationIsNull = false;
+            }
+            System.Int32? requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_Mtu = null;
+            if (cmdletContext.NewPrivateVirtualInterfaceAllocation_Mtu != null)
+            {
+                requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_Mtu = cmdletContext.NewPrivateVirtualInterfaceAllocation_Mtu.Value;
+            }
+            if (requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_Mtu != null)
+            {
+                request.NewPrivateVirtualInterfaceAllocation.Mtu = requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_Mtu.Value;
                 requestNewPrivateVirtualInterfaceAllocationIsNull = false;
             }
             System.String requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_VirtualInterfaceName = null;
@@ -350,6 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             public System.Int32? NewPrivateVirtualInterfaceAllocation_Asn { get; set; }
             public System.String NewPrivateVirtualInterfaceAllocation_AuthKey { get; set; }
             public System.String NewPrivateVirtualInterfaceAllocation_CustomerAddress { get; set; }
+            public System.Int32? NewPrivateVirtualInterfaceAllocation_Mtu { get; set; }
             public System.String NewPrivateVirtualInterfaceAllocation_VirtualInterfaceName { get; set; }
             public System.Int32? NewPrivateVirtualInterfaceAllocation_Vlan { get; set; }
             public System.String OwnerAccount { get; set; }

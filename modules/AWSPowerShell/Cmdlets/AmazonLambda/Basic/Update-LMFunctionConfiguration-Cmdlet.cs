@@ -67,11 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>The name of the Lambda function.</para><para> You can specify a function name (for example, <code>Thumbnail</code>) or you can
-        /// specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>).
-        /// AWS Lambda also allows you to specify a partial ARN (for example, <code>account-id:Thumbnail</code>).
-        /// Note that the length constraint applies only to the ARN. If you specify only the function
-        /// name, it is limited to 64 character in length. </para>
+        /// Amazon.Lambda.Model.UpdateFunctionConfigurationRequest.FunctionName
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -118,10 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter TracingConfig_Mode
         /// <summary>
         /// <para>
-        /// <para>Can be either PassThrough or Active. If PassThrough, Lambda will only trace the request
-        /// from an upstream service if it contains a tracing header with "sampled=1". If Active,
-        /// Lambda will respect any tracing header it receives from an upstream service. If no
-        /// tracing header is received, Lambda will call X-Ray for a tracing decision.</para>
+        /// <para>The tracing mode.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -136,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// function version or alias. If the <code>RevisionID</code> you pass doesn't match the
         /// latest <code>RevisionId</code> of the function or alias, it will fail with an error
         /// message, advising you to retrieve the latest function version or alias <code>RevisionID</code>
-        /// using either or .</para>
+        /// using either <a>GetFunction</a> or <a>GetAlias</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -157,15 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Runtime
         /// <summary>
         /// <para>
-        /// <para>The runtime environment for the Lambda function.</para><para>To use the Python runtime v3.6, set the value to "python3.6". To use the Python runtime
-        /// v2.7, set the value to "python2.7". To use the Node.js runtime v6.10, set the value
-        /// to "nodejs6.10". To use the Node.js runtime v4.3, set the value to "nodejs4.3". To
-        /// use the .NET Core runtime v1.0, set the value to "dotnetcore1.0". To use the .NET
-        /// Core runtime v2.0, set the value to "dotnetcore2.0".</para><note><para>Node v0.10.42 is currently marked as deprecated. You must migrate existing functions
-        /// to the newer Node.js runtime versions available on AWS Lambda (nodejs4.3 or nodejs6.10)
-        /// as soon as possible. Failure to do so will result in an invalid parameter error being
-        /// returned. Note that you will have to follow this procedure for each region that contains
-        /// functions written in the Node v0.10.42 runtime.</para></note>
+        /// <para>The runtime version for the function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -176,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of one or more security groups IDs in your VPC.</para>
+        /// <para>A list of VPC security groups IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -187,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter VpcConfig_SubnetId
         /// <summary>
         /// <para>
-        /// <para>A list of one or more subnet IDs in your VPC.</para>
+        /// <para>A list of VPC subnet IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -198,9 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter DeadLetterConfig_TargetArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify
-        /// as your Dead Letter Queue (DLQ). <a>dlq</a>. For more information, see <a>dlq</a>.
-        /// </para>
+        /// <para>The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -210,9 +193,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Timeout
         /// <summary>
         /// <para>
-        /// <para>The function execution time at which AWS Lambda should terminate the function. Because
-        /// the execution time has cost implications, we recommend you set this value based on
-        /// your expected execution time. The default is 3 seconds.</para>
+        /// <para>The amount of time that Lambda allows a function to run before terminating it. The
+        /// default is 3 seconds. The maximum allowed value is 900 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -222,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Environment_Variable
         /// <summary>
         /// <para>
-        /// <para>The key-value pairs that represent your environment's configuration settings.</para>
+        /// <para>Environment variable key-value pairs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

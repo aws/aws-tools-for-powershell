@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>The number of reusable delegation sets that you want Amazon Route 53 to return in
-        /// the response to this request. If you specify a value greater than 100, Amazon Route
-        /// 53 returns only the first 100 reusable delegation sets.</para>
+        /// the response to this request. If you specify a value greater than 100, Route 53 returns
+        /// only the first 100 reusable delegation sets.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

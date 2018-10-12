@@ -50,6 +50,18 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         public System.Boolean Logs_Audit { get; set; }
         #endregion
         
+        #region Parameter AutoMinorVersionUpgrade
+        /// <summary>
+        /// <para>
+        /// Enables automatic upgrades to
+        /// new minor versions for brokers, as Apache releases the versions. The automatic upgrades
+        /// occur during the maintenance window of the broker or after a manual broker reboot.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean AutoMinorVersionUpgrade { get; set; }
+        #endregion
+        
         #region Parameter BrokerId
         /// <summary>
         /// <para>
@@ -71,6 +83,17 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.MQ.Model.ConfigurationId Configuration { get; set; }
+        #endregion
+        
+        #region Parameter EngineVersion
+        /// <summary>
+        /// <para>
+        /// The version of the broker engine. Note:
+        /// Currently, Amazon MQ supports only 5.15.6 and 5.15.0.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String EngineVersion { get; set; }
         #endregion
         
         #region Parameter Logs_General
@@ -112,8 +135,11 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("AutoMinorVersionUpgrade"))
+                context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.BrokerId = this.BrokerId;
             context.Configuration = this.Configuration;
+            context.EngineVersion = this.EngineVersion;
             if (ParameterWasBound("Logs_Audit"))
                 context.Logs_Audit = this.Logs_Audit;
             if (ParameterWasBound("Logs_General"))
@@ -134,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             // create request
             var request = new Amazon.MQ.Model.UpdateBrokerRequest();
             
+            if (cmdletContext.AutoMinorVersionUpgrade != null)
+            {
+                request.AutoMinorVersionUpgrade = cmdletContext.AutoMinorVersionUpgrade.Value;
+            }
             if (cmdletContext.BrokerId != null)
             {
                 request.BrokerId = cmdletContext.BrokerId;
@@ -141,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             if (cmdletContext.Configuration != null)
             {
                 request.Configuration = cmdletContext.Configuration;
+            }
+            if (cmdletContext.EngineVersion != null)
+            {
+                request.EngineVersion = cmdletContext.EngineVersion;
             }
             
              // populate Logs
@@ -235,8 +269,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String BrokerId { get; set; }
             public Amazon.MQ.Model.ConfigurationId Configuration { get; set; }
+            public System.String EngineVersion { get; set; }
             public System.Boolean? Logs_Audit { get; set; }
             public System.Boolean? Logs_General { get; set; }
         }

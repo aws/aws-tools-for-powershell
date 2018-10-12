@@ -47,21 +47,42 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter BacktrackTo
         /// <summary>
         /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use BacktrackToUtc instead. Setting either BacktrackTo
+        /// or BacktrackToUtc results in both BacktrackTo and BacktrackToUtc being assigned, the
+        /// latest assignment to either one of the two property is reflected in the value of both.
+        /// BacktrackTo is provided for backwards compatibility only and assigning a non-Utc DateTime
+        /// to it results in the wrong timestamp being passed to the service.</para><para>The timestamp of the time to backtrack the DB cluster to, specified in ISO 8601 format.
+        /// For more information about ISO 8601, see the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
+        /// Wikipedia page.</a></para><note><para>If the specified time is not a consistent time for the DB cluster, Aurora automatically
+        /// chooses the nearest possible consistent time for the DB cluster.</para></note><para>Constraints:</para><ul><li><para>Must contain a valid ISO 8601 timestamp.</para></li><li><para>Can't contain a timestamp set in the future.</para></li></ul><para>Example: <code>2017-07-08T18:00Z</code></para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcBacktrackTo instead.")]
+        public System.DateTime BacktrackTo { get; set; }
+        #endregion
+        
+        #region Parameter UtcBacktrackTo
+        /// <summary>
+        /// <para>
         /// <para>The timestamp of the time to backtrack the DB cluster to, specified in ISO 8601 format.
         /// For more information about ISO 8601, see the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
         /// Wikipedia page.</a></para><note><para>If the specified time is not a consistent time for the DB cluster, Aurora automatically
-        /// chooses the nearest possible consistent time for the DB cluster.</para></note><para>Constraints:</para><ul><li><para>Must contain a valid ISO 8601 timestamp.</para></li><li><para>Cannot contain a timestamp set in the future.</para></li></ul><para>Example: <code>2017-07-08T18:00Z</code></para>
+        /// chooses the nearest possible consistent time for the DB cluster.</para></note><para>Constraints:</para><ul><li><para>Must contain a valid ISO 8601 timestamp.</para></li><li><para>Can't contain a timestamp set in the future.</para></li></ul><para>Example: <code>2017-07-08T18:00Z</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime BacktrackTo { get; set; }
+        public System.DateTime UtcBacktrackTo { get; set; }
         #endregion
         
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
         /// <para>The DB cluster identifier of the DB cluster to be backtracked. This parameter is stored
-        /// as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster1</code></para>
+        /// as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster1</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -120,13 +141,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (ParameterWasBound("BacktrackTo"))
-                context.BacktrackTo = this.BacktrackTo;
+            if (ParameterWasBound("UtcBacktrackTo"))
+                context.UtcBacktrackTo = this.UtcBacktrackTo;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             if (ParameterWasBound("EnforceReset"))
                 context.EnforceReset = this.EnforceReset;
             if (ParameterWasBound("UseEarliestTimeOnPointInTimeUnavailable"))
                 context.UseEarliestTimeOnPointInTimeUnavailable = this.UseEarliestTimeOnPointInTimeUnavailable;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound("BacktrackTo"))
+                context.BacktrackTo = this.BacktrackTo;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -143,9 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // create request
             var request = new Amazon.RDS.Model.BacktrackDBClusterRequest();
             
-            if (cmdletContext.BacktrackTo != null)
+            if (cmdletContext.UtcBacktrackTo != null)
             {
-                request.BacktrackTo = cmdletContext.BacktrackTo.Value;
+                request.BacktrackToUtc = cmdletContext.UtcBacktrackTo.Value;
             }
             if (cmdletContext.DBClusterIdentifier != null)
             {
@@ -159,6 +184,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.UseEarliestTimeOnPointInTimeUnavailable = cmdletContext.UseEarliestTimeOnPointInTimeUnavailable.Value;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.BacktrackTo != null)
+            {
+                if (cmdletContext.UtcBacktrackTo != null)
+                {
+                    throw new ArgumentException("Parameters BacktrackTo and UtcBacktrackTo are mutually exclusive.");
+                }
+                request.BacktrackTo = cmdletContext.BacktrackTo.Value;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -223,10 +258,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.DateTime? BacktrackTo { get; set; }
+            public System.DateTime? UtcBacktrackTo { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.Boolean? EnforceReset { get; set; }
             public System.Boolean? UseEarliestTimeOnPointInTimeUnavailable { get; set; }
+            [System.ObsoleteAttribute]
+            public System.DateTime? BacktrackTo { get; set; }
         }
         
     }

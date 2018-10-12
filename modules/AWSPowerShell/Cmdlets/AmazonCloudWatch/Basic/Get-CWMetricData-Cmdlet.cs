@@ -78,6 +78,28 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter EndTime
         /// <summary>
         /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use EndTimeUtc instead. Setting either EndTime or EndTimeUtc
+        /// results in both EndTime and EndTimeUtc being assigned, the latest assignment to either
+        /// one of the two property is reflected in the value of both. EndTime is provided for
+        /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
+        /// wrong timestamp being passed to the service.</para><para>The time stamp indicating the latest data to be returned.</para><para>For better performance, specify <code>StartTime</code> and <code>EndTime</code> values
+        /// that align with the value of the metric's <code>Period</code> and sync up with the
+        /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
+        /// is 5 minutes, specifying 12:05 or 12:30 as <code>EndTime</code> can get a faster response
+        /// from CloudWatch then setting 12:07 or 12:29 as the <code>EndTime</code>.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcEndTime instead.")]
+        public System.DateTime EndTime { get; set; }
+        #endregion
+        
+        #region Parameter UtcEndTime
+        /// <summary>
+        /// <para>
         /// <para>The time stamp indicating the latest data to be returned.</para><para>For better performance, specify <code>StartTime</code> and <code>EndTime</code> values
         /// that align with the value of the metric's <code>Period</code> and sync up with the
         /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
@@ -86,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime EndTime { get; set; }
+        public System.DateTime UtcEndTime { get; set; }
         #endregion
         
         #region Parameter MaxDatapoint
@@ -132,6 +154,28 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter StartTime
         /// <summary>
         /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use StartTimeUtc instead. Setting either StartTime or
+        /// StartTimeUtc results in both StartTime and StartTimeUtc being assigned, the latest
+        /// assignment to either one of the two property is reflected in the value of both. StartTime
+        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
+        /// results in the wrong timestamp being passed to the service.</para><para>The time stamp indicating the earliest data to be returned.</para><para>For better performance, specify <code>StartTime</code> and <code>EndTime</code> values
+        /// that align with the value of the metric's <code>Period</code> and sync up with the
+        /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
+        /// is 5 minutes, specifying 12:05 or 12:30 as <code>StartTime</code> can get a faster
+        /// response from CloudWatch then setting 12:07 or 12:29 as the <code>StartTime</code>.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcStartTime instead.")]
+        public System.DateTime StartTime { get; set; }
+        #endregion
+        
+        #region Parameter UtcStartTime
+        /// <summary>
+        /// <para>
         /// <para>The time stamp indicating the earliest data to be returned.</para><para>For better performance, specify <code>StartTime</code> and <code>EndTime</code> values
         /// that align with the value of the metric's <code>Period</code> and sync up with the
         /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
@@ -140,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime StartTime { get; set; }
+        public System.DateTime UtcStartTime { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -170,8 +214,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (ParameterWasBound("EndTime"))
-                context.EndTime = this.EndTime;
+            if (ParameterWasBound("UtcEndTime"))
+                context.UtcEndTime = this.UtcEndTime;
             if (ParameterWasBound("MaxDatapoint"))
                 context.MaxDatapoints = this.MaxDatapoint;
             if (this.MetricDataQuery != null)
@@ -180,8 +224,16 @@ namespace Amazon.PowerShell.Cmdlets.CW
             }
             context.NextToken = this.NextToken;
             context.ScanBy = this.ScanBy;
+            if (ParameterWasBound("UtcStartTime"))
+                context.UtcStartTime = this.UtcStartTime;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound("EndTime"))
+                context.EndTime = this.EndTime;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("StartTime"))
                 context.StartTime = this.StartTime;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -198,9 +250,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
             // create request
             var request = new Amazon.CloudWatch.Model.GetMetricDataRequest();
             
-            if (cmdletContext.EndTime != null)
+            if (cmdletContext.UtcEndTime != null)
             {
-                request.EndTime = cmdletContext.EndTime.Value;
+                request.EndTimeUtc = cmdletContext.UtcEndTime.Value;
             }
             if (cmdletContext.MaxDatapoints != null)
             {
@@ -218,10 +270,30 @@ namespace Amazon.PowerShell.Cmdlets.CW
             {
                 request.ScanBy = cmdletContext.ScanBy;
             }
+            if (cmdletContext.UtcStartTime != null)
+            {
+                request.StartTimeUtc = cmdletContext.UtcStartTime.Value;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.EndTime != null)
+            {
+                if (cmdletContext.UtcEndTime != null)
+                {
+                    throw new ArgumentException("Parameters EndTime and UtcEndTime are mutually exclusive.");
+                }
+                request.EndTime = cmdletContext.EndTime.Value;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.StartTime != null)
             {
+                if (cmdletContext.UtcStartTime != null)
+                {
+                    throw new ArgumentException("Parameters StartTime and UtcStartTime are mutually exclusive.");
+                }
                 request.StartTime = cmdletContext.StartTime.Value;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -288,11 +360,15 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.DateTime? EndTime { get; set; }
+            public System.DateTime? UtcEndTime { get; set; }
             public System.Int32? MaxDatapoints { get; set; }
             public List<Amazon.CloudWatch.Model.MetricDataQuery> MetricDataQueries { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.CloudWatch.ScanBy ScanBy { get; set; }
+            public System.DateTime? UtcStartTime { get; set; }
+            [System.ObsoleteAttribute]
+            public System.DateTime? EndTime { get; set; }
+            [System.ObsoleteAttribute]
             public System.DateTime? StartTime { get; set; }
         }
         

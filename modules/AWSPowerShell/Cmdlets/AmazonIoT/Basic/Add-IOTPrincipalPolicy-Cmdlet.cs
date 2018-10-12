@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// 
     ///  
     /// <para><b>Note:</b> This API is deprecated. Please use <a>AttachPolicy</a> instead.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Add", "IOTPrincipalPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -41,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Principal parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IoT.Model.AttachPrincipalPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Deprecated in favor of AttachPolicy.")]
     public partial class AddIOTPrincipalPolicyCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         

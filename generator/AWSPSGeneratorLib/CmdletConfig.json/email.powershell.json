@@ -2302,7 +2302,24 @@
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "parameterCustomizations": [],
+      "parameterCustomizations": [
+        {
+          "originalName": "MessageDsn_ArrivalDateUtc",
+          "replacementName": "MessageDsn_UtcArrivalDate",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "MessageDsn_ArrivalDate",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        }
+      ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],

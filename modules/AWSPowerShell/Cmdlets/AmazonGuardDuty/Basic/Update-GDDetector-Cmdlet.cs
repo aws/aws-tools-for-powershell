@@ -62,6 +62,18 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.Boolean Enable { get; set; }
         #endregion
         
+        #region Parameter FindingPublishingFrequency
+        /// <summary>
+        /// <para>
+        /// A enum value that specifies
+        /// how frequently customer got Finding updates published.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.GuardDuty.FindingPublishingFrequency")]
+        public Amazon.GuardDuty.FindingPublishingFrequency FindingPublishingFrequency { get; set; }
+        #endregion
+        
         #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the DetectorId parameter.
@@ -103,6 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             context.DetectorId = this.DetectorId;
             if (ParameterWasBound("Enable"))
                 context.Enable = this.Enable;
+            context.FindingPublishingFrequency = this.FindingPublishingFrequency;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -126,6 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
             if (cmdletContext.Enable != null)
             {
                 request.Enable = cmdletContext.Enable.Value;
+            }
+            if (cmdletContext.FindingPublishingFrequency != null)
+            {
+                request.FindingPublishingFrequency = cmdletContext.FindingPublishingFrequency;
             }
             
             CmdletOutput output;
@@ -195,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         {
             public System.String DetectorId { get; set; }
             public System.Boolean? Enable { get; set; }
+            public Amazon.GuardDuty.FindingPublishingFrequency FindingPublishingFrequency { get; set; }
         }
         
     }

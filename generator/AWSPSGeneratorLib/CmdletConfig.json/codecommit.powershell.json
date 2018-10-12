@@ -346,6 +346,58 @@
         "memoryStreamParameters": []
       }
     },
+    "DeleteFile": {
+      "verb": "Remove",
+      "noun": "File",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "File",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "RepositoryName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "DeleteRepository": {
       "verb": "Remove",
       "noun": "Repository",
@@ -769,6 +821,100 @@
         "confirmationMessageNoun": "Differences",
         "confirmImpactSetting": "Medium",
         "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetFile": {
+      "verb": "Get",
+      "noun": "File",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "File",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetFolder": {
+      "verb": "Get",
+      "noun": "Folder",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Folder",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",

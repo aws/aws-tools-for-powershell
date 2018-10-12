@@ -28,7 +28,7 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Creates sn SSH key pair.
+    /// Creates an SSH key pair.
     /// </summary>
     [Cmdlet("New", "LSKeyPair", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.CreateKeyPairResponse")]

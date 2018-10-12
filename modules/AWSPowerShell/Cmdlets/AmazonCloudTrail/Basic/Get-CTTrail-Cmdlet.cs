@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies a list of trail names, trail ARNs, or both, of the trails to describe. The
-        /// format of a trail ARN is:</para><para><code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code></para><para>If an empty list is specified, information for the trail in the current region is
+        /// format of a trail ARN is:</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para><para>If an empty list is specified, information for the trail in the current region is
         /// returned.</para><ul><li><para>If an empty list is specified and <code>IncludeShadowTrails</code> is false, then
         /// information for all trails in the current region is returned.</para></li><li><para>If an empty list is specified and IncludeShadowTrails is null or true, then information
         /// for all trails in the current region and any associated shadow trails in other regions

@@ -118,6 +118,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBClusterParameterGroupName { get; set; }
         #endregion
         
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if the DB cluster has deletion protection enabled. The database can't be
+        /// deleted when this value is set to true. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DeletionProtection { get; set; }
+        #endregion
+        
         #region Parameter CloudwatchLogsExportConfiguration_DisableLogType
         /// <summary>
         /// <para>
@@ -202,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The new DB cluster identifier for the DB cluster when renaming a DB cluster. This
-        /// value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para></li><li><para>The first character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-cluster2</code></para>
+        /// value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para></li><li><para>The first character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-cluster2</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -332,6 +343,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
+            if (ParameterWasBound("DeletionProtection"))
+                context.DeletionProtection = this.DeletionProtection;
             if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
                 context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.EngineVersion = this.EngineVersion;
@@ -418,6 +431,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBClusterParameterGroupName != null)
             {
                 request.DBClusterParameterGroupName = cmdletContext.DBClusterParameterGroupName;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection.Value;
             }
             if (cmdletContext.EnableIAMDatabaseAuthentication != null)
             {
@@ -575,6 +592,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public List<System.String> CloudwatchLogsExportConfiguration_EnableLogTypes { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }
+            public System.Boolean? DeletionProtection { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String MasterUserPassword { get; set; }

@@ -1671,7 +1671,40 @@
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "parameterCustomizations": [],
+      "parameterCustomizations": [
+        {
+          "originalName": "EndTimeUtc",
+          "replacementName": "UtcEndTime",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "EndTime",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "StartTimeUtc",
+          "replacementName": "UtcStartTime",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "StartTime",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        }
+      ],
       "legacySettings": {
         "alias": "Get-RSClusterSnapshots",
         "positionalParameters": [
@@ -1974,7 +2007,40 @@
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "parameterCustomizations": [],
+      "parameterCustomizations": [
+        {
+          "originalName": "EndTimeUtc",
+          "replacementName": "UtcEndTime",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "EndTime",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "StartTimeUtc",
+          "replacementName": "UtcStartTime",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "StartTime",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        }
+      ],
       "legacySettings": {
         "alias": "Get-RSEvents",
         "positionalParameters": [

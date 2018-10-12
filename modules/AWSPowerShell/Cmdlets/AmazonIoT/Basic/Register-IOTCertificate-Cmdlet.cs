@@ -66,8 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>A boolean value that specifies if the CA certificate is set to active.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This property is deprecated")]
         public System.Boolean SetAsActive { get; set; }
         #endregion
         
@@ -97,8 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             
             context.CaCertificatePem = this.CaCertificatePem;
             context.CertificatePem = this.CertificatePem;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("SetAsActive"))
                 context.SetAsActive = this.SetAsActive;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
@@ -124,10 +128,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 request.CertificatePem = cmdletContext.CertificatePem;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.SetAsActive != null)
             {
                 request.SetAsActive = cmdletContext.SetAsActive.Value;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
@@ -198,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public System.String CaCertificatePem { get; set; }
             public System.String CertificatePem { get; set; }
+            [System.ObsoleteAttribute]
             public System.Boolean? SetAsActive { get; set; }
             public Amazon.IoT.CertificateStatus Status { get; set; }
         }

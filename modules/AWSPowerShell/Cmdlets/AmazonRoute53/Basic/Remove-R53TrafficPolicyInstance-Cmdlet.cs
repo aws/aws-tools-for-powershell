@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// Route 53 created when you created the instance.
     /// 
     ///  <note><para>
-    /// In the Amazon Route 53 console, traffic policy instances are known as policy records.
+    /// In the Route 53 console, traffic policy instances are known as policy records.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "R53TrafficPolicyInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

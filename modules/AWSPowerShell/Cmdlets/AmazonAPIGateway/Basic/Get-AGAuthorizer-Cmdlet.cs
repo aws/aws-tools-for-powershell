@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// <summary>
     /// Describe an existing <a>Authorizer</a> resource.
     /// 
-    ///  <div class="seeAlso"><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizer.html">AWS
+    ///  <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizer.html">AWS
     /// CLI</a></div>
     /// </summary>
     [Cmdlet("Get", "AGAuthorizer")]

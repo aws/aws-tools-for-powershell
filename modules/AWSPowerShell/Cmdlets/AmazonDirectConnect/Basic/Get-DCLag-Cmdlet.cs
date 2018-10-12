@@ -28,12 +28,7 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Describes the link aggregation groups (LAGs) in your account. 
-    /// 
-    ///  
-    /// <para>
-    /// If a LAG ID is provided, only information about the specified LAG is returned.
-    /// </para>
+    /// Describes all your link aggregation groups (LAG) or the specified LAG.
     /// </summary>
     [Cmdlet("Get", "DCLag")]
     [OutputType("Amazon.DirectConnect.Model.Lag")]
@@ -48,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter LagId
         /// <summary>
         /// <para>
-        /// <para>The ID of the LAG.</para><para>Example: dxlag-abc123</para><para>Default: None</para>
+        /// <para>The ID of the LAG.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

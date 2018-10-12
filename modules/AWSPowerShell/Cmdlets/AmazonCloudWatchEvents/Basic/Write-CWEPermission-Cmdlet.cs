@@ -28,9 +28,10 @@ using Amazon.CloudWatchEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
-    /// Running <code>PutPermission</code> permits the specified AWS account to put events
-    /// to your account's default <i>event bus</i>. CloudWatch Events rules in your account
-    /// are triggered by these events arriving to your default event bus. 
+    /// Running <code>PutPermission</code> permits the specified AWS account or AWS organization
+    /// to put events to your account's default <i>event bus</i>. CloudWatch Events rules
+    /// in your account are triggered by these events arriving to your default event bus.
+    /// 
     /// 
     ///  
     /// <para>
@@ -38,7 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// a CloudWatch Events rule with your account's default event bus as a target.
     /// </para><para>
     /// To enable multiple AWS accounts to put events to your default event bus, run <code>PutPermission</code>
-    /// once for each of these accounts.
+    /// once for each of these accounts. Or, if all the accounts are members of the same AWS
+    /// organization, you can run <code>PutPermission</code> once specifying <code>Principal</code>
+    /// as "*" and specifying the AWS organization ID in <code>Condition</code>, to grant
+    /// permissions to all accounts in that organization.
     /// </para><para>
     /// The permission policy on the default event bus cannot exceed 10 KB in size.
     /// </para>
@@ -64,14 +68,25 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         public System.String Action { get; set; }
         #endregion
         
+        #region Parameter Condition_Key
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the key for the condition. Currently the only supported key is <code>aws:PrincipalOrgID</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Condition_Key { get; set; }
+        #endregion
+        
         #region Parameter Principal
         /// <summary>
         /// <para>
         /// <para>The 12-digit AWS account ID that you are permitting to put events to your default
-        /// event bus. Specify "*" to permit any account to put events to your default event bus.</para><para>If you specify "*", avoid creating rules that may match undesirable events. To create
-        /// more secure rules, make sure that the event pattern for each rule contains an <code>account</code>
-        /// field with a specific account ID from which to receive events. Rules with an account
-        /// field do not match any events sent from other accounts.</para>
+        /// event bus. Specify "*" to permit any account to put events to your default event bus.</para><para>If you specify "*" without specifying <code>Condition</code>, avoid creating rules
+        /// that may match undesirable events. To create more secure rules, make sure that the
+        /// event pattern for each rule contains an <code>account</code> field with a specific
+        /// account ID from which to receive events. Rules with an account field do not match
+        /// any events sent from other accounts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,6 +103,26 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StatementId { get; set; }
+        #endregion
+        
+        #region Parameter Condition_Type
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the type of condition. Currently the only supported value is <code>StringEquals</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Condition_Type { get; set; }
+        #endregion
+        
+        #region Parameter Condition_Value
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the value for the key. Currently, this must be the ID of the organization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Condition_Value { get; set; }
         #endregion
         
         #region Parameter Force
@@ -120,6 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             PreExecutionContextLoad(context);
             
             context.Action = this.Action;
+            context.Condition_Key = this.Condition_Key;
+            context.Condition_Type = this.Condition_Type;
+            context.Condition_Value = this.Condition_Value;
             context.Principal = this.Principal;
             context.StatementId = this.StatementId;
             
@@ -141,6 +179,45 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             if (cmdletContext.Action != null)
             {
                 request.Action = cmdletContext.Action;
+            }
+            
+             // populate Condition
+            bool requestConditionIsNull = true;
+            request.Condition = new Amazon.CloudWatchEvents.Model.Condition();
+            System.String requestCondition_condition_Key = null;
+            if (cmdletContext.Condition_Key != null)
+            {
+                requestCondition_condition_Key = cmdletContext.Condition_Key;
+            }
+            if (requestCondition_condition_Key != null)
+            {
+                request.Condition.Key = requestCondition_condition_Key;
+                requestConditionIsNull = false;
+            }
+            System.String requestCondition_condition_Type = null;
+            if (cmdletContext.Condition_Type != null)
+            {
+                requestCondition_condition_Type = cmdletContext.Condition_Type;
+            }
+            if (requestCondition_condition_Type != null)
+            {
+                request.Condition.Type = requestCondition_condition_Type;
+                requestConditionIsNull = false;
+            }
+            System.String requestCondition_condition_Value = null;
+            if (cmdletContext.Condition_Value != null)
+            {
+                requestCondition_condition_Value = cmdletContext.Condition_Value;
+            }
+            if (requestCondition_condition_Value != null)
+            {
+                request.Condition.Value = requestCondition_condition_Value;
+                requestConditionIsNull = false;
+            }
+             // determine if request.Condition should be set to null
+            if (requestConditionIsNull)
+            {
+                request.Condition = null;
             }
             if (cmdletContext.Principal != null)
             {
@@ -215,6 +292,9 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Action { get; set; }
+            public System.String Condition_Key { get; set; }
+            public System.String Condition_Type { get; set; }
+            public System.String Condition_Value { get; set; }
             public System.String Principal { get; set; }
             public System.String StatementId { get; set; }
         }

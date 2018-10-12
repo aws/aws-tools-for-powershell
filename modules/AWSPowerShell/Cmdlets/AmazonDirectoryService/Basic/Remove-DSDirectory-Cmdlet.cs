@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// 
     ///  
     /// <para>
-    /// Before you call <i>DeleteDirectory</i>, ensure that all of the required permissions
+    /// Before you call <code>DeleteDirectory</code>, ensure that all of the required permissions
     /// have been explicitly granted through a policy. For details about what permissions
-    /// are required to run the <i>DeleteDirectory</i> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
+    /// are required to run the <code>DeleteDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
     /// Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.
     /// </para>
     /// </summary>

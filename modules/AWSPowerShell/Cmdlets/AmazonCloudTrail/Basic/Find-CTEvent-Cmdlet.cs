@@ -28,17 +28,20 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Looks up API activity events captured by CloudTrail that create, update, or delete
-    /// resources in your account. Events for a region can be looked up for the times in which
-    /// you had CloudTrail turned on in that region during the last seven days. Lookup supports
-    /// the following attributes:
+    /// Looks up <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events">management
+    /// events</a> captured by CloudTrail. Events for a region can be looked up in that region
+    /// during the last 90 days. Lookup supports the following attributes:
     /// 
     ///  <ul><li><para>
+    /// AWS access key
+    /// </para></li><li><para>
     /// Event ID
     /// </para></li><li><para>
     /// Event name
     /// </para></li><li><para>
     /// Event source
+    /// </para></li><li><para>
+    /// Read only
     /// </para></li><li><para>
     /// Resource name
     /// </para></li><li><para>
@@ -46,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </para></li><li><para>
     /// User name
     /// </para></li></ul><para>
-    /// All attributes are optional. The default number of results returned is 10, with a
+    /// All attributes are optional. The default number of results returned is 50, with a
     /// maximum of 50 possible. The response includes a token that you can use to get the
     /// next page of results.
     /// </para><important><para>
@@ -104,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The number of events to return. Possible values are 1 through 50. The default is 10.</para>
+        /// <para>The number of events to return. Possible values are 1 through 50. The default is 50.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

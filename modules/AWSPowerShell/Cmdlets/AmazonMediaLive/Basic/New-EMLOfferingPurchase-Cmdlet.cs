@@ -81,6 +81,18 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String RequestId { get; set; }
         #endregion
         
+        #region Parameter Start
+        /// <summary>
+        /// <para>
+        /// Requested reservation start time (UTC) in ISO-8601
+        /// format. The specified time must be between the first day of the current month and
+        /// one year from now. If no value is given, the default is now.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Start { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -115,6 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             context.Name = this.Name;
             context.OfferingId = this.OfferingId;
             context.RequestId = this.RequestId;
+            context.Start = this.Start;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -146,6 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.RequestId != null)
             {
                 request.RequestId = cmdletContext.RequestId;
+            }
+            if (cmdletContext.Start != null)
+            {
+                request.Start = cmdletContext.Start;
             }
             
             CmdletOutput output;
@@ -215,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public System.String Name { get; set; }
             public System.String OfferingId { get; set; }
             public System.String RequestId { get; set; }
+            public System.String Start { get; set; }
         }
         
     }

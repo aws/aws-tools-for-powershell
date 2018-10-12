@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter HostedZoneId
         /// <summary>
         /// <para>
-        /// <para>The ID of the hosted zone in which you want Amazon Route 53 to create resource record
-        /// sets by using the configuration in a traffic policy.</para>
+        /// <para>The ID of the hosted zone that you want Amazon Route 53 to create resource record
+        /// sets in by using the configuration in a traffic policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>The domain name (such as example.com) or subdomain name (such as www.example.com)
         /// for which Amazon Route 53 responds to DNS queries by using the resource record sets
-        /// that Amazon Route 53 creates for this traffic policy instance.</para>
+        /// that Route 53 creates for this traffic policy instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

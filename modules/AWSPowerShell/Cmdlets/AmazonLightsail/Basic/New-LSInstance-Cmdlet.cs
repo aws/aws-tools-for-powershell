@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
     /// Creates one or more Amazon Lightsail virtual private servers, or <i>instances</i>.
+    /// Create instances using active blueprints. Inactive blueprints are listed to support
+    /// customers with existing instances but are not necessarily available for launch of
+    /// new instances. Blueprints are marked inactive when they become outdated due to operating
+    /// system updates or new application releases. Use the get blueprints operation to return
+    /// a list of available blueprints.
     /// </summary>
     [Cmdlet("New", "LSInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.Operation")]
@@ -44,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The Availability Zone in which to create your instance. Use the following format:
-        /// <code>us-east-2a</code> (case sensitive). You can get a list of availability zones
+        /// <code>us-east-2a</code> (case sensitive). You can get a list of Availability Zones
         /// by using the <a href="http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html">get
-        /// regions</a> operation. Be sure to add the <code>include availability zones</code>
+        /// regions</a> operation. Be sure to add the <code>include Availability Zones</code>
         /// parameter to your request.</para>
         /// </para>
         /// </summary>
@@ -83,8 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>(Deprecated) The name for your custom image.</para><note><para>In releases prior to June 12, 2017, this parameter was ignored by the API. It is now
         /// deprecated.</para></note>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("In releases prior to June 12, 2017, this parameter was ignored by the API. It is " +
+            "now deprecated.")]
         public System.String CustomImageName { get; set; }
         #endregion
         
@@ -156,7 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
             context.AvailabilityZone = this.AvailabilityZone;
             context.BlueprintId = this.BlueprintId;
             context.BundleId = this.BundleId;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CustomImageName = this.CustomImageName;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.InstanceName != null)
             {
                 context.InstanceNames = new List<System.String>(this.InstanceName);
@@ -191,10 +201,12 @@ namespace Amazon.PowerShell.Cmdlets.LS
             {
                 request.BundleId = cmdletContext.BundleId;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.CustomImageName != null)
             {
                 request.CustomImageName = cmdletContext.CustomImageName;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.InstanceNames != null)
             {
                 request.InstanceNames = cmdletContext.InstanceNames;
@@ -274,6 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public System.String AvailabilityZone { get; set; }
             public System.String BlueprintId { get; set; }
             public System.String BundleId { get; set; }
+            [System.ObsoleteAttribute]
             public System.String CustomImageName { get; set; }
             public List<System.String> InstanceNames { get; set; }
             public System.String KeyPairName { get; set; }

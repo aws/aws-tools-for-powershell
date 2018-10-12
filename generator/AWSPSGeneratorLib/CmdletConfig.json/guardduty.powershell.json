@@ -191,7 +191,7 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
+          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Enable"
         },

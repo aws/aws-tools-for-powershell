@@ -273,6 +273,8 @@ Set-Alias -Name ADS-StopContinuousExport -Value Stop-ADSContinuousExport
 Set-Alias -Name ADS-StopDataCollectionByAgentIds -Value Stop-ADSDataCollectionByAgentId
 Set-Alias -Name ADS-UpdateApplication -Value Update-ADSApplication
 Set-Alias -Name APS-AssociateFleet -Value Register-APSFleet
+Set-Alias -Name APS-BatchAssociateUserStack -Value Register-APSUserStackBatch
+Set-Alias -Name APS-BatchDisassociateUserStack -Value Unregister-APSUserStackBatch
 Set-Alias -Name APS-CopyImage -Value Copy-APSImage
 Set-Alias -Name Create-APSDirectoryConfig -Value New-APSDirectoryConfig
 Set-Alias -Name APS-CreateDirectoryConfig -Value New-APSDirectoryConfig
@@ -286,6 +288,7 @@ Set-Alias -Name Create-APSStack -Value New-APSStack
 Set-Alias -Name APS-CreateStack -Value New-APSStack
 Set-Alias -Name Create-APSStreamingURL -Value New-APSStreamingURL
 Set-Alias -Name APS-CreateStreamingURL -Value New-APSStreamingURL
+Set-Alias -Name APS-CreateUser -Value New-APSUser
 Set-Alias -Name Delete-APSDirectoryConfig -Value Remove-APSDirectoryConfig
 Set-Alias -Name APS-DeleteDirectoryConfig -Value Remove-APSDirectoryConfig
 Set-Alias -Name Delete-APSFleet -Value Remove-APSFleet
@@ -297,6 +300,7 @@ Set-Alias -Name APS-DeleteImageBuilder -Value Remove-APSImageBuilder
 Set-Alias -Name APS-DeleteImagePermissions -Value Remove-APSImagePermission
 Set-Alias -Name Delete-APSStack -Value Remove-APSStack
 Set-Alias -Name APS-DeleteStack -Value Remove-APSStack
+Set-Alias -Name APS-DeleteUser -Value Remove-APSUser
 Set-Alias -Name Describe-APSDirectoryConfigList -Value Get-APSDirectoryConfigList
 Set-Alias -Name APS-DescribeDirectoryConfigs -Value Get-APSDirectoryConfigList
 Set-Alias -Name APS-DescribeFleets -Value Get-APSFleetList
@@ -305,7 +309,11 @@ Set-Alias -Name APS-DescribeImagePermissions -Value Get-APSImagePermission
 Set-Alias -Name APS-DescribeImages -Value Get-APSImageList
 Set-Alias -Name APS-DescribeSessions -Value Get-APSSessionList
 Set-Alias -Name APS-DescribeStacks -Value Get-APSStackList
+Set-Alias -Name APS-DescribeUsers -Value Get-APSUser
+Set-Alias -Name APS-DescribeUserStackAssociations -Value Get-APSUserStackAssociation
+Set-Alias -Name APS-DisableUser -Value Disable-APSUser
 Set-Alias -Name APS-DisassociateFleet -Value Unregister-APSFleet
+Set-Alias -Name APS-EnableUser -Value Enable-APSUser
 Set-Alias -Name APS-ExpireSession -Value Revoke-APSSession
 Set-Alias -Name APS-ListAssociatedFleets -Value Get-APSAssociatedFleetList
 Set-Alias -Name APS-ListAssociatedStacks -Value Get-APSAssociatedStackList
@@ -1053,6 +1061,7 @@ Set-Alias -Name Delete-CCBranch -Value Remove-CCBranch
 Set-Alias -Name CC-DeleteBranch -Value Remove-CCBranch
 Set-Alias -Name Delete-CCCommentContent -Value Remove-CCCommentContent
 Set-Alias -Name CC-DeleteCommentContent -Value Remove-CCCommentContent
+Set-Alias -Name CC-DeleteFile -Value Remove-CCFile
 Set-Alias -Name Delete-CCRepository -Value Remove-CCRepository
 Set-Alias -Name CC-DeleteRepository -Value Remove-CCRepository
 Set-Alias -Name Describe-CCPullRequestEvent -Value Get-CCPullRequestEvent
@@ -1064,6 +1073,8 @@ Set-Alias -Name CC-GetCommentsForComparedCommit -Value Get-CCCommentsForCompared
 Set-Alias -Name CC-GetCommentsForPullRequest -Value Get-CCCommentsForPullRequest
 Set-Alias -Name CC-GetCommit -Value Get-CCCommit
 Set-Alias -Name CC-GetDifferences -Value Get-CCDifferenceList
+Set-Alias -Name CC-GetFile -Value Get-CCFile
+Set-Alias -Name CC-GetFolder -Value Get-CCFolder
 Set-Alias -Name CC-GetMergeConflicts -Value Get-CCMergeConflict
 Set-Alias -Name CC-GetPullRequest -Value Get-CCPullRequest
 Set-Alias -Name CC-GetRepository -Value Get-CCRepository
@@ -1739,6 +1750,8 @@ Set-Alias -Name DC-DisassociateConnectionFromLag -Value Unregister-DCConnectionF
 Set-Alias -Name DC-TagResource -Value Add-DCResourceTag
 Set-Alias -Name DC-UntagResource -Value Remove-DCResourceTag
 Set-Alias -Name DC-UpdateLag -Value Update-DCLag
+Set-Alias -Name DC-UpdateVirtualInterfaceAttributes -Value Update-DCVirtualInterfaceAttribute
+Set-Alias -Name DS-AcceptSharedDirectory -Value Confirm-DSSharedDirectory
 Set-Alias -Name DS-AddIpRoutes -Value Add-DSIpRoute
 Set-Alias -Name DS-AddTagsToResource -Value Add-DSResourceTag
 Set-Alias -Name Cancel-DSSchemaExtension -Value Stop-DSSchemaExtension
@@ -1777,6 +1790,7 @@ Set-Alias -Name Describe-DSDomainControllerList -Value Get-DSDomainControllerLis
 Set-Alias -Name DS-DescribeDomainControllers -Value Get-DSDomainControllerList
 Set-Alias -Name Describe-DSEventTopic -Value Get-DSEventTopic
 Set-Alias -Name DS-DescribeEventTopics -Value Get-DSEventTopic
+Set-Alias -Name DS-DescribeSharedDirectories -Value Get-DSSharedDirectory
 Set-Alias -Name Describe-DSSnapshot -Value Get-DSSnapshot
 Set-Alias -Name DS-DescribeSnapshots -Value Get-DSSnapshot
 Set-Alias -Name DS-DescribeTrusts -Value Get-DSTrust
@@ -1791,14 +1805,18 @@ Set-Alias -Name DS-ListLogSubscriptions -Value Get-DSLogSubscriptionList
 Set-Alias -Name DS-ListSchemaExtensions -Value Get-DSSchemaExtension
 Set-Alias -Name DS-ListTagsForResource -Value Get-DSResourceTag
 Set-Alias -Name DS-RegisterEventTopic -Value Register-DSEventTopic
+Set-Alias -Name DS-RejectSharedDirectory -Value Deny-DSSharedDirectory
 Set-Alias -Name DS-RemoveIpRoutes -Value Remove-DSIpRoute
 Set-Alias -Name DS-RemoveTagsFromResource -Value Remove-DSResourceTag
 Set-Alias -Name DS-ResetUserPassword -Value Reset-DSUserPassword
 Set-Alias -Name DS-RestoreFromSnapshot -Value Restore-DSFromSnapshot
+Set-Alias -Name DS-ShareDirectory -Value Enable-DSDirectoryShare
 Set-Alias -Name DS-StartSchemaExtension -Value Start-DSSchemaExtension
+Set-Alias -Name DS-UnshareDirectory -Value Disable-DSDirectoryShare
 Set-Alias -Name DS-UpdateConditionalForwarder -Value Update-DSConditionalForwarder
 Set-Alias -Name DS-UpdateNumberOfDomainControllers -Value Set-DSDomainControllerCount
 Set-Alias -Name DS-UpdateRadius -Value Update-DSRadius
+Set-Alias -Name DS-UpdateTrust -Value Update-DSTrust
 Set-Alias -Name DS-VerifyTrust -Value Approve-DSTrust
 Set-Alias -Name DDB-CreateBackup -Value New-DDBBackup
 Set-Alias -Name DDB-CreateGlobalTable -Value New-DDBGlobalTable
@@ -2620,6 +2638,7 @@ Set-Alias -Name EMR-SetVisibleToAllUsers -Value Set-EMRVisibleToAllUser
 Set-Alias -Name Terminate-EMRJobFlows -Value Stop-EMRJobFlow
 Set-Alias -Name EMR-TerminateJobFlows -Value Stop-EMRJobFlow
 Set-Alias -Name ES-AddTags -Value Add-ESResourceTag
+Set-Alias -Name ES-CancelElasticsearchServiceSoftwareUpdate -Value Stop-ESElasticsearchServiceSoftwareUpdate
 Set-Alias -Name Create-ESDomain -Value New-ESDomain
 Set-Alias -Name ES-CreateElasticsearchDomain -Value New-ESDomain
 Set-Alias -Name Delete-ESDomain -Value Remove-ESDomain
@@ -2645,6 +2664,7 @@ Set-Alias -Name ES-ListElasticsearchVersions -Value Get-ESVersionList
 Set-Alias -Name ES-ListTags -Value Get-ESResourceTag
 Set-Alias -Name ES-PurchaseReservedElasticsearchInstanceOffering -Value New-ESReservedElasticsearchInstanceOffering
 Set-Alias -Name ES-RemoveTags -Value Remove-ESResourceTag
+Set-Alias -Name ES-StartElasticsearchServiceSoftwareUpdate -Value Start-ESElasticsearchServiceSoftwareUpdate
 Set-Alias -Name ES-UpdateElasticsearchDomainConfig -Value Update-ESDomainConfig
 Set-Alias -Name ES-UpgradeElasticsearchDomain -Value Update-ESElasticsearchDomain
 Set-Alias -Name Cancel-ETSJob -Value Stop-ETSJob
@@ -2712,6 +2732,7 @@ Set-Alias -Name GLUE-DeleteDatabase -Value Remove-GLUEDatabase
 Set-Alias -Name GLUE-DeleteDevEndpoint -Value Remove-GLUEDevEndpoint
 Set-Alias -Name GLUE-DeleteJob -Value Remove-GLUEJob
 Set-Alias -Name GLUE-DeletePartition -Value Remove-GLUEPartition
+Set-Alias -Name GLUE-DeleteResourcePolicy -Value Remove-GLUEResourcePolicy
 Set-Alias -Name GLUE-DeleteSecurityConfiguration -Value Remove-GLUESecurityConfiguration
 Set-Alias -Name GLUE-DeleteTable -Value Remove-GLUETable
 Set-Alias -Name GLUE-DeleteTableVersion -Value Remove-GLUETableVersion
@@ -2727,6 +2748,7 @@ Set-Alias -Name GLUE-GetCrawlerMetrics -Value Get-GLUECrawlerMetricsList
 Set-Alias -Name GLUE-GetCrawlers -Value Get-GLUECrawlerList
 Set-Alias -Name GLUE-GetDatabase -Value Get-GLUEDatabase
 Set-Alias -Name GLUE-GetDatabases -Value Get-GLUEDatabaseList
+Set-Alias -Name GLUE-GetDataCatalogEncryptionSettings -Value Get-GLUEDataCatalogEncryptionSetting
 Set-Alias -Name GLUE-GetDataflowGraph -Value Get-GLUEDataflowGraph
 Set-Alias -Name GLUE-GetDevEndpoint -Value Get-GLUEDevEndpoint
 Set-Alias -Name GLUE-GetDevEndpoints -Value Get-GLUEDevEndpointList
@@ -2738,6 +2760,7 @@ Set-Alias -Name GLUE-GetMapping -Value Get-GLUEMapping
 Set-Alias -Name GLUE-GetPartition -Value Get-GLUEPartition
 Set-Alias -Name GLUE-GetPartitions -Value Get-GLUEPartitionList
 Set-Alias -Name GLUE-GetPlan -Value Get-GLUEPlan
+Set-Alias -Name GLUE-GetResourcePolicy -Value Get-GLUEResourcePolicy
 Set-Alias -Name GLUE-GetSecurityConfiguration -Value Get-GLUESecurityConfiguration
 Set-Alias -Name GLUE-GetSecurityConfigurations -Value Get-GLUESecurityConfigurationList
 Set-Alias -Name GLUE-GetTable -Value Get-GLUETable
@@ -2750,6 +2773,7 @@ Set-Alias -Name GLUE-GetUserDefinedFunction -Value Get-GLUEUserDefinedFunction
 Set-Alias -Name GLUE-GetUserDefinedFunctions -Value Get-GLUEUserDefinedFunctionList
 Set-Alias -Name GLUE-ImportCatalogToGlue -Value Import-GLUECatalog
 Set-Alias -Name GLUE-PutDataCatalogEncryptionSettings -Value Set-GLUEDataCatalogEncryptionSetting
+Set-Alias -Name GLUE-PutResourcePolicy -Value Set-GLUEResourcePolicy
 Set-Alias -Name GLUE-ResetJobBookmark -Value Reset-GLUEJobBookmark
 Set-Alias -Name GLUE-StartCrawler -Value Start-GLUECrawler
 Set-Alias -Name GLUE-StartCrawlerSchedule -Value Start-GLUECrawlerSchedule
@@ -3782,6 +3806,9 @@ Set-Alias -Name Create-LSKeyPair -Value New-LSKeyPair
 Set-Alias -Name LS-CreateKeyPair -Value New-LSKeyPair
 Set-Alias -Name LS-CreateLoadBalancer -Value New-LSLoadBalancer
 Set-Alias -Name LS-CreateLoadBalancerTlsCertificate -Value New-LSLoadBalancerTlsCertificate
+Set-Alias -Name LS-CreateRelationalDatabase -Value New-LSRelationalDatabase
+Set-Alias -Name LS-CreateRelationalDatabaseFromSnapshot -Value New-LSRelationalDatabaseFromSnapshot
+Set-Alias -Name LS-CreateRelationalDatabaseSnapshot -Value New-LSRelationalDatabaseSnapshot
 Set-Alias -Name Delete-LSDisk -Value Remove-LSDisk
 Set-Alias -Name LS-DeleteDisk -Value Remove-LSDisk
 Set-Alias -Name Delete-LSDiskSnapshot -Value Remove-LSDiskSnapshot
@@ -3798,6 +3825,8 @@ Set-Alias -Name Delete-LSKeyPair -Value Remove-LSKeyPair
 Set-Alias -Name LS-DeleteKeyPair -Value Remove-LSKeyPair
 Set-Alias -Name LS-DeleteLoadBalancer -Value Remove-LSLoadBalancer
 Set-Alias -Name LS-DeleteLoadBalancerTlsCertificate -Value Remove-LSLoadBalancerTlsCertificate
+Set-Alias -Name LS-DeleteRelationalDatabase -Value Remove-LSRelationalDatabase
+Set-Alias -Name LS-DeleteRelationalDatabaseSnapshot -Value Remove-LSRelationalDatabaseSnapshot
 Set-Alias -Name LS-DetachDisk -Value Dismount-LSDisk
 Set-Alias -Name LS-DetachInstancesFromLoadBalancer -Value Dismount-LSInstancesFromLoadBalancer
 Set-Alias -Name LS-DetachStaticIp -Value Dismount-LSStaticIp
@@ -3829,6 +3858,18 @@ Set-Alias -Name LS-GetOperation -Value Get-LSOperation
 Set-Alias -Name LS-GetOperations -Value Get-LSOperationList
 Set-Alias -Name LS-GetOperationsForResource -Value Get-LSOperationListForResource
 Set-Alias -Name LS-GetRegions -Value Get-LSRegionList
+Set-Alias -Name LS-GetRelationalDatabase -Value Get-LSRelationalDatabase
+Set-Alias -Name LS-GetRelationalDatabaseBlueprints -Value Get-LSRelationalDatabaseBlueprint
+Set-Alias -Name LS-GetRelationalDatabaseBundles -Value Get-LSRelationalDatabaseBundle
+Set-Alias -Name LS-GetRelationalDatabaseEvents -Value Get-LSRelationalDatabaseEvent
+Set-Alias -Name LS-GetRelationalDatabaseLogEvents -Value Get-LSRelationalDatabaseLogEvent
+Set-Alias -Name LS-GetRelationalDatabaseLogStreams -Value Get-LSRelationalDatabaseLogStream
+Set-Alias -Name LS-GetRelationalDatabaseMasterUserPassword -Value Get-LSRelationalDatabaseMasterUserPassword
+Set-Alias -Name LS-GetRelationalDatabaseMetricData -Value Get-LSRelationalDatabaseMetricData
+Set-Alias -Name LS-GetRelationalDatabaseParameters -Value Get-LSRelationalDatabaseParameter
+Set-Alias -Name LS-GetRelationalDatabases -Value Get-LSRelationalDatabaseList
+Set-Alias -Name LS-GetRelationalDatabaseSnapshot -Value Get-LSRelationalDatabaseSnapshot
+Set-Alias -Name LS-GetRelationalDatabaseSnapshots -Value Get-LSRelationalDatabaseSnapshotList
 Set-Alias -Name LS-GetStaticIp -Value Get-LSStaticIp
 Set-Alias -Name LS-GetStaticIps -Value Get-LSStaticIpList
 Set-Alias -Name LS-ImportKeyPair -Value Import-LSKeyPair
@@ -3837,12 +3878,17 @@ Set-Alias -Name LS-OpenInstancePublicPorts -Value Open-LSInstancePublicPort
 Set-Alias -Name LS-PeerVpc -Value Add-LSPeerVpc
 Set-Alias -Name LS-PutInstancePublicPorts -Value Set-LSInstancePublicPort
 Set-Alias -Name LS-RebootInstance -Value Restart-LSInstance
+Set-Alias -Name LS-RebootRelationalDatabase -Value Restart-LSRelationalDatabase
 Set-Alias -Name LS-ReleaseStaticIp -Value Remove-LSStaticIp
 Set-Alias -Name LS-StartInstance -Value Start-LSInstance
+Set-Alias -Name LS-StartRelationalDatabase -Value Start-LSRelationalDatabase
 Set-Alias -Name LS-StopInstance -Value Stop-LSInstance
+Set-Alias -Name LS-StopRelationalDatabase -Value Stop-LSRelationalDatabase
 Set-Alias -Name LS-UnpeerVpc -Value Remove-LSPeerVpc
 Set-Alias -Name LS-UpdateDomainEntry -Value Update-LSDomainEntry
 Set-Alias -Name LS-UpdateLoadBalancerAttribute -Value Update-LSLoadBalancerAttribute
+Set-Alias -Name LS-UpdateRelationalDatabase -Value Update-LSRelationalDatabase
+Set-Alias -Name LS-UpdateRelationalDatabaseParameters -Value Update-LSRelationalDatabaseParameter
 Set-Alias -Name MES-GetEntitlements -Value Get-MESEntitlementList
 Set-Alias -Name MM-BatchMeterUsage -Value Send-MMMeteringDataBatch
 Set-Alias -Name MM-MeterUsage -Value Send-MMMeteringData
@@ -4225,6 +4271,7 @@ Set-Alias -Name Describe-OWCMNodeAssociationStatus -Value Get-OWCMNodeAssociatio
 Set-Alias -Name OWCM-DescribeNodeAssociationStatus -Value Get-OWCMNodeAssociationStatus
 Set-Alias -Name OWCM-DescribeServers -Value Get-OWCMServerList
 Set-Alias -Name OWCM-DisassociateNode -Value Remove-OWCMNode
+Set-Alias -Name OWCM-ExportServerEngineAttribute -Value Export-OWCMServerEngineAttribute
 Set-Alias -Name OWCM-RestoreServer -Value Restore-OWCMServer
 Set-Alias -Name OWCM-StartMaintenance -Value Start-OWCMMaintenance
 Set-Alias -Name OWCM-UpdateServer -Value Update-OWCMServer
@@ -4995,7 +5042,10 @@ Set-Alias -Name Associate-SCPrincipalWithPortfolio -Value Register-SCPrincipalWi
 Set-Alias -Name SC-AssociatePrincipalWithPortfolio -Value Register-SCPrincipalWithPortfolio
 Set-Alias -Name Associate-SCProductWithPortfolio -Value Register-SCProductWithPortfolio
 Set-Alias -Name SC-AssociateProductWithPortfolio -Value Register-SCProductWithPortfolio
+Set-Alias -Name SC-AssociateServiceActionWithProvisioningArtifact -Value Add-SCServiceActionAssociationWithProvisioningArtifact
 Set-Alias -Name SC-AssociateTagOptionWithResource -Value Add-SCTagOptionToResource
+Set-Alias -Name SC-BatchAssociateServiceActionWithProvisioningArtifact -Value Add-SCServiceActionAssociationWithProvisioningArtifactBatch
+Set-Alias -Name SC-BatchDisassociateServiceActionFromProvisioningArtifact -Value Remove-SCServiceActionAssociationFromProvisioningArtifactBatch
 Set-Alias -Name SC-CopyProduct -Value Copy-SCProduct
 Set-Alias -Name Create-SCConstraint -Value New-SCConstraint
 Set-Alias -Name SC-CreateConstraint -Value New-SCConstraint
@@ -5008,6 +5058,7 @@ Set-Alias -Name SC-CreateProduct -Value New-SCProduct
 Set-Alias -Name SC-CreateProvisionedProductPlan -Value New-SCProvisionedProductPlan
 Set-Alias -Name Create-SCProvisioningArtifact -Value New-SCProvisioningArtifact
 Set-Alias -Name SC-CreateProvisioningArtifact -Value New-SCProvisioningArtifact
+Set-Alias -Name SC-CreateServiceAction -Value New-SCServiceAction
 Set-Alias -Name Create-SCTagOption -Value New-SCTagOption
 Set-Alias -Name SC-CreateTagOption -Value New-SCTagOption
 Set-Alias -Name Delete-SCConstraint -Value Remove-SCConstraint
@@ -5021,6 +5072,7 @@ Set-Alias -Name SC-DeleteProduct -Value Remove-SCProduct
 Set-Alias -Name SC-DeleteProvisionedProductPlan -Value Remove-SCProvisionedProductPlan
 Set-Alias -Name Delete-SCProvisioningArtifact -Value Remove-SCProvisioningArtifact
 Set-Alias -Name SC-DeleteProvisioningArtifact -Value Remove-SCProvisioningArtifact
+Set-Alias -Name SC-DeleteServiceAction -Value Remove-SCServiceAction
 Set-Alias -Name SC-DeleteTagOption -Value Remove-SCTagOption
 Set-Alias -Name Describe-SCConstraint -Value Get-SCConstraint
 Set-Alias -Name SC-DescribeConstraint -Value Get-SCConstraint
@@ -5043,14 +5095,17 @@ Set-Alias -Name Describe-SCProvisioningParameter -Value Get-SCProvisioningParame
 Set-Alias -Name SC-DescribeProvisioningParameters -Value Get-SCProvisioningParameter
 Set-Alias -Name Describe-SCRecord -Value Get-SCRecord
 Set-Alias -Name SC-DescribeRecord -Value Get-SCRecord
+Set-Alias -Name SC-DescribeServiceAction -Value Get-SCServiceAction
 Set-Alias -Name Describe-SCTagOption -Value Get-SCTagOption
 Set-Alias -Name SC-DescribeTagOption -Value Get-SCTagOption
 Set-Alias -Name Disassociate-SCPrincipalFromPortfolio -Value Unregister-SCPrincipalFromPortfolio
 Set-Alias -Name SC-DisassociatePrincipalFromPortfolio -Value Unregister-SCPrincipalFromPortfolio
 Set-Alias -Name Disassociate-SCProductFromPortfolio -Value Unregister-SCProductFromPortfolio
 Set-Alias -Name SC-DisassociateProductFromPortfolio -Value Unregister-SCProductFromPortfolio
+Set-Alias -Name SC-DisassociateServiceActionFromProvisioningArtifact -Value Remove-SCServiceActionAssociationFromProvisioningArtifact
 Set-Alias -Name SC-DisassociateTagOptionFromResource -Value Remove-SCTagOptionFromResource
 Set-Alias -Name SC-ExecuteProvisionedProductPlan -Value Start-SCProvisionedProductPlanExecution
+Set-Alias -Name SC-ExecuteProvisionedProductServiceAction -Value Start-SCProvisionedProductServiceActionExecution
 Set-Alias -Name SC-ListAcceptedPortfolioShares -Value Get-SCAcceptedPortfolioSharesList
 Set-Alias -Name SC-ListConstraintsForPortfolio -Value Get-SCConstrainsForPortfolioList
 Set-Alias -Name List-SCLaunchPath -Value Get-SCLaunchPath
@@ -5061,9 +5116,12 @@ Set-Alias -Name SC-ListPortfoliosForProduct -Value Get-SCProductPortfoliosList
 Set-Alias -Name SC-ListPrincipalsForPortfolio -Value Get-SCPrincipalsForPortfolio
 Set-Alias -Name SC-ListProvisionedProductPlans -Value Get-SCProvisionedProductPlanList
 Set-Alias -Name SC-ListProvisioningArtifacts -Value Get-SCProvisioningArtifactList
+Set-Alias -Name SC-ListProvisioningArtifactsForServiceAction -Value Get-SCProvisioningArtifactsForServiceActionList
 Set-Alias -Name List-SCRecordHistory -Value Get-SCRecordHistory
 Set-Alias -Name SC-ListRecordHistory -Value Get-SCRecordHistory
 Set-Alias -Name SC-ListResourcesForTagOption -Value Get-SCResourcesForTagOption
+Set-Alias -Name SC-ListServiceActions -Value Get-SCServiceActionList
+Set-Alias -Name SC-ListServiceActionsForProvisioningArtifact -Value Get-SCServiceActionsForProvisioningArtifactList
 Set-Alias -Name SC-ListTagOptions -Value Get-SCTagOptionList
 Set-Alias -Name SC-ProvisionProduct -Value New-SCProvisionedProduct
 Set-Alias -Name SC-RejectPortfolioShare -Value Deny-SCPortfolioShare
@@ -5077,6 +5135,7 @@ Set-Alias -Name SC-UpdatePortfolio -Value Update-SCPortfolio
 Set-Alias -Name SC-UpdateProduct -Value Update-SCProduct
 Set-Alias -Name SC-UpdateProvisionedProduct -Value Update-SCProvisionedProduct
 Set-Alias -Name SC-UpdateProvisioningArtifact -Value Update-SCProvisioningArtifact
+Set-Alias -Name SC-UpdateServiceAction -Value Update-SCServiceAction
 Set-Alias -Name SC-UpdateTagOption -Value Update-SCTagOption
 Set-Alias -Name SD-CreatePrivateDnsNamespace -Value New-SDPrivateDnsNamespace
 Set-Alias -Name SD-CreatePublicDnsNamespace -Value New-SDPublicDnsNamespace
@@ -5375,6 +5434,7 @@ Set-Alias -Name SQS-UntagQueue -Value Remove-SQSResourceTag
 Set-Alias -Name SSM-AddTagsToResource -Value Add-SSMResourceTag
 Set-Alias -Name Cancel-SSMCommand -Value Stop-SSMCommand
 Set-Alias -Name SSM-CancelCommand -Value Stop-SSMCommand
+Set-Alias -Name SSM-CancelMaintenanceWindowExecution -Value Stop-SSMMaintenanceWindowExecution
 Set-Alias -Name Create-SSMActivation -Value New-SSMActivation
 Set-Alias -Name SSM-CreateActivation -Value New-SSMActivation
 Set-Alias -Name Create-SSMAssociation -Value New-SSMAssociation
@@ -5451,6 +5511,8 @@ Set-Alias -Name Describe-SSMMaintenanceWindowExecutionTaskList -Value Get-SSMMai
 Set-Alias -Name SSM-DescribeMaintenanceWindowExecutionTasks -Value Get-SSMMaintenanceWindowExecutionTaskList
 Set-Alias -Name Describe-SSMMaintenanceWindowList -Value Get-SSMMaintenanceWindowList
 Set-Alias -Name SSM-DescribeMaintenanceWindows -Value Get-SSMMaintenanceWindowList
+Set-Alias -Name SSM-DescribeMaintenanceWindowSchedule -Value Get-SSMMaintenanceWindowSchedule
+Set-Alias -Name SSM-DescribeMaintenanceWindowsForTarget -Value Get-SSMMaintenanceWindowsForTarget
 Set-Alias -Name Describe-SSMMaintenanceWindowTarget -Value Get-SSMMaintenanceWindowTarget
 Set-Alias -Name SSM-DescribeMaintenanceWindowTargets -Value Get-SSMMaintenanceWindowTarget
 Set-Alias -Name Describe-SSMMaintenanceWindowTaskList -Value Get-SSMMaintenanceWindowTaskList
@@ -5654,6 +5716,7 @@ Set-Alias -Name STS-GetFederationToken -Value Get-STSFederationToken
 Set-Alias -Name STS-GetSessionToken -Value Get-STSSessionToken
 Set-Alias -Name Assume-STSWebIdentityRole -Value Use-STSWebIdentityRole
 Set-Alias -Name TRS-CreateVocabulary -Value New-TRSVocabulary
+Set-Alias -Name TRS-DeleteTranscriptionJob -Value Remove-TRSTranscriptionJob
 Set-Alias -Name TRS-DeleteVocabulary -Value Remove-TRSVocabulary
 Set-Alias -Name TRS-GetTranscriptionJob -Value Get-TRSTranscriptionJob
 Set-Alias -Name TRS-GetVocabulary -Value Get-TRSVocabulary

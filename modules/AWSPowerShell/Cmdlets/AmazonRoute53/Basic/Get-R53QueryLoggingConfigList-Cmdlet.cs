@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>(Optional) The maximum number of query logging configurations that you want Amazon
         /// Route 53 to return in response to the current request. If the current AWS account
         /// has more than <code>MaxResults</code> configurations, use the value of <a>ListQueryLoggingConfigsResponse$NextToken</a>
-        /// in the response to get the next page of results.</para><para>If you don't specify a value for <code>MaxResults</code>, Amazon Route 53 returns
-        /// up to 100 configurations.</para>
+        /// in the response to get the next page of results.</para><para>If you don't specify a value for <code>MaxResults</code>, Route 53 returns up to 100
+        /// configurations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -380,6 +380,22 @@
           "autoApplOriginalNameAlias": "false",
           "disableAutoRename": "false",
           "exclude": "false"
+        },
+        {
+          "originalName": "BacktrackToUtc",
+          "replacementName": "UtcBacktrackTo",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "BacktrackTo",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
         }
       ],
       "legacySettings": {
@@ -2842,7 +2858,40 @@
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "parameterCustomizations": [],
+      "parameterCustomizations": [
+        {
+          "originalName": "EndTimeUtc",
+          "replacementName": "UtcEndTime",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "EndTime",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "StartTimeUtc",
+          "replacementName": "UtcStartTime",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "StartTime",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        }
+      ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [
@@ -4691,7 +4740,24 @@
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "parameterCustomizations": [],
+      "parameterCustomizations": [
+        {
+          "originalName": "RestoreToTimeUtc",
+          "replacementName": "UtcRestoreToTime",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "RestoreToTime",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        }
+      ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
@@ -4851,7 +4917,24 @@
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "parameterCustomizations": [],
+      "parameterCustomizations": [
+        {
+          "originalName": "RestoreTimeUtc",
+          "replacementName": "UtcRestoreTime",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "RestoreTime",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        }
+      ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [

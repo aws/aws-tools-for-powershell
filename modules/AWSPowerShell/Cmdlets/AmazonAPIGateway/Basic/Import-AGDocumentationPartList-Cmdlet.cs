@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>[Required] Raw byte array representing the to-be-imported documentation parts. To
-        /// import from a Swagger file, this is a JSON object.</para>
+        /// import from an OpenAPI file, this is a JSON object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

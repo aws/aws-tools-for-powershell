@@ -90,8 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>(Deprecated) The options for the domain entry.</para><note><para>In releases prior to November 29, 2017, this parameter was not included in the API
         /// response. It is now deprecated.</para></note>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("In releases prior to November 29, 2017, this parameter was not included in the AP" +
+            "I response. It is now deprecated.")]
         [Alias("DomainEntry_Options")]
         public System.Collections.Hashtable DomainEntry_Option { get; set; }
         #endregion
@@ -151,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (ParameterWasBound("DomainEntry_IsAlias"))
                 context.DomainEntry_IsAlias = this.DomainEntry_IsAlias;
             context.DomainEntry_Name = this.DomainEntry_Name;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.DomainEntry_Option != null)
             {
                 context.DomainEntry_Options = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -159,6 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                     context.DomainEntry_Options.Add((String)hashKey, (String)(this.DomainEntry_Option[hashKey]));
                 }
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DomainEntry_Target = this.DomainEntry_Target;
             context.DomainEntry_Type = this.DomainEntry_Type;
             context.DomainName = this.DomainName;
@@ -212,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 request.DomainEntry.Name = requestDomainEntry_domainEntry_Name;
                 requestDomainEntryIsNull = false;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             Dictionary<System.String, System.String> requestDomainEntry_domainEntry_Option = null;
             if (cmdletContext.DomainEntry_Options != null)
             {
@@ -222,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 request.DomainEntry.Options = requestDomainEntry_domainEntry_Option;
                 requestDomainEntryIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.String requestDomainEntry_domainEntry_Target = null;
             if (cmdletContext.DomainEntry_Target != null)
             {
@@ -318,6 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public System.String DomainEntry_Id { get; set; }
             public System.Boolean? DomainEntry_IsAlias { get; set; }
             public System.String DomainEntry_Name { get; set; }
+            [System.ObsoleteAttribute]
             public Dictionary<System.String, System.String> DomainEntry_Options { get; set; }
             public System.String DomainEntry_Target { get; set; }
             public System.String DomainEntry_Type { get; set; }

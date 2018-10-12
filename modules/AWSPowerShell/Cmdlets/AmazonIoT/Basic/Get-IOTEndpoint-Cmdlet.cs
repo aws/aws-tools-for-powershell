@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter EndpointType
         /// <summary>
         /// <para>
-        /// <para>The endpoint type (such as <code>iot:Data</code>, <code>iot:CredentialProvider</code>
-        /// and <code>iot:Jobs</code>). </para>
+        /// <para>The endpoint type. Valid endpoint types include:</para><ul><li><para><code>iot:Data</code> - Returns a VeriSign signed data endpoint.</para></li></ul><ul><li><para><code>iot:Data-ATS</code> - Returns an ATS signed data endpoint.</para></li></ul><ul><li><para><code>iot:CredentialProvider</code> - Returns an AWS IoT credentials provider API
+        /// endpoint.</para></li></ul><ul><li><para><code>iot:Jobs</code> - Returns an AWS IoT device management Jobs API endpoint.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

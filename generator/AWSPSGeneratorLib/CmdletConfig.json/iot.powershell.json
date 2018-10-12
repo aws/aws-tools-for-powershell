@@ -4562,7 +4562,40 @@
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "parameterCustomizations": [],
+      "parameterCustomizations": [
+        {
+          "originalName": "EndTimeUtc",
+          "replacementName": "UtcEndTime",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "EndTime",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "StartTimeUtc",
+          "replacementName": "UtcStartTime",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "StartTime",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        }
+      ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
@@ -5352,7 +5385,7 @@
       "pagination": {
         "excludedOperations": [],
         "requestMember": "Marker",
-        "responseMember": "NextToken",
+        "responseMember": "NextMarker",
         "resultLimitMember": "MaxResults",
         "forceMaxResultSize": "true",
         "maxResultSize": 250,
@@ -5381,7 +5414,7 @@
         "autoIterateSettings": {
           "excludedOperations": [],
           "requestMember": "Marker",
-          "responseMember": "NextToken",
+          "responseMember": "NextMarker",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
           "maxResultSize": 250,
@@ -6230,7 +6263,40 @@
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "parameterCustomizations": [],
+      "parameterCustomizations": [
+        {
+          "originalName": "EndTimeUtc",
+          "replacementName": "UtcEndTime",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "EndTime",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "StartTimeUtc",
+          "replacementName": "UtcStartTime",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        },
+        {
+          "originalName": "StartTime",
+          "replacementName": "",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        }
+      ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],

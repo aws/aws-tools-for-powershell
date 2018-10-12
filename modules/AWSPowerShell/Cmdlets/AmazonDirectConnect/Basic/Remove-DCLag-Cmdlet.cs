@@ -28,8 +28,8 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Deletes a link aggregation group (LAG). You cannot delete a LAG if it has active virtual
-    /// interfaces or hosted connections.
+    /// Deletes the specified link aggregation group (LAG). You cannot delete a LAG if it
+    /// has active virtual interfaces or hosted connections.
     /// </summary>
     [Cmdlet("Remove", "DCLag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DirectConnect.Model.DeleteLagResponse")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter LagId
         /// <summary>
         /// <para>
-        /// <para>The ID of the LAG to delete.</para><para>Example: dxlag-abc123</para><para>Default: None</para>
+        /// <para>The ID of the LAG.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

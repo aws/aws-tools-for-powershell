@@ -55,9 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The Availability Zone where you want to create your instances. Use the following formatting:
-        /// <code>us-east-2a</code> (case sensitive). You can get a list of availability zones
+        /// <code>us-east-2a</code> (case sensitive). You can get a list of Availability Zones
         /// by using the <a href="http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html">get
-        /// regions</a> operation. Be sure to add the <code>include availability zones</code>
+        /// regions</a> operation. Be sure to add the <code>include Availability Zones</code>
         /// parameter to your request.</para>
         /// </para>
         /// </summary>
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>You can create a launch script that configures a server with additional user data.
         /// For example, <code>apt-get -y update</code>.</para><note><para>Depending on the machine image you choose, the command to get software on your instance
         /// varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use <code>apt-get</code>,
-        /// and FreeBSD uses <code>pkg</code>. For a complete list, see the <a href="http://lightsail.aws.amazon.com/ls/docs/getting-started/articles/pre-installed-apps">Dev
+        /// and FreeBSD uses <code>pkg</code>. For a complete list, see the <a href="https://lightsail.aws.amazon.com/ls/docs/getting-started/article/compare-options-choose-lightsail-instance-image">Dev
         /// Guide</a>.</para></note>
         /// </para>
         /// </summary>

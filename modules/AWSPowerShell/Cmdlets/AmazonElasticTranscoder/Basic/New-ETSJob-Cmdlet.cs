@@ -104,8 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>Source files for the input sidecar captions used during the transcoding process. To
         /// omit all sidecar captions, leave <code>CaptionSources</code> blank.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This property is deprecated")]
         [Alias("Output_Captions_CaptionSources")]
         public Amazon.ElasticTranscoder.Model.CaptionSource[] Captions_CaptionSource { get; set; }
         #endregion
@@ -119,8 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// release, you can only specify settings for a single clip per output file. The Composition
         /// object cannot be null.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This property is deprecated")]
         public Amazon.ElasticTranscoder.Model.Clip[] Output_Composition { get; set; }
         #endregion
         
@@ -438,8 +442,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// omits all sidecar captions from the output files.</para></li><li><para><b>Override:</b> Elastic Transcoder transcodes only the sidecar captions that you
         /// specify in <code>CaptionSources</code>.</para></li></ul><para><code>MergePolicy</code> cannot be null.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This property is deprecated")]
         [Alias("Output_Captions_MergePolicy")]
         public System.String Captions_MergePolicy { get; set; }
         #endregion
@@ -762,15 +768,21 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             {
                 context.Output_Captions_CaptionFormats = new List<Amazon.ElasticTranscoder.Model.CaptionFormat>(this.Captions_CaptionFormat);
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Captions_CaptionSource != null)
             {
                 context.Output_Captions_CaptionSources = new List<Amazon.ElasticTranscoder.Model.CaptionSource>(this.Captions_CaptionSource);
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Output_Captions_MergePolicy = this.Captions_MergePolicy;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Output_Composition != null)
             {
                 context.Output_Composition = new List<Amazon.ElasticTranscoder.Model.Clip>(this.Output_Composition);
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.OutputEncryptionInitializationVector = this.OutputEncryptionInitializationVector;
             context.OutputEncryptionKey = this.OutputEncryptionKey;
             context.OutputEncryptionKeyMd5 = this.OutputEncryptionKeyMd5;
@@ -1089,6 +1101,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
              // populate Output
             bool requestOutputIsNull = true;
             request.Output = new Amazon.ElasticTranscoder.Model.CreateJobOutput();
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             List<Amazon.ElasticTranscoder.Model.Clip> requestOutput_output_Composition = null;
             if (cmdletContext.Output_Composition != null)
             {
@@ -1099,6 +1112,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Output.Composition = requestOutput_output_Composition;
                 requestOutputIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.String requestOutput_output_Key = null;
             if (cmdletContext.Output_Key != null)
             {
@@ -1209,6 +1223,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestOutput_output_Captions.CaptionFormats = requestOutput_output_Captions_captions_CaptionFormat;
                 requestOutput_output_CaptionsIsNull = false;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             List<Amazon.ElasticTranscoder.Model.CaptionSource> requestOutput_output_Captions_captions_CaptionSource = null;
             if (cmdletContext.Output_Captions_CaptionSources != null)
             {
@@ -1219,6 +1234,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestOutput_output_Captions.CaptionSources = requestOutput_output_Captions_captions_CaptionSource;
                 requestOutput_output_CaptionsIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.String requestOutput_output_Captions_captions_MergePolicy = null;
             if (cmdletContext.Output_Captions_MergePolicy != null)
             {
@@ -1229,6 +1246,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestOutput_output_Captions.MergePolicy = requestOutput_output_Captions_captions_MergePolicy;
                 requestOutput_output_CaptionsIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
              // determine if requestOutput_output_Captions should be set to null
             if (requestOutput_output_CaptionsIsNull)
             {
@@ -1461,8 +1479,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             public List<Amazon.ElasticTranscoder.Model.Artwork> Output_AlbumArt_Artwork { get; set; }
             public System.String Output_AlbumArt_MergePolicy { get; set; }
             public List<Amazon.ElasticTranscoder.Model.CaptionFormat> Output_Captions_CaptionFormats { get; set; }
+            [System.ObsoleteAttribute]
             public List<Amazon.ElasticTranscoder.Model.CaptionSource> Output_Captions_CaptionSources { get; set; }
+            [System.ObsoleteAttribute]
             public System.String Output_Captions_MergePolicy { get; set; }
+            [System.ObsoleteAttribute]
             public List<Amazon.ElasticTranscoder.Model.Clip> Output_Composition { get; set; }
             public System.String OutputEncryptionInitializationVector { get; set; }
             public System.String OutputEncryptionKey { get; set; }

@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     ///  <ul><li><para><code>PENDING</code> indicates that the changes in this request have not propagated
     /// to all Amazon Route 53 DNS servers. This is the initial status of all change batch
     /// requests.
-    /// </para></li><li><para><code>INSYNC</code> indicates that the changes have propagated to all Amazon Route
-    /// 53 DNS servers. 
+    /// </para></li><li><para><code>INSYNC</code> indicates that the changes have propagated to all Route 53 DNS
+    /// servers. 
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "R53Change")]

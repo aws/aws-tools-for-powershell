@@ -28,7 +28,14 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Retrieves all the DevEndpoints in this AWS account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieves all the DevEndpoints in this AWS account.
+    /// 
+    ///  <note><para>
+    /// When you create a development endpoint in a virtual private cloud (VPC), AWS Glue
+    /// returns only a private IP address and the public IP address field is not populated.
+    /// When you create a non-VPC development endpoint, AWS Glue returns only a public IP
+    /// address.
+    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "GLUEDevEndpointList")]
     [OutputType("Amazon.Glue.Model.DevEndpoint")]

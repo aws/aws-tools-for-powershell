@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>Name of the DB instance to create from the DB snapshot. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 numbers, letters, or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-snapshot-id</code></para>
+        /// <para>Name of the DB instance to create from the DB snapshot. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 numbers, letters, or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-snapshot-id</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -127,6 +127,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DBName { get; set; }
+        #endregion
+        
+        #region Parameter DBParameterGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the DB parameter group to associate with this DB instance. If this argument
+        /// is omitted, the default DBParameterGroup for the specified engine is used.</para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DBParameterGroup.</para></li><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DBParameterGroupName { get; set; }
         #endregion
         
         #region Parameter DBSnapshotIdentifier
@@ -148,6 +159,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBSubnetGroupName { get; set; }
+        #endregion
+        
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if the DB instance should have deletion protection enabled. The database
+        /// can't be deleted when this value is set to true. The default is false. For more information,
+        /// see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+        /// Deleting a DB Instance</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DeletionProtection { get; set; }
         #endregion
         
         #region Parameter Domain
@@ -384,8 +408,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBInstanceClass = this.DBInstanceClass;
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
             context.DBName = this.DBName;
+            context.DBParameterGroupName = this.DBParameterGroupName;
             context.DBSnapshotIdentifier = this.DBSnapshotIdentifier;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            if (ParameterWasBound("DeletionProtection"))
+                context.DeletionProtection = this.DeletionProtection;
             context.Domain = this.Domain;
             context.DomainIAMRoleName = this.DomainIAMRoleName;
             if (this.EnableCloudwatchLogsExport != null)
@@ -458,6 +485,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.DBName = cmdletContext.DBName;
             }
+            if (cmdletContext.DBParameterGroupName != null)
+            {
+                request.DBParameterGroupName = cmdletContext.DBParameterGroupName;
+            }
             if (cmdletContext.DBSnapshotIdentifier != null)
             {
                 request.DBSnapshotIdentifier = cmdletContext.DBSnapshotIdentifier;
@@ -465,6 +496,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection.Value;
             }
             if (cmdletContext.Domain != null)
             {
@@ -604,8 +639,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBInstanceClass { get; set; }
             public System.String DBInstanceIdentifier { get; set; }
             public System.String DBName { get; set; }
+            public System.String DBParameterGroupName { get; set; }
             public System.String DBSnapshotIdentifier { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public System.Boolean? DeletionProtection { get; set; }
             public System.String Domain { get; set; }
             public System.String DomainIAMRoleName { get; set; }
             public List<System.String> EnableCloudwatchLogsExports { get; set; }

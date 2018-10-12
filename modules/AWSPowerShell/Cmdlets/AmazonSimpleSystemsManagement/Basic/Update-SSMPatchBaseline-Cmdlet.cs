@@ -148,6 +148,23 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String[] RejectedPatch { get; set; }
         #endregion
         
+        #region Parameter RejectedPatchesAction
+        /// <summary>
+        /// <para>
+        /// <para>The action for Patch Manager to take on patches included in the RejectedPackages list.</para><ul><li><para><b>ALLOW_AS_DEPENDENCY</b>: A package in the Rejected patches list is installed only
+        /// if it is a dependency of another package. It is considered compliant with the patch
+        /// baseline, and its status is reported as <i>InstalledOther</i>. This is the default
+        /// action if no option is specified.</para></li><li><para><b>BLOCK</b>: Packages in the RejectedPatches list, and packages that include them
+        /// as dependencies, are not installed under any circumstances. If a package was installed
+        /// before it was added to the Rejected patches list, it is considered non-compliant with
+        /// the patch baseline, and its status is reported as <i>InstalledRejected</i>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.PatchAction")]
+        public Amazon.SimpleSystemsManagement.PatchAction RejectedPatchesAction { get; set; }
+        #endregion
+        
         #region Parameter Replace
         /// <summary>
         /// <para>
@@ -222,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 context.RejectedPatches = new List<System.String>(this.RejectedPatch);
             }
+            context.RejectedPatchesAction = this.RejectedPatchesAction;
             if (ParameterWasBound("Replace"))
                 context.Replace = this.Replace;
             if (this.Source != null)
@@ -310,6 +328,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.RejectedPatches = cmdletContext.RejectedPatches;
             }
+            if (cmdletContext.RejectedPatchesAction != null)
+            {
+                request.RejectedPatchesAction = cmdletContext.RejectedPatchesAction;
+            }
             if (cmdletContext.Replace != null)
             {
                 request.Replace = cmdletContext.Replace.Value;
@@ -391,6 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public List<Amazon.SimpleSystemsManagement.Model.PatchFilter> GlobalFilters_PatchFilters { get; set; }
             public System.String Name { get; set; }
             public List<System.String> RejectedPatches { get; set; }
+            public Amazon.SimpleSystemsManagement.PatchAction RejectedPatchesAction { get; set; }
             public System.Boolean? Replace { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.PatchSource> Sources { get; set; }
         }

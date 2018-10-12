@@ -71,6 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String HttpMethod { get; set; }
         #endregion
         
+        #region Parameter MultiValueHeader
+        /// <summary>
+        /// <para>
+        /// <para>The headers as a map from string to list of values to simulate an incoming invocation
+        /// request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MultiValueHeaders")]
+        public System.Collections.Hashtable MultiValueHeader { get; set; }
+        #endregion
+        
         #region Parameter PathWithQueryString
         /// <summary>
         /// <para>
@@ -148,6 +160,26 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 }
             }
             context.HttpMethod = this.HttpMethod;
+            if (this.MultiValueHeader != null)
+            {
+                context.MultiValueHeaders = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.MultiValueHeader.Keys)
+                {
+                    object hashValue = this.MultiValueHeader[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.MultiValueHeaders.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((String)s);
+                    }
+                    context.MultiValueHeaders.Add((String)hashKey, valueSet);
+                }
+            }
             context.PathWithQueryString = this.PathWithQueryString;
             context.ResourceId = this.ResourceId;
             context.RestApiId = this.RestApiId;
@@ -190,6 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.HttpMethod != null)
             {
                 request.HttpMethod = cmdletContext.HttpMethod;
+            }
+            if (cmdletContext.MultiValueHeaders != null)
+            {
+                request.MultiValueHeaders = cmdletContext.MultiValueHeaders;
             }
             if (cmdletContext.PathWithQueryString != null)
             {
@@ -275,6 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String ClientCertificateId { get; set; }
             public Dictionary<System.String, System.String> Headers { get; set; }
             public System.String HttpMethod { get; set; }
+            public Dictionary<System.String, List<System.String>> MultiValueHeaders { get; set; }
             public System.String PathWithQueryString { get; set; }
             public System.String ResourceId { get; set; }
             public System.String RestApiId { get; set; }

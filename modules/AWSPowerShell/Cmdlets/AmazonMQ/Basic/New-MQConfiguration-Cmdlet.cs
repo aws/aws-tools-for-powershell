@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <summary>
         /// <para>
         /// Required. The version of the broker engine.
-        /// Note: Currently, Amazon MQ supports only 5.15.0.
+        /// Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -133,8 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
         /// Deprecated field that's only usable by whitelisted
         /// customers.
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("Deprecated field that\'s only usable by whitelisted customers.")]
         public System.String Reserved { get; set; }
         #endregion
         
@@ -204,7 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.EML
             context.LogLevel = this.LogLevel;
             context.Name = this.Name;
             context.RequestId = this.RequestId;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Reserved = this.Reserved;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.RoleArn = this.RoleArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -285,10 +289,12 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 request.RequestId = cmdletContext.RequestId;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Reserved != null)
             {
                 request.Reserved = cmdletContext.Reserved;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
@@ -366,6 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public Amazon.MediaLive.LogLevel LogLevel { get; set; }
             public System.String Name { get; set; }
             public System.String RequestId { get; set; }
+            [System.ObsoleteAttribute]
             public System.String Reserved { get; set; }
             public System.String RoleArn { get; set; }
         }

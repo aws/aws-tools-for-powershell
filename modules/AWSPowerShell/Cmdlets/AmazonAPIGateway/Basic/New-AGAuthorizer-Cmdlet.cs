@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// <summary>
     /// Adds a new <a>Authorizer</a> resource to an existing <a>RestApi</a> resource.
     /// 
-    ///  <div class="seeAlso"><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html">AWS
+    ///  <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html">AWS
     /// CLI</a></div>
     /// </summary>
     [Cmdlet("New", "AGAuthorizer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter AuthType
         /// <summary>
         /// <para>
-        /// <para>Optional customer-defined field, used in Swagger imports and exports without functional
+        /// <para>Optional customer-defined field, used in OpenAPI imports and exports without functional
         /// impact.</para>
         /// </para>
         /// </summary>

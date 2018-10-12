@@ -28,12 +28,12 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Accept ownership of a public virtual interface created by another customer.
+    /// Accepts ownership of a public virtual interface created by another AWS account.
     /// 
     ///  
     /// <para>
-    /// After the virtual interface owner calls this function, the specified virtual interface
-    /// will be created and made available for handling traffic.
+    /// After the virtual interface owner makes this call, the specified virtual interface
+    /// is created and made available to handle traffic.
     /// </para>
     /// </summary>
     [Cmdlet("Confirm", "DCPublicVirtualInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter VirtualInterfaceId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the virtual interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

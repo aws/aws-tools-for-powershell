@@ -49,9 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter RoutingConfig_AdditionalVersionWeight
         /// <summary>
         /// <para>
-        /// <para>Set this value to dictate what percentage of traffic will invoke the updated function
-        /// version. If set to an empty string, 100 percent of traffic will invoke <code>function-version</code>.
-        /// For more information, see <a>lambda-traffic-shifting-using-aliases</a>.</para>
+        /// <para>The name of the second alias, and the percentage of traffic that is routed to it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,9 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>The function name for which the alias is created. Note that the length constraint
-        /// applies only to the ARN. If you specify only the function name, it is limited to 64
-        /// characters in length.</para>
+        /// Amazon.Lambda.Model.UpdateAliasRequest.FunctionName
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -108,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para>An optional value you can use to ensure you are updating the latest update of the
         /// function version or alias. If the <code>RevisionID</code> you pass doesn't match the
         /// latest <code>RevisionId</code> of the function or alias, it will fail with an error
-        /// message, advising you to retrieve the latest function version or alias <code>RevisionID</code>
-        /// using either or .</para>
+        /// message, advising you retrieve the latest function version or alias <code>RevisionID</code>
+        /// using either <a>GetFunction</a> or <a>GetAlias</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

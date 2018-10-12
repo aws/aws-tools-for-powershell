@@ -41,11 +41,23 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     public partial class NewEMCQueueCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {
         
+        #region Parameter ReservationPlanSettings_Commitment
+        /// <summary>
+        /// <para>
+        /// The length of time that you commit to when
+        /// you set up a pricing plan contract for a reserved queue.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.MediaConvert.Commitment")]
+        public Amazon.MediaConvert.Commitment ReservationPlanSettings_Commitment { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// Optional. A description of the queue you are
-        /// creating.
+        /// Optional. A description of the queue that
+        /// you are creating.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -55,11 +67,53 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// The name of the queue you are creating.
+        /// The name of the queue that you are creating.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter PricingPlan
+        /// <summary>
+        /// <para>
+        /// Optional; default is on-demand. Specifies
+        /// whether the pricing plan for the queue is on-demand or reserved. The pricing plan
+        /// for the queue determines whether you pay on-demand or reserved pricing for the transcoding
+        /// jobs you run through the queue. For reserved queue pricing, you must set up a contract.
+        /// You can create a reserved queue contract through the AWS Elemental MediaConvert console.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.MediaConvert.PricingPlan")]
+        public Amazon.MediaConvert.PricingPlan PricingPlan { get; set; }
+        #endregion
+        
+        #region Parameter ReservationPlanSettings_RenewalType
+        /// <summary>
+        /// <para>
+        /// Specifies whether the pricing plan contract
+        /// for your reserved queue automatically renews (AUTO_RENEW) or expires (EXPIRE) at the
+        /// end of the contract period.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.MediaConvert.RenewalType")]
+        public Amazon.MediaConvert.RenewalType ReservationPlanSettings_RenewalType { get; set; }
+        #endregion
+        
+        #region Parameter ReservationPlanSettings_ReservedSlot
+        /// <summary>
+        /// <para>
+        /// Specifies the number of reserved transcode
+        /// slots (RTSs) for this queue. The number of RTS determines how many jobs the queue
+        /// can process in parallel; each RTS can process one job at a time. To increase this
+        /// number, create a replacement contract through the AWS Elemental MediaConvert console.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ReservationPlanSettings_ReservedSlots")]
+        public System.Int32 ReservationPlanSettings_ReservedSlot { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -105,6 +159,11 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             
             context.Description = this.Description;
             context.Name = this.Name;
+            context.PricingPlan = this.PricingPlan;
+            context.ReservationPlanSettings_Commitment = this.ReservationPlanSettings_Commitment;
+            context.ReservationPlanSettings_RenewalType = this.ReservationPlanSettings_RenewalType;
+            if (ParameterWasBound("ReservationPlanSettings_ReservedSlot"))
+                context.ReservationPlanSettings_ReservedSlots = this.ReservationPlanSettings_ReservedSlot;
             if (this.Tag != null)
             {
                 context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -136,6 +195,49 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.PricingPlan != null)
+            {
+                request.PricingPlan = cmdletContext.PricingPlan;
+            }
+            
+             // populate ReservationPlanSettings
+            bool requestReservationPlanSettingsIsNull = true;
+            request.ReservationPlanSettings = new Amazon.MediaConvert.Model.ReservationPlanSettings();
+            Amazon.MediaConvert.Commitment requestReservationPlanSettings_reservationPlanSettings_Commitment = null;
+            if (cmdletContext.ReservationPlanSettings_Commitment != null)
+            {
+                requestReservationPlanSettings_reservationPlanSettings_Commitment = cmdletContext.ReservationPlanSettings_Commitment;
+            }
+            if (requestReservationPlanSettings_reservationPlanSettings_Commitment != null)
+            {
+                request.ReservationPlanSettings.Commitment = requestReservationPlanSettings_reservationPlanSettings_Commitment;
+                requestReservationPlanSettingsIsNull = false;
+            }
+            Amazon.MediaConvert.RenewalType requestReservationPlanSettings_reservationPlanSettings_RenewalType = null;
+            if (cmdletContext.ReservationPlanSettings_RenewalType != null)
+            {
+                requestReservationPlanSettings_reservationPlanSettings_RenewalType = cmdletContext.ReservationPlanSettings_RenewalType;
+            }
+            if (requestReservationPlanSettings_reservationPlanSettings_RenewalType != null)
+            {
+                request.ReservationPlanSettings.RenewalType = requestReservationPlanSettings_reservationPlanSettings_RenewalType;
+                requestReservationPlanSettingsIsNull = false;
+            }
+            System.Int32? requestReservationPlanSettings_reservationPlanSettings_ReservedSlot = null;
+            if (cmdletContext.ReservationPlanSettings_ReservedSlots != null)
+            {
+                requestReservationPlanSettings_reservationPlanSettings_ReservedSlot = cmdletContext.ReservationPlanSettings_ReservedSlots.Value;
+            }
+            if (requestReservationPlanSettings_reservationPlanSettings_ReservedSlot != null)
+            {
+                request.ReservationPlanSettings.ReservedSlots = requestReservationPlanSettings_reservationPlanSettings_ReservedSlot.Value;
+                requestReservationPlanSettingsIsNull = false;
+            }
+             // determine if request.ReservationPlanSettings should be set to null
+            if (requestReservationPlanSettingsIsNull)
+            {
+                request.ReservationPlanSettings = null;
             }
             if (cmdletContext.Tags != null)
             {
@@ -207,6 +309,10 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         {
             public System.String Description { get; set; }
             public System.String Name { get; set; }
+            public Amazon.MediaConvert.PricingPlan PricingPlan { get; set; }
+            public Amazon.MediaConvert.Commitment ReservationPlanSettings_Commitment { get; set; }
+            public Amazon.MediaConvert.RenewalType ReservationPlanSettings_RenewalType { get; set; }
+            public System.Int32? ReservationPlanSettings_ReservedSlots { get; set; }
             public Dictionary<System.String, System.String> Tags { get; set; }
         }
         

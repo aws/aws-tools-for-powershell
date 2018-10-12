@@ -233,15 +233,54 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ValidFrom
         /// <summary>
         /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use ValidFromUtc instead. Setting either ValidFrom or
+        /// ValidFromUtc results in both ValidFrom and ValidFromUtc being assigned, the latest
+        /// assignment to either one of the two property is reflected in the value of both. ValidFrom
+        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
+        /// results in the wrong timestamp being passed to the service.</para><para>The start date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+        /// The default is to start fulfilling the request immediately.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcValidFrom instead.")]
+        public System.DateTime ValidFrom { get; set; }
+        #endregion
+        
+        #region Parameter UtcValidFrom
+        /// <summary>
+        /// <para>
         /// <para>The start date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
         /// The default is to start fulfilling the request immediately.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime ValidFrom { get; set; }
+        public System.DateTime UtcValidFrom { get; set; }
         #endregion
         
         #region Parameter ValidUntil
+        /// <summary>
+        /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use ValidUntilUtc instead. Setting either ValidUntil or
+        /// ValidUntilUtc results in both ValidUntil and ValidUntilUtc being assigned, the latest
+        /// assignment to either one of the two property is reflected in the value of both. ValidUntil
+        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
+        /// results in the wrong timestamp being passed to the service.</para><para>The end date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+        /// At this point, no new EC2 Fleet requests are placed or able to fulfill the request.
+        /// The default end date is 7 days from the current date.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcValidUntil instead.")]
+        public System.DateTime ValidUntil { get; set; }
+        #endregion
+        
+        #region Parameter UtcValidUntil
         /// <summary>
         /// <para>
         /// <para>The end date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
@@ -250,7 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime ValidUntil { get; set; }
+        public System.DateTime UtcValidUntil { get; set; }
         #endregion
         
         #region Parameter Force
@@ -309,10 +348,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (ParameterWasBound("TerminateInstancesWithExpiration"))
                 context.TerminateInstancesWithExpiration = this.TerminateInstancesWithExpiration;
             context.Type = this.Type;
+            if (ParameterWasBound("UtcValidFrom"))
+                context.UtcValidFrom = this.UtcValidFrom;
+            if (ParameterWasBound("UtcValidUntil"))
+                context.UtcValidUntil = this.UtcValidUntil;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("ValidFrom"))
                 context.ValidFrom = this.ValidFrom;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("ValidUntil"))
                 context.ValidUntil = this.ValidUntil;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -464,14 +511,34 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.Type = cmdletContext.Type;
             }
+            if (cmdletContext.UtcValidFrom != null)
+            {
+                request.ValidFromUtc = cmdletContext.UtcValidFrom.Value;
+            }
+            if (cmdletContext.UtcValidUntil != null)
+            {
+                request.ValidUntilUtc = cmdletContext.UtcValidUntil.Value;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ValidFrom != null)
             {
+                if (cmdletContext.UtcValidFrom != null)
+                {
+                    throw new ArgumentException("Parameters ValidFrom and UtcValidFrom are mutually exclusive.");
+                }
                 request.ValidFrom = cmdletContext.ValidFrom.Value;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ValidUntil != null)
             {
+                if (cmdletContext.UtcValidUntil != null)
+                {
+                    throw new ArgumentException("Parameters ValidUntil and UtcValidUntil are mutually exclusive.");
+                }
                 request.ValidUntil = cmdletContext.ValidUntil.Value;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -551,7 +618,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? TargetCapacitySpecification_TotalTargetCapacity { get; set; }
             public System.Boolean? TerminateInstancesWithExpiration { get; set; }
             public Amazon.EC2.FleetType Type { get; set; }
+            public System.DateTime? UtcValidFrom { get; set; }
+            public System.DateTime? UtcValidUntil { get; set; }
+            [System.ObsoleteAttribute]
             public System.DateTime? ValidFrom { get; set; }
+            [System.ObsoleteAttribute]
             public System.DateTime? ValidUntil { get; set; }
         }
         

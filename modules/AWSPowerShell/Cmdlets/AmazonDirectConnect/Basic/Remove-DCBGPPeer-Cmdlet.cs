@@ -28,8 +28,13 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Deletes a BGP peer on the specified virtual interface that matches the specified customer
-    /// address and ASN. You cannot delete the last BGP peer from a virtual interface.
+    /// Deletes the BGP peer on the specified virtual interface with the specified customer
+    /// address and ASN.
+    /// 
+    ///  
+    /// <para>
+    /// You cannot delete the last BGP peer from a virtual interface.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "DCBGPPeer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DirectConnect.Model.VirtualInterface")]
@@ -44,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter Asn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter CustomerAddress
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The IP address assigned to the customer interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter VirtualInterfaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the virtual interface from which the BGP peer will be deleted.</para><para>Example: dxvif-456abc78</para><para>Default: None</para>
+        /// <para>The ID of the virtual interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

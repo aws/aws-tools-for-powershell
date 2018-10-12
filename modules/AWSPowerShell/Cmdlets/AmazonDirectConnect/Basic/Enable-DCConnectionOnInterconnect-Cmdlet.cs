@@ -28,17 +28,17 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Deprecated in favor of <a>AllocateHostedConnection</a>.
+    /// Deprecated. Use <a>AllocateHostedConnection</a> instead.
     /// 
     ///  
     /// <para>
     /// Creates a hosted connection on an interconnect.
     /// </para><para>
     /// Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection
-    /// on the given interconnect.
+    /// on the specified interconnect.
     /// </para><note><para>
-    /// This is intended for use by AWS Direct Connect partners only.
-    /// </para></note>
+    /// Intended for use by AWS Direct Connect partners only.
+    /// </para></note><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Enable", "DCConnectionOnInterconnect", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectResponse")]
@@ -46,13 +46,15 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdletOutput("Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectResponse",
         "This cmdlet returns a Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Deprecated in favor of AllocateHostedConnection.")]
     public partial class EnableDCConnectionOnInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
         #region Parameter Bandwidth
         /// <summary>
         /// <para>
-        /// <para>Bandwidth of the connection.</para><para>Example: "<i>500Mbps</i>"</para><para>Default: None</para><para>Values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, or 500Mbps</para>
+        /// <para>The bandwidth of the connection, in Mbps. The possible values are 50Mbps, 100Mbps,
+        /// 200Mbps, 300Mbps, 400Mbps, and 500Mbps.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -62,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionName
         /// <summary>
         /// <para>
-        /// <para>Name of the provisioned connection.</para><para>Example: "<i>500M Connection to AWS</i>"</para><para>Default: None</para>
+        /// <para>The name of the provisioned connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -72,7 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter InterconnectId
         /// <summary>
         /// <para>
-        /// <para>ID of the interconnect on which the connection will be provisioned.</para><para>Example: dxcon-456abc78</para><para>Default: None</para>
+        /// <para>The ID of the interconnect on which the connection will be provisioned. For example,
+        /// dxcon-456abc78.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -82,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter OwnerAccount
         /// <summary>
         /// <para>
-        /// <para>Numeric account Id of the customer for whom the connection will be provisioned.</para><para>Example: 123443215678</para><para>Default: None</para>
+        /// <para>The ID of the AWS account of the customer for whom the connection will be provisioned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -92,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter Vlan
         /// <summary>
         /// <para>
-        /// <para>The dedicated VLAN provisioned to the connection.</para><para>Example: 101</para><para>Default: None</para>
+        /// <para>The dedicated VLAN provisioned to the connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]

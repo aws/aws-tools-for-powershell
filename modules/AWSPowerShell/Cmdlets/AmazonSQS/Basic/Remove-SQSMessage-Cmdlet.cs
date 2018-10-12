@@ -28,26 +28,26 @@ using Amazon.SQS.Model;
 namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
-    /// Deletes the specified message from the specified queue. You specify the message by
-    /// using the message's <i>receipt handle</i> and not the <i>MessageId</i> you receive
-    /// when you send the message. Even if the message is locked by another reader due to
-    /// the visibility timeout setting, it is still deleted from the queue. If you leave a
-    /// message in the queue for longer than the queue's configured retention period, Amazon
-    /// SQS automatically deletes the message. 
+    /// Deletes the specified message from the specified queue. To select the message to delete,
+    /// use the <code>ReceiptHandle</code> of the message (<i>not</i> the <code>MessageId</code>
+    /// which you receive when you send the message). Amazon SQS can delete a message from
+    /// a queue even if a visibility timeout setting causes the message to be locked by another
+    /// consumer. Amazon SQS automatically deletes messages left in a queue longer than the
+    /// retention period configured for the queue. 
     /// 
     ///  <note><para>
-    ///  The receipt handle is associated with a specific instance of receiving the message.
-    /// If you receive a message more than once, the receipt handle you get each time you
-    /// receive the message is different. If you don't provide the most recently received
-    /// receipt handle for the message when you use the <code>DeleteMessage</code> action,
-    /// the request succeeds, but the message might not be deleted.
+    /// The <code>ReceiptHandle</code> is associated with a <i>specific instance</i> of receiving
+    /// a message. If you receive a message more than once, the <code>ReceiptHandle</code>
+    /// is different each time you receive a message. When you use the <code>DeleteMessage</code>
+    /// action, you must provide the most recently received <code>ReceiptHandle</code> for
+    /// the message (otherwise, the request succeeds, but the message might not be deleted).
     /// </para><para>
     /// For standard queues, it is possible to receive a message even after you delete it.
-    /// This might happen on rare occasions if one of the servers storing a copy of the message
-    /// is unavailable when you send the request to delete the message. The copy remains on
-    /// the server and might be returned to you on a subsequent receive request. You should
-    /// ensure that your application is idempotent, so that receiving a message more than
-    /// once does not cause issues.
+    /// This might happen on rare occasions if one of the servers which stores a copy of the
+    /// message is unavailable when you send the request to delete the message. The copy remains
+    /// on the server and might be returned to you during a subsequent receive request. You
+    /// should ensure that your application is idempotent, so that receiving a message more
+    /// than once does not cause issues.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "SQSMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of the Amazon SQS queue from which messages are deleted.</para><para>Queue URLs are case-sensitive.</para>
+        /// <para>The URL of the Amazon SQS queue from which messages are deleted.</para><para>Queue URLs and names are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

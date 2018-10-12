@@ -29,7 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
     /// Revokes any permissions in the queue policy that matches the specified <code>Label</code>
-    /// parameter. Only the owner of the queue can remove permissions.
+    /// parameter.
+    /// 
+    ///  <note><para>
+    /// Only the owner of a queue can remove permissions from it.
+    /// </para><para>
+    /// Cross-account permissions don't apply to this action. For more information, see see
+    /// <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
+    /// Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue
+    /// Service Developer Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "SQSPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -55,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of the Amazon SQS queue from which permissions are removed.</para><para>Queue URLs are case-sensitive.</para>
+        /// <para>The URL of the Amazon SQS queue from which permissions are removed.</para><para>Queue URLs and names are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

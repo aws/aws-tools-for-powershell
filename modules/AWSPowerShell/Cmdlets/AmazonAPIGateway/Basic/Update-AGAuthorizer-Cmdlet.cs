@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// <summary>
     /// Updates an existing <a>Authorizer</a> resource.
     /// 
-    ///  <div class="seeAlso"><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html">AWS
+    ///  <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html">AWS
     /// CLI</a></div>
     /// </summary>
     [Cmdlet("Update", "AGAuthorizer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

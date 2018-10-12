@@ -35,10 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// 
     ///  
     /// <para>
-    /// Using the optional <code>Qualifier</code> parameter, you can specify a specific function
-    /// version for which you want this information. If you don't specify this parameter,
-    /// the API uses unqualified function ARN which return information about the <code>$LATEST</code>
-    /// version of the Lambda function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
+    /// Use the <code>Qualifier</code> parameter to retrieve a published version of the function.
+    /// Otherwise, returns the unpublished version (<code>$LATEST</code>). For more information,
+    /// see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
     /// Lambda Function Versioning and Aliases</a>.
     /// </para><para>
     /// This operation requires permission for the <code>lambda:GetFunction</code> action.
@@ -56,11 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>The Lambda function name.</para><para> You can specify a function name (for example, <code>Thumbnail</code>) or you can
-        /// specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>).
-        /// AWS Lambda also allows you to specify a partial ARN (for example, <code>account-id:Thumbnail</code>).
-        /// Note that the length constraint applies only to the ARN. If you specify only the function
-        /// name, it is limited to 64 characters in length. </para>
+        /// Amazon.Lambda.Model.GetFunctionRequest.FunctionName
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -70,13 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Qualifier
         /// <summary>
         /// <para>
-        /// <para>Use this optional parameter to specify a function version or an alias name. If you
-        /// specify function version, the API uses qualified function ARN for the request and
-        /// returns information about the specific Lambda function version. If you specify an
-        /// alias name, the API uses the alias ARN and returns information about the function
-        /// version to which the alias points. If you don't provide this parameter, the API uses
-        /// unqualified function ARN and returns information about the <code>$LATEST</code> version
-        /// of the Lambda function. </para>
+        /// <para>Specify a version or alias to get details about a published version of the function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

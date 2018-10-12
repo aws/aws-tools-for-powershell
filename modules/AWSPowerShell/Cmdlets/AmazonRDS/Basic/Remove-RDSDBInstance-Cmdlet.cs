@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is
         /// set to <code>false</code>. </para><note><para>Specifying this parameter and also setting the SkipFinalShapshot parameter to true
-        /// results in an error.</para></note><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters or numbers.</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li><li><para>Cannot be specified when deleting a Read Replica.</para></li></ul>
+        /// results in an error.</para></note><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters or numbers.</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li><li><para>Can't be specified when deleting a Read Replica.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

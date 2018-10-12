@@ -28,9 +28,12 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Creates a new private virtual interface. A virtual interface is the VLAN that transports
-    /// AWS Direct Connect traffic. A private virtual interface supports sending traffic to
-    /// a single virtual private cloud (VPC).
+    /// Creates a private virtual interface. A virtual interface is the VLAN that transports
+    /// AWS Direct Connect traffic. A private virtual interface can be connected to either
+    /// a Direct Connect gateway or a Virtual Private Gateway (VGW). Connecting the private
+    /// virtual interface to a Direct Connect gateway enables the possibility for connecting
+    /// to multiple VPCs, including VPCs in different AWS Regions. Connecting the private
+    /// virtual interface to a VGW only provides access to a single VPC within the same Region.
     /// </summary>
     [Cmdlet("New", "DCPrivateVirtualInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectConnect.Model.CreatePrivateVirtualInterfaceResponse")]
@@ -44,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPrivateVirtualInterface_AddressFamily
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The address family for the BGP peer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -55,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPrivateVirtualInterface_AmazonAddress
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The IP address assigned to the Amazon interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPrivateVirtualInterface_Asn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPrivateVirtualInterface_AuthKey
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The authentication key for BGP configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -85,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -95,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPrivateVirtualInterface_CustomerAddress
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The IP address assigned to the customer interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -105,17 +108,28 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPrivateVirtualInterface_DirectConnectGatewayId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the Direct Connect gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NewPrivateVirtualInterface_DirectConnectGatewayId { get; set; }
         #endregion
         
+        #region Parameter NewPrivateVirtualInterface_Mtu
+        /// <summary>
+        /// <para>
+        /// <para>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001.
+        /// The default value is 1500.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 NewPrivateVirtualInterface_Mtu { get; set; }
+        #endregion
+        
         #region Parameter NewPrivateVirtualInterface_VirtualGatewayId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the virtual private gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -125,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPrivateVirtualInterface_VirtualInterfaceName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the virtual interface assigned by the customer network.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -135,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPrivateVirtualInterface_Vlan
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the VLAN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -179,6 +193,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
             context.NewPrivateVirtualInterface_AuthKey = this.NewPrivateVirtualInterface_AuthKey;
             context.NewPrivateVirtualInterface_CustomerAddress = this.NewPrivateVirtualInterface_CustomerAddress;
             context.NewPrivateVirtualInterface_DirectConnectGatewayId = this.NewPrivateVirtualInterface_DirectConnectGatewayId;
+            if (ParameterWasBound("NewPrivateVirtualInterface_Mtu"))
+                context.NewPrivateVirtualInterface_Mtu = this.NewPrivateVirtualInterface_Mtu;
             context.NewPrivateVirtualInterface_VirtualGatewayId = this.NewPrivateVirtualInterface_VirtualGatewayId;
             context.NewPrivateVirtualInterface_VirtualInterfaceName = this.NewPrivateVirtualInterface_VirtualInterfaceName;
             if (ParameterWasBound("NewPrivateVirtualInterface_Vlan"))
@@ -265,6 +281,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewPrivateVirtualInterface_newPrivateVirtualInterface_DirectConnectGatewayId != null)
             {
                 request.NewPrivateVirtualInterface.DirectConnectGatewayId = requestNewPrivateVirtualInterface_newPrivateVirtualInterface_DirectConnectGatewayId;
+                requestNewPrivateVirtualInterfaceIsNull = false;
+            }
+            System.Int32? requestNewPrivateVirtualInterface_newPrivateVirtualInterface_Mtu = null;
+            if (cmdletContext.NewPrivateVirtualInterface_Mtu != null)
+            {
+                requestNewPrivateVirtualInterface_newPrivateVirtualInterface_Mtu = cmdletContext.NewPrivateVirtualInterface_Mtu.Value;
+            }
+            if (requestNewPrivateVirtualInterface_newPrivateVirtualInterface_Mtu != null)
+            {
+                request.NewPrivateVirtualInterface.Mtu = requestNewPrivateVirtualInterface_newPrivateVirtualInterface_Mtu.Value;
                 requestNewPrivateVirtualInterfaceIsNull = false;
             }
             System.String requestNewPrivateVirtualInterface_newPrivateVirtualInterface_VirtualGatewayId = null;
@@ -373,6 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             public System.String NewPrivateVirtualInterface_AuthKey { get; set; }
             public System.String NewPrivateVirtualInterface_CustomerAddress { get; set; }
             public System.String NewPrivateVirtualInterface_DirectConnectGatewayId { get; set; }
+            public System.Int32? NewPrivateVirtualInterface_Mtu { get; set; }
             public System.String NewPrivateVirtualInterface_VirtualGatewayId { get; set; }
             public System.String NewPrivateVirtualInterface_VirtualInterfaceName { get; set; }
             public System.Int32? NewPrivateVirtualInterface_Vlan { get; set; }

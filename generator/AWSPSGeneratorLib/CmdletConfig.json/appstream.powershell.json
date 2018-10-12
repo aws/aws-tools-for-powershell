@@ -85,6 +85,114 @@
         "memoryStreamParameters": []
       }
     },
+    "BatchAssociateUserStack": {
+      "verb": "Register",
+      "noun": "UserStackBatch",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Errors",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "UserStackAssociations"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "AssociateUserStack",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "UserStackAssociations"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "BatchDisassociateUserStack": {
+      "verb": "Unregister",
+      "noun": "UserStackBatch",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Errors",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "UserStackAssociations"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DisassociateUserStack",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "UserStackAssociations"
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "CopyImage": {
       "verb": "Copy",
       "noun": "Image",
@@ -457,6 +565,58 @@
         "memoryStreamParameters": []
       }
     },
+    "CreateUser": {
+      "verb": "New",
+      "noun": "User",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "UserName"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "User",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "UserName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "DeleteDirectoryConfig": {
       "verb": "Remove",
       "noun": "DirectoryConfig",
@@ -777,6 +937,58 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DeleteUser": {
+      "verb": "Remove",
+      "noun": "User",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "User",
+        "confirmImpactSetting": "High",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "UserName"
         },
         "memoryStreamParameters": []
       }
@@ -1136,6 +1348,152 @@
         "memoryStreamParameters": []
       }
     },
+    "DescribeUsers": {
+      "verb": "Get",
+      "noun": "User",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Users",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Users",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DescribeUserStackAssociations": {
+      "verb": "Get",
+      "noun": "UserStackAssociation",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "UserStackAssociations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "UserStackAssociations",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DisableUser": {
+      "verb": "Disable",
+      "noun": "User",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "User",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "UserName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "DisassociateFleet": {
       "verb": "Unregister",
       "noun": "Fleet",
@@ -1184,6 +1542,58 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "StackName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "EnableUser": {
+      "verb": "Enable",
+      "noun": "User",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "User",
+        "confirmImpactSetting": "Medium",
+        "generateIterationCode": "false",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "UserName"
         },
         "memoryStreamParameters": []
       }

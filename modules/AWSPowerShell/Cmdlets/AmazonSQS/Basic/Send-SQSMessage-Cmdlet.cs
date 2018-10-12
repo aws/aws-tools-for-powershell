@@ -67,9 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <summary>
         /// <para>
         /// <para>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.
-        /// For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html#message-attributes-items-validation">Message
-        /// Attribute Items and Validation</a> in the <i>Amazon Simple Queue Service Developer
-        /// Guide</i>.</para>
+        /// For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html">Amazon
+        /// SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,12 +106,13 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// one copy of the message is delivered.</para></li><li><para>If you send one message with <code>ContentBasedDeduplication</code> enabled and then
         /// another message with a <code>MessageDeduplicationId</code> that is the same as the
         /// one generated for the first <code>MessageDeduplicationId</code>, the two messages
-        /// are treated as duplicates and only one copy of the message is delivered. </para></li></ul><note><para>The <code>MessageDeduplicationId</code> is available to the recipient of the message
+        /// are treated as duplicates and only one copy of the message is delivered. </para></li></ul><note><para>The <code>MessageDeduplicationId</code> is available to the consumer of the message
         /// (this can be useful for troubleshooting delivery issues).</para><para>If a message is sent successfully but the acknowledgement is lost and the message
         /// is resent with the same <code>MessageDeduplicationId</code> after the deduplication
-        /// interval, Amazon SQS can't detect duplicate messages.</para></note><para>The length of <code>MessageDeduplicationId</code> is 128 characters. <code>MessageDeduplicationId</code>
+        /// interval, Amazon SQS can't detect duplicate messages.</para><para>Amazon SQS continues to keep track of the message deduplication ID even after the
+        /// message is received and deleted.</para></note><para>The length of <code>MessageDeduplicationId</code> is 128 characters. <code>MessageDeduplicationId</code>
         /// can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>)
-        /// and punctuation (<code>!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</code>).</para><para>For best practices of using <code>MessageDeduplicationId</code>, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-messagededuplicationid-property">Using
+        /// and punctuation (<code>!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</code>).</para><para>For best practices of using <code>MessageDeduplicationId</code>, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using
         /// the MessageDeduplicationId Property</a> in the <i>Amazon Simple Queue Service Developer
         /// Guide</i>.</para>
         /// </para>
@@ -128,12 +128,12 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// that belong to the same message group are processed in a FIFO manner (however, messages
         /// in different message groups might be processed out of order). To interleave multiple
         /// ordered streams within a single queue, use <code>MessageGroupId</code> values (for
-        /// example, session data for multiple users). In this scenario, multiple readers can
+        /// example, session data for multiple users). In this scenario, multiple consumers can
         /// process the queue, but the session data of each user is processed in a FIFO fashion.</para><ul><li><para>You must associate a non-empty <code>MessageGroupId</code> with a message. If you
         /// don't provide a <code>MessageGroupId</code>, the action fails.</para></li><li><para><code>ReceiveMessage</code> might return messages with multiple <code>MessageGroupId</code>
         /// values. For each <code>MessageGroupId</code>, the messages are sorted by time sent.
-        /// The caller can't specify a <code>MessageGroupId</code>.</para></li></ul><para>The length of <code>MessageGroupId</code> is 128 characters. Valid values are alphanumeric
-        /// characters and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</code>.</para><para>For best practices of using <code>MessageGroupId</code>, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-messagegroupid-property">Using
+        /// The caller can't specify a <code>MessageGroupId</code>.</para></li></ul><para>The length of <code>MessageGroupId</code> is 128 characters. Valid values: alphanumeric
+        /// characters and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</code>.</para><para>For best practices of using <code>MessageGroupId</code>, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html">Using
         /// the MessageGroupId Property</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para><important><para><code>MessageGroupId</code> is required for FIFO queues. You can't use it for Standard
         /// queues.</para></important>
         /// </para>
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of the Amazon SQS queue to which a message is sent.</para><para>Queue URLs are case-sensitive.</para>
+        /// <para>The URL of the Amazon SQS queue to which a message is sent.</para><para>Queue URLs and names are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

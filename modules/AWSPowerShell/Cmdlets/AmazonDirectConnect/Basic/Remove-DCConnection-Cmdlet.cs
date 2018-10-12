@@ -28,14 +28,13 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Deletes the connection.
+    /// Deletes the specified connection.
     /// 
     ///  
     /// <para>
     /// Deleting a connection only stops the AWS Direct Connect port hour and data transfer
-    /// charges. You need to cancel separately with the providers any services or charges
-    /// for cross-connects or network circuits that connect you to the AWS Direct Connect
-    /// location.
+    /// charges. If you are partnering with any third parties to connect with the AWS Direct
+    /// Connect location, you must cancel your service with them separately.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "DCConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -50,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

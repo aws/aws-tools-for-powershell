@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The username of the user whose password will be reset.</para>
+        /// <para>The user name of the user whose password will be reset.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>A value that defines the type of gateway to activate. The type specified is critical
         /// to all later functions of the gateway and cannot be changed after activation. The
-        /// default value is <code>STORED</code>. </para><para> Valid Values: "STORED", "CACHED", "VTL", "FILE_S3"</para>
+        /// default value is <code>CACHED</code>. </para><para> Valid Values: "STORED", "CACHED", "VTL", "FILE_S3"</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]

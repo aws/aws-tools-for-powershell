@@ -28,14 +28,15 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Creates a hosted connection on an interconnect or a link aggregation group (LAG).
+    /// Creates a hosted connection on the specified interconnect or a link aggregation group
+    /// (LAG).
     /// 
     ///  
     /// <para>
     /// Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection
-    /// on the given interconnect or LAG.
+    /// on the specified interconnect or LAG.
     /// </para><note><para>
-    /// This is intended for use by AWS Direct Connect partners only.
+    /// Intended for use by AWS Direct Connect partners only.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "DCHostedConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter Bandwidth
         /// <summary>
         /// <para>
-        /// <para>The bandwidth of the connection.</para><para>Example: <code>500Mbps</code></para><para>Default: None</para><para>Values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, or 500Mbps</para>
+        /// <para>The bandwidth of the hosted connection, in Mbps. The possible values are 50Mbps, 100Mbps,
+        /// 200Mbps, 300Mbps, 400Mbps, and 500Mbps.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -60,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the interconnect or LAG on which the connection will be provisioned.</para><para>Example: dxcon-456abc78 or dxlag-abc123</para><para>Default: None</para>
+        /// <para>The ID of the interconnect or LAG.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionName
         /// <summary>
         /// <para>
-        /// <para>The name of the provisioned connection.</para><para>Example: "<code>500M Connection to AWS</code>"</para><para>Default: None</para>
+        /// <para>The name of the hosted connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -80,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter OwnerAccount
         /// <summary>
         /// <para>
-        /// <para>The numeric account ID of the customer for whom the connection will be provisioned.</para><para>Example: 123443215678</para><para>Default: None</para>
+        /// <para>The ID of the AWS account ID of the customer for the connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -90,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter Vlan
         /// <summary>
         /// <para>
-        /// <para>The dedicated VLAN provisioned to the hosted connection.</para><para>Example: 101</para><para>Default: None</para>
+        /// <para>The dedicated VLAN provisioned to the hosted connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

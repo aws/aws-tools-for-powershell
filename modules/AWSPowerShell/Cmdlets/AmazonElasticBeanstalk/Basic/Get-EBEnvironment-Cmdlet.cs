@@ -79,12 +79,32 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter IncludedDeletedBackTo
         /// <summary>
         /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use IncludedDeletedBackToUtc instead. Setting either IncludedDeletedBackTo
+        /// or IncludedDeletedBackToUtc results in both IncludedDeletedBackTo and IncludedDeletedBackToUtc
+        /// being assigned, the latest assignment to either one of the two property is reflected
+        /// in the value of both. IncludedDeletedBackTo is provided for backwards compatibility
+        /// only and assigning a non-Utc DateTime to it results in the wrong timestamp being passed
+        /// to the service.</para><para> If specified when <code>IncludeDeleted</code> is set to <code>true</code>, then environments
+        /// deleted after this date are displayed. </para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcIncludedDeletedBackTo instead.")]
+        public System.DateTime IncludedDeletedBackTo { get; set; }
+        #endregion
+        
+        #region Parameter UtcIncludedDeletedBackTo
+        /// <summary>
+        /// <para>
         /// <para> If specified when <code>IncludeDeleted</code> is set to <code>true</code>, then environments
         /// deleted after this date are displayed. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime IncludedDeletedBackTo { get; set; }
+        public System.DateTime UtcIncludedDeletedBackTo { get; set; }
         #endregion
         
         #region Parameter IncludeDeleted
@@ -162,14 +182,18 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 context.EnvironmentNames = new List<System.String>(this.EnvironmentName);
             }
-            if (ParameterWasBound("IncludedDeletedBackTo"))
-                context.IncludedDeletedBackTo = this.IncludedDeletedBackTo;
+            if (ParameterWasBound("UtcIncludedDeletedBackTo"))
+                context.UtcIncludedDeletedBackTo = this.UtcIncludedDeletedBackTo;
             if (ParameterWasBound("IncludeDeleted"))
                 context.IncludeDeleted = this.IncludeDeleted;
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
             context.NextToken = this.NextToken;
             context.VersionLabel = this.VersionLabel;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound("IncludedDeletedBackTo"))
+                context.IncludedDeletedBackTo = this.IncludedDeletedBackTo;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -198,9 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 request.EnvironmentNames = cmdletContext.EnvironmentNames;
             }
-            if (cmdletContext.IncludedDeletedBackTo != null)
+            if (cmdletContext.UtcIncludedDeletedBackTo != null)
             {
-                request.IncludedDeletedBackTo = cmdletContext.IncludedDeletedBackTo.Value;
+                request.IncludedDeletedBackToUtc = cmdletContext.UtcIncludedDeletedBackTo.Value;
             }
             if (cmdletContext.IncludeDeleted != null)
             {
@@ -210,6 +234,16 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 request.VersionLabel = cmdletContext.VersionLabel;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.IncludedDeletedBackTo != null)
+            {
+                if (cmdletContext.UtcIncludedDeletedBackTo != null)
+                {
+                    throw new ArgumentException("Parameters IncludedDeletedBackTo and UtcIncludedDeletedBackTo are mutually exclusive.");
+                }
+                request.IncludedDeletedBackTo = cmdletContext.IncludedDeletedBackTo.Value;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
@@ -359,11 +393,13 @@ namespace Amazon.PowerShell.Cmdlets.EB
             public System.String ApplicationName { get; set; }
             public List<System.String> EnvironmentIds { get; set; }
             public List<System.String> EnvironmentNames { get; set; }
-            public System.DateTime? IncludedDeletedBackTo { get; set; }
+            public System.DateTime? UtcIncludedDeletedBackTo { get; set; }
             public System.Boolean? IncludeDeleted { get; set; }
             public int? MaxRecords { get; set; }
             public System.String NextToken { get; set; }
             public System.String VersionLabel { get; set; }
+            [System.ObsoleteAttribute]
+            public System.DateTime? IncludedDeletedBackTo { get; set; }
         }
         
     }

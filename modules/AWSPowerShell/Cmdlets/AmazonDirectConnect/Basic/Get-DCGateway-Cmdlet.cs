@@ -28,11 +28,8 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Returns a list of direct connect gateways in your account. Deleted direct connect
-    /// gateways are not returned. You can provide a direct connect gateway ID in the request
-    /// to return information about the specific direct connect gateway only. Otherwise, if
-    /// a direct connect gateway ID is not provided, information about all of your direct
-    /// connect gateways is returned.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists all your Direct Connect gateways or only the specified Direct Connect gateway.
+    /// Deleted Direct Connect gateways are not returned.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "DCGateway")]
     [OutputType("Amazon.DirectConnect.Model.DirectConnectGateway")]
@@ -48,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter DirectConnectGatewayId
         /// <summary>
         /// <para>
-        /// <para>The ID of the direct connect gateway.</para><para>Example: "abcd1234-dcba-5678-be23-cdef9876ab45"</para><para>Default: None</para>
+        /// <para>The ID of the Direct Connect gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -58,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of direct connect gateways to return per page.</para><para>Example: 15</para><para>Default: None</para>
+        /// <para>The maximum number of Direct Connect gateways to return per page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -72,8 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token provided in the previous describe result to retrieve the next page of the
-        /// result.</para><para>Default: None</para>
+        /// <para>The token provided in the previous call to retrieve the next page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

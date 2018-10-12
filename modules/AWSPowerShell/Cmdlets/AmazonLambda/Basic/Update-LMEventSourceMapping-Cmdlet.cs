@@ -35,11 +35,6 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// 
     ///  
     /// <para>
-    /// If you are using the versioning feature, you can update the event source mapping to
-    /// map to a specific Lambda function version or alias as described in the <code>FunctionName</code>
-    /// parameter. For information about the versioning feature, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
-    /// Lambda Function Versioning and Aliases</a>. 
-    /// </para><para>
     /// If you disable the event source mapping, AWS Lambda stops polling. If you enable again,
     /// it will resume polling from the time it had stopped polling, so you don't lose processing
     /// of any records. However, if you delete event source mapping and create it again, it
@@ -61,8 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter BatchSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of stream records that can be sent to your Lambda function for
-        /// a single invocation.</para>
+        /// <para>The largest number of records that AWS Lambda will retrieve from your event source
+        /// at the time of invoking your function. Your function receives an event with all the
+        /// retrieved records.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,15 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>The Lambda function to which you want the stream records sent.</para><para> You can specify a function name (for example, <code>Thumbnail</code>) or you can
-        /// specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>).
-        /// AWS Lambda also allows you to specify a partial ARN (for example, <code>account-id:Thumbnail</code>).
-        /// Note that the length constraint applies only to the ARN. If you specify only the function
-        /// name, it is limited to 64 characters in length. </para><para>If you are using versioning, you can also provide a qualified function ARN (ARN that
-        /// is qualified with function version or alias name as suffix). For more information
-        /// about versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
-        /// Lambda Function Versioning and Aliases</a></para><para>Note that the length constraint applies only to the ARN. If you specify only the function
-        /// name, it is limited to 64 character in length.</para>
+        /// Amazon.Lambda.Model.UpdateEventSourceMappingRequest.FunctionName
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

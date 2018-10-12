@@ -28,11 +28,11 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Returns a list of hosted connections that have been provisioned on the given interconnect
+    /// Lists the hosted connections that have been provisioned on the specified interconnect
     /// or link aggregation group (LAG).
     /// 
     ///  <note><para>
-    /// This is intended for use by AWS Direct Connect partners only.
+    /// Intended for use by AWS Direct Connect partners only.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "DCHostedConnection")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the interconnect or LAG on which the hosted connections are provisioned.</para><para>Example: dxcon-abc123 or dxlag-abc123</para><para>Default: None</para>
+        /// <para>The ID of the interconnect or LAG.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

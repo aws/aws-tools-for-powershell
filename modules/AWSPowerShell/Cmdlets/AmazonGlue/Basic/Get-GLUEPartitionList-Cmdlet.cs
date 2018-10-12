@@ -65,7 +65,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Expression
         /// <summary>
         /// <para>
-        /// <para>An expression filtering the partitions to be returned.</para>
+        /// <para>An expression filtering the partitions to be returned.</para><para>The expression uses SQL syntax similar to the SQL <code>WHERE</code> filter clause.
+        /// The SQL statement parser <a href="http://jsqlparser.sourceforge.net/home.php">JSQLParser</a>
+        /// parses the expression. </para><para><i>Operators</i>: The following are the operators that you can use in the <code>Expression</code>
+        /// API call:</para><dl><dt>=</dt><dd><para>Checks if the values of the two operands are equal or not; if yes, then the condition
+        /// becomes true.</para><para>Example: Assume 'variable a' holds 10 and 'variable b' holds 20. </para><para>(a = b) is not true.</para></dd><dt>&lt; &gt;</dt><dd><para>Checks if the values of two operands are equal or not; if the values are not equal,
+        /// then the condition becomes true.</para><para>Example: (a &lt; &gt; b) is true.</para></dd><dt>&gt;</dt><dd><para>Checks if the value of the left operand is greater than the value of the right operand;
+        /// if yes, then the condition becomes true.</para><para>Example: (a &gt; b) is not true.</para></dd><dt>&lt;</dt><dd><para>Checks if the value of the left operand is less than the value of the right operand;
+        /// if yes, then the condition becomes true.</para><para>Example: (a &lt; b) is true.</para></dd><dt>&gt;=</dt><dd><para>Checks if the value of the left operand is greater than or equal to the value of the
+        /// right operand; if yes, then the condition becomes true.</para><para>Example: (a &gt;= b) is not true.</para></dd><dt>&lt;=</dt><dd><para>Checks if the value of the left operand is less than or equal to the value of the
+        /// right operand; if yes, then the condition becomes true.</para><para>Example: (a &lt;= b) is true.</para></dd><dt>AND, OR, IN, BETWEEN, LIKE, NOT, IS NULL</dt><dd><para>Logical operators.</para></dd></dl><para><i>Supported Partition Key Types</i>: The following are the the supported partition
+        /// keys.</para><ul><li><para><code>string</code></para></li><li><para><code>date</code></para></li><li><para><code>timestamp</code></para></li><li><para><code>int</code></para></li><li><para><code>bigint</code></para></li><li><para><code>long</code></para></li><li><para><code>tinyint</code></para></li><li><para><code>smallint</code></para></li><li><para><code>decimal</code></para></li></ul><para>If an invalid type is encountered, an exception is thrown. </para><para>The following list shows the valid operators on each type. When you define a crawler,
+        /// the <code>partitionKey</code> type is created as a <code>STRING</code>, to be compatible
+        /// with the catalog partitions. </para><para><i>Sample API Call</i>: </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

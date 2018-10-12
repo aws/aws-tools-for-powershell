@@ -42,8 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
         #region Parameter Deletes_ActionName
         /// <summary>
         /// <para>
-        /// A list of schedule actions to delete, identified
-        /// by unique name.
+        /// A list of schedule actions to delete.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

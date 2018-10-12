@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Retrieves information about a specified DevEndpoint.
+    /// 
+    ///  <note><para>
+    /// When you create a development endpoint in a virtual private cloud (VPC), AWS Glue
+    /// returns only a private IP address, and the public IP address field is not populated.
+    /// When you create a non-VPC development endpoint, AWS Glue returns only a public IP
+    /// address.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "GLUEDevEndpoint")]
     [OutputType("Amazon.Glue.Model.DevEndpoint")]

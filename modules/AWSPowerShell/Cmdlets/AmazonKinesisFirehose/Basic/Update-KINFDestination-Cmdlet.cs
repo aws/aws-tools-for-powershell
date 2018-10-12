@@ -263,8 +263,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>
         /// <para>[Deprecated] Describes an update for a destination in Amazon S3.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This property is deprecated. Use ExtendedS3DestinationUpdate instead.")]
         public Amazon.KinesisFirehose.Model.S3DestinationUpdate S3DestinationUpdate { get; set; }
         #endregion
         
@@ -370,7 +372,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.ElasticsearchDestinationUpdate_TypeName = this.ElasticsearchDestinationUpdate_TypeName;
             context.ExtendedS3DestinationUpdate = this.ExtendedS3DestinationUpdate;
             context.RedshiftDestinationUpdate = this.RedshiftDestinationUpdate;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.S3DestinationUpdate = this.S3DestinationUpdate;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SplunkDestinationUpdate = this.SplunkDestinationUpdate;
             
             // allow further manipulation of loaded context prior to processing
@@ -617,10 +621,12 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             {
                 request.RedshiftDestinationUpdate = cmdletContext.RedshiftDestinationUpdate;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.S3DestinationUpdate != null)
             {
                 request.S3DestinationUpdate = cmdletContext.S3DestinationUpdate;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.SplunkDestinationUpdate != null)
             {
                 request.SplunkDestinationUpdate = cmdletContext.SplunkDestinationUpdate;
@@ -708,6 +714,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             public System.String ElasticsearchDestinationUpdate_TypeName { get; set; }
             public Amazon.KinesisFirehose.Model.ExtendedS3DestinationUpdate ExtendedS3DestinationUpdate { get; set; }
             public Amazon.KinesisFirehose.Model.RedshiftDestinationUpdate RedshiftDestinationUpdate { get; set; }
+            [System.ObsoleteAttribute]
             public Amazon.KinesisFirehose.Model.S3DestinationUpdate S3DestinationUpdate { get; set; }
             public Amazon.KinesisFirehose.Model.SplunkDestinationUpdate SplunkDestinationUpdate { get; set; }
         }

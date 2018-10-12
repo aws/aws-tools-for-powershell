@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// processes, connections, servers, and system performance. This API returns an export
     /// ID that you can query using the <i>DescribeExportConfigurations</i> API. The system
     /// imposes a limit of two configuration exports in six hours.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "ADSExportConfigurationsId")]
     [OutputType("System.String")]
@@ -46,6 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.ApplicationDiscoveryService.Model.ExportConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Deprecated in favor of StartExportTask.")]
     public partial class GetADSExportConfigurationsIdCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         

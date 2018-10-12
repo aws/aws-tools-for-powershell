@@ -31,6 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// Returns a list of your queues. The maximum number of queues that can be returned is
     /// 1,000. If you specify a value for the optional <code>QueueNamePrefix</code> parameter,
     /// only queues with a name that begins with the specified value are returned.
+    /// 
+    ///  <note><para>
+    /// Cross-account permissions don't apply to this action. For more information, see see
+    /// <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
+    /// Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue
+    /// Service Developer Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "SQSQueue")]
     [OutputType("System.String")]
@@ -46,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <summary>
         /// <para>
         /// <para>A string to use for filtering the list results. Only those queues whose name begins
-        /// with the specified string are returned.</para><para>Queue names are case-sensitive.</para>
+        /// with the specified string are returned.</para><para>Queue URLs and names are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

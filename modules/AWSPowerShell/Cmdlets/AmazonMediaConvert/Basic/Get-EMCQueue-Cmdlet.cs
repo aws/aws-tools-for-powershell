@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// The name of the queue.
+        /// The name of the queue that you want information about.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

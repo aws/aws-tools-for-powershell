@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
     /// Updates the Remote Authentication Dial In User Service (RADIUS) server information
-    /// for an AD Connector directory.
+    /// for an AD Connector or Microsoft AD directory.
     /// </summary>
     [Cmdlet("Update", "DSRadius", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter RadiusSettings_SharedSecret
         /// <summary>
         /// <para>
-        /// <para>Not currently used.</para>
+        /// <para>Required for enabling RADIUS on the directory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
