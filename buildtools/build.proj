@@ -44,6 +44,9 @@
 
         <!-- set to true to build without reflecting over the service client to generate cmdlets -->
         <SkipCmdletGeneration Condition="'$(SkipCmdletGeneration)'==''">false</SkipCmdletGeneration>
+        
+        <!-- set to false to build without copying release notes from changelog.txt to the psd1 files -->
+        <UpdateReleaseNotes Condition="'$(UpdateReleaseNotes)'==''">true</UpdateReleaseNotes>
 
         <!-- default location for artifacts consolidation -->
         <Deployment Condition="'$(Deployment)'==''">$(RootPath)\Deployment</Deployment>
@@ -61,7 +64,7 @@
         <SignModule Condition="'$(SignModule)'==''">false</SignModule>
     </PropertyGroup>
 
-    <Target Name="full-build" DependsOnTargets="clean;build-generator;get-references;create-cmdlets;update-version;build-modules;copy-desktop-artifacts;copy-coreclr-artifacts;copy-tests;copy-postbuild-scripts;patch-manifests;sign-script-artifacts;run-tests;create-help;keyscan;save-build">
+    <Target Name="full-build" DependsOnTargets="clean;build-generator;get-references;create-cmdlets;update-version;build-modules;copy-desktop-artifacts;copy-coreclr-artifacts;copy-tests;copy-postbuild-scripts;patch-manifests;sign-script-artifacts;create-help;update-release-notes;run-tests;keyscan;save-build">
         <Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts, including native and web help files."/>
     </Target>
 
@@ -154,7 +157,7 @@
         <Copy SourceFiles="@(SDKAssemblies)" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(RootPath)\ThirdParty\log4net.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSAliases.ps1" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
-        <Copy SourceFiles="$(RootPath)\CHANGELOG.md" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(RootPath)\CHANGELOG.txt" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
 
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShellCompleters.psm1" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShellLegacyAliases.psm1" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
@@ -180,7 +183,7 @@
         
         <!-- <Copy SourceFiles="$(RootPath)\ThirdParty\log4net.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/> -->
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSAliases.ps1" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
-        <Copy SourceFiles="$(RootPath)\CHANGELOG.md" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(RootPath)\CHANGELOG.txt" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
 
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShellCompleters.psm1" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
 
@@ -255,8 +258,13 @@
 
         <Exec LogStandardErrorAsError="true" Command="$(powershell) -ExecutionPolicy Unrestricted -NoProfile -File $(MSBuildProjectDirectory)\WriteVersionsFile.ps1 $(VersionFileArgs)"/>
     </Target>
+    
+    <Target Name="update-release-notes" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts;create-help" Condition="$(UpdateReleaseNotes)">
+        <Exec LogStandardErrorAsError="true" Command="$(powershell) -ExecutionPolicy Unrestricted -NoProfile -File $(MSBuildProjectDirectory)\UpdateChangelog.ps1 $(RootPath)\CHANGELOG.txt $(DesktopDeploymentArtifacts)\AWSPowerShell.psd1"/>
+        <Exec LogStandardErrorAsError="true" Command="$(powershell) -ExecutionPolicy Unrestricted -NoProfile -File $(MSBuildProjectDirectory)\UpdateChangelog.ps1 $(RootPath)\CHANGELOG.txt $(NetCoreDeploymentArtifacts)\AWSPowerShell.NetCore.psd1"/>
+    </Target>
 
-    <Target Name="sign-script-artifacts" Condition="$(SignModule)" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">
+    <Target Name="sign-script-artifacts" Condition="$(SignModule)" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts;patch-manifests;update-release-notes">
         <PropertyGroup>
             <SigningScriptArgs>-ExecutionPolicy Unrestricted -NoProfile -Command "$(InternalBuildTools)\BuildScripts\Set-AuthenticodeSignature.ps1" -Filter "*.ps1","*.psm1","*.psd1","*.ps1xml"</SigningScriptArgs>
         </PropertyGroup>

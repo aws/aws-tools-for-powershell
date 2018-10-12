@@ -458,7 +458,7 @@ ModuleList = @()
 # List of all files packaged with this module
 FileList = @(
   'AWSPowerShell.NetCore.dll-Help.xml',
-  'CHANGELOG.md'
+  'CHANGELOG.txt'
 )  
 
 # Private data to pass to the module specified in ModuleToProcess
@@ -469,6 +469,7 @@ PrivateData = @{
         LicenseUri = 'https://docs.aws.amazon.com/powershell/latest/reference/License.html'
         ProjectUri = 'https://aws.amazon.com/powershell/'
         IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'
+        ReleaseNotes = '[RELEASE NOTES PLACEHOLDER]'
     }
 
 }
