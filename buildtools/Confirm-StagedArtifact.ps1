@@ -63,7 +63,7 @@ function _validateModule([string]$modulePath) {
     Write-Host "...module files signing check - PASS"
 
     # validate that the change log contains the expected version header in the first line
-    $changelogFile = Join-Path $modulePath "CHANGELOG.md"
+    $changelogFile = Join-Path $modulePath "CHANGELOG.txt"
 
     Write-Host "Verifying $changelogFile contains expected version details"
     $changelogHeader = Get-Content -TotalCount 1 -Path $changelogFile
